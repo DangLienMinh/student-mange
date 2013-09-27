@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 
 namespace QuanLiHocSinh
-{ll
+{//minh vãi nhồn
     static class Program
     {
         /// <summary>
