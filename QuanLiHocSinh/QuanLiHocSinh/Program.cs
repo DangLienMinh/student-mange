@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 
 namespace QuanLiHocSinh
-{ll
+{
     static class Program
     {
         /// <summary>
@@ -13,6 +13,7 @@ namespace QuanLiHocSinh
         [STAThread]
         static void Main()
         {
+            //dang lien ming ga vl ra
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
