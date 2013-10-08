@@ -34,10 +34,23 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HOCKY_DAO.cs" />
     <Compile Include="connectDatabase.cs" />
+    <Compile Include="DIEM_DAO.cs" />
+    <Compile Include="GIANGDAY_DAO.cs" />
+    <Compile Include="GIAOVIEN_DAO.cs" />
+    <Compile Include="HOCSINH_DAO.cs" />
+    <Compile Include="KHOI_DAO.cs" />
+    <Compile Include="LOAIDIEM_DAO.cs" />
+    <Compile Include="LOAINGUOIDUNG_DAO.cs" />
+    <Compile Include="LOP_DAO.cs" />
+    <Compile Include="MONHOC_DAO.cs" />
+    <Compile Include="NAMHOC_DAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

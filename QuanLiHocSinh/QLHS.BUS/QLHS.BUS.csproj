@@ -37,7 +37,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="LOP_BUS.cs" />
+    <Compile Include="GIANGDAY_BUS.cs" />
+    <Compile Include="DIEM_BUS.cs" />
+    <Compile Include="GIAOVIEN_BUS.cs" />
+    <Compile Include="HOCKY_BUS.cs" />
+    <Compile Include="HOCSINH_BUS.cs" />
+    <Compile Include="KHOI_BUS.cs" />
+    <Compile Include="LOAIDIEM_BUS.cs" />
+    <Compile Include="LOAINGUOIDUNG_BUS.cs" />
+    <Compile Include="MONHOC_BUS.cs" />
+    <Compile Include="NAMHOC_BUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
