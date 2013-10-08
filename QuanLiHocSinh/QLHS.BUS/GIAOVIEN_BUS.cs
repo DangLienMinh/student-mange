@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace QLHS.DTO
+namespace QLHS.BUS
 {
-    public class Class1
+    class GIAOVIEN_BUS
     {
     }
 }
