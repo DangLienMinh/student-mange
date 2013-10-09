@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace QuanLiHocSinh
 {
-    public partial class frmdanhsachlop :DevComponents.DotNetBar.Office2007RibbonForm
+    public partial class frmDanhSachLop :DevComponents.DotNetBar.Office2007RibbonForm
     {
-        public frmdanhsachlop()
+        public frmDanhSachLop()
         {
             InitializeComponent();
         }
