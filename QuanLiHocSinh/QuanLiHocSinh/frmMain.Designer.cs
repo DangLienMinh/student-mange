@@ -461,6 +461,7 @@
             this.btnThemeBlue.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.btnThemeBlue.Name = "btnThemeBlue";
             this.btnThemeBlue.Text = "Blue";
+            this.btnThemeBlue.Click += new System.EventHandler(this.btnThemeBlue_Click);
             // 
             // btnThemeBlack
             // 
@@ -469,7 +470,7 @@
             this.btnThemeBlack.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.btnThemeBlack.Name = "btnThemeBlack";
             this.btnThemeBlack.Text = "Black";
-            this.btnThemeBlack.Click += new System.EventHandler(this.buttonItem15_Click);
+            this.btnThemeBlack.Click += new System.EventHandler(this.btnThemeBlack_Click);
             // 
             // btnThemeSilver
             // 
@@ -478,7 +479,7 @@
             this.btnThemeSilver.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.btnThemeSilver.Name = "btnThemeSilver";
             this.btnThemeSilver.Text = "Silver";
-            this.btnThemeSilver.Click += new System.EventHandler(this.buttonItem16_Click);
+            this.btnThemeSilver.Click += new System.EventHandler(this.btnThemeSilver_Click);
             // 
             // btnTheme7
             // 
@@ -487,7 +488,7 @@
             this.btnTheme7.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.btnTheme7.Name = "btnTheme7";
             this.btnTheme7.Text = "Win7";
-            this.btnTheme7.Click += new System.EventHandler(this.buttonItem17_Click);
+            this.btnTheme7.Click += new System.EventHandler(this.btnTheme7_Click);
             // 
             // btnThemeVista
             // 
@@ -496,6 +497,7 @@
             this.btnThemeVista.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.btnThemeVista.Name = "btnThemeVista";
             this.btnThemeVista.Text = "Vista";
+            this.btnThemeVista.Click += new System.EventHandler(this.btnThemeVista_Click);
             // 
             // btnTheme8
             // 
@@ -504,6 +506,7 @@
             this.btnTheme8.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.btnTheme8.Name = "btnTheme8";
             this.btnTheme8.Text = "Win8";
+            this.btnTheme8.Click += new System.EventHandler(this.btnTheme8_Click);
             // 
             // ribbonTabItem3
             // 
