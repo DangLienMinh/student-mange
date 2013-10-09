@@ -442,6 +442,7 @@
             // 
             // buttonItem14
             // 
+            this.buttonItem14.Image = ((System.Drawing.Image)(resources.GetObject("buttonItem14.Image")));
             this.buttonItem14.Name = "buttonItem14";
             this.buttonItem14.Text = "buttonItem14";
             // 
