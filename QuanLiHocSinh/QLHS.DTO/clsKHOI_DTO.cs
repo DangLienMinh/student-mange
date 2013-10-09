@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.DTO
 {
-    public class KHOI_DTO
+    public class clsKHOI_DTO
     {
         private string makhoi;
 

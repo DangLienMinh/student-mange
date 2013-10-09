@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.DTO
 {
-    public class LOAINGUOIDUNG_DTO
+    public class clsLOAINGUOIDUNG_DTO
     {
         private string malnd;
 

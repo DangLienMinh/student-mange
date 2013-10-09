@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.DTO
 {
-    public class LOP_DTO
+    public class clsLOP_DTO
     {
         private string makhoi;
 

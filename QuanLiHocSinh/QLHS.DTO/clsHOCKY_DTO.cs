@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.DTO
 {
-    public class HOCKY_DTO
+    public class clsHOCKY_DTO
     {
         private string mahk;
 
