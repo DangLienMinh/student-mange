@@ -91,9 +91,7 @@
       <Name>QLHS.DTO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Hinhanh\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Database\QuanLiHocSinh1.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -102,6 +100,12 @@
       <DependentUpon>QuanLiHocSinh1.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="resources\win7.png" />
+    <Content Include="resources\win8.png" />
+    <Content Include="resources\winBlack.png" />
+    <Content Include="resources\winBlue.png" />
+    <Content Include="resources\winSilver.png" />
+    <Content Include="resources\winVistaClass.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
