@@ -1,6 +1,6 @@
 ﻿namespace QuanLiHocSinh
 {
-    partial class frmdanhsachlop
+    partial class frmDanhSachLop
     {
         /// <summary>
         /// Required designer variable.
@@ -47,10 +47,14 @@
             this.sodienthoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbltieude = new System.Windows.Forms.Label();
             this.pnl = new DevComponents.DotNetBar.PanelEx();
+            this.txthoten = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.treeKhoi = new DevComponents.AdvTree.AdvTree();
             this.node13 = new DevComponents.AdvTree.Node();
+            this.node16 = new DevComponents.AdvTree.Node();
             this.node14 = new DevComponents.AdvTree.Node();
+            this.node1 = new DevComponents.AdvTree.Node();
             this.node15 = new DevComponents.AdvTree.Node();
+            this.node2 = new DevComponents.AdvTree.Node();
             this.nodeConnector2 = new DevComponents.AdvTree.NodeConnector();
             this.elementStyle2 = new DevComponents.DotNetBar.ElementStyle();
             this.btntimkiem = new DevComponents.DotNetBar.ButtonX();
@@ -58,11 +62,7 @@
             this.lbldanhsachhocsinh = new DevComponents.DotNetBar.LabelX();
             this.lblchonlop = new DevComponents.DotNetBar.LabelX();
             this.controlContainerItem1 = new DevComponents.DotNetBar.ControlContainerItem();
-            this.txthoten = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.node16 = new DevComponents.AdvTree.Node();
             this.elementStyle1 = new DevComponents.DotNetBar.ElementStyle();
-            this.node1 = new DevComponents.AdvTree.Node();
-            this.node2 = new DevComponents.AdvTree.Node();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdanhsachhocsinh)).BeginInit();
             this.pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeKhoi)).BeginInit();
@@ -236,6 +236,18 @@
             this.pnl.TabIndex = 7;
             this.pnl.Text = "panelEx1";
             // 
+            // txthoten
+            // 
+            // 
+            // 
+            // 
+            this.txthoten.Border.Class = "TextBoxBorder";
+            this.txthoten.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txthoten.Location = new System.Drawing.Point(641, 7);
+            this.txthoten.Name = "txthoten";
+            this.txthoten.Size = new System.Drawing.Size(141, 20);
+            this.txthoten.TabIndex = 12;
+            // 
             // treeKhoi
             // 
             this.treeKhoi.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
@@ -268,6 +280,12 @@
             this.node16});
             this.node13.Text = "Khối 10";
             // 
+            // node16
+            // 
+            this.node16.Expanded = true;
+            this.node16.Name = "node16";
+            this.node16.Text = "10A1";
+            // 
             // node14
             // 
             this.node14.Expanded = true;
@@ -276,6 +294,12 @@
             this.node1});
             this.node14.Text = "Khối 11";
             // 
+            // node1
+            // 
+            this.node1.Expanded = true;
+            this.node1.Name = "node1";
+            this.node1.Text = "11A1";
+            // 
             // node15
             // 
             this.node15.Expanded = true;
@@ -283,6 +307,12 @@
             this.node15.Nodes.AddRange(new DevComponents.AdvTree.Node[] {
             this.node2});
             this.node15.Text = "Khối 12";
+            // 
+            // node2
+            // 
+            this.node2.Expanded = true;
+            this.node2.Name = "node2";
+            this.node2.Text = "12A1";
             // 
             // nodeConnector2
             // 
@@ -354,43 +384,13 @@
             this.controlContainerItem1.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
             this.controlContainerItem1.Name = "controlContainerItem1";
             // 
-            // txthoten
-            // 
-            // 
-            // 
-            // 
-            this.txthoten.Border.Class = "TextBoxBorder";
-            this.txthoten.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txthoten.Location = new System.Drawing.Point(641, 7);
-            this.txthoten.Name = "txthoten";
-            this.txthoten.Size = new System.Drawing.Size(141, 20);
-            this.txthoten.TabIndex = 12;
-            // 
-            // node16
-            // 
-            this.node16.Expanded = true;
-            this.node16.Name = "node16";
-            this.node16.Text = "10A1";
-            // 
             // elementStyle1
             // 
             this.elementStyle1.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.elementStyle1.Name = "elementStyle1";
             this.elementStyle1.TextColor = System.Drawing.SystemColors.ControlText;
             // 
-            // node1
-            // 
-            this.node1.Expanded = true;
-            this.node1.Name = "node1";
-            this.node1.Text = "11A1";
-            // 
-            // node2
-            // 
-            this.node2.Expanded = true;
-            this.node2.Name = "node2";
-            this.node2.Text = "12A1";
-            // 
-            // frmdanhsachlop
+            // frmDanhSachLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -399,7 +399,7 @@
             this.Controls.Add(this.lbltieude);
             this.Controls.Add(this.rbcform);
             this.Controls.Add(this.sideBar1);
-            this.Name = "frmdanhsachlop";
+            this.Name = "frmDanhSachLop";
             this.Text = "Danh sách học sinh";
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdanhsachhocsinh)).EndInit();
