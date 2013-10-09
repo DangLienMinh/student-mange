@@ -48,6 +48,10 @@
     <Compile Include="frmdanhsachlop.Designer.cs">
       <DependentUpon>frmdanhsachlop.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMain.cs" />
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmdanhsachlop.resx">

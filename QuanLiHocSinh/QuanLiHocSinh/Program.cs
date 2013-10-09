@@ -16,7 +16,7 @@ namespace QuanLiHocSinh
            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDanhSachLop());
+            Application.Run(new frmMain());
         }
     }
 }
