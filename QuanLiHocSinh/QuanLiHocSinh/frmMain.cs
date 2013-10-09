@@ -45,5 +45,14 @@ namespace QuanLiHocSinh
         {
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
         }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            frmDanhSachLop lop = new frmDanhSachLop();
+            
+            tabItem1.AttachedControl.Controls.Add(lop);
+        }
+
+       
     }
 }
