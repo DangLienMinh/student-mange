@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.DTO
 {
-    public class GIAOVIEN_DTO
+    public class clsGIAOVIEN_DTO
     {
         private string malnd;
 

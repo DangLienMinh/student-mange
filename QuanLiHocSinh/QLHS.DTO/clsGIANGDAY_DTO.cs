@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.DTO
 {
-    public class GIANGDAY_DTO
+    public class clsGIANGDAY_DTO
     {
         private string mamh;
 

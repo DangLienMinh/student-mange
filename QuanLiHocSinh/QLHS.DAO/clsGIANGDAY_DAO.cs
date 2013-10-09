@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.DAO
 {
-    class HOCKY_DAO
+    class clsGIANGDAY_DAO
     {
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.DTO
 {
-    public class MONHOC_DTO
+    public class clsMONHOC_DTO
     {
         private string mamh;
 

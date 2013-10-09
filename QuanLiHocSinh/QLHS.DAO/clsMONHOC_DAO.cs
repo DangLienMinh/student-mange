@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.DAO
 {
-    class LOP_DAO
+    class clsMONHOC_DAO
     {
     }
 }

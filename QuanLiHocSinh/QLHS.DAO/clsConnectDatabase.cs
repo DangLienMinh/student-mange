@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.IO;
 namespace QLHS.DAO
 {
-    public class connectDatabase
+    public class clsConnectDatabase
     {
         public SqlConnection moKetNoi() {
             string connectionStr = @"server=.\SQLEXPRESS;Initial Catalog=QuanLiHocSinh1;Integrated Security=True";

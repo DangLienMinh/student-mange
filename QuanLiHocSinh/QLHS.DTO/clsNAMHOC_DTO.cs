@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.DTO
 {
-    public class NAMHOC_DTO
+    public class clsNAMHOC_DTO
     {
         private string manh;
 

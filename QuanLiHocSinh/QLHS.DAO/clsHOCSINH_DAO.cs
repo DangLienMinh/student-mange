@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.DAO
 {
-    class GIAOVIEN_DAO
+    class clsHOCSINH_DAO
     {
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.DAO
 {
-    class LOAIDIEM_DAO
+    class clsHOCKY_DAO
     {
     }
 }

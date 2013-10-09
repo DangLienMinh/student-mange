@@ -39,18 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HOCKY_DAO.cs" />
-    <Compile Include="connectDatabase.cs" />
-    <Compile Include="DIEM_DAO.cs" />
-    <Compile Include="GIANGDAY_DAO.cs" />
-    <Compile Include="GIAOVIEN_DAO.cs" />
-    <Compile Include="HOCSINH_DAO.cs" />
-    <Compile Include="KHOI_DAO.cs" />
-    <Compile Include="LOAIDIEM_DAO.cs" />
-    <Compile Include="LOAINGUOIDUNG_DAO.cs" />
-    <Compile Include="LOP_DAO.cs" />
-    <Compile Include="MONHOC_DAO.cs" />
-    <Compile Include="NAMHOC_DAO.cs" />
+    <Compile Include="clsHOCKY_DAO.cs" />
+    <Compile Include="clsConnectDatabase.cs" />
+    <Compile Include="clsDIEM_DAO.cs" />
+    <Compile Include="clsGIANGDAY_DAO.cs" />
+    <Compile Include="clsGIAOVIEN_DAO.cs" />
+    <Compile Include="clsHOCSINH_DAO.cs" />
+    <Compile Include="clsKHOI_DAO.cs" />
+    <Compile Include="clsLOAIDIEM_DAO.cs" />
+    <Compile Include="clsLOAINGUOIDUNG_DAO.cs" />
+    <Compile Include="clsLOP_DAO.cs" />
+    <Compile Include="clsMONHOC_DAO.cs" />
+    <Compile Include="clsNAMHOC_DAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

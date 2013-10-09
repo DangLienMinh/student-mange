@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.DAO
 {
-    class GIANGDAY_DAO
+    class clsDIEM_DAO
     {
     }
 }
