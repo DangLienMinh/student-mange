@@ -100,6 +100,25 @@
       <DependentUpon>QuanLiHocSinh1.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="resources\books copy.png" />
+    <Content Include="resources\cal-ico copy.png" />
+    <Content Include="resources\class.png" />
+    <Content Include="resources\classroom.jpg" />
+    <Content Include="resources\classroom_icon.png" />
+    <Content Include="resources\class_room_icon.jpg" />
+    <Content Include="resources\DangXuat.png" />
+    <Content Include="resources\DoiMatKhau.png" />
+    <Content Include="resources\education-edutainment-2.png" />
+    <Content Include="resources\HuongDan.png" />
+    <Content Include="resources\ismages copy.png" />
+    <Content Include="resources\preferences-desktop-personal.png" />
+    <Content Include="resources\school.png" />
+    <Content Include="resources\Search-Male-User.png" />
+    <Content Include="resources\Search.png" />
+    <Content Include="resources\search_user.png" />
+    <Content Include="resources\student_icon copy.png" />
+    <Content Include="resources\Teacher-icon.png" />
+    <Content Include="resources\ThongTin.png" />
     <Content Include="resources\win7.png" />
     <Content Include="resources\win8.png" />
     <Content Include="resources\winBlack.png" />
