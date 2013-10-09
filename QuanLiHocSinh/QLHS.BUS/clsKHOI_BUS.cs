@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.BUS
 {
-    class HOCKY_BUS
+    class clsKHOI_BUS
     {
     }
 }

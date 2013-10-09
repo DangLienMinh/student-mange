@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.BUS
 {
-    class LOAINGUOIDUNG_BUS
+    class clsGIANGDAY_BUS
     {
     }
 }
