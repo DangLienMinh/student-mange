@@ -16,19 +16,34 @@ namespace QuanLiHocSinh
             InitializeComponent();
         }
 
-        private void buttonItem16_Click(object sender, EventArgs e)
+        private void btnThemeBlue_Click(object sender, EventArgs e)
         {
-
+            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2007Blue;
         }
 
-        private void buttonItem17_Click(object sender, EventArgs e)
+        private void btnThemeVista_Click(object sender, EventArgs e)
         {
-
+            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2007VistaGlass;
         }
 
-        private void buttonItem15_Click(object sender, EventArgs e)
+        private void btnTheme8_Click(object sender, EventArgs e)
         {
+            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Metro;
+        }
 
+        private void btnThemeSilver_Click(object sender, EventArgs e)
+        {
+            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2007Silver;
+        }
+
+        private void btnThemeBlack_Click(object sender, EventArgs e)
+        {
+            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2007Black;
+        }
+
+        private void btnTheme7_Click(object sender, EventArgs e)
+        {
+            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
         }
     }
 }
