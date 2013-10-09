@@ -42,12 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmMain.cs" />
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <Compile Include="frmdanhsachlop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmdanhsachlop.Designer.cs">
+      <DependentUpon>frmdanhsachlop.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmdanhsachlop.resx">
+      <DependentUpon>frmdanhsachlop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -77,7 +82,9 @@
       <Name>QLHS.DTO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Hinhanh\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Database\QuanLiHocSinh1.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
