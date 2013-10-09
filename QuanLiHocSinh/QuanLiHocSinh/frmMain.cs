@@ -15,5 +15,20 @@ namespace QuanLiHocSinh
         {
             InitializeComponent();
         }
+
+        private void buttonItem16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonItem17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonItem15_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
