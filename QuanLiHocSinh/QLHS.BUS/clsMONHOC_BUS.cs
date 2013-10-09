@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.BUS
 {
-    class LOAIDIEM_BUS
+    class clsMONHOC_BUS
     {
     }
 }

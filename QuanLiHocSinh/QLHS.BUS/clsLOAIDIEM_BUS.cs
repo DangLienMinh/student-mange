@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.BUS
 {
-    class LOP_BUS
+    class clsLOAIDIEM_BUS
     {
     }
 }
