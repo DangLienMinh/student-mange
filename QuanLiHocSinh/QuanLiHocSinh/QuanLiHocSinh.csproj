@@ -102,6 +102,7 @@
     </Content>
     <Content Include="resources\books copy.png" />
     <Content Include="resources\cal-ico copy.png" />
+    <Content Include="resources\Calendar-icon.png" />
     <Content Include="resources\class.png" />
     <Content Include="resources\classroom.jpg" />
     <Content Include="resources\classroom_icon.png" />
@@ -118,6 +119,7 @@
     <Content Include="resources\search_user.png" />
     <Content Include="resources\student_icon copy.png" />
     <Content Include="resources\Teacher-icon.png" />
+    <Content Include="resources\ThamSo.png" />
     <Content Include="resources\ThongTin.png" />
     <Content Include="resources\win7.png" />
     <Content Include="resources\win8.png" />
