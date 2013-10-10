@@ -53,8 +53,8 @@ namespace QuanLiHocSinh
             myForm.AutoScroll = true;
             myForm.FormBorderStyle = FormBorderStyle.None;
             myForm.Dock = DockStyle.None;
-            this.expandablePanel1.Controls.Add(myForm);
-           
+            this.tabControlPanel1.Controls.Add(myForm);
+            this.tabItem1.Text = "danh sahc";
             myForm.Show();
         }
 

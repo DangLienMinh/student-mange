@@ -48,6 +48,7 @@
             this.sodienthoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbltieude = new System.Windows.Forms.Label();
             this.pnl = new DevComponents.DotNetBar.PanelEx();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.txthoten = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.treeKhoi = new DevComponents.AdvTree.AdvTree();
             this.node13 = new DevComponents.AdvTree.Node();
@@ -64,7 +65,6 @@
             this.lblchonlop = new DevComponents.DotNetBar.LabelX();
             this.controlContainerItem1 = new DevComponents.DotNetBar.ControlContainerItem();
             this.elementStyle1 = new DevComponents.DotNetBar.ElementStyle();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdanhsachhocsinh)).BeginInit();
             this.pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeKhoi)).BeginInit();
@@ -128,7 +128,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvdanhsachhocsinh.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvdanhsachhocsinh.EnableHeadersVisualStyles = false;
@@ -212,7 +212,7 @@
             this.pnl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl.Location = new System.Drawing.Point(5, 1);
             this.pnl.Name = "pnl";
-            this.pnl.Size = new System.Drawing.Size(863, 393);
+            this.pnl.Size = new System.Drawing.Size(867, 399);
             this.pnl.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.pnl.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.pnl.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -222,6 +222,18 @@
             this.pnl.Style.GradientAngle = 90;
             this.pnl.TabIndex = 7;
             this.pnl.Text = "panelEx1";
+            // 
+            // labelX1
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Location = new System.Drawing.Point(329, 13);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(140, 23);
+            this.labelX1.TabIndex = 13;
+            this.labelX1.Text = "DANH SÁCH HỌC SINH";
             // 
             // txthoten
             // 
@@ -377,23 +389,11 @@
             this.elementStyle1.Name = "elementStyle1";
             this.elementStyle1.TextColor = System.Drawing.SystemColors.ControlText;
             // 
-            // labelX1
-            // 
-            // 
-            // 
-            // 
-            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(329, 13);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(140, 23);
-            this.labelX1.TabIndex = 13;
-            this.labelX1.Text = "DANH SÁCH HỌC SINH";
-            // 
             // frmDanhSachLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(873, 396);
+            this.ClientSize = new System.Drawing.Size(877, 402);
             this.Controls.Add(this.pnl);
             this.Controls.Add(this.lbltieude);
             this.Controls.Add(this.sideBar1);
