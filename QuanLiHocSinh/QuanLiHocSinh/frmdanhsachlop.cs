@@ -115,5 +115,10 @@ namespace QuanLiHocSinh
         {
 
         }
+
+        private void pnl_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
