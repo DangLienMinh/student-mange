@@ -46,13 +46,19 @@ namespace QuanLiHocSinh
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
         }
 
-        private void btn_Click(object sender, EventArgs e)
+        private void btnThongTin_Click(object sender, EventArgs e)
         {
-            frmDanhSachLop lop = new frmDanhSachLop();
-            
-            tabItem1.AttachedControl.Controls.Add(lop);
+            frmDanhSachLop myForm = new frmDanhSachLop();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            myForm.FormBorderStyle = FormBorderStyle.None;
+            myForm.Dock = DockStyle.None;
+            this.expandablePanel1.Controls.Add(myForm);
+           
+            myForm.Show();
         }
 
+      
        
     }
 }
