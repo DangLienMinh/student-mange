@@ -120,5 +120,10 @@ namespace QuanLiHocSinh
         {
 
         }
+
+        private void lblhoten_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
