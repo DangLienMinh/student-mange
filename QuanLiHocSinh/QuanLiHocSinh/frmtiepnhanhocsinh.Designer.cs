@@ -56,7 +56,6 @@
             this.txtdantoc = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtdiachi = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txthoten = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.crumbBar1 = new DevComponents.DotNetBar.CrumbBar();
             this.grpthongtinhocsinh.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picanh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtingaynhaphoc)).BeginInit();
@@ -554,36 +553,11 @@
             this.txthoten.TabIndex = 17;
             this.txthoten.Tag = "1";
             // 
-            // crumbBar1
-            // 
-            this.crumbBar1.AutoSize = true;
-            // 
-            // 
-            // 
-            this.crumbBar1.BackgroundStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(253)))));
-            this.crumbBar1.BackgroundStyle.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.crumbBar1.BackgroundStyle.BorderBottomWidth = 1;
-            this.crumbBar1.BackgroundStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(89)))), ((int)(((byte)(94)))));
-            this.crumbBar1.BackgroundStyle.BorderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(180)))), ((int)(((byte)(191)))));
-            this.crumbBar1.BackgroundStyle.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.crumbBar1.BackgroundStyle.BorderLeftWidth = 1;
-            this.crumbBar1.BackgroundStyle.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.crumbBar1.BackgroundStyle.BorderRightWidth = 1;
-            this.crumbBar1.BackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.crumbBar1.BackgroundStyle.BorderTopWidth = 1;
-            this.crumbBar1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.crumbBar1.ContainerControlProcessDialogKey = true;
-            this.crumbBar1.Location = new System.Drawing.Point(111, 31);
-            this.crumbBar1.Name = "crumbBar1";
-            this.crumbBar1.Size = new System.Drawing.Size(8, 22);
-            this.crumbBar1.TabIndex = 2;
-            // 
             // frmtiepnhanhocsinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1016, 364);
-            this.Controls.Add(this.crumbBar1);
             this.Controls.Add(this.grpthongtinhocsinh);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -630,6 +604,5 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtdantoc;
         private DevComponents.DotNetBar.Controls.TextBoxX txtdiachi;
         private DevComponents.DotNetBar.Controls.TextBoxX txthoten;
-        private DevComponents.DotNetBar.CrumbBar crumbBar1;
     }
 }
