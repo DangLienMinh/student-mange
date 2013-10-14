@@ -21,12 +21,12 @@ namespace QLHS.DTO
             get { return tenmh; }
             set { tenmh = value; }
         }
-        private int hesomonhoc;
+        private int hesomh;
 
-        public int Hesomonhoc
+        public int Hesomh
         {
-            get { return hesomonhoc; }
-            set { hesomonhoc = value; }
+            get { return hesomh; }
+            set { hesomh = value; }
         }
     }
 }

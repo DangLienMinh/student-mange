@@ -21,5 +21,13 @@ namespace QLHS.DTO
             get { return tenhk; }
             set { tenhk = value; }
         }
+
+        private string hesohk;
+
+        public string Hesohk
+        {
+            get { return hesohk; }
+            set { hesohk = value; }
+        }
     }
 }
