@@ -102,11 +102,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Database\QuanLiHocSinh1.mdf">
+    <Content Include="Database\QuanLyHocSinh.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Database\QuanLiHocSinh1_log.LDF">
-      <DependentUpon>QuanLiHocSinh1.mdf</DependentUpon>
+    <Content Include="Database\QuanLyHocSinh_log.LDF">
+      <DependentUpon>QuanLyHocSinh.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="resources\books copy.png" />
