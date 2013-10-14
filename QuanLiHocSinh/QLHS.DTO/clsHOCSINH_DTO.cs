@@ -70,12 +70,12 @@ namespace QLHS.DTO
             get { return dienthoaihs; }
             set { dienthoaihs = value; }
         }
-        private DateTime ngaynhaphoc;
+        private DateTime ngnhaphoc;
 
-        public DateTime Ngaynhaphoc
+        public DateTime Ngnhaphoc
         {
-            get { return ngaynhaphoc; }
-            set { ngaynhaphoc = value; }
+            get { return ngnhaphoc; }
+            set { ngnhaphoc = value; }
         }
         private string hinhanhhs;
 

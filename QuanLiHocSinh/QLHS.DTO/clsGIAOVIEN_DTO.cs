@@ -28,12 +28,12 @@ namespace QLHS.DTO
             get { return tengv; }
             set { tengv = value; }
         }
-        private DateTime ngaysinhgv;
+        private DateTime ngsinhgv;
 
-        public DateTime Ngaysinhgv
+        public DateTime Ngsinhgv
         {
-            get { return ngaysinhgv; }
-            set { ngaysinhgv = value; }
+            get { return ngsinhgv; }
+            set { ngsinhgv = value; }
         }
         private string gioitinhgv;
 

@@ -54,7 +54,6 @@ namespace QLHS.DTO
         public int Stt
         {
             get { return stt; }
-            set { stt = value; }
         }
         private string mahk;
 
@@ -63,9 +62,9 @@ namespace QLHS.DTO
             get { return mahk; }
             set { mahk = value; }
         }
-        private float diemso;
+        private string diemso;
 
-        public float Diemso
+        public string Diemso
         {
             get { return diemso; }
             set { diemso = value; }
