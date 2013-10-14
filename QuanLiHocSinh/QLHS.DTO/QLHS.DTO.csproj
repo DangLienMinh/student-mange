@@ -40,10 +40,12 @@
     <Compile Include="clsDIEM_DTO.cs" />
     <Compile Include="clsGIANGDAY_DTO.cs" />
     <Compile Include="clsGIAOVIEN_DTO.cs" />
+    <Compile Include="clsHANHKIEM_DTO.cs" />
     <Compile Include="clsHOCKY_DTO.cs" />
     <Compile Include="clsHOCSINH_DTO.cs" />
     <Compile Include="clsKHOI_DTO.cs" />
     <Compile Include="clsLOAIDIEM_DTO.cs" />
+    <Compile Include="clsLOAIHANHKIEM_DTO.cs" />
     <Compile Include="clsLOAINGUOIDUNG_DTO.cs" />
     <Compile Include="clsLOP_DTO.cs" />
     <Compile Include="clsMONHOC_DTO.cs" />

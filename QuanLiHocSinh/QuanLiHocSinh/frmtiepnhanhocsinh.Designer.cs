@@ -37,22 +37,22 @@
             this.picAnh = new System.Windows.Forms.PictureBox();
             this.optNu = new System.Windows.Forms.RadioButton();
             this.optNam = new System.Windows.Forms.RadioButton();
-            this.lblkhoi = new DevComponents.DotNetBar.LabelX();
-            this.lbllop = new DevComponents.DotNetBar.LabelX();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.lblKhoi = new DevComponents.DotNetBar.LabelX();
+            this.lblLop = new DevComponents.DotNetBar.LabelX();
+            this.lblNamhoc = new DevComponents.DotNetBar.LabelX();
             this.dtiNgaynhaphoc = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
-            this.lbldienthoai = new DevComponents.DotNetBar.LabelX();
-            this.lblngaynhaphoc = new DevComponents.DotNetBar.LabelX();
+            this.lblDienthoai = new DevComponents.DotNetBar.LabelX();
+            this.lblNgaynhaphoc = new DevComponents.DotNetBar.LabelX();
             this.txtDienthoai = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.cboKhoahoc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.cboLop = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.cboKhoi = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.dtiNgaysinh = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
-            this.lblngaysinh = new DevComponents.DotNetBar.LabelX();
-            this.lblgioitinh = new DevComponents.DotNetBar.LabelX();
-            this.lbldiachi = new DevComponents.DotNetBar.LabelX();
-            this.lbldantoc = new DevComponents.DotNetBar.LabelX();
-            this.lblhoten = new DevComponents.DotNetBar.LabelX();
+            this.lblNgaysinh = new DevComponents.DotNetBar.LabelX();
+            this.lblGioitinh = new DevComponents.DotNetBar.LabelX();
+            this.lblDiachi = new DevComponents.DotNetBar.LabelX();
+            this.lblDantoc = new DevComponents.DotNetBar.LabelX();
+            this.lblHoten = new DevComponents.DotNetBar.LabelX();
             this.txtDantoc = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtDiachi = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtHoten = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -84,22 +84,22 @@
             this.grpThongtinhocsinh.Controls.Add(this.picAnh);
             this.grpThongtinhocsinh.Controls.Add(this.optNu);
             this.grpThongtinhocsinh.Controls.Add(this.optNam);
-            this.grpThongtinhocsinh.Controls.Add(this.lblkhoi);
-            this.grpThongtinhocsinh.Controls.Add(this.lbllop);
-            this.grpThongtinhocsinh.Controls.Add(this.labelX1);
+            this.grpThongtinhocsinh.Controls.Add(this.lblKhoi);
+            this.grpThongtinhocsinh.Controls.Add(this.lblLop);
+            this.grpThongtinhocsinh.Controls.Add(this.lblNamhoc);
             this.grpThongtinhocsinh.Controls.Add(this.dtiNgaynhaphoc);
-            this.grpThongtinhocsinh.Controls.Add(this.lbldienthoai);
-            this.grpThongtinhocsinh.Controls.Add(this.lblngaynhaphoc);
+            this.grpThongtinhocsinh.Controls.Add(this.lblDienthoai);
+            this.grpThongtinhocsinh.Controls.Add(this.lblNgaynhaphoc);
             this.grpThongtinhocsinh.Controls.Add(this.txtDienthoai);
             this.grpThongtinhocsinh.Controls.Add(this.cboKhoahoc);
             this.grpThongtinhocsinh.Controls.Add(this.cboLop);
             this.grpThongtinhocsinh.Controls.Add(this.cboKhoi);
             this.grpThongtinhocsinh.Controls.Add(this.dtiNgaysinh);
-            this.grpThongtinhocsinh.Controls.Add(this.lblngaysinh);
-            this.grpThongtinhocsinh.Controls.Add(this.lblgioitinh);
-            this.grpThongtinhocsinh.Controls.Add(this.lbldiachi);
-            this.grpThongtinhocsinh.Controls.Add(this.lbldantoc);
-            this.grpThongtinhocsinh.Controls.Add(this.lblhoten);
+            this.grpThongtinhocsinh.Controls.Add(this.lblNgaysinh);
+            this.grpThongtinhocsinh.Controls.Add(this.lblGioitinh);
+            this.grpThongtinhocsinh.Controls.Add(this.lblDiachi);
+            this.grpThongtinhocsinh.Controls.Add(this.lblDantoc);
+            this.grpThongtinhocsinh.Controls.Add(this.lblHoten);
             this.grpThongtinhocsinh.Controls.Add(this.txtDantoc);
             this.grpThongtinhocsinh.Controls.Add(this.txtDiachi);
             this.grpThongtinhocsinh.Controls.Add(this.txtHoten);
@@ -221,47 +221,47 @@
             this.optNam.Text = "Nam";
             this.optNam.UseVisualStyleBackColor = true;
             // 
-            // lblkhoi
+            // lblKhoi
             // 
             // 
             // 
             // 
-            this.lblkhoi.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblkhoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblkhoi.ForeColor = System.Drawing.Color.Blue;
-            this.lblkhoi.Location = new System.Drawing.Point(359, 93);
-            this.lblkhoi.Name = "lblkhoi";
-            this.lblkhoi.Size = new System.Drawing.Size(75, 23);
-            this.lblkhoi.TabIndex = 43;
-            this.lblkhoi.Text = "Khối  :";
+            this.lblKhoi.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lblKhoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKhoi.ForeColor = System.Drawing.Color.Blue;
+            this.lblKhoi.Location = new System.Drawing.Point(359, 93);
+            this.lblKhoi.Name = "lblKhoi";
+            this.lblKhoi.Size = new System.Drawing.Size(75, 23);
+            this.lblKhoi.TabIndex = 43;
+            this.lblKhoi.Text = "Khối  :";
             // 
-            // lbllop
-            // 
-            // 
-            // 
-            // 
-            this.lbllop.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbllop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbllop.ForeColor = System.Drawing.Color.Blue;
-            this.lbllop.Location = new System.Drawing.Point(359, 126);
-            this.lbllop.Name = "lbllop";
-            this.lbllop.Size = new System.Drawing.Size(75, 23);
-            this.lbllop.TabIndex = 42;
-            this.lbllop.Text = "Lớp :";
-            // 
-            // labelX1
+            // lblLop
             // 
             // 
             // 
             // 
-            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX1.ForeColor = System.Drawing.Color.Blue;
-            this.labelX1.Location = new System.Drawing.Point(359, 159);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(75, 23);
-            this.labelX1.TabIndex = 41;
-            this.labelX1.Text = "Khóa học :";
+            this.lblLop.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lblLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLop.ForeColor = System.Drawing.Color.Blue;
+            this.lblLop.Location = new System.Drawing.Point(359, 126);
+            this.lblLop.Name = "lblLop";
+            this.lblLop.Size = new System.Drawing.Size(75, 23);
+            this.lblLop.TabIndex = 42;
+            this.lblLop.Text = "Lớp :";
+            // 
+            // lblNamhoc
+            // 
+            // 
+            // 
+            // 
+            this.lblNamhoc.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lblNamhoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNamhoc.ForeColor = System.Drawing.Color.Blue;
+            this.lblNamhoc.Location = new System.Drawing.Point(359, 159);
+            this.lblNamhoc.Name = "lblNamhoc";
+            this.lblNamhoc.Size = new System.Drawing.Size(75, 23);
+            this.lblNamhoc.TabIndex = 41;
+            this.lblNamhoc.Text = "Năm học :";
             // 
             // dtiNgaynhaphoc
             // 
@@ -312,33 +312,33 @@
             this.dtiNgaynhaphoc.TabIndex = 3;
             this.dtiNgaynhaphoc.Tag = "";
             // 
-            // lbldienthoai
+            // lblDienthoai
             // 
             // 
             // 
             // 
-            this.lbldienthoai.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbldienthoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldienthoai.ForeColor = System.Drawing.Color.Blue;
-            this.lbldienthoai.Location = new System.Drawing.Point(44, 159);
-            this.lbldienthoai.Name = "lbldienthoai";
-            this.lbldienthoai.Size = new System.Drawing.Size(74, 23);
-            this.lbldienthoai.TabIndex = 39;
-            this.lbldienthoai.Text = "Điện thoại :";
+            this.lblDienthoai.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lblDienthoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDienthoai.ForeColor = System.Drawing.Color.Blue;
+            this.lblDienthoai.Location = new System.Drawing.Point(44, 159);
+            this.lblDienthoai.Name = "lblDienthoai";
+            this.lblDienthoai.Size = new System.Drawing.Size(74, 23);
+            this.lblDienthoai.TabIndex = 39;
+            this.lblDienthoai.Text = "Điện thoại :";
             // 
-            // lblngaynhaphoc
-            // 
-            // 
+            // lblNgaynhaphoc
             // 
             // 
-            this.lblngaynhaphoc.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblngaynhaphoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblngaynhaphoc.ForeColor = System.Drawing.Color.Blue;
-            this.lblngaynhaphoc.Location = new System.Drawing.Point(44, 93);
-            this.lblngaynhaphoc.Name = "lblngaynhaphoc";
-            this.lblngaynhaphoc.Size = new System.Drawing.Size(102, 23);
-            this.lblngaynhaphoc.TabIndex = 38;
-            this.lblngaynhaphoc.Text = " Ngày nhập học :";
+            // 
+            // 
+            this.lblNgaynhaphoc.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lblNgaynhaphoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNgaynhaphoc.ForeColor = System.Drawing.Color.Blue;
+            this.lblNgaynhaphoc.Location = new System.Drawing.Point(44, 93);
+            this.lblNgaynhaphoc.Name = "lblNgaynhaphoc";
+            this.lblNgaynhaphoc.Size = new System.Drawing.Size(102, 23);
+            this.lblNgaynhaphoc.TabIndex = 38;
+            this.lblNgaynhaphoc.Text = " Ngày nhập học :";
             // 
             // txtDienthoai
             // 
@@ -442,75 +442,75 @@
             this.dtiNgaysinh.TabIndex = 2;
             this.dtiNgaysinh.Tag = "";
             // 
-            // lblngaysinh
+            // lblNgaysinh
             // 
             // 
             // 
             // 
-            this.lblngaysinh.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblngaysinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblngaysinh.ForeColor = System.Drawing.Color.Blue;
-            this.lblngaysinh.Location = new System.Drawing.Point(44, 57);
-            this.lblngaysinh.Name = "lblngaysinh";
-            this.lblngaysinh.Size = new System.Drawing.Size(75, 23);
-            this.lblngaysinh.TabIndex = 29;
-            this.lblngaysinh.Text = "Ngày sinh :";
+            this.lblNgaysinh.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lblNgaysinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNgaysinh.ForeColor = System.Drawing.Color.Blue;
+            this.lblNgaysinh.Location = new System.Drawing.Point(44, 57);
+            this.lblNgaysinh.Name = "lblNgaysinh";
+            this.lblNgaysinh.Size = new System.Drawing.Size(75, 23);
+            this.lblNgaysinh.TabIndex = 29;
+            this.lblNgaysinh.Text = "Ngày sinh :";
             // 
-            // lblgioitinh
-            // 
-            // 
-            // 
-            // 
-            this.lblgioitinh.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblgioitinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblgioitinh.ForeColor = System.Drawing.Color.Blue;
-            this.lblgioitinh.Location = new System.Drawing.Point(359, 57);
-            this.lblgioitinh.Name = "lblgioitinh";
-            this.lblgioitinh.Size = new System.Drawing.Size(75, 23);
-            this.lblgioitinh.TabIndex = 28;
-            this.lblgioitinh.Text = "Giới tính :";
-            // 
-            // lbldiachi
+            // lblGioitinh
             // 
             // 
             // 
             // 
-            this.lbldiachi.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbldiachi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldiachi.ForeColor = System.Drawing.Color.Blue;
-            this.lbldiachi.Location = new System.Drawing.Point(44, 126);
-            this.lbldiachi.Name = "lbldiachi";
-            this.lbldiachi.Size = new System.Drawing.Size(75, 23);
-            this.lbldiachi.TabIndex = 27;
-            this.lbldiachi.Text = "Địa chỉ :";
+            this.lblGioitinh.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lblGioitinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGioitinh.ForeColor = System.Drawing.Color.Blue;
+            this.lblGioitinh.Location = new System.Drawing.Point(359, 57);
+            this.lblGioitinh.Name = "lblGioitinh";
+            this.lblGioitinh.Size = new System.Drawing.Size(75, 23);
+            this.lblGioitinh.TabIndex = 28;
+            this.lblGioitinh.Text = "Giới tính :";
             // 
-            // lbldantoc
-            // 
-            // 
-            // 
-            // 
-            this.lbldantoc.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbldantoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldantoc.ForeColor = System.Drawing.Color.Blue;
-            this.lbldantoc.Location = new System.Drawing.Point(359, 27);
-            this.lbldantoc.Name = "lbldantoc";
-            this.lbldantoc.Size = new System.Drawing.Size(59, 23);
-            this.lbldantoc.TabIndex = 24;
-            this.lbldantoc.Text = "Dân tộc :";
-            // 
-            // lblhoten
+            // lblDiachi
             // 
             // 
             // 
             // 
-            this.lblhoten.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblhoten.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblhoten.ForeColor = System.Drawing.Color.Blue;
-            this.lblhoten.Location = new System.Drawing.Point(44, 27);
-            this.lblhoten.Name = "lblhoten";
-            this.lblhoten.Size = new System.Drawing.Size(75, 23);
-            this.lblhoten.TabIndex = 23;
-            this.lblhoten.Text = "Họ tên :";
+            this.lblDiachi.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lblDiachi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiachi.ForeColor = System.Drawing.Color.Blue;
+            this.lblDiachi.Location = new System.Drawing.Point(44, 126);
+            this.lblDiachi.Name = "lblDiachi";
+            this.lblDiachi.Size = new System.Drawing.Size(75, 23);
+            this.lblDiachi.TabIndex = 27;
+            this.lblDiachi.Text = "Địa chỉ :";
+            // 
+            // lblDantoc
+            // 
+            // 
+            // 
+            // 
+            this.lblDantoc.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lblDantoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDantoc.ForeColor = System.Drawing.Color.Blue;
+            this.lblDantoc.Location = new System.Drawing.Point(359, 27);
+            this.lblDantoc.Name = "lblDantoc";
+            this.lblDantoc.Size = new System.Drawing.Size(59, 23);
+            this.lblDantoc.TabIndex = 24;
+            this.lblDantoc.Text = "Dân tộc :";
+            // 
+            // lblHoten
+            // 
+            // 
+            // 
+            // 
+            this.lblHoten.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lblHoten.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoten.ForeColor = System.Drawing.Color.Blue;
+            this.lblHoten.Location = new System.Drawing.Point(44, 27);
+            this.lblHoten.Name = "lblHoten";
+            this.lblHoten.Size = new System.Drawing.Size(75, 23);
+            this.lblHoten.TabIndex = 23;
+            this.lblHoten.Text = "Họ tên :";
             // 
             // txtDantoc
             // 
@@ -585,22 +585,22 @@
         private System.Windows.Forms.PictureBox picAnh;
         private System.Windows.Forms.RadioButton optNu;
         private System.Windows.Forms.RadioButton optNam;
-        private DevComponents.DotNetBar.LabelX lblkhoi;
-        private DevComponents.DotNetBar.LabelX lbllop;
-        private DevComponents.DotNetBar.LabelX labelX1;
+        private DevComponents.DotNetBar.LabelX lblKhoi;
+        private DevComponents.DotNetBar.LabelX lblLop;
+        private DevComponents.DotNetBar.LabelX lblNamhoc;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput dtiNgaynhaphoc;
-        private DevComponents.DotNetBar.LabelX lbldienthoai;
-        private DevComponents.DotNetBar.LabelX lblngaynhaphoc;
+        private DevComponents.DotNetBar.LabelX lblDienthoai;
+        private DevComponents.DotNetBar.LabelX lblNgaynhaphoc;
         private DevComponents.DotNetBar.Controls.TextBoxX txtDienthoai;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cboKhoahoc;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cboLop;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cboKhoi;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput dtiNgaysinh;
-        private DevComponents.DotNetBar.LabelX lblngaysinh;
-        private DevComponents.DotNetBar.LabelX lblgioitinh;
-        private DevComponents.DotNetBar.LabelX lbldiachi;
-        private DevComponents.DotNetBar.LabelX lbldantoc;
-        private DevComponents.DotNetBar.LabelX lblhoten;
+        private DevComponents.DotNetBar.LabelX lblNgaysinh;
+        private DevComponents.DotNetBar.LabelX lblGioitinh;
+        private DevComponents.DotNetBar.LabelX lblDiachi;
+        private DevComponents.DotNetBar.LabelX lblDantoc;
+        private DevComponents.DotNetBar.LabelX lblHoten;
         private DevComponents.DotNetBar.Controls.TextBoxX txtDantoc;
         private DevComponents.DotNetBar.Controls.TextBoxX txtDiachi;
         private DevComponents.DotNetBar.Controls.TextBoxX txtHoten;
