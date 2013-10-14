@@ -37,6 +37,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsHANHKIEM_BUS.cs" />
+    <Compile Include="clsLOAIHANHKIEM_BUS.cs" />
     <Compile Include="clsLOP_BUS.cs" />
     <Compile Include="clsGIANGDAY_BUS.cs" />
     <Compile Include="clsDIEM_BUS.cs" />

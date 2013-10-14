@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsHANHKIEM_DAO.cs" />
     <Compile Include="clsHOCKY_DAO.cs" />
     <Compile Include="clsConnectDatabase.cs" />
     <Compile Include="clsDIEM_DAO.cs" />
@@ -47,6 +48,7 @@
     <Compile Include="clsHOCSINH_DAO.cs" />
     <Compile Include="clsKHOI_DAO.cs" />
     <Compile Include="clsLOAIDIEM_DAO.cs" />
+    <Compile Include="clsLOAIHANHKIEM.cs" />
     <Compile Include="clsLOAINGUOIDUNG_DAO.cs" />
     <Compile Include="clsLOP_DAO.cs" />
     <Compile Include="clsMONHOC_DAO.cs" />
