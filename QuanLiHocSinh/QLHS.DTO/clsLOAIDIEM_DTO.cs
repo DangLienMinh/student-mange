@@ -21,9 +21,9 @@ namespace QLHS.DTO
             get { return tenld; }
             set { tenld = value; }
         }
-        private int hesold;
+        private string hesold;
 
-        public int Hesold
+        public string Hesold
         {
             get { return hesold; }
             set { hesold = value; }

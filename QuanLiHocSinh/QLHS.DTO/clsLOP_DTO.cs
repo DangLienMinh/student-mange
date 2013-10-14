@@ -35,9 +35,9 @@ namespace QLHS.DTO
             get { return tenlop; }
             set { tenlop = value; }
         }
-        private int siso;
+        private string siso;
 
-        public int Siso
+        public string Siso
         {
             get { return siso; }
             set { siso = value; }
