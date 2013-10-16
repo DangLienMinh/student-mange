@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTieuDe = new System.Windows.Forms.Label();
             this.grpThongtinhocsinh = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.btnThoat = new DevComponents.DotNetBar.ButtonX();
             this.btnNhapLai = new DevComponents.DotNetBar.ButtonX();
@@ -43,7 +43,7 @@
             this.lblDienthoai = new DevComponents.DotNetBar.LabelX();
             this.lblNgaynhaphoc = new DevComponents.DotNetBar.LabelX();
             this.txtDienThoai = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.cboKhoaHoc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cboNamHoc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.cboLop = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.dtiNgaySinh = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.lblNgaysinh = new DevComponents.DotNetBar.LabelX();
@@ -62,16 +62,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtiNgaySinh)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTieuDe
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(370, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "TIẾP NHẬN HỌC SINH";
+            this.lblTieuDe.AutoSize = true;
+            this.lblTieuDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTieuDe.ForeColor = System.Drawing.Color.Blue;
+            this.lblTieuDe.Location = new System.Drawing.Point(370, 32);
+            this.lblTieuDe.Name = "lblTieuDe";
+            this.lblTieuDe.Size = new System.Drawing.Size(230, 25);
+            this.lblTieuDe.TabIndex = 0;
+            this.lblTieuDe.Text = "TIẾP NHẬN HỌC SINH";
             // 
             // grpThongtinhocsinh
             // 
@@ -90,7 +90,7 @@
             this.grpThongtinhocsinh.Controls.Add(this.lblDienthoai);
             this.grpThongtinhocsinh.Controls.Add(this.lblNgaynhaphoc);
             this.grpThongtinhocsinh.Controls.Add(this.txtDienThoai);
-            this.grpThongtinhocsinh.Controls.Add(this.cboKhoaHoc);
+            this.grpThongtinhocsinh.Controls.Add(this.cboNamHoc);
             this.grpThongtinhocsinh.Controls.Add(this.cboLop);
             this.grpThongtinhocsinh.Controls.Add(this.dtiNgaySinh);
             this.grpThongtinhocsinh.Controls.Add(this.lblNgaysinh);
@@ -339,18 +339,18 @@
             this.txtDienThoai.TabIndex = 5;
             this.txtDienThoai.Tag = "";
             // 
-            // cboKhoaHoc
+            // cboNamHoc
             // 
-            this.cboKhoaHoc.DisplayMember = "Text";
-            this.cboKhoaHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboKhoaHoc.FormattingEnabled = true;
-            this.cboKhoaHoc.ItemHeight = 16;
-            this.cboKhoaHoc.Location = new System.Drawing.Point(473, 170);
-            this.cboKhoaHoc.Name = "cboKhoaHoc";
-            this.cboKhoaHoc.Size = new System.Drawing.Size(149, 22);
-            this.cboKhoaHoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cboKhoaHoc.TabIndex = 11;
-            this.cboKhoaHoc.Tag = "";
+            this.cboNamHoc.DisplayMember = "Text";
+            this.cboNamHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboNamHoc.FormattingEnabled = true;
+            this.cboNamHoc.ItemHeight = 16;
+            this.cboNamHoc.Location = new System.Drawing.Point(473, 170);
+            this.cboNamHoc.Name = "cboNamHoc";
+            this.cboNamHoc.Size = new System.Drawing.Size(149, 22);
+            this.cboNamHoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cboNamHoc.TabIndex = 11;
+            this.cboNamHoc.Tag = "";
             // 
             // cboLop
             // 
@@ -560,7 +560,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1016, 364);
             this.Controls.Add(this.grpThongtinhocsinh);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTieuDe);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmtiepnhanhocsinh";
             this.Text = "frmtiepnhanhocsinh";
@@ -577,7 +577,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTieuDe;
         private DevComponents.DotNetBar.Controls.GroupPanel grpThongtinhocsinh;
         private DevComponents.DotNetBar.ButtonX btnThoat;
         private DevComponents.DotNetBar.ButtonX btnNhapLai;
@@ -592,7 +592,7 @@
         private DevComponents.DotNetBar.LabelX lblDienthoai;
         private DevComponents.DotNetBar.LabelX lblNgaynhaphoc;
         private DevComponents.DotNetBar.Controls.TextBoxX txtDienThoai;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cboKhoaHoc;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cboNamHoc;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cboLop;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput dtiNgaySinh;
         private DevComponents.DotNetBar.LabelX lblNgaysinh;
