@@ -63,12 +63,12 @@ namespace QLHS.DTO
             get { return hinhanhgv; }
             set { hinhanhgv = value; }
         }
-        private string matkhau;
+        //private string matkhau;
 
-        public string Matkhau
-        {
-            get { return matkhau; }
-            set { matkhau = value; }
-        }
+        //public string Matkhau
+        //{
+        //    get { return matkhau; }
+        //    set { matkhau = value; }
+        //}
     }
 }
