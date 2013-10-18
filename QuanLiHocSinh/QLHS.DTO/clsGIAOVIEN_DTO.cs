@@ -7,13 +7,13 @@ namespace QLHS.DTO
 {
     public class clsGIAOVIEN_DTO
     {
-        private string malnd;
+        //private string malnd;
 
-        public string Malnd
-        {
-            get { return malnd; }
-            set { malnd = value; }
-        }
+        //public string Malnd
+        //{
+        //    get { return malnd; }
+        //    set { malnd = value; }
+        //}
         private string magv;
 
         public string Magv

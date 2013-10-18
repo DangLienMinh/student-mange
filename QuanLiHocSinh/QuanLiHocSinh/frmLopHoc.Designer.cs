@@ -143,7 +143,7 @@
             this.groupPanel1.Controls.Add(this.btnTruoc);
             this.groupPanel1.Controls.Add(this.btnDau);
             this.groupPanel1.Controls.Add(this.txtHienTai);
-            this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupPanel1.Location = new System.Drawing.Point(185, 0);
             this.groupPanel1.Name = "groupPanel1";
             this.groupPanel1.Size = new System.Drawing.Size(526, 510);
