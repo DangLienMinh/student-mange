@@ -48,7 +48,7 @@ namespace QuanLiHocSinh
 
         private void btnThongTin_Click(object sender, EventArgs e)
         {
-            frmtiepnhanhocsinh myForm = new frmtiepnhanhocsinh();
+            frmGiaoVien myForm = new frmGiaoVien();
             myForm.TopLevel = false;
             myForm.AutoScroll = true;
             myForm.FormBorderStyle = FormBorderStyle.None;
