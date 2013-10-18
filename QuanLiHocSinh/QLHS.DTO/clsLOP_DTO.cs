@@ -42,5 +42,13 @@ namespace QLHS.DTO
             get { return siso; }
             set { siso = value; }
         }
+
+        private string magv;
+
+        public string Magv
+        {
+            get { return magv; }
+            set { magv = value; }
+        }
     }
 }
