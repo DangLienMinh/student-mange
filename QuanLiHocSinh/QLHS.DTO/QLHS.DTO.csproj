@@ -50,6 +50,7 @@
     <Compile Include="clsLOP_DTO.cs" />
     <Compile Include="clsMONHOC_DTO.cs" />
     <Compile Include="clsNAMHOC_DTO.cs" />
+    <Compile Include="clsNGUOIDUNG_DTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
