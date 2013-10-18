@@ -21,12 +21,20 @@ namespace QLHS.DTO
             get { return tenmh; }
             set { tenmh = value; }
         }
-        private int hesomh;
+        private string hesomh;
 
-        public int Hesomh
+        public string Hesomh
         {
             get { return hesomh; }
             set { hesomh = value; }
+        }
+
+        private string sotiet;
+
+        public string Sotiet
+        {
+            get { return sotiet; }
+            set { sotiet = value; }
         }
     }
 }

@@ -74,6 +74,9 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMonHoc.resx">
+      <DependentUpon>frmMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmtiepnhanhocsinh.resx">
       <DependentUpon>frmtiepnhanhocsinh.cs</DependentUpon>
     </EmbeddedResource>
