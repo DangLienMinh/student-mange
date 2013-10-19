@@ -72,6 +72,12 @@
     <Compile Include="frmMonHoc.Designer.cs">
       <DependentUpon>frmMonHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNamHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNamHoc.Designer.cs">
+      <DependentUpon>frmNamHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMonHoc.resx">
       <DependentUpon>frmMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNamHoc.resx">
+      <DependentUpon>frmNamHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNguoiDung.resx">
       <DependentUpon>frmNguoiDung.cs</DependentUpon>
@@ -147,11 +156,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Database\QuanLyHocSinh.mdf">
+    <Content Include="Database\QuanLyHocSinh1.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Database\QuanLyHocSinh_log.LDF">
-      <DependentUpon>QuanLyHocSinh.mdf</DependentUpon>
+    <Content Include="Database\QuanLyHocSinh1_log.LDF">
+      <DependentUpon>QuanLyHocSinh1.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="resources\books copy.png" />

@@ -51,15 +51,15 @@
             this.txtTim = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
-            this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
             this.cbHeSo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.txtMaMH = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX4 = new DevComponents.DotNetBar.LabelX();
-            this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.txtSoTiet = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtMonHoc = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
-            this.txtSoTiet = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtMaMH = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.labelX4 = new DevComponents.DotNetBar.LabelX();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
+            this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
             this.navigationPanePanel1.SuspendLayout();
@@ -205,7 +205,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewX1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -358,6 +358,102 @@
             this.navigationPanePanel2.Style.GradientAngle = 90;
             this.navigationPanePanel2.TabIndex = 3;
             // 
+            // cbHeSo
+            // 
+            this.cbHeSo.DisplayMember = "Text";
+            this.cbHeSo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbHeSo.FormattingEnabled = true;
+            this.cbHeSo.ItemHeight = 14;
+            this.cbHeSo.Location = new System.Drawing.Point(11, 136);
+            this.cbHeSo.Name = "cbHeSo";
+            this.cbHeSo.Size = new System.Drawing.Size(64, 20);
+            this.cbHeSo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbHeSo.TabIndex = 23;
+            // 
+            // txtSoTiet
+            // 
+            // 
+            // 
+            // 
+            this.txtSoTiet.Border.Class = "TextBoxBorder";
+            this.txtSoTiet.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSoTiet.Location = new System.Drawing.Point(90, 136);
+            this.txtSoTiet.Name = "txtSoTiet";
+            this.txtSoTiet.Size = new System.Drawing.Size(58, 20);
+            this.txtSoTiet.TabIndex = 22;
+            // 
+            // txtMonHoc
+            // 
+            // 
+            // 
+            // 
+            this.txtMonHoc.Border.Class = "TextBoxBorder";
+            this.txtMonHoc.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtMonHoc.Location = new System.Drawing.Point(11, 83);
+            this.txtMonHoc.Name = "txtMonHoc";
+            this.txtMonHoc.Size = new System.Drawing.Size(137, 20);
+            this.txtMonHoc.TabIndex = 22;
+            // 
+            // labelX3
+            // 
+            // 
+            // 
+            // 
+            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX3.Location = new System.Drawing.Point(11, 114);
+            this.labelX3.Name = "labelX3";
+            this.labelX3.Size = new System.Drawing.Size(75, 23);
+            this.labelX3.TabIndex = 19;
+            this.labelX3.Text = "Hệ số:";
+            // 
+            // txtMaMH
+            // 
+            // 
+            // 
+            // 
+            this.txtMaMH.Border.Class = "TextBoxBorder";
+            this.txtMaMH.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtMaMH.Location = new System.Drawing.Point(11, 35);
+            this.txtMaMH.Name = "txtMaMH";
+            this.txtMaMH.Size = new System.Drawing.Size(137, 20);
+            this.txtMaMH.TabIndex = 22;
+            // 
+            // labelX1
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Location = new System.Drawing.Point(11, 60);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(75, 23);
+            this.labelX1.TabIndex = 19;
+            this.labelX1.Text = "Tên môn học:";
+            // 
+            // labelX4
+            // 
+            // 
+            // 
+            // 
+            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX4.Location = new System.Drawing.Point(91, 114);
+            this.labelX4.Name = "labelX4";
+            this.labelX4.Size = new System.Drawing.Size(75, 23);
+            this.labelX4.TabIndex = 17;
+            this.labelX4.Text = "Số tiết:";
+            // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Location = new System.Drawing.Point(11, 12);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(75, 23);
+            this.labelX2.TabIndex = 19;
+            this.labelX2.Text = "Mã môn học:";
+            // 
             // navigationPane1
             // 
             this.navigationPane1.CanCollapse = true;
@@ -395,102 +491,6 @@
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
             this.navigationPane1.TitlePanel.Text = "Tìm kiếm thông tin";
-            // 
-            // cbHeSo
-            // 
-            this.cbHeSo.DisplayMember = "Text";
-            this.cbHeSo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbHeSo.FormattingEnabled = true;
-            this.cbHeSo.ItemHeight = 14;
-            this.cbHeSo.Location = new System.Drawing.Point(11, 136);
-            this.cbHeSo.Name = "cbHeSo";
-            this.cbHeSo.Size = new System.Drawing.Size(64, 20);
-            this.cbHeSo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbHeSo.TabIndex = 23;
-            // 
-            // txtMaMH
-            // 
-            // 
-            // 
-            // 
-            this.txtMaMH.Border.Class = "TextBoxBorder";
-            this.txtMaMH.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtMaMH.Location = new System.Drawing.Point(11, 35);
-            this.txtMaMH.Name = "txtMaMH";
-            this.txtMaMH.Size = new System.Drawing.Size(137, 20);
-            this.txtMaMH.TabIndex = 22;
-            // 
-            // labelX4
-            // 
-            // 
-            // 
-            // 
-            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(91, 114);
-            this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(75, 23);
-            this.labelX4.TabIndex = 17;
-            this.labelX4.Text = "Số tiết:";
-            // 
-            // labelX2
-            // 
-            // 
-            // 
-            // 
-            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(11, 12);
-            this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(75, 23);
-            this.labelX2.TabIndex = 19;
-            this.labelX2.Text = "Mã môn học:";
-            // 
-            // labelX1
-            // 
-            // 
-            // 
-            // 
-            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(11, 60);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(75, 23);
-            this.labelX1.TabIndex = 19;
-            this.labelX1.Text = "Tên môn học:";
-            // 
-            // txtMonHoc
-            // 
-            // 
-            // 
-            // 
-            this.txtMonHoc.Border.Class = "TextBoxBorder";
-            this.txtMonHoc.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtMonHoc.Location = new System.Drawing.Point(11, 83);
-            this.txtMonHoc.Name = "txtMonHoc";
-            this.txtMonHoc.Size = new System.Drawing.Size(137, 20);
-            this.txtMonHoc.TabIndex = 22;
-            // 
-            // labelX3
-            // 
-            // 
-            // 
-            // 
-            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(11, 114);
-            this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(75, 23);
-            this.labelX3.TabIndex = 19;
-            this.labelX3.Text = "Hệ số:";
-            // 
-            // txtSoTiet
-            // 
-            // 
-            // 
-            // 
-            this.txtSoTiet.Border.Class = "TextBoxBorder";
-            this.txtSoTiet.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSoTiet.Location = new System.Drawing.Point(90, 136);
-            this.txtSoTiet.Name = "txtSoTiet";
-            this.txtSoTiet.Size = new System.Drawing.Size(58, 20);
-            this.txtSoTiet.TabIndex = 22;
             // 
             // frmMonHoc
             // 
