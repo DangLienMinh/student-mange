@@ -57,6 +57,11 @@
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.MAND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MALOAIND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENDN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MATKHAU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
             this.navigationPanePanel2.SuspendLayout();
             this.navigationPane1.SuspendLayout();
@@ -75,6 +80,12 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewX1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewX1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MAND,
+            this.TENND,
+            this.MALOAIND,
+            this.TENDN,
+            this.MATKHAU});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -96,7 +107,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewX1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewX1.Size = new System.Drawing.Size(520, 368);
+            this.dataGridViewX1.Size = new System.Drawing.Size(519, 368);
             this.dataGridViewX1.TabIndex = 9;
             // 
             // btnCuoi
@@ -417,9 +428,9 @@
             this.groupPanel1.Controls.Add(this.btnDau);
             this.groupPanel1.Controls.Add(this.txtHienTai);
             this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupPanel1.Location = new System.Drawing.Point(185, 0);
+            this.groupPanel1.Location = new System.Drawing.Point(191, 0);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(526, 431);
+            this.groupPanel1.Size = new System.Drawing.Size(525, 431);
             // 
             // 
             // 
@@ -451,11 +462,41 @@
             this.groupPanel1.TabIndex = 3;
             this.groupPanel1.Text = "DANH SÁCH NGƯỜI DÙNG";
             // 
+            // MAND
+            // 
+            this.MAND.DataPropertyName = "MAND";
+            this.MAND.HeaderText = "Mã người dùng";
+            this.MAND.Name = "MAND";
+            // 
+            // TENND
+            // 
+            this.TENND.DataPropertyName = "TENND";
+            this.TENND.HeaderText = "Tên người dùng";
+            this.TENND.Name = "TENND";
+            // 
+            // MALOAIND
+            // 
+            this.MALOAIND.DataPropertyName = "MALOAIND";
+            this.MALOAIND.HeaderText = "Loại người dùng";
+            this.MALOAIND.Name = "MALOAIND";
+            // 
+            // TENDN
+            // 
+            this.TENDN.DataPropertyName = "TENDN";
+            this.TENDN.HeaderText = "Tên đăng nhập";
+            this.TENDN.Name = "TENDN";
+            // 
+            // MATKHAU
+            // 
+            this.MATKHAU.DataPropertyName = "MATKHAU";
+            this.MATKHAU.HeaderText = "Mật khẩu";
+            this.MATKHAU.Name = "MATKHAU";
+            // 
             // frmNguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 431);
+            this.ClientSize = new System.Drawing.Size(716, 431);
             this.Controls.Add(this.navigationPane1);
             this.Controls.Add(this.groupPanel1);
             this.DoubleBuffered = true;
@@ -496,5 +537,10 @@
         private DevComponents.DotNetBar.ButtonX ư;
         private DevComponents.DotNetBar.ButtonX btnDongY;
         private DevComponents.DotNetBar.ButtonX btnThem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAND;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TENND;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MALOAIND;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TENDN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MATKHAU;
     }
 }
