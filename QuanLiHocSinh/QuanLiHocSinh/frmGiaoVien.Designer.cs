@@ -68,6 +68,13 @@
             this.btnTruoc = new DevComponents.DotNetBar.ButtonX();
             this.btnDau = new DevComponents.DotNetBar.ButtonX();
             this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.MAGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NGSINHGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIACHIGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GIOITINHGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIENTHOAIGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HINHANHGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
             this.navigationPanePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -112,6 +119,14 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewX1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewX1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MAGV,
+            this.TENGV,
+            this.NGSINHGV,
+            this.DIACHIGV,
+            this.GIOITINHGV,
+            this.DIENTHOAIGV,
+            this.HINHANHGV});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -640,6 +655,48 @@
             this.txtHienTai.Size = new System.Drawing.Size(69, 20);
             this.txtHienTai.TabIndex = 15;
             // 
+            // MAGV
+            // 
+            this.MAGV.DataPropertyName = "MAGV";
+            this.MAGV.HeaderText = "Mã giáo viên";
+            this.MAGV.Name = "MAGV";
+            // 
+            // TENGV
+            // 
+            this.TENGV.DataPropertyName = "TENGV";
+            this.TENGV.HeaderText = "Tên giáo viên";
+            this.TENGV.Name = "TENGV";
+            // 
+            // NGSINHGV
+            // 
+            this.NGSINHGV.DataPropertyName = "NGSINHGV";
+            this.NGSINHGV.HeaderText = "Ngày sinh";
+            this.NGSINHGV.Name = "NGSINHGV";
+            // 
+            // DIACHIGV
+            // 
+            this.DIACHIGV.DataPropertyName = "DIACHIGV";
+            this.DIACHIGV.HeaderText = "Địa chỉ";
+            this.DIACHIGV.Name = "DIACHIGV";
+            // 
+            // GIOITINHGV
+            // 
+            this.GIOITINHGV.DataPropertyName = "GIOITINHGV";
+            this.GIOITINHGV.HeaderText = "Giới tính";
+            this.GIOITINHGV.Name = "GIOITINHGV";
+            // 
+            // DIENTHOAIGV
+            // 
+            this.DIENTHOAIGV.DataPropertyName = "DIENTHOAIGV";
+            this.DIENTHOAIGV.HeaderText = "Điện thoại";
+            this.DIENTHOAIGV.Name = "DIENTHOAIGV";
+            // 
+            // HINHANHGV
+            // 
+            this.HINHANHGV.DataPropertyName = "HINHANHGV";
+            this.HINHANHGV.HeaderText = "Hình ảnh";
+            this.HINHANHGV.Name = "HINHANHGV";
+            // 
             // frmGiaoVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -700,5 +757,12 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtHienTai;
         private System.Windows.Forms.RadioButton optTenGV;
         private System.Windows.Forms.RadioButton optMaGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TENGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NGSINHGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DIACHIGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GIOITINHGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DIENTHOAIGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HINHANHGV;
     }
 }
