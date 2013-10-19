@@ -36,7 +36,7 @@
             this.btnGiaoVien = new DevComponents.DotNetBar.ButtonItem();
             this.btnPhanCong = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonBar5 = new DevComponents.DotNetBar.RibbonBar();
-            this.btnDSLop = new DevComponents.DotNetBar.ButtonItem();
+            this.btnLop = new DevComponents.DotNetBar.ButtonItem();
             this.btnPhanLop = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonBar4 = new DevComponents.DotNetBar.RibbonBar();
             this.btnDiem = new DevComponents.DotNetBar.ButtonItem();
@@ -114,8 +114,8 @@
             // 
             this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonControl1.CaptionVisible = true;
-            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
             this.ribbonControl1.Controls.Add(this.ribbonPanel2);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
             this.ribbonControl1.Controls.Add(this.ribbonPanel3);
             this.ribbonControl1.Controls.Add(this.ribbonPanel4);
             this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -178,7 +178,6 @@
             // 
             this.ribbonPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel2.TabIndex = 2;
-            this.ribbonPanel2.Visible = false;
             // 
             // ribbonBar10
             // 
@@ -196,7 +195,7 @@
             this.ribbonBar10.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.btnGiaoVien,
             this.btnPhanCong});
-            this.ribbonBar10.Location = new System.Drawing.Point(427, 0);
+            this.ribbonBar10.Location = new System.Drawing.Point(406, 0);
             this.ribbonBar10.Name = "ribbonBar10";
             this.ribbonBar10.Size = new System.Drawing.Size(196, 92);
             this.ribbonBar10.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -245,11 +244,11 @@
             this.ribbonBar5.ContainerControlProcessDialogKey = true;
             this.ribbonBar5.Dock = System.Windows.Forms.DockStyle.Left;
             this.ribbonBar5.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnDSLop,
+            this.btnLop,
             this.btnPhanLop});
             this.ribbonBar5.Location = new System.Drawing.Point(262, 0);
             this.ribbonBar5.Name = "ribbonBar5";
-            this.ribbonBar5.Size = new System.Drawing.Size(165, 92);
+            this.ribbonBar5.Size = new System.Drawing.Size(144, 92);
             this.ribbonBar5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar5.TabIndex = 2;
             this.ribbonBar5.Text = "Quản Lý Lớp Học";
@@ -262,15 +261,16 @@
             // 
             this.ribbonBar5.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
-            // btnDSLop
+            // btnLop
             // 
-            this.btnDSLop.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnDSLop.Image = ((System.Drawing.Image)(resources.GetObject("btnDSLop.Image")));
-            this.btnDSLop.ImagePaddingHorizontal = 25;
-            this.btnDSLop.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnDSLop.Name = "btnDSLop";
-            this.btnDSLop.SubItemsExpandWidth = 14;
-            this.btnDSLop.Text = "Danh Sách Lớp Học";
+            this.btnLop.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnLop.Image = ((System.Drawing.Image)(resources.GetObject("btnLop.Image")));
+            this.btnLop.ImagePaddingHorizontal = 25;
+            this.btnLop.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnLop.Name = "btnLop";
+            this.btnLop.SubItemsExpandWidth = 14;
+            this.btnLop.Text = "Lớp Học";
+            this.btnLop.Click += new System.EventHandler(this.btnLop_Click);
             // 
             // btnPhanLop
             // 
@@ -405,6 +405,7 @@
             // 
             this.ribbonPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel1.TabIndex = 1;
+            this.ribbonPanel1.Visible = false;
             // 
             // ribbonBar1
             // 
@@ -845,13 +846,13 @@
             // 
             // ribbonTabItem1
             // 
-            this.ribbonTabItem1.Checked = true;
             this.ribbonTabItem1.Name = "ribbonTabItem1";
             this.ribbonTabItem1.Panel = this.ribbonPanel1;
             this.ribbonTabItem1.Text = "HỆ THỐNG";
             // 
             // ribbonTabItem2
             // 
+            this.ribbonTabItem2.Checked = true;
             this.ribbonTabItem2.Name = "ribbonTabItem2";
             this.ribbonTabItem2.Panel = this.ribbonPanel2;
             this.ribbonTabItem2.Text = "QUẢN LÝ";
@@ -1170,7 +1171,7 @@
         private DevComponents.DotNetBar.RibbonTabItem ribbonTabItem3;
         private DevComponents.DotNetBar.RibbonTabItem ribbonTabItem4;
         private DevComponents.DotNetBar.RibbonBar ribbonBar5;
-        private DevComponents.DotNetBar.ButtonItem btnDSLop;
+        private DevComponents.DotNetBar.ButtonItem btnLop;
         private DevComponents.DotNetBar.ButtonItem btnPhanLop;
         private DevComponents.DotNetBar.RibbonBar ribbonBar4;
         private DevComponents.DotNetBar.RibbonBar ribbonBar3;
