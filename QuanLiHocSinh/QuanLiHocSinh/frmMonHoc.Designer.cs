@@ -41,6 +41,10 @@
             this.btnThem = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dataGridViewX1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.MAMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HESOMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SOTIET = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCuoi = new DevComponents.DotNetBar.ButtonX();
             this.btnSau = new DevComponents.DotNetBar.ButtonX();
             this.btnTruoc = new DevComponents.DotNetBar.ButtonX();
@@ -60,10 +64,6 @@
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
-            this.MAMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HESOMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SOTIET = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
             this.navigationPanePanel1.SuspendLayout();
@@ -193,7 +193,6 @@
             // 
             // dataGridViewX1
             // 
-            this.dataGridViewX1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -231,6 +230,30 @@
             this.dataGridViewX1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewX1.Size = new System.Drawing.Size(408, 307);
             this.dataGridViewX1.TabIndex = 9;
+            // 
+            // MAMH
+            // 
+            this.MAMH.DataPropertyName = "MAMH";
+            this.MAMH.HeaderText = "Mã môn học";
+            this.MAMH.Name = "MAMH";
+            // 
+            // TENMH
+            // 
+            this.TENMH.DataPropertyName = "TENMH";
+            this.TENMH.HeaderText = "Tên môn học";
+            this.TENMH.Name = "TENMH";
+            // 
+            // HESOMH
+            // 
+            this.HESOMH.DataPropertyName = "HESOMH";
+            this.HESOMH.HeaderText = "Hệ số";
+            this.HESOMH.Name = "HESOMH";
+            // 
+            // SOTIET
+            // 
+            this.SOTIET.DataPropertyName = "SOTIET";
+            this.SOTIET.HeaderText = "Số tiết";
+            this.SOTIET.Name = "SOTIET";
             // 
             // btnCuoi
             // 
@@ -310,7 +333,7 @@
             this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(190, 368);
+            this.navigationPanePanel1.Size = new System.Drawing.Size(190, 266);
             this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -500,30 +523,6 @@
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
             this.navigationPane1.TitlePanel.Text = "Nhập liệu thông tin";
-            // 
-            // MAMH
-            // 
-            this.MAMH.DataPropertyName = "MAMH";
-            this.MAMH.HeaderText = "Mã môn học";
-            this.MAMH.Name = "MAMH";
-            // 
-            // TENMH
-            // 
-            this.TENMH.DataPropertyName = "TENMH";
-            this.TENMH.HeaderText = "Tên môn học";
-            this.TENMH.Name = "TENMH";
-            // 
-            // HESOMH
-            // 
-            this.HESOMH.DataPropertyName = "HESOMH";
-            this.HESOMH.HeaderText = "Hệ số";
-            this.HESOMH.Name = "HESOMH";
-            // 
-            // SOTIET
-            // 
-            this.SOTIET.DataPropertyName = "SOTIET";
-            this.SOTIET.HeaderText = "Số tiết";
-            this.SOTIET.Name = "SOTIET";
             // 
             // frmMonHoc
             // 
