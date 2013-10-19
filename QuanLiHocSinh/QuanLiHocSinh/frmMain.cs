@@ -13,6 +13,9 @@ namespace QuanLiHocSinh
     public partial class frmMain : DevComponents.DotNetBar.Office2007RibbonForm
     {
         private frmLopHoc m_FrmLop = null;
+        private frmGiaoVien m_FrmGiaoVien = null;
+        private frmMonHoc m_FrmMonHoc = null;
+        private frmNamHoc m_FrmNamHoc = null;
         public frmMain()
         {
             InitializeComponent();
@@ -63,6 +66,45 @@ namespace QuanLiHocSinh
             }
             else
                 m_FrmLop.Activate();
+        }
+
+        private void btnGiaoVien_Click(object sender, EventArgs e)
+        {
+            if (m_FrmGiaoVien == null || m_FrmGiaoVien.IsDisposed)
+            {
+                m_FrmGiaoVien = new frmGiaoVien();
+                m_FrmGiaoVien.FormBorderStyle = FormBorderStyle.None;     
+                m_FrmGiaoVien.MdiParent = frmMain.ActiveForm;
+                m_FrmGiaoVien.Show();
+            }
+            else
+                m_FrmGiaoVien.Activate();
+        }
+
+        private void btnMonHoc_Click(object sender, EventArgs e)
+        {
+            if (m_FrmMonHoc == null || m_FrmMonHoc.IsDisposed)
+            {
+                m_FrmMonHoc = new frmMonHoc();
+                m_FrmMonHoc.FormBorderStyle = FormBorderStyle.None;
+                m_FrmMonHoc.MdiParent = frmMain.ActiveForm;
+                m_FrmMonHoc.Show();
+            }
+            else
+                m_FrmMonHoc.Activate();
+        }
+
+        private void btnKhaiBao_Click(object sender, EventArgs e)
+        {
+            if (m_FrmNamHoc == null || m_FrmNamHoc.IsDisposed)
+            {
+                m_FrmNamHoc = new frmNamHoc();
+                m_FrmNamHoc.FormBorderStyle = FormBorderStyle.None;
+                m_FrmNamHoc.MdiParent = frmMain.ActiveForm;
+                m_FrmNamHoc.Show();
+            }
+            else
+                m_FrmNamHoc.Activate();
         }
     }
 }
