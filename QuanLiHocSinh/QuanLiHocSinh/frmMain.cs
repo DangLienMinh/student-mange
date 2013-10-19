@@ -9,8 +9,10 @@ using System.Windows.Forms;
 
 namespace QuanLiHocSinh
 {
+    
     public partial class frmMain : DevComponents.DotNetBar.Office2007RibbonForm
     {
+        private frmLopHoc m_FrmLop = null;
         public frmMain()
         {
             InitializeComponent();
@@ -48,14 +50,29 @@ namespace QuanLiHocSinh
 
         private void btnThongTin_Click(object sender, EventArgs e)
         {
-            frmGiaoVien myForm = new frmGiaoVien();
-            myForm.TopLevel = false;
-            myForm.AutoScroll = true;
-            myForm.FormBorderStyle = FormBorderStyle.None;
-            myForm.Dock = DockStyle.None;
-            this.tabControlPanel1.Controls.Add(myForm);
-            this.tabItem1.Text = "danh sahc";
-            myForm.Show();
+            //frmGiaoVien myForm = new frmGiaoVien();
+            //myForm.TopLevel = false;
+            //myForm.AutoScroll = true;
+            //myForm.FormBorderStyle = FormBorderStyle.None;
+            //myForm.Dock = DockStyle.None;
+            //this.tabControlPanel1.Controls.Add(myForm);
+            //this.tabItem1.Text = "danh sahc";
+            //myForm.Show();
+            if (m_FrmLop == null || m_FrmLop.IsDisposed)
+            {
+                m_FrmLop = new frmLopHoc();
+                m_FrmLop.FormBorderStyle = FormBorderStyle.None;
+                m_FrmLop.TopLevel = false;
+                m_FrmLop.AutoScroll = true;
+                m_FrmLop.Dock = DockStyle.Fill;
+                //m_FrmLop.StartPosition = FormStartPosition.CenterScreen;
+                //m_FrmLop.WindowState = FormWindowState.Maximized;
+              
+                m_FrmLop.MdiParent = frmMain.ActiveForm;
+                m_FrmLop.Show();
+            }
+            else
+                m_FrmLop.Activate();
         }
 
 
