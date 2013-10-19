@@ -53,19 +53,19 @@ namespace QuanLiHocSinh
 
         private void btnThongTin_Click(object sender, EventArgs e)
         {
-            if (m_FrmLop == null || m_FrmLop.IsDisposed)
-            {
-                m_FrmLop = new frmLopHoc();
-                m_FrmLop.FormBorderStyle = FormBorderStyle.None;
-                //m_FrmLop.TopLevel = false;
-                //m_FrmLop.AutoScroll = true;
-                //m_FrmLop.Dock = DockStyle.Fill;
-                //m_FrmLop.WindowState = FormWindowState.Maximized;             
-                m_FrmLop.MdiParent = frmMain.ActiveForm;
-                m_FrmLop.Show();
-            }
-            else
-                m_FrmLop.Activate();
+            //if (m_FrmLop == null || m_FrmLop.IsDisposed)
+            //{
+            //    m_FrmLop = new frmLopHoc();
+            //    m_FrmLop.FormBorderStyle = FormBorderStyle.None;
+            //    //m_FrmLop.TopLevel = false;
+            //    //m_FrmLop.AutoScroll = true;
+            //    //m_FrmLop.Dock = DockStyle.Fill;
+            //    //m_FrmLop.WindowState = FormWindowState.Maximized;             
+            //    m_FrmLop.MdiParent = frmMain.ActiveForm;
+            //    m_FrmLop.Show();
+            //}
+            //else
+            //    m_FrmLop.Activate();
         }
 
         private void btnGiaoVien_Click(object sender, EventArgs e)
@@ -105,6 +105,19 @@ namespace QuanLiHocSinh
             }
             else
                 m_FrmNamHoc.Activate();
+        }
+
+        private void btnLop_Click(object sender, EventArgs e)
+        {
+            if (m_FrmLop == null || m_FrmLop.IsDisposed)
+            {
+                m_FrmLop = new frmLopHoc();
+                m_FrmLop.FormBorderStyle = FormBorderStyle.None;            
+                m_FrmLop.MdiParent = frmMain.ActiveForm;
+                m_FrmLop.Show();
+            }
+            else
+                m_FrmLop.Activate();
         }
     }
 }
