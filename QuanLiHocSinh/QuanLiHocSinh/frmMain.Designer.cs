@@ -100,11 +100,14 @@
             this.qatCustomizeItem1 = new DevComponents.DotNetBar.QatCustomizeItem();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.tabStrip = new DevComponents.DotNetBar.TabStrip();
+            this.bar1 = new DevComponents.DotNetBar.Bar();
+            this.lblName = new DevComponents.DotNetBar.LabelItem();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel2.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
             this.ribbonPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -1116,11 +1119,34 @@
             this.tabStrip.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.MultilineNoNavigationBox;
             this.tabStrip.Text = "tabStrip";
             // 
+            // bar1
+            // 
+            this.bar1.AntiAlias = true;
+            this.bar1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bar1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.lblName});
+            this.bar1.Location = new System.Drawing.Point(5, 306);
+            this.bar1.Name = "bar1";
+            this.bar1.Size = new System.Drawing.Size(783, 19);
+            this.bar1.Stretch = true;
+            this.bar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.bar1.TabIndex = 4;
+            this.bar1.TabStop = false;
+            this.bar1.Text = "bar1";
+            // 
+            // lblName
+            // 
+            this.lblName.Name = "lblName";
+            this.lblName.Text = "Người dùng đang đăng nhập:";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(793, 327);
+            this.Controls.Add(this.bar1);
             this.Controls.Add(this.tabStrip);
             this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
@@ -1134,6 +1160,7 @@
             this.ribbonPanel1.ResumeLayout(false);
             this.ribbonPanel3.ResumeLayout(false);
             this.ribbonPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bar1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1210,5 +1237,7 @@
         private DevComponents.DotNetBar.ButtonItem btnThemeVista;
         private DevComponents.DotNetBar.ButtonItem btnTheme8;
         private DevComponents.DotNetBar.TabStrip tabStrip;
+        private DevComponents.DotNetBar.Bar bar1;
+        private DevComponents.DotNetBar.LabelItem lblName;
     }
 }

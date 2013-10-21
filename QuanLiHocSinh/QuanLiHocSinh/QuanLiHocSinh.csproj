@@ -179,6 +179,9 @@
     <Content Include="resources\imdages copy.png" />
     <Content Include="resources\ismages copy.png" />
     <Content Include="resources\notus-icon.png" />
+    <Content Include="resources\picture1_02.gif" />
+    <Content Include="resources\picture1_03.gif" />
+    <Content Include="resources\picture2.gif" />
     <Content Include="resources\preferences-desktop-personal.png" />
     <Content Include="resources\school.png" />
     <Content Include="resources\Search-Male-User.png" />
@@ -189,6 +192,7 @@
     <Content Include="resources\Teacher_Female_Dark.png" />
     <Content Include="resources\ThamSo.png" />
     <Content Include="resources\ThongTin.png" />
+    <Content Include="resources\Untitled-d.png" />
     <Content Include="resources\win7.png" />
     <Content Include="resources\win8.png" />
     <Content Include="resources\winBlack.png" />
