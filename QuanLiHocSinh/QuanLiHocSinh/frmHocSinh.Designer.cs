@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.DIENTHOAIGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.optTenHS = new System.Windows.Forms.RadioButton();
             this.optMaHS = new System.Windows.Forms.RadioButton();
             this.txtTim = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -46,12 +45,6 @@
             this.btnDau = new DevComponents.DotNetBar.ButtonX();
             this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.grdHocSinh = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.MAGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NGSINHGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIACHIGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GIOITINHGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HINHANHGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.navigationPanePanel1 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
@@ -74,8 +67,6 @@
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
             this.txtDienThoai = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
-            this.txtDanToc = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.cbDanToc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.cbGioiTinh = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
@@ -85,6 +76,16 @@
             this.cbNamHoc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.cbLopHoc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.MAHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NGSINHHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GIOITINHHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIACHIHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIENTHOAIHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DANTOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NGNHAPHOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MANH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HINHANHHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdHocSinh)).BeginInit();
             this.navigationPanePanel1.SuspendLayout();
@@ -94,12 +95,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtiNgaySinh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtiNgayNhapHoc)).BeginInit();
             this.SuspendLayout();
-            // 
-            // DIENTHOAIGV
-            // 
-            this.DIENTHOAIGV.DataPropertyName = "DIENTHOAIGV";
-            this.DIENTHOAIGV.HeaderText = "Điện thoại";
-            this.DIENTHOAIGV.Name = "DIENTHOAIGV";
             // 
             // optTenHS
             // 
@@ -165,7 +160,6 @@
             // btnItemTim
             // 
             this.btnItemTim.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemTim.Checked = true;
             this.btnItemTim.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTim.Image")));
             this.btnItemTim.Name = "btnItemTim";
             this.btnItemTim.OptionGroup = "navBar";
@@ -291,13 +285,16 @@
             this.grdHocSinh.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grdHocSinh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdHocSinh.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MAGV,
-            this.TENGV,
-            this.NGSINHGV,
-            this.DIACHIGV,
-            this.GIOITINHGV,
-            this.DIENTHOAIGV,
-            this.HINHANHGV});
+            this.MAHS,
+            this.TENHS,
+            this.NGSINHHS,
+            this.GIOITINHHS,
+            this.DIACHIHS,
+            this.DIENTHOAIHS,
+            this.DANTOC,
+            this.NGNHAPHOC,
+            this.MANH,
+            this.HINHANHHS});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -322,42 +319,6 @@
             this.grdHocSinh.Size = new System.Drawing.Size(735, 474);
             this.grdHocSinh.TabIndex = 9;
             // 
-            // MAGV
-            // 
-            this.MAGV.DataPropertyName = "MAGV";
-            this.MAGV.HeaderText = "Mã giáo viên";
-            this.MAGV.Name = "MAGV";
-            // 
-            // TENGV
-            // 
-            this.TENGV.DataPropertyName = "TENGV";
-            this.TENGV.HeaderText = "Tên giáo viên";
-            this.TENGV.Name = "TENGV";
-            // 
-            // NGSINHGV
-            // 
-            this.NGSINHGV.DataPropertyName = "NGSINHGV";
-            this.NGSINHGV.HeaderText = "Ngày sinh";
-            this.NGSINHGV.Name = "NGSINHGV";
-            // 
-            // DIACHIGV
-            // 
-            this.DIACHIGV.DataPropertyName = "DIACHIGV";
-            this.DIACHIGV.HeaderText = "Địa chỉ";
-            this.DIACHIGV.Name = "DIACHIGV";
-            // 
-            // GIOITINHGV
-            // 
-            this.GIOITINHGV.DataPropertyName = "GIOITINHGV";
-            this.GIOITINHGV.HeaderText = "Giới tính";
-            this.GIOITINHGV.Name = "GIOITINHGV";
-            // 
-            // HINHANHGV
-            // 
-            this.HINHANHGV.DataPropertyName = "HINHANHGV";
-            this.HINHANHGV.HeaderText = "Hình ảnh";
-            this.HINHANHGV.Name = "HINHANHGV";
-            // 
             // navigationPanePanel1
             // 
             this.navigationPanePanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
@@ -367,10 +328,10 @@
             this.navigationPanePanel1.Controls.Add(this.labelX7);
             this.navigationPanePanel1.Controls.Add(this.btnTim);
             this.navigationPanePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel1.Location = new System.Drawing.Point(1, 25);
+            this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(292, 420);
+            this.navigationPanePanel1.Size = new System.Drawing.Size(292, 546);
             this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -381,6 +342,7 @@
             // btnItemNhap
             // 
             this.btnItemNhap.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemNhap.Checked = true;
             this.btnItemNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhap.Image")));
             this.btnItemNhap.Name = "btnItemNhap";
             this.btnItemNhap.OptionGroup = "navBar";
@@ -389,8 +351,8 @@
             // navigationPane1
             // 
             this.navigationPane1.CanCollapse = true;
-            this.navigationPane1.Controls.Add(this.navigationPanePanel1);
             this.navigationPane1.Controls.Add(this.navigationPanePanel2);
+            this.navigationPane1.Controls.Add(this.navigationPanePanel1);
             this.navigationPane1.Dock = System.Windows.Forms.DockStyle.Left;
             this.navigationPane1.ItemPaddingBottom = 2;
             this.navigationPane1.ItemPaddingTop = 2;
@@ -422,7 +384,7 @@
             this.navigationPane1.TitlePanel.Style.GradientAngle = 90;
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
-            this.navigationPane1.TitlePanel.Text = "Tìm kiếm thông tin";
+            this.navigationPane1.TitlePanel.Text = "Nhập liệu thông tin";
             // 
             // navigationPanePanel2
             // 
@@ -446,21 +408,19 @@
             this.navigationPanePanel2.Controls.Add(this.labelX10);
             this.navigationPanePanel2.Controls.Add(this.labelX3);
             this.navigationPanePanel2.Controls.Add(this.labelX9);
-            this.navigationPanePanel2.Controls.Add(this.labelX6);
             this.navigationPanePanel2.Controls.Add(this.labelX1);
             this.navigationPanePanel2.Controls.Add(this.labelX4);
             this.navigationPanePanel2.Controls.Add(this.labelX13);
-            this.navigationPanePanel2.Controls.Add(this.txtDanToc);
             this.navigationPanePanel2.Controls.Add(this.txtDienThoai);
             this.navigationPanePanel2.Controls.Add(this.txtDiaChi);
             this.navigationPanePanel2.Controls.Add(this.txtTenHS);
             this.navigationPanePanel2.Controls.Add(this.txtMaHS);
             this.navigationPanePanel2.Controls.Add(this.labelX14);
             this.navigationPanePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel2.Location = new System.Drawing.Point(1, 1);
+            this.navigationPanePanel2.Location = new System.Drawing.Point(1, 25);
             this.navigationPanePanel2.Name = "navigationPanePanel2";
             this.navigationPanePanel2.ParentItem = this.btnItemNhap;
-            this.navigationPanePanel2.Size = new System.Drawing.Size(292, 546);
+            this.navigationPanePanel2.Size = new System.Drawing.Size(292, 420);
             this.navigationPanePanel2.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel2.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -712,30 +672,6 @@
             this.labelX5.TabIndex = 14;
             this.labelX5.Text = "Điện thoại:";
             // 
-            // txtDanToc
-            // 
-            // 
-            // 
-            // 
-            this.txtDanToc.Border.Class = "TextBoxBorder";
-            this.txtDanToc.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtDanToc.Location = new System.Drawing.Point(108, 259);
-            this.txtDanToc.Name = "txtDanToc";
-            this.txtDanToc.Size = new System.Drawing.Size(68, 20);
-            this.txtDanToc.TabIndex = 20;
-            // 
-            // labelX6
-            // 
-            // 
-            // 
-            // 
-            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(108, 236);
-            this.labelX6.Name = "labelX6";
-            this.labelX6.Size = new System.Drawing.Size(83, 23);
-            this.labelX6.TabIndex = 16;
-            this.labelX6.Text = "Dân tộc:";
-            // 
             // cbDanToc
             // 
             this.cbDanToc.DisplayMember = "Text";
@@ -842,7 +778,7 @@
             this.labelX9.Name = "labelX9";
             this.labelX9.Size = new System.Drawing.Size(89, 23);
             this.labelX9.TabIndex = 15;
-            this.labelX9.Text = "Năm học";
+            this.labelX9.Text = "Năm học:";
             // 
             // cbNamHoc
             // 
@@ -866,7 +802,7 @@
             this.labelX10.Name = "labelX10";
             this.labelX10.Size = new System.Drawing.Size(67, 23);
             this.labelX10.TabIndex = 15;
-            this.labelX10.Text = "Năm học";
+            this.labelX10.Text = "Lớp học:";
             // 
             // cbLopHoc
             // 
@@ -879,6 +815,66 @@
             this.cbLopHoc.Size = new System.Drawing.Size(69, 20);
             this.cbLopHoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbLopHoc.TabIndex = 26;
+            // 
+            // MAHS
+            // 
+            this.MAHS.DataPropertyName = "MAHS";
+            this.MAHS.HeaderText = "Mã học sinh";
+            this.MAHS.Name = "MAHS";
+            // 
+            // TENHS
+            // 
+            this.TENHS.DataPropertyName = "TENHS";
+            this.TENHS.HeaderText = "Tên học sinh";
+            this.TENHS.Name = "TENHS";
+            // 
+            // NGSINHHS
+            // 
+            this.NGSINHHS.DataPropertyName = "NGSINHHS";
+            this.NGSINHHS.HeaderText = "Ngày sinh";
+            this.NGSINHHS.Name = "NGSINHHS";
+            // 
+            // GIOITINHHS
+            // 
+            this.GIOITINHHS.DataPropertyName = "GIOITINHHS";
+            this.GIOITINHHS.HeaderText = "Giới tính";
+            this.GIOITINHHS.Name = "GIOITINHHS";
+            // 
+            // DIACHIHS
+            // 
+            this.DIACHIHS.DataPropertyName = "DIACHIHS";
+            this.DIACHIHS.HeaderText = "Địa chỉ";
+            this.DIACHIHS.Name = "DIACHIHS";
+            // 
+            // DIENTHOAIHS
+            // 
+            this.DIENTHOAIHS.DataPropertyName = "DIENTHOAIHS";
+            this.DIENTHOAIHS.HeaderText = "Điện thoại";
+            this.DIENTHOAIHS.Name = "DIENTHOAIHS";
+            // 
+            // DANTOC
+            // 
+            this.DANTOC.DataPropertyName = "DANTOC";
+            this.DANTOC.HeaderText = "Dân tộc";
+            this.DANTOC.Name = "DANTOC";
+            // 
+            // NGNHAPHOC
+            // 
+            this.NGNHAPHOC.DataPropertyName = "NGNHAPHOC";
+            this.NGNHAPHOC.HeaderText = "Ngày nhập học";
+            this.NGNHAPHOC.Name = "NGNHAPHOC";
+            // 
+            // MANH
+            // 
+            this.MANH.DataPropertyName = "MANH";
+            this.MANH.HeaderText = "Năm học";
+            this.MANH.Name = "MANH";
+            // 
+            // HINHANHHS
+            // 
+            this.HINHANHHS.DataPropertyName = "HINHANHHS";
+            this.HINHANHHS.HeaderText = "Hình ảnh";
+            this.HINHANHHS.Name = "HINHANHHS";
             // 
             // frmHocSinh
             // 
@@ -905,7 +901,6 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridViewTextBoxColumn DIENTHOAIGV;
         private System.Windows.Forms.RadioButton optTenHS;
         private System.Windows.Forms.RadioButton optMaHS;
         private DevComponents.DotNetBar.Controls.TextBoxX txtTim;
@@ -919,12 +914,6 @@
         private DevComponents.DotNetBar.ButtonX btnDau;
         private DevComponents.DotNetBar.Controls.TextBoxX txtHienTai;
         private DevComponents.DotNetBar.Controls.DataGridViewX grdHocSinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MAGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TENGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NGSINHGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DIACHIGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GIOITINHGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HINHANHGV;
         private DevComponents.DotNetBar.NavigationPanePanel navigationPanePanel1;
         private DevComponents.DotNetBar.ButtonItem btnItemNhap;
         private DevComponents.DotNetBar.NavigationPane navigationPane1;
@@ -947,8 +936,6 @@
         private DevComponents.DotNetBar.LabelX labelX14;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbDanToc;
         private DevComponents.DotNetBar.LabelX labelX5;
-        private DevComponents.DotNetBar.LabelX labelX6;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtDanToc;
         private DevComponents.DotNetBar.Controls.TextBoxX txtDienThoai;
         private DevComponents.DotNetBar.LabelX labelX8;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput dtiNgayNhapHoc;
@@ -958,5 +945,15 @@
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbNamHoc;
         private DevComponents.DotNetBar.LabelX labelX10;
         private DevComponents.DotNetBar.LabelX labelX9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAHS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TENHS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NGSINHHS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GIOITINHHS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DIACHIHS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DIENTHOAIHS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DANTOC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NGNHAPHOC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MANH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HINHANHHS;
     }
 }
