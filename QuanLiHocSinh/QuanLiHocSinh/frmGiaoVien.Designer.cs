@@ -33,13 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
-            this.navigationPanePanel1 = new DevComponents.DotNetBar.NavigationPanePanel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.textBoxX6 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX7 = new DevComponents.DotNetBar.LabelX();
-            this.buttonX13 = new DevComponents.DotNetBar.ButtonX();
-            this.btnItemTim = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.buttonX11 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX12 = new DevComponents.DotNetBar.ButtonX();
@@ -61,6 +54,13 @@
             this.textBoxX5 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
+            this.navigationPanePanel1 = new DevComponents.DotNetBar.NavigationPanePanel();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.textBoxX6 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX7 = new DevComponents.DotNetBar.LabelX();
+            this.buttonX13 = new DevComponents.DotNetBar.ButtonX();
+            this.btnItemTim = new DevComponents.DotNetBar.ButtonItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.btnCuoi = new DevComponents.DotNetBar.ButtonX();
             this.btnSau = new DevComponents.DotNetBar.ButtonX();
@@ -76,10 +76,10 @@
             this.DIENTHOAIGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HINHANHGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.navigationPane1.SuspendLayout();
-            this.navigationPanePanel1.SuspendLayout();
             this.navigationPanePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput1)).BeginInit();
+            this.navigationPanePanel1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdGiaoVien)).BeginInit();
             this.SuspendLayout();
@@ -121,95 +121,6 @@
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
             this.navigationPane1.TitlePanel.Text = "Nhập liệu thông tin";
-            // 
-            // navigationPanePanel1
-            // 
-            this.navigationPanePanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.navigationPanePanel1.Controls.Add(this.radioButton1);
-            this.navigationPanePanel1.Controls.Add(this.radioButton2);
-            this.navigationPanePanel1.Controls.Add(this.textBoxX6);
-            this.navigationPanePanel1.Controls.Add(this.labelX7);
-            this.navigationPanePanel1.Controls.Add(this.buttonX13);
-            this.navigationPanePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
-            this.navigationPanePanel1.Name = "navigationPanePanel1";
-            this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(292, 546);
-            this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.navigationPanePanel1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.navigationPanePanel1.Style.GradientAngle = 90;
-            this.navigationPanePanel1.TabIndex = 2;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.ForeColor = System.Drawing.Color.Blue;
-            this.radioButton1.Location = new System.Drawing.Point(42, 87);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(90, 17);
-            this.radioButton1.TabIndex = 15;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Tag = "";
-            this.radioButton1.Text = "Tên giáo viên";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.ForeColor = System.Drawing.Color.Blue;
-            this.radioButton2.Location = new System.Drawing.Point(42, 60);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(86, 17);
-            this.radioButton2.TabIndex = 14;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Tag = "";
-            this.radioButton2.Text = "Mã giáo viên";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // textBoxX6
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX6.Border.Class = "TextBoxBorder";
-            this.textBoxX6.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX6.Location = new System.Drawing.Point(14, 34);
-            this.textBoxX6.Name = "textBoxX6";
-            this.textBoxX6.Size = new System.Drawing.Size(233, 20);
-            this.textBoxX6.TabIndex = 12;
-            // 
-            // labelX7
-            // 
-            // 
-            // 
-            // 
-            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(14, 11);
-            this.labelX7.Name = "labelX7";
-            this.labelX7.Size = new System.Drawing.Size(145, 23);
-            this.labelX7.TabIndex = 11;
-            this.labelX7.Text = "Nhập thông tin tìm kiếm:";
-            // 
-            // buttonX13
-            // 
-            this.buttonX13.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX13.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX13.Location = new System.Drawing.Point(55, 119);
-            this.buttonX13.Name = "buttonX13";
-            this.buttonX13.Size = new System.Drawing.Size(155, 23);
-            this.buttonX13.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX13.TabIndex = 13;
-            this.buttonX13.Text = "Tìm kiếm";
-            // 
-            // btnItemTim
-            // 
-            this.btnItemTim.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemTim.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTim.Image")));
-            this.btnItemTim.Name = "btnItemTim";
-            this.btnItemTim.OptionGroup = "navBar";
-            this.btnItemTim.Text = "Tìm kiếm thông tin";
             // 
             // navigationPanePanel2
             // 
@@ -510,6 +421,95 @@
             this.btnItemNhap.OptionGroup = "navBar";
             this.btnItemNhap.Text = "Nhập liệu thông tin";
             // 
+            // navigationPanePanel1
+            // 
+            this.navigationPanePanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.navigationPanePanel1.Controls.Add(this.radioButton1);
+            this.navigationPanePanel1.Controls.Add(this.radioButton2);
+            this.navigationPanePanel1.Controls.Add(this.textBoxX6);
+            this.navigationPanePanel1.Controls.Add(this.labelX7);
+            this.navigationPanePanel1.Controls.Add(this.buttonX13);
+            this.navigationPanePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
+            this.navigationPanePanel1.Name = "navigationPanePanel1";
+            this.navigationPanePanel1.ParentItem = this.btnItemTim;
+            this.navigationPanePanel1.Size = new System.Drawing.Size(292, 444);
+            this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.navigationPanePanel1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.navigationPanePanel1.Style.GradientAngle = 90;
+            this.navigationPanePanel1.TabIndex = 2;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.ForeColor = System.Drawing.Color.Blue;
+            this.radioButton1.Location = new System.Drawing.Point(42, 87);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(90, 17);
+            this.radioButton1.TabIndex = 15;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Tag = "";
+            this.radioButton1.Text = "Tên giáo viên";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.ForeColor = System.Drawing.Color.Blue;
+            this.radioButton2.Location = new System.Drawing.Point(42, 60);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(86, 17);
+            this.radioButton2.TabIndex = 14;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Tag = "";
+            this.radioButton2.Text = "Mã giáo viên";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // textBoxX6
+            // 
+            // 
+            // 
+            // 
+            this.textBoxX6.Border.Class = "TextBoxBorder";
+            this.textBoxX6.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.textBoxX6.Location = new System.Drawing.Point(14, 34);
+            this.textBoxX6.Name = "textBoxX6";
+            this.textBoxX6.Size = new System.Drawing.Size(233, 20);
+            this.textBoxX6.TabIndex = 12;
+            // 
+            // labelX7
+            // 
+            // 
+            // 
+            // 
+            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX7.Location = new System.Drawing.Point(14, 11);
+            this.labelX7.Name = "labelX7";
+            this.labelX7.Size = new System.Drawing.Size(145, 23);
+            this.labelX7.TabIndex = 11;
+            this.labelX7.Text = "Nhập thông tin tìm kiếm:";
+            // 
+            // buttonX13
+            // 
+            this.buttonX13.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX13.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX13.Location = new System.Drawing.Point(55, 119);
+            this.buttonX13.Name = "buttonX13";
+            this.buttonX13.Size = new System.Drawing.Size(155, 23);
+            this.buttonX13.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX13.TabIndex = 13;
+            this.buttonX13.Text = "Tìm kiếm";
+            // 
+            // btnItemTim
+            // 
+            this.btnItemTim.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemTim.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTim.Image")));
+            this.btnItemTim.Name = "btnItemTim";
+            this.btnItemTim.OptionGroup = "navBar";
+            this.btnItemTim.Text = "Tìm kiếm thông tin";
+            // 
             // groupPanel1
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
@@ -715,11 +715,11 @@
             this.Text = "Quản lý giáo viên";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.navigationPane1.ResumeLayout(false);
-            this.navigationPanePanel1.ResumeLayout(false);
-            this.navigationPanePanel1.PerformLayout();
             this.navigationPanePanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput1)).EndInit();
+            this.navigationPanePanel1.ResumeLayout(false);
+            this.navigationPanePanel1.PerformLayout();
             this.groupPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdGiaoVien)).EndInit();
             this.ResumeLayout(false);
