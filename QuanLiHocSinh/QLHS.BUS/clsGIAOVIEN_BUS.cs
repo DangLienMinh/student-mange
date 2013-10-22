@@ -8,6 +8,7 @@ using DevComponents.Editors.DateTimeAdv;
 using System.Windows.Forms;
 using System.Data;
 
+
 namespace QLHS.BUS
 {
     public class clsGIAOVIEN_BUS
@@ -15,12 +16,25 @@ namespace QLHS.BUS
         clsGIAOVIEN_DAO giaoVien_DAO=new clsGIAOVIEN_DAO();
         clsGIAOVIEN_DTO giaoVien_DTO;
         DataTable tblGiaoVien = new DataTable();
-        public DataRow dr;
+        private DataRow dr;
+        //int viTri, Tong;
 
+        
         public clsGIAOVIEN_BUS() 
         {
             //clsGIAOVIEN_DAO giaoVien_DAO = new clsGIAOVIEN_DAO();
         }
+
+        //private void sapXep(Form form,TextBox txtCurrent)
+        //{
+        //    viTri = form.BindingContext[].Position;
+        //    Tong = form.BindingContext[tblGiaoVien].Count;
+        //    txtCurrent.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
+        //    txtten.Text = dataGridView1.Rows[a].Cells[1].Value.ToString();
+        //    txtmssv.Text = dataGridView1.Rows[a].Cells[0].Value.ToString();
+        //    txtngaysinh.Text = dataGridView1.Rows[a].Cells[2].Value.ToString();
+        //    txtdiachi.Text = dataGridView1.Rows[a].Cells[3].Value.ToString();
+        //}
 
         public void hienThiComboBox(ComboBoxEx comboBox)
         {
@@ -86,9 +100,16 @@ namespace QLHS.BUS
         }
 
         //add dong vua them vao
-        public void addRows() 
+        public void themDong() 
         {
             tblGiaoVien.Rows.Add(getDatarow());
+        }
+
+        public void xoaDong(DataGridViewX grdGV,string MaGV)
+        {
+            DataRow row = tblGiaoVien.Select("MAGV='" + MaGV + "'")[0];
+            row.Delete();
+            grdGV.DataSource = tblGiaoVien;
         }
 
         public void suaDataGrid(DataGridViewX grdGV)
