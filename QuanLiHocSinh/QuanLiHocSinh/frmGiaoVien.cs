@@ -50,9 +50,9 @@ namespace QuanLiHocSinh
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (flag == 0)
-                FlagEnable();
+            FlagEnable();
             flag = 1;
+            resetAll();
         }
 
         private void btnChonAnh_Click(object sender, EventArgs e)
@@ -67,25 +67,40 @@ namespace QuanLiHocSinh
             }
         }
 
-        private void btnDongY_Click(object sender, EventArgs e)
+        private void insert()
         {
-            string txtGioiTinh = "";
-            if (cbGioiTinh.SelectedItem == "Nam")
+            
+            if (string.IsNullOrEmpty(txtMaGV.Text) || string.IsNullOrEmpty(txtDiaChi.Text) || string.IsNullOrEmpty(txtDienThoai.Text) || string.IsNullOrEmpty(txtTenGV.Text) || picGiaoVien.Image==null)
             {
-                txtGioiTinh = "0";
+                MessageBox.Show("Xin điền dữ liệu vào đầy đủ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                txtGioiTinh = "1";
-            }
-            string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
-            hinhAnh = linkimage;
-            File.Copy(open.FileName, linkimage);
+                string txtGioiTinh = "";
+                if (cbGioiTinh.SelectedItem == "Nam")
+                {
+                    txtGioiTinh = "0";
+                }
+                else
+                {
+                    txtGioiTinh = "1";
+                }
+                string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
+                hinhAnh = linkimage;
+                File.Copy(open.FileName, linkimage);
 
-            giaoVien_BUS.themGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh,txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, hinhAnh);
-            MessageBox.Show("Bạn đã thêm thành công!");
-            FlagDisable();
-            flag = 0;
+                giaoVien_BUS.themGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, hinhAnh);
+                MessageBox.Show("Bạn đã thêm thành công!");
+                FlagDisable();
+                flag = 0;
+            } 
+        }
+
+        private void btnDongY_Click(object sender, EventArgs e)
+        {
+            if (flag == 1) insert();
+            if (flag == 2) delete();
+            //if (flag == 3) UpdateRow();
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -128,7 +143,7 @@ namespace QuanLiHocSinh
             }  
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
+        private void delete() 
         {
             if (grdGiaoVien.SelectedRows.Count >= 1 && txtMaGV.Text != "")
             {
@@ -137,19 +152,26 @@ namespace QuanLiHocSinh
                     giaoVien_BUS.xoaGiaoVien(txtMaGV.Text);
                     foreach (DataGridViewRow row in grdGiaoVien.Rows)
                     {
-                        if (string.Compare(row.Cells["MaGV"].Value.ToString().Trim(), txtMaGV.Text.Trim()) == 0)
+                        if (string.Compare(row.Cells["MAGV"].Value.ToString().Trim(), txtMaGV.Text.Trim()) == 0)
+                        {
+                            File.Delete(row.Cells["HINHANHGV"].Value.ToString());
                             grdGiaoVien.Rows.RemoveAt(row.Index);
-                        
+                        }
                     }
-                    resetAll();
-
+                    
                 }
             }
             else
             {
                 MessageBox.Show("Bạn phải lựa chọn một hàng để xóa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
 
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            flag = 2;
+            //resetAll();
+            FlagEnable();
         }
 
         private void resetAll()
