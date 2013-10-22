@@ -19,7 +19,7 @@ namespace QLHS.DAO
         public DataTable danhsachHocSinh()
         {
             DataTable table = new DataTable();
-            connection.kiemtraKetNoi(con);
+            connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThongTinHocSinh", con);
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(command);

@@ -14,7 +14,7 @@ namespace QLHS.DAO
                 SqlConnection connection = new SqlConnection(connectionStr);
                 return connection;
         }
-        public void kiemtraKetNoi(SqlConnection con)
+        public void kiemTraKetNoi(SqlConnection con)
         {
             if (con.State == ConnectionState.Closed)
             {
