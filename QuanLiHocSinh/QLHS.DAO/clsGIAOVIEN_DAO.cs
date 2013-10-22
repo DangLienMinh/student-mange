@@ -5,17 +5,20 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 using QLHS.DTO;
+
 namespace QLHS.DAO
 {
     public class clsGIAOVIEN_DAO
     {
         private clsConnectDatabase connection;
         private SqlConnection con;
+
         public clsGIAOVIEN_DAO()
         {
             connection = new clsConnectDatabase();
             con = connection.KetNoi();
         }
+
         public DataTable danhSachGiaoVien()
         {
             DataTable table = new DataTable();
@@ -27,6 +30,7 @@ namespace QLHS.DAO
             con.Close();
             return table;
         }
+
         public void themGiaoVien(clsGIAOVIEN_DTO giaovien)
         {
             connection.kiemTraKetNoi(con);
@@ -42,6 +46,7 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
+
         public void suaGiaoVien(clsGIAOVIEN_DTO giaovien)
         {
             
@@ -58,6 +63,7 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
+
         public void xoaGiaoVien(clsGIAOVIEN_DTO giaovien)
         {
             SqlCommand command = new SqlCommand("SP_XoaGiaoVien", con);
