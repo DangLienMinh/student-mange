@@ -14,7 +14,7 @@ namespace QuanLiHocSinh
     public partial class frmGiaoVien : DevComponents.DotNetBar.Office2007Form
     {
         private clsGIAOVIEN_BUS giaoVien_BUS = new clsGIAOVIEN_BUS();
-        private OpenFileDialog open;
+        private OpenFileDialog open=new OpenFileDialog();
         private int flag = 0,dong;
         private string hinhAnh="";
         
@@ -87,10 +87,12 @@ namespace QuanLiHocSinh
                     txtGioiTinh = "1";
                 }
                 string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
-                hinhAnh = linkimage;
                 File.Copy(open.FileName, linkimage);
+                
+                //reset all openfiledialog
+                open.Reset();
 
-                giaoVien_BUS.themGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, hinhAnh);
+                giaoVien_BUS.themGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, linkimage);
                 MessageBox.Show("Bạn đã thêm thành công!");
                 giaoVien_BUS.addRows();
                 FlagDisable();
@@ -111,25 +113,37 @@ namespace QuanLiHocSinh
                 {
                     txtGioiTinh = "1";
                 }
-                string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
-                hinhAnh = linkimage;
-                File.Copy(open.FileName, linkimage);
 
-                giaoVien_BUS.suaGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, hinhAnh);
+
+                if (open.FileName != "")
+                {
+                    string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
+                    File.Copy(open.FileName, linkimage);
+                    if (string.Compare(grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString(), linkimage) == -1)
+                    {
+                        giaoVien_BUS.suaGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, linkimage);
+
+                        // sử dụng filestream để có thể xóa hình ảnh mafkhoong bị thằng picturebox chiếm giữ
+                        FileStream fs = new FileStream(linkimage, FileMode.Open, FileAccess.Read);
+                        picGiaoVien.Image = Image.FromStream(fs);
+                        fs.Close();
+
+                        File.Delete(grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString());
+                    }
+                }
+                else
+                {
+                    giaoVien_BUS.suaGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString());
+
+                }
+
                 MessageBox.Show("Bạn đã sửa thành công!");
 
-                //foreach (DataGridViewRow row1 in grdGiaoVien.Rows)
-                //{
-                //    if (row1.Cells["MAKHOA"].Value != null)
-                //    {
-                //        if (string.Compare(row1.Cells["MAKHOA"].Value.ToString().Trim(), temp.MAKHOA.Trim()) == 0)
-                //        {
-                //            row1.Cells["MAKHOA"].Value = temp.MAKHOA;
-                //            row1.Cells["TENKHOA"].Value = temp.TENKHOA;
-                //        }
-                //    }
-                //}
+                //sửa trong datagrid view
                 giaoVien_BUS.suaDataGrid(grdGiaoVien);
+
+                FlagDisable();
+                flag = 0;
 
             }
             else
@@ -180,10 +194,9 @@ namespace QuanLiHocSinh
                     d = DateTime.Parse(ngaySinh);
                     dtiNgaySinh.Value = d;
                 }
-                
-                string imageLink = grdGiaoVien.Rows[dong].Cells[6].Value.ToString();
 
-                // sử dụng filestream để có thể xóa hình ảnh mafkhoong bị thằng picturebox chiếm giữ
+                // sử dụng filestream để có thể xóa hình ảnh mà không bị thằng picturebox chiếm giữ
+                string imageLink = grdGiaoVien.Rows[dong].Cells[6].Value.ToString();
                 FileStream fs = new FileStream(imageLink,FileMode.Open,FileAccess.Read);
                 picGiaoVien.Image = Image.FromStream(fs);
                 fs.Close();       
