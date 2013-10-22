@@ -169,8 +169,13 @@
     <Content Include="bin\Debug\hinhAnh\005.jpg" />
     <Content Include="bin\Debug\hinhAnh\1200912315167756.jpg" />
     <Content Include="bin\Debug\hinhAnh\20080314-10-800.jpg" />
-    <Content Include="bin\Debug\hinhAnh\20090223143321940374.jpg" />
     <Content Include="bin\Debug\hinhAnh\2009_02_06_19_25_18.jpg" />
+    <Content Include="bin\Debug\hinhAnh\291929_1807153957996_1814367503_1239956_1873060402_n.jpg" />
+    <Content Include="bin\Debug\hinhAnh\302791_467170176658820_645667305_n.jpg" />
+    <Content Include="bin\Debug\hinhAnh\374605_310236802340058_105560116141062_1004243_901536547_n.jpg" />
+    <Content Include="bin\Debug\hinhAnh\486978_309198195847369_778786928_n.jpg" />
+    <Content Include="bin\Debug\hinhAnh\imagesCAILQPGX.jpg" />
+    <Content Include="bin\Debug\hinhAnh\pokemon.jpg" />
     <Content Include="Database\QuanLyHocSinh1.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
