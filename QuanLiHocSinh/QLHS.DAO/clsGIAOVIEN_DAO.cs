@@ -16,7 +16,7 @@ namespace QLHS.DAO
             connection = new clsConnectDatabase();
             con = connection.KetNoi();
         }
-        public DataTable danhsachGiaovien()
+        public DataTable danhSachGiaoVien()
         {
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);
@@ -42,7 +42,7 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
-        public void suaGiaovien(clsGIAOVIEN_DTO giaovien)
+        public void suaGiaoVien(clsGIAOVIEN_DTO giaovien)
         {
             
             SqlCommand command = new SqlCommand("SP_SuaGiaoVien", con);
@@ -58,7 +58,7 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
-        public void xoaGiaovien(clsGIAOVIEN_DTO giaovien)
+        public void xoaGiaoVien(clsGIAOVIEN_DTO giaovien)
         {
             SqlCommand command = new SqlCommand("SP_XoaGiaoVien", con);
             command.CommandType = CommandType.StoredProcedure;
