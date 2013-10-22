@@ -49,7 +49,6 @@ namespace QLHS.DAO
 
         public void suaGiaoVien(clsGIAOVIEN_DTO giaovien)
         {
-            
             SqlCommand command = new SqlCommand("SP_SuaGiaoVien", con);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@MAGV", SqlDbType.Char).Value = giaovien.Magv;
@@ -73,5 +72,7 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
+
+
     }
 }

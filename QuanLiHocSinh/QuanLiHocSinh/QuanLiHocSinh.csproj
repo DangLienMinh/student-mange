@@ -165,6 +165,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="bin\Debug\hinhAnh\a8.gif" />
     <Content Include="Database\QuanLyHocSinh1.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
