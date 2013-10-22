@@ -61,7 +61,6 @@ namespace QuanLiHocSinh
             DialogResult result = open.ShowDialog();
             if (result == DialogResult.OK)
             {
-                //hinhAnh = open.FileName;
                 picGiaoVien.SizeMode = PictureBoxSizeMode.StretchImage;
                 picGiaoVien.Image = Image.FromFile(open.FileName);
                 
@@ -84,10 +83,6 @@ namespace QuanLiHocSinh
             File.Copy(open.FileName, linkimage);
 
             giaoVien_BUS.themGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh,txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, hinhAnh);
-
-            
-           
-
             MessageBox.Show("Bạn đã thêm thành công!");
             FlagDisable();
             flag = 0;
@@ -101,9 +96,10 @@ namespace QuanLiHocSinh
 
         private void grdGiaoVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (grdGiaoVien.Focused == true && grdGiaoVien.RowCount > 1)
+            dong = e.RowIndex;
+            if (dong>=0)
             {
-                dong = e.RowIndex;
+                
                 txtMaGV.Text = grdGiaoVien.Rows[dong].Cells[0].Value.ToString();
                 txtTenGV.Text = grdGiaoVien.Rows[dong].Cells[1].Value.ToString();
                 txtDiaChi.Text = grdGiaoVien.Rows[dong].Cells[4].Value.ToString();
@@ -129,7 +125,41 @@ namespace QuanLiHocSinh
                 }
                 string imageLink = grdGiaoVien.Rows[dong].Cells[6].Value.ToString();
                 picGiaoVien.Image = Image.FromFile(imageLink);
+            }  
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (grdGiaoVien.SelectedRows.Count >= 1 && txtMaGV.Text != "")
+            {
+                if (MessageBox.Show("Bạn có chắc muốn xóa giáo viên đã được lựa chọn ", "Xóa giáo viên", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    giaoVien_BUS.xoaGiaoVien(txtMaGV.Text);
+                    foreach (DataGridViewRow row in grdGiaoVien.Rows)
+                    {
+                        if (string.Compare(row.Cells["MaGV"].Value.ToString().Trim(), txtMaGV.Text.Trim()) == 0)
+                            grdGiaoVien.Rows.RemoveAt(row.Index);
+                        
+                    }
+                    resetAll();
+
+                }
             }
+            else
+            {
+                MessageBox.Show("Bạn phải lựa chọn một hàng để xóa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+        private void resetAll()
+        {
+            txtMaGV.Text = "";
+            txtTenGV.Text = "";
+            txtDienThoai.Text = "";
+            txtDiaChi.Text = "";
+            dtiNgaySinh.Value = DateTime.Now;
+            picGiaoVien.Image = null;
         }
     }
 }
