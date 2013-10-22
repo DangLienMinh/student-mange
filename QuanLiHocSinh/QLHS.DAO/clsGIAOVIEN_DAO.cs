@@ -22,10 +22,10 @@ namespace QLHS.DAO
         public DataTable danhSachGiaoVien()
         {
             DataTable table = new DataTable();
-            connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThongTinGiaoVien", con);
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
+            connection.kiemTraKetNoi(con);
             adapter.Fill(table);
             con.Close();
             return table;
@@ -33,7 +33,6 @@ namespace QLHS.DAO
 
         public void themGiaoVien(clsGIAOVIEN_DTO giaovien)
         {
-            connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThemGiaoVien", con);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@MAGV", SqlDbType.Char).Value = giaovien.Magv;
@@ -43,6 +42,7 @@ namespace QLHS.DAO
             command.Parameters.Add("@DIACHIGV", SqlDbType.NVarChar).Value = giaovien.Diachigv;
             command.Parameters.Add("@DIENTHOAIGV", SqlDbType.NVarChar).Value = giaovien.Dienthoaigv;
             command.Parameters.Add("@HINHANHGV", SqlDbType.NVarChar).Value = giaovien.Hinhanhgv;
+            connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
         }

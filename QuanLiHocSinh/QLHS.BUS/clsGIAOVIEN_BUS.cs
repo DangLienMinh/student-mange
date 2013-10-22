@@ -6,12 +6,16 @@ using QLHS.DTO;
 using DevComponents.DotNetBar.Controls;
 using DevComponents.Editors.DateTimeAdv;
 using System.Windows.Forms;
+using System.Data;
+
 namespace QLHS.BUS
 {
     public class clsGIAOVIEN_BUS
     {
         clsGIAOVIEN_DAO giaoVien_DAO=new clsGIAOVIEN_DAO();
         clsGIAOVIEN_DTO giaoVien_DTO;
+        DataTable tblGiaoVien = new DataTable();
+        public DataRow dr;
 
         public clsGIAOVIEN_BUS() 
         {
@@ -26,9 +30,11 @@ namespace QLHS.BUS
             comboBox.SelectedItem = "Nam";
         }
 
-        public void hienThiDanhSach(DataGridViewX drgGV)
+        public void hienThiDanhSach(DataGridViewX grdGV)
         {
-            drgGV.DataSource = giaoVien_DAO.danhSachGiaoVien();
+            tblGiaoVien = giaoVien_DAO.danhSachGiaoVien();
+            grdGV.DataSource=tblGiaoVien;
+
         }
 
         public void xoaGiaoVien(string maGV) 
@@ -49,6 +55,59 @@ namespace QLHS.BUS
             giaoVien_DTO.Ngsinhgv = ngaySinh.Value;
             giaoVien_DTO.Dienthoaigv = DienThoai;
             giaoVien_DAO.themGiaoVien(giaoVien_DTO);
+        }
+
+        public void suaGiaoVien(string maGV, string TenGV, DateTimeInput ngaySinh, string DienThoai, string gioiTinh, string diaChi, string HinhAnh)
+        {
+            giaoVien_DTO = new clsGIAOVIEN_DTO();
+            giaoVien_DTO.Magv = maGV;
+            giaoVien_DTO.Tengv = TenGV;
+            giaoVien_DTO.Gioitinhgv = gioiTinh;
+            giaoVien_DTO.Diachigv = diaChi;
+            giaoVien_DTO.Hinhanhgv = HinhAnh;
+            giaoVien_DTO.Ngsinhgv = ngaySinh.Value;
+            giaoVien_DTO.Dienthoaigv = DienThoai;
+            giaoVien_DAO.suaGiaoVien(giaoVien_DTO);
+        }
+
+        
+
+        private DataRow getDatarow()
+        {
+            dr = tblGiaoVien.NewRow();
+            dr["MAGV"] = giaoVien_DTO.Magv;
+            dr["TENGV"] = giaoVien_DTO.Tengv;
+            dr["NGSINHGV"] =  giaoVien_DTO.Ngsinhgv;
+            dr["DIACHIGV"] = giaoVien_DTO.Diachigv;
+            dr["GIOITINHGV"] = giaoVien_DTO.Gioitinhgv;
+            dr["DIENTHOAIGV"] =  giaoVien_DTO.Dienthoaigv;
+            dr["HINHANHGV"] = giaoVien_DTO.Hinhanhgv;
+            return dr;
+        }
+
+        //add dong vua them vao
+        public void addRows() 
+        {
+            tblGiaoVien.Rows.Add(getDatarow());
+        }
+
+        public void suaDataGrid(DataGridViewX grdGV)
+        {
+            foreach (DataGridViewRow row1 in grdGV.Rows)
+            {
+                if (row1.Cells["MAGV"].Value != null)
+                {
+                    if (string.Compare(row1.Cells["MAGV"].Value.ToString().Trim(), giaoVien_DTO.Magv.Trim()) == 0)
+                    {
+                        row1.Cells["TENGV"].Value = giaoVien_DTO.Tengv;
+                        row1.Cells["NGSINHGV"].Value = giaoVien_DTO.Ngsinhgv;
+                        row1.Cells["DIACHIGV"].Value = giaoVien_DTO.Diachigv;
+                        row1.Cells["GIOITINHGV"].Value = giaoVien_DTO.Gioitinhgv;
+                        row1.Cells["DIENTHOAIGV"].Value = giaoVien_DTO.Dienthoaigv;
+                        row1.Cells["HINHANHGV"].Value = giaoVien_DTO.Hinhanhgv;
+                    }
+                }
+            }
         }
 
     }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using QLHS.BUS;
 using System.IO;
+
 namespace QuanLiHocSinh
 {
     public partial class frmGiaoVien : DevComponents.DotNetBar.Office2007Form
@@ -61,7 +62,7 @@ namespace QuanLiHocSinh
             DialogResult result = open.ShowDialog();
             if (result == DialogResult.OK)
             {
-                picGiaoVien.SizeMode = PictureBoxSizeMode.StretchImage;
+                //picGiaoVien.SizeMode = PictureBoxSizeMode.StretchImage;
                 picGiaoVien.Image = Image.FromFile(open.FileName);
                 
             }
@@ -91,16 +92,57 @@ namespace QuanLiHocSinh
 
                 giaoVien_BUS.themGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, hinhAnh);
                 MessageBox.Show("Bạn đã thêm thành công!");
+                giaoVien_BUS.addRows();
                 FlagDisable();
                 flag = 0;
             } 
+        }
+
+        private void update()
+        {
+            if (grdGiaoVien.SelectedRows.Count >= 1 && txtMaGV.Text != "")
+            {
+                string txtGioiTinh = "";
+                if (cbGioiTinh.SelectedItem == "Nam")
+                {
+                    txtGioiTinh = "0";
+                }
+                else
+                {
+                    txtGioiTinh = "1";
+                }
+                string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
+                hinhAnh = linkimage;
+                File.Copy(open.FileName, linkimage);
+
+                giaoVien_BUS.suaGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, hinhAnh);
+                MessageBox.Show("Bạn đã sửa thành công!");
+
+                //foreach (DataGridViewRow row1 in grdGiaoVien.Rows)
+                //{
+                //    if (row1.Cells["MAKHOA"].Value != null)
+                //    {
+                //        if (string.Compare(row1.Cells["MAKHOA"].Value.ToString().Trim(), temp.MAKHOA.Trim()) == 0)
+                //        {
+                //            row1.Cells["MAKHOA"].Value = temp.MAKHOA;
+                //            row1.Cells["TENKHOA"].Value = temp.TENKHOA;
+                //        }
+                //    }
+                //}
+                giaoVien_BUS.suaDataGrid(grdGiaoVien);
+
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải lựa chọn một hàng để sửa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnDongY_Click(object sender, EventArgs e)
         {
             if (flag == 1) insert();
             if (flag == 2) delete();
-            //if (flag == 3) UpdateRow();
+            if (flag == 3) update();
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -138,8 +180,13 @@ namespace QuanLiHocSinh
                     d = DateTime.Parse(ngaySinh);
                     dtiNgaySinh.Value = d;
                 }
+                
                 string imageLink = grdGiaoVien.Rows[dong].Cells[6].Value.ToString();
-                picGiaoVien.Image = Image.FromFile(imageLink);
+
+                // sử dụng filestream để có thể xóa hình ảnh mafkhoong bị thằng picturebox chiếm giữ
+                FileStream fs = new FileStream(imageLink,FileMode.Open,FileAccess.Read);
+                picGiaoVien.Image = Image.FromStream(fs);
+                fs.Close();       
             }  
         }
 
@@ -154,11 +201,15 @@ namespace QuanLiHocSinh
                     {
                         if (string.Compare(row.Cells["MAGV"].Value.ToString().Trim(), txtMaGV.Text.Trim()) == 0)
                         {
+                            
                             File.Delete(row.Cells["HINHANHGV"].Value.ToString());
                             grdGiaoVien.Rows.RemoveAt(row.Index);
+                            resetAll();
+                            FlagDisable();
+                            flag = 0;
+                            break;
                         }
-                    }
-                    
+                    } 
                 }
             }
             else
@@ -183,5 +234,13 @@ namespace QuanLiHocSinh
             dtiNgaySinh.Value = DateTime.Now;
             picGiaoVien.Image = null;
         }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            flag = 3;
+            FlagEnable();
+        }
+
+
     }
 }
