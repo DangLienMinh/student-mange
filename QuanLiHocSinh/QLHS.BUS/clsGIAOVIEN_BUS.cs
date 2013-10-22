@@ -51,6 +51,22 @@ namespace QLHS.BUS
 
         }
 
+        public void timGVMaGV(DataGridViewX grdGV, string maGV)
+        {
+            giaoVien_DTO = new clsGIAOVIEN_DTO();
+            giaoVien_DTO.Magv = maGV;
+            tblGiaoVien = giaoVien_DAO.timGVMaGV(giaoVien_DTO);
+            grdGV.DataSource = tblGiaoVien;
+        }
+
+        public void timGVTenGV(DataGridViewX grdGV,string tenGV)
+        {
+            giaoVien_DTO = new clsGIAOVIEN_DTO();
+            giaoVien_DTO.Tengv = tenGV;
+            tblGiaoVien = giaoVien_DAO.timGVTenGV(giaoVien_DTO);
+            grdGV.DataSource = tblGiaoVien;
+        }
+
         public void xoaGiaoVien(string maGV) 
         {
             giaoVien_DTO=new clsGIAOVIEN_DTO();
