@@ -61,28 +61,32 @@ namespace QuanLiHocSinh
             DialogResult result = open.ShowDialog();
             if (result == DialogResult.OK)
             {
-                hinhAnh = open.FileName;
+                //hinhAnh = open.FileName;
                 picGiaoVien.SizeMode = PictureBoxSizeMode.StretchImage;
                 picGiaoVien.Image = Image.FromFile(open.FileName);
+                
             }
         }
 
         private void btnDongY_Click(object sender, EventArgs e)
         {
             string txtGioiTinh = "";
-            if (cbGioiTinh.SelectedText == "Nam")
+            if (cbGioiTinh.SelectedItem == "Nam")
             {
-                txtGioiTinh = "";
+                txtGioiTinh = "0";
             }
             else
             {
                 txtGioiTinh = "1";
             }
+            string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
+            hinhAnh = linkimage;
+            File.Copy(open.FileName, linkimage);
 
             giaoVien_BUS.themGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh,txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, hinhAnh);
 
-            string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
-            File.Copy(open.FileName, linkimage);
+            
+           
 
             MessageBox.Show("Bạn đã thêm thành công!");
             FlagDisable();
@@ -110,11 +114,11 @@ namespace QuanLiHocSinh
 
                 if (gioiTinh == "0")
                 {
-                    cbGioiTinh.SelectedValue = "Nam";
+                    cbGioiTinh.SelectedItem = "Nam";
                 }
                 else
                 {
-                    cbGioiTinh.SelectedValue = "Nữ";
+                    cbGioiTinh.SelectedItem = "Nữ";
                 }
 
                 if (ngaySinh != "")
