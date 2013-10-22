@@ -16,11 +16,13 @@ namespace QuanLiHocSinh
         private clsGIAOVIEN_BUS giaoVien_BUS = new clsGIAOVIEN_BUS();
         private OpenFileDialog open=new OpenFileDialog();
         private int flag = 0,dong;
-        private string hinhAnh="";
+        private int viTri, Tong;
+        
         
         public frmGiaoVien()
         {
             InitializeComponent();
+            
         }
 
         private void FlagEnable()
@@ -47,6 +49,9 @@ namespace QuanLiHocSinh
             giaoVien_BUS.hienThiComboBox(cbGioiTinh);
             FlagDisable();
             flag = 0;
+            sapXep();
+            btnDau.Enabled = false;
+            btnTruoc.Enabled = false;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -94,7 +99,7 @@ namespace QuanLiHocSinh
 
                 giaoVien_BUS.themGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, linkimage);
                 MessageBox.Show("Bạn đã thêm thành công!");
-                giaoVien_BUS.addRows();
+                giaoVien_BUS.themDong();
                 FlagDisable();
                 flag = 0;
             } 
@@ -199,7 +204,8 @@ namespace QuanLiHocSinh
                 string imageLink = grdGiaoVien.Rows[dong].Cells[6].Value.ToString();
                 FileStream fs = new FileStream(imageLink,FileMode.Open,FileAccess.Read);
                 picGiaoVien.Image = Image.FromStream(fs);
-                fs.Close();       
+                fs.Close();
+                sapXep();
             }  
         }
 
@@ -216,7 +222,8 @@ namespace QuanLiHocSinh
                         {
                             
                             File.Delete(row.Cells["HINHANHGV"].Value.ToString());
-                            grdGiaoVien.Rows.RemoveAt(row.Index);
+                            giaoVien_BUS.xoaDong(grdGiaoVien, txtMaGV.Text);
+                            //grdGiaoVien.Rows.RemoveAt(row.Index);
                             resetAll();
                             FlagDisable();
                             flag = 0;
@@ -254,6 +261,83 @@ namespace QuanLiHocSinh
             FlagEnable();
         }
 
+        private void sapXep()
+        {
+            viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
+            Tong = this.BindingContext[grdGiaoVien.DataSource].Count;
+            txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
+            txtMaGV.Text = grdGiaoVien.Rows[viTri].Cells[0].Value.ToString();
+            txtTenGV.Text = grdGiaoVien.Rows[viTri].Cells[1].Value.ToString();
+            txtDiaChi.Text = grdGiaoVien.Rows[viTri].Cells[4].Value.ToString();
+            txtDienThoai.Text = grdGiaoVien.Rows[viTri].Cells[5].Value.ToString();
+
+            string ngaySinh = grdGiaoVien.Rows[viTri].Cells[2].Value.ToString();
+            string gioiTinh = grdGiaoVien.Rows[viTri].Cells[3].Value.ToString();
+
+            if (gioiTinh == "0")
+            {
+                cbGioiTinh.SelectedItem = "Nam";
+            }
+            else
+            {
+                cbGioiTinh.SelectedItem = "Nữ";
+            }
+
+            if (ngaySinh != "")
+            {
+                DateTime d = new DateTime();
+                d = DateTime.Parse(ngaySinh);
+                dtiNgaySinh.Value = d;
+            }
+
+            // sử dụng filestream để có thể xóa hình ảnh mà không bị thằng picturebox chiếm giữ
+            string imageLink = grdGiaoVien.Rows[viTri].Cells[6].Value.ToString();
+            FileStream fs = new FileStream(imageLink, FileMode.Open, FileAccess.Read);
+            picGiaoVien.Image = Image.FromStream(fs);
+            fs.Close();       
+
+            
+        }
+
+        private void btnDau_Click(object sender, EventArgs e)
+        {
+            viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
+            this.BindingContext[grdGiaoVien.DataSource].Position = 0;
+            sapXep();
+            btnTruoc.Enabled = false;
+            btnDau.Enabled = false;
+            btnCuoi.Enabled = true;
+            btnSau.Enabled = true;
+        }
+
+        private void btnCuoi_Click(object sender, EventArgs e)
+        {
+            viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
+            btnDau.Enabled = true;
+            btnTruoc.Enabled = true;
+            this.BindingContext[grdGiaoVien.DataSource].Position = this.BindingContext[grdGiaoVien.DataSource].Count - 1;
+            sapXep();
+            btnCuoi.Enabled = false;
+            btnSau.Enabled = false;
+            btnTruoc.Enabled = true;
+            btnDau.Enabled = true;
+        }
+
+        private void btnTruoc_Click(object sender, EventArgs e)
+        {
+            viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
+            this.BindingContext[grdGiaoVien.DataSource].Position = viTri - 1;
+            sapXep();
+        }
+
+        private void btnSau_Click(object sender, EventArgs e)
+        {
+            viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
+            btnDau.Enabled = true;
+            btnTruoc.Enabled = true;
+            this.BindingContext[grdGiaoVien.DataSource].Position = viTri + 1;
+            sapXep();
+        }
 
     }
 }
