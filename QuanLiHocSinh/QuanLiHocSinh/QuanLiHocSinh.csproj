@@ -165,11 +165,12 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="bin\Debug\hinhAnh\01.jpg" />
-    <Content Include="bin\Debug\hinhAnh\1.jpg" />
-    <Content Include="bin\Debug\hinhAnh\100.jpg" />
+    <Content Include="bin\Debug\hinhAnh\004.jpg" />
+    <Content Include="bin\Debug\hinhAnh\005.jpg" />
     <Content Include="bin\Debug\hinhAnh\1200912315167756.jpg" />
-    <Content Include="bin\Debug\hinhAnh\a8.gif" />
+    <Content Include="bin\Debug\hinhAnh\20080314-10-800.jpg" />
+    <Content Include="bin\Debug\hinhAnh\20090223143321940374.jpg" />
+    <Content Include="bin\Debug\hinhAnh\2009_02_06_19_25_18.jpg" />
     <Content Include="Database\QuanLyHocSinh1.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
