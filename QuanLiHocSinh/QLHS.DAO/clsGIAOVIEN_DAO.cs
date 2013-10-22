@@ -31,6 +31,32 @@ namespace QLHS.DAO
             return table;
         }
 
+        public DataTable timGVMaGV(clsGIAOVIEN_DTO giaovien)
+        {
+            DataTable table = new DataTable();
+            SqlCommand command = new SqlCommand("SP_TimGiaoVienMaGV", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MAGV", SqlDbType.Char).Value = giaovien.Magv;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            connection.kiemTraKetNoi(con);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
+        public DataTable timGVTenGV(clsGIAOVIEN_DTO giaovien)
+        {
+            DataTable table = new DataTable();
+            SqlCommand command = new SqlCommand("SP_TimGiaoVienTenGV", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@TENGV", SqlDbType.NVarChar).Value = giaovien.Tengv;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            connection.kiemTraKetNoi(con);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
         public void themGiaoVien(clsGIAOVIEN_DTO giaovien)
         {
             SqlCommand command = new SqlCommand("SP_ThemGiaoVien", con);
