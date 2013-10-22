@@ -46,7 +46,7 @@
             this.btnChonAnh = new DevComponents.DotNetBar.ButtonX();
             this.picGiaoVien = new System.Windows.Forms.PictureBox();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.txtNgaySinh = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
+            this.dtiNgaySinh = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.cbGioiTinh = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.btnSua = new DevComponents.DotNetBar.ButtonX();
             this.btnXoa = new DevComponents.DotNetBar.ButtonX();
@@ -79,7 +79,7 @@
             this.navigationPanePanel1.SuspendLayout();
             this.navigationPanePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picGiaoVien)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNgaySinh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtiNgaySinh)).BeginInit();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdGiaoVien)).BeginInit();
             this.SuspendLayout();
@@ -219,7 +219,7 @@
             this.navigationPanePanel2.Controls.Add(this.btnChonAnh);
             this.navigationPanePanel2.Controls.Add(this.picGiaoVien);
             this.navigationPanePanel2.Controls.Add(this.labelX1);
-            this.navigationPanePanel2.Controls.Add(this.txtNgaySinh);
+            this.navigationPanePanel2.Controls.Add(this.dtiNgaySinh);
             this.navigationPanePanel2.Controls.Add(this.cbGioiTinh);
             this.navigationPanePanel2.Controls.Add(this.btnSua);
             this.navigationPanePanel2.Controls.Add(this.btnXoa);
@@ -253,8 +253,9 @@
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(73, 23);
             this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnHuy.TabIndex = 31;
+            this.btnHuy.TabIndex = 11;
             this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnDongY
             // 
@@ -264,8 +265,9 @@
             this.btnDongY.Name = "btnDongY";
             this.btnDongY.Size = new System.Drawing.Size(72, 23);
             this.btnDongY.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnDongY.TabIndex = 32;
+            this.btnDongY.TabIndex = 10;
             this.btnDongY.Text = "Đồng ý";
+            this.btnDongY.Click += new System.EventHandler(this.btnDongY_Click);
             // 
             // btnChonAnh
             // 
@@ -275,9 +277,10 @@
             this.btnChonAnh.Name = "btnChonAnh";
             this.btnChonAnh.Size = new System.Drawing.Size(95, 32);
             this.btnChonAnh.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnChonAnh.TabIndex = 30;
+            this.btnChonAnh.TabIndex = 6;
             this.btnChonAnh.Tag = "";
             this.btnChonAnh.Text = "Chọn ảnh ...";
+            this.btnChonAnh.Click += new System.EventHandler(this.btnChonAnh_Click);
             // 
             // picGiaoVien
             // 
@@ -300,53 +303,55 @@
             this.labelX1.TabIndex = 28;
             this.labelX1.Text = "Giới tính";
             // 
-            // txtNgaySinh
+            // dtiNgaySinh
             // 
             // 
             // 
             // 
-            this.txtNgaySinh.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.txtNgaySinh.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtNgaySinh.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
-            this.txtNgaySinh.ButtonDropDown.Visible = true;
-            this.txtNgaySinh.IsPopupCalendarOpen = false;
-            this.txtNgaySinh.Location = new System.Drawing.Point(12, 118);
+            this.dtiNgaySinh.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.dtiNgaySinh.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.dtiNgaySinh.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
+            this.dtiNgaySinh.ButtonDropDown.Visible = true;
+            this.dtiNgaySinh.CustomFormat = "dd/MM/yyyy";
+            this.dtiNgaySinh.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
+            this.dtiNgaySinh.IsPopupCalendarOpen = false;
+            this.dtiNgaySinh.Location = new System.Drawing.Point(12, 118);
             // 
             // 
             // 
-            this.txtNgaySinh.MonthCalendar.AnnuallyMarkedDates = new System.DateTime[0];
+            this.dtiNgaySinh.MonthCalendar.AnnuallyMarkedDates = new System.DateTime[0];
             // 
             // 
             // 
-            this.txtNgaySinh.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtNgaySinh.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
-            this.txtNgaySinh.MonthCalendar.ClearButtonVisible = true;
+            this.dtiNgaySinh.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.dtiNgaySinh.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
+            this.dtiNgaySinh.MonthCalendar.ClearButtonVisible = true;
             // 
             // 
             // 
-            this.txtNgaySinh.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
-            this.txtNgaySinh.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtNgaySinh.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.txtNgaySinh.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.txtNgaySinh.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-            this.txtNgaySinh.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
-            this.txtNgaySinh.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtNgaySinh.MonthCalendar.DisplayMonth = new System.DateTime(2013, 10, 1, 0, 0, 0, 0);
-            this.txtNgaySinh.MonthCalendar.MarkedDates = new System.DateTime[0];
-            this.txtNgaySinh.MonthCalendar.MonthlyMarkedDates = new System.DateTime[0];
+            this.dtiNgaySinh.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.dtiNgaySinh.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
+            this.dtiNgaySinh.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.dtiNgaySinh.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.dtiNgaySinh.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.dtiNgaySinh.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
+            this.dtiNgaySinh.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.dtiNgaySinh.MonthCalendar.DisplayMonth = new System.DateTime(2013, 10, 1, 0, 0, 0, 0);
+            this.dtiNgaySinh.MonthCalendar.MarkedDates = new System.DateTime[0];
+            this.dtiNgaySinh.MonthCalendar.MonthlyMarkedDates = new System.DateTime[0];
             // 
             // 
             // 
-            this.txtNgaySinh.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.txtNgaySinh.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtNgaySinh.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.txtNgaySinh.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtNgaySinh.MonthCalendar.TodayButtonVisible = true;
-            this.txtNgaySinh.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
-            this.txtNgaySinh.Name = "txtNgaySinh";
-            this.txtNgaySinh.Size = new System.Drawing.Size(154, 20);
-            this.txtNgaySinh.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtNgaySinh.TabIndex = 27;
+            this.dtiNgaySinh.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.dtiNgaySinh.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
+            this.dtiNgaySinh.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.dtiNgaySinh.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.dtiNgaySinh.MonthCalendar.TodayButtonVisible = true;
+            this.dtiNgaySinh.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
+            this.dtiNgaySinh.Name = "dtiNgaySinh";
+            this.dtiNgaySinh.Size = new System.Drawing.Size(154, 20);
+            this.dtiNgaySinh.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.dtiNgaySinh.TabIndex = 2;
             // 
             // cbGioiTinh
             // 
@@ -358,7 +363,7 @@
             this.cbGioiTinh.Name = "cbGioiTinh";
             this.cbGioiTinh.Size = new System.Drawing.Size(59, 20);
             this.cbGioiTinh.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbGioiTinh.TabIndex = 26;
+            this.cbGioiTinh.TabIndex = 4;
             // 
             // btnSua
             // 
@@ -368,7 +373,7 @@
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 23);
             this.btnSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnSua.TabIndex = 23;
+            this.btnSua.TabIndex = 9;
             this.btnSua.Text = "Sửa";
             // 
             // btnXoa
@@ -379,7 +384,7 @@
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(73, 23);
             this.btnXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnXoa.TabIndex = 24;
+            this.btnXoa.TabIndex = 8;
             this.btnXoa.Text = "Xóa";
             // 
             // btnThem
@@ -390,8 +395,9 @@
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(72, 23);
             this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnThem.TabIndex = 25;
+            this.btnThem.TabIndex = 7;
             this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // labelX2
             // 
@@ -451,7 +457,7 @@
             this.txtDienThoai.Location = new System.Drawing.Point(11, 167);
             this.txtDienThoai.Name = "txtDienThoai";
             this.txtDienThoai.Size = new System.Drawing.Size(75, 20);
-            this.txtDienThoai.TabIndex = 20;
+            this.txtDienThoai.TabIndex = 3;
             // 
             // txtDiaChi
             // 
@@ -463,7 +469,7 @@
             this.txtDiaChi.Location = new System.Drawing.Point(11, 214);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(155, 20);
-            this.txtDiaChi.TabIndex = 21;
+            this.txtDiaChi.TabIndex = 5;
             // 
             // txtTenGV
             // 
@@ -475,7 +481,7 @@
             this.txtTenGV.Location = new System.Drawing.Point(11, 69);
             this.txtTenGV.Name = "txtTenGV";
             this.txtTenGV.Size = new System.Drawing.Size(155, 20);
-            this.txtTenGV.TabIndex = 22;
+            this.txtTenGV.TabIndex = 1;
             // 
             // txtMaGV
             // 
@@ -487,7 +493,7 @@
             this.txtMaGV.Location = new System.Drawing.Point(11, 25);
             this.txtMaGV.Name = "txtMaGV";
             this.txtMaGV.Size = new System.Drawing.Size(155, 20);
-            this.txtMaGV.TabIndex = 19;
+            this.txtMaGV.TabIndex = 0;
             // 
             // labelX14
             // 
@@ -660,6 +666,7 @@
             this.grdGiaoVien.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grdGiaoVien.Size = new System.Drawing.Size(735, 474);
             this.grdGiaoVien.TabIndex = 9;
+            this.grdGiaoVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdGiaoVien_CellClick);
             // 
             // MAGV
             // 
@@ -702,6 +709,7 @@
             this.HINHANHGV.DataPropertyName = "HINHANHGV";
             this.HINHANHGV.HeaderText = "Hình ảnh";
             this.HINHANHGV.Name = "HINHANHGV";
+            this.HINHANHGV.Visible = false;
             // 
             // frmGiaoVien
             // 
@@ -714,12 +722,13 @@
             this.Name = "frmGiaoVien";
             this.Text = "Quản lý giáo viên";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmGiaoVien_Load);
             this.navigationPane1.ResumeLayout(false);
             this.navigationPanePanel1.ResumeLayout(false);
             this.navigationPanePanel1.PerformLayout();
             this.navigationPanePanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picGiaoVien)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNgaySinh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtiNgaySinh)).EndInit();
             this.groupPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdGiaoVien)).EndInit();
             this.ResumeLayout(false);
@@ -742,7 +751,7 @@
         private DevComponents.DotNetBar.ButtonX btnChonAnh;
         private System.Windows.Forms.PictureBox picGiaoVien;
         private DevComponents.DotNetBar.LabelX labelX1;
-        private DevComponents.Editors.DateTimeAdv.DateTimeInput txtNgaySinh;
+        private DevComponents.Editors.DateTimeAdv.DateTimeInput dtiNgaySinh;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbGioiTinh;
         private DevComponents.DotNetBar.ButtonX btnSua;
         private DevComponents.DotNetBar.ButtonX btnXoa;
