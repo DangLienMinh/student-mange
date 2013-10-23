@@ -388,5 +388,18 @@ namespace QuanLiHocSinh
             }    
         }
 
+        private void txt_Enter(object sender, EventArgs e)
+        {
+            ((TextBox)sender).BackColor = Color.Yellow;
+        }
+
+        private void txt_Leave(object sender, EventArgs e)
+        {
+            txtDiaChi.BackColor = Color.White;
+            txtDienThoai.BackColor = Color.White;
+            txtMaGV.BackColor = Color.White;
+            txtTenGV.BackColor = Color.White;
+        }
+
     }
 }

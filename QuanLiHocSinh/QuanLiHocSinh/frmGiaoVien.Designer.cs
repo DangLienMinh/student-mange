@@ -372,7 +372,9 @@
             this.txtDienThoai.Name = "txtDienThoai";
             this.txtDienThoai.Size = new System.Drawing.Size(75, 20);
             this.txtDienThoai.TabIndex = 3;
+            this.txtDienThoai.Enter += new System.EventHandler(this.txt_Enter);
             this.txtDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDienThoai_KeyPress);
+            this.txtDienThoai.Leave += new System.EventHandler(this.txt_Leave);
             // 
             // txtDiaChi
             // 
@@ -385,6 +387,8 @@
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(155, 20);
             this.txtDiaChi.TabIndex = 5;
+            this.txtDiaChi.Enter += new System.EventHandler(this.txt_Enter);
+            this.txtDiaChi.Leave += new System.EventHandler(this.txt_Leave);
             // 
             // txtTenGV
             // 
@@ -397,9 +401,12 @@
             this.txtTenGV.Name = "txtTenGV";
             this.txtTenGV.Size = new System.Drawing.Size(155, 20);
             this.txtTenGV.TabIndex = 1;
+            this.txtTenGV.Enter += new System.EventHandler(this.txt_Enter);
+            this.txtTenGV.Leave += new System.EventHandler(this.txt_Leave);
             // 
             // txtMaGV
             // 
+            this.txtMaGV.BackColor = System.Drawing.SystemColors.Window;
             // 
             // 
             // 
@@ -409,6 +416,8 @@
             this.txtMaGV.Name = "txtMaGV";
             this.txtMaGV.Size = new System.Drawing.Size(155, 20);
             this.txtMaGV.TabIndex = 0;
+            this.txtMaGV.Enter += new System.EventHandler(this.txt_Enter);
+            this.txtMaGV.Leave += new System.EventHandler(this.txt_Leave);
             // 
             // labelX14
             // 
@@ -443,7 +452,7 @@
             this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(292, 546);
+            this.navigationPanePanel1.Size = new System.Drawing.Size(292, 444);
             this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
