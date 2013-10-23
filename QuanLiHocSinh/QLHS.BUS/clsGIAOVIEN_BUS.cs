@@ -40,7 +40,6 @@ namespace QLHS.BUS
         {
             comboBox.Items.Add("Nam");
             comboBox.Items.Add("Nữ");
-            comboBox.Items.Add("Gay");
             comboBox.SelectedItem = "Nam";
         }
 

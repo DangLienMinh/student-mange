@@ -1,11 +1,86 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
+using QLHS.DAO;
+using QLHS.DTO;
+using DevComponents.DotNetBar.Controls;
+using DevComponents.Editors.DateTimeAdv;
+using System.Windows.Forms;
+using System.Data;
 
 namespace QLHS.BUS
 {
-    class clsHOCKY_BUS
+    public class clsHOCKY_BUS
     {
+        clsHOCKY_DAO hocKy_DAO = new clsHOCKY_DAO();
+        clsHOCKY_DTO hocKy_DTO;
+        DataTable tblHocKy = new DataTable();
+        private DataRow dr;
+
+        public void hienThiDanhSach(DataGridViewX grdHocKy)
+        {
+            tblHocKy = hocKy_DAO.danhSachHocKy();
+            grdHocKy.DataSource = tblHocKy;
+        }
+
+        public void hienThiComboBox(ComboBoxEx comboBox)
+        {
+            comboBox.Items.Add("1");
+            comboBox.Items.Add("2");
+            comboBox.Items.Add("3");
+            comboBox.SelectedItem = "1";
+        }
+
+        public void themHocKy(string maHK, string tenHK,string heSo)
+        {
+            hocKy_DTO = new clsHOCKY_DTO();
+            hocKy_DTO.Mahk = maHK;
+            hocKy_DTO.Tenhk = tenHK;
+            hocKy_DTO.Hesohk = heSo;
+
+            hocKy_DAO.themHocKy(hocKy_DTO);
+        }
+
+        public void suaHocKy(string maHK, string tenHK, string heSo)
+        {
+            hocKy_DTO = new clsHOCKY_DTO();
+            hocKy_DTO.Mahk = maHK;
+            hocKy_DTO.Tenhk = tenHK;
+            hocKy_DTO.Hesohk = heSo;
+
+            hocKy_DAO.suaHocKy(hocKy_DTO);
+        }
+
+        private DataRow getDatarow()
+        {
+            dr = tblHocKy.NewRow();
+            dr["MAHK"] = hocKy_DTO.Mahk;
+            dr["TENHK"] = hocKy_DTO.Tenhk;
+            dr["HESOHK"] = hocKy_DTO.Hesohk;
+
+            return dr;
+        }
+
+        //add dong vua them vao
+        public void themDong()
+        {
+            tblHocKy.Rows.Add(getDatarow());
+        }
+
+        public void suaDataGrid(DataGridViewX grdHocKy)
+        {
+            foreach (DataGridViewRow row1 in grdHocKy.Rows)
+            {
+                if (row1.Cells["MAHK"].Value != null)
+                {
+                    if (string.Compare(row1.Cells["MAHK"].Value.ToString().Trim(), hocKy_DTO.Mahk.Trim()) == 0)
+                    {
+                        row1.Cells["TENHK"].Value = hocKy_DTO.Tenhk;
+                        row1.Cells["HESOHK"].Value = hocKy_DTO.Hesohk;
+
+                    }
+                }
+            }
+        }
     }
 }
