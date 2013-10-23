@@ -443,8 +443,8 @@ namespace QuanLiHocSinh
 
         private void grdNamHoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtMaNH.Text = grdHocKy.CurrentRow.Cells["MANH"].Value.ToString();
-            txtTenNH.Text = grdHocKy.CurrentRow.Cells["TENNH"].Value.ToString();
+            txtMaNH.Text = grdNamHoc.CurrentRow.Cells["MANH"].Value.ToString();
+            txtTenNH.Text = grdNamHoc.CurrentRow.Cells["TENNH"].Value.ToString();
 
             sapXep();       
         }

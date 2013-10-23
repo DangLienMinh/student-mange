@@ -13,28 +13,16 @@ namespace QLHS.BUS
 {
     public class clsGIAOVIEN_BUS
     {
-        clsGIAOVIEN_DAO giaoVien_DAO=new clsGIAOVIEN_DAO();
+        clsGIAOVIEN_DAO giaoVien_DAO;
         clsGIAOVIEN_DTO giaoVien_DTO;
-        DataTable tblGiaoVien = new DataTable();
+        DataTable tblGiaoVien;
         private DataRow dr;
-        //int viTri, Tong;
-
         
         public clsGIAOVIEN_BUS() 
         {
-            //clsGIAOVIEN_DAO giaoVien_DAO = new clsGIAOVIEN_DAO();
+            giaoVien_DAO = new clsGIAOVIEN_DAO();
+            tblGiaoVien = new DataTable();
         }
-
-        //private void sapXep(Form form,TextBox txtCurrent)
-        //{
-        //    viTri = form.BindingContext[].Position;
-        //    Tong = form.BindingContext[tblGiaoVien].Count;
-        //    txtCurrent.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
-        //    txtten.Text = dataGridView1.Rows[a].Cells[1].Value.ToString();
-        //    txtmssv.Text = dataGridView1.Rows[a].Cells[0].Value.ToString();
-        //    txtngaysinh.Text = dataGridView1.Rows[a].Cells[2].Value.ToString();
-        //    txtdiachi.Text = dataGridView1.Rows[a].Cells[3].Value.ToString();
-        //}
 
         public void hienThiComboBox(ComboBoxEx comboBox)
         {

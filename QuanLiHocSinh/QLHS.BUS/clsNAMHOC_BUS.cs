@@ -12,11 +12,16 @@ namespace QLHS.BUS
 {
     public class clsNAMHOC_BUS
     {
-        clsNAMHOC_DAO namHoc_DAO = new clsNAMHOC_DAO();
+        clsNAMHOC_DAO namHoc_DAO;
         clsNAMHOC_DTO namHoc__DTO;
-        DataTable tblNamHoc = new DataTable();
+        DataTable tblNamHoc;
         private DataRow dr;
 
+        public clsNAMHOC_BUS()
+        {
+            namHoc_DAO = new clsNAMHOC_DAO();
+            tblNamHoc = new DataTable();
+        }
         public void hienThiDanhSach(DataGridViewX grdNamHoc)
         {
             tblNamHoc = namHoc_DAO.danhSachNamHoc();

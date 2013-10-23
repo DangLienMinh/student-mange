@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.BUS
 {
-    class clsMONHOC_BUS
+    public class clsMONHOC_BUS
     {
     }
 }
