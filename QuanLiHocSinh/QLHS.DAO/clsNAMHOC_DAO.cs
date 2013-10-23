@@ -9,7 +9,7 @@ namespace QLHS.DAO
 {
     public class clsNAMHOC_DAO
     {
-         private clsConnectDatabase connection;
+        private clsConnectDatabase connection;
         private SqlConnection con;
 
         public clsNAMHOC_DAO()
