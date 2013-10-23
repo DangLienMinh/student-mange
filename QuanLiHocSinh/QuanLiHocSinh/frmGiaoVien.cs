@@ -24,6 +24,7 @@ namespace QuanLiHocSinh
         public frmGiaoVien()
         {
             InitializeComponent();
+            this.KeyPreview = true;
             datagridMakeUp(grdGiaoVien);
         }
 
@@ -67,6 +68,7 @@ namespace QuanLiHocSinh
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            txtMaGV.Focus();
             FlagEnable();
             flag = 1;
             resetAll();
@@ -399,6 +401,14 @@ namespace QuanLiHocSinh
             txtDienThoai.BackColor = Color.White;
             txtMaGV.BackColor = Color.White;
             txtTenGV.BackColor = Color.White;
+        }
+
+        private void frmGiaoVien_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
 
     }
