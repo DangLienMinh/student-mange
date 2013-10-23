@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNamHoc));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new DevComponents.DotNetBar.TabControl();
             this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
@@ -50,13 +50,12 @@
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
             this.navigationPanePanel1 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.btnChange = new DevComponents.DotNetBar.ButtonX();
-            this.btnDel = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnAccept = new DevComponents.DotNetBar.ButtonX();
             this.btnAdd = new DevComponents.DotNetBar.ButtonX();
-            this.txtMonHoc = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtTenNH = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.txtMaMH = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtMaNH = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.btnItemNhapNH = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
@@ -77,7 +76,7 @@
             this.navigationPanePanel3 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.btnSua = new DevComponents.DotNetBar.ButtonX();
             this.btnXoa = new DevComponents.DotNetBar.ButtonX();
-            this.ư = new DevComponents.DotNetBar.ButtonX();
+            this.btnHuy = new DevComponents.DotNetBar.ButtonX();
             this.btnDongY = new DevComponents.DotNetBar.ButtonX();
             this.btnThem = new DevComponents.DotNetBar.ButtonX();
             this.txtHeSo = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -251,39 +250,39 @@
             // grdNamHoc
             // 
             this.grdNamHoc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdNamHoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdNamHoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.grdNamHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdNamHoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MANH,
             this.TENNH});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdNamHoc.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdNamHoc.DefaultCellStyle = dataGridViewCellStyle8;
             this.grdNamHoc.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grdNamHoc.EnableHeadersVisualStyles = false;
             this.grdNamHoc.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grdNamHoc.Location = new System.Drawing.Point(0, 58);
             this.grdNamHoc.Name = "grdNamHoc";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdNamHoc.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdNamHoc.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.grdNamHoc.Size = new System.Drawing.Size(354, 447);
             this.grdNamHoc.TabIndex = 1;
             // 
@@ -340,13 +339,12 @@
             // 
             this.navigationPanePanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.navigationPanePanel1.Controls.Add(this.btnChange);
-            this.navigationPanePanel1.Controls.Add(this.btnDel);
             this.navigationPanePanel1.Controls.Add(this.btnCancel);
             this.navigationPanePanel1.Controls.Add(this.btnAccept);
             this.navigationPanePanel1.Controls.Add(this.btnAdd);
-            this.navigationPanePanel1.Controls.Add(this.txtMonHoc);
+            this.navigationPanePanel1.Controls.Add(this.txtTenNH);
             this.navigationPanePanel1.Controls.Add(this.labelX2);
-            this.navigationPanePanel1.Controls.Add(this.txtMaMH);
+            this.navigationPanePanel1.Controls.Add(this.txtMaNH);
             this.navigationPanePanel1.Controls.Add(this.labelX1);
             this.navigationPanePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationPanePanel1.Location = new System.Drawing.Point(1, 25);
@@ -364,68 +362,61 @@
             // 
             this.btnChange.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnChange.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnChange.Location = new System.Drawing.Point(127, 111);
+            this.btnChange.Location = new System.Drawing.Point(98, 111);
             this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(53, 23);
+            this.btnChange.Size = new System.Drawing.Size(68, 23);
             this.btnChange.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnChange.TabIndex = 53;
             this.btnChange.Text = "Sửa";
-            // 
-            // btnDel
-            // 
-            this.btnDel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnDel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDel.Location = new System.Drawing.Point(64, 111);
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(57, 23);
-            this.btnDel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnDel.TabIndex = 54;
-            this.btnDel.Text = "Xóa";
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(92, 145);
+            this.btnCancel.Location = new System.Drawing.Point(98, 145);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(45, 23);
+            this.btnCancel.Size = new System.Drawing.Size(68, 23);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCancel.TabIndex = 55;
             this.btnCancel.Text = "Hủy";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAccept
             // 
             this.btnAccept.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnAccept.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAccept.Location = new System.Drawing.Point(32, 145);
+            this.btnAccept.Location = new System.Drawing.Point(18, 145);
             this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(45, 23);
+            this.btnAccept.Size = new System.Drawing.Size(68, 23);
             this.btnAccept.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnAccept.TabIndex = 56;
             this.btnAccept.Text = "Đồng ý";
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnAdd.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAdd.Location = new System.Drawing.Point(5, 111);
+            this.btnAdd.Location = new System.Drawing.Point(18, 111);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(53, 23);
+            this.btnAdd.Size = new System.Drawing.Size(68, 23);
             this.btnAdd.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnAdd.TabIndex = 57;
             this.btnAdd.Text = "Thêm";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // txtMonHoc
+            // txtTenNH
             // 
             // 
             // 
             // 
-            this.txtMonHoc.Border.Class = "TextBoxBorder";
-            this.txtMonHoc.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtMonHoc.Location = new System.Drawing.Point(18, 74);
-            this.txtMonHoc.Name = "txtMonHoc";
-            this.txtMonHoc.Size = new System.Drawing.Size(137, 20);
-            this.txtMonHoc.TabIndex = 29;
+            this.txtTenNH.Border.Class = "TextBoxBorder";
+            this.txtTenNH.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtTenNH.Location = new System.Drawing.Point(18, 74);
+            this.txtTenNH.Name = "txtTenNH";
+            this.txtTenNH.Size = new System.Drawing.Size(137, 20);
+            this.txtTenNH.TabIndex = 29;
             // 
             // labelX2
             // 
@@ -439,17 +430,18 @@
             this.labelX2.TabIndex = 28;
             this.labelX2.Text = "Mã năm học:";
             // 
-            // txtMaMH
+            // txtMaNH
             // 
             // 
             // 
             // 
-            this.txtMaMH.Border.Class = "TextBoxBorder";
-            this.txtMaMH.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtMaMH.Location = new System.Drawing.Point(18, 28);
-            this.txtMaMH.Name = "txtMaMH";
-            this.txtMaMH.Size = new System.Drawing.Size(137, 20);
-            this.txtMaMH.TabIndex = 30;
+            this.txtMaNH.Border.Class = "TextBoxBorder";
+            this.txtMaNH.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtMaNH.Location = new System.Drawing.Point(18, 28);
+            this.txtMaNH.Name = "txtMaNH";
+            this.txtMaNH.ReadOnly = true;
+            this.txtMaNH.Size = new System.Drawing.Size(137, 20);
+            this.txtMaNH.TabIndex = 30;
             // 
             // labelX1
             // 
@@ -629,40 +621,41 @@
             // 
             // grdHocKy
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdHocKy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.grdHocKy.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdHocKy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.grdHocKy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdHocKy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MAHK,
             this.TENHK,
             this.HESOHK});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdHocKy.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdHocKy.DefaultCellStyle = dataGridViewCellStyle11;
             this.grdHocKy.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grdHocKy.EnableHeadersVisualStyles = false;
             this.grdHocKy.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grdHocKy.Location = new System.Drawing.Point(0, 56);
             this.grdHocKy.Name = "grdHocKy";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdHocKy.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdHocKy.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.grdHocKy.Size = new System.Drawing.Size(350, 449);
             this.grdHocKy.TabIndex = 1;
             // 
@@ -726,7 +719,7 @@
             this.navigationPanePanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.navigationPanePanel3.Controls.Add(this.btnSua);
             this.navigationPanePanel3.Controls.Add(this.btnXoa);
-            this.navigationPanePanel3.Controls.Add(this.ư);
+            this.navigationPanePanel3.Controls.Add(this.btnHuy);
             this.navigationPanePanel3.Controls.Add(this.btnDongY);
             this.navigationPanePanel3.Controls.Add(this.btnThem);
             this.navigationPanePanel3.Controls.Add(this.txtHeSo);
@@ -751,7 +744,7 @@
             // 
             this.btnSua.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnSua.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSua.Location = new System.Drawing.Point(128, 147);
+            this.btnSua.Location = new System.Drawing.Point(128, 160);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(53, 23);
             this.btnSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -762,29 +755,29 @@
             // 
             this.btnXoa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnXoa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnXoa.Location = new System.Drawing.Point(65, 147);
+            this.btnXoa.Location = new System.Drawing.Point(65, 160);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(57, 23);
             this.btnXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnXoa.TabIndex = 49;
             this.btnXoa.Text = "Xóa";
             // 
-            // ư
+            // btnHuy
             // 
-            this.ư.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.ư.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.ư.Location = new System.Drawing.Point(93, 181);
-            this.ư.Name = "ư";
-            this.ư.Size = new System.Drawing.Size(45, 23);
-            this.ư.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ư.TabIndex = 50;
-            this.ư.Text = "Hủy";
+            this.btnHuy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnHuy.Location = new System.Drawing.Point(93, 194);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(45, 23);
+            this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnHuy.TabIndex = 50;
+            this.btnHuy.Text = "Hủy";
             // 
             // btnDongY
             // 
             this.btnDongY.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDongY.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDongY.Location = new System.Drawing.Point(33, 181);
+            this.btnDongY.Location = new System.Drawing.Point(33, 194);
             this.btnDongY.Name = "btnDongY";
             this.btnDongY.Size = new System.Drawing.Size(45, 23);
             this.btnDongY.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -795,7 +788,7 @@
             // 
             this.btnThem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnThem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnThem.Location = new System.Drawing.Point(6, 147);
+            this.btnThem.Location = new System.Drawing.Point(6, 160);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(53, 23);
             this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -922,6 +915,7 @@
             this.Name = "frmNamHoc";
             this.Text = "frmNamHoc";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmNamHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabControlPanel1.ResumeLayout(false);
@@ -957,9 +951,9 @@
         private DevComponents.DotNetBar.TabItem btnItemNhapHK;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
         private DevComponents.DotNetBar.Controls.DataGridViewX grdNamHoc;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtMonHoc;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtTenNH;
         private DevComponents.DotNetBar.LabelX labelX2;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtMaMH;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtMaNH;
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel2;
         private DevComponents.DotNetBar.Controls.DataGridViewX grdHocKy;
@@ -980,13 +974,12 @@
         private DevComponents.DotNetBar.ButtonX btnFirst;
         private DevComponents.DotNetBar.Controls.TextBoxX txtCurrent;
         private DevComponents.DotNetBar.ButtonX btnChange;
-        private DevComponents.DotNetBar.ButtonX btnDel;
         private DevComponents.DotNetBar.ButtonX btnCancel;
         private DevComponents.DotNetBar.ButtonX btnAccept;
         private DevComponents.DotNetBar.ButtonX btnAdd;
         private DevComponents.DotNetBar.ButtonX btnSua;
         private DevComponents.DotNetBar.ButtonX btnXoa;
-        private DevComponents.DotNetBar.ButtonX ư;
+        private DevComponents.DotNetBar.ButtonX btnHuy;
         private DevComponents.DotNetBar.ButtonX btnDongY;
         private DevComponents.DotNetBar.ButtonX btnThem;
         private System.Windows.Forms.DataGridViewTextBoxColumn MAHK;

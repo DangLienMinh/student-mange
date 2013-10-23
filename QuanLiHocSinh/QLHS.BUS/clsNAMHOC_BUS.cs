@@ -7,5 +7,6 @@ namespace QLHS.BUS
 {
     class clsNAMHOC_BUS
     {
+
     }
 }
