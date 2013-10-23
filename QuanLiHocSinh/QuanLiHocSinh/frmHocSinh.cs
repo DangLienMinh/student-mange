@@ -11,11 +11,11 @@ namespace QuanLiHocSinh
 {
     public partial class frmHocSinh : DevComponents.DotNetBar.Office2007Form
     {
-        private clsHOCSINH_BUS hocsinh;
+        public clsHOCSINH_BUS hocsinh=new clsHOCSINH_BUS();
         public frmHocSinh()
         {
             InitializeComponent();
-            hocsinh = new clsHOCSINH_BUS();
+            
         }
 
         private void btnItemTim_Click(object sender, EventArgs e)
