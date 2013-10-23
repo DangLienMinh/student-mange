@@ -269,6 +269,7 @@
             // 
             this.cbGioiTinh.DisplayMember = "Text";
             this.cbGioiTinh.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGioiTinh.FormattingEnabled = true;
             this.cbGioiTinh.ItemHeight = 14;
             this.cbGioiTinh.Location = new System.Drawing.Point(107, 167);
@@ -372,7 +373,6 @@
             this.txtDienThoai.Name = "txtDienThoai";
             this.txtDienThoai.Size = new System.Drawing.Size(75, 20);
             this.txtDienThoai.TabIndex = 3;
-            this.txtDienThoai.TextChanged += new System.EventHandler(this.txtDienThoai_TextChanged);
             this.txtDienThoai.Enter += new System.EventHandler(this.txt_Enter);
             this.txtDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDienThoai_KeyPress);
             this.txtDienThoai.Leave += new System.EventHandler(this.txt_Leave);

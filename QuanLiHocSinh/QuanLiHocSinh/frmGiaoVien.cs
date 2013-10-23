@@ -436,11 +436,5 @@ namespace QuanLiHocSinh
                 this.Close();
             }
         }
-
-        private void txtDienThoai_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

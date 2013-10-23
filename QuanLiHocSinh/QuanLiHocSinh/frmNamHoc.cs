@@ -17,7 +17,9 @@ namespace QuanLiHocSinh
         private clsNAMHOC_BUS namHoc_BUS = new clsNAMHOC_BUS();
         private clsHOCKY_BUS hocKy_BUS = new clsHOCKY_BUS();
         private int flag = 0;
+        private int flag1=0;
         private int viTri, Tong;
+        private int viTri1, Tong1;
 
         public frmNamHoc()
         {
@@ -43,10 +45,13 @@ namespace QuanLiHocSinh
             hocKy_BUS.hienThiDanhSach(grdHocKy);
             hocKy_BUS.hienThiComboBox(cbHeSoHK);
             FlagDisable();
-            flag = 0;
+            FlagDisable1();
             sapXep();
+            sapXep1();
             btnFirst.Enabled = false;
             btnPrev.Enabled = false;
+            btnDau.Enabled = false;
+            btnTruoc.Enabled = false;
         }
 
         private void FlagEnable()
@@ -55,7 +60,10 @@ namespace QuanLiHocSinh
             btnCancel.Enabled = true;
             btnAdd.Enabled = false;
             btnChange.Enabled = false;
+        }
 
+        private void FlagEnable1()
+        {
             btnDongY.Enabled = true;
             btnHuy.Enabled = true;
             btnThem.Enabled = false;
@@ -69,7 +77,10 @@ namespace QuanLiHocSinh
             btnCancel.Enabled = false;
             btnAdd.Enabled = true;
             btnChange.Enabled = true;
+        }
 
+        private void FlagDisable1()
+        {
             btnDongY.Enabled = false;
             btnHuy.Enabled = false;
             btnThem.Enabled = true;
@@ -84,7 +95,6 @@ namespace QuanLiHocSinh
             flag = 1;
             resetAll();
         }
-
 
         private void btnChange_Click(object sender, EventArgs e)
         {
@@ -109,6 +119,12 @@ namespace QuanLiHocSinh
             txtTenNH.Text = "";
         }
 
+        private void resetAll1()
+        {
+           txtMaHK.Text="";
+            txtTenHK.Text="";
+        }
+        
         private void insert()
         {
             //cờ kiểm tra mã đã tồn tại trong CSSDL chưa
@@ -175,9 +191,17 @@ namespace QuanLiHocSinh
         {
             viTri = this.BindingContext[grdNamHoc.DataSource].Position;
             Tong = this.BindingContext[grdNamHoc.DataSource].Count;
-            txtCurrent.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
-            txtMaNH.Text = grdNamHoc.Rows[viTri].Cells["MANH"].Value.ToString();
-            txtTenNH.Text = grdNamHoc.Rows[viTri].Cells["TENNH"].Value.ToString();
+            if (viTri==-1)
+            {
+                viTri = 0;
+            }
+            else
+            {
+                txtCurrent.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
+                txtMaNH.Text = grdNamHoc.Rows[viTri].Cells["MANH"].Value.ToString();
+                txtTenNH.Text = grdNamHoc.Rows[viTri].Cells["TENNH"].Value.ToString();
+            }
+            
             
         }
 
@@ -226,28 +250,30 @@ namespace QuanLiHocSinh
         private void btnThem_Click(object sender, EventArgs e)
         {
             txtMaHK.Focus();
-            FlagEnable();
-            flag = 1;
-            resetAll();
+            FlagEnable1();
+            flag1 = 1;
+            resetAll1();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            flag = 2;
-            FlagEnable();
+            flag1 = 2;
+            FlagEnable1();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            flag = 3;
-            FlagEnable();
+            flag1 = 3;
+            FlagEnable1();
+            txtMaHK.Enabled = false;
         }
 
         private void btnDongY_Click(object sender, EventArgs e)
         {
-            if (flag == 1) them();
-            if (flag == 2) xoa();
-            //if (flag == 3) sua();
+            if (flag1 == 1) them();
+            if (flag1 == 2) xoa();
+            if (flag1 == 3) sua();
+            txtMaHK.Enabled = true;
         }
 
         private void them()
@@ -277,11 +303,11 @@ namespace QuanLiHocSinh
                 {
                     try
                     {
-                        hocKy_BUS.themHocKy(txtMaNH.Text, txtTenNH.Text,cbHeSoHK.SelectedItem.ToString());
+                        hocKy_BUS.themHocKy(txtMaHK.Text, txtTenHK.Text,cbHeSoHK.SelectedItem.ToString());
                         MessageBox.Show("Bạn đã thêm thành công!");
                         hocKy_BUS.themDong();
-                        FlagDisable();
-                        flag = 0;
+                        FlagDisable1();
+                        flag1 = 0;
                     }
                     catch (Exception)
                     {
@@ -292,7 +318,7 @@ namespace QuanLiHocSinh
             }
         }
 
-        private void xoa()
+        private void sua()
         {
             if (grdHocKy.SelectedRows.Count >= 1 && txtMaHK.Text != "")
             {
@@ -302,8 +328,8 @@ namespace QuanLiHocSinh
                 //sửa trong datagrid view
                 hocKy_BUS.suaDataGrid(grdHocKy);
 
-                FlagDisable();
-                flag = 0;
+                FlagDisable1();
+                flag1 = 0;
 
             }
             else
@@ -312,32 +338,127 @@ namespace QuanLiHocSinh
             }
         }
 
+        private void xoa()
+        {
+            if (grdHocKy.SelectedRows.Count >= 1 && txtMaHK.Text != "")
+            {
+                if (MessageBox.Show("Bạn có chắc muốn xóa học kỳ đã được lựa chọn ", "Xóa học kỳ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    hocKy_BUS.xoaHocKy(txtMaHK.Text);
+                    foreach (DataGridViewRow row in grdHocKy.Rows)
+                    {
+                        if (string.Compare(row.Cells["MAHK"].Value.ToString().Trim(), txtMaHK.Text.Trim()) == 0)
+                        {
 
+
+                            hocKy_BUS.xoaDong(grdHocKy, txtMaHK.Text);
+                            resetAll1();
+                            FlagDisable1();
+                            flag1 = 0;
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải lựa chọn một hàng để xóa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            FlagDisable();
-            flag = 0;
+            FlagDisable1();
+            flag1 = 0;
+            txtMaHK.Enabled = true;
+        }
+
+        private void sapXep1()
+        {
+            viTri1 = this.BindingContext[grdHocKy.DataSource].Position;
+            Tong1 = this.BindingContext[grdHocKy.DataSource].Count;
+            if (viTri1 == -1)
+            {
+                viTri1 = 0;
+            }
+            else
+            {
+                txtHienTai.Text = "" + (viTri1 + 1).ToString() + "/" + Tong1.ToString();
+                txtMaHK.Text = grdHocKy.Rows[viTri1].Cells["MAHK"].Value.ToString();
+                txtTenHK.Text = grdHocKy.Rows[viTri1].Cells["TENHK"].Value.ToString();
+                cbHeSoHK.SelectedItem = grdHocKy.Rows[viTri1].Cells["HESOHK"].Value.ToString();
+            }
+
+           
         }
 
         private void btnDau_Click(object sender, EventArgs e)
         {
-
+            viTri1 = this.BindingContext[grdHocKy.DataSource].Position;
+            this.BindingContext[grdHocKy.DataSource].Position = 0;
+            sapXep1();
+            btnTruoc.Enabled = false;
+            btnDau.Enabled = false;
+            btnCuoi.Enabled = true;
+            btnSau.Enabled = true;
         }
 
         private void btnCuoi_Click(object sender, EventArgs e)
         {
-
+            viTri1 = this.BindingContext[grdHocKy.DataSource].Position;
+            this.BindingContext[grdHocKy.DataSource].Position = this.BindingContext[grdNamHoc.DataSource].Count - 1;
+            sapXep1();
+            btnCuoi.Enabled = false;
+            btnSau.Enabled = false;
+            btnTruoc.Enabled = true;
+            btnDau.Enabled = true;
         }
 
         private void btnTruoc_Click(object sender, EventArgs e)
         {
-
+            viTri1 = this.BindingContext[grdHocKy.DataSource].Position;
+            btnCuoi.Enabled = true;
+            btnSau.Enabled = true;
+            this.BindingContext[grdHocKy.DataSource].Position = viTri1 - 1;
+            sapXep1();
         }
 
         private void btnSau_Click(object sender, EventArgs e)
         {
+            viTri1 = this.BindingContext[grdHocKy.DataSource].Position;
+            btnTruoc.Enabled = true;
+            btnPrev.Enabled = true;
+            this.BindingContext[grdHocKy.DataSource].Position = viTri1 + 1;
+            sapXep1();
+        }
 
+        private void grdHocKy_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtMaHK.Text = grdHocKy.CurrentRow.Cells["MAHK"].Value.ToString();
+            txtTenHK.Text = grdHocKy.CurrentRow.Cells["TENHK"].Value.ToString();
+            cbHeSoHK.SelectedItem = grdHocKy.CurrentRow.Cells["HESOHK"].Value.ToString();
+           
+            sapXep1();       
+        }
+
+        private void grdNamHoc_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtMaNH.Text = grdHocKy.CurrentRow.Cells["MANH"].Value.ToString();
+            txtTenNH.Text = grdHocKy.CurrentRow.Cells["TENNH"].Value.ToString();
+
+            sapXep();       
+        }
+
+        private void txt_Enter(object sender, EventArgs e)
+        {
+            ((TextBox)sender).BackColor = Color.Yellow;
+        }
+
+        private void txt_Leave(object sender, EventArgs e)
+        {
+            txtMaHK.BackColor = Color.White;
+            txtTenHK.BackColor = Color.White;
+            txtTenNH.BackColor = Color.White;
         }
 
     }
