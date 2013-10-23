@@ -86,6 +86,8 @@ namespace QuanLiHocSinh
 
         private void insert()
         {
+            //cờ kiểm tra mã đã tồn tại trong CSSDL chưa
+            int test = 1;
             
             if (string.IsNullOrEmpty(txtMaGV.Text) || string.IsNullOrEmpty(txtDiaChi.Text) || string.IsNullOrEmpty(txtDienThoai.Text) || string.IsNullOrEmpty(txtTenGV.Text) || picGiaoVien.Image==null)
             {
@@ -93,6 +95,19 @@ namespace QuanLiHocSinh
             }
             else
             {
+                foreach (DataGridViewRow row1 in grdGiaoVien.Rows)
+                {
+                    if (row1.Cells["MAGV"].Value != null)
+                    {
+                        //compare the text in txtMADG with each MADG row in datagrid Docgia, if it appear then let user know
+                        if (string.Compare(row1.Cells["MAGV"].Value.ToString().Trim(), txtMaGV.Text.Trim()) == 0)
+                        {
+                            test = 0;
+                            MessageBox.Show("Giáo viên này đã có trong Cơ Sở Dữ Liệu!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+
                 string txtGioiTinh = "";
                 if (cbGioiTinh.SelectedItem == "Nam")
                 {
@@ -102,17 +117,30 @@ namespace QuanLiHocSinh
                 {
                     txtGioiTinh = "1";
                 }
-                string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
-                File.Copy(open.FileName, linkimage);
                 
-                //reset all openfiledialog
-                open.Reset();
+                if (test == 1)
+                {
+                    try
+                    {
+                        string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
+                        File.Copy(open.FileName, linkimage);
 
-                giaoVien_BUS.themGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, linkimage);
-                MessageBox.Show("Bạn đã thêm thành công!");
-                giaoVien_BUS.themDong();
-                FlagDisable();
-                flag = 0;
+                        //reset all openfiledialog
+                        open.Reset();
+                        giaoVien_BUS.themGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, linkimage);
+                        MessageBox.Show("Bạn đã thêm thành công!");
+                        giaoVien_BUS.themDong();
+                        FlagDisable();
+                        flag = 0;
+                       
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Có lỗi trong quá trình chèn dữ liệu, xin thao tác lại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                    }
+                }
+                
             } 
         }
 
@@ -331,8 +359,6 @@ namespace QuanLiHocSinh
         private void btnCuoi_Click(object sender, EventArgs e)
         {
             viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
-            btnDau.Enabled = true;
-            btnTruoc.Enabled = true;
             this.BindingContext[grdGiaoVien.DataSource].Position = this.BindingContext[grdGiaoVien.DataSource].Count - 1;
             sapXep();
             btnCuoi.Enabled = false;

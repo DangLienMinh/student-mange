@@ -6,23 +6,43 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.VisualBasic;
+using QLHS.BUS;
+using DevComponents.DotNetBar.Controls;
+using DevComponents.Editors.DateTimeAdv;
 
 namespace QuanLiHocSinh
 {
     public partial class frmNamHoc : DevComponents.DotNetBar.Office2007Form
     {
+        private clsNAMHOC_BUS namHoc_BUS = new clsNAMHOC_BUS();
         private int flag = 0;
         private int viTri, Tong;
 
         public frmNamHoc()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+            datagridMakeUp(grdNamHoc);
+        }
+
+        private void datagridMakeUp(DataGridViewX temp)
+        {
+            temp.AutoResizeRows();
+            temp.AllowUserToResizeColumns = true;
+            temp.DefaultCellStyle.WrapMode = DataGridViewTriState.NotSet;
+            temp.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            temp.ReadOnly = true;
         }
 
         private void frmNamHoc_Load(object sender, EventArgs e)
         {
             txtMaNH.Text = "NH" + DateTime.Now.ToString("yy") + DateTime.Now.AddYears(1).ToString("yy");
+            namHoc_BUS.hienThiDanhSach(grdNamHoc);
+            FlagDisable();
+            flag = 0;
+            sapXep();
+            btnFirst.Enabled = false;
+            btnPrev.Enabled = false;
         }
 
         private void FlagEnable()
@@ -75,76 +95,55 @@ namespace QuanLiHocSinh
 
         private void insert()
         {
+            //cờ kiểm tra mã đã tồn tại trong CSSDL chưa
+            int test = 1;
 
-            if (string.IsNullOrEmpty(txtMaGV.Text) || string.IsNullOrEmpty(txtDiaChi.Text) || string.IsNullOrEmpty(txtDienThoai.Text) || string.IsNullOrEmpty(txtTenGV.Text) || picGiaoVien.Image == null)
+            if (string.IsNullOrEmpty(txtTenNH.Text))
             {
                 MessageBox.Show("Xin điền dữ liệu vào đầy đủ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                string txtGioiTinh = "";
-                if (cbGioiTinh.SelectedItem == "Nam")
+                foreach (DataGridViewRow row1 in grdNamHoc.Rows)
                 {
-                    txtGioiTinh = "0";
+                    if (row1.Cells["MANH"].Value != null)
+                    {
+                        //compare the text in txtMADG with each MADG row in datagrid Docgia, if it appear then let user know
+                        if (string.Compare(row1.Cells["MANH"].Value.ToString().Trim(), txtMaNH.Text.Trim()) == 0)
+                        {
+                            test = 0;
+                            MessageBox.Show("Năm học này đã có trong Cơ Sở Dữ Liệu!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
-                else
+                if (test==1)
                 {
-                    txtGioiTinh = "1";
-                }
-                string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
-                File.Copy(open.FileName, linkimage);
-
-                //reset all openfiledialog
-                open.Reset();
-
-                giaoVien_BUS.themGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, linkimage);
-                MessageBox.Show("Bạn đã thêm thành công!");
-                giaoVien_BUS.themDong();
-                FlagDisable();
-                flag = 0;
+                    try
+                    {
+                        namHoc_BUS.themNamHoc(txtMaNH.Text, txtTenNH.Text);
+                        MessageBox.Show("Bạn đã thêm thành công!");
+                        namHoc_BUS.themDong();
+                        FlagDisable();
+                        flag = 0;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Có lỗi trong quá trình chèn dữ liệu, xin thao tác lại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                    }  
+                }   
             }
         }
 
         private void update()
         {
-            if (grdGiaoVien.SelectedRows.Count >= 1 && txtMaGV.Text != "")
+            if (grdNamHoc.SelectedRows.Count >= 1 && txtMaNH.Text != "")
             {
-                string txtGioiTinh = "";
-                if (cbGioiTinh.SelectedItem == "Nam")
-                {
-                    txtGioiTinh = "0";
-                }
-                else
-                {
-                    txtGioiTinh = "1";
-                }
-
-                if (open.FileName != "")
-                {
-                    string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
-                    File.Copy(open.FileName, linkimage);
-                    if (string.Compare(grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString(), linkimage) == -1)
-                    {
-                        giaoVien_BUS.suaGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, linkimage);
-
-                        // sử dụng filestream để có thể xóa hình ảnh mafkhoong bị thằng picturebox chiếm giữ
-                        FileStream fs = new FileStream(linkimage, FileMode.Open, FileAccess.Read);
-                        picGiaoVien.Image = Image.FromStream(fs);
-                        fs.Close();
-
-                        File.Delete(grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString());
-                    }
-                }
-                else
-                {
-                    giaoVien_BUS.suaGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString());
-
-                }
-
+                namHoc_BUS.suaNamHoc(txtMaNH.Text, txtTenNH.Text);
                 MessageBox.Show("Bạn đã sửa thành công!");
 
                 //sửa trong datagrid view
-                giaoVien_BUS.suaDataGrid(grdGiaoVien);
+                namHoc_BUS.suaDataGrid(grdNamHoc);
 
                 FlagDisable();
                 flag = 0;
@@ -154,6 +153,56 @@ namespace QuanLiHocSinh
             {
                 MessageBox.Show("Bạn phải lựa chọn một hàng để sửa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void sapXep()
+        {
+            viTri = this.BindingContext[grdNamHoc.DataSource].Position;
+            Tong = this.BindingContext[grdNamHoc.DataSource].Count;
+            txtCurrent.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
+            txtMaNH.Text = grdNamHoc.Rows[viTri].Cells["MANH"].Value.ToString();
+            txtTenNH.Text = grdNamHoc.Rows[viTri].Cells["TENNH"].Value.ToString();
+            
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            viTri = this.BindingContext[grdNamHoc.DataSource].Position;
+            btnLast.Enabled = true;
+            btnNext.Enabled = true;
+            this.BindingContext[grdNamHoc.DataSource].Position = viTri - 1;
+            sapXep();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            viTri = this.BindingContext[grdNamHoc.DataSource].Position;
+            btnFirst.Enabled = true;
+            btnPrev.Enabled = true;
+            this.BindingContext[grdNamHoc.DataSource].Position = viTri + 1;
+            sapXep();
+        }
+
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            viTri = this.BindingContext[grdNamHoc.DataSource].Position;
+            this.BindingContext[grdNamHoc.DataSource].Position = 0;
+            sapXep();
+            btnPrev.Enabled = false;
+            btnFirst.Enabled = false;
+            btnLast.Enabled = true;
+            btnNext.Enabled = true;
+        }
+
+        private void btnLast_Click(object sender, EventArgs e)
+        {
+            viTri = this.BindingContext[grdNamHoc.DataSource].Position;
+            this.BindingContext[grdNamHoc.DataSource].Position = this.BindingContext[grdNamHoc.DataSource].Count - 1;
+            sapXep();
+            btnLast.Enabled = false;
+            btnNext.Enabled = false;
+            btnPrev.Enabled = true;
+            btnFirst.Enabled = true;
         }
 
     }

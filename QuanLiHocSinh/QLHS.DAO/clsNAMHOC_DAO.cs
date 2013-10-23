@@ -34,8 +34,8 @@ namespace QLHS.DAO
         {
             SqlCommand command = new SqlCommand("SP_ThemNamHoc", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAGV", SqlDbType.Char).Value = namHoc.Manh;
-            command.Parameters.Add("@TENGV", SqlDbType.NVarChar).Value = namHoc.Tenh;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = namHoc.Manh;
+            command.Parameters.Add("@TENNH", SqlDbType.NVarChar).Value = namHoc.Tenh;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
@@ -45,8 +45,8 @@ namespace QLHS.DAO
         {
             SqlCommand command = new SqlCommand("SP_SuaNamHoc", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAGV", SqlDbType.Char).Value = namHoc.Manh;
-            command.Parameters.Add("@TENGV", SqlDbType.NVarChar).Value = namHoc.Tenh;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = namHoc.Manh;
+            command.Parameters.Add("@TENNH", SqlDbType.NVarChar).Value = namHoc.Tenh;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
