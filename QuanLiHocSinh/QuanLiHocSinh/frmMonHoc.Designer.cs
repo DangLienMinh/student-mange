@@ -36,7 +36,7 @@
             this.btnItemTim = new DevComponents.DotNetBar.ButtonItem();
             this.btnSua = new DevComponents.DotNetBar.ButtonX();
             this.btnXoa = new DevComponents.DotNetBar.ButtonX();
-            this.ư = new DevComponents.DotNetBar.ButtonX();
+            this.btnHuy = new DevComponents.DotNetBar.ButtonX();
             this.btnDongY = new DevComponents.DotNetBar.ButtonX();
             this.btnThem = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
@@ -57,7 +57,7 @@
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.cbHeSo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtSoTiet = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtMonHoc = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtTenMH = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.txtMaMH = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
@@ -99,8 +99,9 @@
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(53, 23);
             this.btnSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnSua.TabIndex = 3;
+            this.btnSua.TabIndex = 7;
             this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -110,19 +111,21 @@
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(57, 23);
             this.btnXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnXoa.TabIndex = 3;
+            this.btnXoa.TabIndex = 6;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
-            // ư
+            // btnHuy
             // 
-            this.ư.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.ư.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.ư.Location = new System.Drawing.Point(93, 205);
-            this.ư.Name = "ư";
-            this.ư.Size = new System.Drawing.Size(45, 23);
-            this.ư.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ư.TabIndex = 3;
-            this.ư.Text = "Hủy";
+            this.btnHuy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnHuy.Location = new System.Drawing.Point(93, 205);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(45, 23);
+            this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnHuy.TabIndex = 9;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnDongY
             // 
@@ -132,8 +135,9 @@
             this.btnDongY.Name = "btnDongY";
             this.btnDongY.Size = new System.Drawing.Size(45, 23);
             this.btnDongY.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnDongY.TabIndex = 3;
+            this.btnDongY.TabIndex = 8;
             this.btnDongY.Text = "Đồng ý";
+            this.btnDongY.Click += new System.EventHandler(this.btnDongY_Click);
             // 
             // btnThem
             // 
@@ -143,8 +147,9 @@
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(53, 23);
             this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnThem.TabIndex = 3;
+            this.btnThem.TabIndex = 5;
             this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // groupPanel1
             // 
@@ -230,7 +235,8 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdMonHoc.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grdMonHoc.Size = new System.Drawing.Size(458, 479);
-            this.grdMonHoc.TabIndex = 9;
+            this.grdMonHoc.TabIndex = 14;
+            this.grdMonHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdMonHoc_CellClick);
             // 
             // MAMH
             // 
@@ -265,8 +271,9 @@
             this.btnCuoi.Name = "btnCuoi";
             this.btnCuoi.Size = new System.Drawing.Size(64, 23);
             this.btnCuoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnCuoi.TabIndex = 5;
+            this.btnCuoi.TabIndex = 13;
             this.btnCuoi.Text = ">|";
+            this.btnCuoi.Click += new System.EventHandler(this.btnCuoi_Click);
             // 
             // btnSau
             // 
@@ -277,8 +284,9 @@
             this.btnSau.Name = "btnSau";
             this.btnSau.Size = new System.Drawing.Size(64, 23);
             this.btnSau.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnSau.TabIndex = 6;
+            this.btnSau.TabIndex = 12;
             this.btnSau.Text = ">";
+            this.btnSau.Click += new System.EventHandler(this.btnSau_Click);
             // 
             // btnTruoc
             // 
@@ -289,8 +297,9 @@
             this.btnTruoc.Name = "btnTruoc";
             this.btnTruoc.Size = new System.Drawing.Size(64, 23);
             this.btnTruoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnTruoc.TabIndex = 7;
+            this.btnTruoc.TabIndex = 11;
             this.btnTruoc.Text = "<";
+            this.btnTruoc.Click += new System.EventHandler(this.btnTruoc_Click);
             // 
             // btnDau
             // 
@@ -301,8 +310,9 @@
             this.btnDau.Name = "btnDau";
             this.btnDau.Size = new System.Drawing.Size(64, 23);
             this.btnDau.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnDau.TabIndex = 8;
+            this.btnDau.TabIndex = 10;
             this.btnDau.Text = "|<";
+            this.btnDau.Click += new System.EventHandler(this.btnDau_Click);
             // 
             // txtHienTai
             // 
@@ -339,7 +349,7 @@
             this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(190, 546);
+            this.navigationPanePanel1.Size = new System.Drawing.Size(190, 444);
             this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -373,7 +383,7 @@
             this.navigationPanePanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.navigationPanePanel2.Controls.Add(this.cbHeSo);
             this.navigationPanePanel2.Controls.Add(this.txtSoTiet);
-            this.navigationPanePanel2.Controls.Add(this.txtMonHoc);
+            this.navigationPanePanel2.Controls.Add(this.txtTenMH);
             this.navigationPanePanel2.Controls.Add(this.labelX3);
             this.navigationPanePanel2.Controls.Add(this.txtMaMH);
             this.navigationPanePanel2.Controls.Add(this.labelX1);
@@ -381,7 +391,7 @@
             this.navigationPanePanel2.Controls.Add(this.labelX2);
             this.navigationPanePanel2.Controls.Add(this.btnSua);
             this.navigationPanePanel2.Controls.Add(this.btnXoa);
-            this.navigationPanePanel2.Controls.Add(this.ư);
+            this.navigationPanePanel2.Controls.Add(this.btnHuy);
             this.navigationPanePanel2.Controls.Add(this.btnDongY);
             this.navigationPanePanel2.Controls.Add(this.btnThem);
             this.navigationPanePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -400,13 +410,14 @@
             // 
             this.cbHeSo.DisplayMember = "Text";
             this.cbHeSo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbHeSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbHeSo.FormattingEnabled = true;
             this.cbHeSo.ItemHeight = 14;
             this.cbHeSo.Location = new System.Drawing.Point(11, 136);
             this.cbHeSo.Name = "cbHeSo";
             this.cbHeSo.Size = new System.Drawing.Size(64, 20);
             this.cbHeSo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbHeSo.TabIndex = 23;
+            this.cbHeSo.TabIndex = 3;
             // 
             // txtSoTiet
             // 
@@ -418,19 +429,24 @@
             this.txtSoTiet.Location = new System.Drawing.Point(90, 136);
             this.txtSoTiet.Name = "txtSoTiet";
             this.txtSoTiet.Size = new System.Drawing.Size(58, 20);
-            this.txtSoTiet.TabIndex = 22;
+            this.txtSoTiet.TabIndex = 4;
+            this.txtSoTiet.Enter += new System.EventHandler(this.txt_Enter);
+            this.txtSoTiet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoTiet_KeyPress);
+            this.txtSoTiet.Leave += new System.EventHandler(this.txt_Leave);
             // 
-            // txtMonHoc
+            // txtTenMH
             // 
             // 
             // 
             // 
-            this.txtMonHoc.Border.Class = "TextBoxBorder";
-            this.txtMonHoc.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtMonHoc.Location = new System.Drawing.Point(11, 83);
-            this.txtMonHoc.Name = "txtMonHoc";
-            this.txtMonHoc.Size = new System.Drawing.Size(137, 20);
-            this.txtMonHoc.TabIndex = 22;
+            this.txtTenMH.Border.Class = "TextBoxBorder";
+            this.txtTenMH.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtTenMH.Location = new System.Drawing.Point(11, 83);
+            this.txtTenMH.Name = "txtTenMH";
+            this.txtTenMH.Size = new System.Drawing.Size(137, 20);
+            this.txtTenMH.TabIndex = 2;
+            this.txtTenMH.Enter += new System.EventHandler(this.txt_Enter);
+            this.txtTenMH.Leave += new System.EventHandler(this.txt_Leave);
             // 
             // labelX3
             // 
@@ -454,7 +470,9 @@
             this.txtMaMH.Location = new System.Drawing.Point(11, 35);
             this.txtMaMH.Name = "txtMaMH";
             this.txtMaMH.Size = new System.Drawing.Size(137, 20);
-            this.txtMaMH.TabIndex = 22;
+            this.txtMaMH.TabIndex = 1;
+            this.txtMaMH.Enter += new System.EventHandler(this.txt_Enter);
+            this.txtMaMH.Leave += new System.EventHandler(this.txt_Leave);
             // 
             // labelX1
             // 
@@ -541,6 +559,8 @@
             this.Name = "frmMonHoc";
             this.Text = "Môn Học";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmMonHoc_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMonHoc_KeyDown);
             this.groupPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdMonHoc)).EndInit();
             this.navigationPanePanel1.ResumeLayout(false);
@@ -556,7 +576,7 @@
         private DevComponents.DotNetBar.ButtonItem btnItemTim;
         private DevComponents.DotNetBar.ButtonX btnSua;
         private DevComponents.DotNetBar.ButtonX btnXoa;
-        private DevComponents.DotNetBar.ButtonX ư;
+        private DevComponents.DotNetBar.ButtonX btnHuy;
         private DevComponents.DotNetBar.ButtonX btnDongY;
         private DevComponents.DotNetBar.ButtonX btnThem;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
@@ -574,7 +594,7 @@
         private DevComponents.DotNetBar.NavigationPane navigationPane1;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbHeSo;
         private DevComponents.DotNetBar.Controls.TextBoxX txtSoTiet;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtMonHoc;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtTenMH;
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevComponents.DotNetBar.Controls.TextBoxX txtMaMH;
         private DevComponents.DotNetBar.LabelX labelX1;

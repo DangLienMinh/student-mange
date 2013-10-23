@@ -106,6 +106,7 @@ namespace QuanLiHocSinh
         {
             if (flag == 1) insert();
             if (flag == 3) update();
+            sapXep();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -176,15 +177,13 @@ namespace QuanLiHocSinh
 
                 //sửa trong datagrid view
                 namHoc_BUS.suaDataGrid(grdNamHoc);
-
-                FlagDisable();
-                flag = 0;
-
             }
             else
             {
                 MessageBox.Show("Bạn phải lựa chọn một hàng để sửa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            FlagDisable();
+            flag = 0;
         }
 
         private void sapXep()
@@ -200,9 +199,7 @@ namespace QuanLiHocSinh
                 txtCurrent.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
                 txtMaNH.Text = grdNamHoc.Rows[viTri].Cells["MANH"].Value.ToString();
                 txtTenNH.Text = grdNamHoc.Rows[viTri].Cells["TENNH"].Value.ToString();
-            }
-            
-            
+            }  
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
@@ -259,6 +256,7 @@ namespace QuanLiHocSinh
         {
             flag1 = 2;
             FlagEnable1();
+            txtMaHK.Enabled = false;
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -273,6 +271,7 @@ namespace QuanLiHocSinh
             if (flag1 == 1) them();
             if (flag1 == 2) xoa();
             if (flag1 == 3) sua();
+            sapXep();
             txtMaHK.Enabled = true;
         }
 
@@ -327,15 +326,13 @@ namespace QuanLiHocSinh
 
                 //sửa trong datagrid view
                 hocKy_BUS.suaDataGrid(grdHocKy);
-
-                FlagDisable1();
-                flag1 = 0;
-
             }
             else
             {
                 MessageBox.Show("Bạn phải lựa chọn một hàng để sửa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            FlagDisable1();
+            flag1 = 0;
         }
 
         private void xoa()
@@ -388,8 +385,6 @@ namespace QuanLiHocSinh
                 txtTenHK.Text = grdHocKy.Rows[viTri1].Cells["TENHK"].Value.ToString();
                 cbHeSoHK.SelectedItem = grdHocKy.Rows[viTri1].Cells["HESOHK"].Value.ToString();
             }
-
-           
         }
 
         private void btnDau_Click(object sender, EventArgs e)
@@ -460,6 +455,16 @@ namespace QuanLiHocSinh
             txtTenHK.BackColor = Color.White;
             txtTenNH.BackColor = Color.White;
         }
+
+        private void frmNamHoc_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+
+
 
     }
 }
