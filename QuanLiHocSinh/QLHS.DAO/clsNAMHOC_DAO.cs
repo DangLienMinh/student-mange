@@ -4,7 +4,6 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 using QLHS.DTO;
-
 namespace QLHS.DAO
 {
     public class clsNAMHOC_DAO
