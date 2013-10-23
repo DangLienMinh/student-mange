@@ -12,11 +12,16 @@ namespace QLHS.BUS
 {
     public class clsHOCKY_BUS
     {
-        clsHOCKY_DAO hocKy_DAO = new clsHOCKY_DAO();
+        clsHOCKY_DAO hocKy_DAO;
         clsHOCKY_DTO hocKy_DTO;
-        DataTable tblHocKy = new DataTable();
+        DataTable tblHocKy;
         private DataRow dr;
 
+        public clsHOCKY_BUS()
+        {
+            hocKy_DAO = new clsHOCKY_DAO();
+            tblHocKy = new DataTable();
+        }
         public void hienThiDanhSach(DataGridViewX grdHocKy)
         {
             tblHocKy = hocKy_DAO.danhSachHocKy();

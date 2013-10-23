@@ -29,34 +29,34 @@ namespace QLHS.DAO
         }
         public void themMonhoc(clsMONHOC_DTO monhoc)
         {
-            connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThemMonHoc", con);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@MAMH", SqlDbType.VarChar).Value = monhoc.Mamh;
             command.Parameters.Add("@TENMH", SqlDbType.NVarChar).Value = monhoc.Tenmh;
             command.Parameters.Add("@HESOMH", SqlDbType.Char).Value = monhoc.Hesomh;
             command.Parameters.Add("@SOTIET", SqlDbType.Char).Value = monhoc.Sotiet;
+            connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
         }
         public void suaMonhoc(clsMONHOC_DTO monhoc)
         {
-            connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_SuaMonHoc", con);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@MAMH", SqlDbType.VarChar).Value = monhoc.Mamh;
             command.Parameters.Add("@TENMH", SqlDbType.NVarChar).Value = monhoc.Tenmh;
             command.Parameters.Add("@HESOMH", SqlDbType.Char).Value = monhoc.Hesomh;
             command.Parameters.Add("@SOTIET", SqlDbType.Char).Value = monhoc.Sotiet;
+            connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
         }
         public void xoaMonhoc(clsMONHOC_DTO monhoc)
         {
-            connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_XoaMonHoc", con);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@MAMH", SqlDbType.VarChar).Value = monhoc.Mamh;
+            connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
         }
