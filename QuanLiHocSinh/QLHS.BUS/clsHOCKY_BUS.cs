@@ -82,5 +82,19 @@ namespace QLHS.BUS
                 }
             }
         }
+
+        public void xoaHocKy(string maHK)
+        {
+            hocKy_DTO = new clsHOCKY_DTO();
+            hocKy_DTO.Mahk = maHK;
+            hocKy_DAO.xoaHocKy(hocKy_DTO);
+        }
+
+        public void xoaDong(DataGridViewX grdGV, string maHK)
+        {
+            DataRow row = tblHocKy.Select("MAHK='" + maHK + "'")[0];
+            row.Delete();
+            grdGV.DataSource = tblHocKy;
+        }
     }
 }
