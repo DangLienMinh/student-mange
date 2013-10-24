@@ -8,8 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace QuanLiHocSinh
-{
-    
+{   
     public partial class frmMain : DevComponents.DotNetBar.Office2007RibbonForm
     {
         private frmLopHoc m_FrmLop = null;

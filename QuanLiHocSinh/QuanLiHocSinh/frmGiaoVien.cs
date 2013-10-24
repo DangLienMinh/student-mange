@@ -397,7 +397,6 @@ namespace QuanLiHocSinh
                 {
                     giaoVien_BUS.timGVTenGV(grdGiaoVien,txtTim.Text);
                 }
-
 	        }
             sapXep();
             
