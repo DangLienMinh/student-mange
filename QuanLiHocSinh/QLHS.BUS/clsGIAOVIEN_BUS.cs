@@ -38,6 +38,25 @@ namespace QLHS.BUS
 
         }
 
+        public string hienThiSoNguoi()
+        {
+            string result;
+            int temp = giaoVien_DAO.soGiaoVien() + 1;
+            if (temp < 10)
+            {
+                result = "00" + temp.ToString();
+            }
+            else if (temp >= 10 && temp < 100)
+            {
+                result = "0" + temp.ToString();
+            }
+            else
+            {
+                result = temp.ToString();
+            }
+            return result;
+        }
+
         public void timGVMaGV(DataGridViewX grdGV, string maGV)
         {
             giaoVien_DTO = new clsGIAOVIEN_DTO();

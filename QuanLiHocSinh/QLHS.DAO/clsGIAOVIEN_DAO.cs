@@ -31,6 +31,27 @@ namespace QLHS.DAO
             return table;
         }
 
+        public int soGiaoVien()
+        {
+            int temp = -1;
+            DataTable table = new DataTable();
+            SqlCommand command = new SqlCommand("SP_ThongTinSoGiaoVien", con);
+            command.CommandType = CommandType.StoredProcedure;
+            connection.kiemTraKetNoi(con);
+            if (command.ExecuteScalar().ToString() != "")
+            {
+                temp = int.Parse(command.ExecuteScalar().ToString());
+            }
+            else
+            {
+                temp = 0;
+            }
+
+            con.Close();
+            return temp;
+
+        }
+
         public DataTable timGVMaGV(clsGIAOVIEN_DTO giaovien)
         {
             DataTable table = new DataTable();

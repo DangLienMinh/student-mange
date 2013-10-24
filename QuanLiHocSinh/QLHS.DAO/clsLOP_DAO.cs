@@ -32,9 +32,9 @@ namespace QLHS.DAO
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThemLop", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAKHOI", SqlDbType.Char).Value = lop.Makhoi;
+            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = lop.Makhoi;
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = lop.Manh;
-            command.Parameters.Add("@MALOP", SqlDbType.Char).Value = lop.Malop;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop.Malop;
             command.Parameters.Add("@TENLOP", SqlDbType.NVarChar).Value = lop.Tenlop;
             command.Parameters.Add("@SISO", SqlDbType.VarChar).Value = lop.Siso;
             command.Parameters.Add("@MAGV", SqlDbType.Char).Value = lop.Magv;
@@ -46,9 +46,9 @@ namespace QLHS.DAO
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_SuaLop", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAKHOI", SqlDbType.Char).Value = lop.Makhoi;
+            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = lop.Makhoi;
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = lop.Manh;
-            command.Parameters.Add("@MALOP", SqlDbType.Char).Value = lop.Malop;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop.Malop;
             command.Parameters.Add("@TENLOP", SqlDbType.NVarChar).Value = lop.Tenlop;
             command.Parameters.Add("@SISO", SqlDbType.VarChar).Value = lop.Siso;
             command.Parameters.Add("@MAGV", SqlDbType.Char).Value = lop.Magv;
@@ -60,7 +60,7 @@ namespace QLHS.DAO
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_SuaLop", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MALOP", SqlDbType.Char).Value = lop.Malop;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop.Malop;
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = lop.Manh;
             command.ExecuteNonQuery();
             con.Close();

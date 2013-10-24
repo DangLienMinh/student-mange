@@ -357,7 +357,6 @@
             // grdLoaiND
             // 
             this.grdLoaiND.AllowUserToDeleteRows = false;
-            this.grdLoaiND.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.grdLoaiND.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -402,14 +401,14 @@
             this.MALND.DataPropertyName = "MALND";
             this.MALND.HeaderText = "Mã loại người dùng";
             this.MALND.Name = "MALND";
-            this.MALND.Width = 90;
+            this.MALND.Width = 210;
             // 
             // TENLND
             // 
             this.TENLND.DataPropertyName = "TENLND";
             this.TENLND.HeaderText = "Tên loại người dùng";
             this.TENLND.Name = "TENLND";
-            this.TENLND.Width = 94;
+            this.TENLND.Width = 210;
             // 
             // btnCuoi
             // 

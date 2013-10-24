@@ -68,10 +68,11 @@ namespace QuanLiHocSinh
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            txtMaGV.Focus();
+            txtTenGV.Focus();
             FlagEnable();
             flag = 1;
             resetAll();
+            txtMaGV.Text = "GV" + giaoVien_BUS.hienThiSoNguoi().ToString();
         }
 
         private void btnChonAnh_Click(object sender, EventArgs e)
@@ -162,7 +163,7 @@ namespace QuanLiHocSinh
                 {
                     string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
                     File.Copy(open.FileName, linkimage);
-                    if (string.Compare(grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString(), linkimage) == -1)
+                    if (string.Compare(grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString(), linkimage) != 0)
                     {
                         giaoVien_BUS.suaGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, linkimage);
 

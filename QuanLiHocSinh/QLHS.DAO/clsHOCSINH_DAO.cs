@@ -32,10 +32,10 @@ namespace QLHS.DAO
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThemHocSinh", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAKHOI", SqlDbType.Char).Value = hocsinh.Makhoi;
+            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = hocsinh.Makhoi;
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hocsinh.Manh;
-            command.Parameters.Add("@MALOP", SqlDbType.Char).Value = hocsinh.Malop;
-            command.Parameters.Add("@MAHS", SqlDbType.Char).Value = hocsinh.Mahs;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = hocsinh.Malop;
+            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hocsinh.Mahs;
             command.Parameters.Add("@TENHS", SqlDbType.NVarChar).Value = hocsinh.Tenhs;
             command.Parameters.Add("@NGSINHHS", SqlDbType.SmallDateTime).Value = hocsinh.Ngaysinhhs;
             command.Parameters.Add("@GIOITINHHS", SqlDbType.Char).Value = hocsinh.Gioitinh;
@@ -52,10 +52,10 @@ namespace QLHS.DAO
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_SuaHocSinh", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAKHOI", SqlDbType.Char).Value = hocsinh.Makhoi;
+            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = hocsinh.Makhoi;
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hocsinh.Manh;
-            command.Parameters.Add("@MALOP", SqlDbType.Char).Value = hocsinh.Malop;
-            command.Parameters.Add("@MAHS", SqlDbType.Char).Value = hocsinh.Mahs;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = hocsinh.Malop;
+            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hocsinh.Mahs;
             command.Parameters.Add("@TENHS", SqlDbType.NVarChar).Value = hocsinh.Tenhs;
             command.Parameters.Add("@NGSINHHS", SqlDbType.SmallDateTime).Value = hocsinh.Ngaysinhhs;
             command.Parameters.Add("@GIOITINHHS", SqlDbType.Char).Value = hocsinh.Gioitinh;
@@ -72,7 +72,7 @@ namespace QLHS.DAO
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_XoaHocSinh", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAHS", SqlDbType.Char).Value = hocsinh.Mahs;
+            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hocsinh.Mahs;
             command.ExecuteNonQuery();
             con.Close();
         }

@@ -10,7 +10,7 @@ namespace QLHS.DAO
     public class clsConnectDatabase
     {
         public SqlConnection KetNoi() {
-                string connectionStr = @"server=.\SQLEXPRESS;Initial Catalog=QuanLyHocSinh1;Integrated Security=True";
+            string connectionStr = @"Data Source=DANGLIENMINH\SQLEXPRESS;Initial Catalog=QuanLyHocSinh;Integrated Security=True";
                 SqlConnection connection = new SqlConnection(connectionStr);
                 return connection;
         }

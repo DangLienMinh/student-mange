@@ -34,7 +34,7 @@ namespace QLHS.DAO
         {
             SqlCommand command = new SqlCommand("SP_ThemHocKy", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAHK", SqlDbType.Char).Value = hocKy.Mahk;
+            command.Parameters.Add("@MAHK", SqlDbType.VarChar).Value = hocKy.Mahk;
             command.Parameters.Add("@TENHK", SqlDbType.NVarChar).Value = hocKy.Tenhk;
             command.Parameters.Add("@HESOHK", SqlDbType.Char).Value = hocKy.Hesohk;
             connection.kiemTraKetNoi(con);
@@ -46,7 +46,7 @@ namespace QLHS.DAO
         {
             SqlCommand command = new SqlCommand("SP_SuaHocKy", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAHK", SqlDbType.Char).Value = hocKy.Mahk;
+            command.Parameters.Add("@MAHK", SqlDbType.VarChar).Value = hocKy.Mahk;
             command.Parameters.Add("@TENHK", SqlDbType.NVarChar).Value = hocKy.Tenhk;
             command.Parameters.Add("@HESOHK", SqlDbType.Char).Value = hocKy.Hesohk;
             connection.kiemTraKetNoi(con);
@@ -58,7 +58,7 @@ namespace QLHS.DAO
         {
             SqlCommand command = new SqlCommand("SP_XoaHocKy", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAHK", SqlDbType.Char).Value = hocKy.Mahk;
+            command.Parameters.Add("@MAHK", SqlDbType.VarChar).Value = hocKy.Mahk;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
