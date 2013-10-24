@@ -557,7 +557,7 @@
             this.Controls.Add(this.navigationPane1);
             this.DoubleBuffered = true;
             this.Name = "frmMonHoc";
-            this.Text = "Môn Học";
+            this.Text = "QUẢN LÝ MÔN HỌC";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMonHoc_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMonHoc_KeyDown);
