@@ -16,6 +16,8 @@ namespace QuanLiHocSinh
         private frmGiaoVien m_FrmGiaoVien = null;
         private frmMonHoc m_FrmMonHoc = null;
         private frmNamHoc m_FrmNamHoc = null;
+        private frmLoaiNguoiDung m_FrmLoaiNguoiDung = null;
+        private frmNguoiDung frmNguoiDung = null;
         public frmMain()
         {
             InitializeComponent();
@@ -53,19 +55,15 @@ namespace QuanLiHocSinh
 
         private void btnThongTin_Click(object sender, EventArgs e)
         {
-            //if (m_FrmLop == null || m_FrmLop.IsDisposed)
-            //{
-            //    m_FrmLop = new frmLopHoc();
-            //    m_FrmLop.FormBorderStyle = FormBorderStyle.None;
-            //    //m_FrmLop.TopLevel = false;
-            //    //m_FrmLop.AutoScroll = true;
-            //    //m_FrmLop.Dock = DockStyle.Fill;
-            //    //m_FrmLop.WindowState = FormWindowState.Maximized;             
-            //    m_FrmLop.MdiParent = frmMain.ActiveForm;
-            //    m_FrmLop.Show();
-            //}
-            //else
-            //    m_FrmLop.Activate();
+            if (frmNguoiDung == null || frmNguoiDung.IsDisposed)
+            {
+                frmNguoiDung = new frmNguoiDung();
+                frmNguoiDung.FormBorderStyle = FormBorderStyle.None;
+                frmNguoiDung.MdiParent = frmMain.ActiveForm;
+                frmNguoiDung.Show();
+            }
+            else
+                frmNguoiDung.Activate();
         }
 
         private void btnGiaoVien_Click(object sender, EventArgs e)
@@ -118,6 +116,19 @@ namespace QuanLiHocSinh
             }
             else
                 m_FrmLop.Activate();
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            if (m_FrmLoaiNguoiDung == null || m_FrmLoaiNguoiDung.IsDisposed)
+            {
+                m_FrmLoaiNguoiDung = new frmLoaiNguoiDung();
+                m_FrmLoaiNguoiDung.FormBorderStyle = FormBorderStyle.None;
+                m_FrmLoaiNguoiDung.MdiParent = frmMain.ActiveForm;
+                m_FrmLoaiNguoiDung.Show();
+            }
+            else
+                m_FrmLoaiNguoiDung.Activate();
         }
     }
 }

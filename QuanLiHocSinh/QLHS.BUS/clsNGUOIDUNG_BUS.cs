@@ -13,6 +13,7 @@ namespace QLHS.BUS
     public class clsNGUOIDUNG_BUS
     {
         clsNGUOIDUNG_DAO nguoiDung_DAO;
+        clsLOAINGUOIDUNG_DAO loaiNguoiDung_DAO;
         clsNGUOIDUNG_DTO nguoiDung_DTO;
         DataTable tblNguoiDung;
         private DataRow dr;
@@ -20,11 +21,16 @@ namespace QLHS.BUS
         public clsNGUOIDUNG_BUS() 
         {
             nguoiDung_DAO = new clsNGUOIDUNG_DAO();
+            loaiNguoiDung_DAO = new clsLOAINGUOIDUNG_DAO();
             tblNguoiDung = new DataTable();
         }
 
         public void hienThiComboBox(ComboBoxEx comboBox)
         {
+            comboBox.DataSource = loaiNguoiDung_DAO.danhSachLoaiNguoiDung();
+            comboBox.DisplayMember = "TENLND";
+            comboBox.ValueMember = "MALND";         
+            
             //comboBox.Items.Add("Nam");
             //comboBox.Items.Add("Nữ");
             //comboBox.SelectedItem = "Nam";
