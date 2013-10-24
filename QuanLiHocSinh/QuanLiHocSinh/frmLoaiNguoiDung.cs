@@ -83,6 +83,7 @@ namespace QuanLiHocSinh
             flag = 3;
             FlagEnable();
             txtMaLND.Enabled = false;
+            txtTenLND.Focus();
         }
 
         private void btnDongY_Click(object sender, EventArgs e)

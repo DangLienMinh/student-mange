@@ -740,7 +740,7 @@
             this.Controls.Add(this.navigationPane1);
             this.DoubleBuffered = true;
             this.Name = "frmGiaoVien";
-            this.Text = "Quản lý giáo viên";
+            this.Text = "QUẢN LÝ GIÁO VIÊN";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmGiaoVien_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmGiaoVien_KeyDown);

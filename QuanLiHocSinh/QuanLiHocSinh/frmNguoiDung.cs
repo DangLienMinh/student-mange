@@ -85,6 +85,7 @@ namespace QuanLiHocSinh
             flag = 3;
             FlagEnable();
             txtMaND.Enabled = false;
+            txtTenND.Focus();
         }
 
         private void btnDongY_Click(object sender, EventArgs e)
@@ -123,7 +124,7 @@ namespace QuanLiHocSinh
                 txtTenND.Text = grdNguoiDung.Rows[viTri].Cells["TENND"].Value.ToString();
                 txtTenDN.Text = grdNguoiDung.Rows[viTri].Cells["TENDN"].Value.ToString();
                 txtMatKhau.Text = grdNguoiDung.Rows[viTri].Cells["MATKHAU"].Value.ToString();
-                cbLoaiND.SelectedItem = grdNguoiDung.Rows[viTri].Cells["MALND"].Value.ToString();
+                cbLoaiND.SelectedValue = grdNguoiDung.Rows[viTri].Cells["MALND"].Value.ToString();
             }
 
         }
@@ -137,6 +138,10 @@ namespace QuanLiHocSinh
             {
                 MessageBox.Show("Xin điền dữ liệu vào đầy đủ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            //else if (string.Compare(txtMatKhau.Text,txtNhapLai.Text)!=0)
+            //{
+            //    MessageBox.Show("Mật khẩu không trùng khớp ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
             else
             {
                 foreach (DataGridViewRow row1 in grdNguoiDung.Rows)
@@ -267,7 +272,8 @@ namespace QuanLiHocSinh
             txtTenND.Text = grdNguoiDung.CurrentRow.Cells["TENND"].Value.ToString();
             txtTenDN.Text = grdNguoiDung.CurrentRow.Cells["TENDN"].Value.ToString();
             txtMatKhau.Text = grdNguoiDung.CurrentRow.Cells["MATKHAU"].Value.ToString();
-            cbLoaiND.SelectedItem = grdNguoiDung.CurrentRow.Cells["MALND"].Value.ToString();
+            cbLoaiND.SelectedValue = grdNguoiDung.CurrentRow.Cells["MALND"].Value.ToString();
+            
             sapXep();     
         }
 
@@ -281,6 +287,7 @@ namespace QuanLiHocSinh
             txtMaND.BackColor = Color.White;
             txtTenND.BackColor = Color.White;
             txtTenDN.BackColor = Color.White;
+            txtMatKhau.BackColor = Color.White;
         }
 
         private void frmNguoiDung_KeyDown(object sender, KeyEventArgs e)
@@ -289,6 +296,21 @@ namespace QuanLiHocSinh
             {
                 this.Close();
             }
+        }
+
+        private void btnLND_Click(object sender, EventArgs e)
+        {
+            frmLoaiNguoiDung m_FrmLND = null;
+            if (m_FrmLND == null || m_FrmLND.IsDisposed)
+            {
+                m_FrmLND = new frmLoaiNguoiDung();
+                m_FrmLND.FormBorderStyle = FormBorderStyle.None;
+                m_FrmLND.MdiParent = frmMain.ActiveForm;
+                m_FrmLND.Show();
+            }
+            else
+                m_FrmLND.Activate();
+            
         }
 
 
