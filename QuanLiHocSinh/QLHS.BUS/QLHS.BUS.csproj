@@ -52,6 +52,7 @@
     <Compile Include="clsLOAINGUOIDUNG_BUS.cs" />
     <Compile Include="clsMONHOC_BUS.cs" />
     <Compile Include="clsNAMHOC_BUS.cs" />
+    <Compile Include="clsNGUOIDUNG_BUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
