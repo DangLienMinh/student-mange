@@ -100,6 +100,7 @@ namespace QuanLiHocSinh
         {
             flag = 3;
             FlagEnable();
+            txtTenNH.Focus();
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -264,6 +265,7 @@ namespace QuanLiHocSinh
             flag1 = 3;
             FlagEnable1();
             txtMaHK.Enabled = false;
+            txtTenHK.Focus();
         }
 
         private void btnDongY_Click(object sender, EventArgs e)

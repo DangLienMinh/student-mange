@@ -198,6 +198,7 @@
             // 
             // grdMonHoc
             // 
+            this.grdMonHoc.AllowUserToDeleteRows = false;
             this.grdMonHoc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -236,6 +237,7 @@
             this.grdMonHoc.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grdMonHoc.Size = new System.Drawing.Size(458, 479);
             this.grdMonHoc.TabIndex = 14;
+            this.grdMonHoc.TabStop = false;
             this.grdMonHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdMonHoc_CellClick);
             // 
             // MAMH
@@ -327,6 +329,7 @@
             this.txtHienTai.ReadOnly = true;
             this.txtHienTai.Size = new System.Drawing.Size(69, 20);
             this.txtHienTai.TabIndex = 4;
+            this.txtHienTai.TabStop = false;
             // 
             // btnTim
             // 

@@ -84,6 +84,7 @@ namespace QuanLiHocSinh
             flag = 3;
             FlagEnable();
             txtMaMH.Enabled = false;
+            txtTenMH.Focus();
         }
 
         private void btnDongY_Click(object sender, EventArgs e)
