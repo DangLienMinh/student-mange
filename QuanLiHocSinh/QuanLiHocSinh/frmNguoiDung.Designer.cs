@@ -77,7 +77,7 @@
             this.cbLoaiND.ItemHeight = 14;
             this.cbLoaiND.Location = new System.Drawing.Point(11, 131);
             this.cbLoaiND.Name = "cbLoaiND";
-            this.cbLoaiND.Size = new System.Drawing.Size(80, 20);
+            this.cbLoaiND.Size = new System.Drawing.Size(133, 20);
             this.cbLoaiND.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbLoaiND.TabIndex = 3;
             // 
@@ -204,9 +204,9 @@
             // 
             this.btnLND.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnLND.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnLND.Location = new System.Drawing.Point(103, 131);
+            this.btnLND.Location = new System.Drawing.Point(150, 131);
             this.btnLND.Name = "btnLND";
-            this.btnLND.Size = new System.Drawing.Size(37, 20);
+            this.btnLND.Size = new System.Drawing.Size(31, 20);
             this.btnLND.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnLND.TabIndex = 21;
             this.btnLND.TabStop = false;

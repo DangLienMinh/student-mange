@@ -29,6 +29,7 @@ namespace QuanLiHocSinh
 
         private void frmNguoiDung_Load(object sender, EventArgs e)
         {
+            
             nguoiDung_BUS.hienThiDanhSach(grdNguoiDung);
             nguoiDung_BUS.hienThiComboBox(cbLoaiND);
             FlagDisable();
@@ -67,10 +68,11 @@ namespace QuanLiHocSinh
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            txtMaND.Focus();
+            txtTenND.Focus();
             FlagEnable();
             flag = 1;
             resetAll();
+            txtMaND.Text = "ND" + nguoiDung_BUS.hienThiSoNguoi().ToString();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

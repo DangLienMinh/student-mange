@@ -471,6 +471,7 @@
             this.txtMaMH.Border.Class = "TextBoxBorder";
             this.txtMaMH.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtMaMH.Location = new System.Drawing.Point(11, 35);
+            this.txtMaMH.MaxLength = 10;
             this.txtMaMH.Name = "txtMaMH";
             this.txtMaMH.Size = new System.Drawing.Size(137, 20);
             this.txtMaMH.TabIndex = 1;

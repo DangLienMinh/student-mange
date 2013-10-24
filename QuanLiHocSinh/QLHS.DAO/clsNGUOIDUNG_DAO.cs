@@ -30,6 +30,27 @@ namespace QLHS.DAO
             return table;
         }
 
+        public int soNguoiDung()
+        {
+            int temp = -1;
+            DataTable table = new DataTable();
+            SqlCommand command = new SqlCommand("SP_ThongTinSoNguoiDung", con);
+            command.CommandType = CommandType.StoredProcedure;
+            connection.kiemTraKetNoi(con);
+            if (command.ExecuteScalar().ToString() != "")
+            {
+                temp = int.Parse(command.ExecuteScalar().ToString());
+            }
+            else
+            {
+                temp = 0;
+            }
+            
+            con.Close();
+            return temp;
+           
+        }
+
         //public DataTable timGVMaGV(clsNGUOIDUNG_DTO nguoidung)
         //{
         //    DataTable table = new DataTable();
