@@ -53,6 +53,7 @@
     <Compile Include="clsLOP_DAO.cs" />
     <Compile Include="clsMONHOC_DAO.cs" />
     <Compile Include="clsNAMHOC_DAO.cs" />
+    <Compile Include="clsNGUOIDUNG_DAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

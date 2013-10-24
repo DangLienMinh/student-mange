@@ -60,6 +60,12 @@
     <Compile Include="frmHocSinh.Designer.cs">
       <DependentUpon>frmHocSinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLoaiNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoaiNguoiDung.Designer.cs">
+      <DependentUpon>frmLoaiNguoiDung.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLopHoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHocSinh.resx">
       <DependentUpon>frmHocSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoaiNguoiDung.resx">
+      <DependentUpon>frmLoaiNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLopHoc.resx">
       <DependentUpon>frmLopHoc.cs</DependentUpon>

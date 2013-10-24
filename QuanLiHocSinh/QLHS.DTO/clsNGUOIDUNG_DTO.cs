@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QLHS.DTO
 {
-    class clsNGUOIDUNG_DTO
+    public class clsNGUOIDUNG_DTO
     {
         private string malnd;
 
@@ -47,6 +47,7 @@ namespace QLHS.DTO
         public string Matkhau
         {
             get { return matkhau; }
+            set { matkhau=value; }
         }   
     }
 }
