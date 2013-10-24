@@ -296,6 +296,7 @@ namespace QuanLiHocSinh
             flag = 3;
             FlagEnable();
             txtMaGV.Enabled = false;
+            txtTenGV.Focus();
         }
 
         private void sapXep()

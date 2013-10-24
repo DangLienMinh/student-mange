@@ -585,7 +585,7 @@
             this.btnCuoi.Name = "btnCuoi";
             this.btnCuoi.Size = new System.Drawing.Size(64, 23);
             this.btnCuoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnCuoi.TabIndex = 16;
+            this.btnCuoi.TabIndex = 15;
             this.btnCuoi.Text = ">|";
             this.btnCuoi.Click += new System.EventHandler(this.btnCuoi_Click);
             // 
@@ -598,7 +598,7 @@
             this.btnSau.Name = "btnSau";
             this.btnSau.Size = new System.Drawing.Size(64, 23);
             this.btnSau.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnSau.TabIndex = 17;
+            this.btnSau.TabIndex = 14;
             this.btnSau.Text = ">";
             this.btnSau.Click += new System.EventHandler(this.btnSau_Click);
             // 
@@ -611,7 +611,7 @@
             this.btnTruoc.Name = "btnTruoc";
             this.btnTruoc.Size = new System.Drawing.Size(64, 23);
             this.btnTruoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnTruoc.TabIndex = 18;
+            this.btnTruoc.TabIndex = 13;
             this.btnTruoc.Text = "<";
             this.btnTruoc.Click += new System.EventHandler(this.btnTruoc_Click);
             // 
@@ -624,7 +624,7 @@
             this.btnDau.Name = "btnDau";
             this.btnDau.Size = new System.Drawing.Size(64, 23);
             this.btnDau.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnDau.TabIndex = 19;
+            this.btnDau.TabIndex = 12;
             this.btnDau.Text = "|<";
             this.btnDau.Click += new System.EventHandler(this.btnDau_Click);
             // 
@@ -641,9 +641,11 @@
             this.txtHienTai.ReadOnly = true;
             this.txtHienTai.Size = new System.Drawing.Size(69, 20);
             this.txtHienTai.TabIndex = 15;
+            this.txtHienTai.TabStop = false;
             // 
             // grdGiaoVien
             // 
+            this.grdGiaoVien.AllowUserToDeleteRows = false;
             this.grdGiaoVien.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -686,6 +688,7 @@
             this.grdGiaoVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdGiaoVien.Size = new System.Drawing.Size(735, 474);
             this.grdGiaoVien.TabIndex = 9;
+            this.grdGiaoVien.TabStop = false;
             this.grdGiaoVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdGiaoVien_CellClick);
             // 
             // MAGV
