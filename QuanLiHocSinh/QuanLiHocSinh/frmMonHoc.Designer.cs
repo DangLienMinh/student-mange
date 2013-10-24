@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMonHoc));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.labelX7 = new DevComponents.DotNetBar.LabelX();
-            this.btnItemTim = new DevComponents.DotNetBar.ButtonItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMonHoc));
             this.btnSua = new DevComponents.DotNetBar.ButtonX();
             this.btnXoa = new DevComponents.DotNetBar.ButtonX();
             this.btnHuy = new DevComponents.DotNetBar.ButtonX();
@@ -50,9 +48,6 @@
             this.btnTruoc = new DevComponents.DotNetBar.ButtonX();
             this.btnDau = new DevComponents.DotNetBar.ButtonX();
             this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.btnTim = new DevComponents.DotNetBar.ButtonX();
-            this.navigationPanePanel1 = new DevComponents.DotNetBar.NavigationPanePanel();
-            this.txtTim = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.cbHeSo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -66,30 +61,9 @@
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMonHoc)).BeginInit();
-            this.navigationPanePanel1.SuspendLayout();
             this.navigationPanePanel2.SuspendLayout();
             this.navigationPane1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // labelX7
-            // 
-            // 
-            // 
-            // 
-            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(11, 11);
-            this.labelX7.Name = "labelX7";
-            this.labelX7.Size = new System.Drawing.Size(145, 23);
-            this.labelX7.TabIndex = 2;
-            this.labelX7.Text = "Nhập thông tin tìm kiếm";
-            // 
-            // btnItemTim
-            // 
-            this.btnItemTim.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemTim.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTim.Image")));
-            this.btnItemTim.Name = "btnItemTim";
-            this.btnItemTim.OptionGroup = "navBar";
-            this.btnItemTim.Text = "Tìm kiếm thông tin";
             // 
             // btnSua
             // 
@@ -331,47 +305,6 @@
             this.txtHienTai.TabIndex = 4;
             this.txtHienTai.TabStop = false;
             // 
-            // btnTim
-            // 
-            this.btnTim.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnTim.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTim.Location = new System.Drawing.Point(34, 65);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(101, 23);
-            this.btnTim.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnTim.TabIndex = 8;
-            this.btnTim.Text = "Tìm kiếm";
-            // 
-            // navigationPanePanel1
-            // 
-            this.navigationPanePanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.navigationPanePanel1.Controls.Add(this.txtTim);
-            this.navigationPanePanel1.Controls.Add(this.labelX7);
-            this.navigationPanePanel1.Controls.Add(this.btnTim);
-            this.navigationPanePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
-            this.navigationPanePanel1.Name = "navigationPanePanel1";
-            this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(190, 444);
-            this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.navigationPanePanel1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.navigationPanePanel1.Style.GradientAngle = 90;
-            this.navigationPanePanel1.TabIndex = 2;
-            // 
-            // txtTim
-            // 
-            // 
-            // 
-            // 
-            this.txtTim.Border.Class = "TextBoxBorder";
-            this.txtTim.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtTim.Location = new System.Drawing.Point(11, 34);
-            this.txtTim.Name = "txtTim";
-            this.txtTim.Size = new System.Drawing.Size(155, 20);
-            this.txtTim.TabIndex = 3;
-            // 
             // btnItemNhap
             // 
             this.btnItemNhap.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
@@ -401,7 +334,7 @@
             this.navigationPanePanel2.Location = new System.Drawing.Point(1, 25);
             this.navigationPanePanel2.Name = "navigationPanePanel2";
             this.navigationPanePanel2.ParentItem = this.btnItemNhap;
-            this.navigationPanePanel2.Size = new System.Drawing.Size(190, 420);
+            this.navigationPanePanel2.Size = new System.Drawing.Size(190, 455);
             this.navigationPanePanel2.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel2.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -518,16 +451,14 @@
             // 
             this.navigationPane1.CanCollapse = true;
             this.navigationPane1.Controls.Add(this.navigationPanePanel2);
-            this.navigationPane1.Controls.Add(this.navigationPanePanel1);
             this.navigationPane1.Dock = System.Windows.Forms.DockStyle.Left;
             this.navigationPane1.ItemPaddingBottom = 2;
             this.navigationPane1.ItemPaddingTop = 2;
             this.navigationPane1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnItemNhap,
-            this.btnItemTim});
+            this.btnItemNhap});
             this.navigationPane1.Location = new System.Drawing.Point(0, 0);
             this.navigationPane1.Name = "navigationPane1";
-            this.navigationPane1.NavigationBarHeight = 102;
+            this.navigationPane1.NavigationBarHeight = 67;
             this.navigationPane1.Padding = new System.Windows.Forms.Padding(1);
             this.navigationPane1.Size = new System.Drawing.Size(192, 548);
             this.navigationPane1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -567,7 +498,6 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMonHoc_KeyDown);
             this.groupPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdMonHoc)).EndInit();
-            this.navigationPanePanel1.ResumeLayout(false);
             this.navigationPanePanel2.ResumeLayout(false);
             this.navigationPane1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -576,8 +506,6 @@
 
         #endregion
 
-        private DevComponents.DotNetBar.LabelX labelX7;
-        private DevComponents.DotNetBar.ButtonItem btnItemTim;
         private DevComponents.DotNetBar.ButtonX btnSua;
         private DevComponents.DotNetBar.ButtonX btnXoa;
         private DevComponents.DotNetBar.ButtonX btnHuy;
@@ -590,9 +518,6 @@
         private DevComponents.DotNetBar.ButtonX btnTruoc;
         private DevComponents.DotNetBar.ButtonX btnDau;
         private DevComponents.DotNetBar.Controls.TextBoxX txtHienTai;
-        private DevComponents.DotNetBar.ButtonX btnTim;
-        private DevComponents.DotNetBar.NavigationPanePanel navigationPanePanel1;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtTim;
         private DevComponents.DotNetBar.ButtonItem btnItemNhap;
         private DevComponents.DotNetBar.NavigationPanePanel navigationPanePanel2;
         private DevComponents.DotNetBar.NavigationPane navigationPane1;
