@@ -207,7 +207,7 @@
             // 
             this.btnHuy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnHuy.Location = new System.Drawing.Point(92, 154);
+            this.btnHuy.Location = new System.Drawing.Point(96, 154);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(45, 23);
             this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -219,7 +219,7 @@
             // 
             this.btnDongY.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDongY.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDongY.Location = new System.Drawing.Point(32, 154);
+            this.btnDongY.Location = new System.Drawing.Point(36, 154);
             this.btnDongY.Name = "btnDongY";
             this.btnDongY.Size = new System.Drawing.Size(45, 23);
             this.btnDongY.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -402,14 +402,14 @@
             this.MALND.DataPropertyName = "MALND";
             this.MALND.HeaderText = "Mã loại người dùng";
             this.MALND.Name = "MALND";
-            this.MALND.Width = 122;
+            this.MALND.Width = 90;
             // 
             // TENLND
             // 
             this.TENLND.DataPropertyName = "TENLND";
             this.TENLND.HeaderText = "Tên loại người dùng";
             this.TENLND.Name = "TENLND";
-            this.TENLND.Width = 126;
+            this.TENLND.Width = 94;
             // 
             // btnCuoi
             // 

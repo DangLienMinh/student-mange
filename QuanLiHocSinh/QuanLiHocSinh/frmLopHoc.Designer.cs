@@ -150,7 +150,7 @@
             // 
             this.btnSua.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnSua.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSua.Location = new System.Drawing.Point(125, 272);
+            this.btnSua.Location = new System.Drawing.Point(126, 272);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(53, 23);
             this.btnSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -161,7 +161,7 @@
             // 
             this.btnXoa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnXoa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnXoa.Location = new System.Drawing.Point(62, 272);
+            this.btnXoa.Location = new System.Drawing.Point(63, 272);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(57, 23);
             this.btnXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -172,7 +172,7 @@
             // 
             this.ư.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.ư.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.ư.Location = new System.Drawing.Point(90, 306);
+            this.ư.Location = new System.Drawing.Point(101, 302);
             this.ư.Name = "ư";
             this.ư.Size = new System.Drawing.Size(45, 23);
             this.ư.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -183,7 +183,7 @@
             // 
             this.btnDongY.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDongY.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDongY.Location = new System.Drawing.Point(30, 306);
+            this.btnDongY.Location = new System.Drawing.Point(41, 302);
             this.btnDongY.Name = "btnDongY";
             this.btnDongY.Size = new System.Drawing.Size(45, 23);
             this.btnDongY.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -194,7 +194,7 @@
             // 
             this.btnThem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnThem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnThem.Location = new System.Drawing.Point(3, 272);
+            this.btnThem.Location = new System.Drawing.Point(4, 272);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(53, 23);
             this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
