@@ -13,21 +13,26 @@ namespace QuanLiHocSinh
     public partial class frmLopHoc : DevComponents.DotNetBar.Office2007Form
     {
         private clsLOP_BUS lop_bus;
+        private clsKHOI_BUS khoi_bus;
+        private clsNAMHOC_BUS namHoc_bus;
         private clsLOP_DTO lop_dto;
         private Boolean flagInsert;
         private Boolean flagUpdate;
         private Boolean flagDelete;
+
         public frmLopHoc()
         {
             InitializeComponent();
             lop_bus = new clsLOP_BUS();
+            namHoc_bus = new clsNAMHOC_BUS();
+            khoi_bus = new clsKHOI_BUS();
             lop_dto = new clsLOP_DTO();
         }
 
         private void frmLopHoc_Load(object sender, EventArgs e)
         {
-            lop_bus.cboNamhoc(cboNamHoc);
-            lop_bus.cboKhoi(cboKhoi);
+            namHoc_bus.hienThiComboBox(cboNamHoc);
+            khoi_bus.hienThiComboBox(cboKhoi);
             lop_bus.cboGiaovienchunhiem(cboGiaoVien);
             grdLop.DataSource = lop_bus.danhsachLop();
         }

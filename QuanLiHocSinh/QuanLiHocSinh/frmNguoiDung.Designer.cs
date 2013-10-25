@@ -32,7 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.cbLoaiND = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cboLoaiND = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
@@ -69,18 +69,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdNguoiDung)).BeginInit();
             this.SuspendLayout();
             // 
-            // cbLoaiND
+            // cboLoaiND
             // 
-            this.cbLoaiND.DisplayMember = "Text";
-            this.cbLoaiND.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbLoaiND.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLoaiND.FormattingEnabled = true;
-            this.cbLoaiND.ItemHeight = 14;
-            this.cbLoaiND.Location = new System.Drawing.Point(11, 131);
-            this.cbLoaiND.Name = "cbLoaiND";
-            this.cbLoaiND.Size = new System.Drawing.Size(133, 20);
-            this.cbLoaiND.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbLoaiND.TabIndex = 3;
+            this.cboLoaiND.DisplayMember = "Text";
+            this.cboLoaiND.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboLoaiND.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLoaiND.FormattingEnabled = true;
+            this.cboLoaiND.ItemHeight = 14;
+            this.cboLoaiND.Location = new System.Drawing.Point(11, 131);
+            this.cboLoaiND.Name = "cboLoaiND";
+            this.cboLoaiND.Size = new System.Drawing.Size(133, 20);
+            this.cboLoaiND.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cboLoaiND.TabIndex = 3;
             // 
             // labelX6
             // 
@@ -166,7 +166,7 @@
             this.navigationPanePanel2.Controls.Add(this.btnHuy);
             this.navigationPanePanel2.Controls.Add(this.btnDongY);
             this.navigationPanePanel2.Controls.Add(this.btnThem);
-            this.navigationPanePanel2.Controls.Add(this.cbLoaiND);
+            this.navigationPanePanel2.Controls.Add(this.cboLoaiND);
             this.navigationPanePanel2.Controls.Add(this.txtMatKhau);
             this.navigationPanePanel2.Controls.Add(this.txtTenDN);
             this.navigationPanePanel2.Controls.Add(this.labelX6);
@@ -563,7 +563,7 @@
 
         #endregion
 
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cbLoaiND;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cboLoaiND;
         private DevComponents.DotNetBar.LabelX labelX6;
         private DevComponents.DotNetBar.LabelX labelX4;
         private DevComponents.DotNetBar.LabelX labelX2;

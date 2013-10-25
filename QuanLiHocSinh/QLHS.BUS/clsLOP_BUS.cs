@@ -19,35 +19,23 @@ namespace QLHS.BUS
         private DataTable tblLop;
         private DataRow dr;
         private clsGIAOVIEN_DAO giaovien_dao;
-        private clsNAMHOC_DAO namhoc_dao;
-        private clsKHOI_DAO khoi_dao;
+
         public clsLOP_BUS()
         {
             lop_DAO = new clsLOP_DAO();
             tblLop = new DataTable();
             lop_DTO = new clsLOP_DTO();
             giaovien_dao = new clsGIAOVIEN_DAO();
-            namhoc_dao = new clsNAMHOC_DAO();
-            khoi_dao = new clsKHOI_DAO();
         }
-        public void cboNamhoc(ComboBoxEx comboBox)
-        {
-            comboBox.DataSource = namhoc_dao.danhSachNamHoc();
-            comboBox.DisplayMember = "TENNH";
-            comboBox.ValueMember = "MANH";
-        }
+
+
         public void cboGiaovienchunhiem(ComboBoxEx comboBox)
         {
             comboBox.DataSource = giaovien_dao.danhSachGiaoVien();
             comboBox.DisplayMember = "TENGV";
             comboBox.ValueMember = "MAGV";
         }
-        public void cboKhoi(ComboBoxEx comboBox)
-        {
-            comboBox.DataSource = khoi_dao.danhsachKhoi();
-            comboBox.DisplayMember = "TENKHOI";
-            comboBox.ValueMember = "MAKHOI";
-        }
+
         public string taoMalop()
         {
             string malop = "LH";

@@ -31,7 +31,7 @@ namespace QuanLiHocSinh
         {
             
             nguoiDung_BUS.hienThiDanhSach(grdNguoiDung);
-            nguoiDung_BUS.hienThiComboBox(cbLoaiND);
+            nguoiDung_BUS.hienThiComboBox(cboLoaiND);
             FlagDisable();
             flag = 0;
             sapXep();
@@ -126,7 +126,7 @@ namespace QuanLiHocSinh
                 txtTenND.Text = grdNguoiDung.Rows[viTri].Cells["TENND"].Value.ToString();
                 txtTenDN.Text = grdNguoiDung.Rows[viTri].Cells["TENDN"].Value.ToString();
                 txtMatKhau.Text = grdNguoiDung.Rows[viTri].Cells["MATKHAU"].Value.ToString();
-                cbLoaiND.SelectedValue = grdNguoiDung.Rows[viTri].Cells["MALND"].Value.ToString();
+                cboLoaiND.SelectedValue = grdNguoiDung.Rows[viTri].Cells["MALND"].Value.ToString();
             }
 
         }
@@ -163,7 +163,7 @@ namespace QuanLiHocSinh
                 {
                     try
                     {
-                        nguoiDung_BUS.themNguoiDung(txtMaND.Text, txtTenND.Text,cbLoaiND.SelectedValue.ToString(), txtTenDN.Text,txtMatKhau.Text );
+                        nguoiDung_BUS.themNguoiDung(txtMaND.Text, txtTenND.Text,cboLoaiND.SelectedValue.ToString(), txtTenDN.Text,txtMatKhau.Text );
                         MessageBox.Show("Bạn đã thêm thành công!");
                         nguoiDung_BUS.themDong();
                         FlagDisable();
@@ -184,7 +184,7 @@ namespace QuanLiHocSinh
         {
             if (grdNguoiDung.SelectedRows.Count >= 1 && txtMaND.Text != "")
             {
-                nguoiDung_BUS.suaNguoiDung(txtMaND.Text, txtTenND.Text, cbLoaiND.SelectedValue.ToString(), txtTenDN.Text, txtMatKhau.Text);
+                nguoiDung_BUS.suaNguoiDung(txtMaND.Text, txtTenND.Text, cboLoaiND.SelectedValue.ToString(), txtTenDN.Text, txtMatKhau.Text);
 
 
                 MessageBox.Show("Bạn đã sửa thành công!");
@@ -274,7 +274,7 @@ namespace QuanLiHocSinh
             txtTenND.Text = grdNguoiDung.CurrentRow.Cells["TENND"].Value.ToString();
             txtTenDN.Text = grdNguoiDung.CurrentRow.Cells["TENDN"].Value.ToString();
             txtMatKhau.Text = grdNguoiDung.CurrentRow.Cells["MATKHAU"].Value.ToString();
-            cbLoaiND.SelectedValue = grdNguoiDung.CurrentRow.Cells["MALND"].Value.ToString();
+            cboLoaiND.SelectedValue = grdNguoiDung.CurrentRow.Cells["MALND"].Value.ToString();
             
             sapXep();     
         }

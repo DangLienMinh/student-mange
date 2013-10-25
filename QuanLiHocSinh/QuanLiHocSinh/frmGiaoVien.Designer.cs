@@ -40,7 +40,7 @@
             this.picGiaoVien = new System.Windows.Forms.PictureBox();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.dtiNgaySinh = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
-            this.cbGioiTinh = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cboGioiTinh = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.btnSua = new DevComponents.DotNetBar.ButtonX();
             this.btnXoa = new DevComponents.DotNetBar.ButtonX();
             this.btnThem = new DevComponents.DotNetBar.ButtonX();
@@ -131,7 +131,7 @@
             this.navigationPanePanel2.Controls.Add(this.picGiaoVien);
             this.navigationPanePanel2.Controls.Add(this.labelX1);
             this.navigationPanePanel2.Controls.Add(this.dtiNgaySinh);
-            this.navigationPanePanel2.Controls.Add(this.cbGioiTinh);
+            this.navigationPanePanel2.Controls.Add(this.cboGioiTinh);
             this.navigationPanePanel2.Controls.Add(this.btnSua);
             this.navigationPanePanel2.Controls.Add(this.btnXoa);
             this.navigationPanePanel2.Controls.Add(this.btnThem);
@@ -265,18 +265,18 @@
             this.dtiNgaySinh.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.dtiNgaySinh.TabIndex = 2;
             // 
-            // cbGioiTinh
+            // cboGioiTinh
             // 
-            this.cbGioiTinh.DisplayMember = "Text";
-            this.cbGioiTinh.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGioiTinh.FormattingEnabled = true;
-            this.cbGioiTinh.ItemHeight = 14;
-            this.cbGioiTinh.Location = new System.Drawing.Point(107, 167);
-            this.cbGioiTinh.Name = "cbGioiTinh";
-            this.cbGioiTinh.Size = new System.Drawing.Size(59, 20);
-            this.cbGioiTinh.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbGioiTinh.TabIndex = 4;
+            this.cboGioiTinh.DisplayMember = "Text";
+            this.cboGioiTinh.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGioiTinh.FormattingEnabled = true;
+            this.cboGioiTinh.ItemHeight = 14;
+            this.cboGioiTinh.Location = new System.Drawing.Point(107, 167);
+            this.cboGioiTinh.Name = "cboGioiTinh";
+            this.cboGioiTinh.Size = new System.Drawing.Size(59, 20);
+            this.cboGioiTinh.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cboGioiTinh.TabIndex = 4;
             // 
             // btnSua
             // 
@@ -776,7 +776,7 @@
         private System.Windows.Forms.PictureBox picGiaoVien;
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput dtiNgaySinh;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cbGioiTinh;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cboGioiTinh;
         private DevComponents.DotNetBar.ButtonX btnSua;
         private DevComponents.DotNetBar.ButtonX btnXoa;
         private DevComponents.DotNetBar.ButtonX btnThem;

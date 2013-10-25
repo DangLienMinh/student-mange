@@ -35,7 +35,6 @@ namespace QLHS.BUS
         {
             tblGiaoVien = giaoVien_DAO.danhSachGiaoVien();
             grdGV.DataSource=tblGiaoVien;
-
         }
 
         public string hienThiSoNguoi()

@@ -104,9 +104,9 @@
             this.nodeConnector2 = new DevComponents.AdvTree.NodeConnector();
             this.elementStyle2 = new DevComponents.DotNetBar.ElementStyle();
             this.lblchonlop = new DevComponents.DotNetBar.LabelX();
-            this.cbMonHoc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.cbHocKy = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.cbNamHoc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cboMonHoc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cboHocKy = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cboNamHoc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.btnDanhSach = new DevComponents.DotNetBar.ButtonX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
@@ -524,8 +524,8 @@
             // 
             this.tabControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
             this.tabControl1.CanReorderTabs = true;
-            this.tabControl1.Controls.Add(this.tabControlPanel2);
             this.tabControl1.Controls.Add(this.tabControlPanel1);
+            this.tabControl1.Controls.Add(this.tabControlPanel2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -1072,9 +1072,9 @@
             this.navigationPanePanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.navigationPanePanel1.Controls.Add(this.treeKhoi);
             this.navigationPanePanel1.Controls.Add(this.lblchonlop);
-            this.navigationPanePanel1.Controls.Add(this.cbMonHoc);
-            this.navigationPanePanel1.Controls.Add(this.cbHocKy);
-            this.navigationPanePanel1.Controls.Add(this.cbNamHoc);
+            this.navigationPanePanel1.Controls.Add(this.cboMonHoc);
+            this.navigationPanePanel1.Controls.Add(this.cboHocKy);
+            this.navigationPanePanel1.Controls.Add(this.cboNamHoc);
             this.navigationPanePanel1.Controls.Add(this.btnDanhSach);
             this.navigationPanePanel1.Controls.Add(this.labelX2);
             this.navigationPanePanel1.Controls.Add(this.labelX6);
@@ -1135,45 +1135,45 @@
             this.lblchonlop.TabIndex = 30;
             this.lblchonlop.Text = "Chọn lớp:";
             // 
-            // cbMonHoc
+            // cboMonHoc
             // 
-            this.cbMonHoc.DisplayMember = "Text";
-            this.cbMonHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMonHoc.FormattingEnabled = true;
-            this.cbMonHoc.ItemHeight = 14;
-            this.cbMonHoc.Location = new System.Drawing.Point(18, 118);
-            this.cbMonHoc.Name = "cbMonHoc";
-            this.cbMonHoc.Size = new System.Drawing.Size(148, 20);
-            this.cbMonHoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbMonHoc.TabIndex = 29;
+            this.cboMonHoc.DisplayMember = "Text";
+            this.cboMonHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMonHoc.FormattingEnabled = true;
+            this.cboMonHoc.ItemHeight = 14;
+            this.cboMonHoc.Location = new System.Drawing.Point(18, 118);
+            this.cboMonHoc.Name = "cboMonHoc";
+            this.cboMonHoc.Size = new System.Drawing.Size(148, 20);
+            this.cboMonHoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cboMonHoc.TabIndex = 29;
             // 
-            // cbHocKy
+            // cboHocKy
             // 
-            this.cbHocKy.DisplayMember = "Text";
-            this.cbHocKy.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbHocKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbHocKy.FormattingEnabled = true;
-            this.cbHocKy.ItemHeight = 14;
-            this.cbHocKy.Location = new System.Drawing.Point(18, 72);
-            this.cbHocKy.Name = "cbHocKy";
-            this.cbHocKy.Size = new System.Drawing.Size(148, 20);
-            this.cbHocKy.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbHocKy.TabIndex = 29;
+            this.cboHocKy.DisplayMember = "Text";
+            this.cboHocKy.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboHocKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboHocKy.FormattingEnabled = true;
+            this.cboHocKy.ItemHeight = 14;
+            this.cboHocKy.Location = new System.Drawing.Point(18, 72);
+            this.cboHocKy.Name = "cboHocKy";
+            this.cboHocKy.Size = new System.Drawing.Size(148, 20);
+            this.cboHocKy.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cboHocKy.TabIndex = 29;
             // 
-            // cbNamHoc
+            // cboNamHoc
             // 
-            this.cbNamHoc.DisplayMember = "Text";
-            this.cbNamHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbNamHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbNamHoc.FormattingEnabled = true;
-            this.cbNamHoc.ItemHeight = 14;
-            this.cbNamHoc.Location = new System.Drawing.Point(18, 25);
-            this.cbNamHoc.Name = "cbNamHoc";
-            this.cbNamHoc.Size = new System.Drawing.Size(148, 20);
-            this.cbNamHoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbNamHoc.TabIndex = 29;
-            this.cbNamHoc.SelectedValueChanged += new System.EventHandler(this.cbNamHoc_SelectedValueChanged);
+            this.cboNamHoc.DisplayMember = "Text";
+            this.cboNamHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboNamHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNamHoc.FormattingEnabled = true;
+            this.cboNamHoc.ItemHeight = 14;
+            this.cboNamHoc.Location = new System.Drawing.Point(18, 25);
+            this.cboNamHoc.Name = "cboNamHoc";
+            this.cboNamHoc.Size = new System.Drawing.Size(148, 20);
+            this.cboNamHoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cboNamHoc.TabIndex = 29;
+            this.cboNamHoc.SelectedValueChanged += new System.EventHandler(this.cbNamHoc_SelectedValueChanged);
             // 
             // btnDanhSach
             // 
@@ -1305,9 +1305,9 @@
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.ButtonItem btnItemNhapLop;
         private DevComponents.DotNetBar.TabItem btnItemLop;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cbMonHoc;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cbHocKy;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cbNamHoc;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cboMonHoc;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cboHocKy;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cboNamHoc;
         private DevComponents.DotNetBar.LabelX labelX6;
         private DevComponents.AdvTree.AdvTree treeKhoi;
         private DevComponents.AdvTree.NodeConnector nodeConnector2;

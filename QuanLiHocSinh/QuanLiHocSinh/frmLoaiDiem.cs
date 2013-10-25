@@ -57,7 +57,7 @@ namespace QuanLiHocSinh
         private void frmLoaiDiem_Load(object sender, EventArgs e)
         {
             loaiDiem_BUS.hienThiDanhSach(grdLoaiDiem);
-            loaiDiem_BUS.hienThiComboBox(cbHeSo);
+            loaiDiem_BUS.hienThiComboBox(cboHeSo);
             FlagDisable();
             flag = 0;
             sapXep();
@@ -119,7 +119,7 @@ namespace QuanLiHocSinh
                 txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
                 txtMaLD.Text = grdLoaiDiem.Rows[viTri].Cells["MALD"].Value.ToString();
                 txtTenLD.Text = grdLoaiDiem.Rows[viTri].Cells["TENLD"].Value.ToString();
-                cbHeSo.SelectedItem = grdLoaiDiem.Rows[viTri].Cells["HESOLD"].Value.ToString();
+                cboHeSo.SelectedItem = grdLoaiDiem.Rows[viTri].Cells["HESOLD"].Value.ToString();
             }
 
         }
@@ -152,7 +152,7 @@ namespace QuanLiHocSinh
                 {
                     try
                     {
-                        loaiDiem_BUS.themLoaiDiem(txtMaLD.Text, txtTenLD.Text,cbHeSo.SelectedItem.ToString());
+                        loaiDiem_BUS.themLoaiDiem(txtMaLD.Text, txtTenLD.Text,cboHeSo.SelectedItem.ToString());
                         MessageBox.Show("Bạn đã thêm thành công!");
                         loaiDiem_BUS.themDong();
                         FlagDisable();
@@ -173,7 +173,7 @@ namespace QuanLiHocSinh
         {
             if (grdLoaiDiem.SelectedRows.Count >= 1 && txtMaLD.Text != "")
             {
-                loaiDiem_BUS.suaLoaiDiem(txtMaLD.Text, txtTenLD.Text, cbHeSo.SelectedItem.ToString());
+                loaiDiem_BUS.suaLoaiDiem(txtMaLD.Text, txtTenLD.Text, cboHeSo.SelectedItem.ToString());
 
 
                 MessageBox.Show("Bạn đã sửa thành công!");
@@ -268,7 +268,7 @@ namespace QuanLiHocSinh
         {
             txtMaLD.Text = grdLoaiDiem.CurrentRow.Cells["MALD"].Value.ToString();
             txtTenLD.Text = grdLoaiDiem.CurrentRow.Cells["TENLD"].Value.ToString();
-            cbHeSo.SelectedItem = grdLoaiDiem.CurrentRow.Cells["HESOLD"].Value.ToString();
+            cboHeSo.SelectedItem = grdLoaiDiem.CurrentRow.Cells["HESOLD"].Value.ToString();
             sapXep();      
         }
 

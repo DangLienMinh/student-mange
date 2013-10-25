@@ -50,7 +50,7 @@
             this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
-            this.cbHeSo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cboHeSo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtSoTiet = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtTenMH = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
@@ -317,7 +317,7 @@
             // navigationPanePanel2
             // 
             this.navigationPanePanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.navigationPanePanel2.Controls.Add(this.cbHeSo);
+            this.navigationPanePanel2.Controls.Add(this.cboHeSo);
             this.navigationPanePanel2.Controls.Add(this.txtSoTiet);
             this.navigationPanePanel2.Controls.Add(this.txtTenMH);
             this.navigationPanePanel2.Controls.Add(this.labelX3);
@@ -342,18 +342,18 @@
             this.navigationPanePanel2.Style.GradientAngle = 90;
             this.navigationPanePanel2.TabIndex = 3;
             // 
-            // cbHeSo
+            // cboHeSo
             // 
-            this.cbHeSo.DisplayMember = "Text";
-            this.cbHeSo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbHeSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbHeSo.FormattingEnabled = true;
-            this.cbHeSo.ItemHeight = 14;
-            this.cbHeSo.Location = new System.Drawing.Point(11, 136);
-            this.cbHeSo.Name = "cbHeSo";
-            this.cbHeSo.Size = new System.Drawing.Size(64, 20);
-            this.cbHeSo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbHeSo.TabIndex = 3;
+            this.cboHeSo.DisplayMember = "Text";
+            this.cboHeSo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboHeSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboHeSo.FormattingEnabled = true;
+            this.cboHeSo.ItemHeight = 14;
+            this.cboHeSo.Location = new System.Drawing.Point(11, 136);
+            this.cboHeSo.Name = "cboHeSo";
+            this.cboHeSo.Size = new System.Drawing.Size(64, 20);
+            this.cboHeSo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cboHeSo.TabIndex = 3;
             // 
             // txtSoTiet
             // 
@@ -521,7 +521,7 @@
         private DevComponents.DotNetBar.ButtonItem btnItemNhap;
         private DevComponents.DotNetBar.NavigationPanePanel navigationPanePanel2;
         private DevComponents.DotNetBar.NavigationPane navigationPane1;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cbHeSo;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cboHeSo;
         private DevComponents.DotNetBar.Controls.TextBoxX txtSoTiet;
         private DevComponents.DotNetBar.Controls.TextBoxX txtTenMH;
         private DevComponents.DotNetBar.LabelX labelX3;
