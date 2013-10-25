@@ -73,6 +73,7 @@
             // 
             this.cbLoaiND.DisplayMember = "Text";
             this.cbLoaiND.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbLoaiND.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLoaiND.FormattingEnabled = true;
             this.cbLoaiND.ItemHeight = 14;
             this.cbLoaiND.Location = new System.Drawing.Point(11, 131);
