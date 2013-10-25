@@ -72,7 +72,7 @@ namespace QLHS.DAO
         public void xoaLop(clsLOP_DTO lop)
         {
             connection.kiemTraKetNoi(con);
-            SqlCommand command = new SqlCommand("SP_SuaLop", con);
+            SqlCommand command = new SqlCommand("SP_XoaLop", con);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop.Malop;
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = lop.Manh;

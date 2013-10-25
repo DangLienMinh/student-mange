@@ -14,17 +14,70 @@ namespace QLHS.BUS
 {
     public class clsLOP_BUS
     {
-        clsLOP_DAO lop_DAO;
-        clsLOP_DTO lop_DTO;
-        DataTable tblLop;
+        private clsLOP_DAO lop_DAO;
+        private clsLOP_DTO lop_DTO;
+        private DataTable tblLop;
         private DataRow dr;
-
+        private clsGIAOVIEN_DAO giaovien_dao;
+        private clsNAMHOC_DAO namhoc_dao;
+        private clsKHOI_DAO khoi_dao;
         public clsLOP_BUS()
         {
             lop_DAO = new clsLOP_DAO();
             tblLop = new DataTable();
+            lop_DTO = new clsLOP_DTO();
+            giaovien_dao = new clsGIAOVIEN_DAO();
+            namhoc_dao = new clsNAMHOC_DAO();
+            khoi_dao = new clsKHOI_DAO();
         }
-        public void hienThiLopTheoNamHoc(string maNH,AdvTree tree)
+        public void cboNamhoc(ComboBoxEx comboBox)
+        {
+            comboBox.DataSource = namhoc_dao.danhSachNamHoc();
+            comboBox.DisplayMember = "TENNH";
+            comboBox.ValueMember = "MANH";
+        }
+        public void cboGiaovienchunhiem(ComboBoxEx comboBox)
+        {
+            comboBox.DataSource = giaovien_dao.danhSachGiaoVien();
+            comboBox.DisplayMember = "TENGV";
+            comboBox.ValueMember = "MAGV";
+        }
+        public void cboKhoi(ComboBoxEx comboBox)
+        {
+            comboBox.DataSource = khoi_dao.danhsachKhoi();
+            comboBox.DisplayMember = "TENKHOI";
+            comboBox.ValueMember = "MAKHOI";
+        }
+        public string taoMalop()
+        {
+            string malop = "LH";
+            if (lop_DAO.danhsachLop().Rows.Count < 10)
+            {
+                malop = malop +"0"+ lop_DAO.danhsachLop().Rows.Count.ToString();
+            }
+            else
+            {
+                malop = malop + lop_DAO.danhsachLop().Rows.Count.ToString();
+            }
+            return malop;
+        }
+        public void themLophoc(clsLOP_DTO lop)
+        {
+            lop_DAO.themLop(lop);
+        }
+        public void suaLop(clsLOP_DTO lop)
+        {
+            lop_DAO.suaLop(lop);
+        }
+        public DataTable danhsachLop()
+        {
+            return lop_DAO.danhsachLop();
+        }
+        public void xoaLop(clsLOP_DTO lop)
+        {
+            lop_DAO.xoaLop(lop);
+        }
+        public void hienThiLopTheoNamHoc(string maNH, AdvTree tree)
         {
             Node temp;
             lop_DTO = new clsLOP_DTO();
@@ -36,12 +89,12 @@ namespace QLHS.BUS
 
             foreach (DataRow row in tblLop.Rows)
             {
-                if (row["MAKHOI"].ToString().IndexOf("10")!=-1)
+                if (row["MAKHOI"].ToString().IndexOf("10") != -1)
                 {
                     temp = new Node(row["TENLOP"].ToString());
                     k10.Nodes.Add(temp);
                 }
-                else if (row["MAKHOI"].ToString().IndexOf("11")!=-1)
+                else if (row["MAKHOI"].ToString().IndexOf("11") != -1)
                 {
                     temp = new Node(row["TENLOP"].ToString());
                     k11.Nodes.Add(temp);
@@ -51,7 +104,7 @@ namespace QLHS.BUS
                     temp = new Node(row["TENLOP"].ToString());
                     k12.Nodes.Add(temp);
                 }
-                
+
             }
 
             tree.Nodes.Add(k10);
