@@ -25,13 +25,19 @@ namespace QuanLiHocSinh
 
         private void cbNamHoc_SelectedValueChanged(object sender, EventArgs e)
         {
-
+            treeKhoi.Nodes.Clear();
+            lop_BUS.hienThiLopTheoNamHoc(cbNamHoc.SelectedValue.ToString(), treeKhoi);
         }
 
         private void frmDiem_Load(object sender, EventArgs e)
         {
             namHoc_BUS.hienThiComboBox(cbNamHoc);
-            lop_BUS.hienThiLopTheoNamHoc(cbNamHoc.SelectedValue.ToString(), treeKhoi);
+            //lop_BUS.hienThiLopTheoNamHoc(cbNamHoc.SelectedValue.ToString(), treeKhoi);
+        }
+
+        private void btnDanhSach_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
