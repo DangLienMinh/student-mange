@@ -56,7 +56,7 @@ namespace QuanLiHocSinh
         private void frmMonHoc_Load(object sender, EventArgs e)
         {
             monHoc_BUS.hienThiDanhSach(grdMonHoc);
-            monHoc_BUS.hienThiComboBox(cbHeSo);
+            monHoc_BUS.hienThiComboBox(cboHeSo);
             FlagDisable();
             flag = 0;
             sapXep();
@@ -120,7 +120,7 @@ namespace QuanLiHocSinh
                 txtMaMH.Text = grdMonHoc.Rows[viTri].Cells["MAMH"].Value.ToString();
                 txtTenMH.Text = grdMonHoc.Rows[viTri].Cells["TENMH"].Value.ToString();
                 txtSoTiet.Text = grdMonHoc.Rows[viTri].Cells["SOTIET"].Value.ToString();
-                cbHeSo.SelectedItem = grdMonHoc.Rows[viTri].Cells["HESOMH"].Value.ToString(); 
+                cboHeSo.SelectedItem = grdMonHoc.Rows[viTri].Cells["HESOMH"].Value.ToString(); 
             }
             
         }
@@ -153,7 +153,7 @@ namespace QuanLiHocSinh
                 {
                     try
                     {
-                        monHoc_BUS.themMonHoc(txtMaMH.Text, txtTenMH.Text,txtSoTiet.Text,cbHeSo.SelectedItem.ToString());
+                        monHoc_BUS.themMonHoc(txtMaMH.Text, txtTenMH.Text,txtSoTiet.Text,cboHeSo.SelectedItem.ToString());
                         MessageBox.Show("Bạn đã thêm thành công!");
                         monHoc_BUS.themDong();
                         FlagDisable();
@@ -174,7 +174,7 @@ namespace QuanLiHocSinh
         {
             if (grdMonHoc.SelectedRows.Count >= 1 && txtMaMH.Text != "")
             {    
-                monHoc_BUS.suaMonHoc(txtMaMH.Text, txtTenMH.Text, txtSoTiet.Text,cbHeSo.SelectedItem.ToString());
+                monHoc_BUS.suaMonHoc(txtMaMH.Text, txtTenMH.Text, txtSoTiet.Text,cboHeSo.SelectedItem.ToString());
 
 
                 MessageBox.Show("Bạn đã sửa thành công!");
@@ -262,7 +262,7 @@ namespace QuanLiHocSinh
             txtMaMH.Text = grdMonHoc.CurrentRow.Cells["MAMH"].Value.ToString();
             txtTenMH.Text = grdMonHoc.CurrentRow.Cells["TENMH"].Value.ToString();
             txtSoTiet.Text = grdMonHoc.CurrentRow.Cells["SOTIET"].Value.ToString();
-            cbHeSo.SelectedItem = grdMonHoc.CurrentRow.Cells["HESOMH"].Value.ToString();
+            cboHeSo.SelectedItem = grdMonHoc.CurrentRow.Cells["HESOMH"].Value.ToString();
             sapXep();        
         }
 

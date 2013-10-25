@@ -43,7 +43,7 @@ namespace QuanLiHocSinh
             txtMaNH.Text = "NH" + DateTime.Now.ToString("yy") + DateTime.Now.AddYears(1).ToString("yy");
             namHoc_BUS.hienThiDanhSach(grdNamHoc);
             hocKy_BUS.hienThiDanhSach(grdHocKy);
-            hocKy_BUS.hienThiComboBox(cbHeSoHK);
+            hocKy_BUS.hienThiComboBox(cboHeSoHK);
             FlagDisable();
             FlagDisable1();
             sapXep();
@@ -304,7 +304,7 @@ namespace QuanLiHocSinh
                 {
                     try
                     {
-                        hocKy_BUS.themHocKy(txtMaHK.Text, txtTenHK.Text,cbHeSoHK.SelectedItem.ToString());
+                        hocKy_BUS.themHocKy(txtMaHK.Text, txtTenHK.Text,cboHeSoHK.SelectedItem.ToString());
                         MessageBox.Show("Bạn đã thêm thành công!");
                         hocKy_BUS.themDong();
                         FlagDisable1();
@@ -323,7 +323,7 @@ namespace QuanLiHocSinh
         {
             if (grdHocKy.SelectedRows.Count >= 1 && txtMaHK.Text != "")
             {
-                hocKy_BUS.suaHocKy(txtMaHK.Text, txtTenHK.Text,cbHeSoHK.SelectedItem.ToString());
+                hocKy_BUS.suaHocKy(txtMaHK.Text, txtTenHK.Text,cboHeSoHK.SelectedItem.ToString());
                 MessageBox.Show("Bạn đã sửa thành công!");
 
                 //sửa trong datagrid view
@@ -385,7 +385,7 @@ namespace QuanLiHocSinh
                 txtHienTai.Text = "" + (viTri1 + 1).ToString() + "/" + Tong1.ToString();
                 txtMaHK.Text = grdHocKy.Rows[viTri1].Cells["MAHK"].Value.ToString();
                 txtTenHK.Text = grdHocKy.Rows[viTri1].Cells["TENHK"].Value.ToString();
-                cbHeSoHK.SelectedItem = grdHocKy.Rows[viTri1].Cells["HESOHK"].Value.ToString();
+                cboHeSoHK.SelectedItem = grdHocKy.Rows[viTri1].Cells["HESOHK"].Value.ToString();
             }
         }
 
@@ -433,7 +433,7 @@ namespace QuanLiHocSinh
         {
             txtMaHK.Text = grdHocKy.CurrentRow.Cells["MAHK"].Value.ToString();
             txtTenHK.Text = grdHocKy.CurrentRow.Cells["TENHK"].Value.ToString();
-            cbHeSoHK.SelectedItem = grdHocKy.CurrentRow.Cells["HESOHK"].Value.ToString();
+            cboHeSoHK.SelectedItem = grdHocKy.CurrentRow.Cells["HESOHK"].Value.ToString();
            
             sapXep1();       
         }

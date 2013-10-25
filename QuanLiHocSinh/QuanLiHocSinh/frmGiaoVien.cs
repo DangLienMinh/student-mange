@@ -58,7 +58,7 @@ namespace QuanLiHocSinh
         private void frmGiaoVien_Load(object sender, EventArgs e)
         {
             giaoVien_BUS.hienThiDanhSach(grdGiaoVien);
-            giaoVien_BUS.hienThiComboBox(cbGioiTinh);
+            giaoVien_BUS.hienThiComboBox(cboGioiTinh);
             FlagDisable();
             flag = 0;
             sapXep();
@@ -110,7 +110,7 @@ namespace QuanLiHocSinh
                 }
 
                 string txtGioiTinh = "";
-                if (cbGioiTinh.SelectedItem == "Nam")
+                if (cboGioiTinh.SelectedItem == "Nam")
                 {
                     txtGioiTinh = "0";
                 }
@@ -150,7 +150,7 @@ namespace QuanLiHocSinh
             if (grdGiaoVien.SelectedRows.Count >= 1 && txtMaGV.Text != "")
             {
                 string txtGioiTinh = "";
-                if (cbGioiTinh.SelectedItem == "Nam")
+                if (cboGioiTinh.SelectedItem == "Nam")
                 {
                     txtGioiTinh = "0";
                 }
@@ -222,11 +222,11 @@ namespace QuanLiHocSinh
 
             if (gioiTinh == "0")
             {
-                cbGioiTinh.SelectedItem = "Nam";
+                cboGioiTinh.SelectedItem = "Nam";
             }
             else
             {
-                cbGioiTinh.SelectedItem = "Nữ";
+                cboGioiTinh.SelectedItem = "Nữ";
             }
 
             if (ngaySinh != "")
@@ -317,11 +317,11 @@ namespace QuanLiHocSinh
 
                 if (gioiTinh == "0")
                 {
-                    cbGioiTinh.SelectedItem = "Nam";
+                    cboGioiTinh.SelectedItem = "Nam";
                 }
                 else
                 {
-                    cbGioiTinh.SelectedItem = "Nữ";
+                    cboGioiTinh.SelectedItem = "Nữ";
                 }
 
                 if (ngaySinh != "")
