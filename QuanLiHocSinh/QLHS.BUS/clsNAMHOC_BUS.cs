@@ -26,7 +26,13 @@ namespace QLHS.BUS
         {
             tblNamHoc = namHoc_DAO.danhSachNamHoc();
             grdNamHoc.DataSource = tblNamHoc;
+        }
 
+        public void hienThiComboBox(ComboBoxEx cb)
+        {
+            cb.DataSource = namHoc_DAO.danhSachNamHoc();
+            cb.DisplayMember = "TENNH";
+            cb.ValueMember = "MANH";
         }
 
         public void themNamHoc(string maNH, string tenNH)
