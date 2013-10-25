@@ -15,7 +15,7 @@ namespace QuanLiHocSinh
         private frmGiaoVien m_FrmGiaoVien = null;
         private frmMonHoc m_FrmMonHoc = null;
         private frmNamHoc m_FrmNamHoc = null;
-        private frmLoaiDiem m_FrmLoaiDiem = null;
+        private frmDiem m_FrmLoaiDiem = null;
         private frmNguoiDung frmNguoiDung = null;
         public frmMain()
         {
@@ -121,7 +121,7 @@ namespace QuanLiHocSinh
         {
             if (m_FrmLoaiDiem == null || m_FrmLoaiDiem.IsDisposed)
             {
-                m_FrmLoaiDiem = new frmLoaiDiem();
+                m_FrmLoaiDiem = new frmDiem();
                 m_FrmLoaiDiem.FormBorderStyle = FormBorderStyle.None;
                 m_FrmLoaiDiem.MdiParent = frmMain.ActiveForm;
                 m_FrmLoaiDiem.Show();
