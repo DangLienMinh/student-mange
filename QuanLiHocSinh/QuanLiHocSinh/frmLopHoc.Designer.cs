@@ -229,6 +229,7 @@
             // 
             this.cbKhoi.DisplayMember = "Text";
             this.cbKhoi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbKhoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbKhoi.FormattingEnabled = true;
             this.cbKhoi.ItemHeight = 14;
             this.cbKhoi.Location = new System.Drawing.Point(11, 130);
