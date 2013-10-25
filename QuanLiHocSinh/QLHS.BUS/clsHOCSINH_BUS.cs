@@ -8,42 +8,36 @@ using QLHS.DTO;
 using QLHS.DAO;
 using DevComponents.DotNetBar.Controls;
 using DevComponents.Editors.DateTimeAdv;
+using System.Windows.Forms;
+using System.IO;
 namespace QLHS.BUS
 {
     public class clsHOCSINH_BUS
     {
-        private clsHOCSINH_DAO hocsinh_dao;
-        private clsNAMHOC_DAO namhoc_dao;
+        private clsHOCSINH_DAO hocsinh;
+        private clsNAMHOC_DAO namhoc;
         private clsLOP_DAO lop;
         public clsHOCSINH_BUS()
         {
-            hocsinh_dao = new clsHOCSINH_DAO();
-            namhoc_dao = new clsNAMHOC_DAO();
+            hocsinh = new clsHOCSINH_DAO();
+            namhoc = new clsNAMHOC_DAO();
             lop = new clsLOP_DAO();
         }
         public DataTable danhsachHocSinh()
         {
-            return hocsinh_dao.danhsachHocSinh();
+            return hocsinh.danhsachHocSinh();
         }
-        ////public DataTable danhsachNamhoc()
-        ////{
-        ////    return namhoc.danhSachNamHoc();
-        ////}
-        ////public DataTable danhsachLophoc()
-        ////{
-        ////    return lop.danhsachLop();
-        ////}
         public void themHocsinh(clsHOCSINH_DTO hs)
         {
-            hocsinh_dao.themHocsinh(hs);
+            hocsinh.themHocsinh(hs);
         }
         public void suaHocsinh(clsHOCSINH_DTO hs)
         {
-            hocsinh_dao.suaHocsinh(hs);
+            hocsinh.suaHocsinh(hs);
         }
         public void xoaHocsinh(clsHOCSINH_DTO hs)
         {
-            hocsinh_dao.xoaHocsinh(hs);
+            hocsinh.xoaHocsinh(hs);
         }
         public void cboGioitinh(ComboBoxEx comboBox)
         {
@@ -53,14 +47,34 @@ namespace QLHS.BUS
         }
         public void cboNamhoc(ComboBoxEx comboBox)
         {
-            comboBox.DataSource = namhoc_dao.danhSachNamHoc();
+            comboBox.DataSource = namhoc.danhSachNamHoc();
             comboBox.DisplayMember = "TENNH";
             comboBox.ValueMember = "MANH";
-            comboBox.SelectedItem = "Nam";
+        }
+        public void cboLophoc(ComboBoxEx comboBox)
+        {
+            comboBox.DataSource = lop.danhsachLop();
+            comboBox.DisplayMember = "TENLOP";
+            comboBox.ValueMember = "MALOP";
         }
         public void hienthiNgaySinh(DateTimeInput dtingaysinh)
         {
 
         }
+        public string taoMaHocSinh()
+        {
+            string Mahs;
+            string str;
+            str = DateTime.Now.ToString().Trim();
+            string Namhientai = str.Substring(6, 4);
+            string makhoitao= Namhientai.Trim() + "0000";
+            int intmahs = int.Parse(makhoitao) + hocsinh.danhsachHocSinh().Rows.Count;
+            Mahs = intmahs.ToString();
+            return Mahs;
+        }
+        //public string chonHinhAnh(PictureBox pic)
+        //{
+           
+        //}
     }
 }
