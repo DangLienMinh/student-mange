@@ -17,7 +17,7 @@ namespace QLHS.BUS
         private clsLOP_DAO lop_DAO;
         private clsLOP_DTO lop_DTO;
         private DataTable tblLop;
-        private DataRow dr;
+        //private DataRow dr;
         private clsGIAOVIEN_DAO giaovien_dao;
 
         public clsLOP_BUS()

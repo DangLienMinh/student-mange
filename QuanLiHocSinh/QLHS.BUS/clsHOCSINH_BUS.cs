@@ -61,15 +61,36 @@ namespace QLHS.BUS
         {
 
         }
+        //public string taoMaHocSinh()
+        //{
+        //    string Mahs;
+        //    string str;
+        //    str = DateTime.Now.ToString().Trim();
+        //    string Namhientai = str.Substring(6, 4);
+        //    string makhoitao= Namhientai.Trim() + "0000";
+        //    int intmahs = int.Parse(makhoitao) + hocsinh.danhsachHocSinh().Rows.Count;
+        //    Mahs = intmahs.ToString();
+        //    return Mahs;
+        //}
         public string taoMaHocSinh()
         {
+            string tam = "" ;
             string Mahs;
             string str;
             str = DateTime.Now.ToString().Trim();
             string Namhientai = str.Substring(6, 4);
-            string makhoitao= Namhientai.Trim() + "0000";
-            int intmahs = int.Parse(makhoitao) + hocsinh.danhsachHocSinh().Rows.Count;
-            Mahs = intmahs.ToString();
+            string makhoitao = Namhientai.Trim() + "0000";
+            int soDong=hocsinh.danhsachHocSinh().Rows.Count;
+            if (soDong== 0)
+            {
+                Mahs = makhoitao;
+            }
+            else
+            {
+                tam = hocsinh.danhsachHocSinh().Rows[soDong - 1]["MAHS"].ToString();
+                int tam1 = int.Parse(tam) + 1;
+                Mahs = Namhientai + tam1.ToString().Trim().Substring(4, 4);
+            }
             return Mahs;
         }
         //public string taoTenAnh()
