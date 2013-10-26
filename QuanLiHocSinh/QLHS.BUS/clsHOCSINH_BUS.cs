@@ -72,6 +72,11 @@ namespace QLHS.BUS
             Mahs = intmahs.ToString();
             return Mahs;
         }
+        //public string taoTenAnh()
+        //{
+        //    string tenanh = "HA" + hocsinh.danhsachHocSinh().Rows.Count.ToString();
+        //    return tenanh;
+        //}
         //public string chonHinhAnh(PictureBox pic)
         //{
            
