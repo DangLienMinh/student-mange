@@ -79,5 +79,16 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
+        public DataTable timLopMaLop(string tukhoa)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_TimLopMaLop", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = tukhoa;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            return table;
+        }
     }
 }

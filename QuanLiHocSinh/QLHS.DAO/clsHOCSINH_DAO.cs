@@ -33,7 +33,7 @@ namespace QLHS.DAO
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = hocsinh.Makhoi;
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hocsinh.Manh;
-            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = hocsinh.Malop;
+            //command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = hocsinh.Malop;
             command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hocsinh.Mahs;
             command.Parameters.Add("@TENHS", SqlDbType.NVarChar).Value = hocsinh.Tenhs;
             command.Parameters.Add("@NGSINHHS", SqlDbType.SmallDateTime).Value = hocsinh.Ngaysinhhs;
@@ -53,7 +53,7 @@ namespace QLHS.DAO
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = hocsinh.Makhoi;
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hocsinh.Manh;
-            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = hocsinh.Malop;
+            //command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = hocsinh.Malop;
             command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hocsinh.Mahs;
             command.Parameters.Add("@TENHS", SqlDbType.NVarChar).Value = hocsinh.Tenhs;
             command.Parameters.Add("@NGSINHHS", SqlDbType.SmallDateTime).Value = hocsinh.Ngaysinhhs;

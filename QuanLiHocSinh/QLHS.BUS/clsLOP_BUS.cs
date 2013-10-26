@@ -42,6 +42,7 @@ namespace QLHS.BUS
             if (lop_DAO.danhsachLop().Rows.Count < 10)
             {
                 malop = malop +"0"+ lop_DAO.danhsachLop().Rows.Count.ToString();
+                //if(lop_DAO.timLopMaLop(
             }
             else
             {

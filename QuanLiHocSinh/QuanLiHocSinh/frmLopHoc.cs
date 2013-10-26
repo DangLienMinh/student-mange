@@ -72,6 +72,7 @@ namespace QuanLiHocSinh
                     try
                     {
                         lop_bus.themLophoc(lop_dto);
+                        grdLop.DataSource = lop_bus.danhsachLop();//Load lại danh sách sau khi thêm
                         MessageBox.Show("Thêm lớp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         flagInsert = false;
                     }
@@ -99,6 +100,7 @@ namespace QuanLiHocSinh
                             {
                                 lop_bus.suaLop(lop_dto);
                                 flagUpdate = false;
+                                grdLop.DataSource = lop_bus.danhsachLop();//Load lại danh sách sau khi sửa
                                 MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             }
@@ -123,6 +125,7 @@ namespace QuanLiHocSinh
                             lop_dto.Manh = cboNamHoc.SelectedValue.ToString();
                             lop_bus.xoaLop(lop_dto);
                             flagDelete = false;
+                            grdLop.DataSource = lop_bus.danhsachLop();//Load lại danh sách sau khi xóa
                             MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
