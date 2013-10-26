@@ -47,7 +47,8 @@ namespace QuanLiHocSinh
             hocsinh_bus.cboGioitinh(cboGioiTinh);
             hocsinh_bus.cboNamhoc(cboNamHoc);
             khoi_bus.hienThiComboBox(cboKhoi);
-            txtMaHS.Text = hocsinh_bus.taoMaHocSinh();
+            //txtMaHS.Text = hocsinh_bus.staoMaHocSinh();
+            //txtMaHS.Text = hocsinh_bus.taoMaHocSinh();
             dtiNgaySinh.Value = DateTime.Now;
             dtiNgayNhapHoc.Value = DateTime.Now;
             grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh();
