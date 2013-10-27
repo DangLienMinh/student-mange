@@ -29,14 +29,14 @@ namespace QLHS.BUS
         }
 
 
-        public void cboGiaovienchunhiem(ComboBoxEx comboBox)
+        public void cbogiaoVienChuNhiem(ComboBoxEx comboBox)
         {
             comboBox.DataSource = giaovien_dao.danhSachGiaoVien();
             comboBox.DisplayMember = "TENGV";
             comboBox.ValueMember = "MAGV";
         }
 
-        public string taoMalop()
+        public string taoMaLop()
         {
             string result;
             string year=DateTime.Now.Year.ToString();
@@ -94,7 +94,7 @@ namespace QLHS.BUS
             //}
             //return malop;
         }
-        public void themLophoc(clsLOP_DTO lop)
+        public void themLopHoc(clsLOP_DTO lop)
         {
             lop_DAO.themLop(lop);
         }
@@ -102,9 +102,9 @@ namespace QLHS.BUS
         {
             lop_DAO.suaLop(lop);
         }
-        public DataTable danhsachLop()
+        public DataTable danhSachLop()
         {
-            return lop_DAO.danhsachLop();
+            return lop_DAO.danhSachLop();
         }
 
         public void chonLop10(ComboBoxEx comboBox,string nam)
@@ -123,7 +123,7 @@ namespace QLHS.BUS
             Node temp;
             lop_DTO = new clsLOP_DTO();
             lop_DTO.Manh = maNH;
-            tblLop = lop_DAO.danhsachLopTheoNamHoc(lop_DTO);
+            tblLop = lop_DAO.danhSachLopTheoNamHoc(lop_DTO);
             Node k10 = new Node("Khối 10");
             Node k11 = new Node("Khối 11");
             Node k12 = new Node("Khối 12");

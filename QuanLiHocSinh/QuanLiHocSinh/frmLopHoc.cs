@@ -37,8 +37,8 @@ namespace QuanLiHocSinh
         {
             namHoc_bus.hienThiComboBox(cboNamHoc);
             khoi_bus.hienThiComboBox(cboKhoi);
-            lop_bus.cboGiaovienchunhiem(cboGiaoVien);
-            grdLop.DataSource = lop_bus.danhsachLop();
+            lop_bus.cbogiaoVienChuNhiem(cboGiaoVien);
+            grdLop.DataSource = lop_bus.danhSachLop();
             datagridMakeUp(grdLop);
         }
 
@@ -53,7 +53,7 @@ namespace QuanLiHocSinh
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            txtMaLop.Text = lop_bus.taoMalop();
+            txtMaLop.Text = lop_bus.taoMaLop();
             txtTenLop.Focus();
             anhienButton(false);
             flagInsert = true;
@@ -87,8 +87,8 @@ namespace QuanLiHocSinh
                     lop_dto.Siso = txtSiSo.Text;
                     try
                     {
-                        lop_bus.themLophoc(lop_dto);
-                        grdLop.DataSource = lop_bus.danhsachLop();//Load lại danh sách sau khi thêm
+                        lop_bus.themLopHoc(lop_dto);
+                        grdLop.DataSource = lop_bus.danhSachLop();//Load lại danh sách sau khi thêm
                         MessageBox.Show("Thêm lớp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         flagInsert = false;
                     }
@@ -116,7 +116,7 @@ namespace QuanLiHocSinh
                             {
                                 lop_bus.suaLop(lop_dto);
                                 flagUpdate = false;
-                                grdLop.DataSource = lop_bus.danhsachLop();//Load lại danh sách sau khi sửa
+                                grdLop.DataSource = lop_bus.danhSachLop();//Load lại danh sách sau khi sửa
                                 MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             }
@@ -141,7 +141,7 @@ namespace QuanLiHocSinh
                             lop_dto.Manh = cboNamHoc.SelectedValue.ToString();
                             lop_bus.xoaLop(lop_dto);
                             flagDelete = false;
-                            grdLop.DataSource = lop_bus.danhsachLop();//Load lại danh sách sau khi xóa
+                            grdLop.DataSource = lop_bus.danhSachLop();//Load lại danh sách sau khi xóa
                             MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)

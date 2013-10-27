@@ -16,7 +16,7 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
-        public DataTable danhsachHocSinh(string maNH)
+        public DataTable danhSachHocSinh(string maNH)
         {
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);
@@ -29,7 +29,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        public void themHocsinh(clsHOCSINH_DTO hocsinh)
+        public void themHocSinh(clsHOCSINH_DTO hocsinh)
         {
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThemHocSinh", con);
@@ -48,7 +48,7 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
-        public void suaHocsinh(clsHOCSINH_DTO hocsinh,string maNHTruoc,string maLopTruoc)
+        public void suaHocSinh(clsHOCSINH_DTO hocsinh,string maNHTruoc,string maLopTruoc)
         {
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_SuaHocSinh", con);
@@ -69,7 +69,7 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
-        public void xoaHocsinh(clsHOCSINH_DTO hocsinh)
+        public void xoaHocSinh(clsHOCSINH_DTO hocsinh)
         {
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_XoaHocSinh", con);
@@ -78,7 +78,7 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
-        public DataTable timHocsinhMahs(clsHOCSINH_DTO hocsinh)
+        public DataTable timHocSinhMaHS(clsHOCSINH_DTO hocsinh)
         {
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);
@@ -91,7 +91,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        public DataTable timHocsinhTenhs(clsHOCSINH_DTO hocsinh)
+        public DataTable timHocSinhTenHS(clsHOCSINH_DTO hocsinh)
         {
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);

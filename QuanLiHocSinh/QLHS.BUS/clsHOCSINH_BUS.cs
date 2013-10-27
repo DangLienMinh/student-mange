@@ -23,15 +23,15 @@ namespace QLHS.BUS
             namhoc = new clsNAMHOC_DAO();
             lop = new clsLOP_DAO();
         }
-        public DataTable danhsachHocSinh(ComboBoxEx comboBox)
+        public DataTable danhSachHocSinh(ComboBoxEx comboBox)
         {
-            return hocsinh.danhsachHocSinh(comboBox.SelectedValue.ToString());
+            return hocsinh.danhSachHocSinh(comboBox.SelectedValue.ToString());
         }
-        public void themHocsinh(clsHOCSINH_DTO hs)
+        public void themHocSinh(clsHOCSINH_DTO hs)
         {
-            hocsinh.themHocsinh(hs);
+            hocsinh.themHocSinh(hs);
         }
-        public void suaHocsinh(clsHOCSINH_DTO hs,DataGridViewX grdHocSinh)
+        public void suaHocSinh(clsHOCSINH_DTO hs,DataGridViewX grdHocSinh)
         {
             foreach (DataGridViewRow row1 in grdHocSinh.Rows)
             {
@@ -39,34 +39,23 @@ namespace QLHS.BUS
                 {
                     if (string.Compare(row1.Cells["MAHS"].Value.ToString().Trim(), hs.Mahs.Trim()) == 0)
                     {
-                        hocsinh.suaHocsinh(hs, row1.Cells["MANH"].Value.ToString(), row1.Cells["MALOP"].Value.ToString());
+                        hocsinh.suaHocSinh(hs, row1.Cells["MANH"].Value.ToString(), row1.Cells["MALOP"].Value.ToString());
                     }
                 }
             }
            
         }
-        public void xoaHocsinh(clsHOCSINH_DTO hs)
+        public void xoaHocSinh(clsHOCSINH_DTO hs)
         {
-            hocsinh.xoaHocsinh(hs);
+            hocsinh.xoaHocSinh(hs);
         }
-        public void cboGioitinh(ComboBoxEx comboBox)
+        public void cboGioiTinh(ComboBoxEx comboBox)
         {
             comboBox.Items.Add("Nam");
             comboBox.Items.Add("Nữ");
             comboBox.SelectedItem = "Nam";
         }
-        public void cboNamhoc(ComboBoxEx comboBox)
-        {
-            comboBox.DataSource = namhoc.danhSachNamHoc();
-            comboBox.DisplayMember = "TENNH";
-            comboBox.ValueMember = "MANH";
-        }
-        public void cboLophoc(ComboBoxEx comboBox)
-        {
-            comboBox.DataSource = lop.danhsachLop();
-            comboBox.DisplayMember = "TENLOP";
-            comboBox.ValueMember = "MALOP";
-        }
+
         public void hienthiNgaySinh(DateTimeInput dtingaysinh)
         {
 
@@ -90,7 +79,7 @@ namespace QLHS.BUS
             str = DateTime.Now.ToString().Trim();
             string Namhientai = str.Substring(6, 4);
             string makhoitao = Namhientai.Trim() + "0000";
-            int soDong = hocsinh.danhsachHocSinh(comboBox.SelectedValue.ToString()).Rows.Count;
+            int soDong = hocsinh.danhSachHocSinh(comboBox.SelectedValue.ToString()).Rows.Count;
             if (soDong == 0)
             {
                 Mahs = makhoitao;
@@ -98,9 +87,9 @@ namespace QLHS.BUS
             else
             {
                 int max = 0;
-                for (int i = 0; i < hocsinh.danhsachHocSinh(comboBox.SelectedValue.ToString()).Rows.Count; i++)
+                for (int i = 0; i < hocsinh.danhSachHocSinh(comboBox.SelectedValue.ToString()).Rows.Count; i++)
                 {
-                    tam = hocsinh.danhsachHocSinh(comboBox.SelectedValue.ToString()).Rows[i]["MAHS"].ToString();
+                    tam = hocsinh.danhSachHocSinh(comboBox.SelectedValue.ToString()).Rows[i]["MAHS"].ToString();
                     int tam1 = int.Parse(tam);
                     if (max < tam1)
                     {
