@@ -75,5 +75,29 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
+        public DataTable timHocsinhMahs(clsHOCSINH_DTO hocsinh)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_TimHocSinhMAHS", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hocsinh.Mahs;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+        public DataTable timHocsinhTenhs(clsHOCSINH_DTO hocsinh)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_TimHocSinhTENHS", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@TENHS", SqlDbType.VarChar).Value = hocsinh.Tenhs;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
     }
 }
