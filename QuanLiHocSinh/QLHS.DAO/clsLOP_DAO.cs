@@ -41,6 +41,27 @@ namespace QLHS.DAO
             return table;
         }
 
+        public int soLop(string nam)
+        {
+            int temp = -1;
+            DataTable table = new DataTable();
+            SqlCommand command = new SqlCommand("SP_ThongTinSoLop", con);
+            command.Parameters.Add("@NAM", SqlDbType.Char).Value = nam;
+            command.CommandType = CommandType.StoredProcedure;
+            connection.kiemTraKetNoi(con);
+            if (command.ExecuteScalar().ToString() != "")
+            {
+                temp = int.Parse(command.ExecuteScalar().ToString());
+            }
+            else
+            {
+                temp = 0;
+            }
+
+            con.Close();
+            return temp;
+        }
+
         public void themLop(clsLOP_DTO lop)
         {
             connection.kiemTraKetNoi(con);

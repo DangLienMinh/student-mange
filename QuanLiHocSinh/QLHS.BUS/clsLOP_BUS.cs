@@ -38,49 +38,61 @@ namespace QLHS.BUS
 
         public string taoMalop()
         {
-            string malop;
-            string makhoitao = "LH0000";
-            int maMax = 0;
-            int soDong=lop_DAO.danhsachLop().Rows.Count;
-            if (soDong == 0)
+            string result;
+            string year=DateTime.Now.Year.ToString();
+            int temp = lop_DAO.soLop(year) + 1;
+            if (temp < 10)
             {
-                malop = makhoitao;
+                result = "L"+year.Substring(year.Length-2)+"0" + temp.ToString();
             }
             else
             {
-                for (int i = 0; i < lop_DAO.danhsachLop().Rows.Count; i++)
-                {
-                    string tam = lop_DAO.danhsachLop().Rows[i]["MALOP"].ToString();
-                    string tam1 = tam.Substring(2, 4);
-                    int tam2 = int.Parse(tam1);
-                    if (tam2 > maMax)
-                        maMax = tam2;
-                }
-                maMax++;
-                if (maMax < 10)
-                {
-                    malop = "LH000" + maMax.ToString();
-                }
-                else
-                {
-                    if (maMax < 100)
-                    {
-                        malop = "LH00" + maMax.ToString();
-                    }
-                    else
-                    {
-                        if (maMax < 1000)
-                        {
-                            malop = "LH0" + maMax.ToString();
-                        }
-                        else
-                        {
-                            malop = "LH" + maMax.ToString();
-                        }
-                    }
-                }
+                result = "L"+year.Substring(year.Length-2)+temp.ToString();
             }
-            return malop;
+            return result;
+            //string malop;
+            //string makhoitao = "LH0000";
+            //int maMax = 0;
+            //int soDong=lop_DAO.danhsachLop().Rows.Count;
+            //if (soDong == 0)
+            //{
+            //    malop = makhoitao;
+            //}
+            //else
+            //{
+            //    for (int i = 0; i < lop_DAO.danhsachLop().Rows.Count; i++)
+            //    {
+            //        string tam = lop_DAO.danhsachLop().Rows[i]["MALOP"].ToString();
+            //        string tam1 = tam.Substring(2, 4);
+            //        int tam2 = int.Parse(tam1);
+            //        if (tam2 > maMax)
+            //            maMax = tam2;
+            //    }
+            //    maMax++;
+            //    if (maMax < 10)
+            //    {
+            //        malop = "LH000" + maMax.ToString();
+            //    }
+            //    else
+            //    {
+            //        if (maMax < 100)
+            //        {
+            //            malop = "LH00" + maMax.ToString();
+            //        }
+            //        else
+            //        {
+            //            if (maMax < 1000)
+            //            {
+            //                malop = "LH0" + maMax.ToString();
+            //            }
+            //            else
+            //            {
+            //                malop = "LH" + maMax.ToString();
+            //            }
+            //        }
+            //    }
+            //}
+            //return malop;
         }
         public void themLophoc(clsLOP_DTO lop)
         {
