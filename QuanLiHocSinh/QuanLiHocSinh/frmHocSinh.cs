@@ -16,6 +16,7 @@ namespace QuanLiHocSinh
 {
     public partial class frmHocSinh : DevComponents.DotNetBar.Office2007Form
     {
+        private frmLopHoc m_FrmLop = null;
         private clsLOP_BUS lop_bus;
         private clsHOCSINH_BUS hocsinh_bus;
         private clsHOCSINH_DTO hocsinh_dto;
@@ -50,7 +51,7 @@ namespace QuanLiHocSinh
             hocsinh_bus.cboGioitinh(cboGioiTinh);
             hocsinh_bus.cboNamhoc(cboNamHoc);
             //khoi_bus.hienThiComboBox(cboKhoi);
-            lop_bus.chonLop10(cboLop);
+            lop_bus.chonLop10(cboLop,cboNamHoc.SelectedValue.ToString());
             //txtMaHS.Text = hocsinh_bus.staoMaHocSinh();
             txtMaHS.Text = hocsinh_bus.taoMaHocSinh(cboNamHoc);
             dtiNgaySinh.Value = DateTime.Now;
@@ -441,6 +442,8 @@ namespace QuanLiHocSinh
         {
             resetALL();
             grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh(cboNamHoc);
+            lop_bus.chonLop10(cboLop, cboNamHoc.SelectedValue.ToString());
+            
         }
 
         private void txt_Enter(object sender, EventArgs e)
@@ -455,6 +458,20 @@ namespace QuanLiHocSinh
             txtDienThoai.BackColor = Color.White;
             txtDantoc.BackColor = Color.White;
         }
+
+        private void btnLop_Click(object sender, EventArgs e)
+        {
+            if (m_FrmLop == null || m_FrmLop.IsDisposed)
+            {
+                m_FrmLop = new frmLopHoc();
+                m_FrmLop.FormBorderStyle = FormBorderStyle.None;
+                m_FrmLop.MdiParent = frmMain.ActiveForm;
+                m_FrmLop.Show();
+            }
+            else
+                m_FrmLop.Activate();
+        }
+
 
     }
 }

@@ -107,10 +107,9 @@ namespace QLHS.BUS
             return lop_DAO.danhsachLop();
         }
 
-        public void chonLop10(ComboBoxEx comboBox)
+        public void chonLop10(ComboBoxEx comboBox,string nam)
         {
-            string year = DateTime.Now.Year.ToString();
-            comboBox.DataSource=lop_DAO.chonLop10(year);
+            comboBox.DataSource = lop_DAO.chonLop10(nam);
             comboBox.DisplayMember = "TENLOP";
             comboBox.ValueMember = "MALOP";
         }

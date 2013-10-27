@@ -67,7 +67,7 @@ namespace QLHS.DAO
             connection.kiemTraKetNoi(con);
             DataTable table = new DataTable();
             SqlCommand command = new SqlCommand("SP_ThongTinLop10", con);
-            command.Parameters.Add("@NAM", SqlDbType.Char).Value = nam;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = nam;
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);

@@ -15,7 +15,7 @@ namespace QuanLiHocSinh
         private frmGiaoVien m_FrmGiaoVien = null;
         private frmMonHoc m_FrmMonHoc = null;
         private frmNamHoc m_FrmNamHoc = null;
-        private frmHocSinh m_FrmLoaiDiem = null;
+        private frmHocSinh m_FrmHocSinh = null;
         private frmNguoiDung frmNguoiDung = null;
         public frmMain()
         {
@@ -119,15 +119,20 @@ namespace QuanLiHocSinh
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-            if (m_FrmLoaiDiem == null || m_FrmLoaiDiem.IsDisposed)
+
+        }
+
+        private void btnHocSinh_Click(object sender, EventArgs e)
+        {
+            if (m_FrmHocSinh == null || m_FrmHocSinh.IsDisposed)
             {
-                m_FrmLoaiDiem = new frmHocSinh();
-                m_FrmLoaiDiem.FormBorderStyle = FormBorderStyle.None;
-                m_FrmLoaiDiem.MdiParent = frmMain.ActiveForm;
-                m_FrmLoaiDiem.Show();
+                m_FrmHocSinh = new frmHocSinh();
+                m_FrmHocSinh.FormBorderStyle = FormBorderStyle.None;
+                m_FrmHocSinh.MdiParent = frmMain.ActiveForm;
+                m_FrmHocSinh.Show();
             }
             else
-                m_FrmLoaiDiem.Activate();
+                m_FrmHocSinh.Activate();
         }
     }
 }
