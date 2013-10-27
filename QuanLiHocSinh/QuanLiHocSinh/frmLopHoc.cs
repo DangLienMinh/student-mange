@@ -8,6 +8,9 @@ using System.Text;
 using System.Windows.Forms;
 using QLHS.DTO;
 using QLHS.BUS;
+using DevComponents.DotNetBar.Controls;
+using DevComponents.Editors.DateTimeAdv;
+
 namespace QuanLiHocSinh
 {
     public partial class frmLopHoc : DevComponents.DotNetBar.Office2007Form
@@ -36,11 +39,22 @@ namespace QuanLiHocSinh
             khoi_bus.hienThiComboBox(cboKhoi);
             lop_bus.cboGiaovienchunhiem(cboGiaoVien);
             grdLop.DataSource = lop_bus.danhsachLop();
+            datagridMakeUp(grdLop);
+        }
+
+        private void datagridMakeUp(DataGridViewX temp)
+        {
+            temp.AutoResizeRows();
+            temp.AllowUserToResizeColumns = true;
+            temp.DefaultCellStyle.WrapMode = DataGridViewTriState.NotSet;
+            temp.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            temp.ReadOnly = true;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             txtMaLop.Text = lop_bus.taoMalop();
+            txtTenLop.Focus();
             anhienButton(false);
             flagInsert = true;
         }
@@ -53,6 +67,7 @@ namespace QuanLiHocSinh
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            txtTenLop.Focus();
             anhienButton(false);
             flagUpdate = true;
         }
@@ -239,6 +254,17 @@ namespace QuanLiHocSinh
             Hienthidulieu();
             btnDau.Enabled = true;
             btnTruoc.Enabled = true;
+        }
+
+        private void txt_Enter(object sender, EventArgs e)
+        {
+            ((TextBox)sender).BackColor = Color.Yellow;
+        }
+
+        private void txt_Leave(object sender, EventArgs e)
+        {
+            txtSiSo.BackColor = Color.White;
+            txtTenLop.BackColor = Color.White;
         }
     }
 }
