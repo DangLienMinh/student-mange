@@ -16,7 +16,7 @@ namespace QLHS.DAO
             connection = new clsConnectDatabase();
             con = connection.KetNoi();
         }
-        public DataTable danhsachLop()
+        public DataTable danhSachLop()
         {
             connection.kiemTraKetNoi(con);
             DataTable table = new DataTable();
@@ -28,7 +28,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        public DataTable danhsachLopTheoNamHoc(clsLOP_DTO lop)
+        public DataTable danhSachLopTheoNamHoc(clsLOP_DTO lop)
         {
             connection.kiemTraKetNoi(con);
             DataTable table = new DataTable();

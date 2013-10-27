@@ -19,6 +19,7 @@ namespace QuanLiHocSinh
         private frmLopHoc m_FrmLop = null;
         private clsLOP_BUS lop_bus;
         private clsHOCSINH_BUS hocsinh_bus;
+        private clsNAMHOC_BUS namhoc_bus;
         private clsHOCSINH_DTO hocsinh_dto;
         private clsKHOI_BUS khoi_bus;
         private Boolean flagInsert;
@@ -32,6 +33,7 @@ namespace QuanLiHocSinh
         {
             InitializeComponent();
             hocsinh_bus = new clsHOCSINH_BUS();
+            namhoc_bus = new clsNAMHOC_BUS();
             hocsinh_dto = new clsHOCSINH_DTO();
             lop_bus = new clsLOP_BUS();
             khoi_bus = new clsKHOI_BUS();
@@ -47,16 +49,17 @@ namespace QuanLiHocSinh
         }
         private void frmHocSinh_Load(object sender, EventArgs e)
         {
-            anhienButton(true);
-            hocsinh_bus.cboGioitinh(cboGioiTinh);
-            hocsinh_bus.cboNamhoc(cboNamHoc);
+            anHienButton(true);
+            hocsinh_bus.cboGioiTinh(cboGioiTinh);
+            namhoc_bus.hienThiComboBox(cboNamHoc);
+           //hocsinh_bus.cboNamhoc(cboNamHoc);
             //khoi_bus.hienThiComboBox(cboKhoi);
             lop_bus.chonLop10(cboLop,cboNamHoc.SelectedValue.ToString());
             //txtMaHS.Text = hocsinh_bus.staoMaHocSinh();
             txtMaHS.Text = hocsinh_bus.taoMaHocSinh(cboNamHoc);
             dtiNgaySinh.Value = DateTime.Now;
             dtiNgayNhapHoc.Value = DateTime.Now;
-            grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh(cboNamHoc);
+            grdHocSinh.DataSource = hocsinh_bus.danhSachHocSinh(cboNamHoc);
             datagridMakeUp(grdHocSinh);
         }
 
@@ -84,7 +87,7 @@ namespace QuanLiHocSinh
                 hocsinh_dto.Hinhanhhs = linkimage;
             }
         }
-        public void anhienButton(Boolean b)
+        public void anHienButton(Boolean b)
         {
             btnThem.Enabled = b;
             btnSua.Enabled = b;
@@ -104,25 +107,25 @@ namespace QuanLiHocSinh
         {
             txtMaHS.Text = hocsinh_bus.taoMaHocSinh(cboNamHoc);
             txtTenHS.Focus();
-            anhienButton(false);
+            anHienButton(false);
             flagInsert = true;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            anhienButton(false);
+            anHienButton(false);
             flagDelete = true;
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
             txtTenHS.Focus();
-            anhienButton(false);
+            anHienButton(false);
             flagUpdate = true;
         }
         private void btnDongy_Click(object sender, EventArgs e)
         {
-            anhienButton(true);
+            anHienButton(true);
             if (flagInsert == true)
             {
                 Insert();
@@ -138,18 +141,18 @@ namespace QuanLiHocSinh
                     Update();
                 }
             }
-            Hienthidulieu();
+            hienThiDuLieu();
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            anhienButton(true);
+            anHienButton(true);
         }
         private void btnDau_Click(object sender, EventArgs e)
         {
             vitri = this.BindingContext[grdHocSinh.DataSource].Position;
             this.BindingContext[grdHocSinh.DataSource].Position = 0;
-            Hienthidulieu();
+            hienThiDuLieu();
             btnTruoc.Enabled = false;
             btnDau.Enabled = false;
             btnCuoi.Enabled = true;
@@ -162,7 +165,7 @@ namespace QuanLiHocSinh
             btnCuoi.Enabled = true;
             btnSau.Enabled = true;
             this.BindingContext[grdHocSinh.DataSource].Position = vitri - 1;
-            Hienthidulieu();
+            hienThiDuLieu();
         }
 
         private void btnSau_Click(object sender, EventArgs e)
@@ -171,14 +174,14 @@ namespace QuanLiHocSinh
             btnDau.Enabled = true;
             btnTruoc.Enabled = true;
             this.BindingContext[grdHocSinh.DataSource].Position = vitri + 1;
-            Hienthidulieu();
+            hienThiDuLieu();
         }
 
         private void btnCuoi_Click(object sender, EventArgs e)
         {
             vitri = this.BindingContext[grdHocSinh.DataSource].Position;
             this.BindingContext[grdHocSinh.DataSource].Position = this.BindingContext[grdHocSinh.DataSource].Count - 1;
-            Hienthidulieu();
+            hienThiDuLieu();
             btnCuoi.Enabled = false;
             btnSau.Enabled = false;
             btnTruoc.Enabled = true;
@@ -214,7 +217,7 @@ namespace QuanLiHocSinh
             dtiNgayNhapHoc.Value = DateTime.Now;
             dtiNgaySinh.Value = DateTime.Now;
         }
-        public int kiemtraDulieu()
+        public int kiemTraDulieu()
         {
             int dem = 0;
             if (picHocSinh.Image == null)
@@ -252,7 +255,7 @@ namespace QuanLiHocSinh
         }
         public void Insert()
         {
-            if (kiemtraDulieu() == 0)
+            if (kiemTraDulieu() == 0)
             {
                 hocsinh_dto.Mahs = txtMaHS.Text;
                 hocsinh_dto.Tenhs = txtTenHS.Text;
@@ -274,9 +277,9 @@ namespace QuanLiHocSinh
                 try
                 {
                     File.Copy(linkgoc, hocsinh_dto.Hinhanhhs);
-                    hocsinh_bus.themHocsinh(hocsinh_dto);
+                    hocsinh_bus.themHocSinh(hocsinh_dto);
                     resetALL();
-                    grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh(cboNamHoc);//tải lại danh sách sau khi thêm
+                    grdHocSinh.DataSource = hocsinh_bus.danhSachHocSinh(cboNamHoc);//tải lại danh sách sau khi thêm
                     flagChonAnh = false;
                     flagInsert = false;
                     MessageBox.Show("Đã thêm học sinh thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -295,9 +298,9 @@ namespace QuanLiHocSinh
             {
                 try
                 {
-                    hocsinh_bus.xoaHocsinh(hocsinh_dto);
+                    hocsinh_bus.xoaHocSinh(hocsinh_dto);
                     File.Delete(grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString());
-                    grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh(cboNamHoc);//tải lại danh sách sau khi xóa
+                    grdHocSinh.DataSource = hocsinh_bus.danhSachHocSinh(cboNamHoc);//tải lại danh sách sau khi xóa
                     flagDelete = false;
                     MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -315,7 +318,7 @@ namespace QuanLiHocSinh
         }
         public void Update()
         {
-            if (kiemtraDulieu() == 0)
+            if (kiemTraDulieu() == 0)
             {
                 hocsinh_dto.Mahs = txtMaHS.Text;
                 hocsinh_dto.Tenhs = txtTenHS.Text;
@@ -347,10 +350,10 @@ namespace QuanLiHocSinh
                     {
                         hocsinh_dto.Hinhanhhs = grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString();
                     }
-                    hocsinh_bus.suaHocsinh(hocsinh_dto,grdHocSinh);
+                    hocsinh_bus.suaHocSinh(hocsinh_dto,grdHocSinh);
                     flagUpdate = false;
                     resetALL();
-                    grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh(cboNamHoc);//tải lại danh sách sau khi thêm
+                    grdHocSinh.DataSource = hocsinh_bus.danhSachHocSinh(cboNamHoc);//tải lại danh sách sau khi thêm
                     MessageBox.Show("Đã sửa học sinh thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
@@ -360,7 +363,7 @@ namespace QuanLiHocSinh
                 }
             }
         }
-        public void Hienthidulieu()
+        public void hienThiDuLieu()
         {
             //int Tong;
             //int vitri;
@@ -441,7 +444,7 @@ namespace QuanLiHocSinh
         private void cboNamHoc_SelectedValueChanged(object sender, EventArgs e)
         {
             resetALL();
-            grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh(cboNamHoc);
+            grdHocSinh.DataSource = hocsinh_bus.danhSachHocSinh(cboNamHoc);
             lop_bus.chonLop10(cboLop, cboNamHoc.SelectedValue.ToString());
             
         }
