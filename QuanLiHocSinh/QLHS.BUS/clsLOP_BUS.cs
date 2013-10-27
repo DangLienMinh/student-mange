@@ -38,15 +38,47 @@ namespace QLHS.BUS
 
         public string taoMalop()
         {
-            string malop = "LH";
-            if (lop_DAO.danhsachLop().Rows.Count < 10)
+            string malop;
+            string makhoitao = "LH0000";
+            int maMax = 0;
+            int soDong=lop_DAO.danhsachLop().Rows.Count;
+            if (soDong == 0)
             {
-                malop = malop +"0"+ lop_DAO.danhsachLop().Rows.Count.ToString();
-                //if(lop_DAO.timLopMaLop(
+                malop = makhoitao;
             }
             else
             {
-                malop = malop + lop_DAO.danhsachLop().Rows.Count.ToString();
+                for (int i = 0; i < lop_DAO.danhsachLop().Rows.Count; i++)
+                {
+                    string tam = lop_DAO.danhsachLop().Rows[i]["MALOP"].ToString();
+                    string tam1 = tam.Substring(2, 4);
+                    int tam2 = int.Parse(tam1);
+                    if (tam2 > maMax)
+                        maMax = tam2;
+                }
+                maMax++;
+                if (maMax < 10)
+                {
+                    malop = "LH000" + maMax.ToString();
+                }
+                else
+                {
+                    if (maMax < 100)
+                    {
+                        malop = "LH00" + maMax.ToString();
+                    }
+                    else
+                    {
+                        if (maMax < 1000)
+                        {
+                            malop = "LH0" + maMax.ToString();
+                        }
+                        else
+                        {
+                            malop = "LH" + maMax.ToString();
+                        }
+                    }
+                }
             }
             return malop;
         }

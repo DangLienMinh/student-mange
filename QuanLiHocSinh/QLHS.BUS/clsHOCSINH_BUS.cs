@@ -74,33 +74,43 @@ namespace QLHS.BUS
         //}
         public string taoMaHocSinh()
         {
-            string tam = "" ;
+            string tam = "";
             string Mahs;
             string str;
             str = DateTime.Now.ToString().Trim();
             string Namhientai = str.Substring(6, 4);
             string makhoitao = Namhientai.Trim() + "0000";
-            int soDong=hocsinh.danhsachHocSinh().Rows.Count;
-            if (soDong== 0)
+            int soDong = hocsinh.danhsachHocSinh().Rows.Count;
+            if (soDong == 0)
             {
                 Mahs = makhoitao;
             }
             else
             {
-                tam = hocsinh.danhsachHocSinh().Rows[soDong - 1]["MAHS"].ToString();
-                int tam1 = int.Parse(tam) + 1;
-                Mahs = Namhientai + tam1.ToString().Trim().Substring(4, 4);
+                int max = 0;
+                for (int i = 0; i < hocsinh.danhsachHocSinh().Rows.Count;i++ )
+                {
+                    tam = hocsinh.danhsachHocSinh().Rows[i]["MAHS"].ToString();
+                    int tam1 = int.Parse(tam);
+                    if (max < tam1)
+                    {
+                        max = tam1;
+                    }
+                }
+                max++;
+                Mahs = Namhientai + max.ToString().Trim().Substring(4, 4);
             }
             return Mahs;
         }
-        //public string taoTenAnh()
-        //{
-        //    string tenanh = "HA" + hocsinh.danhsachHocSinh().Rows.Count.ToString();
-        //    return tenanh;
-        //}
-        //public string chonHinhAnh(PictureBox pic)
-        //{
-           
-        //}
+        public DataTable timHocsinhMahs(clsHOCSINH_DTO hs)
+        {
+            return hocsinh.timHocsinhMahs(hs);
+        }
+        public DataTable timHocsinhTenhs(clsHOCSINH_DTO hs)
+        {
+            return hocsinh.timHocsinhTenhs(hs);
+        }
     }
+    
+      
 }

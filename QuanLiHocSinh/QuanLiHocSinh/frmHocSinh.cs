@@ -48,7 +48,7 @@ namespace QuanLiHocSinh
             hocsinh_bus.cboNamhoc(cboNamHoc);
             khoi_bus.hienThiComboBox(cboKhoi);
             //txtMaHS.Text = hocsinh_bus.staoMaHocSinh();
-            //txtMaHS.Text = hocsinh_bus.taoMaHocSinh();
+            txtMaHS.Text = hocsinh_bus.taoMaHocSinh();
             dtiNgaySinh.Value = DateTime.Now;
             dtiNgayNhapHoc.Value = DateTime.Now;
             grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh();
@@ -267,6 +267,7 @@ namespace QuanLiHocSinh
                 }
                 catch (Exception ex)
                 {
+                    flagInsert = false;
                     MessageBox.Show("Lỗi" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -286,6 +287,8 @@ namespace QuanLiHocSinh
                 }
                 catch (Exception ex)
                 {
+                    flagDelete = false;
+
                     MessageBox.Show("Lỗi " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -337,6 +340,7 @@ namespace QuanLiHocSinh
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    flagUpdate = false;
                 }
             }
         }
@@ -362,6 +366,54 @@ namespace QuanLiHocSinh
                 FileStream fs = new FileStream(grdHocSinh.Rows[vitri].Cells["HINHANHHS"].Value.ToString(), FileMode.Open, FileAccess.Read);
                 picHocSinh.Image = Image.FromStream(fs);
                 fs.Close();
+            }
+        }
+
+        private void txtDienThoai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar)&&!char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Chỉ nhập số,không nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }  
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            if (txtTim.Text != "")
+            {
+                if (optMaHS.Checked == true)
+                {
+                    hocsinh_dto.Mahs = txtTim.Text;
+                    if (hocsinh_bus.timHocsinhMahs(hocsinh_dto).Rows.Count == 0)
+                    {
+                        MessageBox.Show("Không tìm thấy", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        grdHocSinh.DataSource = hocsinh_bus.timHocsinhMahs(hocsinh_dto);
+                    }
+                }
+                if (optTenHS.Checked == true)
+                {
+                    hocsinh_dto.Tenhs = txtTim.Text;
+                    if (hocsinh_bus.timHocsinhTenhs(hocsinh_dto).Rows.Count == 0)
+                    {
+                        MessageBox.Show("Không tìm thấy", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        grdHocSinh.DataSource = hocsinh_bus.timHocsinhTenhs(hocsinh_dto);
+                    }
+                }
+                if (optMaHS.Checked == false && optTenHS.Checked == false)
+                {
+                    MessageBox.Show("Chưa chọn tìm kiếm theo Tên Học Sinh hoặc theo Mã học sinh ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa nhập từ khóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
