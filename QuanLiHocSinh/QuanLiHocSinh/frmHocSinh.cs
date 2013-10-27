@@ -11,10 +11,12 @@ using QLHS.DTO;
 using System.IO;
 using DevComponents.DotNetBar.Controls;
 using DevComponents.Editors.DateTimeAdv;
+
 namespace QuanLiHocSinh
 {
     public partial class frmHocSinh : DevComponents.DotNetBar.Office2007Form
     {
+        private clsLOP_BUS lop_bus;
         private clsHOCSINH_BUS hocsinh_bus;
         private clsHOCSINH_DTO hocsinh_dto;
         private clsKHOI_BUS khoi_bus;
@@ -30,6 +32,7 @@ namespace QuanLiHocSinh
             InitializeComponent();
             hocsinh_bus = new clsHOCSINH_BUS();
             hocsinh_dto = new clsHOCSINH_DTO();
+            lop_bus = new clsLOP_BUS();
             khoi_bus = new clsKHOI_BUS();
             flagInsert = false;
             flagUpdate = false;
@@ -46,12 +49,13 @@ namespace QuanLiHocSinh
             anhienButton(true);
             hocsinh_bus.cboGioitinh(cboGioiTinh);
             hocsinh_bus.cboNamhoc(cboNamHoc);
-            khoi_bus.hienThiComboBox(cboKhoi);
+            //khoi_bus.hienThiComboBox(cboKhoi);
+            lop_bus.chonLop10(cboLop);
             //txtMaHS.Text = hocsinh_bus.staoMaHocSinh();
-            txtMaHS.Text = hocsinh_bus.taoMaHocSinh();
+            txtMaHS.Text = hocsinh_bus.taoMaHocSinh(cboNamHoc);
             dtiNgaySinh.Value = DateTime.Now;
             dtiNgayNhapHoc.Value = DateTime.Now;
-            grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh();
+            grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh(cboNamHoc);
         }
 
         private void btnChonAnh_Click(object sender, EventArgs e)
@@ -87,7 +91,7 @@ namespace QuanLiHocSinh
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            txtMaHS.Text = hocsinh_bus.taoMaHocSinh();
+            txtMaHS.Text = hocsinh_bus.taoMaHocSinh(cboNamHoc);
             anhienButton(false);
             flagInsert = true;
         }
@@ -170,7 +174,7 @@ namespace QuanLiHocSinh
         private void grdHocSinh_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             cboNamHoc.SelectedValue = grdHocSinh.CurrentRow.Cells["MANH"].Value.ToString();
-            cboKhoi.SelectedValue = grdHocSinh.CurrentRow.Cells["MAKHOI"].Value.ToString();
+            cboLop.SelectedValue = grdHocSinh.CurrentRow.Cells["MALOP"].Value.ToString();
             cboGioiTinh.SelectedValue = grdHocSinh.CurrentRow.Cells["GIOITINHHS"].Value.ToString();
             txtMaHS.Text = grdHocSinh.CurrentRow.Cells["MAHS"].Value.ToString();
             txtTenHS.Text = grdHocSinh.CurrentRow.Cells["TENHS"].Value.ToString();
@@ -253,14 +257,13 @@ namespace QuanLiHocSinh
                 hocsinh_dto.Diachihs = txtDiaChi.Text;
                 hocsinh_dto.Ngnhaphoc = DateTime.Parse(dtiNgayNhapHoc.Text);
                 hocsinh_dto.Manh = cboNamHoc.SelectedValue.ToString();
-                hocsinh_dto.Makhoi = cboKhoi.SelectedValue.ToString();
-                //hocsinh_dto.Malop = "null";
+                hocsinh_dto.Malop = cboLop.SelectedValue.ToString();
                 try
                 {
                     File.Copy(linkgoc, hocsinh_dto.Hinhanhhs);
                     hocsinh_bus.themHocsinh(hocsinh_dto);
                     resetALL();
-                    grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh();//tải lại danh sách sau khi thêm
+                    grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh(cboNamHoc);//tải lại danh sách sau khi thêm
                     flagChonAnh = false;
                     flagInsert = false;
                     MessageBox.Show("Đã thêm học sinh thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -281,7 +284,7 @@ namespace QuanLiHocSinh
                 {
                     hocsinh_bus.xoaHocsinh(hocsinh_dto);
                     File.Delete(grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString());
-                    grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh();//tải lại danh sách sau khi xóa
+                    grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh(cboNamHoc);//tải lại danh sách sau khi xóa
                     flagDelete = false;
                     MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -317,8 +320,8 @@ namespace QuanLiHocSinh
                 hocsinh_dto.Diachihs = txtDiaChi.Text;
                 hocsinh_dto.Ngnhaphoc = DateTime.Parse(dtiNgayNhapHoc.Text);
                 hocsinh_dto.Manh = cboNamHoc.SelectedValue.ToString();
-                hocsinh_dto.Makhoi = cboKhoi.SelectedValue.ToString();
-                //hocsinh_dto.Malop = "null";
+                //hocsinh_dto.Makhoi = cboLop.SelectedValue.ToString();
+                hocsinh_dto.Malop = cboLop.SelectedValue.ToString(); 
                 try
                 {
                     if (flagChonAnh == true)
@@ -331,10 +334,10 @@ namespace QuanLiHocSinh
                     {
                         hocsinh_dto.Hinhanhhs = grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString();
                     }
-                    hocsinh_bus.suaHocsinh(hocsinh_dto);
+                    hocsinh_bus.suaHocsinh(hocsinh_dto,grdHocSinh);
                     flagUpdate = false;
                     resetALL();
-                    grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh();//tải lại danh sách sau khi thêm
+                    grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh(cboNamHoc);//tải lại danh sách sau khi thêm
                     MessageBox.Show("Đã sửa học sinh thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
@@ -359,7 +362,7 @@ namespace QuanLiHocSinh
                 txtDienThoai.Text = grdHocSinh.Rows[vitri].Cells["DIENTHOAIHS"].Value.ToString();
                 txtDiaChi.Text = grdHocSinh.Rows[vitri].Cells["DIACHIHS"].Value.ToString();
                 cboGioiTinh.SelectedValue = grdHocSinh.Rows[vitri].Cells["GIOITINHHS"].Value.ToString();
-                cboKhoi.SelectedValue = grdHocSinh.Rows[vitri].Cells["MAKHOI"].Value.ToString();
+                cboLop.SelectedValue = grdHocSinh.Rows[vitri].Cells["MALOP"].Value.ToString();
                 cboNamHoc.SelectedValue = grdHocSinh.Rows[vitri].Cells["MANH"].Value.ToString();
                 dtiNgaySinh.Text = grdHocSinh.Rows[vitri].Cells["NGSINHHS"].Value.ToString();
                 dtiNgayNhapHoc.Text = grdHocSinh.Rows[vitri].Cells["NGNHAPHOC"].Value.ToString();
@@ -420,6 +423,12 @@ namespace QuanLiHocSinh
         private void groupPanel1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cboNamHoc_SelectedValueChanged(object sender, EventArgs e)
+        {
+            resetALL();
+            grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh(cboNamHoc);
         }
 
 
