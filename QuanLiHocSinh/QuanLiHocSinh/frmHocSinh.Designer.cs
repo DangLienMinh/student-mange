@@ -156,7 +156,7 @@
             this.btnTimKiem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnTimKiem.TabIndex = 13;
             this.btnTimKiem.Text = "Tìm kiếm";
-            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            //this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // btnItemTim
             // 
