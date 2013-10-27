@@ -19,7 +19,8 @@ namespace QuanLiHocSinh
         private Boolean flagInsert;
         private Boolean flagUpdate;
         private Boolean flagDelete;
-
+        private int vitri;
+        private int Tong;
         public frmLopHoc()
         {
             InitializeComponent();
@@ -187,6 +188,57 @@ namespace QuanLiHocSinh
             cboGiaoVien.SelectedValue = grdLop.CurrentRow.Cells["MAGV1"].Value.ToString();
             cboKhoi.SelectedValue = grdLop.CurrentRow.Cells["MAKHOI1"].Value.ToString();
             cboNamHoc.SelectedValue = grdLop.CurrentRow.Cells["MANH"].Value.ToString();
+        }
+        public void Hienthidulieu()
+        {
+            vitri = this.BindingContext[grdLop.DataSource].Position;
+            Tong = this.BindingContext[grdLop.DataSource].Count;
+            if (vitri != -1)
+            {
+                txtHienTai.Text = (vitri+1).ToString() + "/" + Tong.ToString();
+                txtMaLop.Text = grdLop.Rows[vitri].Cells["MALOP1"].Value.ToString();
+                txtTenLop.Text = grdLop.Rows[vitri].Cells["TENLOP1"].Value.ToString();
+                txtSiSo.Text = grdLop.Rows[vitri].Cells["SISO1"].Value.ToString();
+                cboGiaoVien.SelectedValue = grdLop.Rows[vitri].Cells["MAGV1"].Value.ToString();
+                cboKhoi.SelectedValue = grdLop.Rows[vitri].Cells["MAKHOI1"].Value.ToString();
+                cboNamHoc.SelectedValue = grdLop.Rows[vitri].Cells["MANH"].Value.ToString();
+            }
+        }
+
+        private void btnDau_Click(object sender, EventArgs e)
+        {
+            this.BindingContext[grdLop.DataSource].Position = 0;
+            Hienthidulieu();
+            btnDau.Enabled = false;
+            btnTruoc.Enabled = false;
+            btnCuoi.Enabled = true;
+            btnSau.Enabled = true;
+        }
+
+        private void btnTruoc_Click(object sender, EventArgs e)
+        {
+            this.BindingContext[grdLop.DataSource].Position = vitri - 1;
+            Hienthidulieu();
+            btnSau.Enabled = true;
+            btnCuoi.Enabled = true;
+        }
+
+        private void btnCuoi_Click(object sender, EventArgs e)
+        {
+            this.BindingContext[grdLop.DataSource].Position = this.BindingContext[grdLop.DataSource].Count - 1;
+            Hienthidulieu();
+            btnDau.Enabled = true;
+            btnTruoc.Enabled = true;
+            btnCuoi.Enabled = false;
+            btnSau.Enabled = false;
+        }
+
+        private void btnSau_Click(object sender, EventArgs e)
+        {
+            this.BindingContext[grdLop.DataSource].Position = vitri + 1;
+            Hienthidulieu();
+            btnDau.Enabled = true;
+            btnTruoc.Enabled = true;
         }
     }
 }
