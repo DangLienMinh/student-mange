@@ -56,6 +56,16 @@ namespace QuanLiHocSinh
             dtiNgaySinh.Value = DateTime.Now;
             dtiNgayNhapHoc.Value = DateTime.Now;
             grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh(cboNamHoc);
+            datagridMakeUp(grdHocSinh);
+        }
+
+        private void datagridMakeUp(DataGridViewX temp)
+        {
+            temp.AutoResizeRows();
+            temp.AllowUserToResizeColumns = true;
+            temp.DefaultCellStyle.WrapMode = DataGridViewTriState.NotSet;
+            temp.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            temp.ReadOnly = true;
         }
 
         private void btnChonAnh_Click(object sender, EventArgs e)
@@ -92,6 +102,7 @@ namespace QuanLiHocSinh
         private void btnThem_Click(object sender, EventArgs e)
         {
             txtMaHS.Text = hocsinh_bus.taoMaHocSinh(cboNamHoc);
+            txtTenHS.Focus();
             anhienButton(false);
             flagInsert = true;
         }
@@ -104,6 +115,7 @@ namespace QuanLiHocSinh
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            txtTenHS.Focus();
             anhienButton(false);
             flagUpdate = true;
         }
@@ -431,6 +443,18 @@ namespace QuanLiHocSinh
             grdHocSinh.DataSource = hocsinh_bus.danhsachHocSinh(cboNamHoc);
         }
 
+        private void txt_Enter(object sender, EventArgs e)
+        {
+            ((TextBox)sender).BackColor = Color.Yellow;
+        }
+
+        private void txt_Leave(object sender, EventArgs e)
+        {
+            txtTenHS.BackColor = Color.White;
+            txtDiaChi.BackColor = Color.White;
+            txtDienThoai.BackColor = Color.White;
+            txtDantoc.BackColor = Color.White;
+        }
 
     }
 }
