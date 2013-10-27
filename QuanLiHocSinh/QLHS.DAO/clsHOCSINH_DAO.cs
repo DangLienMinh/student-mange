@@ -87,6 +87,7 @@ namespace QLHS.DAO
             con.Close();
             return table;
         }
+
         public DataTable timHocsinhTenhs(clsHOCSINH_DTO hocsinh)
         {
             DataTable table = new DataTable();

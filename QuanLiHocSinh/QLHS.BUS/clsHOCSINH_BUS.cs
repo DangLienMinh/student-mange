@@ -102,14 +102,14 @@ namespace QLHS.BUS
             }
             return Mahs;
         }
-        public DataTable timHocsinhMahs(clsHOCSINH_DTO hs)
-        {
-            return hocsinh.timHocsinhMahs(hs);
-        }
-        public DataTable timHocsinhTenhs(clsHOCSINH_DTO hs)
-        {
-            return hocsinh.timHocsinhTenhs(hs);
-        }
+        //public DataTable timHocsinhMahs(clsHOCSINH_DTO hs)
+        //{
+        //    return hocsinh.timHocsinhMahs(hs);
+        //}
+        //public DataTable timHocsinhTenhs(clsHOCSINH_DTO hs)
+        //{
+        //    return hocsinh.timHocsinhTenhs(hs);
+        //}
     }
     
       

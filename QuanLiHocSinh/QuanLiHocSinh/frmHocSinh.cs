@@ -378,44 +378,44 @@ namespace QuanLiHocSinh
             }  
         }
 
-        private void btnTimKiem_Click(object sender, EventArgs e)
-        {
-            if (txtTim.Text != "")
-            {
-                if (optMaHS.Checked == true)
-                {
-                    hocsinh_dto.Mahs = txtTim.Text;
-                    if (hocsinh_bus.timHocsinhMahs(hocsinh_dto).Rows.Count == 0)
-                    {
-                        MessageBox.Show("Không tìm thấy", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        grdHocSinh.DataSource = hocsinh_bus.timHocsinhMahs(hocsinh_dto);
-                    }
-                }
-                if (optTenHS.Checked == true)
-                {
-                    hocsinh_dto.Tenhs = txtTim.Text;
-                    if (hocsinh_bus.timHocsinhTenhs(hocsinh_dto).Rows.Count == 0)
-                    {
-                        MessageBox.Show("Không tìm thấy", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        grdHocSinh.DataSource = hocsinh_bus.timHocsinhTenhs(hocsinh_dto);
-                    }
-                }
-                if (optMaHS.Checked == false && optTenHS.Checked == false)
-                {
-                    MessageBox.Show("Chưa chọn tìm kiếm theo Tên Học Sinh hoặc theo Mã học sinh ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Chưa nhập từ khóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //private void btnTimKiem_Click(object sender, EventArgs e)
+        //{
+        //    if (txtTim.Text != "")
+        //    {
+        //        if (optMaHS.Checked == true)
+        //        {
+        //            hocsinh_dto.Mahs = txtTim.Text;
+        //            if (hocsinh_bus.timHocsinhMahs(hocsinh_dto).Rows.Count == 0)
+        //            {
+        //                MessageBox.Show("Không tìm thấy", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //            }
+        //            else
+        //            {
+        //                grdHocSinh.DataSource = hocsinh_bus.timHocsinhMahs(hocsinh_dto);
+        //            }
+        //        }
+        //        if (optTenHS.Checked == true)
+        //        {
+        //            hocsinh_dto.Tenhs = txtTim.Text;
+        //            if (hocsinh_bus.timHocsinhTenhs(hocsinh_dto).Rows.Count == 0)
+        //            {
+        //                MessageBox.Show("Không tìm thấy", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //            }
+        //            else
+        //            {
+        //                grdHocSinh.DataSource = hocsinh_bus.timHocsinhTenhs(hocsinh_dto);
+        //            }
+        //        }
+        //        if (optMaHS.Checked == false && optTenHS.Checked == false)
+        //        {
+        //            MessageBox.Show("Chưa chọn tìm kiếm theo Tên Học Sinh hoặc theo Mã học sinh ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Chưa nhập từ khóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void groupPanel1_Click(object sender, EventArgs e)
         {
