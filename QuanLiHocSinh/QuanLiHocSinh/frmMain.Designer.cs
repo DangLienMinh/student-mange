@@ -430,10 +430,10 @@
             this.ribbonPanel2.Controls.Add(this.ribbonBar4);
             this.ribbonPanel2.Controls.Add(this.ribbonBar3);
             this.ribbonPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel2.Location = new System.Drawing.Point(0, 55);
+            this.ribbonPanel2.Location = new System.Drawing.Point(0, 56);
             this.ribbonPanel2.Name = "ribbonPanel2";
             this.ribbonPanel2.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel2.Size = new System.Drawing.Size(783, 96);
+            this.ribbonPanel2.Size = new System.Drawing.Size(783, 95);
             // 
             // 
             // 
@@ -467,7 +467,7 @@
             this.btnPhanCong});
             this.ribbonBar10.Location = new System.Drawing.Point(406, 0);
             this.ribbonBar10.Name = "ribbonBar10";
-            this.ribbonBar10.Size = new System.Drawing.Size(196, 93);
+            this.ribbonBar10.Size = new System.Drawing.Size(196, 92);
             this.ribbonBar10.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar10.TabIndex = 3;
             this.ribbonBar10.Text = "Quản Lý Giáo Viên";
@@ -518,7 +518,7 @@
             this.btnPhanLop});
             this.ribbonBar5.Location = new System.Drawing.Point(262, 0);
             this.ribbonBar5.Name = "ribbonBar5";
-            this.ribbonBar5.Size = new System.Drawing.Size(144, 93);
+            this.ribbonBar5.Size = new System.Drawing.Size(144, 92);
             this.ribbonBar5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar5.TabIndex = 2;
             this.ribbonBar5.Text = "Quản Lý Lớp Học";
@@ -569,7 +569,7 @@
             this.btnHanhKiem});
             this.ribbonBar4.Location = new System.Drawing.Point(132, 0);
             this.ribbonBar4.Name = "ribbonBar4";
-            this.ribbonBar4.Size = new System.Drawing.Size(130, 93);
+            this.ribbonBar4.Size = new System.Drawing.Size(130, 92);
             this.ribbonBar4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar4.TabIndex = 1;
             this.ribbonBar4.Text = "Quản Lý Học Tập";
@@ -619,7 +619,7 @@
             this.btnHocSinh});
             this.ribbonBar3.Location = new System.Drawing.Point(3, 0);
             this.ribbonBar3.Name = "ribbonBar3";
-            this.ribbonBar3.Size = new System.Drawing.Size(129, 93);
+            this.ribbonBar3.Size = new System.Drawing.Size(129, 92);
             this.ribbonBar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar3.TabIndex = 0;
             this.ribbonBar3.Text = "Quản Lý Chung";
@@ -650,6 +650,7 @@
             this.btnHocSinh.Name = "btnHocSinh";
             this.btnHocSinh.SubItemsExpandWidth = 14;
             this.btnHocSinh.Text = "Học Sinh";
+            this.btnHocSinh.Click += new System.EventHandler(this.btnHocSinh_Click);
             // 
             // ribbonPanel4
             // 
