@@ -62,6 +62,19 @@ namespace QLHS.DAO
             return temp;
         }
 
+        public DataTable chonLop10(string nam)
+        {
+            connection.kiemTraKetNoi(con);
+            DataTable table = new DataTable();
+            SqlCommand command = new SqlCommand("SP_ThongTinLop10", con);
+            command.Parameters.Add("@NAM", SqlDbType.Char).Value = nam;
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
         public void themLop(clsLOP_DTO lop)
         {
             connection.kiemTraKetNoi(con);

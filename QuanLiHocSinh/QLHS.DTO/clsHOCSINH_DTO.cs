@@ -7,13 +7,7 @@ namespace QLHS.DTO
 {
     public class clsHOCSINH_DTO
     {
-        private string makhoi;
-
-        public string Makhoi
-        {
-            get { return makhoi; }
-            set { makhoi = value; }
-        }
+ 
         private string manh;
 
         public string Manh

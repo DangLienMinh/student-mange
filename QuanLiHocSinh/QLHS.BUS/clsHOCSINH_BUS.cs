@@ -23,17 +23,27 @@ namespace QLHS.BUS
             namhoc = new clsNAMHOC_DAO();
             lop = new clsLOP_DAO();
         }
-        public DataTable danhsachHocSinh()
+        public DataTable danhsachHocSinh(ComboBoxEx comboBox)
         {
-            return hocsinh.danhsachHocSinh();
+            return hocsinh.danhsachHocSinh(comboBox.SelectedValue.ToString());
         }
         public void themHocsinh(clsHOCSINH_DTO hs)
         {
             hocsinh.themHocsinh(hs);
         }
-        public void suaHocsinh(clsHOCSINH_DTO hs)
+        public void suaHocsinh(clsHOCSINH_DTO hs,DataGridViewX grdHocSinh)
         {
-            hocsinh.suaHocsinh(hs);
+            foreach (DataGridViewRow row1 in grdHocSinh.Rows)
+            {
+                if (row1.Cells["MAHS"].Value != null)
+                {
+                    if (string.Compare(row1.Cells["MAHS"].Value.ToString().Trim(), hs.Mahs.Trim()) == 0)
+                    {
+                        hocsinh.suaHocsinh(hs, row1.Cells["MANH"].Value.ToString(), row1.Cells["MALOP"].Value.ToString());
+                    }
+                }
+            }
+           
         }
         public void xoaHocsinh(clsHOCSINH_DTO hs)
         {
@@ -72,7 +82,7 @@ namespace QLHS.BUS
         //    Mahs = intmahs.ToString();
         //    return Mahs;
         //}
-        public string taoMaHocSinh()
+        public string taoMaHocSinh(ComboBoxEx comboBox)
         {
             string tam = "";
             string Mahs;
@@ -80,7 +90,7 @@ namespace QLHS.BUS
             str = DateTime.Now.ToString().Trim();
             string Namhientai = str.Substring(6, 4);
             string makhoitao = Namhientai.Trim() + "0000";
-            int soDong = hocsinh.danhsachHocSinh().Rows.Count;
+            int soDong = hocsinh.danhsachHocSinh(comboBox.SelectedValue.ToString()).Rows.Count;
             if (soDong == 0)
             {
                 Mahs = makhoitao;
@@ -88,9 +98,9 @@ namespace QLHS.BUS
             else
             {
                 int max = 0;
-                for (int i = 0; i < hocsinh.danhsachHocSinh().Rows.Count;i++ )
+                for (int i = 0; i < hocsinh.danhsachHocSinh(comboBox.SelectedValue.ToString()).Rows.Count; i++)
                 {
-                    tam = hocsinh.danhsachHocSinh().Rows[i]["MAHS"].ToString();
+                    tam = hocsinh.danhsachHocSinh(comboBox.SelectedValue.ToString()).Rows[i]["MAHS"].ToString();
                     int tam1 = int.Parse(tam);
                     if (max < tam1)
                     {

@@ -453,7 +453,7 @@
             this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(292, 546);
+            this.navigationPanePanel1.Size = new System.Drawing.Size(292, 444);
             this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;

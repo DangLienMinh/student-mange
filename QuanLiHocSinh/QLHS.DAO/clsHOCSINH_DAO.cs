@@ -15,25 +15,27 @@ namespace QLHS.DAO
             connection = new clsConnectDatabase();
             con = connection.KetNoi();
         }
-        public DataTable danhsachHocSinh()
+
+        public DataTable danhsachHocSinh(string maNH)
         {
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThongTinHocSinh", con);
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = maNH;
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);
             con.Close();
             return table;
         }
+
         public void themHocsinh(clsHOCSINH_DTO hocsinh)
         {
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThemHocSinh", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = hocsinh.Makhoi;
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hocsinh.Manh;
-            //command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = hocsinh.Malop;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = hocsinh.Malop;
             command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hocsinh.Mahs;
             command.Parameters.Add("@TENHS", SqlDbType.NVarChar).Value = hocsinh.Tenhs;
             command.Parameters.Add("@NGSINHHS", SqlDbType.SmallDateTime).Value = hocsinh.Ngaysinhhs;
@@ -46,14 +48,15 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
-        public void suaHocsinh(clsHOCSINH_DTO hocsinh)
+        public void suaHocsinh(clsHOCSINH_DTO hocsinh,string maNHTruoc,string maLopTruoc)
         {
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_SuaHocSinh", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = hocsinh.Makhoi;
+            command.Parameters.Add("@MANHTRUOC", SqlDbType.VarChar).Value = maNHTruoc;
+            command.Parameters.Add("@MALOPTRUOC", SqlDbType.VarChar).Value = maLopTruoc;
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hocsinh.Manh;
-            //command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = hocsinh.Malop;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = hocsinh.Malop;
             command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hocsinh.Mahs;
             command.Parameters.Add("@TENHS", SqlDbType.NVarChar).Value = hocsinh.Tenhs;
             command.Parameters.Add("@NGSINHHS", SqlDbType.SmallDateTime).Value = hocsinh.Ngaysinhhs;
