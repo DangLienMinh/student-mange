@@ -82,7 +82,7 @@ namespace QLHS.DAO
         {
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);
-            SqlCommand command = new SqlCommand("SP_TimHocSinhMAHS", con);
+            SqlCommand command = new SqlCommand("SP_TimHocSinhMaHS", con);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hocsinh.Mahs;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -95,9 +95,35 @@ namespace QLHS.DAO
         {
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);
-            SqlCommand command = new SqlCommand("SP_TimHocSinhTENHS", con);
+            SqlCommand command = new SqlCommand("SP_TimHocSinhTenHS", con);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@TENHS", SqlDbType.VarChar).Value = hocsinh.Tenhs;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
+        public DataTable timHocSinhDanToc(clsHOCSINH_DTO hocsinh)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_TimHocSinhDanToc", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@DANTOC", SqlDbType.VarChar).Value = hocsinh.Dantoc;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
+        public DataTable timHocSinhNgNhapHoc(clsHOCSINH_DTO hocsinh)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_TimHocSinhNgNhapHoc", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@NGNHAPHOC", SqlDbType.SmallDateTime).Value = hocsinh.Ngnhaphoc;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);
             con.Close();

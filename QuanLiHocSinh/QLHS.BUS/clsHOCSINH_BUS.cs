@@ -101,14 +101,28 @@ namespace QLHS.BUS
             }
             return Mahs;
         }
-        //public DataTable timHocsinhMahs(clsHOCSINH_DTO hs)
-        //{
-        //    return hocsinh.timHocsinhMahs(hs);
-        //}
-        //public DataTable timHocsinhTenhs(clsHOCSINH_DTO hs)
-        //{
-        //    return hocsinh.timHocsinhTenhs(hs);
-        //}
+
+        public void timHocSinhMaHS(DataGridViewX grdHocSinh,TextBoxX maHS)
+        {
+            clsHOCSINH_DTO hs = new clsHOCSINH_DTO();
+            hs.Mahs = maHS.Text;
+            grdHocSinh.DataSource=hocsinh.timHocSinhMaHS(hs);
+        }
+
+        public DataTable timHocSinhTenHS(clsHOCSINH_DTO hs)
+        {
+            return hocsinh.timHocSinhTenHS(hs);
+        }
+
+        public DataTable timHocSinhDanToc(clsHOCSINH_DTO hs)
+        {
+            return hocsinh.timHocSinhDanToc(hs);
+        }
+
+        public DataTable timHocSinhNgNhapHoc(clsHOCSINH_DTO hs)
+        {
+            return hocsinh.timHocSinhNgNhapHoc(hs);
+        }
     }
     
       
