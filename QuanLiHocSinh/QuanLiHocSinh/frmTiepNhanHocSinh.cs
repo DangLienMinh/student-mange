@@ -29,6 +29,7 @@ namespace QuanLiHocSinh
         private string linkgoc;
         private int vitri;
         private int Tong;
+
         public frmTiepNhanHocSinh()
         {
             InitializeComponent();
@@ -473,6 +474,11 @@ namespace QuanLiHocSinh
             }
             else
                 m_FrmLop.Activate();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+
         }
 
 
