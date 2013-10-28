@@ -14,7 +14,7 @@ using DevComponents.Editors.DateTimeAdv;
 
 namespace QuanLiHocSinh
 {
-    public partial class frmHocSinh : DevComponents.DotNetBar.Office2007Form
+    public partial class frmTiepNhanHocSinh : DevComponents.DotNetBar.Office2007Form
     {
         private frmLopHoc m_FrmLop = null;
         private clsLOP_BUS lop_bus;
@@ -29,7 +29,7 @@ namespace QuanLiHocSinh
         private string linkgoc;
         private int vitri;
         private int Tong;
-        public frmHocSinh()
+        public frmTiepNhanHocSinh()
         {
             InitializeComponent();
             hocsinh_bus = new clsHOCSINH_BUS();
