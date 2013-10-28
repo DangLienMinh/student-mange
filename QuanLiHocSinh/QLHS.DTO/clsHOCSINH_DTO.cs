@@ -7,6 +7,13 @@ namespace QLHS.DTO
 {
     public class clsHOCSINH_DTO
     {
+        public clsHOCSINH_DTO()
+        {
+            mahs = "";
+            tenhs = "";
+            dantoc = "";
+            ngnhaphoc = DateTime.MinValue;
+        }
  
         private string manh;
 

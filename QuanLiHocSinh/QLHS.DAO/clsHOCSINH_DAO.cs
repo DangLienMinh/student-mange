@@ -129,5 +129,85 @@ namespace QLHS.DAO
             con.Close();
             return table;
         }
-    }
+
+        public  DataTable timHocSinhNangCao(clsHOCSINH_DTO hocsinh,string dieuKien)
+        {
+            SqlDataAdapter da;
+            DataTable dt = new DataTable();
+            string STRCMD = "";
+            string Temp = "";
+            if (hocsinh.Mahs != "")
+            {
+                Temp = " WHERE MAHS=" + "'" + hocsinh.Mahs + "' ";
+                if (hocsinh.Tenhs != "")
+                {
+                    Temp += dieuKien + " TENHS=" + "N'" + hocsinh.Tenhs + "' ";
+                }
+                if (hocsinh.Dantoc != "")
+                {
+                    Temp += dieuKien + " DANTOC=" + "N'" + hocsinh.Dantoc + "' ";
+                }
+                if (hocsinh.Ngnhaphoc.GetHashCode()!=0)
+                {
+                    Temp += dieuKien + " NGNHAPHOC=" + "'" + hocsinh.Ngnhaphoc + "' ";
+                }
+            }
+           else if (hocsinh.Tenhs != "")
+            {
+                Temp = " WHERE TENHS=" + "N'" + hocsinh.Tenhs + "' ";
+                if (hocsinh.Mahs != "")
+                {
+                    Temp += dieuKien + " MAHS=" + "'" + hocsinh.Mahs + "' ";
+                }
+                if (hocsinh.Dantoc != "")
+                {
+                    Temp += dieuKien + " DANTOC=" + "N'" + hocsinh.Dantoc + "' ";
+                }
+                if (hocsinh.Ngnhaphoc.GetHashCode()!=0)
+                {
+                    Temp += dieuKien + " NGNHAPHOC=" + "'" + hocsinh.Ngnhaphoc + "' ";
+                }
+            }
+            else if (hocsinh.Dantoc != "")
+            {
+                Temp = " WHERE DANTOC=" + "N'" + hocsinh.Dantoc + "' ";
+                if (hocsinh.Mahs != "")
+                {
+                    Temp += dieuKien + " MAHS=" + "'" + hocsinh.Mahs + "' ";
+                }
+                if (hocsinh.Tenhs != "")
+                {
+                    Temp += dieuKien + " TENHS=" + "N'" + hocsinh.Tenhs + "' ";
+                }
+                if (hocsinh.Ngnhaphoc.GetHashCode()!=0)
+                {
+                    Temp += dieuKien + " NGNHAPHOC=" + "'" + hocsinh.Ngnhaphoc + "' ";
+                }
+            }
+            else
+            {
+                Temp = " WHERE NGNHAPHOC=" + "'" + hocsinh.Ngnhaphoc + "' ";
+                if (hocsinh.Mahs != "")
+                {
+                    Temp += dieuKien + " MAHS=" + "'" + hocsinh.Mahs + "' ";
+                }
+                if (hocsinh.Tenhs != "")
+                {
+                    Temp += dieuKien + " TENHS=" + "N'" + hocsinh.Tenhs + "' ";
+                }
+               if (hocsinh.Dantoc != "")
+                {
+                    Temp += dieuKien + " DANTOC=" + "N'" + hocsinh.Dantoc + "' ";
+                }
+            }
+	
+                STRCMD = @"SELECT * FROM HOCSINH" + Temp;
+                connection.kiemTraKetNoi(con);
+                SqlCommand sqlcmd = new SqlCommand(STRCMD,con);
+                da = new SqlDataAdapter(sqlcmd);
+                da.Fill(dt);
+                con.Close();
+                return dt;
+            }
+        }
 }

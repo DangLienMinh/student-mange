@@ -109,20 +109,39 @@ namespace QLHS.BUS
             grdHocSinh.DataSource=hocsinh.timHocSinhMaHS(hs);
         }
 
-        public DataTable timHocSinhTenHS(clsHOCSINH_DTO hs)
+        public void timHocSinhTenHS(DataGridViewX grdHocSinh, TextBoxX tenHS)
         {
-            return hocsinh.timHocSinhTenHS(hs);
+            clsHOCSINH_DTO hs = new clsHOCSINH_DTO();
+            hs.Tenhs = tenHS.Text;
+            grdHocSinh.DataSource = hocsinh.timHocSinhTenHS(hs); ;
         }
 
-        public DataTable timHocSinhDanToc(clsHOCSINH_DTO hs)
+        public void timHocSinhDanToc(DataGridViewX grdHocSinh, TextBoxX danToc)
         {
-            return hocsinh.timHocSinhDanToc(hs);
+            clsHOCSINH_DTO hs = new clsHOCSINH_DTO();
+            hs.Dantoc = danToc.Text;
+            grdHocSinh.DataSource = hocsinh.timHocSinhDanToc(hs);
         }
 
-        public DataTable timHocSinhNgNhapHoc(clsHOCSINH_DTO hs)
+        public void timHocSinhNgNhapHoc(DataGridViewX grdHocSinh,DateTimeInput ngNhapHoc)
         {
-            return hocsinh.timHocSinhNgNhapHoc(hs);
+            clsHOCSINH_DTO hs = new clsHOCSINH_DTO();
+            hs.Ngnhaphoc = ngNhapHoc.Value;
+            grdHocSinh.DataSource = hocsinh.timHocSinhNgNhapHoc(hs);
         }
+
+        public DataTable timHocSinhNangCao(clsHOCSINH_DTO hs,ComboBoxEx dieuKien)
+        {
+            return hocsinh.timHocSinhNangCao(hs, dieuKien.SelectedItem.ToString());
+        }
+
+        public void cbDieuKien(ComboBoxEx dieuKien)
+        {
+            dieuKien.Items.Add("AND");
+            dieuKien.Items.Add("OR");
+            dieuKien.SelectedItem = "AND";
+        }
+
     }
     
       
