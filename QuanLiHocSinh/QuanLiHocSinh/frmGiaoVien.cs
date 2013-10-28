@@ -30,6 +30,7 @@ namespace QuanLiHocSinh
 
         private void datagridMakeUp(DataGridViewX temp)
         {
+            temp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
             temp.AutoResizeRows();
             temp.AllowUserToResizeColumns = true;
             temp.DefaultCellStyle.WrapMode = DataGridViewTriState.NotSet;

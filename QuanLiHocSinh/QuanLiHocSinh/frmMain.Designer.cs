@@ -421,6 +421,7 @@
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
             this.btnDoiMatKhau.SubItemsExpandWidth = 14;
             this.btnDoiMatKhau.Text = "Đổi Mật Khẩu";
+            this.btnDoiMatKhau.Click += new System.EventHandler(this.btnDoiMatKhau_Click);
             // 
             // ribbonPanel2
             // 

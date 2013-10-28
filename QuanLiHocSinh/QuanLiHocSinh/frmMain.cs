@@ -17,7 +17,7 @@ namespace QuanLiHocSinh
         private frmNamHoc m_FrmNamHoc = null;
         private frmTiepNhanHocSinh m_FrmHocSinh = null;
         private frmNguoiDung frmNguoiDung = null;
-        private frmTimHocSinh frmTim = null;
+        private frmHocSinhTheoLop frmTim = null;
         public frmMain()
         {
             InitializeComponent();
@@ -122,7 +122,7 @@ namespace QuanLiHocSinh
         {
             if (frmTim == null || frmTim.IsDisposed)
             {
-                frmTim = new frmTimHocSinh();
+                frmTim = new frmHocSinhTheoLop();
                 frmTim.FormBorderStyle = FormBorderStyle.None;
                 frmTim.MdiParent = frmMain.ActiveForm;
                 frmTim.Show();
@@ -142,6 +142,11 @@ namespace QuanLiHocSinh
             }
             else
                 m_FrmHocSinh.Activate();
+        }
+
+        private void btnDoiMatKhau_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

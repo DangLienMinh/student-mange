@@ -38,16 +38,14 @@ namespace QuanLiHocSinh
             hocsinh_dto = new clsHOCSINH_DTO();
             lop_bus = new clsLOP_BUS();
             khoi_bus = new clsKHOI_BUS();
+            grdHocSinh.DataSource = new DataTable();
             flagInsert = false;
             flagUpdate = false;
             flagDelete = false;
             flagChonAnh = false;
         }
 
-        private void btnItemTim_Click(object sender, EventArgs e)
-        {
 
-        }
         private void frmHocSinh_Load(object sender, EventArgs e)
         {
             anHienButton(true);
@@ -438,10 +436,7 @@ namespace QuanLiHocSinh
         //    }
         //}
 
-        private void groupPanel1_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
 
         private void cboNamHoc_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -477,9 +472,13 @@ namespace QuanLiHocSinh
                 m_FrmLop.Activate();
         }
 
-        private void btnTimKiem_Click(object sender, EventArgs e)
-        {
 
+        private void frmTiepNhanHocSinh_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
 
 

@@ -8,6 +8,7 @@ using QLHS.DTO;
 using QLHS.DAO;
 using DevComponents.DotNetBar.Controls;
 using DevComponents.Editors.DateTimeAdv;
+using DevComponents.AdvTree;
 using System.Windows.Forms;
 using System.IO;
 namespace QLHS.BUS
@@ -17,20 +18,49 @@ namespace QLHS.BUS
         private clsHOCSINH_DAO hocsinh;
         private clsNAMHOC_DAO namhoc;
         private clsLOP_DAO lop;
+        private clsLOP_DTO lop_dto;
+        private clsHOCSINH_DTO hocsinh_dto;
+        private DataTable tblLop;
+
         public clsHOCSINH_BUS()
         {
+            lop_dto = new clsLOP_DTO();
             hocsinh = new clsHOCSINH_DAO();
             namhoc = new clsNAMHOC_DAO();
             lop = new clsLOP_DAO();
+            hocsinh_dto = new clsHOCSINH_DTO(); 
+            tblLop = new DataTable();
         }
+
         public DataTable danhSachHocSinh(ComboBoxEx comboBox)
         {
             return hocsinh.danhSachHocSinh(comboBox.SelectedValue.ToString());
         }
+
+        public DataTable danhSachHocSinhTheoLop(ComboBoxEx comboBox,AdvTree tree)
+        {
+            string temp="";
+            hocsinh_dto.Manh=comboBox.SelectedValue.ToString();
+             lop_dto = new clsLOP_DTO();
+            lop_dto.Manh = comboBox.SelectedValue.ToString();
+            tblLop = lop.danhSachLopTheoNamHoc(lop_dto);
+            foreach (DataRow row in tblLop.Rows)
+            {
+                if (row["TENLOP"].ToString()== tree.SelectedNode.ToString())
+                {
+                    temp = row["MALOP"].ToString();
+                }
+            }
+            hocsinh_dto.Malop=temp;
+            return hocsinh.danhSachHocSinhTheoLop(hocsinh_dto);
+        }
+
+
         public void themHocSinh(clsHOCSINH_DTO hs)
         {
             hocsinh.themHocSinh(hs);
         }
+
         public void suaHocSinh(clsHOCSINH_DTO hs,DataGridViewX grdHocSinh)
         {
             foreach (DataGridViewRow row1 in grdHocSinh.Rows)
@@ -45,10 +75,12 @@ namespace QLHS.BUS
             }
            
         }
+
         public void xoaHocSinh(clsHOCSINH_DTO hs)
         {
             hocsinh.xoaHocSinh(hs);
         }
+
         public void cboGioiTinh(ComboBoxEx comboBox)
         {
             comboBox.Items.Add("Nam");

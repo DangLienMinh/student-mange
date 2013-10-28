@@ -44,6 +44,7 @@ namespace QuanLiHocSinh
 
         private void datagridMakeUp(DataGridViewX temp)
         {
+            temp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
             temp.AutoResizeRows();
             temp.AllowUserToResizeColumns = true;
             temp.DefaultCellStyle.WrapMode = DataGridViewTriState.NotSet;
@@ -265,6 +266,14 @@ namespace QuanLiHocSinh
         {
             txtSiSo.BackColor = Color.White;
             txtTenLop.BackColor = Color.White;
+        }
+
+        private void frmLopHoc_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
     }
 }

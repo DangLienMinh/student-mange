@@ -29,6 +29,20 @@ namespace QLHS.DAO
             return table;
         }
 
+        public DataTable danhSachHocSinhTheoLop(clsHOCSINH_DTO hocsinh)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_ThongTinHocSinhTheoLop", con);
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hocsinh.Manh;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = hocsinh.Malop;
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
         public void themHocSinh(clsHOCSINH_DTO hocsinh)
         {
             connection.kiemTraKetNoi(con);

@@ -44,12 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmdanhsachlop.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmdanhsachlop.Designer.cs">
-      <DependentUpon>frmdanhsachlop.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmDiem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +55,12 @@
     </Compile>
     <Compile Include="frmGiaoVien.Designer.cs">
       <DependentUpon>frmGiaoVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHocSinhTheoLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHocSinhTheoLop.Designer.cs">
+      <DependentUpon>frmHocSinhTheoLop.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTiepNhanHocSinh.cs">
       <SubType>Form</SubType>
@@ -124,14 +124,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmdanhsachlop.resx">
-      <DependentUpon>frmdanhsachlop.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmDiem.resx">
       <DependentUpon>frmDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGiaoVien.resx">
       <DependentUpon>frmGiaoVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHocSinhTheoLop.resx">
+      <DependentUpon>frmHocSinhTheoLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTiepNhanHocSinh.resx">
       <DependentUpon>frmTiepNhanHocSinh.cs</DependentUpon>

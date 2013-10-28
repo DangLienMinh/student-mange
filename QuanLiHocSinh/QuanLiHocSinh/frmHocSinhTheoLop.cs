@@ -1,0 +1,128 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using QLHS.BUS;
+using DevComponents.DotNetBar.Controls;
+using DevComponents.Editors.DateTimeAdv;
+
+namespace QuanLiHocSinh
+{
+    public partial class frmHocSinhTheoLop : DevComponents.DotNetBar.Office2007Form
+    {
+        private clsLOP_BUS lop_BUS;
+        private clsNAMHOC_BUS namHoc_BUS;
+        private clsHOCSINH_BUS hocSinh_BUS;
+        private int viTri, Tong;
+
+        public frmHocSinhTheoLop()
+        {
+            InitializeComponent();
+            this.KeyPreview = true;
+            datagridMakeUp(grdHocSinh);
+            grdHocSinh.DataSource = new DataTable();
+            lop_BUS = new clsLOP_BUS();
+            namHoc_BUS = new clsNAMHOC_BUS();
+            hocSinh_BUS = new clsHOCSINH_BUS();
+        }
+
+        private void datagridMakeUp(DataGridViewX temp)
+        {
+            temp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
+            temp.AutoResizeRows();
+            temp.AllowUserToResizeColumns = true;
+            temp.DefaultCellStyle.WrapMode = DataGridViewTriState.NotSet;
+            temp.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            temp.ReadOnly = true;
+        }
+
+        private void frmHocSinhTheoLop_Load(object sender, EventArgs e)
+        {
+            namHoc_BUS.hienThiComboBox(cboNamHoc);
+        }
+
+        private void cboNamHoc_SelectedValueChanged(object sender, EventArgs e)
+        {
+            treeLop.Nodes.Clear();
+            lop_BUS.hienThiLopTheoNamHoc(cboNamHoc.SelectedValue.ToString(), treeLop);
+        }
+
+        private void btnDanhSach_Click(object sender, EventArgs e)
+        {
+            if (treeLop.SelectedNode==null)
+            {
+                MessageBox.Show("Bạn phải chon một lớp");
+            }else
+            grdHocSinh.DataSource = hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHoc, treeLop);
+        }
+
+        private void btnDau_Click(object sender, EventArgs e)
+        {
+            viTri = this.BindingContext[grdHocSinh.DataSource].Position;
+            this.BindingContext[grdHocSinh.DataSource].Position = 0;
+            sapXep();
+            btnTruoc.Enabled = false;
+            btnDau.Enabled = false;
+            btnCuoi.Enabled = true;
+            btnSau.Enabled = true;
+        }
+
+        private void btnTruoc_Click(object sender, EventArgs e)
+        {
+            viTri = this.BindingContext[grdHocSinh.DataSource].Position;
+            btnCuoi.Enabled = true;
+            btnSau.Enabled = true;
+            this.BindingContext[grdHocSinh.DataSource].Position = viTri - 1;
+            sapXep();
+        }
+
+        private void btnSau_Click(object sender, EventArgs e)
+        {
+            viTri = this.BindingContext[grdHocSinh.DataSource].Position;
+            btnDau.Enabled = true;
+            btnTruoc.Enabled = true;
+            this.BindingContext[grdHocSinh.DataSource].Position = viTri + 1;
+            sapXep();
+        }
+
+        private void btnCuoi_Click(object sender, EventArgs e)
+        {
+            viTri = this.BindingContext[grdHocSinh.DataSource].Position;
+            this.BindingContext[grdHocSinh.DataSource].Position = this.BindingContext[grdHocSinh.DataSource].Count - 1;
+            sapXep();
+            btnCuoi.Enabled = false;
+            btnSau.Enabled = false;
+            btnTruoc.Enabled = true;
+            btnDau.Enabled = true;
+        }
+
+        private void sapXep()
+        {
+            viTri = this.BindingContext[grdHocSinh.DataSource].Position;
+            Tong = this.BindingContext[grdHocSinh.DataSource].Count;
+            if (viTri != -1)
+            {
+                txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
+            }
+
+        }
+
+        private void grdHocSinh_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            sapXep();
+        }
+
+        private void frmHocSinhTheoLop_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+
+
+    }
+}
