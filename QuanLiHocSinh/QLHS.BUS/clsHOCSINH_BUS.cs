@@ -32,27 +32,10 @@ namespace QLHS.BUS
             tblLop = new DataTable();
         }
 
+        //lấy danh sách học sinh theo mã năm học
         public DataTable danhSachHocSinh(ComboBoxEx comboBox)
         {
             return hocsinh.danhSachHocSinh(comboBox.SelectedValue.ToString());
-        }
-
-        public DataTable danhSachHocSinhTheoLop(ComboBoxEx comboBox,AdvTree tree)
-        {
-            string temp="";
-            hocsinh_dto.Manh=comboBox.SelectedValue.ToString();
-             lop_dto = new clsLOP_DTO();
-            lop_dto.Manh = comboBox.SelectedValue.ToString();
-            tblLop = lop.danhSachLopTheoNamHoc(lop_dto);
-            foreach (DataRow row in tblLop.Rows)
-            {
-                if (row["TENLOP"].ToString()== tree.SelectedNode.ToString())
-                {
-                    temp = row["MALOP"].ToString();
-                }
-            }
-            hocsinh_dto.Malop=temp;
-            return hocsinh.danhSachHocSinhTheoLop(hocsinh_dto);
         }
 
 
@@ -92,6 +75,7 @@ namespace QLHS.BUS
         {
 
         }
+
         //public string taoMaHocSinh()
         //{
         //    string Mahs;
@@ -103,13 +87,14 @@ namespace QLHS.BUS
         //    Mahs = intmahs.ToString();
         //    return Mahs;
         //}
+
         public string taoMaHocSinh(ComboBoxEx comboBox)
         {
             string tam = "";
             string Mahs;
             string str;
             str = DateTime.Now.ToString().Trim();
-            string Namhientai = str.Substring(6, 4);
+            string Namhientai = str.Substring(6, 4); 
             string makhoitao = Namhientai.Trim() + "0000";
             int soDong = hocsinh.danhSachHocSinh(comboBox.SelectedValue.ToString()).Rows.Count;
             if (soDong == 0)
@@ -132,6 +117,35 @@ namespace QLHS.BUS
                 Mahs = Namhientai + max.ToString().Trim().Substring(4, 4);
             }
             return Mahs;
+        }
+
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        /// <summary>
+        /// FORM TÌM HỌC SINH
+        /// LIÊN MINH
+        /// </summary>
+        /// <param name="grdHocSinh"></param>
+        /// <param name="maHS"></param>
+
+        //load danh sách vào tree view
+        public DataTable danhSachHocSinhTheoLop(ComboBoxEx comboBox, AdvTree tree)
+        {
+            string temp = "";
+            hocsinh_dto.Manh = comboBox.SelectedValue.ToString();
+            lop_dto = new clsLOP_DTO();
+            lop_dto.Manh = comboBox.SelectedValue.ToString();
+            tblLop = lop.danhSachLopTheoNamHoc(lop_dto);
+            foreach (DataRow row in tblLop.Rows)
+            {
+                if (row["TENLOP"].ToString() == tree.SelectedNode.ToString())
+                {
+                    temp = row["MALOP"].ToString();
+                }
+            }
+            hocsinh_dto.Malop = temp;
+            return hocsinh.danhSachHocSinhTheoLop(hocsinh_dto);
         }
 
         public void timHocSinhMaHS(DataGridViewX grdHocSinh,TextBoxX maHS)
