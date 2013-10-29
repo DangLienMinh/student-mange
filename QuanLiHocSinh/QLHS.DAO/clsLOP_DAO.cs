@@ -11,11 +11,13 @@ namespace QLHS.DAO
     {
         private clsConnectDatabase connection;
         private SqlConnection con;
+
         public clsLOP_DAO()
         {
             connection = new clsConnectDatabase();
             con = connection.KetNoi();
         }
+
         public DataTable danhSachLop()
         {
             connection.kiemTraKetNoi(con);
@@ -34,6 +36,20 @@ namespace QLHS.DAO
             DataTable table = new DataTable();
             SqlCommand command = new SqlCommand("SP_ThongTinLopNamHoc", con);
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = lop.Manh;
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
+        public DataTable danhSachLopTheoNamHocKhoi(clsLOP_DTO lop)
+        {
+            connection.kiemTraKetNoi(con);
+            DataTable table = new DataTable();
+            SqlCommand command = new SqlCommand("SP_ThongTinLopNamHocKhoi", con);
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = lop.Manh;
+            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = lop.Makhoi;
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);

@@ -17,7 +17,7 @@ namespace QuanLiHocSinh
         private frmNamHoc m_FrmNamHoc = null;
         private frmTiepNhanHocSinh m_FrmHocSinh = null;
         private frmNguoiDung frmNguoiDung = null;
-        private frmHocSinhTheoLop frmTim = null;
+        private frmPhanLop frmTim = null;
         public frmMain()
         {
             InitializeComponent();
@@ -122,7 +122,7 @@ namespace QuanLiHocSinh
         {
             if (frmTim == null || frmTim.IsDisposed)
             {
-                frmTim = new frmHocSinhTheoLop();
+                frmTim = new frmPhanLop();
                 frmTim.FormBorderStyle = FormBorderStyle.None;
                 frmTim.MdiParent = frmMain.ActiveForm;
                 frmTim.Show();

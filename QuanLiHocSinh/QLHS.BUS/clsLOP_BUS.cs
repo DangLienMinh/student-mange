@@ -36,6 +36,7 @@ namespace QLHS.BUS
             comboBox.ValueMember = "MAGV";
         }
 
+        //L1300->L1399
         public string taoMaLop()
         {
             string result;
@@ -94,30 +95,41 @@ namespace QLHS.BUS
             //}
             //return malop;
         }
+
         public void themLopHoc(clsLOP_DTO lop)
         {
             lop_DAO.themLop(lop);
         }
+
         public void suaLop(clsLOP_DTO lop)
         {
             lop_DAO.suaLop(lop);
         }
+
         public DataTable danhSachLop()
         {
             return lop_DAO.danhSachLop();
-        }
-
-        public void chonLop10(ComboBoxEx comboBox,string nam)
-        {
-            comboBox.DataSource = lop_DAO.chonLop10(nam);
-            comboBox.DisplayMember = "TENLOP";
-            comboBox.ValueMember = "MALOP";
         }
 
         public void xoaLop(clsLOP_DTO lop)
         {
             lop_DAO.xoaLop(lop);
         }
+
+        public void chonLop10(ComboBoxEx comboBox, string nam)
+        {
+            comboBox.DataSource = lop_DAO.chonLop10(nam);
+            comboBox.DisplayMember = "TENLOP";
+            comboBox.ValueMember = "MALOP";
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        /// <summary>
+        /// form danh sách học sinh theo lớp
+        /// Minh
+        /// </summary>
+        /// <param name="maNH"></param>
+        /// <param name="tree"></param>
         public void hienThiLopTheoNamHoc(string maNH, AdvTree tree)
         {
             Node temp;
@@ -152,5 +164,22 @@ namespace QLHS.BUS
             tree.Nodes.Add(k11);
             tree.Nodes.Add(k12);
         }
+
+        public void hienThiCbLopTheoNamHocKhoi(string maNH, ComboBoxEx comboBoxLop, string maKhoi)
+        {
+            
+            lop_DTO = new clsLOP_DTO();
+            lop_DTO.Manh = maNH;
+            lop_DTO.Makhoi = maKhoi;
+            tblLop = lop_DAO.danhSachLopTheoNamHocKhoi(lop_DTO);
+           
+            comboBoxLop.DataSource = tblLop;
+            
+            comboBoxLop.DisplayMember = "TENLOP";
+            comboBoxLop.ValueMember = "MALOP";
+            
+        }
+
+
     }
 }

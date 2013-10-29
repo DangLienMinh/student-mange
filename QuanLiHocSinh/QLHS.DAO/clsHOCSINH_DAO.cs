@@ -43,6 +43,7 @@ namespace QLHS.DAO
             return table;
         }
 
+        //form đổi thành form tiếp nhận học sinh, vừa vào cho chỉ chọn mã lớp 10 cho học sinh
         public void themHocSinh(clsHOCSINH_DTO hocsinh)
         {
             connection.kiemTraKetNoi(con);
@@ -62,6 +63,7 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
+
         public void suaHocSinh(clsHOCSINH_DTO hocsinh,string maNHTruoc,string maLopTruoc)
         {
             connection.kiemTraKetNoi(con);
@@ -83,6 +85,7 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
+
         public void xoaHocSinh(clsHOCSINH_DTO hocsinh)
         {
             connection.kiemTraKetNoi(con);
@@ -92,6 +95,13 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
+
+        /// <summary>
+        /// FORM TÌM HỌC SINH
+        /// ĐẶNG LIÊN MINH
+        /// </summary>
+        /// <param name="hocsinh"></param>
+        /// <returns></returns>
         public DataTable timHocSinhMaHS(clsHOCSINH_DTO hocsinh)
         {
             DataTable table = new DataTable();

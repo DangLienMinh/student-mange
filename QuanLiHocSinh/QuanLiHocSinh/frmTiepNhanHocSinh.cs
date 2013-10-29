@@ -123,6 +123,7 @@ namespace QuanLiHocSinh
             anHienButton(false);
             flagUpdate = true;
         }
+
         private void btnDongy_Click(object sender, EventArgs e)
         {
             anHienButton(true);
@@ -148,6 +149,7 @@ namespace QuanLiHocSinh
         {
             anHienButton(true);
         }
+
         private void btnDau_Click(object sender, EventArgs e)
         {
             vitri = this.BindingContext[grdHocSinh.DataSource].Position;
@@ -253,6 +255,7 @@ namespace QuanLiHocSinh
 
             return dem;
         }
+
         public void Insert()
         {
             if (kiemTraDulieu() == 0)
@@ -291,6 +294,7 @@ namespace QuanLiHocSinh
                 }
             }
         }
+
         public void Delete()
         {
             hocsinh_dto.Mahs = txtMaHS.Text;
@@ -316,6 +320,7 @@ namespace QuanLiHocSinh
                 MessageBox.Show("Chưa chọn Dòng cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         public void Update()
         {
             if (kiemTraDulieu() == 0)
@@ -397,6 +402,8 @@ namespace QuanLiHocSinh
             }  
         }
 
+        //tìm kiếm sẽ được tích hợp hết vào form tìm kiếm học sinh và tìm kiếm giáo viên
+
         //private void btnTimKiem_Click(object sender, EventArgs e)
         //{
         //    if (txtTim.Text != "")
@@ -441,11 +448,17 @@ namespace QuanLiHocSinh
         private void cboNamHoc_SelectedValueChanged(object sender, EventArgs e)
         {
             resetALL();
+            //load danh sách học sinh theo , mã năm học
             grdHocSinh.DataSource = hocsinh_bus.danhSachHocSinh(cboNamHoc);
+
+            //chọn ra các lớp 10  vào combobox lớp theo năm học
             lop_bus.chonLop10(cboLop, cboNamHoc.SelectedValue.ToString());
             
         }
 
+
+
+        //Trang trí cho đẹp
         private void txt_Enter(object sender, EventArgs e)
         {
             ((TextBox)sender).BackColor = Color.Yellow;
