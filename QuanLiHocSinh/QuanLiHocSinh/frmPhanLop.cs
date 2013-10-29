@@ -17,6 +17,7 @@ namespace QuanLiHocSinh
         private clsLOP_BUS lop_bus;
         private clsKHOI_BUS khoi_bus;
         private clsNAMHOC_BUS namHoc_bus;
+        private clsHOCSINH_BUS hocsinh_bus;
 
         public frmPhanLop()
         {
@@ -24,6 +25,7 @@ namespace QuanLiHocSinh
             lop_bus = new clsLOP_BUS();
             khoi_bus = new clsKHOI_BUS();
             namHoc_bus = new clsNAMHOC_BUS();
+            hocsinh_bus = new clsHOCSINH_BUS();
         }
 
         private void frmPhanLop_Load(object sender, EventArgs e)
@@ -57,11 +59,6 @@ namespace QuanLiHocSinh
             
         }
 
-        private void cboLop_SelectedValueChanged(object sender, EventArgs e)
-        {
-            //lop_bus.hienThiCbKhoiTheoLop(cboLopCu.SelectedValue.ToString(), cboKhoiLopCu);
-        }
-
         private void cboNamHocMoi_SelectedValueChanged(object sender, EventArgs e)
         {
             lop_bus.hienThiCbLopTheoNamHocKhoi(cboNamHocMoi.SelectedValue.ToString(), cboLopMoi, cboKhoiLopMoi.SelectedValue.ToString());
@@ -77,6 +74,14 @@ namespace QuanLiHocSinh
                 {
                     cboLopMoi.Text = "";
                 }
+            }
+        }
+
+        private void cboLopCu_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cboNamHocCu.SelectedValue != null && cboLopCu.SelectedValue != null)
+            {
+                hocsinh_bus.danhSachHocSinhTheoLop(cboNamHocCu, cboLopCu, lstLopCu);
             }
         }
 

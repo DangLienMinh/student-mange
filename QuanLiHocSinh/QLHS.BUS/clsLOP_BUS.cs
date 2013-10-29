@@ -116,12 +116,27 @@ namespace QLHS.BUS
             lop_DAO.xoaLop(lop);
         }
 
+        //chỉ chọn lớp của năm học đó
         public void chonLop10(ComboBoxEx comboBox, string nam)
         {
             comboBox.DataSource = lop_DAO.chonLop10(nam);
             comboBox.DisplayMember = "TENLOP";
             comboBox.ValueMember = "MALOP";
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary>

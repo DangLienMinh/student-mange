@@ -424,6 +424,7 @@
             // 
             this.cboLop.DisplayMember = "Text";
             this.cboLop.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLop.FormattingEnabled = true;
             this.cboLop.ItemHeight = 14;
             this.cboLop.Location = new System.Drawing.Point(11, 309);
@@ -618,6 +619,7 @@
             // 
             this.cboGioiTinh.DisplayMember = "Text";
             this.cboGioiTinh.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboGioiTinh.FormattingEnabled = true;
             this.cboGioiTinh.ItemHeight = 14;
             this.cboGioiTinh.Location = new System.Drawing.Point(107, 116);
@@ -630,6 +632,7 @@
             // 
             this.cboNamHoc.DisplayMember = "Text";
             this.cboNamHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboNamHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNamHoc.FormattingEnabled = true;
             this.cboNamHoc.ItemHeight = 14;
             this.cboNamHoc.Location = new System.Drawing.Point(109, 260);

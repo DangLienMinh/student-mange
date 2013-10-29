@@ -233,6 +233,7 @@
             this.cboLopCu.Name = "cboLopCu";
             this.cboLopCu.Size = new System.Drawing.Size(121, 20);
             this.cboLopCu.TabIndex = 3;
+            this.cboLopCu.SelectedValueChanged += new System.EventHandler(this.cboLopCu_SelectedValueChanged);
             // 
             // cboKhoiLopCu
             // 
