@@ -20,7 +20,7 @@ namespace QLHS.BUS
         private clsLOP_DAO lop;
         private clsLOP_DTO lop_dto;
         private clsHOCSINH_DTO hocsinh_dto;
-        private DataTable tblLop;
+        private DataTable tblLop,tbHocSinh;
 
         public clsHOCSINH_BUS()
         {
@@ -30,9 +30,10 @@ namespace QLHS.BUS
             lop = new clsLOP_DAO();
             hocsinh_dto = new clsHOCSINH_DTO(); 
             tblLop = new DataTable();
+            tbHocSinh = new DataTable();
         }
 
-        //lấy danh sách học sinh theo mã năm học
+        //lấy danh sách học sinh theo combobox mã năm học chứ không load hết vì rất nhiều 
         public DataTable danhSachHocSinh(ComboBoxEx comboBox)
         {
             return hocsinh.danhSachHocSinh(comboBox.SelectedValue.ToString());
@@ -121,15 +122,28 @@ namespace QLHS.BUS
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         ////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary>
         /// FORM TÌM HỌC SINH
         /// LIÊN MINH
         /// </summary>
-        /// <param name="grdHocSinh"></param>
-        /// <param name="maHS"></param>
 
-        //load danh sách vào tree view
+        //load danh sách học sinh theo mã năm học vào tree view
         public DataTable danhSachHocSinhTheoLop(ComboBoxEx comboBox, AdvTree tree)
         {
             string temp = "";
@@ -146,6 +160,22 @@ namespace QLHS.BUS
             }
             hocsinh_dto.Malop = temp;
             return hocsinh.danhSachHocSinhTheoLop(hocsinh_dto);
+        }
+
+        public void danhSachHocSinhTheoLop(ComboBoxEx comboNamHoc, ComboBoxEx comboLop,ListViewEx list)
+        {
+            list.Items.Clear();   
+            hocsinh_dto.Manh = comboNamHoc.SelectedValue.ToString();
+            hocsinh_dto.Malop = comboLop.SelectedValue.ToString();
+            tbHocSinh=hocsinh.danhSachHocSinhTheoLop(hocsinh_dto);
+            foreach (DataRow row in tbHocSinh.Rows)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Text = row["MAHS"].ToString();
+                item.SubItems.Add(row["TENHS"].ToString());
+
+                list.Items.Add(item);
+            }
         }
 
         public void timHocSinhMaHS(DataGridViewX grdHocSinh,TextBoxX maHS)
@@ -187,8 +217,5 @@ namespace QLHS.BUS
             dieuKien.Items.Add("OR");
             dieuKien.SelectedItem = "AND";
         }
-
-    }
-    
-      
+    }     
 }

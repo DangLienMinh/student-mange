@@ -447,7 +447,7 @@ namespace QuanLiHocSinh
 
         private void cboNamHoc_SelectedValueChanged(object sender, EventArgs e)
         {
-            resetALL();
+           //resetALL();
             //load danh sách học sinh theo , mã năm học
             grdHocSinh.DataSource = hocsinh_bus.danhSachHocSinh(cboNamHoc);
 

@@ -16,26 +16,13 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
+        //danh sách học sinh theo combobox mã năm học
         public DataTable danhSachHocSinh(string maNH)
         {
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThongTinHocSinh", con);
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = maNH;
-            command.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            adapter.Fill(table);
-            con.Close();
-            return table;
-        }
-
-        public DataTable danhSachHocSinhTheoLop(clsHOCSINH_DTO hocsinh)
-        {
-            DataTable table = new DataTable();
-            connection.kiemTraKetNoi(con);
-            SqlCommand command = new SqlCommand("SP_ThongTinHocSinhTheoLop", con);
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hocsinh.Manh;
-            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = hocsinh.Malop;
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);
@@ -102,6 +89,22 @@ namespace QLHS.DAO
         /// </summary>
         /// <param name="hocsinh"></param>
         /// <returns></returns>
+        /// 
+
+        public DataTable danhSachHocSinhTheoLop(clsHOCSINH_DTO hocsinh)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_ThongTinHocSinhTheoLop", con);
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hocsinh.Manh;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = hocsinh.Malop;
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
         public DataTable timHocSinhMaHS(clsHOCSINH_DTO hocsinh)
         {
             DataTable table = new DataTable();
