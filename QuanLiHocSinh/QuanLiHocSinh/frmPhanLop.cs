@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Collections;
 using System.Windows.Forms;
 using QLHS.DTO;
 using QLHS.BUS;
@@ -38,7 +39,52 @@ namespace QuanLiHocSinh
 
         private void btnChuyen_Click(object sender, EventArgs e)
         {
+            IEnumerator ie = lstLopCu.SelectedItems.GetEnumerator();
+            while (ie.MoveNext())
+            {
+                ListViewItem oldItem = (ListViewItem)ie.Current;
+                ListViewItem newItem = new ListViewItem();
 
+                //Trạng thái học sinh đã được chuyển lớp hay chưa?
+                bool state = false;
+
+                foreach (ListViewItem item in lstLopMoi.Items)
+                {
+                    if (item.SubItems[0].Text == oldItem.SubItems[0].Text)
+                    {
+                        MessageBox.Show("Học sinh " + item.SubItems[1].Text + " hiện đang học trong lớp " + cboLopMoi.Text, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        state = true;
+                        goto Cont;
+                    }
+                }
+
+                DataTable dT = new DataTable();
+                if (cboNamHocMoi.SelectedValue != null)
+                {
+                    dT = hocsinh_bus.danhSachPhanLop(cboNamHocMoi,cboLopMoi);
+                }
+
+                foreach (DataRow row in dT.Rows)
+                {
+                    if (oldItem.SubItems[0].Text.ToString() == row["MAHS"].ToString())
+                    {
+                        MessageBox.Show("Học sinh " + row["TENHS"].ToString() + " hiện đang học trong lớp " + row["TENLOP"].ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        state = true;
+                        goto Cont;
+                    }
+                }
+
+                newItem.SubItems.Add(oldItem.SubItems[1].Text);
+                newItem.Tag = oldItem.Tag;
+
+                lstLopMoi.Items.Add(newItem);
+                lstLopMoi.Items[lstLopMoi.Items.IndexOf(newItem)].Text = oldItem.SubItems[0].Text;
+                lstLopCu.Items.Remove(oldItem);
+
+            Cont:
+                if (state == true)
+                    break;
+            }
         }
 
         private void cboNamHocCu_SelectedValueChanged(object sender, EventArgs e)
@@ -85,8 +131,53 @@ namespace QuanLiHocSinh
             }
         }
 
+        private void cboLopMoi_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cboNamHocMoi.SelectedValue != null && cboLopMoi.SelectedValue != null)
+            {
+                hocsinh_bus.danhSachHocSinhTheoLop(cboNamHocMoi, cboLopMoi, lstLopMoi);
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn xóa học sinh này khỏi lớp mới không?", "DELETE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                IEnumerator ie = lstLopMoi.SelectedItems.GetEnumerator();
+                while (ie.MoveNext())
+                {
+                    ListViewItem item = (ListViewItem)ie.Current;
+                    lstLopMoi.Items.Remove(item);
+                }
+            }
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if (cboNamHocCu.SelectedValue != null &&
+                cboKhoiLopCu.SelectedValue != null &&
+                cboLopCu.SelectedValue != null &&
+                cboNamHocMoi.SelectedValue != null &&
+                cboKhoiLopMoi.SelectedValue != null &&
+                cboLopMoi.SelectedValue != null)
+            {
+                //    m_HocSinhCtrl.XoaHSKhoiBangPhanLop(cmbNamHocCu.SelectedValue.ToString(),
+                //                                       cmbKhoiLopCu.SelectedValue.ToString(),
+                //                                       cmbLopCu.SelectedValue.ToString(),
+                //                                       lVLopMoi);
+                //    m_HocSinhCtrl.LuuHSVaoBangPhanLop(cmbNamHocMoi.SelectedValue.ToString(),
+                //                                      cmbKhoiLopMoi.SelectedValue.ToString(),
+                //                                      cmbLopMoi.SelectedValue.ToString(),
+                //                                      lVLopMoi);
+
+                //    MessageBoxEx.Show("Đã lưu vào bảng phân lớp!", "COMPLETED", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
+                //else
+                //    MessageBoxEx.Show("Giá trị của các ô không được rỗng!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
 
+        }
 
        
     }

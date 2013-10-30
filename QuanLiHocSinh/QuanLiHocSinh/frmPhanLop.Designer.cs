@@ -142,6 +142,7 @@
             this.cboLopMoi.Name = "cboLopMoi";
             this.cboLopMoi.Size = new System.Drawing.Size(121, 20);
             this.cboLopMoi.TabIndex = 3;
+            this.cboLopMoi.SelectedValueChanged += new System.EventHandler(this.cboLopMoi_SelectedValueChanged);
             // 
             // labelX5
             // 
@@ -408,6 +409,7 @@
             this.btnLuu.TabIndex = 3;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.Tooltip = "Lưu bảng phân lớp";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnXoa
             // 
@@ -419,6 +421,7 @@
             this.btnXoa.TabIndex = 2;
             this.btnXoa.Text = "Hủy";
             this.btnXoa.Tooltip = "Xóa học sinh khỏi lớp mới";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnChuyen
             // 

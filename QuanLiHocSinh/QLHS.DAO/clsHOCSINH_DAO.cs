@@ -83,6 +83,22 @@ namespace QLHS.DAO
             con.Close();
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*//////////////////////////////////////////////////////////////////////////*/
         /// <summary>
         /// FORM TÌM HỌC SINH
         /// ĐẶNG LIÊN MINH
@@ -96,6 +112,20 @@ namespace QLHS.DAO
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThongTinHocSinhTheoLop", con);
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hocsinh.Manh;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = hocsinh.Malop;
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
+        public DataTable danhSachPhanLop(clsHOCSINH_DTO hocsinh)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_ThongTinPhanLop", con);
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hocsinh.Manh;
             command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = hocsinh.Malop;
             command.CommandType = CommandType.StoredProcedure;
