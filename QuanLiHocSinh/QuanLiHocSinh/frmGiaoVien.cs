@@ -15,19 +15,21 @@ namespace QuanLiHocSinh
 {
     public partial class frmGiaoVien : DevComponents.DotNetBar.Office2007Form
     {
-        private clsGIAOVIEN_BUS giaoVien_BUS = new clsGIAOVIEN_BUS();
-        private OpenFileDialog open=new OpenFileDialog();
+        private clsGIAOVIEN_BUS giaoVien_BUS;
+        private OpenFileDialog open;
         private int flag = 0;
         private int viTri, Tong;
-        
-        
+             
         public frmGiaoVien()
         {
             InitializeComponent();
+            giaoVien_BUS = new clsGIAOVIEN_BUS();
+            open = new OpenFileDialog();
             this.KeyPreview = true;
             datagridMakeUp(grdGiaoVien);
         }
 
+        //Trang trí datagrid như nền, canh chỉnh các hàng, ...
         private void datagridMakeUp(DataGridViewX temp)
         {
             temp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
@@ -38,6 +40,7 @@ namespace QuanLiHocSinh
             temp.ReadOnly = true;
         }
 
+        //bật cờ hiển thị button đồng ý và hủy, các button thêm, sửa, xóa bị mờ đi
         private void FlagEnable()
         {
             btnDongY.Enabled = true;
@@ -47,6 +50,7 @@ namespace QuanLiHocSinh
             btnSua.Enabled = false;
         }
 
+        //tắt cờ hiển thị button đồng ý và hủy, các button thêm, sửa, xóa sáng lên
         private void FlagDisable()
         {
             btnDongY.Enabled = false;
@@ -58,7 +62,9 @@ namespace QuanLiHocSinh
 
         private void frmGiaoVien_Load(object sender, EventArgs e)
         {
+            //load danh sách giáo viên vào datagrid giáo viên
             giaoVien_BUS.hienThiDanhSach(grdGiaoVien);
+            //load dữ liệu vào comboBox giới tính
             giaoVien_BUS.hienThiComboBox(cboGioiTinh);
             FlagDisable();
             flag = 0;
@@ -73,6 +79,7 @@ namespace QuanLiHocSinh
             FlagEnable();
             flag = 1;
             resetAll();
+            //tạo mã giáo viên
             txtMaGV.Text = "GV" + giaoVien_BUS.hienThiSoNguoi().ToString();
         }
 
@@ -82,13 +89,14 @@ namespace QuanLiHocSinh
             DialogResult result = open.ShowDialog();
             if (result == DialogResult.OK)
             {
+                //load hình ảnh vào pictureBox
                 picGiaoVien.Image = Image.FromFile(open.FileName);
             }
         }
 
         private void insert()
         {
-            //cờ kiểm tra mã đã tồn tại trong CSSDL chưa
+            //cờ kiểm tra mã giáo viên đã tồn tại trong CSSDL chưa
             int test = 1;
             
             if (string.IsNullOrEmpty(txtMaGV.Text) || string.IsNullOrEmpty(txtDiaChi.Text) || string.IsNullOrEmpty(txtDienThoai.Text) || string.IsNullOrEmpty(txtTenGV.Text) || picGiaoVien.Image==null)
@@ -101,7 +109,7 @@ namespace QuanLiHocSinh
                 {
                     if (row1.Cells["MAGV"].Value != null)
                     {
-                        //compare the text in txtMADG with each MADG row in datagrid Docgia, if it appear then let user know
+                        //so sánh chuỗi trong textBox Mã giáo viên với từng hàng trong datagrid giáo viên, nếu giống nhau thì báo trùng
                         if (string.Compare(row1.Cells["MAGV"].Value.ToString().Trim(), txtMaGV.Text.Trim()) == 0)
                         {
                             test = 0;
@@ -124,6 +132,7 @@ namespace QuanLiHocSinh
                 {
                     try
                     {
+                        //copy hình ảnh từ file source vào thư mục hình ảnh của chương trình
                         string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
                         File.Copy(open.FileName, linkimage);
 

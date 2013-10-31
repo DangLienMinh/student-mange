@@ -29,6 +29,7 @@ namespace QuanLiHocSinh
             hocSinh_BUS = new clsHOCSINH_BUS();
         }
 
+        //Trang trí datagrid như nền, canh chỉnh các hàng, ...
         private void datagridMakeUp(DataGridViewX temp)
         {
             temp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
@@ -42,6 +43,9 @@ namespace QuanLiHocSinh
         private void frmHocSinhTheoLop_Load(object sender, EventArgs e)
         {
             namHoc_BUS.hienThiComboBox(cboNamHoc);
+            sapXep();
+            btnDau.Enabled = false;
+            btnTruoc.Enabled = false;
         }
 
         private void cboNamHoc_SelectedValueChanged(object sender, EventArgs e)

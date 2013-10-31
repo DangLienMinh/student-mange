@@ -15,26 +15,26 @@ namespace QuanLiHocSinh
 {
     public partial class frmPhanLop : DevComponents.DotNetBar.Office2007Form
     {
-        private clsLOP_BUS lop_bus;
-        private clsKHOI_BUS khoi_bus;
-        private clsNAMHOC_BUS namHoc_bus;
-        private clsHOCSINH_BUS hocsinh_bus;
+        private clsLOP_BUS lop_BUS;
+        private clsKHOI_BUS khoi_BUS;
+        private clsNAMHOC_BUS namHoc_BUS;
+        private clsHOCSINH_BUS hocSinh_BUS;
 
         public frmPhanLop()
         {
             InitializeComponent();
-            lop_bus = new clsLOP_BUS();
-            khoi_bus = new clsKHOI_BUS();
-            namHoc_bus = new clsNAMHOC_BUS();
-            hocsinh_bus = new clsHOCSINH_BUS();
+            lop_BUS = new clsLOP_BUS();
+            khoi_BUS = new clsKHOI_BUS();
+            namHoc_BUS = new clsNAMHOC_BUS();
+            hocSinh_BUS = new clsHOCSINH_BUS();
         }
 
         private void frmPhanLop_Load(object sender, EventArgs e)
         {
-            khoi_bus.hienThiComboBox(cboKhoiLopCu);
-            namHoc_bus.hienThiComboBox(cboNamHocCu);
-            khoi_bus.hienThiComboBox(cboKhoiLopCu, cboKhoiLopMoi);
-            namHoc_bus.hienThiComboBox(cboNamHocMoi);
+            khoi_BUS.hienThiComboBox(cboKhoiLopCu);
+            namHoc_BUS.hienThiComboBox(cboNamHocCu);
+            khoi_BUS.hienThiComboBox(cboKhoiLopCu, cboKhoiLopMoi);
+            namHoc_BUS.hienThiComboBox(cboNamHocMoi);
         }
 
         private void btnChuyen_Click(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace QuanLiHocSinh
                 DataTable dT = new DataTable();
                 if (cboNamHocMoi.SelectedValue != null)
                 {
-                    dT = hocsinh_bus.danhSachPhanLop(cboNamHocMoi);
+                    dT = hocSinh_BUS.danhSachPhanLop(cboNamHocMoi);
                 }
 
                 foreach (DataRow row in dT.Rows)
@@ -89,26 +89,26 @@ namespace QuanLiHocSinh
 
         private void cboNamHocCu_SelectedValueChanged(object sender, EventArgs e)
         {         
-            lop_bus.hienThiCbLopTheoNamHocKhoi(cboNamHocCu.SelectedValue.ToString(), cboLopCu,cboKhoiLopCu.SelectedValue.ToString());
+            lop_BUS.hienThiCbLopTheoNamHocKhoi(cboNamHocCu.SelectedValue.ToString(), cboLopCu,cboKhoiLopCu.SelectedValue.ToString());
         }
 
         private void cboKhoiLopCu_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cboNamHocCu.SelectedValue!=null)
             {
-                lop_bus.hienThiCbLopTheoNamHocKhoi(cboNamHocCu.SelectedValue.ToString(), cboLopCu, cboKhoiLopCu.SelectedValue.ToString());
+                lop_BUS.hienThiCbLopTheoNamHocKhoi(cboNamHocCu.SelectedValue.ToString(), cboLopCu, cboKhoiLopCu.SelectedValue.ToString());
                 if (cboLopCu.Items.Count<=0)
                 {
                     cboLopCu.Text = "";
                 }
-                khoi_bus.hienThiComboBox(cboKhoiLopCu, cboKhoiLopMoi);
+                khoi_BUS.hienThiComboBox(cboKhoiLopCu, cboKhoiLopMoi);
             }
             
         }
 
         private void cboNamHocMoi_SelectedValueChanged(object sender, EventArgs e)
         {
-            lop_bus.hienThiCbLopTheoNamHocKhoi(cboNamHocMoi.SelectedValue.ToString(), cboLopMoi, cboKhoiLopMoi.SelectedValue.ToString());
+            lop_BUS.hienThiCbLopTheoNamHocKhoi(cboNamHocMoi.SelectedValue.ToString(), cboLopMoi, cboKhoiLopMoi.SelectedValue.ToString());
         }
 
   
@@ -116,7 +116,7 @@ namespace QuanLiHocSinh
         {
             if (cboNamHocMoi.SelectedValue != null)
             {
-                lop_bus.hienThiCbLopTheoNamHocKhoi(cboNamHocMoi.SelectedValue.ToString(), cboLopMoi, cboKhoiLopMoi.SelectedValue.ToString());
+                lop_BUS.hienThiCbLopTheoNamHocKhoi(cboNamHocMoi.SelectedValue.ToString(), cboLopMoi, cboKhoiLopMoi.SelectedValue.ToString());
                 if (cboLopMoi.Items.Count <= 0)
                 {
                     cboLopMoi.Text = "";
@@ -128,7 +128,7 @@ namespace QuanLiHocSinh
         {
             if (cboNamHocCu.SelectedValue != null && cboLopCu.SelectedValue != null)
             {
-                hocsinh_bus.danhSachHocSinhTheoLop(cboNamHocCu, cboLopCu, lstLopCu);
+                hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocCu, cboLopCu, lstLopCu);
             }
         }
 
@@ -136,7 +136,7 @@ namespace QuanLiHocSinh
         {
             if (cboNamHocMoi.SelectedValue != null && cboLopMoi.SelectedValue != null)
             {
-                hocsinh_bus.danhSachHocSinhTheoLop(cboNamHocMoi, cboLopMoi, lstLopMoi);
+                hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocMoi, cboLopMoi, lstLopMoi);
             }
         }
 
@@ -162,14 +162,11 @@ namespace QuanLiHocSinh
                 cboKhoiLopMoi.SelectedValue != null &&
                 cboLopMoi.SelectedValue != null)
             {
-                hocsinh_bus.themPhanLop(cboNamHocMoi, cboLopMoi, lstLopMoi);
+                hocSinh_BUS.themPhanLop(cboNamHocMoi, cboLopMoi, lstLopMoi);
                 MessageBox.Show("Đã lưu vào bảng phân lớp!", "COMPLETED", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-                else
-                    MessageBox.Show("Giá trị của các ô không được rỗng!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            
-
-
+            else
+                MessageBox.Show("Giá trị của các ô không được rỗng!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
        

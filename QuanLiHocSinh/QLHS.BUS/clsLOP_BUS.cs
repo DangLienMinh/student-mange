@@ -17,26 +17,24 @@ namespace QLHS.BUS
         private clsLOP_DAO lop_DAO;
         private clsLOP_DTO lop_DTO;
         private DataTable tblLop;
-        //private DataRow dr;
-        private clsGIAOVIEN_DAO giaovien_dao;
+        private clsGIAOVIEN_DAO giaoVien_DAO;
 
         public clsLOP_BUS()
         {
             lop_DAO = new clsLOP_DAO();
             tblLop = new DataTable();
             lop_DTO = new clsLOP_DTO();
-            giaovien_dao = new clsGIAOVIEN_DAO();
+            giaoVien_DAO = new clsGIAOVIEN_DAO();
         }
-
 
         public void cbogiaoVienChuNhiem(ComboBoxEx comboBox)
         {
-            comboBox.DataSource = giaovien_dao.danhSachGiaoVien();
+            comboBox.DataSource = giaoVien_DAO.danhSachGiaoVien();
             comboBox.DisplayMember = "TENGV";
             comboBox.ValueMember = "MAGV";
         }
 
-        //L1300->L1399
+        //tạo mã lớp dựa vào năm hiện hành 
         public string taoMaLop()
         {
             string result;
@@ -116,8 +114,8 @@ namespace QLHS.BUS
             lop_DAO.xoaLop(lop);
         }
 
-        //chỉ chọn lớp của năm học đó
-        public void chonLop10(ComboBoxEx comboBox, string nam)
+        //chỉ chọn lớp 10 của năm học đó
+        public void cboLop10(ComboBoxEx comboBox, string nam)
         {
             comboBox.DataSource = lop_DAO.chonLop10(nam);
             comboBox.DisplayMember = "TENLOP";

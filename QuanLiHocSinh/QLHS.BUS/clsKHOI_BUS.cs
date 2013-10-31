@@ -26,7 +26,7 @@ namespace QLHS.BUS
 
         public void hienThiComboBox(ComboBoxEx comboBox)
         {
-            comboBox.DataSource = khoi_DAO.danhsachKhoi();
+            comboBox.DataSource = khoi_DAO.danhSachKhoi();
             comboBox.DisplayMember = "TENKHOI";
             comboBox.ValueMember = "MAKHOI";
         }
@@ -35,7 +35,7 @@ namespace QLHS.BUS
         {
             khoi_DTO = new clsKHOI_DTO();
             khoi_DTO.Makhoi = cboKhoiCu.SelectedValue.ToString();
-            cboKhoiMoi.DataSource = khoi_DAO.danhsachKhoiTheoMaKhoi(khoi_DTO);
+            cboKhoiMoi.DataSource = khoi_DAO.danhSachKhoiTheoMaKhoi(khoi_DTO);
             cboKhoiMoi.DisplayMember = "TENKHOI";
             cboKhoiMoi.ValueMember = "MAKHOI";
         }

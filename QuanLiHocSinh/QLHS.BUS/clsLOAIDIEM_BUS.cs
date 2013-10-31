@@ -17,6 +17,7 @@ namespace QLHS.BUS
         DataTable tblLoaiDiem;
         private DataRow dr;
 
+        //Hệ số loại điểm
         public void hienThiComboBox(ComboBoxEx comboBox)
         {
             comboBox.Items.Add("1");
@@ -30,6 +31,7 @@ namespace QLHS.BUS
             loaiDiem_DAO = new clsLOAIDIEM_DAO();
             tblLoaiDiem = new DataTable();
         }
+
         public void hienThiDanhSach(DataGridViewX grdLoaiDiem)
         {
             tblLoaiDiem = loaiDiem_DAO.danhSachLoaiDiem();
@@ -42,7 +44,6 @@ namespace QLHS.BUS
             loaiDiem_DTO.Mald = maLD;
             loaiDiem_DTO.Tenld = tenLD;
             loaiDiem_DTO.Hesold = heSo;
-
             loaiDiem_DAO.themLoaiDiem(loaiDiem_DTO);
         }
 
@@ -52,7 +53,6 @@ namespace QLHS.BUS
             loaiDiem_DTO.Mald = maLD;
             loaiDiem_DTO.Tenld = tenLD;
             loaiDiem_DTO.Hesold = heSo;
-
             loaiDiem_DAO.suaLoaiDiem(loaiDiem_DTO);
         }
 
@@ -62,6 +62,7 @@ namespace QLHS.BUS
             loaiDiem_DTO.Mald = maLD;
             loaiDiem_DAO.xoaLoaiDiem(loaiDiem_DTO);
         }
+
         private DataRow getDatarow()
         {
             dr = tblLoaiDiem.NewRow();
@@ -72,7 +73,7 @@ namespace QLHS.BUS
             return dr;
         }
 
-        //add dong vua them vao
+        //thêm dòng vừa được thêm vào table loại điểm
         public void themDong()
         {
             tblLoaiDiem.Rows.Add(getDatarow());
@@ -93,6 +94,7 @@ namespace QLHS.BUS
             }
         }
 
+        //xóa loại điểm trùng với mã loại điểm trên table loại điểm
         public void xoaDong(DataGridViewX grdLoaiDiem, string maLD)
         {
             DataRow row = tblLoaiDiem.Select("MALD='" + maLD + "'")[0];

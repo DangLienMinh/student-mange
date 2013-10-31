@@ -29,6 +29,7 @@ namespace QuanLiHocSinh
             datagridMakeUp(grdHocKy);
         }
 
+        //Trang trí datagrid như nền, canh chỉnh các hàng, ...
         private void datagridMakeUp(DataGridViewX temp)
         {
             temp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
@@ -41,9 +42,13 @@ namespace QuanLiHocSinh
 
         private void frmNamHoc_Load(object sender, EventArgs e)
         {
+            //tạo mã năm học
             txtMaNH.Text = "NH" + DateTime.Now.ToString("yy") + DateTime.Now.AddYears(1).ToString("yy");
+            //load danh sách năm học vào datagrid năm học
             namHoc_BUS.hienThiDanhSach(grdNamHoc);
+            //load danh sách học kỳ vào datagrid học kỳ
             hocKy_BUS.hienThiDanhSach(grdHocKy);
+            //load dữ liệu vào comboBox hê số học kỳ
             hocKy_BUS.hienThiComboBox(cboHeSoHK);
             FlagDisable();
             FlagDisable1();
@@ -55,6 +60,7 @@ namespace QuanLiHocSinh
             btnTruoc.Enabled = false;
         }
 
+        //bật cờ hiển thị button đồng ý và hủy, các button thêm, sửa, xóa bị mờ đi
         private void FlagEnable()
         {
             btnAccept.Enabled = true;
@@ -63,6 +69,7 @@ namespace QuanLiHocSinh
             btnChange.Enabled = false;
         }
 
+        //bật cờ hiển thị button đồng ý và hủy, các button thêm, sửa, xóa bị mờ đi
         private void FlagEnable1()
         {
             btnDongY.Enabled = true;
@@ -72,6 +79,7 @@ namespace QuanLiHocSinh
             btnSua.Enabled = false;
         }
 
+        //tắt cờ hiển thị button đồng ý và hủy, các button thêm, sửa, xóa sáng lên
         private void FlagDisable()
         {
             btnAccept.Enabled = false;
@@ -80,6 +88,7 @@ namespace QuanLiHocSinh
             btnChange.Enabled = true;
         }
 
+        //tắt cờ hiển thị button đồng ý và hủy, các button thêm, sửa, xóa sáng lên
         private void FlagDisable1()
         {
             btnDongY.Enabled = false;

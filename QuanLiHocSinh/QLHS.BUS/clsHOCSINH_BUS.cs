@@ -15,22 +15,22 @@ namespace QLHS.BUS
 {
     public class clsHOCSINH_BUS
     {
-        private clsHOCSINH_DAO hocsinh;
-        private clsNAMHOC_DAO namhoc;
-        private clsLOP_DAO lop;
-        private clsLOP_DTO lop_dto;
-        private clsNAMHOC_DTO namhoc_dto;
-        private clsHOCSINH_DTO hocsinh_dto;
+        private clsHOCSINH_DAO hocSinh_DAO;
+        private clsNAMHOC_DAO namHoc_DAO;
+        private clsLOP_DAO lop_DAO;
+        private clsLOP_DTO lop_DTO;
+        private clsNAMHOC_DTO namHoc_DTO;
+        private clsHOCSINH_DTO hocSinh_DTO;
         private DataTable tblLop,tbHocSinh;
 
         public clsHOCSINH_BUS()
         {
-            lop_dto = new clsLOP_DTO();
-            hocsinh = new clsHOCSINH_DAO();
-            namhoc = new clsNAMHOC_DAO();
-            lop = new clsLOP_DAO();
-            namhoc_dto = new clsNAMHOC_DTO();
-            hocsinh_dto = new clsHOCSINH_DTO(); 
+            lop_DTO = new clsLOP_DTO();
+            hocSinh_DAO = new clsHOCSINH_DAO();
+            namHoc_DAO = new clsNAMHOC_DAO();
+            lop_DAO = new clsLOP_DAO();
+            namHoc_DTO = new clsNAMHOC_DTO();
+            hocSinh_DTO = new clsHOCSINH_DTO(); 
             tblLop = new DataTable();
             tbHocSinh = new DataTable();
         }
@@ -38,13 +38,13 @@ namespace QLHS.BUS
         //lấy danh sách học sinh theo combobox mã năm học chứ không load hết vì rất nhiều 
         public DataTable danhSachHocSinh(ComboBoxEx comboBox)
         {
-            return hocsinh.danhSachHocSinh(comboBox.SelectedValue.ToString());
+            return hocSinh_DAO.danhSachHocSinh(comboBox.SelectedValue.ToString());
         }
 
 
         public void themHocSinh(clsHOCSINH_DTO hs)
         {
-            hocsinh.themHocSinh(hs);
+            hocSinh_DAO.themHocSinh(hs);
         }
 
         public void suaHocSinh(clsHOCSINH_DTO hs,DataGridViewX grdHocSinh)
@@ -55,7 +55,7 @@ namespace QLHS.BUS
                 {
                     if (string.Compare(row1.Cells["MAHS"].Value.ToString().Trim(), hs.Mahs.Trim()) == 0)
                     {
-                        hocsinh.suaHocSinh(hs, row1.Cells["MANH"].Value.ToString(), row1.Cells["MALOP"].Value.ToString());
+                        hocSinh_DAO.suaHocSinh(hs, row1.Cells["MANH"].Value.ToString(), row1.Cells["MALOP"].Value.ToString());
                     }
                 }
             }
@@ -64,7 +64,7 @@ namespace QLHS.BUS
 
         public void xoaHocSinh(clsHOCSINH_DTO hs)
         {
-            hocsinh.xoaHocSinh(hs);
+            hocSinh_DAO.xoaHocSinh(hs);
         }
 
         public void cboGioiTinh(ComboBoxEx comboBox)
@@ -72,11 +72,6 @@ namespace QLHS.BUS
             comboBox.Items.Add("Nam");
             comboBox.Items.Add("Nữ");
             comboBox.SelectedItem = "Nam";
-        }
-
-        public void hienthiNgaySinh(DateTimeInput dtingaysinh)
-        {
-
         }
 
         //public string taoMaHocSinh()
@@ -91,25 +86,27 @@ namespace QLHS.BUS
         //    return Mahs;
         //}
 
+        //tạo mã học sinh dựa trên cboNamHoc 
         public string taoMaHocSinh(ComboBoxEx comboBox)
         {
             string tam = "";
-            string Mahs;
+            string maHS;
             string str;
             str = DateTime.Now.ToString().Trim();
-            string Namhientai = str.Substring(6, 4); 
-            string makhoitao = Namhientai.Trim() + "0000";
-            int soDong = hocsinh.danhSachHocSinh(comboBox.SelectedValue.ToString()).Rows.Count;
+            string namHienTai = str.Substring(6, 4); 
+            string maKhoiTao = namHienTai.Trim() + "0000";
+            //số học sinh của năm học đó
+            int soDong = hocSinh_DAO.danhSachHocSinh(comboBox.SelectedValue.ToString()).Rows.Count;
             if (soDong == 0)
             {
-                Mahs = makhoitao;
+                maHS = maKhoiTao;
             }
             else
             {
                 int max = 0;
-                for (int i = 0; i < hocsinh.danhSachHocSinh(comboBox.SelectedValue.ToString()).Rows.Count; i++)
+                for (int i = 0; i < hocSinh_DAO.danhSachHocSinh(comboBox.SelectedValue.ToString()).Rows.Count; i++)
                 {
-                    tam = hocsinh.danhSachHocSinh(comboBox.SelectedValue.ToString()).Rows[i]["MAHS"].ToString();
+                    tam = hocSinh_DAO.danhSachHocSinh(comboBox.SelectedValue.ToString()).Rows[i]["MAHS"].ToString();
                     int tam1 = int.Parse(tam);
                     if (max < tam1)
                     {
@@ -117,9 +114,9 @@ namespace QLHS.BUS
                     }
                 }
                 max++;
-                Mahs = Namhientai + max.ToString().Trim().Substring(4, 4);
+                maHS = namHienTai + max.ToString().Trim().Substring(4, 4);
             }
-            return Mahs;
+            return maHS;
         }
 
 
@@ -149,10 +146,10 @@ namespace QLHS.BUS
         public DataTable danhSachHocSinhTheoLop(ComboBoxEx comboBox, AdvTree tree)
         {
             string temp = "";
-            hocsinh_dto.Manh = comboBox.SelectedValue.ToString();
-            lop_dto = new clsLOP_DTO();
-            lop_dto.Manh = comboBox.SelectedValue.ToString();
-            tblLop = lop.danhSachLopTheoNamHoc(lop_dto);
+            hocSinh_DTO.Manh = comboBox.SelectedValue.ToString();
+            lop_DTO = new clsLOP_DTO();
+            lop_DTO.Manh = comboBox.SelectedValue.ToString();
+            tblLop = lop_DAO.danhSachLopTheoNamHoc(lop_DTO);
             foreach (DataRow row in tblLop.Rows)
             {
                 if (row["TENLOP"].ToString() == tree.SelectedNode.ToString())
@@ -160,16 +157,16 @@ namespace QLHS.BUS
                     temp = row["MALOP"].ToString();
                 }
             }
-            hocsinh_dto.Malop = temp;
-            return hocsinh.danhSachHocSinhTheoLop(hocsinh_dto);
+            hocSinh_DTO.Malop = temp;
+            return hocSinh_DAO.danhSachHocSinhTheoLop(hocSinh_DTO);
         }
 
         public void danhSachHocSinhTheoLop(ComboBoxEx comboNamHoc, ComboBoxEx comboLop,ListViewEx list)
         {
             list.Items.Clear();   
-            hocsinh_dto.Manh = comboNamHoc.SelectedValue.ToString();
-            hocsinh_dto.Malop = comboLop.SelectedValue.ToString();
-            tbHocSinh=hocsinh.danhSachHocSinhTheoLop(hocsinh_dto);
+            hocSinh_DTO.Manh = comboNamHoc.SelectedValue.ToString();
+            hocSinh_DTO.Malop = comboLop.SelectedValue.ToString();
+            tbHocSinh=hocSinh_DAO.danhSachHocSinhTheoLop(hocSinh_DTO);
             foreach (DataRow row in tbHocSinh.Rows)
             {
                 ListViewItem item = new ListViewItem();
@@ -182,8 +179,8 @@ namespace QLHS.BUS
 
         public DataTable danhSachPhanLop(ComboBoxEx comboNamHoc)
         {
-            hocsinh_dto.Manh = comboNamHoc.SelectedValue.ToString();
-            tbHocSinh = hocsinh.danhSachPhanLop(hocsinh_dto);
+            hocSinh_DTO.Manh = comboNamHoc.SelectedValue.ToString();
+            tbHocSinh = hocSinh_DAO.danhSachPhanLop(hocSinh_DTO);
             return tbHocSinh;
         }
 
@@ -191,16 +188,16 @@ namespace QLHS.BUS
 
         public void themPhanLop(ComboBoxEx comboNamHoc, ComboBoxEx comboLop,ListViewEx lstHocSinh)
         {
-            lop_dto = new clsLOP_DTO();
-            namhoc_dto = new clsNAMHOC_DTO();
+            lop_DTO = new clsLOP_DTO();
+            namHoc_DTO = new clsNAMHOC_DTO();
 
-            lop_dto.Malop = comboLop.SelectedValue.ToString();
-            namhoc_dto.Manh = comboNamHoc.SelectedValue.ToString();
+            lop_DTO.Malop = comboLop.SelectedValue.ToString();
+            namHoc_DTO.Manh = comboNamHoc.SelectedValue.ToString();
             foreach (ListViewItem item in lstHocSinh.Items)
             {
-                hocsinh_dto = new clsHOCSINH_DTO();
-                hocsinh_dto.Mahs = item.SubItems[0].Text.ToString();
-                hocsinh.themPhanLop(hocsinh_dto,namhoc_dto,lop_dto);
+                hocSinh_DTO = new clsHOCSINH_DTO();
+                hocSinh_DTO.Mahs = item.SubItems[0].Text.ToString();
+                hocSinh_DAO.themPhanLop(hocSinh_DTO,namHoc_DTO,lop_DTO);
             }
         }
 
@@ -208,33 +205,33 @@ namespace QLHS.BUS
         {
             clsHOCSINH_DTO hs = new clsHOCSINH_DTO();
             hs.Mahs = maHS.Text;
-            grdHocSinh.DataSource=hocsinh.timHocSinhMaHS(hs);
+            grdHocSinh.DataSource=hocSinh_DAO.timHocSinhMaHS(hs);
         }
 
         public void timHocSinhTenHS(DataGridViewX grdHocSinh, TextBoxX tenHS)
         {
             clsHOCSINH_DTO hs = new clsHOCSINH_DTO();
             hs.Tenhs = tenHS.Text;
-            grdHocSinh.DataSource = hocsinh.timHocSinhTenHS(hs); ;
+            grdHocSinh.DataSource = hocSinh_DAO.timHocSinhTenHS(hs); ;
         }
 
         public void timHocSinhDanToc(DataGridViewX grdHocSinh, TextBoxX danToc)
         {
             clsHOCSINH_DTO hs = new clsHOCSINH_DTO();
             hs.Dantoc = danToc.Text;
-            grdHocSinh.DataSource = hocsinh.timHocSinhDanToc(hs);
+            grdHocSinh.DataSource = hocSinh_DAO.timHocSinhDanToc(hs);
         }
 
         public void timHocSinhNgNhapHoc(DataGridViewX grdHocSinh,DateTimeInput ngNhapHoc)
         {
             clsHOCSINH_DTO hs = new clsHOCSINH_DTO();
             hs.Ngnhaphoc = ngNhapHoc.Value;
-            grdHocSinh.DataSource = hocsinh.timHocSinhNgNhapHoc(hs);
+            grdHocSinh.DataSource = hocSinh_DAO.timHocSinhNgNhapHoc(hs);
         }
 
         public DataTable timHocSinhNangCao(clsHOCSINH_DTO hs,ComboBoxEx dieuKien)
         {
-            return hocsinh.timHocSinhNangCao(hs, dieuKien.SelectedItem.ToString());
+            return hocSinh_DAO.timHocSinhNangCao(hs, dieuKien.SelectedItem.ToString());
         }
 
         public void cbDieuKien(ComboBoxEx dieuKien)

@@ -27,6 +27,7 @@ namespace QuanLiHocSinh
             flag = 0;
         }
 
+        //Trang trí datagrid như nền, canh chỉnh các hàng, ...
         private void datagridMakeUp(DataGridViewX temp)
         {
            temp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
@@ -37,6 +38,7 @@ namespace QuanLiHocSinh
             temp.ReadOnly = true;
         }
 
+        //bật cờ hiển thị button đồng ý và hủy, các button thêm, sửa, xóa bị mờ đi
         private void FlagEnable()
         {
             btnDongY.Enabled = true;
@@ -46,6 +48,7 @@ namespace QuanLiHocSinh
             btnSua.Enabled = false;
         }
 
+        //tắt cờ hiển thị button đồng ý và hủy, các button thêm, sửa, xóa sáng lên
         private void FlagDisable()
         {
             btnDongY.Enabled = false;
@@ -57,7 +60,9 @@ namespace QuanLiHocSinh
 
         private void frmLoaiDiem_Load(object sender, EventArgs e)
         {
+            //load danh sách loại điểm vào datagrid loại điểm
             loaiDiem_BUS.hienThiDanhSach(grdLoaiDiem);
+            //load dữ liệu vào comboBox hệ số
             loaiDiem_BUS.hienThiComboBox(cboHeSo);
             FlagDisable();
             flag = 0;

@@ -28,6 +28,7 @@ namespace QuanLiHocSinh
 
         private void frmLoaiNguoiDung_Load(object sender, EventArgs e)
         {
+            //load danh sách loại người dùng vào grid loại người dùng
             loaiNguoiDung_BUS.hienThiDanhSach(grdLoaiND);
             FlagDisable();
             flag = 0;
@@ -36,6 +37,7 @@ namespace QuanLiHocSinh
             btnTruoc.Enabled = false;
         }
 
+        //Trang trí datagrid như nền, canh chỉnh các hàng, ...
         private void datagridMakeUp(DataGridViewX temp)
         {
             temp.AutoResizeRows();
@@ -45,6 +47,7 @@ namespace QuanLiHocSinh
             temp.ReadOnly = true;
         }
 
+        //bật cờ hiển thị button đồng ý và hủy, các button thêm, sửa, xóa bị mờ đi
         private void FlagEnable()
         {
             btnDongY.Enabled = true;
@@ -54,6 +57,7 @@ namespace QuanLiHocSinh
             btnSua.Enabled = false;
         }
 
+        //tắt cờ hiển thị button đồng ý và hủy, các button thêm, sửa, xóa sáng lên
         private void FlagDisable()
         {
             btnDongY.Enabled = false;
@@ -135,7 +139,7 @@ namespace QuanLiHocSinh
                 {
                     if (row1.Cells["MALND"].Value != null)
                     {
-                        //compare the text in txtMADG with each MADG row in datagrid Docgia, if it appear then let user know
+                        //so sánh chuỗi trong textBox Mã loại người dùng với từng hàng trong datagrid loại người dùng, nếu giống nhau thì báo trùng
                         if (string.Compare(row1.Cells["MALND"].Value.ToString().Trim(), txtMaLND.Text.Trim()) == 0)
                         {
                             test = 0;
@@ -174,7 +178,7 @@ namespace QuanLiHocSinh
 
                 MessageBox.Show("Bạn đã sửa thành công!");
 
-                //sửa trong datagrid view
+                //sửa trong datagridView
                 loaiNguoiDung_BUS.suaDataGrid(grdLoaiND);
             }
             else
@@ -190,7 +194,7 @@ namespace QuanLiHocSinh
         {
             if (grdLoaiND.SelectedRows.Count >= 1 && txtMaLND.Text != "")
             {
-                if (MessageBox.Show("Bạn có chắc muốn xóa môn học đã được lựa chọn ", "Xóa giáo viên", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Bạn có chắc muốn xóa loại người dùng đã được lựa chọn ", "Xóa giáo viên", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     loaiNguoiDung_BUS.xoaLoaiNguoiDung(txtMaLND.Text);
                     foreach (DataGridViewRow row in grdLoaiND.Rows)

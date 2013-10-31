@@ -105,6 +105,7 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
+
         public void suaLop(clsLOP_DTO lop)
         {
             connection.kiemTraKetNoi(con);
@@ -119,6 +120,7 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
+
         public void xoaLop(clsLOP_DTO lop)
         {
             connection.kiemTraKetNoi(con);
@@ -129,6 +131,7 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
+
         public DataTable timLopMaLop(string tukhoa)
         {
             DataTable table = new DataTable();

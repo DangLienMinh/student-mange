@@ -10,12 +10,13 @@ namespace QLHS.DAO
     {
         private clsConnectDatabase connection;
         private SqlConnection con;
+
         public clsMONHOC_DAO()
         {
             connection = new clsConnectDatabase();
             con = connection.KetNoi();
         }
-        public DataTable danhsachMonhoc()
+        public DataTable danhSachMonhoc()
         {
             connection.kiemTraKetNoi(con);
             DataTable table = new DataTable();
@@ -26,7 +27,7 @@ namespace QLHS.DAO
             con.Close();
             return table;
         }
-        public void themMonhoc(clsMONHOC_DTO monhoc)
+        public void themMonHoc(clsMONHOC_DTO monhoc)
         {
             SqlCommand command = new SqlCommand("SP_ThemMonHoc", con);
             command.CommandType = CommandType.StoredProcedure;
@@ -38,7 +39,7 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
-        public void suaMonhoc(clsMONHOC_DTO monhoc)
+        public void suaMonHoc(clsMONHOC_DTO monhoc)
         {
             SqlCommand command = new SqlCommand("SP_SuaMonHoc", con);
             command.CommandType = CommandType.StoredProcedure;
@@ -50,7 +51,7 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
-        public void xoaMonhoc(clsMONHOC_DTO monhoc)
+        public void xoaMonHoc(clsMONHOC_DTO monhoc)
         {
             SqlCommand command = new SqlCommand("SP_XoaMonHoc", con);
             command.CommandType = CommandType.StoredProcedure;
