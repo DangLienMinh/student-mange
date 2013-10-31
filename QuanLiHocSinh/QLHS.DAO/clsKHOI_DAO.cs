@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using QLHS.DTO;
+
 namespace QLHS.DAO
 {
     public class clsKHOI_DAO
     {
         private clsConnectDatabase connection;
         private SqlConnection con;
+
         public clsKHOI_DAO()
         {
             connection = new clsConnectDatabase();
             con = connection.KetNoi();
         }
+
         public DataTable danhsachKhoi()
         {
             DataTable table=new DataTable();
@@ -25,5 +29,19 @@ namespace QLHS.DAO
             con.Close();
             return table;
         }
+
+        public DataTable danhsachKhoiTheoMaKhoi(clsKHOI_DTO khoi)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_HienThiKhoi", con);
+            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = khoi.Makhoi;
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
     }
 }

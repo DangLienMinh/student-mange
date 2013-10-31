@@ -30,5 +30,14 @@ namespace QLHS.BUS
             comboBox.DisplayMember = "TENKHOI";
             comboBox.ValueMember = "MAKHOI";
         }
+
+        public void hienThiComboBox(ComboBoxEx cboKhoiCu,ComboBoxEx cboKhoiMoi)
+        {
+            khoi_DTO = new clsKHOI_DTO();
+            khoi_DTO.Makhoi = cboKhoiCu.SelectedValue.ToString();
+            cboKhoiMoi.DataSource = khoi_DAO.danhsachKhoiTheoMaKhoi(khoi_DTO);
+            cboKhoiMoi.DisplayMember = "TENKHOI";
+            cboKhoiMoi.ValueMember = "MAKHOI";
+        }
     }
 }

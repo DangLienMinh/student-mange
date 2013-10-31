@@ -33,7 +33,7 @@ namespace QuanLiHocSinh
         {
             khoi_bus.hienThiComboBox(cboKhoiLopCu);
             namHoc_bus.hienThiComboBox(cboNamHocCu);
-            khoi_bus.hienThiComboBox(cboKhoiLopMoi);
+            khoi_bus.hienThiComboBox(cboKhoiLopCu, cboKhoiLopMoi);
             namHoc_bus.hienThiComboBox(cboNamHocMoi);
         }
 
@@ -61,7 +61,7 @@ namespace QuanLiHocSinh
                 DataTable dT = new DataTable();
                 if (cboNamHocMoi.SelectedValue != null)
                 {
-                    dT = hocsinh_bus.danhSachPhanLop(cboNamHocMoi,cboLopMoi);
+                    dT = hocsinh_bus.danhSachPhanLop(cboNamHocMoi);
                 }
 
                 foreach (DataRow row in dT.Rows)
@@ -101,6 +101,7 @@ namespace QuanLiHocSinh
                 {
                     cboLopCu.Text = "";
                 }
+                khoi_bus.hienThiComboBox(cboKhoiLopCu, cboKhoiLopMoi);
             }
             
         }
@@ -161,20 +162,12 @@ namespace QuanLiHocSinh
                 cboKhoiLopMoi.SelectedValue != null &&
                 cboLopMoi.SelectedValue != null)
             {
-                //    m_HocSinhCtrl.XoaHSKhoiBangPhanLop(cmbNamHocCu.SelectedValue.ToString(),
-                //                                       cmbKhoiLopCu.SelectedValue.ToString(),
-                //                                       cmbLopCu.SelectedValue.ToString(),
-                //                                       lVLopMoi);
-                //    m_HocSinhCtrl.LuuHSVaoBangPhanLop(cmbNamHocMoi.SelectedValue.ToString(),
-                //                                      cmbKhoiLopMoi.SelectedValue.ToString(),
-                //                                      cmbLopMoi.SelectedValue.ToString(),
-                //                                      lVLopMoi);
-
-                //    MessageBoxEx.Show("Đã lưu vào bảng phân lớp!", "COMPLETED", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //}
-                //else
-                //    MessageBoxEx.Show("Giá trị của các ô không được rỗng!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                hocsinh_bus.themPhanLop(cboNamHocMoi, cboLopMoi, lstLopMoi);
+                MessageBox.Show("Đã lưu vào bảng phân lớp!", "COMPLETED", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+                else
+                    MessageBox.Show("Giá trị của các ô không được rỗng!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
 
 
         }
