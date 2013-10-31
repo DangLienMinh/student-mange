@@ -127,12 +127,24 @@ namespace QLHS.DAO
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThongTinPhanLop", con);
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hocsinh.Manh;
-            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = hocsinh.Malop;
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);
             con.Close();
             return table;
+        }
+
+        public void themPhanLop(clsHOCSINH_DTO hocsinh,clsNAMHOC_DTO namhoc,clsLOP_DTO lop)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_ThemPhanLop", con);
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = namhoc.Manh;
+            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hocsinh.Mahs;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop.Malop;
+            command.CommandType = CommandType.StoredProcedure;
+            command.ExecuteNonQuery();
+            con.Close();
         }
 
         public DataTable timHocSinhMaHS(clsHOCSINH_DTO hocsinh)

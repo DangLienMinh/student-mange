@@ -19,6 +19,7 @@ namespace QLHS.BUS
         private clsNAMHOC_DAO namhoc;
         private clsLOP_DAO lop;
         private clsLOP_DTO lop_dto;
+        private clsNAMHOC_DTO namhoc_dto;
         private clsHOCSINH_DTO hocsinh_dto;
         private DataTable tblLop,tbHocSinh;
 
@@ -28,6 +29,7 @@ namespace QLHS.BUS
             hocsinh = new clsHOCSINH_DAO();
             namhoc = new clsNAMHOC_DAO();
             lop = new clsLOP_DAO();
+            namhoc_dto = new clsNAMHOC_DTO();
             hocsinh_dto = new clsHOCSINH_DTO(); 
             tblLop = new DataTable();
             tbHocSinh = new DataTable();
@@ -178,14 +180,29 @@ namespace QLHS.BUS
             }
         }
 
-        public DataTable danhSachPhanLop(ComboBoxEx comboNamHoc, ComboBoxEx comboLop)
+        public DataTable danhSachPhanLop(ComboBoxEx comboNamHoc)
         {
             hocsinh_dto.Manh = comboNamHoc.SelectedValue.ToString();
-            hocsinh_dto.Malop = comboLop.SelectedValue.ToString();
             tbHocSinh = hocsinh.danhSachPhanLop(hocsinh_dto);
             return tbHocSinh;
         }
-        
+
+
+
+        public void themPhanLop(ComboBoxEx comboNamHoc, ComboBoxEx comboLop,ListViewEx lstHocSinh)
+        {
+            lop_dto = new clsLOP_DTO();
+            namhoc_dto = new clsNAMHOC_DTO();
+
+            lop_dto.Malop = comboLop.SelectedValue.ToString();
+            namhoc_dto.Manh = comboNamHoc.SelectedValue.ToString();
+            foreach (ListViewItem item in lstHocSinh.Items)
+            {
+                hocsinh_dto = new clsHOCSINH_DTO();
+                hocsinh_dto.Mahs = item.SubItems[0].Text.ToString();
+                hocsinh.themPhanLop(hocsinh_dto,namhoc_dto,lop_dto);
+            }
+        }
 
         public void timHocSinhMaHS(DataGridViewX grdHocSinh,TextBoxX maHS)
         {
