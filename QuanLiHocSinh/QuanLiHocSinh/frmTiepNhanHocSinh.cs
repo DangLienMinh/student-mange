@@ -17,27 +17,27 @@ namespace QuanLiHocSinh
     public partial class frmTiepNhanHocSinh : DevComponents.DotNetBar.Office2007Form
     {
         private frmLopHoc m_FrmLop = null;
-        private clsLOP_BUS lop_bus;
-        private clsHOCSINH_BUS hocsinh_bus;
-        private clsNAMHOC_BUS namhoc_bus;
-        private clsHOCSINH_DTO hocsinh_dto;
-        private clsKHOI_BUS khoi_bus;
+        private clsLOP_BUS lop_BUS;
+        private clsHOCSINH_BUS hocSinh_BUS;
+        private clsNAMHOC_BUS namHoc_BUS;
+        private clsHOCSINH_DTO hocSinh_DTO;
+        private clsKHOI_BUS khoi_BUS;
         private Boolean flagInsert;
         private Boolean flagUpdate;
         private Boolean flagDelete;
         private Boolean flagChonAnh;
-        private string linkgoc;
+        private string linkGoc;
         private int vitri;
         private int Tong;
 
         public frmTiepNhanHocSinh()
         {
             InitializeComponent();
-            hocsinh_bus = new clsHOCSINH_BUS();
-            namhoc_bus = new clsNAMHOC_BUS();
-            hocsinh_dto = new clsHOCSINH_DTO();
-            lop_bus = new clsLOP_BUS();
-            khoi_bus = new clsKHOI_BUS();
+            hocSinh_BUS = new clsHOCSINH_BUS();
+            namHoc_BUS = new clsNAMHOC_BUS();
+            hocSinh_DTO = new clsHOCSINH_DTO();
+            lop_BUS = new clsLOP_BUS();
+            khoi_BUS = new clsKHOI_BUS();
             grdHocSinh.DataSource = new DataTable();
             flagInsert = false;
             flagUpdate = false;
@@ -49,19 +49,22 @@ namespace QuanLiHocSinh
         private void frmHocSinh_Load(object sender, EventArgs e)
         {
             anHienButton(true);
-            hocsinh_bus.cboGioiTinh(cboGioiTinh);
-            namhoc_bus.hienThiComboBox(cboNamHoc);
-           //hocsinh_bus.cboNamhoc(cboNamHoc);
-            //khoi_bus.hienThiComboBox(cboKhoi);
-            lop_bus.chonLop10(cboLop,cboNamHoc.SelectedValue.ToString());
-            //txtMaHS.Text = hocsinh_bus.staoMaHocSinh();
-            txtMaHS.Text = hocsinh_bus.taoMaHocSinh(cboNamHoc);
+            //load dữ liệu vào comboBox giới tính
+            hocSinh_BUS.cboGioiTinh(cboGioiTinh);
+            //load dữ liệu vào comboBox năm học
+            namHoc_BUS.hienThiComboBox(cboNamHoc);
+            // //load dữ liệu vào comboBox lớp theo mã năm học, chỉ lấy lớp 10
+            lop_BUS.cboLop10(cboLop,cboNamHoc.SelectedValue.ToString());
+            //tạo mã học sinh
+            txtMaHS.Text = hocSinh_BUS.taoMaHocSinh(cboNamHoc);
             dtiNgaySinh.Value = DateTime.Now;
             dtiNgayNhapHoc.Value = DateTime.Now;
-            grdHocSinh.DataSource = hocsinh_bus.danhSachHocSinh(cboNamHoc);
+            //load danh sách học sinh vào datagrid học sinh
+            grdHocSinh.DataSource = hocSinh_BUS.danhSachHocSinh(cboNamHoc);
             datagridMakeUp(grdHocSinh);
         }
 
+        //Trang trí datagrid như nền, canh chỉnh các hàng, ...
         private void datagridMakeUp(DataGridViewX temp)
         {
             temp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
@@ -81,10 +84,10 @@ namespace QuanLiHocSinh
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 picHocSinh.Image = Image.FromFile(ofd.FileName);
-                linkgoc = ofd.FileName;
+                linkGoc = ofd.FileName;
                 string linkimage;
                 linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + ofd.SafeFileName;
-                hocsinh_dto.Hinhanhhs = linkimage;
+                hocSinh_DTO.Hinhanhhs = linkimage;
             }
         }
         public void anHienButton(Boolean b)
@@ -103,9 +106,10 @@ namespace QuanLiHocSinh
                 btnHuy.Enabled = true;
             }
         }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
-            txtMaHS.Text = hocsinh_bus.taoMaHocSinh(cboNamHoc);
+            txtMaHS.Text = hocSinh_BUS.taoMaHocSinh(cboNamHoc);
             txtTenHS.Focus();
             anHienButton(false);
             flagInsert = true;
@@ -208,6 +212,7 @@ namespace QuanLiHocSinh
                 fs.Close();
             }
         }
+
         public void resetALL()
         {
             picHocSinh.Image = null;
@@ -219,6 +224,7 @@ namespace QuanLiHocSinh
             dtiNgayNhapHoc.Value = DateTime.Now;
             dtiNgaySinh.Value = DateTime.Now;
         }
+
         public int kiemTraDulieu()
         {
             int dem = 0;
@@ -247,12 +253,11 @@ namespace QuanLiHocSinh
                 MessageBox.Show("Chưa nhập Dân tộc", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dem++;
             }
-            if (linkgoc == "")
+            if (linkGoc == "")
             {
                 MessageBox.Show("Chưa Chọn hình ảnh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dem++;
             }
-
             return dem;
         }
 
@@ -260,29 +265,29 @@ namespace QuanLiHocSinh
         {
             if (kiemTraDulieu() == 0)
             {
-                hocsinh_dto.Mahs = txtMaHS.Text;
-                hocsinh_dto.Tenhs = txtTenHS.Text;
-                hocsinh_dto.Ngaysinhhs = DateTime.Parse(dtiNgaySinh.Text);
+                hocSinh_DTO.Mahs = txtMaHS.Text;
+                hocSinh_DTO.Tenhs = txtTenHS.Text;
+                hocSinh_DTO.Ngaysinhhs = DateTime.Parse(dtiNgaySinh.Text);
                 if (cboGioiTinh.SelectedItem.ToString() == "Nam")
                 {
-                    hocsinh_dto.Gioitinh = "1";
+                    hocSinh_DTO.Gioitinh = "1";
                 }
                 else
                 {
-                    hocsinh_dto.Gioitinh = "0";
+                    hocSinh_DTO.Gioitinh = "0";
                 }
-                hocsinh_dto.Dantoc = txtDantoc.Text;
-                hocsinh_dto.Dienthoaihs = txtDienThoai.Text;
-                hocsinh_dto.Diachihs = txtDiaChi.Text;
-                hocsinh_dto.Ngnhaphoc = DateTime.Parse(dtiNgayNhapHoc.Text);
-                hocsinh_dto.Manh = cboNamHoc.SelectedValue.ToString();
-                hocsinh_dto.Malop = cboLop.SelectedValue.ToString();
+                hocSinh_DTO.Dantoc = txtDantoc.Text;
+                hocSinh_DTO.Dienthoaihs = txtDienThoai.Text;
+                hocSinh_DTO.Diachihs = txtDiaChi.Text;
+                hocSinh_DTO.Ngnhaphoc = DateTime.Parse(dtiNgayNhapHoc.Text);
+                hocSinh_DTO.Manh = cboNamHoc.SelectedValue.ToString();
+                hocSinh_DTO.Malop = cboLop.SelectedValue.ToString();
                 try
                 {
-                    File.Copy(linkgoc, hocsinh_dto.Hinhanhhs);
-                    hocsinh_bus.themHocSinh(hocsinh_dto);
+                    File.Copy(linkGoc, hocSinh_DTO.Hinhanhhs);
+                    hocSinh_BUS.themHocSinh(hocSinh_DTO);
                     resetALL();
-                    grdHocSinh.DataSource = hocsinh_bus.danhSachHocSinh(cboNamHoc);//tải lại danh sách sau khi thêm
+                    grdHocSinh.DataSource = hocSinh_BUS.danhSachHocSinh(cboNamHoc);//tải lại danh sách sau khi thêm
                     flagChonAnh = false;
                     flagInsert = false;
                     MessageBox.Show("Đã thêm học sinh thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -297,14 +302,14 @@ namespace QuanLiHocSinh
 
         public void Delete()
         {
-            hocsinh_dto.Mahs = txtMaHS.Text;
+            hocSinh_DTO.Mahs = txtMaHS.Text;
             if (grdHocSinh.SelectedRows.Count >= 1 && txtMaHS.Text != "")
             {
                 try
                 {
-                    hocsinh_bus.xoaHocSinh(hocsinh_dto);
+                    hocSinh_BUS.xoaHocSinh(hocSinh_DTO);
                     File.Delete(grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString());
-                    grdHocSinh.DataSource = hocsinh_bus.danhSachHocSinh(cboNamHoc);//tải lại danh sách sau khi xóa
+                    grdHocSinh.DataSource = hocSinh_BUS.danhSachHocSinh(cboNamHoc);//tải lại danh sách sau khi xóa
                     flagDelete = false;
                     MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -325,40 +330,40 @@ namespace QuanLiHocSinh
         {
             if (kiemTraDulieu() == 0)
             {
-                hocsinh_dto.Mahs = txtMaHS.Text;
-                hocsinh_dto.Tenhs = txtTenHS.Text;
-                hocsinh_dto.Ngaysinhhs = DateTime.Parse(dtiNgaySinh.Text);
+                hocSinh_DTO.Mahs = txtMaHS.Text;
+                hocSinh_DTO.Tenhs = txtTenHS.Text;
+                hocSinh_DTO.Ngaysinhhs = DateTime.Parse(dtiNgaySinh.Text);
                 if (cboGioiTinh.SelectedItem.ToString() == "Nam")
                 {
-                    hocsinh_dto.Gioitinh = "1";
+                    hocSinh_DTO.Gioitinh = "1";
                 }
                 else
                 {
-                    hocsinh_dto.Gioitinh = "0";
+                    hocSinh_DTO.Gioitinh = "0";
                 }
-                hocsinh_dto.Dantoc = txtDantoc.Text;
-                hocsinh_dto.Dienthoaihs = txtDienThoai.Text;
-                hocsinh_dto.Diachihs = txtDiaChi.Text;
-                hocsinh_dto.Ngnhaphoc = DateTime.Parse(dtiNgayNhapHoc.Text);
-                hocsinh_dto.Manh = cboNamHoc.SelectedValue.ToString();
+                hocSinh_DTO.Dantoc = txtDantoc.Text;
+                hocSinh_DTO.Dienthoaihs = txtDienThoai.Text;
+                hocSinh_DTO.Diachihs = txtDiaChi.Text;
+                hocSinh_DTO.Ngnhaphoc = DateTime.Parse(dtiNgayNhapHoc.Text);
+                hocSinh_DTO.Manh = cboNamHoc.SelectedValue.ToString();
                 //hocsinh_dto.Makhoi = cboLop.SelectedValue.ToString();
-                hocsinh_dto.Malop = cboLop.SelectedValue.ToString(); 
+                hocSinh_DTO.Malop = cboLop.SelectedValue.ToString(); 
                 try
                 {
                     if (flagChonAnh == true)
                     {
-                        File.Copy(linkgoc, hocsinh_dto.Hinhanhhs);
+                        File.Copy(linkGoc, hocSinh_DTO.Hinhanhhs);
                         File.Delete(grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString());
                         flagChonAnh = false;
                     }
                     else
                     {
-                        hocsinh_dto.Hinhanhhs = grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString();
+                        hocSinh_DTO.Hinhanhhs = grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString();
                     }
-                    hocsinh_bus.suaHocSinh(hocsinh_dto,grdHocSinh);
+                    hocSinh_BUS.suaHocSinh(hocSinh_DTO,grdHocSinh);
                     flagUpdate = false;
                     resetALL();
-                    grdHocSinh.DataSource = hocsinh_bus.danhSachHocSinh(cboNamHoc);//tải lại danh sách sau khi thêm
+                    grdHocSinh.DataSource = hocSinh_BUS.danhSachHocSinh(cboNamHoc);//tải lại danh sách sau khi thêm
                     MessageBox.Show("Đã sửa học sinh thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
@@ -368,6 +373,7 @@ namespace QuanLiHocSinh
                 }
             }
         }
+
         public void hienThiDuLieu()
         {
             //int Tong;
@@ -447,18 +453,14 @@ namespace QuanLiHocSinh
 
         private void cboNamHoc_SelectedValueChanged(object sender, EventArgs e)
         {
-           //resetALL();
+           
             //load danh sách học sinh theo , mã năm học
-            grdHocSinh.DataSource = hocsinh_bus.danhSachHocSinh(cboNamHoc);
+            grdHocSinh.DataSource = hocSinh_BUS.danhSachHocSinh(cboNamHoc);
 
             //chọn ra các lớp 10  vào combobox lớp theo năm học
-            lop_bus.chonLop10(cboLop, cboNamHoc.SelectedValue.ToString());
-            
+            lop_BUS.cboLop10(cboLop, cboNamHoc.SelectedValue.ToString()); 
         }
 
-
-
-        //Trang trí cho đẹp
         private void txt_Enter(object sender, EventArgs e)
         {
             ((TextBox)sender).BackColor = Color.Yellow;
@@ -493,7 +495,5 @@ namespace QuanLiHocSinh
                 this.Close();
             }
         }
-
-
     }
 }

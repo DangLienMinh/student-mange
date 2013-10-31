@@ -37,6 +37,7 @@ namespace QLHS.BUS
             grdGV.DataSource=tblGiaoVien;
         }
 
+        //tạo mã giáo viên
         public string hienThiSoNguoi()
         {
             string result;
@@ -105,8 +106,6 @@ namespace QLHS.BUS
             giaoVien_DAO.suaGiaoVien(giaoVien_DTO);
         }
 
-        
-
         private DataRow getDatarow()
         {
             dr = tblGiaoVien.NewRow();
@@ -120,12 +119,13 @@ namespace QLHS.BUS
             return dr;
         }
 
-        //add dong vua them vao
+        //thêm dòng vừa được thêm vào table giáo viên
         public void themDong() 
         {
             tblGiaoVien.Rows.Add(getDatarow());
         }
 
+        //xóa giáo viên theo mã giáo viên khỏi table giáo viên
         public void xoaDong(DataGridViewX grdGV,string MaGV)
         {
             DataRow row = tblGiaoVien.Select("MAGV='" + MaGV + "'")[0];

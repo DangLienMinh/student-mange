@@ -32,7 +32,6 @@ namespace QuanLiHocSinh
         private void frmDiem_Load(object sender, EventArgs e)
         {
             namHoc_BUS.hienThiComboBox(cboNamHoc);
-            //lop_BUS.hienThiLopTheoNamHoc(cbNamHoc.SelectedValue.ToString(), treeKhoi);
         }
 
         private void btnDanhSach_Click(object sender, EventArgs e)

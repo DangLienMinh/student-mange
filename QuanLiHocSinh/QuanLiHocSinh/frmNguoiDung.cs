@@ -38,6 +38,7 @@ namespace QuanLiHocSinh
             btnTruoc.Enabled = false;
         }
 
+        //Trang trí datagrid như nền, canh chỉnh các hàng, ...
         private void datagridMakeUp(DataGridViewX temp)
         {
             temp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
@@ -48,6 +49,7 @@ namespace QuanLiHocSinh
             temp.ReadOnly = true;
         }
 
+        //bật cờ hiển thị button đồng ý và hủy, các button thêm, sửa, xóa bị mờ đi
         private void FlagEnable()
         {
             btnDongY.Enabled = true;
@@ -57,6 +59,7 @@ namespace QuanLiHocSinh
             btnSua.Enabled = false;
         }
 
+        //tắt cờ hiển thị button đồng ý và hủy, các button thêm, sửa, xóa sáng lên
         private void FlagDisable()
         {
             btnDongY.Enabled = false;
@@ -72,6 +75,7 @@ namespace QuanLiHocSinh
             FlagEnable();
             flag = 1;
             resetAll();
+            //tạo mã người dùng
             txtMaND.Text = "ND" + nguoiDung_BUS.hienThiSoNguoi().ToString();
         }
 
@@ -314,9 +318,5 @@ namespace QuanLiHocSinh
                 m_FrmLND.Activate();
             
         }
-
-
-
-
     }
 }

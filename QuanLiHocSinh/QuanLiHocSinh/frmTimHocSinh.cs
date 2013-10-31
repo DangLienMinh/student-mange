@@ -16,27 +16,28 @@ namespace QuanLiHocSinh
 {
     public partial class frmTimHocSinh : DevComponents.DotNetBar.Office2007Form
     {
-        private clsHOCSINH_BUS hocsinh_bus;
-        private clsHOCSINH_DTO hocsinh_dto;
-        private int TempCheckMaHS;
-        private int TempChecTenHS;
-        private int TempCheckDanToc;
-        private int TempCheckNgNhapHoc;
+        private clsHOCSINH_BUS hocSinh_BUS;
+        private clsHOCSINH_DTO hocSinh_DTO;
+        private int tempCheckMaHS;
+        private int tempChecTenHS;
+        private int tempCheckDanToc;
+        private int tempCheckNgNhapHoc;
         private int viTri, Tong;
 
         public frmTimHocSinh()
         {
             InitializeComponent();
-            hocsinh_bus = new clsHOCSINH_BUS();
-            hocsinh_dto=new clsHOCSINH_DTO();
-            TempCheckDanToc = 0;
-            TempCheckMaHS = 0;
-            TempCheckNgNhapHoc = 0;
-            TempChecTenHS = 0;
+            hocSinh_BUS = new clsHOCSINH_BUS();
+            hocSinh_DTO=new clsHOCSINH_DTO();
+            tempCheckDanToc = 0;
+            tempCheckMaHS = 0;
+            tempCheckNgNhapHoc = 0;
+            tempChecTenHS = 0;
             datagridMakeUp(grdHocSinh);
             this.KeyPreview = true;
         }
 
+        //Trang trí datagrid như nền, canh chỉnh các hàng, ...
         private void datagridMakeUp(DataGridViewX temp)
         {
             temp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
@@ -63,7 +64,7 @@ namespace QuanLiHocSinh
                     }
                     else
                     {
-                        hocsinh_bus.timHocSinhMaHS(grdHocSinh, txtMaHS);
+                        hocSinh_BUS.timHocSinhMaHS(grdHocSinh, txtMaHS);
                         if (grdHocSinh.Rows.Count ==1)
                         {
                             MessageBox.Show("không tìm thấy");
@@ -78,7 +79,7 @@ namespace QuanLiHocSinh
                     }
                     else
                     {
-                        hocsinh_bus.timHocSinhTenHS(grdHocSinh, txtTenHS);
+                        hocSinh_BUS.timHocSinhTenHS(grdHocSinh, txtTenHS);
                         if (grdHocSinh.Rows.Count ==1)
                         {
                             MessageBox.Show("không tìm thấy");
@@ -93,7 +94,7 @@ namespace QuanLiHocSinh
                     }
                     else
                     {
-                        hocsinh_bus.timHocSinhDanToc(grdHocSinh, txtDanToc);
+                        hocSinh_BUS.timHocSinhDanToc(grdHocSinh, txtDanToc);
                         if (grdHocSinh.Rows.Count == 1)
                         {
                             MessageBox.Show("không tìm thấy");
@@ -102,7 +103,7 @@ namespace QuanLiHocSinh
                 }
                 else
                 {
-                    hocsinh_bus.timHocSinhNgNhapHoc(grdHocSinh, dtiNgNhapHoc);
+                    hocSinh_BUS.timHocSinhNgNhapHoc(grdHocSinh, dtiNgNhapHoc);
                     if (grdHocSinh.Rows.Count == 1)
                     {
                         MessageBox.Show("không tìm thấy");
@@ -115,7 +116,11 @@ namespace QuanLiHocSinh
 
         private void frmTimHocSinh_Load(object sender, EventArgs e)
         {
-            hocsinh_bus.cbDieuKien(cboDieuKien);
+            //load dữ liệu vào comboBox điều kiện
+            hocSinh_BUS.cbDieuKien(cboDieuKien);
+            sapXep();
+            btnDau.Enabled = false;
+            btnTruoc.Enabled = false;
         }
 
         private void optMaHS_CheckedChanged(object sender, EventArgs e)
@@ -176,7 +181,7 @@ namespace QuanLiHocSinh
                     }
                     else
                     {
-                        hocsinh_dto.Mahs = txtMaHS1.Text;
+                        hocSinh_DTO.Mahs = txtMaHS1.Text;
                     }
                 }
                 if (optTenHS1.Checked == true)
@@ -188,7 +193,7 @@ namespace QuanLiHocSinh
                     }
                     else
                     {
-                        hocsinh_dto.Tenhs = txtTenHS1.Text;
+                        hocSinh_DTO.Tenhs = txtTenHS1.Text;
                     }
                 }
                 if (optDanToc1.Checked == true)
@@ -200,14 +205,14 @@ namespace QuanLiHocSinh
                     }
                     else
                     {
-                        hocsinh_dto.Dantoc = txtDanToc1.Text;
+                        hocSinh_DTO.Dantoc = txtDanToc1.Text;
                     }
                 }
                 if (optNgNhapHoc1.Checked == true)
                 {
-                    hocsinh_dto.Ngnhaphoc = dtiNgNhapHoc1.Value;
+                    hocSinh_DTO.Ngnhaphoc = dtiNgNhapHoc1.Value;
                 }
-                DataTable dt = hocsinh_bus.timHocSinhNangCao(hocsinh_dto, cboDieuKien);
+                DataTable dt = hocSinh_BUS.timHocSinhNangCao(hocSinh_DTO, cboDieuKien);
                 if (dt.Rows.Count <= 0)
                 {
                     MessageBox.Show("Không tìm thấy");
@@ -224,10 +229,10 @@ namespace QuanLiHocSinh
             x=(RadioButton)sender;
             if (x.Name=="optMaHS1")
             {
-                if (++TempCheckMaHS == 2)
+                if (++tempCheckMaHS == 2)
                 {
                     optMaHS1.Checked = false;
-                    TempCheckMaHS = 0;
+                    tempCheckMaHS = 0;
                 }
                 else
                 {
@@ -236,10 +241,10 @@ namespace QuanLiHocSinh
             }
             else if (x.Name == "optTenHS1")
             {
-                if (++TempChecTenHS == 2)
+                if (++tempChecTenHS == 2)
                 {
                     optTenHS1.Checked = false;
-                    TempChecTenHS = 0;
+                    tempChecTenHS = 0;
                 }
                 else
                 {
@@ -248,10 +253,10 @@ namespace QuanLiHocSinh
             }
             else if (x.Name == "optDanToc1")
             {
-                if (++TempCheckDanToc == 2)
+                if (++tempCheckDanToc == 2)
                 {
                     optDanToc1.Checked = false;
-                    TempCheckDanToc = 0;
+                    tempCheckDanToc = 0;
                 }
                 else
                 {
@@ -260,10 +265,10 @@ namespace QuanLiHocSinh
             }
             else
             {
-                if (++TempCheckNgNhapHoc == 2)
+                if (++tempCheckNgNhapHoc == 2)
                 {
                     optNgNhapHoc1.Checked = false;
-                    TempCheckNgNhapHoc = 0;
+                    tempCheckNgNhapHoc = 0;
                 }
                 else
                 {

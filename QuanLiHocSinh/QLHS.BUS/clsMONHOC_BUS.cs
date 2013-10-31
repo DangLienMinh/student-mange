@@ -22,9 +22,10 @@ namespace QLHS.BUS
             monHoc_DAO = new clsMONHOC_DAO();
             tblMonHoc = new DataTable();
         }
+
         public void hienThiDanhSach(DataGridViewX grdMonHoc)
         {
-            tblMonHoc = monHoc_DAO.danhsachMonhoc();
+            tblMonHoc = monHoc_DAO.danhSachMonhoc();
             grdMonHoc.DataSource = tblMonHoc;
         }
 
@@ -42,8 +43,7 @@ namespace QLHS.BUS
             monHoc_DTO.Tenmh = tenMH;
             monHoc_DTO.Sotiet = soTiet;
             monHoc_DTO.Hesomh = heSo;
-
-            monHoc_DAO.themMonhoc(monHoc_DTO);
+            monHoc_DAO.themMonHoc(monHoc_DTO);
         }
 
         public void suaMonHoc(string maMH, string tenMH, string soTiet, string heSo)
@@ -53,16 +53,16 @@ namespace QLHS.BUS
             monHoc_DTO.Tenmh = tenMH;
             monHoc_DTO.Sotiet = soTiet;
             monHoc_DTO.Hesomh = heSo;
-
-            monHoc_DAO.suaMonhoc(monHoc_DTO);
+            monHoc_DAO.suaMonHoc(monHoc_DTO);
         }
 
         public void xoaMonHoc(string maMH)
         {
             monHoc_DTO = new clsMONHOC_DTO();
             monHoc_DTO.Mamh = maMH;
-            monHoc_DAO.xoaMonhoc(monHoc_DTO);
+            monHoc_DAO.xoaMonHoc(monHoc_DTO);
         }
+
         private DataRow getDatarow()
         {
             dr = tblMonHoc.NewRow();
@@ -74,7 +74,7 @@ namespace QLHS.BUS
             return dr;
         }
 
-        //add dong vua them vao
+        //thêm dòng vừa được thêm vào table môn học
         public void themDong()
         {
             tblMonHoc.Rows.Add(getDatarow());

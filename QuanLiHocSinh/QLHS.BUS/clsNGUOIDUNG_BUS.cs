@@ -30,19 +30,15 @@ namespace QLHS.BUS
             comboBox.DataSource = loaiNguoiDung_DAO.danhSachLoaiNguoiDung();
             comboBox.DisplayMember = "TENLND";
             comboBox.ValueMember = "MALND";         
-            
-            //comboBox.Items.Add("Nam");
-            //comboBox.Items.Add("Nữ");
-            //comboBox.SelectedItem = "Nam";
         }
 
         public void hienThiDanhSach(DataGridViewX grdNguoiDung)
         {
             tblNguoiDung = nguoiDung_DAO.danhSachNguoiDung();
             grdNguoiDung.DataSource=tblNguoiDung;
-
         }
 
+        //tạo mã người dùng
         public string hienThiSoNguoi()
         {
             string result;
@@ -108,7 +104,6 @@ namespace QLHS.BUS
         }
 
         
-
         private DataRow getDatarow()
         {
             dr = tblNguoiDung.NewRow();
@@ -120,12 +115,13 @@ namespace QLHS.BUS
             return dr;
         }
 
-        //add dong vua them vao
+        //thêm dòng vừa được thêm vào table người dùng
         public void themDong() 
         {
             tblNguoiDung.Rows.Add(getDatarow());
         }
 
+        //xóa người dùng trùng với mã người dùng trên table người dùng
         public void xoaDong(DataGridViewX grdNguoiDung,string MaND)
         {
             DataRow row = tblNguoiDung.Select("MAND='" + MaND + "'")[0];

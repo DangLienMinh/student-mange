@@ -10,6 +10,7 @@ namespace QLHS.DAO
     {
         private clsConnectDatabase connection;
         private SqlConnection con;
+
         public clsHOCSINH_DAO()
         {
             connection = new clsConnectDatabase();

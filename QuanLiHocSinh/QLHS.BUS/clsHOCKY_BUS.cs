@@ -22,12 +22,14 @@ namespace QLHS.BUS
             hocKy_DAO = new clsHOCKY_DAO();
             tblHocKy = new DataTable();
         }
+
         public void hienThiDanhSach(DataGridViewX grdHocKy)
         {
             tblHocKy = hocKy_DAO.danhSachHocKy();
             grdHocKy.DataSource = tblHocKy;
         }
 
+        //comboBox hệ số học kỳ
         public void hienThiComboBox(ComboBoxEx comboBox)
         {
             comboBox.Items.Add("1");
@@ -42,7 +44,6 @@ namespace QLHS.BUS
             hocKy_DTO.Mahk = maHK;
             hocKy_DTO.Tenhk = tenHK;
             hocKy_DTO.Hesohk = heSo;
-
             hocKy_DAO.themHocKy(hocKy_DTO);
         }
 
@@ -52,7 +53,6 @@ namespace QLHS.BUS
             hocKy_DTO.Mahk = maHK;
             hocKy_DTO.Tenhk = tenHK;
             hocKy_DTO.Hesohk = heSo;
-
             hocKy_DAO.suaHocKy(hocKy_DTO);
         }
 
@@ -62,11 +62,10 @@ namespace QLHS.BUS
             dr["MAHK"] = hocKy_DTO.Mahk;
             dr["TENHK"] = hocKy_DTO.Tenhk;
             dr["HESOHK"] = hocKy_DTO.Hesohk;
-
             return dr;
         }
 
-        //add dong vua them vao
+        //thêm dòng vừa được thêm vào table học kỳ
         public void themDong()
         {
             tblHocKy.Rows.Add(getDatarow());
@@ -95,6 +94,7 @@ namespace QLHS.BUS
             hocKy_DAO.xoaHocKy(hocKy_DTO);
         }
 
+        //xóa học kỳ trùng với mã học kỳ trên table học kỳ
         public void xoaDong(DataGridViewX grdGV, string maHK)
         {
             DataRow row = tblHocKy.Select("MAHK='" + maHK + "'")[0];

@@ -35,13 +35,18 @@ namespace QuanLiHocSinh
 
         private void frmLopHoc_Load(object sender, EventArgs e)
         {
+            //load dữ liệu vào comboBox năm học
             namHoc_bus.hienThiComboBox(cboNamHoc);
+            //load dữ liệu vào comboBox khối
             khoi_bus.hienThiComboBox(cboKhoi);
+            //load dữ liệu vào comboBox giáo viên chủ nhiệm
             lop_bus.cbogiaoVienChuNhiem(cboGiaoVien);
+            //load danh sách lớp vào datagrid lớp
             grdLop.DataSource = lop_bus.danhSachLop();
             datagridMakeUp(grdLop);
         }
 
+        //Trang trí datagrid như nền, canh chỉnh các hàng, ...
         private void datagridMakeUp(DataGridViewX temp)
         {
             temp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
@@ -56,29 +61,29 @@ namespace QuanLiHocSinh
         {
             txtMaLop.Text = lop_bus.taoMaLop();
             txtTenLop.Focus();
-            anhienButton(false);
+            anHienButton(false);
             flagInsert = true;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            anhienButton(false);
+            anHienButton(false);
             flagDelete = true;
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
             txtTenLop.Focus();
-            anhienButton(false);
+            anHienButton(false);
             flagUpdate = true;
         }
 
         private void btnDongY_Click(object sender, EventArgs e)
         {
-            anhienButton(true);
+            anHienButton(true);
             if (flagInsert == true)
             {
-                if (Kiemtradulieu() == 0)
+                if (kiemTraDuLieu() == 0)
                 {
                     lop_dto.Malop = txtMaLop.Text;
                     lop_dto.Tenlop = txtTenLop.Text;
@@ -105,7 +110,7 @@ namespace QuanLiHocSinh
                 {
                     if (grdLop.SelectedRows.Count >= 1)
                     {
-                        if (Kiemtradulieu() == 0)
+                        if (kiemTraDuLieu() == 0)
                         {
                             lop_dto.Malop = txtMaLop.Text;
                             lop_dto.Tenlop = txtTenLop.Text;
@@ -162,9 +167,9 @@ namespace QuanLiHocSinh
         }
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            anhienButton(true);
+            anHienButton(true);
         }
-        public void anhienButton(Boolean b)
+        public void anHienButton(Boolean b)
         {
             btnThem.Enabled = b;
             btnSua.Enabled = b;
@@ -180,7 +185,7 @@ namespace QuanLiHocSinh
                 btnHuy.Enabled = true;
             }
         }
-        public int Kiemtradulieu()
+        public int kiemTraDuLieu()
         {
             int dem=0;
             if (txtTenLop.Text == "")
@@ -205,7 +210,7 @@ namespace QuanLiHocSinh
             cboKhoi.SelectedValue = grdLop.CurrentRow.Cells["MAKHOI1"].Value.ToString();
             cboNamHoc.SelectedValue = grdLop.CurrentRow.Cells["MANH"].Value.ToString();
         }
-        public void Hienthidulieu()
+        public void hienThiDuLieu()
         {
             vitri = this.BindingContext[grdLop.DataSource].Position;
             Tong = this.BindingContext[grdLop.DataSource].Count;
@@ -224,7 +229,7 @@ namespace QuanLiHocSinh
         private void btnDau_Click(object sender, EventArgs e)
         {
             this.BindingContext[grdLop.DataSource].Position = 0;
-            Hienthidulieu();
+            hienThiDuLieu();
             btnDau.Enabled = false;
             btnTruoc.Enabled = false;
             btnCuoi.Enabled = true;
@@ -234,7 +239,7 @@ namespace QuanLiHocSinh
         private void btnTruoc_Click(object sender, EventArgs e)
         {
             this.BindingContext[grdLop.DataSource].Position = vitri - 1;
-            Hienthidulieu();
+            hienThiDuLieu();
             btnSau.Enabled = true;
             btnCuoi.Enabled = true;
         }
@@ -242,7 +247,7 @@ namespace QuanLiHocSinh
         private void btnCuoi_Click(object sender, EventArgs e)
         {
             this.BindingContext[grdLop.DataSource].Position = this.BindingContext[grdLop.DataSource].Count - 1;
-            Hienthidulieu();
+            hienThiDuLieu();
             btnDau.Enabled = true;
             btnTruoc.Enabled = true;
             btnCuoi.Enabled = false;
@@ -252,7 +257,7 @@ namespace QuanLiHocSinh
         private void btnSau_Click(object sender, EventArgs e)
         {
             this.BindingContext[grdLop.DataSource].Position = vitri + 1;
-            Hienthidulieu();
+            hienThiDuLieu();
             btnDau.Enabled = true;
             btnTruoc.Enabled = true;
         }

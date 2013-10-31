@@ -27,7 +27,6 @@ namespace QLHS.BUS
         {
             tblLoaiNguoiDung = loaiNguoiDung_DAO.danhSachLoaiNguoiDung();
             grdLoaiND.DataSource=tblLoaiNguoiDung;
-
         }
 
         public void xoaLoaiNguoiDung(string maLND) 
@@ -51,7 +50,6 @@ namespace QLHS.BUS
             loaiNguoiDung_DTO = new clsLOAINGUOIDUNG_DTO();
             loaiNguoiDung_DTO.Malnd = maLND;
             loaiNguoiDung_DTO.Tenlnd = TenLND;
-
             loaiNguoiDung_DAO.suaLoaiNguoiDung(loaiNguoiDung_DTO);
         }
 
@@ -61,17 +59,17 @@ namespace QLHS.BUS
         {
             dr = tblLoaiNguoiDung.NewRow();
             dr["MALND"] = loaiNguoiDung_DTO.Malnd;
-            dr["TENLND"] = loaiNguoiDung_DTO.Tenlnd;
-       
+            dr["TENLND"] = loaiNguoiDung_DTO.Tenlnd;  
             return dr;
         }
 
-        //add dong vua them vao
+        //thêm dòng vừa được thêm vào table loại người dùng
         public void themDong() 
         {
             tblLoaiNguoiDung.Rows.Add(getDatarow());
         }
 
+        //xóa loại người dùng trùng với mã loạingười dùng trên table loại người dùng
         public void xoaDong(DataGridViewX grdLoaiND,string MaLND)
         {
             DataRow row = tblLoaiNguoiDung.Select("MALND='" + MaLND + "'")[0];

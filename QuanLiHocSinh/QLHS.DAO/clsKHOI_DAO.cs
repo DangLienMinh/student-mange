@@ -18,7 +18,7 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
-        public DataTable danhsachKhoi()
+        public DataTable danhSachKhoi()
         {
             DataTable table=new DataTable();
             connection.kiemTraKetNoi(con);
@@ -30,7 +30,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        public DataTable danhsachKhoiTheoMaKhoi(clsKHOI_DTO khoi)
+        public DataTable danhSachKhoiTheoMaKhoi(clsKHOI_DTO khoi)
         {
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);

@@ -29,8 +29,7 @@ namespace QLHS.DAO
             con.Close();
             return table;
         }
-
-        
+      
 
         public void themLoaiNguoiDung(clsLOAINGUOIDUNG_DTO loaiNguoiDung)
         {

@@ -48,7 +48,6 @@ namespace QLHS.DAO
 
             con.Close();
             return temp;
-
         }
 
         public DataTable timGVMaGV(clsGIAOVIEN_DTO giaovien)

@@ -22,6 +22,7 @@ namespace QLHS.BUS
             namHoc_DAO = new clsNAMHOC_DAO();
             tblNamHoc = new DataTable();
         }
+
         public void hienThiDanhSach(DataGridViewX grdNamHoc)
         {
             tblNamHoc = namHoc_DAO.danhSachNamHoc();
@@ -40,7 +41,6 @@ namespace QLHS.BUS
             namHoc__DTO = new clsNAMHOC_DTO();
             namHoc__DTO.Manh = maNH;
             namHoc__DTO.Tenh = tenNH;
-
             namHoc_DAO.themNamHoc(namHoc__DTO);
         }
 
@@ -49,7 +49,6 @@ namespace QLHS.BUS
             namHoc__DTO = new clsNAMHOC_DTO();
             namHoc__DTO.Manh = maNH;
             namHoc__DTO.Tenh = tenNH;
-
             namHoc_DAO.suaNamHoc(namHoc__DTO);
         }
 
@@ -58,11 +57,10 @@ namespace QLHS.BUS
             dr = tblNamHoc.NewRow();
             dr["MANH"] = namHoc__DTO.Manh;
             dr["TENNH"] = namHoc__DTO.Tenh;
-           
             return dr;
         }
 
-        //add dong vua them vao
+        //thêm dòng vừa được thêm vào table năm học
         public void themDong()
         {
             tblNamHoc.Rows.Add(getDatarow());

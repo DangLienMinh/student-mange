@@ -26,6 +26,7 @@ namespace QuanLiHocSinh
             flag = 0;
         }
 
+        //Trang trí datagrid như nền, canh chỉnh các hàng, ...
         private void datagridMakeUp(DataGridViewX temp)
         {
             temp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
@@ -36,6 +37,7 @@ namespace QuanLiHocSinh
             temp.ReadOnly = true;
         }
 
+        //bật cờ hiển thị button đồng ý và hủy, các button thêm, sửa, xóa bị mờ đi
         private void FlagEnable()
         {
             btnDongY.Enabled = true;
@@ -45,6 +47,7 @@ namespace QuanLiHocSinh
             btnSua.Enabled = false;
         }
 
+        //tắt cờ hiển thị button đồng ý và hủy, các button thêm, sửa, xóa sáng lên
         private void FlagDisable()
         {
             btnDongY.Enabled = false;
@@ -56,7 +59,9 @@ namespace QuanLiHocSinh
 
         private void frmMonHoc_Load(object sender, EventArgs e)
         {
+            //load danh sách môn học vào datagrid môn học
             monHoc_BUS.hienThiDanhSach(grdMonHoc);
+            //load dữ liệu vào comboBox hê số
             monHoc_BUS.hienThiComboBox(cboHeSo);
             FlagDisable();
             flag = 0;
@@ -196,7 +201,7 @@ namespace QuanLiHocSinh
         {
             if (grdMonHoc.SelectedRows.Count >= 1 && txtMaMH.Text != "")
             {
-                if (MessageBox.Show("Bạn có chắc muốn xóa môn học đã được lựa chọn ", "Xóa giáo viên", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Bạn có chắc muốn xóa môn học đã được lựa chọn ", "Xóa môn học", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     monHoc_BUS.xoaMonHoc(txtMaMH.Text);
                     foreach (DataGridViewRow row in grdMonHoc.Rows)
