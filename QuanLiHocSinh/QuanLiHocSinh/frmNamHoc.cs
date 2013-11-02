@@ -68,6 +68,8 @@ namespace QuanLiHocSinh
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            //tạo mã năm học
+            txtMaNH.Text = "NH" + DateTime.Now.ToString("yy") + DateTime.Now.AddYears(1).ToString("yy");
             txtTenNH.Focus();
             FlagEnable();
             flag = 1;

@@ -31,10 +31,14 @@ namespace QuanLiHocSinh
 
         private void frmPhanLop_Load(object sender, EventArgs e)
         {
-            khoi_BUS.hienThiComboBox(cboKhoiLopCu);
-            namHoc_BUS.hienThiComboBox(cboNamHocCu);
-            khoi_BUS.hienThiComboBox(cboKhoiLopCu, cboKhoiLopMoi);
-            namHoc_BUS.hienThiComboBox(cboNamHocMoi);
+            if (cboKhoiLopCu.SelectedValue!=null&&cboNamHocCu.SelectedValue!=null)
+            {
+                khoi_BUS.hienThiComboBox(cboKhoiLopCu);
+                namHoc_BUS.hienThiComboBox(cboNamHocCu);
+                khoi_BUS.hienThiComboBox(cboKhoiLopCu, cboKhoiLopMoi);
+                namHoc_BUS.hienThiComboBox(cboNamHocMoi);
+            }
+            
         }
 
         private void btnChuyen_Click(object sender, EventArgs e)
