@@ -40,7 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsHANHKIEM_DAO.cs" />
-    <Compile Include="clsHOCKY_DAO.cs" />
     <Compile Include="clsConnectDatabase.cs" />
     <Compile Include="clsDIEM_DAO.cs" />
     <Compile Include="clsGIANGDAY_DAO.cs" />

@@ -14,20 +14,5 @@ namespace QLHS.DTO
             get { return mahk; }
             set { mahk = value; }
         }
-        private string tenhk;
-
-        public string Tenhk
-        {
-            get { return tenhk; }
-            set { tenhk = value; }
-        }
-
-        private string hesohk;
-
-        public string Hesohk
-        {
-            get { return hesohk; }
-            set { hesohk = value; }
-        }
     }
 }
