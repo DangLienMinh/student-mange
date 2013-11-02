@@ -45,7 +45,6 @@
     <Compile Include="clsGIANGDAY_BUS.cs" />
     <Compile Include="clsDIEM_BUS.cs" />
     <Compile Include="clsGIAOVIEN_BUS.cs" />
-    <Compile Include="clsHOCKY_BUS.cs" />
     <Compile Include="clsHOCSINH_BUS.cs" />
     <Compile Include="clsKHOI_BUS.cs" />
     <Compile Include="clsLOAIDIEM_BUS.cs" />

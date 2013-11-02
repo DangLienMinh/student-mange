@@ -15,18 +15,14 @@ namespace QuanLiHocSinh
     public partial class frmNamHoc : DevComponents.DotNetBar.Office2007Form
     {
         private clsNAMHOC_BUS namHoc_BUS = new clsNAMHOC_BUS();
-        private clsHOCKY_BUS hocKy_BUS = new clsHOCKY_BUS();
         private int flag = 0;
-        private int flag1=0;
         private int viTri, Tong;
-        private int viTri1, Tong1;
 
         public frmNamHoc()
         {
             InitializeComponent();
             this.KeyPreview = true;
             datagridMakeUp(grdNamHoc);
-            datagridMakeUp(grdHocKy);
         }
 
         //Trang trí datagrid như nền, canh chỉnh các hàng, ...
@@ -46,18 +42,10 @@ namespace QuanLiHocSinh
             txtMaNH.Text = "NH" + DateTime.Now.ToString("yy") + DateTime.Now.AddYears(1).ToString("yy");
             //load danh sách năm học vào datagrid năm học
             namHoc_BUS.hienThiDanhSach(grdNamHoc);
-            //load danh sách học kỳ vào datagrid học kỳ
-            hocKy_BUS.hienThiDanhSach(grdHocKy);
-            //load dữ liệu vào comboBox hê số học kỳ
-            hocKy_BUS.hienThiComboBox(cboHeSoHK);
             FlagDisable();
-            FlagDisable1();
             sapXep();
-            sapXep1();
             btnFirst.Enabled = false;
             btnPrev.Enabled = false;
-            btnDau.Enabled = false;
-            btnTruoc.Enabled = false;
         }
 
         //bật cờ hiển thị button đồng ý và hủy, các button thêm, sửa, xóa bị mờ đi
@@ -69,16 +57,6 @@ namespace QuanLiHocSinh
             btnChange.Enabled = false;
         }
 
-        //bật cờ hiển thị button đồng ý và hủy, các button thêm, sửa, xóa bị mờ đi
-        private void FlagEnable1()
-        {
-            btnDongY.Enabled = true;
-            btnHuy.Enabled = true;
-            btnThem.Enabled = false;
-            btnXoa.Enabled = false;
-            btnSua.Enabled = false;
-        }
-
         //tắt cờ hiển thị button đồng ý và hủy, các button thêm, sửa, xóa sáng lên
         private void FlagDisable()
         {
@@ -86,16 +64,6 @@ namespace QuanLiHocSinh
             btnCancel.Enabled = false;
             btnAdd.Enabled = true;
             btnChange.Enabled = true;
-        }
-
-        //tắt cờ hiển thị button đồng ý và hủy, các button thêm, sửa, xóa sáng lên
-        private void FlagDisable1()
-        {
-            btnDongY.Enabled = false;
-            btnHuy.Enabled = false;
-            btnThem.Enabled = true;
-            btnXoa.Enabled = true;
-            btnSua.Enabled = true;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -131,12 +99,6 @@ namespace QuanLiHocSinh
             txtTenNH.Text = "";
         }
 
-        private void resetAll1()
-        {
-           txtMaHK.Text="";
-            txtTenHK.Text="";
-        }
-        
         private void insert()
         {
             //cờ kiểm tra mã đã tồn tại trong CSSDL chưa
@@ -253,201 +215,6 @@ namespace QuanLiHocSinh
             btnFirst.Enabled = true;
         }
 
-        /*BAT DAU TAB HOC KY*/
-
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            txtMaHK.Focus();
-            FlagEnable1();
-            flag1 = 1;
-            resetAll1();
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            flag1 = 2;
-            FlagEnable1();
-            txtMaHK.Enabled = false;
-        }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            flag1 = 3;
-            FlagEnable1();
-            txtMaHK.Enabled = false;
-            txtTenHK.Focus();
-        }
-
-        private void btnDongY_Click(object sender, EventArgs e)
-        {
-            if (flag1 == 1) them();
-            if (flag1 == 2) xoa();
-            if (flag1 == 3) sua();
-            sapXep();
-            txtMaHK.Enabled = true;
-        }
-
-        private void them()
-        {
-            //cờ kiểm tra mã đã tồn tại trong CSSDL chưa
-            int test = 1;
-
-            if (string.IsNullOrEmpty(txtMaHK.Text) || string.IsNullOrEmpty(txtTenHK.Text))
-            {
-                MessageBox.Show("Xin điền dữ liệu vào đầy đủ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                foreach (DataGridViewRow row1 in grdHocKy.Rows)
-                {
-                    if (row1.Cells["MAHK"].Value != null)
-                    {
-                        //compare the text in txtMADG with each MADG row in datagrid Docgia, if it appear then let user know
-                        if (string.Compare(row1.Cells["MAHK"].Value.ToString().Trim(), txtMaHK.Text.Trim()) == 0)
-                        {
-                            test = 0;
-                            MessageBox.Show("Học kỳ này đã có trong Cơ Sở Dữ Liệu!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-                if (test == 1)
-                {
-                    try
-                    {
-                        hocKy_BUS.themHocKy(txtMaHK.Text, txtTenHK.Text,cboHeSoHK.SelectedItem.ToString());
-                        MessageBox.Show("Bạn đã thêm thành công!");
-                        hocKy_BUS.themDong();
-                        FlagDisable1();
-                        flag1 = 0;
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Có lỗi trong quá trình chèn dữ liệu, xin thao tác lại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        this.Close();
-                    }
-                }
-            }
-        }
-
-        private void sua()
-        {
-            if (grdHocKy.SelectedRows.Count >= 1 && txtMaHK.Text != "")
-            {
-                hocKy_BUS.suaHocKy(txtMaHK.Text, txtTenHK.Text,cboHeSoHK.SelectedItem.ToString());
-                MessageBox.Show("Bạn đã sửa thành công!");
-
-                //sửa trong datagrid view
-                hocKy_BUS.suaDataGrid(grdHocKy);
-            }
-            else
-            {
-                MessageBox.Show("Bạn phải lựa chọn một hàng để sửa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            FlagDisable1();
-            flag1 = 0;
-        }
-
-        private void xoa()
-        {
-            if (grdHocKy.SelectedRows.Count >= 1 && txtMaHK.Text != "")
-            {
-                if (MessageBox.Show("Bạn có chắc muốn xóa học kỳ đã được lựa chọn ", "Xóa học kỳ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    hocKy_BUS.xoaHocKy(txtMaHK.Text);
-                    foreach (DataGridViewRow row in grdHocKy.Rows)
-                    {
-                        if (string.Compare(row.Cells["MAHK"].Value.ToString().Trim(), txtMaHK.Text.Trim()) == 0)
-                        {
-
-
-                            hocKy_BUS.xoaDong(grdHocKy, txtMaHK.Text);
-                            resetAll1();
-                            FlagDisable1();
-                            flag1 = 0;
-                            break;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Bạn phải lựa chọn một hàng để xóa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void btnHuy_Click(object sender, EventArgs e)
-        {
-            FlagDisable1();
-            flag1 = 0;
-            txtMaHK.Enabled = true;
-        }
-
-        private void sapXep1()
-        {
-            viTri1 = this.BindingContext[grdHocKy.DataSource].Position;
-            Tong1 = this.BindingContext[grdHocKy.DataSource].Count;
-            if (viTri1 == -1)
-            {
-                viTri1 = 0;
-            }
-            else
-            {
-                txtHienTai.Text = "" + (viTri1 + 1).ToString() + "/" + Tong1.ToString();
-                txtMaHK.Text = grdHocKy.Rows[viTri1].Cells["MAHK"].Value.ToString();
-                txtTenHK.Text = grdHocKy.Rows[viTri1].Cells["TENHK"].Value.ToString();
-                cboHeSoHK.SelectedItem = grdHocKy.Rows[viTri1].Cells["HESOHK"].Value.ToString();
-            }
-        }
-
-        private void btnDau_Click(object sender, EventArgs e)
-        {
-            viTri1 = this.BindingContext[grdHocKy.DataSource].Position;
-            this.BindingContext[grdHocKy.DataSource].Position = 0;
-            sapXep1();
-            btnTruoc.Enabled = false;
-            btnDau.Enabled = false;
-            btnCuoi.Enabled = true;
-            btnSau.Enabled = true;
-        }
-
-        private void btnCuoi_Click(object sender, EventArgs e)
-        {
-            viTri1 = this.BindingContext[grdHocKy.DataSource].Position;
-            this.BindingContext[grdHocKy.DataSource].Position = this.BindingContext[grdNamHoc.DataSource].Count - 1;
-            sapXep1();
-            btnCuoi.Enabled = false;
-            btnSau.Enabled = false;
-            btnTruoc.Enabled = true;
-            btnDau.Enabled = true;
-        }
-
-        private void btnTruoc_Click(object sender, EventArgs e)
-        {
-            viTri1 = this.BindingContext[grdHocKy.DataSource].Position;
-            btnCuoi.Enabled = true;
-            btnSau.Enabled = true;
-            this.BindingContext[grdHocKy.DataSource].Position = viTri1 - 1;
-            sapXep1();
-        }
-
-        private void btnSau_Click(object sender, EventArgs e)
-        {
-            viTri1 = this.BindingContext[grdHocKy.DataSource].Position;
-            btnTruoc.Enabled = true;
-            btnPrev.Enabled = true;
-            this.BindingContext[grdHocKy.DataSource].Position = viTri1 + 1;
-            sapXep1();
-        }
-
-        private void grdHocKy_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtMaHK.Text = grdHocKy.CurrentRow.Cells["MAHK"].Value.ToString();
-            txtTenHK.Text = grdHocKy.CurrentRow.Cells["TENHK"].Value.ToString();
-            cboHeSoHK.SelectedItem = grdHocKy.CurrentRow.Cells["HESOHK"].Value.ToString();
-           
-            sapXep1();       
-        }
-
         private void grdNamHoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtMaNH.Text = grdNamHoc.CurrentRow.Cells["MANH"].Value.ToString();
@@ -463,8 +230,6 @@ namespace QuanLiHocSinh
 
         private void txt_Leave(object sender, EventArgs e)
         {
-            txtMaHK.BackColor = Color.White;
-            txtTenHK.BackColor = Color.White;
             txtTenNH.BackColor = Color.White;
         }
 
@@ -475,8 +240,5 @@ namespace QuanLiHocSinh
                 this.Close();
             }
         }
-
-
-
     }
 }
