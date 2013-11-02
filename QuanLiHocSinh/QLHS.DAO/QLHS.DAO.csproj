@@ -54,6 +54,7 @@
     <Compile Include="clsNAMHOC_DAO.cs" />
     <Compile Include="clsNGUOIDUNG_DAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="clsQUYDINH_DAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QLHS.DTO\QLHS.DTO.csproj">
