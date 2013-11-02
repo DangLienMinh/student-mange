@@ -18,6 +18,7 @@ namespace QuanLiHocSinh
         private frmTiepNhanHocSinh m_FrmHocSinh = null;
         private frmNguoiDung frmNguoiDung = null;
         private frmPhanLop frmTim = null;
+        private frmThongSo m_FrmQuyDinh = null;
         public frmMain()
         {
             InitializeComponent();
@@ -147,6 +148,19 @@ namespace QuanLiHocSinh
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnThamSo_Click(object sender, EventArgs e)
+        {
+            if (m_FrmQuyDinh == null || m_FrmQuyDinh.IsDisposed)
+            {
+                m_FrmQuyDinh = new frmThongSo();
+                m_FrmQuyDinh.FormBorderStyle = FormBorderStyle.None;
+                m_FrmQuyDinh.MdiParent = frmMain.ActiveForm;
+                m_FrmQuyDinh.Show();
+            }
+            else
+                m_FrmQuyDinh.Activate();
         }
     }
 }
