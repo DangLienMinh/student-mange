@@ -53,14 +53,18 @@ namespace QuanLiHocSinh
             hocSinh_BUS.cboGioiTinh(cboGioiTinh);
             //load dữ liệu vào comboBox năm học
             namHoc_BUS.hienThiComboBox(cboNamHoc);
-            // //load dữ liệu vào comboBox lớp theo mã năm học, chỉ lấy lớp 10
-            lop_BUS.cboLop10(cboLop,cboNamHoc.SelectedValue.ToString());
-            //tạo mã học sinh
-            txtMaHS.Text = hocSinh_BUS.taoMaHocSinh(cboNamHoc);
+            if (cboNamHoc.SelectedValue!=null)
+            {
+                // //load dữ liệu vào comboBox lớp theo mã năm học, chỉ lấy lớp 10
+                lop_BUS.cboLop10(cboLop, cboNamHoc.SelectedValue.ToString());
+                //tạo mã học sinh
+                txtMaHS.Text = hocSinh_BUS.taoMaHocSinh(cboNamHoc);
+                //load danh sách học sinh vào datagrid học sinh
+                grdHocSinh.DataSource = hocSinh_BUS.danhSachHocSinh(cboNamHoc);
+            }
+            
             dtiNgaySinh.Value = DateTime.Now;
             dtiNgayNhapHoc.Value = DateTime.Now;
-            //load danh sách học sinh vào datagrid học sinh
-            grdHocSinh.DataSource = hocSinh_BUS.danhSachHocSinh(cboNamHoc);
             datagridMakeUp(grdHocSinh);
         }
 
@@ -195,22 +199,26 @@ namespace QuanLiHocSinh
         }
         private void grdHocSinh_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            cboNamHoc.SelectedValue = grdHocSinh.CurrentRow.Cells["MANH"].Value.ToString();
-            cboLop.SelectedValue = grdHocSinh.CurrentRow.Cells["MALOP"].Value.ToString();
-            cboGioiTinh.SelectedValue = grdHocSinh.CurrentRow.Cells["GIOITINHHS"].Value.ToString();
-            txtMaHS.Text = grdHocSinh.CurrentRow.Cells["MAHS"].Value.ToString();
-            txtTenHS.Text = grdHocSinh.CurrentRow.Cells["TENHS"].Value.ToString();
-            txtDiaChi.Text = grdHocSinh.CurrentRow.Cells["DIACHIHS"].Value.ToString();
-            txtDantoc.Text = grdHocSinh.CurrentRow.Cells["DANTOC"].Value.ToString();
-            txtDienThoai.Text = grdHocSinh.CurrentRow.Cells["DIENTHOAIHS"].Value.ToString();
-            dtiNgaySinh.Text = grdHocSinh.CurrentRow.Cells["NGSINHHS"].Value.ToString();
-            dtiNgayNhapHoc.Text = grdHocSinh.CurrentRow.Cells["NGNHAPHOC"].Value.ToString();
-            if (grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString() != "")
+            if (grdHocSinh.Rows.Count>1)
             {
-                FileStream fs = new FileStream(grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString(), FileMode.Open, FileAccess.Read);
-                picHocSinh.Image = Image.FromStream(fs);
-                fs.Close();
+                cboNamHoc.SelectedValue = grdHocSinh.CurrentRow.Cells["MANH"].Value.ToString();
+                cboLop.SelectedValue = grdHocSinh.CurrentRow.Cells["MALOP"].Value.ToString();
+                cboGioiTinh.SelectedValue = grdHocSinh.CurrentRow.Cells["GIOITINHHS"].Value.ToString();
+                txtMaHS.Text = grdHocSinh.CurrentRow.Cells["MAHS"].Value.ToString();
+                txtTenHS.Text = grdHocSinh.CurrentRow.Cells["TENHS"].Value.ToString();
+                txtDiaChi.Text = grdHocSinh.CurrentRow.Cells["DIACHIHS"].Value.ToString();
+                txtDantoc.Text = grdHocSinh.CurrentRow.Cells["DANTOC"].Value.ToString();
+                txtDienThoai.Text = grdHocSinh.CurrentRow.Cells["DIENTHOAIHS"].Value.ToString();
+                dtiNgaySinh.Text = grdHocSinh.CurrentRow.Cells["NGSINHHS"].Value.ToString();
+                dtiNgayNhapHoc.Text = grdHocSinh.CurrentRow.Cells["NGNHAPHOC"].Value.ToString();
+                if (grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString() != "")
+                {
+                    FileStream fs = new FileStream(grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString(), FileMode.Open, FileAccess.Read);
+                    picHocSinh.Image = Image.FromStream(fs);
+                    fs.Close();
+                }
             }
+            
         }
 
         public void resetALL()
@@ -453,12 +461,14 @@ namespace QuanLiHocSinh
 
         private void cboNamHoc_SelectedValueChanged(object sender, EventArgs e)
         {
-           
-            //load danh sách học sinh theo , mã năm học
-            grdHocSinh.DataSource = hocSinh_BUS.danhSachHocSinh(cboNamHoc);
+            if (cboNamHoc.SelectedValue != null)
+            {
+                //load danh sách học sinh theo , mã năm học
+                grdHocSinh.DataSource = hocSinh_BUS.danhSachHocSinh(cboNamHoc);
 
-            //chọn ra các lớp 10  vào combobox lớp theo năm học
-            lop_BUS.cboLop10(cboLop, cboNamHoc.SelectedValue.ToString()); 
+                //chọn ra các lớp 10  vào combobox lớp theo năm học
+                lop_BUS.cboLop10(cboLop, cboNamHoc.SelectedValue.ToString());
+            }           
         }
 
         private void txt_Enter(object sender, EventArgs e)
