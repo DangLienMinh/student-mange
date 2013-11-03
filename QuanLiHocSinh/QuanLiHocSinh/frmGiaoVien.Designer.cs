@@ -120,7 +120,7 @@
             this.navigationPane1.TitlePanel.Style.GradientAngle = 90;
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
-            this.navigationPane1.TitlePanel.Text = "Nhập liệu thông tin";
+            this.navigationPane1.TitlePanel.Text = "Tìm kiếm thông tin";
             // 
             // navigationPanePanel2
             // 
@@ -453,7 +453,7 @@
             this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(292, 444);
+            this.navigationPanePanel1.Size = new System.Drawing.Size(292, 546);
             this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -668,7 +668,7 @@
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdGiaoVien.DefaultCellStyle = dataGridViewCellStyle5;
             this.grdGiaoVien.Dock = System.Windows.Forms.DockStyle.Bottom;
