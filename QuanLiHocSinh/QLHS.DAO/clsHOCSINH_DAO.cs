@@ -22,7 +22,7 @@ namespace QLHS.DAO
         {
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);
-            SqlCommand command = new SqlCommand("SP_ThongTinHocSinh", con);
+            SqlCommand command = new SqlCommand("SP_ThongTinHocSinhMANH", con);
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = maNH;
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(command);

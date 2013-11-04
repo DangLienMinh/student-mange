@@ -92,8 +92,8 @@ namespace QLHS.BUS
             string tam = "";
             string maHS;
             string str;
-            str = DateTime.Now.ToString().Trim();
-            string namHienTai = str.Substring(6, 4); 
+            str = DateTime.Now.Year.ToString();
+            string namHienTai = str; 
             string maKhoiTao = namHienTai.Trim() + "0000";
             //số học sinh của năm học đó
             int soDong = hocSinh_DAO.danhSachHocSinh(comboBox.SelectedValue.ToString()).Rows.Count;
