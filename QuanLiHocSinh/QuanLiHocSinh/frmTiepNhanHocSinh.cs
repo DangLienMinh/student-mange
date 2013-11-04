@@ -156,6 +156,7 @@ namespace QuanLiHocSinh
         private void btnHuy_Click(object sender, EventArgs e)
         {
             anHienButton(true);
+            resetALL();
         }
 
         private void btnDau_Click(object sender, EventArgs e)
