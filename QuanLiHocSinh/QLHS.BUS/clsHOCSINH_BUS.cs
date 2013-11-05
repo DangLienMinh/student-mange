@@ -74,6 +74,8 @@ namespace QLHS.BUS
             comboBox.SelectedItem = "Nam";
         }
 
+
+
         //public string taoMaHocSinh()
         //{
         //    string Mahs;
