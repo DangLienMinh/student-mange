@@ -14,7 +14,6 @@ namespace QLHS.DTO
             get { return mamh; }
             set { mamh = value; }
         }
-        private string mahk;
         private string magv;
 
         public string Magv
