@@ -283,6 +283,7 @@
             this.txtSiSo.Size = new System.Drawing.Size(62, 20);
             this.txtSiSo.TabIndex = 3;
             this.txtSiSo.Enter += new System.EventHandler(this.txt_Enter);
+            this.txtSiSo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSiSo_KeyPress);
             this.txtSiSo.Leave += new System.EventHandler(this.txt_Leave);
             // 
             // labelX4

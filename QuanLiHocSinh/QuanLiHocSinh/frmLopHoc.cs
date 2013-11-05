@@ -15,34 +15,38 @@ namespace QuanLiHocSinh
 {
     public partial class frmLopHoc : DevComponents.DotNetBar.Office2007Form
     {
-        private clsLOP_BUS lop_bus;
-        private clsKHOI_BUS khoi_bus;
-        private clsNAMHOC_BUS namHoc_bus;
-        private clsLOP_DTO lop_dto;
+        private clsLOP_BUS lop_BUS;
+        private clsKHOI_BUS khoi_BUS;
+        private clsNAMHOC_BUS namHoc_BUS;
+        private clsLOP_DTO lop_DTO;
+        private clsGIAOVIEN_BUS giaoVien_BUS;
         private Boolean flagInsert;
         private Boolean flagUpdate;
         private Boolean flagDelete;
-        private int vitri;
+        private int viTri;
         private int Tong;
+
         public frmLopHoc()
         {
             InitializeComponent();
-            lop_bus = new clsLOP_BUS();
-            namHoc_bus = new clsNAMHOC_BUS();
-            khoi_bus = new clsKHOI_BUS();
-            lop_dto = new clsLOP_DTO();
+            lop_BUS = new clsLOP_BUS();
+            namHoc_BUS = new clsNAMHOC_BUS();
+            khoi_BUS = new clsKHOI_BUS();
+            lop_DTO = new clsLOP_DTO();
+            giaoVien_BUS = new clsGIAOVIEN_BUS();
         }
 
         private void frmLopHoc_Load(object sender, EventArgs e)
         {
             //load dữ liệu vào comboBox năm học
-            namHoc_bus.hienThiComboBox(cboNamHoc);
+            namHoc_BUS.hienThiComboBox(cboNamHoc);
             //load dữ liệu vào comboBox khối
-            khoi_bus.hienThiComboBox(cboKhoi);
+            khoi_BUS.hienThiComboBox(cboKhoi);
             //load dữ liệu vào comboBox giáo viên chủ nhiệm
-            lop_bus.cbogiaoVienChuNhiem(cboGiaoVien);
+            lop_BUS.cbogiaoVienChuNhiem(cboGiaoVien);
             //load danh sách lớp vào datagrid lớp
-            grdLop.DataSource = lop_bus.danhSachLop();
+            grdLop.DataSource = lop_BUS.danhSachLop();
+            //giaoVien_BUS.hienThiGrdColumn(grdLop.Columns["MAGV"]);
             datagridMakeUp(grdLop);
         }
 
@@ -59,7 +63,7 @@ namespace QuanLiHocSinh
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            txtMaLop.Text = lop_bus.taoMaLop();
+            txtMaLop.Text = lop_BUS.taoMaLop();
             txtTenLop.Focus();
             anHienButton(false);
             flagInsert = true;
@@ -85,16 +89,16 @@ namespace QuanLiHocSinh
             {
                 if (kiemTraDuLieu() == 0)
                 {
-                    lop_dto.Malop = txtMaLop.Text;
-                    lop_dto.Tenlop = txtTenLop.Text;
-                    lop_dto.Makhoi = cboKhoi.SelectedValue.ToString();
-                    lop_dto.Manh = cboNamHoc.SelectedValue.ToString();
-                    lop_dto.Magv = cboGiaoVien.SelectedValue.ToString();
-                    lop_dto.Siso = txtSiSo.Text;
+                    lop_DTO.Malop = txtMaLop.Text;
+                    lop_DTO.Tenlop = txtTenLop.Text;
+                    lop_DTO.Makhoi = cboKhoi.SelectedValue.ToString();
+                    lop_DTO.Manh = cboNamHoc.SelectedValue.ToString();
+                    lop_DTO.Magv = cboGiaoVien.SelectedValue.ToString();
+                    lop_DTO.Siso = txtSiSo.Text;
                     try
                     {
-                        lop_bus.themLopHoc(lop_dto);
-                        grdLop.DataSource = lop_bus.danhSachLop();//Load lại danh sách sau khi thêm
+                        lop_BUS.themLopHoc(lop_DTO);
+                        grdLop.DataSource = lop_BUS.danhSachLop();//Load lại danh sách sau khi thêm
                         MessageBox.Show("Thêm lớp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         flagInsert = false;
                     }
@@ -112,17 +116,17 @@ namespace QuanLiHocSinh
                     {
                         if (kiemTraDuLieu() == 0)
                         {
-                            lop_dto.Malop = txtMaLop.Text;
-                            lop_dto.Tenlop = txtTenLop.Text;
-                            lop_dto.Makhoi = cboKhoi.SelectedValue.ToString();
-                            lop_dto.Manh = cboNamHoc.SelectedValue.ToString();
-                            lop_dto.Magv = cboGiaoVien.SelectedValue.ToString();
-                            lop_dto.Siso = txtSiSo.Text;
+                            lop_DTO.Malop = txtMaLop.Text;
+                            lop_DTO.Tenlop = txtTenLop.Text;
+                            lop_DTO.Makhoi = cboKhoi.SelectedValue.ToString();
+                            lop_DTO.Manh = cboNamHoc.SelectedValue.ToString();
+                            lop_DTO.Magv = cboGiaoVien.SelectedValue.ToString();
+                            lop_DTO.Siso = txtSiSo.Text;
                             try
                             {
-                                lop_bus.suaLop(lop_dto);
+                                lop_BUS.suaLop(lop_DTO);
                                 flagUpdate = false;
-                                grdLop.DataSource = lop_bus.danhSachLop();//Load lại danh sách sau khi sửa
+                                grdLop.DataSource = lop_BUS.danhSachLop();//Load lại danh sách sau khi sửa
                                 MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             }
@@ -143,11 +147,11 @@ namespace QuanLiHocSinh
                     {
                         try
                         {
-                            lop_dto.Malop = txtMaLop.Text;
-                            lop_dto.Manh = cboNamHoc.SelectedValue.ToString();
-                            lop_bus.xoaLop(lop_dto);
+                            lop_DTO.Malop = txtMaLop.Text;
+                            lop_DTO.Manh = cboNamHoc.SelectedValue.ToString();
+                            lop_BUS.xoaLop(lop_DTO);
                             flagDelete = false;
-                            grdLop.DataSource = lop_bus.danhSachLop();//Load lại danh sách sau khi xóa
+                            grdLop.DataSource = lop_BUS.danhSachLop();//Load lại danh sách sau khi xóa
                             MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
@@ -198,6 +202,21 @@ namespace QuanLiHocSinh
                 MessageBox.Show("Chưa nhập Sỉ số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dem++;
             }
+            if (cboGiaoVien.SelectedValue==null)
+            {
+                MessageBox.Show("Chưa chọn giáo viên chủ nhiệm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dem++;
+            }
+            if (cboKhoi.SelectedValue == null)
+            {
+                MessageBox.Show("Chưa chọn khối", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dem++;
+            }
+            if (cboNamHoc.SelectedValue == null)
+            {
+                MessageBox.Show("Chưa chọn năm học", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dem++;
+            }
             return dem;
         }
 
@@ -212,17 +231,17 @@ namespace QuanLiHocSinh
         }
         public void hienThiDuLieu()
         {
-            vitri = this.BindingContext[grdLop.DataSource].Position;
+            viTri = this.BindingContext[grdLop.DataSource].Position;
             Tong = this.BindingContext[grdLop.DataSource].Count;
-            if (vitri != -1)
+            if (viTri != -1)
             {
-                txtHienTai.Text = (vitri+1).ToString() + "/" + Tong.ToString();
-                txtMaLop.Text = grdLop.Rows[vitri].Cells["MALOP1"].Value.ToString();
-                txtTenLop.Text = grdLop.Rows[vitri].Cells["TENLOP1"].Value.ToString();
-                txtSiSo.Text = grdLop.Rows[vitri].Cells["SISO1"].Value.ToString();
-                cboGiaoVien.SelectedValue = grdLop.Rows[vitri].Cells["MAGV1"].Value.ToString();
-                cboKhoi.SelectedValue = grdLop.Rows[vitri].Cells["MAKHOI1"].Value.ToString();
-                cboNamHoc.SelectedValue = grdLop.Rows[vitri].Cells["MANH"].Value.ToString();
+                txtHienTai.Text = (viTri+1).ToString() + "/" + Tong.ToString();
+                txtMaLop.Text = grdLop.Rows[viTri].Cells["MALOP1"].Value.ToString();
+                txtTenLop.Text = grdLop.Rows[viTri].Cells["TENLOP1"].Value.ToString();
+                txtSiSo.Text = grdLop.Rows[viTri].Cells["SISO1"].Value.ToString();
+                cboGiaoVien.SelectedValue = grdLop.Rows[viTri].Cells["MAGV1"].Value.ToString();
+                cboKhoi.SelectedValue = grdLop.Rows[viTri].Cells["MAKHOI1"].Value.ToString();
+                cboNamHoc.SelectedValue = grdLop.Rows[viTri].Cells["MANH"].Value.ToString();
             }
         }
 
@@ -238,7 +257,7 @@ namespace QuanLiHocSinh
 
         private void btnTruoc_Click(object sender, EventArgs e)
         {
-            this.BindingContext[grdLop.DataSource].Position = vitri - 1;
+            this.BindingContext[grdLop.DataSource].Position = viTri - 1;
             hienThiDuLieu();
             btnSau.Enabled = true;
             btnCuoi.Enabled = true;
@@ -256,7 +275,7 @@ namespace QuanLiHocSinh
 
         private void btnSau_Click(object sender, EventArgs e)
         {
-            this.BindingContext[grdLop.DataSource].Position = vitri + 1;
+            this.BindingContext[grdLop.DataSource].Position = viTri + 1;
             hienThiDuLieu();
             btnDau.Enabled = true;
             btnTruoc.Enabled = true;
@@ -279,6 +298,15 @@ namespace QuanLiHocSinh
             {
                 this.Close();
             }
+        }
+
+        private void txtSiSo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Chỉ nhập số, không nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }  
         }
     }
 }
