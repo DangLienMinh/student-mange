@@ -97,7 +97,7 @@ namespace QLHS.BUS
             giaoVien_DTO.Gioitinhgv = gioiTinh;
             giaoVien_DTO.Diachigv = diaChi;
             giaoVien_DTO.Hinhanhgv = HinhAnh;
-            giaoVien_DTO.Ngsinhgv = ngaySinh.Value;
+            giaoVien_DTO.Ngsinhgv = DateTime.Parse(ngaySinh.Text);
             giaoVien_DTO.Dienthoaigv = DienThoai;
             giaoVien_DAO.themGiaoVien(giaoVien_DTO);
         }
@@ -122,7 +122,15 @@ namespace QLHS.BUS
             dr["TENGV"] = giaoVien_DTO.Tengv;
             dr["NGSINHGV"] =  giaoVien_DTO.Ngsinhgv;
             dr["DIACHIGV"] = giaoVien_DTO.Diachigv;
-            dr["GIOITINHGV"] = giaoVien_DTO.Gioitinhgv;
+            if (string.Compare(giaoVien_DTO.Gioitinhgv,"0")==0)
+            {
+                dr["GIOITINHGV"] = "Nam";
+            }
+            else
+            {
+                dr["GIOITINHGV"] = "Nữ";
+            }
+
             dr["DIENTHOAIGV"] =  giaoVien_DTO.Dienthoaigv;
             dr["HINHANHGV"] = giaoVien_DTO.Hinhanhgv;
             return dr;
@@ -153,7 +161,15 @@ namespace QLHS.BUS
                         row1.Cells["TENGV"].Value = giaoVien_DTO.Tengv;
                         row1.Cells["NGSINHGV"].Value = giaoVien_DTO.Ngsinhgv;
                         row1.Cells["DIACHIGV"].Value = giaoVien_DTO.Diachigv;
-                        row1.Cells["GIOITINHGV"].Value = giaoVien_DTO.Gioitinhgv;
+                        if (string.Compare(giaoVien_DTO.Gioitinhgv, "0") == 0)
+                        {
+                            row1.Cells["GIOITINHGV"].Value = "Nam";
+                        }
+                        else
+                        {
+                            row1.Cells["GIOITINHGV"].Value = "Nữ";
+                        }
+
                         row1.Cells["DIENTHOAIGV"].Value = giaoVien_DTO.Dienthoaigv;
                         row1.Cells["HINHANHGV"].Value = giaoVien_DTO.Hinhanhgv;
                     }
