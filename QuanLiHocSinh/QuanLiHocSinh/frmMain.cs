@@ -17,8 +17,11 @@ namespace QuanLiHocSinh
         private frmNamHoc m_FrmNamHoc = null;
         private frmTiepNhanHocSinh m_FrmHocSinh = null;
         private frmNguoiDung frmNguoiDung = null;
-        private frmPhanLop frmTim = null;
+        private frmPhanLop m_FrmPhanLop = null;
         private frmThongSo m_FrmQuyDinh = null;
+        private frmPhanCong m_FrmPhanCong = null;
+        private frmHocSinhTheoLop m_FrmTimLop = null;
+
         public frmMain()
         {
             InitializeComponent();
@@ -121,15 +124,7 @@ namespace QuanLiHocSinh
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-            if (frmTim == null || frmTim.IsDisposed)
-            {
-                frmTim = new frmPhanLop();
-                frmTim.FormBorderStyle = FormBorderStyle.None;
-                frmTim.MdiParent = frmMain.ActiveForm;
-                frmTim.Show();
-            }
-            else
-                m_FrmMonHoc.Activate();
+            
         }
 
         private void btnHocSinh_Click(object sender, EventArgs e)
@@ -145,11 +140,6 @@ namespace QuanLiHocSinh
                 m_FrmHocSinh.Activate();
         }
 
-        private void btnDoiMatKhau_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnThamSo_Click(object sender, EventArgs e)
         {
             if (m_FrmQuyDinh == null || m_FrmQuyDinh.IsDisposed)
@@ -163,9 +153,45 @@ namespace QuanLiHocSinh
                 m_FrmQuyDinh.Activate();
         }
 
-        private void ribbonControl1_Click(object sender, EventArgs e)
-        {
 
+        private void btnPhanLop_Click(object sender, EventArgs e)
+        {
+            if (m_FrmPhanLop == null || m_FrmPhanLop.IsDisposed)
+            {
+                m_FrmPhanLop = new frmPhanLop();
+                m_FrmPhanLop.FormBorderStyle = FormBorderStyle.None;
+                m_FrmPhanLop.MdiParent = frmMain.ActiveForm;
+                m_FrmPhanLop.Show();
+            }
+            else
+                m_FrmMonHoc.Activate();
+        }
+
+        private void btnPhanCong_Click(object sender, EventArgs e)
+        {
+            if (m_FrmPhanCong == null || m_FrmPhanCong.IsDisposed)
+            {
+                m_FrmPhanCong = new frmPhanCong();
+                m_FrmPhanCong.FormBorderStyle = FormBorderStyle.None;
+                m_FrmPhanCong.MdiParent = frmMain.ActiveForm;
+                m_FrmPhanCong.Show();
+            }
+            else
+                m_FrmMonHoc.Activate();
+        }
+
+        private void btnTimLop_Click(object sender, EventArgs e)
+        {
+            if (m_FrmTimLop == null || m_FrmTimLop.IsDisposed)
+            {
+                m_FrmTimLop = new frmHocSinhTheoLop();
+                m_FrmTimLop.FormBorderStyle = FormBorderStyle.None;
+                m_FrmTimLop.MdiParent = frmMain.ActiveForm;
+                m_FrmTimLop.Show();
+            }
+            else
+                m_FrmTimLop.Activate();
+            
         }
     }
 }

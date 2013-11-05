@@ -61,6 +61,25 @@ namespace QuanLiHocSinh
                 MessageBox.Show("Bạn phải chon một lớp");
             }else
             grdHocSinh.DataSource = hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHoc, treeLop);
+            if (grdHocSinh.Rows.Count > 1)
+            {
+                foreach (DataGridViewRow row in grdHocSinh.Rows)
+                {
+                    if (row.Cells["MAHS"].Value != null)
+                    {
+                        char x = char.Parse(row.Cells["GIOITINHHS"].Value.ToString());
+                        if (x == '0')
+                        {
+                            row.Cells["GIOITINHHS"].Value = "Nam";
+                        }
+                        else
+                        {
+                            row.Cells["GIOITINHHS"].Value = "Nữ";
+                        }
+                    }
+
+                }
+            }
         }
 
         private void btnDau_Click(object sender, EventArgs e)
