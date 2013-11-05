@@ -50,7 +50,6 @@
             this.DANTOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NGNHAPHOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HINHANHHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.btnLop = new DevComponents.DotNetBar.ButtonX();
@@ -60,7 +59,6 @@
             this.btnHuy = new DevComponents.DotNetBar.ButtonX();
             this.btnDongy = new DevComponents.DotNetBar.ButtonX();
             this.btnChonAnh = new DevComponents.DotNetBar.ButtonX();
-            this.picHocSinh = new System.Windows.Forms.PictureBox();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.dtiNgayNhapHoc = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.dtiNgaySinh = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
@@ -81,13 +79,15 @@
             this.txtTenHS = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtMaHS = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
+            this.picHocSinh = new System.Windows.Forms.PictureBox();
+            this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdHocSinh)).BeginInit();
             this.navigationPane1.SuspendLayout();
             this.navigationPanePanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picHocSinh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtiNgayNhapHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtiNgaySinh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHocSinh)).BeginInit();
             this.SuspendLayout();
             // 
             // groupPanel1
@@ -230,7 +230,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdHocSinh.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdHocSinh.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -319,15 +319,6 @@
             this.HINHANHHS.HeaderText = "Hình ảnh";
             this.HINHANHHS.Name = "HINHANHHS";
             this.HINHANHHS.Visible = false;
-            // 
-            // btnItemNhap
-            // 
-            this.btnItemNhap.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemNhap.Checked = true;
-            this.btnItemNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhap.Image")));
-            this.btnItemNhap.Name = "btnItemNhap";
-            this.btnItemNhap.OptionGroup = "navBar";
-            this.btnItemNhap.Text = "Nhập liệu thông tin";
             // 
             // navigationPane1
             // 
@@ -495,16 +486,6 @@
             this.btnChonAnh.Tag = "";
             this.btnChonAnh.Text = "Chọn ảnh ...";
             this.btnChonAnh.Click += new System.EventHandler(this.btnChonAnh_Click);
-            // 
-            // picHocSinh
-            // 
-            this.picHocSinh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picHocSinh.Location = new System.Drawing.Point(181, 8);
-            this.picHocSinh.Name = "picHocSinh";
-            this.picHocSinh.Size = new System.Drawing.Size(100, 110);
-            this.picHocSinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picHocSinh.TabIndex = 29;
-            this.picHocSinh.TabStop = false;
             // 
             // labelX8
             // 
@@ -831,6 +812,25 @@
             this.labelX14.TabIndex = 18;
             this.labelX14.Text = "Mã học sinh:";
             // 
+            // picHocSinh
+            // 
+            this.picHocSinh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picHocSinh.Location = new System.Drawing.Point(181, 8);
+            this.picHocSinh.Name = "picHocSinh";
+            this.picHocSinh.Size = new System.Drawing.Size(100, 110);
+            this.picHocSinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picHocSinh.TabIndex = 29;
+            this.picHocSinh.TabStop = false;
+            // 
+            // btnItemNhap
+            // 
+            this.btnItemNhap.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemNhap.Checked = true;
+            this.btnItemNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhap.Image")));
+            this.btnItemNhap.Name = "btnItemNhap";
+            this.btnItemNhap.OptionGroup = "navBar";
+            this.btnItemNhap.Text = "Nhập liệu thông tin";
+            // 
             // frmTiepNhanHocSinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -848,9 +848,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdHocSinh)).EndInit();
             this.navigationPane1.ResumeLayout(false);
             this.navigationPanePanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picHocSinh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtiNgayNhapHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtiNgaySinh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHocSinh)).EndInit();
             this.ResumeLayout(false);
 
         }

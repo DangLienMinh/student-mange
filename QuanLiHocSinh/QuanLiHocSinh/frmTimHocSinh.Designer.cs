@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTimHocSinh));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTimHocSinh));
             this.btnHuy = new DevComponents.DotNetBar.ButtonX();
             this.btnTim = new DevComponents.DotNetBar.ButtonX();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
@@ -47,8 +47,6 @@
             this.optDanToc = new System.Windows.Forms.RadioButton();
             this.optTenHS = new System.Windows.Forms.RadioButton();
             this.optMaHS = new System.Windows.Forms.RadioButton();
-            this.btnItemTimCB = new DevComponents.DotNetBar.ButtonItem();
-            this.btnItemTimNC = new DevComponents.DotNetBar.ButtonItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.btnCuoi = new DevComponents.DotNetBar.ButtonX();
             this.btnSau = new DevComponents.DotNetBar.ButtonX();
@@ -87,6 +85,8 @@
             this.btnHuy1 = new DevComponents.DotNetBar.ButtonX();
             this.btnTim1 = new DevComponents.DotNetBar.ButtonX();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
+            this.btnItemTimNC = new DevComponents.DotNetBar.ButtonItem();
+            this.btnItemTimCB = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPanePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtiNgNhapHoc)).BeginInit();
             this.groupPanel1.SuspendLayout();
@@ -144,7 +144,7 @@
             this.navigationPanePanel2.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel2.Name = "navigationPanePanel2";
             this.navigationPanePanel2.ParentItem = this.btnItemTimCB;
-            this.navigationPanePanel2.Size = new System.Drawing.Size(292, 546);
+            this.navigationPanePanel2.Size = new System.Drawing.Size(292, 444);
             this.navigationPanePanel2.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel2.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -154,11 +154,13 @@
             // 
             // txtDanToc
             // 
+            this.txtDanToc.BackColor = System.Drawing.SystemColors.Control;
             // 
             // 
             // 
             this.txtDanToc.Border.Class = "TextBoxBorder";
             this.txtDanToc.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtDanToc.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtDanToc.Location = new System.Drawing.Point(147, 137);
             this.txtDanToc.Name = "txtDanToc";
             this.txtDanToc.Size = new System.Drawing.Size(112, 20);
@@ -166,11 +168,13 @@
             // 
             // txtTenHS
             // 
+            this.txtTenHS.BackColor = System.Drawing.SystemColors.Control;
             // 
             // 
             // 
             this.txtTenHS.Border.Class = "TextBoxBorder";
             this.txtTenHS.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtTenHS.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtTenHS.Location = new System.Drawing.Point(147, 88);
             this.txtTenHS.Name = "txtTenHS";
             this.txtTenHS.Size = new System.Drawing.Size(112, 20);
@@ -178,11 +182,13 @@
             // 
             // txtMaHS
             // 
+            this.txtMaHS.BackColor = System.Drawing.SystemColors.Control;
             // 
             // 
             // 
             this.txtMaHS.Border.Class = "TextBoxBorder";
             this.txtMaHS.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtMaHS.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtMaHS.Location = new System.Drawing.Point(147, 39);
             this.txtMaHS.Name = "txtMaHS";
             this.txtMaHS.Size = new System.Drawing.Size(112, 20);
@@ -341,23 +347,6 @@
             this.optMaHS.UseVisualStyleBackColor = true;
             this.optMaHS.CheckedChanged += new System.EventHandler(this.optMaHS_CheckedChanged);
             // 
-            // btnItemTimCB
-            // 
-            this.btnItemTimCB.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemTimCB.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTimCB.Image")));
-            this.btnItemTimCB.Name = "btnItemTimCB";
-            this.btnItemTimCB.OptionGroup = "navBar";
-            this.btnItemTimCB.Text = "Tìm kiếm căn bản";
-            // 
-            // btnItemTimNC
-            // 
-            this.btnItemTimNC.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemTimNC.Checked = true;
-            this.btnItemTimNC.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTimNC.Image")));
-            this.btnItemTimNC.Name = "btnItemTimNC";
-            this.btnItemTimNC.OptionGroup = "navBar";
-            this.btnItemTimNC.Text = "Tìm kiếm nâng cao";
-            // 
             // groupPanel1
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
@@ -458,11 +447,13 @@
             // txtHienTai
             // 
             this.txtHienTai.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtHienTai.BackColor = System.Drawing.SystemColors.Control;
             // 
             // 
             // 
             this.txtHienTai.Border.Class = "TextBoxBorder";
             this.txtHienTai.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtHienTai.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtHienTai.Location = new System.Drawing.Point(328, 12);
             this.txtHienTai.Name = "txtHienTai";
             this.txtHienTai.ReadOnly = true;
@@ -496,7 +487,7 @@
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdHocSinh.DefaultCellStyle = dataGridViewCellStyle5;
             this.grdHocSinh.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -705,11 +696,13 @@
             // 
             // txtDanToc1
             // 
+            this.txtDanToc1.BackColor = System.Drawing.SystemColors.Control;
             // 
             // 
             // 
             this.txtDanToc1.Border.Class = "TextBoxBorder";
             this.txtDanToc1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtDanToc1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtDanToc1.Location = new System.Drawing.Point(147, 139);
             this.txtDanToc1.Name = "txtDanToc1";
             this.txtDanToc1.Size = new System.Drawing.Size(112, 20);
@@ -717,11 +710,13 @@
             // 
             // txtTenHS1
             // 
+            this.txtTenHS1.BackColor = System.Drawing.SystemColors.Control;
             // 
             // 
             // 
             this.txtTenHS1.Border.Class = "TextBoxBorder";
             this.txtTenHS1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtTenHS1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtTenHS1.Location = new System.Drawing.Point(147, 90);
             this.txtTenHS1.Name = "txtTenHS1";
             this.txtTenHS1.Size = new System.Drawing.Size(112, 20);
@@ -729,11 +724,13 @@
             // 
             // txtMaHS1
             // 
+            this.txtMaHS1.BackColor = System.Drawing.SystemColors.Control;
             // 
             // 
             // 
             this.txtMaHS1.Border.Class = "TextBoxBorder";
             this.txtMaHS1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtMaHS1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtMaHS1.Location = new System.Drawing.Point(147, 41);
             this.txtMaHS1.Name = "txtMaHS1";
             this.txtMaHS1.Size = new System.Drawing.Size(112, 20);
@@ -908,6 +905,23 @@
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
             this.navigationPane1.TitlePanel.Text = "Tìm kiếm căn bản";
+            // 
+            // btnItemTimNC
+            // 
+            this.btnItemTimNC.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemTimNC.Checked = true;
+            this.btnItemTimNC.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTimNC.Image")));
+            this.btnItemTimNC.Name = "btnItemTimNC";
+            this.btnItemTimNC.OptionGroup = "navBar";
+            this.btnItemTimNC.Text = "Tìm kiếm nâng cao";
+            // 
+            // btnItemTimCB
+            // 
+            this.btnItemTimCB.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemTimCB.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTimCB.Image")));
+            this.btnItemTimCB.Name = "btnItemTimCB";
+            this.btnItemTimCB.OptionGroup = "navBar";
+            this.btnItemTimCB.Text = "Tìm kiếm căn bản";
             // 
             // frmTimHocSinh
             // 

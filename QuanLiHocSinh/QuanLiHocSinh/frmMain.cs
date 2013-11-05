@@ -19,7 +19,6 @@ namespace QuanLiHocSinh
         private frmNguoiDung frmNguoiDung = null;
         private frmPhanLop frmTim = null;
         private frmThongSo m_FrmQuyDinh = null;
-        private frmPhanCong m_FrmPhanCong = null;
         public frmMain()
         {
             InitializeComponent();
@@ -164,15 +163,9 @@ namespace QuanLiHocSinh
                 m_FrmQuyDinh.Activate();
         }
 
-        private void btnPhanCong_Click(object sender, EventArgs e)
+        private void ribbonControl1_Click(object sender, EventArgs e)
         {
-            if (m_FrmPhanCong == null || m_FrmPhanCong.IsDisposed)
-            {
-                m_FrmPhanCong = new frmPhanCong();
-                m_FrmPhanCong.FormBorderStyle = FormBorderStyle.None;
-                m_FrmPhanCong.MdiParent = frmMain.ActiveForm;
-                m_FrmPhanCong.Show();
-            }
+
         }
     }
 }
