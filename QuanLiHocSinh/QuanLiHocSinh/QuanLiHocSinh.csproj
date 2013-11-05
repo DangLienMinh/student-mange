@@ -189,6 +189,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -224,6 +225,9 @@
       <DependentUpon>QuanLyHocSinh1.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="resources\39.png" />
+    <None Include="resources\348527.png" />
+    <None Include="resources\902759421.png" />
     <Content Include="resources\books copy.png" />
     <Content Include="resources\cal-ico copy.png" />
     <Content Include="resources\Calendar-icon.png" />
@@ -234,6 +238,7 @@
     <Content Include="resources\DangXuat.png" />
     <Content Include="resources\DoiMatKhau.png" />
     <Content Include="resources\education-edutainment-2.png" />
+    <None Include="resources\Employee Add copy.png" />
     <Content Include="resources\HuongDan.png" />
     <Content Include="resources\imagdes copy.png" />
     <Content Include="resources\images copy.png" />
@@ -244,6 +249,7 @@
     <Content Include="resources\picture1_03.gif" />
     <Content Include="resources\picture2.gif" />
     <Content Include="resources\preferences-desktop-personal.png" />
+    <None Include="resources\saoluu.png" />
     <Content Include="resources\school.png" />
     <Content Include="resources\Search-Male-User.png" />
     <Content Include="resources\Search.png" />
@@ -252,6 +258,7 @@
     <Content Include="resources\Teacher-icon.png" />
     <Content Include="resources\Teacher_Female_Dark.png" />
     <Content Include="resources\ThamSo.png" />
+    <None Include="resources\thoat.png" />
     <Content Include="resources\ThongTin.png" />
     <Content Include="resources\Untitled-d.png" />
     <Content Include="resources\win7.png" />
