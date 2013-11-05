@@ -20,7 +20,7 @@ namespace QLHS.DAO
         {
             connection.kiemTraKetNoi(con);
             DataTable table = new DataTable();
-            SqlCommand command = new SqlCommand("SP_DanhSachPhanCon", con);
+            SqlCommand command = new SqlCommand("SP_DanhSachPhanCong", con);
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);
             con.Close();
@@ -30,10 +30,23 @@ namespace QLHS.DAO
         {
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThemGiangDay", con);
-            command.Parameters.Add("@MAMH", SqlDbType.VarChar).Value = giangday.Mamh;
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = giangday.Manh;
-            command.Parameters.Add("@MAGV", SqlDbType.Char).Value = giangday.Magv;
-            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = giangday.Malop;
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MAMH", SqlDbType.VarChar,10).Value = giangday.Mamh;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar,6).Value = giangday.Manh;
+            command.Parameters.Add("@MAGV", SqlDbType.Char,5).Value = giangday.Magv;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar,10).Value = giangday.Malop;
+            command.ExecuteNonQuery();
+            con.Close();
+        }
+        public void xoaPhanCong(clsGIANGDAY_DTO giangday)
+        {
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_XoaGiangDay", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MAMH", SqlDbType.VarChar, 10).Value = giangday.Mamh;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar, 6).Value = giangday.Manh;
+            command.Parameters.Add("@MAGV", SqlDbType.Char, 5).Value = giangday.Magv;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar, 10).Value = giangday.Malop;
             command.ExecuteNonQuery();
             con.Close();
         }

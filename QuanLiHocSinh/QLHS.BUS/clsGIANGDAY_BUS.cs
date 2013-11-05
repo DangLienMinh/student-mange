@@ -55,5 +55,13 @@ namespace QLHS.BUS
         {
             giangday_dao.themPhanCong(giangday);
         }
+        public DataTable danhsachPhanCong()
+        {
+            return giangday_dao.danhsachPhancong();
+        }
+        public void xoaPhanCong(clsGIANGDAY_DTO giangday)
+        {
+            giangday_dao.xoaPhanCong(giangday);
+        }
     }
 }
