@@ -64,6 +64,25 @@ namespace QuanLiHocSinh
         {
             //load danh sách giáo viên vào datagrid giáo viên
             giaoVien_BUS.hienThiDanhSach(grdGiaoVien);
+            if (grdGiaoVien.Rows.Count>1)
+            {
+                foreach (DataGridViewRow row in grdGiaoVien.Rows)
+                {
+                    if (row.Cells["MAGV"].Value!=null)
+                    {
+                        char x = char.Parse(row.Cells["GIOITINHGV"].Value.ToString());
+                        if (x == '0')
+                        {
+                            row.Cells["GIOITINHGV"].Value = "Nam";
+                        }
+                        else
+                        {
+                            row.Cells["GIOITINHGV"].Value = "Nữ";
+                        }
+                    }
+                    
+                }
+            }
             //load dữ liệu vào comboBox giới tính
             giaoVien_BUS.hienThiComboBox(cboGioiTinh);
             FlagDisable();
@@ -226,19 +245,9 @@ namespace QuanLiHocSinh
             txtTenGV.Text = grdGiaoVien.CurrentRow.Cells["TENGV"].Value.ToString();
             txtDiaChi.Text = grdGiaoVien.CurrentRow.Cells["DIACHIGV"].Value.ToString();
             txtDienThoai.Text = grdGiaoVien.CurrentRow.Cells["DIENTHOAIGV"].Value.ToString();
+            cboGioiTinh.SelectedItem = grdGiaoVien.CurrentRow.Cells["GIOITINHGV"].Value.ToString();
 
             string ngaySinh = grdGiaoVien.CurrentRow.Cells["NGSINHGV"].Value.ToString();
-            string gioiTinh = grdGiaoVien.CurrentRow.Cells["GIOITINHGV"].Value.ToString();
-
-            if (gioiTinh == "0")
-            {
-                cboGioiTinh.SelectedItem = "Nam";
-            }
-            else
-            {
-                cboGioiTinh.SelectedItem = "Nữ";
-            }
-
             if (ngaySinh != "")
             {
                 DateTime d = new DateTime();
@@ -321,18 +330,10 @@ namespace QuanLiHocSinh
                 txtTenGV.Text = grdGiaoVien.Rows[viTri].Cells["TENGV"].Value.ToString();
                 txtDiaChi.Text = grdGiaoVien.Rows[viTri].Cells["DIACHIGV"].Value.ToString();
                 txtDienThoai.Text = grdGiaoVien.Rows[viTri].Cells["DIENTHOAIGV"].Value.ToString();
+                cboGioiTinh.SelectedItem = grdGiaoVien.CurrentRow.Cells["GIOITINHGV"].Value.ToString();
 
                 string ngaySinh = grdGiaoVien.Rows[viTri].Cells["NGSINHGV"].Value.ToString();
-                string gioiTinh = grdGiaoVien.Rows[viTri].Cells["GIOITINHGV"].Value.ToString();
 
-                if (gioiTinh == "0")
-                {
-                    cboGioiTinh.SelectedItem = "Nam";
-                }
-                else
-                {
-                    cboGioiTinh.SelectedItem = "Nữ";
-                }
 
                 if (ngaySinh != "")
                 {
