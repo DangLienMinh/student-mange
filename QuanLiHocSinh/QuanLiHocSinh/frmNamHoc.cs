@@ -14,7 +14,7 @@ namespace QuanLiHocSinh
 {
     public partial class frmNamHoc : DevComponents.DotNetBar.Office2007Form
     {
-        private clsNAMHOC_BUS namHoc_BUS = new clsNAMHOC_BUS();
+        private clsNAMHOC_BUS namHoc_BUS;
         private int flag = 0;
         private int viTri, Tong;
 
@@ -22,6 +22,7 @@ namespace QuanLiHocSinh
         {
             InitializeComponent();
             this.KeyPreview = true;
+            namHoc_BUS = new clsNAMHOC_BUS();
             datagridMakeUp(grdNamHoc);
         }
 
