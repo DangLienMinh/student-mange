@@ -231,16 +231,10 @@ namespace QLHS.BUS
             grdHocSinh.DataSource = hocSinh_DAO.timHocSinhNgNhapHoc(hs);
         }
 
-        public DataTable timHocSinhNangCao(clsHOCSINH_DTO hs,ComboBoxEx dieuKien)
+        public DataTable timHocSinhNangCao(clsHOCSINH_DTO hs,RadioButton dieuKien)
         {
-            return hocSinh_DAO.timHocSinhNangCao(hs, dieuKien.SelectedItem.ToString());
+            return hocSinh_DAO.timHocSinhNangCao(hs, dieuKien.Text);
         }
 
-        public void cbDieuKien(ComboBoxEx dieuKien)
-        {
-            dieuKien.Items.Add("AND");
-            dieuKien.Items.Add("OR");
-            dieuKien.SelectedItem = "AND";
-        }
     }     
 }
