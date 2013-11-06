@@ -203,6 +203,7 @@
             this.btnTimHocSinh.Name = "btnTimHocSinh";
             this.btnTimHocSinh.SubItemsExpandWidth = 14;
             this.btnTimHocSinh.Text = "Tìm Học Sinh";
+            this.btnTimHocSinh.Click += new System.EventHandler(this.btnTimHocSinh_Click);
             // 
             // btnTimLop
             // 
