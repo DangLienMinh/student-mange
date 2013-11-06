@@ -30,14 +30,13 @@ namespace QLHS.BUS
             comboBox.SelectedItem = "Nam";
         }
 
-        //public void hienThiGrdColumn(DataGridViewComboBoxColumn cboColumn)
-        //{
-        //    cboColumn.DataSource =giaoVien_DAO.danhSachGiaoVien();
-        //    cboColumn.DisplayMember = "TenGV";
-        //    cboColumn.ValueMember = "MaGV";
-        //    cboColumn.DataPropertyName = "MaGV";
-        //    cboColumn.HeaderText = "Giáo viên";
-        //}
+        public void HienThiDataGridViewComboBoxColumn(DataGridViewComboBoxColumn cboColumn)
+        {
+            cboColumn.DataSource = giaoVien_DAO.danhSachGiaoVien();
+            cboColumn.DisplayMember = "TenGV";
+            cboColumn.ValueMember = "MaGV";
+            cboColumn.DataPropertyName = "MAGV";
+        }
 
         public void hienThiDanhSach(DataGridViewX grdGV)
         {

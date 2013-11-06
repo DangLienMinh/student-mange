@@ -44,9 +44,13 @@ namespace QuanLiHocSinh
             khoi_BUS.hienThiComboBox(cboKhoi);
             //load dữ liệu vào comboBox giáo viên chủ nhiệm
             lop_BUS.cbogiaoVienChuNhiem(cboGiaoVien);
+           
+            //Hiển thị theo tên cho datagrid column ví dụ MAGV sẽ lấy tên hiển thị
+            namHoc_BUS.HienThiDataGridViewComboBoxColumn(MANH1);
+            giaoVien_BUS.HienThiDataGridViewComboBoxColumn(MAGV1);
+            khoi_BUS.HienThiDataGridViewComboBoxColumn(MAKHOI1);
             //load danh sách lớp vào datagrid lớp
             grdLop.DataSource = lop_BUS.danhSachLop();
-            //giaoVien_BUS.hienThiGrdColumn(grdLop.Columns["MAGV"]);
             datagridMakeUp(grdLop);
         }
 
@@ -227,7 +231,7 @@ namespace QuanLiHocSinh
             txtSiSo.Text = grdLop.CurrentRow.Cells["SISO1"].Value.ToString();
             cboGiaoVien.SelectedValue = grdLop.CurrentRow.Cells["MAGV1"].Value.ToString();
             cboKhoi.SelectedValue = grdLop.CurrentRow.Cells["MAKHOI1"].Value.ToString();
-            cboNamHoc.SelectedValue = grdLop.CurrentRow.Cells["MANH"].Value.ToString();
+            cboNamHoc.SelectedValue = grdLop.CurrentRow.Cells["MANH1"].Value.ToString();
         }
         public void hienThiDuLieu()
         {
@@ -241,7 +245,7 @@ namespace QuanLiHocSinh
                 txtSiSo.Text = grdLop.Rows[viTri].Cells["SISO1"].Value.ToString();
                 cboGiaoVien.SelectedValue = grdLop.Rows[viTri].Cells["MAGV1"].Value.ToString();
                 cboKhoi.SelectedValue = grdLop.Rows[viTri].Cells["MAKHOI1"].Value.ToString();
-                cboNamHoc.SelectedValue = grdLop.Rows[viTri].Cells["MANH"].Value.ToString();
+                cboNamHoc.SelectedValue = grdLop.Rows[viTri].Cells["MANH1"].Value.ToString();
             }
         }
 

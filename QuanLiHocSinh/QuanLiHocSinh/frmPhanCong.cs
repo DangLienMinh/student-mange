@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using QLHS.DTO;
 using QLHS.BUS;
+using DevComponents.DotNetBar.Controls;
+
 namespace QuanLiHocSinh
 {
     public partial class frmPhanCong : DevComponents.DotNetBar.Office2007Form
@@ -45,7 +47,19 @@ namespace QuanLiHocSinh
             giangday_bus.hienthiGiaovien(cboGiaoVien);
             giangday_bus.hienthiMonhoc(cboMonHoc);
             grdPhanCong.DataSource = giangday_bus.danhsachPhanCong();
+            datagridMakeUp(grdPhanCong);
         }
+
+        private void datagridMakeUp(DataGridViewX temp)
+        {
+            temp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
+            temp.AutoResizeRows();
+            temp.AllowUserToResizeColumns = true;
+            temp.DefaultCellStyle.WrapMode = DataGridViewTriState.NotSet;
+            temp.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            temp.ReadOnly = true;
+        }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             anHienButton(false);

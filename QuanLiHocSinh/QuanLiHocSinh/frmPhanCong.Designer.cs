@@ -640,6 +640,7 @@
             this.DoubleBuffered = true;
             this.Name = "frmPhanCong";
             this.Text = "PHÂN CÔNG GIẢNG DẠY";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPhanCong_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdPhanCong)).EndInit();
             this.navigationPanePanel1.ResumeLayout(false);

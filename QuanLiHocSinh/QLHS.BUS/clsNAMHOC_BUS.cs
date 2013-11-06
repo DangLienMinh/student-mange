@@ -36,6 +36,14 @@ namespace QLHS.BUS
             cb.ValueMember = "MANH";
         }
 
+        public void HienThiDataGridViewComboBoxColumn(DataGridViewComboBoxColumn cboColumn)
+        {
+            cboColumn.DataSource = namHoc_DAO.danhSachNamHoc();
+            cboColumn.DisplayMember = "TENNH";
+            cboColumn.ValueMember = "MANH";
+            cboColumn.DataPropertyName = "MANH";
+        }
+
         public void themNamHoc(string maNH, string tenNH)
         {
             namHoc__DTO = new clsNAMHOC_DTO();
