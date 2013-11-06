@@ -44,6 +44,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDangNhap.Designer.cs">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDiem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +73,12 @@
     </Compile>
     <Compile Include="frmHocSinhTheoLop.Designer.cs">
       <DependentUpon>frmHocSinhTheoLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmManHinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManHinh.Designer.cs">
+      <DependentUpon>frmManHinh.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPhanCong.cs">
       <SubType>Form</SubType>
@@ -136,6 +154,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDangNhap.resx">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDiem.resx">
       <DependentUpon>frmDiem.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHocSinhTheoLop.resx">
       <DependentUpon>frmHocSinhTheoLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManHinh.resx">
+      <DependentUpon>frmManHinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPhanCong.resx">
       <DependentUpon>frmPhanCong.cs</DependentUpon>
@@ -228,6 +255,7 @@
     <None Include="resources\39.png" />
     <None Include="resources\348527.png" />
     <None Include="resources\902759421.png" />
+    <None Include="resources\3485271.png" />
     <Content Include="resources\books copy.png" />
     <Content Include="resources\cal-ico copy.png" />
     <Content Include="resources\Calendar-icon.png" />
@@ -244,6 +272,7 @@
     <Content Include="resources\images copy.png" />
     <Content Include="resources\imdages copy.png" />
     <Content Include="resources\ismages copy.png" />
+    <None Include="resources\learning-prv.png" />
     <Content Include="resources\notus-icon.png" />
     <Content Include="resources\picture1_02.gif" />
     <Content Include="resources\picture1_03.gif" />

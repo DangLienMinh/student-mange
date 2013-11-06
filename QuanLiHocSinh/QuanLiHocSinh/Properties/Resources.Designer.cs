@@ -73,6 +73,16 @@ namespace QuanLiHocSinh.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3485271 {
+            get {
+                object obj = ResourceManager.GetObject("3485271", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _39 {
             get {
                 object obj = ResourceManager.GetObject("39", resourceCulture);
@@ -96,6 +106,16 @@ namespace QuanLiHocSinh.Properties {
         internal static System.Drawing.Bitmap Employee_Add_copy {
             get {
                 object obj = ResourceManager.GetObject("Employee Add copy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap learning_prv {
+            get {
+                object obj = ResourceManager.GetObject("learning-prv", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
