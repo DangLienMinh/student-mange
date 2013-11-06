@@ -82,7 +82,7 @@ namespace QLHS.DAO
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@MAGV", SqlDbType.Char).Value = giaovien.Magv;
             command.Parameters.Add("@TENGV", SqlDbType.NVarChar).Value = giaovien.Tengv;
-            command.Parameters.Add("@NGSINHGV", SqlDbType.SmallDateTime).Value = giaovien.Ngsinhgv;
+            command.Parameters.Add("@NGSINHGV", SqlDbType.SmallDateTime).Value = giaovien.Ngsinhgv.ToString("yyyy-MM-dd");
             command.Parameters.Add("@GIOITINHGV", SqlDbType.Char).Value = giaovien.Gioitinhgv;
             command.Parameters.Add("@DIACHIGV", SqlDbType.NVarChar).Value = giaovien.Diachigv;
             command.Parameters.Add("@DIENTHOAIGV", SqlDbType.NVarChar).Value = giaovien.Dienthoaigv;
@@ -98,7 +98,7 @@ namespace QLHS.DAO
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@MAGV", SqlDbType.Char).Value = giaovien.Magv;
             command.Parameters.Add("@TENGV", SqlDbType.NVarChar).Value = giaovien.Tengv;
-            command.Parameters.Add("@NGSINHGV", SqlDbType.SmallDateTime).Value = giaovien.Ngsinhgv;
+            command.Parameters.Add("@NGSINHGV", SqlDbType.SmallDateTime).Value = giaovien.Ngsinhgv.ToString("yyyy-MM-dd");
             command.Parameters.Add("@GIOITINHGV", SqlDbType.Char).Value = giaovien.Gioitinhgv;
             command.Parameters.Add("@DIACHIGV", SqlDbType.NVarChar).Value = giaovien.Diachigv;
             command.Parameters.Add("@DIENTHOAIGV", SqlDbType.NVarChar).Value = giaovien.Dienthoaigv;

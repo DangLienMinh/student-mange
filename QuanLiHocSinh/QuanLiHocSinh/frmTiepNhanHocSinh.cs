@@ -277,6 +277,7 @@ namespace QuanLiHocSinh
                 hocSinh_DTO.Mahs = txtMaHS.Text;
                 hocSinh_DTO.Tenhs = txtTenHS.Text;
                 hocSinh_DTO.Ngaysinhhs = DateTime.Parse(dtiNgaySinh.Text);
+                
                 if (cboGioiTinh.SelectedItem.ToString() == "Nam")
                 {
                     hocSinh_DTO.Gioitinh = "1";
@@ -288,7 +289,9 @@ namespace QuanLiHocSinh
                 hocSinh_DTO.Dantoc = txtDantoc.Text;
                 hocSinh_DTO.Dienthoaihs = txtDienThoai.Text;
                 hocSinh_DTO.Diachihs = txtDiaChi.Text;
-                hocSinh_DTO.Ngnhaphoc = DateTime.Parse(dtiNgayNhapHoc.Text);
+
+                hocSinh_DTO.Ngnhaphoc = DateTime.Parse(dtiNgayNhapHoc.Text); 
+                
                 hocSinh_DTO.Manh = cboNamHoc.SelectedValue.ToString();
                 hocSinh_DTO.Malop = cboLop.SelectedValue.ToString();
                 try

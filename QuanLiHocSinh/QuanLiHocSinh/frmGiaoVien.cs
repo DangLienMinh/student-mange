@@ -252,6 +252,7 @@ namespace QuanLiHocSinh
             {
                 DateTime d = new DateTime();
                 d = DateTime.Parse(ngaySinh);
+                //d = DateTime.ParseExact(ngaySinh,"MM/dd/yyyy",null);
                 dtiNgaySinh.Value = d;
             }
 

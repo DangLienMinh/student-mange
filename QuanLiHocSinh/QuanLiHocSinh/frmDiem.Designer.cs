@@ -145,7 +145,7 @@
             this.btnSau.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnSau.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSau.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSau.Location = new System.Drawing.Point(385, 1);
+            this.btnSau.Location = new System.Drawing.Point(600, -7);
             this.btnSau.Name = "btnSau";
             this.btnSau.Size = new System.Drawing.Size(29, 23);
             this.btnSau.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -157,7 +157,7 @@
             this.btnTruoc.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnTruoc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnTruoc.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTruoc.Location = new System.Drawing.Point(310, 1);
+            this.btnTruoc.Location = new System.Drawing.Point(525, -7);
             this.btnTruoc.Name = "btnTruoc";
             this.btnTruoc.Size = new System.Drawing.Size(29, 23);
             this.btnTruoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -169,7 +169,7 @@
             this.btnDau.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDau.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDau.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDau.Location = new System.Drawing.Point(275, 1);
+            this.btnDau.Location = new System.Drawing.Point(490, -7);
             this.btnDau.Name = "btnDau";
             this.btnDau.Size = new System.Drawing.Size(29, 23);
             this.btnDau.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -184,7 +184,7 @@
             // 
             this.txtHienTai.Border.Class = "TextBoxBorder";
             this.txtHienTai.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtHienTai.Location = new System.Drawing.Point(345, 4);
+            this.txtHienTai.Location = new System.Drawing.Point(560, -4);
             this.txtHienTai.Name = "txtHienTai";
             this.txtHienTai.ReadOnly = true;
             this.txtHienTai.Size = new System.Drawing.Size(34, 20);
@@ -218,7 +218,7 @@
             this.grdHocKy.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grdHocKy.EnableHeadersVisualStyles = false;
             this.grdHocKy.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.grdHocKy.Location = new System.Drawing.Point(0, 56);
+            this.grdHocKy.Location = new System.Drawing.Point(0, 40);
             this.grdHocKy.Name = "grdHocKy";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -228,7 +228,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdHocKy.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.grdHocKy.Size = new System.Drawing.Size(739, 449);
+            this.grdHocKy.Size = new System.Drawing.Size(1168, 449);
             this.grdHocKy.TabIndex = 1;
             this.grdHocKy.TabStop = false;
             // 
@@ -268,7 +268,7 @@
             this.navigationPanePanel3.Location = new System.Drawing.Point(1, 25);
             this.navigationPanePanel3.Name = "navigationPanePanel3";
             this.navigationPanePanel3.ParentItem = this.btnItemNhapHS;
-            this.navigationPanePanel3.Size = new System.Drawing.Size(188, 433);
+            this.navigationPanePanel3.Size = new System.Drawing.Size(188, 417);
             this.navigationPanePanel3.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel3.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -410,7 +410,7 @@
             this.btnCuoi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCuoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCuoi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCuoi.Location = new System.Drawing.Point(420, 1);
+            this.btnCuoi.Location = new System.Drawing.Point(635, -7);
             this.btnCuoi.Name = "btnCuoi";
             this.btnCuoi.Size = new System.Drawing.Size(29, 23);
             this.btnCuoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -431,7 +431,7 @@
             this.tabControlPanel2.Location = new System.Drawing.Point(0, 26);
             this.tabControlPanel2.Name = "tabControlPanel2";
             this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel2.Size = new System.Drawing.Size(937, 528);
+            this.tabControlPanel2.Size = new System.Drawing.Size(1366, 512);
             this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
             this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
@@ -455,7 +455,7 @@
             this.groupPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupPanel2.Location = new System.Drawing.Point(191, 1);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(745, 526);
+            this.groupPanel2.Size = new System.Drawing.Size(1174, 510);
             // 
             // 
             // 
@@ -499,7 +499,7 @@
             this.navigationPane2.Name = "navigationPane2";
             this.navigationPane2.NavigationBarHeight = 67;
             this.navigationPane2.Padding = new System.Windows.Forms.Padding(1);
-            this.navigationPane2.Size = new System.Drawing.Size(190, 526);
+            this.navigationPane2.Size = new System.Drawing.Size(190, 510);
             this.navigationPane2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.navigationPane2.TabIndex = 2;
             // 
@@ -533,7 +533,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedTabFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.tabControl1.SelectedTabIndex = 1;
-            this.tabControl1.Size = new System.Drawing.Size(937, 554);
+            this.tabControl1.Size = new System.Drawing.Size(1366, 538);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
             this.tabControl1.Tabs.Add(this.btnItemLop);
@@ -548,7 +548,7 @@
             this.tabControlPanel1.Location = new System.Drawing.Point(0, 26);
             this.tabControlPanel1.Name = "tabControlPanel1";
             this.tabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel1.Size = new System.Drawing.Size(937, 528);
+            this.tabControlPanel1.Size = new System.Drawing.Size(1366, 512);
             this.tabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
             this.tabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.tabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
@@ -578,7 +578,7 @@
             this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupPanel1.Location = new System.Drawing.Point(187, 1);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(749, 526);
+            this.groupPanel1.Size = new System.Drawing.Size(1178, 510);
             // 
             // 
             // 
@@ -946,7 +946,7 @@
             this.grdDSDiem.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grdDSDiem.EnableHeadersVisualStyles = false;
             this.grdDSDiem.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.grdDSDiem.Location = new System.Drawing.Point(0, 100);
+            this.grdDSDiem.Location = new System.Drawing.Point(0, 84);
             this.grdDSDiem.Name = "grdDSDiem";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
@@ -956,7 +956,7 @@
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdDSDiem.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.grdDSDiem.Size = new System.Drawing.Size(743, 405);
+            this.grdDSDiem.Size = new System.Drawing.Size(1172, 405);
             this.grdDSDiem.TabIndex = 16;
             // 
             // Column1
@@ -1063,7 +1063,7 @@
             this.navigationPane1.Name = "navigationPane1";
             this.navigationPane1.NavigationBarHeight = 67;
             this.navigationPane1.Padding = new System.Windows.Forms.Padding(1);
-            this.navigationPane1.Size = new System.Drawing.Size(186, 526);
+            this.navigationPane1.Size = new System.Drawing.Size(186, 510);
             this.navigationPane1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.navigationPane1.TabIndex = 1;
             // 
@@ -1102,7 +1102,7 @@
             this.navigationPanePanel1.Location = new System.Drawing.Point(1, 25);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemNhapLop;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(184, 433);
+            this.navigationPanePanel1.Size = new System.Drawing.Size(184, 417);
             this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -1261,7 +1261,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 554);
+            this.ClientSize = new System.Drawing.Size(1366, 538);
             this.Controls.Add(this.tabControl1);
             this.DoubleBuffered = true;
             this.Name = "frmDiem";
