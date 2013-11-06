@@ -280,12 +280,16 @@ namespace QuanLiHocSinh
 
         private void sapXep()
         {
-            viTri = this.BindingContext[grdHocSinh.DataSource].Position;
-            Tong = this.BindingContext[grdHocSinh.DataSource].Count;
-            if (viTri != -1)
+            if (grdHocSinh.DataSource!=null)
             {
-                txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
+                viTri = this.BindingContext[grdHocSinh.DataSource].Position;
+                Tong = this.BindingContext[grdHocSinh.DataSource].Count;
+                if (viTri != -1)
+                {
+                    txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
+                }
             }
+            
         }
 
         private void btnDau_Click(object sender, EventArgs e)

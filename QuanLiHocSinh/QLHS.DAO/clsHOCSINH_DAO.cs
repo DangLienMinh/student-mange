@@ -193,7 +193,7 @@ namespace QLHS.DAO
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_TimHocSinhNgNhapHoc", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@NGNHAPHOC", SqlDbType.SmallDateTime).Value = hocsinh.Ngnhaphoc;
+            command.Parameters.Add("@NGNHAPHOC", SqlDbType.SmallDateTime).Value = hocsinh.Ngnhaphoc.ToString("yyyy-MM-dd");
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);
             con.Close();
