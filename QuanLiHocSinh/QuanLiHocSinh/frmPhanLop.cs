@@ -31,13 +31,13 @@ namespace QuanLiHocSinh
 
         private void frmPhanLop_Load(object sender, EventArgs e)
         {
-            if (cboKhoiLopCu.SelectedValue!=null&&cboNamHocCu.SelectedValue!=null)
-            {
+            //if (cboKhoiLopCu.SelectedValue!=null&&cboNamHocCu.SelectedValue!=null)
+            //{
                 khoi_BUS.hienThiComboBox(cboKhoiLopCu);
                 namHoc_BUS.hienThiComboBox(cboNamHocCu);
                 khoi_BUS.hienThiComboBox(cboKhoiLopCu, cboKhoiLopMoi);
                 namHoc_BUS.hienThiComboBox(cboNamHocMoi);
-            }
+            //}
             
         }
 
