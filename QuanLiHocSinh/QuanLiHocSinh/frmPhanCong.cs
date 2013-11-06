@@ -55,6 +55,7 @@ namespace QuanLiHocSinh
             giangday_bus.hienthiGiaovien(cboGiaoVien);
             giangday_bus.hienthiMonhoc(cboMonHoc);
 
+            //hiện tên thay vì hiện mã trong datagrid
             monHoc_BUS.HienThiDataGridViewComboBoxColumn(MAMH);
             lop_BUS.HienThiDataGridViewComboBoxColumn(MALOP);
             giaoVien_BUS.HienThiDataGridViewComboBoxColumn(MAGV);
