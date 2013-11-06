@@ -126,9 +126,10 @@ namespace QuanLiHocSinh
         private void optMaHS_CheckedChanged(object sender, EventArgs e)
         {
             txtMaHS.Enabled = true;
-            txtTenHS.Enabled = false;
-            txtDanToc.Enabled = false;
-            dtiNgNhapHoc.Enabled = false;
+            txtMaHS.Focus();
+            //txtTenHS.Enabled = false;
+            //txtDanToc.Enabled = false;
+            //dtiNgNhapHoc.Enabled = false;
             txtTenHS.Text = "";
             txtDanToc.Text = "";
         }
@@ -136,9 +137,10 @@ namespace QuanLiHocSinh
         private void optTenHS_CheckedChanged(object sender, EventArgs e)
         {
             txtTenHS.Enabled = true;
-            txtMaHS.Enabled = false;
-            txtDanToc.Enabled = false;
-            dtiNgNhapHoc.Enabled = false;
+            txtTenHS.Focus();
+            //txtMaHS.Enabled = false;
+            //txtDanToc.Enabled = false;
+            //dtiNgNhapHoc.Enabled = false;
             txtMaHS.Text = "";
             txtDanToc.Text = "";
         }
@@ -146,9 +148,10 @@ namespace QuanLiHocSinh
         private void optDanToc_CheckedChanged(object sender, EventArgs e)
         {
             txtDanToc.Enabled = true;
-            txtTenHS.Enabled = false;
-            txtMaHS.Enabled = false;
-            dtiNgNhapHoc.Enabled = false;
+            txtDanToc.Focus();
+            //txtTenHS.Enabled = false;
+            //txtMaHS.Enabled = false;
+            //dtiNgNhapHoc.Enabled = false;
             txtMaHS.Text = "";
             txtTenHS.Text = "";
         }
@@ -338,6 +341,20 @@ namespace QuanLiHocSinh
             {
                 this.Close();
             }
+        }
+
+        private void txt_Enter(object sender, EventArgs e)
+        {
+           ((TextBox)sender).BackColor = Color.Yellow;
+            //((TextBox)sender).Enabled = true;
+            //((TextBox)sender).Focus();
+        }
+
+        private void txt_Leave(object sender, EventArgs e)
+        {
+           ((TextBox)sender).Enabled = false;
+            ((TextBox)sender).BackColor = SystemColors.Control;
+            
         }
 
     }
