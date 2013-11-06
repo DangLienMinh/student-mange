@@ -8,7 +8,6 @@ using DevComponents.Editors.DateTimeAdv;
 using System.Windows.Forms;
 using System.Data;
 
-
 namespace QLHS.BUS
 {
     public class clsGIAOVIEN_BUS
@@ -31,14 +30,14 @@ namespace QLHS.BUS
             comboBox.SelectedItem = "Nam";
         }
 
-        public void hienThiGrdColumn(DataGridViewComboBoxColumn cboColumn)
-        {
-            cboColumn.DataSource =giaoVien_DAO.danhSachGiaoVien();
-            cboColumn.DisplayMember = "TenGV";
-            cboColumn.ValueMember = "MaGV";
-            cboColumn.DataPropertyName = "MaGV";
-            cboColumn.HeaderText = "Giáo viên";
-        }
+        //public void hienThiGrdColumn(DataGridViewComboBoxColumn cboColumn)
+        //{
+        //    cboColumn.DataSource =giaoVien_DAO.danhSachGiaoVien();
+        //    cboColumn.DisplayMember = "TenGV";
+        //    cboColumn.ValueMember = "MaGV";
+        //    cboColumn.DataPropertyName = "MaGV";
+        //    cboColumn.HeaderText = "Giáo viên";
+        //}
 
         public void hienThiDanhSach(DataGridViewX grdGV)
         {
@@ -97,7 +96,7 @@ namespace QLHS.BUS
             giaoVien_DTO.Gioitinhgv = gioiTinh;
             giaoVien_DTO.Diachigv = diaChi;
             giaoVien_DTO.Hinhanhgv = HinhAnh;
-            giaoVien_DTO.Ngsinhgv = DateTime.Parse(ngaySinh.Text);
+            giaoVien_DTO.Ngsinhgv = ngaySinh.Value;
             giaoVien_DTO.Dienthoaigv = DienThoai;
             giaoVien_DAO.themGiaoVien(giaoVien_DTO);
         }
@@ -120,7 +119,7 @@ namespace QLHS.BUS
             dr = tblGiaoVien.NewRow();
             dr["MAGV"] = giaoVien_DTO.Magv;
             dr["TENGV"] = giaoVien_DTO.Tengv;
-            dr["NGSINHGV"] =  giaoVien_DTO.Ngsinhgv;
+            dr["NGSINHGV"] = giaoVien_DTO.Ngsinhgv.ToString("dd/MM/yyyy");
             dr["DIACHIGV"] = giaoVien_DTO.Diachigv;
             if (string.Compare(giaoVien_DTO.Gioitinhgv,"0")==0)
             {
