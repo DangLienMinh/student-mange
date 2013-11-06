@@ -116,8 +116,7 @@ namespace QuanLiHocSinh
 
         private void frmTimHocSinh_Load(object sender, EventArgs e)
         {
-            //load dữ liệu vào comboBox điều kiện
-            hocSinh_BUS.cbDieuKien(cboDieuKien);
+            optAnd.Select();
             sapXep();
             btnDau.Enabled = false;
             btnTruoc.Enabled = false;
@@ -127,9 +126,9 @@ namespace QuanLiHocSinh
         {
             txtMaHS.Enabled = true;
             txtMaHS.Focus();
-            //txtTenHS.Enabled = false;
-            //txtDanToc.Enabled = false;
-            //dtiNgNhapHoc.Enabled = false;
+            txtTenHS.Enabled = false;
+            txtDanToc.Enabled = false;
+            dtiNgNhapHoc.Enabled = false;
             txtTenHS.Text = "";
             txtDanToc.Text = "";
         }
@@ -138,9 +137,9 @@ namespace QuanLiHocSinh
         {
             txtTenHS.Enabled = true;
             txtTenHS.Focus();
-            //txtMaHS.Enabled = false;
-            //txtDanToc.Enabled = false;
-            //dtiNgNhapHoc.Enabled = false;
+            txtMaHS.Enabled = false;
+            txtDanToc.Enabled = false;
+            dtiNgNhapHoc.Enabled = false;
             txtMaHS.Text = "";
             txtDanToc.Text = "";
         }
@@ -149,9 +148,9 @@ namespace QuanLiHocSinh
         {
             txtDanToc.Enabled = true;
             txtDanToc.Focus();
-            //txtTenHS.Enabled = false;
-            //txtMaHS.Enabled = false;
-            //dtiNgNhapHoc.Enabled = false;
+            txtTenHS.Enabled = false;
+            txtMaHS.Enabled = false;
+            dtiNgNhapHoc.Enabled = false;
             txtMaHS.Text = "";
             txtTenHS.Text = "";
         }
@@ -169,6 +168,7 @@ namespace QuanLiHocSinh
 
         private void btnTim1_Click(object sender, EventArgs e)
         {
+            DataTable dt = new DataTable();
             if (optMaHS1.Checked == false && optTenHS1.Checked == false && optDanToc1.Checked == false && optNgNhapHoc1.Checked == false)
             {
                 MessageBox.Show("Bạn phải lựa chọn ít nhất một cách tìm kiếm !!!");
@@ -215,7 +215,15 @@ namespace QuanLiHocSinh
                 {
                     hocSinh_DTO.Ngnhaphoc = dtiNgNhapHoc1.Value;
                 }
-                DataTable dt = hocSinh_BUS.timHocSinhNangCao(hocSinh_DTO, cboDieuKien);
+                if (optAnd.Checked)
+                {
+                    dt = hocSinh_BUS.timHocSinhNangCao(hocSinh_DTO, optAnd);
+                }
+                else
+                {
+                     dt = hocSinh_BUS.timHocSinhNangCao(hocSinh_DTO, optOr);
+                }
+                
                 if (dt.Rows.Count <= 0)
                 {
                     MessageBox.Show("Không tìm thấy");
