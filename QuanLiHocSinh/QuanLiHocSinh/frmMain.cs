@@ -205,7 +205,7 @@ namespace QuanLiHocSinh
                 m_FrmTimHocSinh.Show();
             }
             else
-                m_FrmTimHocSinh.Activate();
+                m_FrmTimLop.Activate();
         }
     }
 }
