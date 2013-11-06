@@ -24,12 +24,20 @@ namespace QuanLiHocSinh
         private Boolean flagUpdate;
         private Boolean flagDelete;
         private clsGIANGDAY_DTO giangday_dto;
+        private clsGIAOVIEN_BUS giaoVien_BUS;
+        private clsNAMHOC_BUS namHoc_BUS;
+        private clsLOP_BUS lop_BUS;
+        private clsMONHOC_BUS monHoc_BUS;
         private int vitri;
         private int tong;
         public frmPhanCong()
         {
             InitializeComponent();
             giangday_bus = new clsGIANGDAY_BUS();
+            namHoc_BUS = new clsNAMHOC_BUS();
+            lop_BUS = new clsLOP_BUS();
+            monHoc_BUS = new clsMONHOC_BUS();
+            giaoVien_BUS = new clsGIAOVIEN_BUS();
             giangday_dto = new clsGIANGDAY_DTO();
             flagInsert = false;
             flagUpdate = false;
@@ -46,6 +54,11 @@ namespace QuanLiHocSinh
             giangday_bus.hienthiNamhoc(cboNamHoc);
             giangday_bus.hienthiGiaovien(cboGiaoVien);
             giangday_bus.hienthiMonhoc(cboMonHoc);
+
+            monHoc_BUS.HienThiDataGridViewComboBoxColumn(MAMH);
+            lop_BUS.HienThiDataGridViewComboBoxColumn(MALOP);
+            giaoVien_BUS.HienThiDataGridViewComboBoxColumn(MAGV);
+            namHoc_BUS.HienThiDataGridViewComboBoxColumn(MANH);
             grdPhanCong.DataSource = giangday_bus.danhsachPhanCong();
             datagridMakeUp(grdPhanCong);
         }

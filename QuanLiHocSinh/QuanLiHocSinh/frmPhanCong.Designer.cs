@@ -33,10 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhanCong));
             this.grdPhanCong = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.MANH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MALOP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.btnTruoc = new DevComponents.DotNetBar.ButtonX();
             this.btnDau = new DevComponents.DotNetBar.ButtonX();
@@ -70,6 +66,10 @@
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
+            this.MANH = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.MALOP = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.MAMH = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.MAGV = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdPhanCong)).BeginInit();
             this.navigationPanePanel1.SuspendLayout();
             this.navigationPanePanel2.SuspendLayout();
@@ -121,30 +121,6 @@
             this.grdPhanCong.TabStop = false;
             this.grdPhanCong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPhanCong_CellClick);
             this.grdPhanCong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPhanCong_CellContentClick);
-            // 
-            // MANH
-            // 
-            this.MANH.DataPropertyName = "MANH";
-            this.MANH.HeaderText = "Năm học";
-            this.MANH.Name = "MANH";
-            // 
-            // MALOP
-            // 
-            this.MALOP.DataPropertyName = "MALOP";
-            this.MALOP.HeaderText = "Lớp";
-            this.MALOP.Name = "MALOP";
-            // 
-            // MAMH
-            // 
-            this.MAMH.DataPropertyName = "MAMH";
-            this.MAMH.HeaderText = "Môn học";
-            this.MAMH.Name = "MAMH";
-            // 
-            // MAGV
-            // 
-            this.MAGV.DataPropertyName = "MAGV";
-            this.MAGV.HeaderText = "Giáo viên";
-            this.MAGV.Name = "MAGV";
             // 
             // txtHienTai
             // 
@@ -630,6 +606,30 @@
             this.navigationPane1.TitlePanel.TabIndex = 0;
             this.navigationPane1.TitlePanel.Text = "Nhập liệu thông tin";
             // 
+            // MANH
+            // 
+            this.MANH.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MANH.HeaderText = "Năm học";
+            this.MANH.Name = "MANH";
+            // 
+            // MALOP
+            // 
+            this.MALOP.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MALOP.HeaderText = "Lớp";
+            this.MALOP.Name = "MALOP";
+            // 
+            // MAMH
+            // 
+            this.MAMH.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MAMH.HeaderText = "Môn học";
+            this.MAMH.Name = "MAMH";
+            // 
+            // MAGV
+            // 
+            this.MAGV.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MAGV.HeaderText = "Giáo viên";
+            this.MAGV.Name = "MAGV";
+            // 
             // frmPhanCong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -688,9 +688,9 @@
         private DevComponents.DotNetBar.ButtonX btnHuy;
         private DevComponents.DotNetBar.ButtonX btnDongY;
         private DevComponents.DotNetBar.ButtonX btnThem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MANH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MALOP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MAMH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MAGV;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MANH;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MALOP;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MAMH;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MAGV;
     }
 }
