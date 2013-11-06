@@ -34,6 +34,14 @@ namespace QLHS.BUS
             comboBox.ValueMember = "MAGV";
         }
 
+        public void HienThiDataGridViewComboBoxColumn(DataGridViewComboBoxColumn cboColumn)
+        {
+            cboColumn.DataSource = lop_DAO.danhSachLop();
+            cboColumn.DisplayMember = "TENLOP";
+            cboColumn.ValueMember = "MALOP";
+            cboColumn.DataPropertyName = "MALOP";
+        }
+
         //tạo mã lớp dựa vào năm hiện hành 
         public string taoMaLop()
         {

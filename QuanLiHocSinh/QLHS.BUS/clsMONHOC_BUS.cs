@@ -29,6 +29,14 @@ namespace QLHS.BUS
             grdMonHoc.DataSource = tblMonHoc;
         }
 
+        public void HienThiDataGridViewComboBoxColumn(DataGridViewComboBoxColumn cboColumn)
+        {
+            cboColumn.DataSource = monHoc_DAO.danhSachMonhoc();
+            cboColumn.DisplayMember = "TENMH";
+            cboColumn.ValueMember = "MAMH";
+            cboColumn.DataPropertyName = "MAMH";
+        }
+
         public void hienThiComboBox(ComboBoxEx comboBox)
         {
             comboBox.Items.Add("1");
