@@ -165,7 +165,7 @@ namespace QuanLiHocSinh
                 m_FrmPhanLop.Show();
             }
             else
-                m_FrmMonHoc.Activate();
+                m_FrmPhanLop.Activate();
         }
 
         private void btnPhanCong_Click(object sender, EventArgs e)
@@ -178,7 +178,7 @@ namespace QuanLiHocSinh
                 m_FrmPhanCong.Show();
             }
             else
-                m_FrmMonHoc.Activate();
+                m_FrmPhanCong.Activate();
         }
 
         private void btnTimLop_Click(object sender, EventArgs e)
@@ -205,7 +205,7 @@ namespace QuanLiHocSinh
                 m_FrmTimHocSinh.Show();
             }
             else
-                m_FrmTimLop.Activate();
+                m_FrmTimHocSinh.Activate();
         }
     }
 }
