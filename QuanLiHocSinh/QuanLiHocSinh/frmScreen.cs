@@ -9,11 +9,16 @@ using System.Windows.Forms;
 
 namespace QuanLiHocSinh
 {
-    public partial class frmManHinh : DevComponents.DotNetBar.Office2007Form
+    public partial class frmScreen : DevComponents.DotNetBar.Office2007Form
     {
-        public frmManHinh()
+        public frmScreen()
         {
             InitializeComponent();
+        }
+
+        private void frmScreen_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

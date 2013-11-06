@@ -74,12 +74,6 @@
     <Compile Include="frmHocSinhTheoLop.Designer.cs">
       <DependentUpon>frmHocSinhTheoLop.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmManHinh.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmManHinh.Designer.cs">
-      <DependentUpon>frmManHinh.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmPhanCong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +85,12 @@
     </Compile>
     <Compile Include="frmPhanLop.Designer.cs">
       <DependentUpon>frmPhanLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmScreen.Designer.cs">
+      <DependentUpon>frmScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTiepNhanHocSinh.cs">
       <SubType>Form</SubType>
@@ -169,14 +169,14 @@
     <EmbeddedResource Include="frmHocSinhTheoLop.resx">
       <DependentUpon>frmHocSinhTheoLop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmManHinh.resx">
-      <DependentUpon>frmManHinh.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmPhanCong.resx">
       <DependentUpon>frmPhanCong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPhanLop.resx">
       <DependentUpon>frmPhanLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmScreen.resx">
+      <DependentUpon>frmScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTiepNhanHocSinh.resx">
       <DependentUpon>frmTiepNhanHocSinh.cs</DependentUpon>
