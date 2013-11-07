@@ -7,10 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
+using System.Data;
+using System.Data.SqlClient;
+
 namespace QuanLiHocSinh
 {   
     public partial class frmMain : DevComponents.DotNetBar.Office2007RibbonForm
     {
+        private OpenFileDialog restoreDialog;
+        private SaveFileDialog backupDialog;
+        private SqlConnection connection;
         private frmLopHoc m_FrmLop = null;
         private frmGiaoVien m_FrmGiaoVien = null;
         private frmMonHoc m_FrmMonHoc = null;
@@ -27,10 +33,20 @@ namespace QuanLiHocSinh
         public frmMain()
         {
             InitializeComponent();
+            backupDialog = new SaveFileDialog();
+            this.backupDialog.DefaultExt = "*.BAK";
+            this.backupDialog.FileName = "QLHocSinhTHPT";
+            this.backupDialog.Filter = "Backup files (*.BAK)|*.BAK";
+            this.backupDialog.FilterIndex = 2;
+            this.backupDialog.Title = "SAO LƯU DỮ LIỆU";
 
-            //frmScreen f = new frmScreen();
-            //f.Show();
-            //Thread.Sleep(5000);
+            restoreDialog = new OpenFileDialog();
+            this.restoreDialog.DefaultExt = "*.BAK";
+            this.restoreDialog.FileName = "QLHocSinhTHPT.BAK";
+            this.restoreDialog.Filter = "Backup files (*.BAK)|*.BAK";
+            this.restoreDialog.FilterIndex = 2;
+            this.restoreDialog.Title = "PHỤC HỒI DỮ LIỆU";
+            
         }
 
         private void btnThemeBlue_Click(object sender, EventArgs e)
@@ -239,15 +255,7 @@ namespace QuanLiHocSinh
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            //if (m_FrmLogin == null || m_FrmLogin.IsDisposed)
-            //    m_FrmLogin = new frmDangNhap();
 
-            ////m_FrmLogin.txtUsername.Text = "";
-            ////m_FrmLogin.txtPassword.Text = "";
-            ////m_FrmLogin.lblUserError.Text = "";
-            ////m_FrmLogin.lblPassError.Text = "";
-
-            ////DangNhap();
         }
 
         private void btnDangXuat_Click_1(object sender, EventArgs e)
@@ -287,6 +295,43 @@ namespace QuanLiHocSinh
                     key.Close();
                 }
             }
+        }
+
+        private void btnSaoLuu_Click(object sender, EventArgs e)
+        {
+           
+
+            if (backupDialog.ShowDialog() == DialogResult.OK)
+            {
+               
+                string connectionStr = @"Data Source=DANGLIENMINH\SQLEXPRESS;Initial Catalog=QuanLyHocSinh2;Integrated Security=True";
+                connection = new SqlConnection(connectionStr);
+                SqlCommand cmd = new System.Data.SqlClient.SqlCommand("BACKUP DATABASE " + "QuanLyHocSinh2" + " TO DISK = '" + backupDialog.FileName.ToString() + "'", connection);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Sao lưu dữ liệu thành công!", "BACKUP COMPLETED", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                return;
+        }
+
+        private void btnPhucHoi_Click(object sender, EventArgs e)
+        {
+
+            if (restoreDialog.ShowDialog() == DialogResult.OK)
+            {
+                
+                string connectionStr = @"Data Source=DANGLIENMINH\SQLEXPRESS;Initial Catalog=QuanLyHocSinh2;Integrated Security=True";
+                connection = new SqlConnection(connectionStr);
+                SqlCommand cmd = new System.Data.SqlClient.SqlCommand("USE master RESTORE DATABASE " + "QuanLyHocSinh2" + " FROM DISK = '" + restoreDialog.FileName.ToString() + "'", connection);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Phục hồi dữ liệu thành công!", "RESTORE COMPLETED", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                return;
         }
 
     }
