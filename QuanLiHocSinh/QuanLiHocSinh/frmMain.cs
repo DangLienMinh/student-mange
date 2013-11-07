@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using System.Threading;
 namespace QuanLiHocSinh
 {   
     public partial class frmMain : DevComponents.DotNetBar.Office2007RibbonForm
@@ -16,16 +16,21 @@ namespace QuanLiHocSinh
         private frmMonHoc m_FrmMonHoc = null;
         private frmNamHoc m_FrmNamHoc = null;
         private frmTiepNhanHocSinh m_FrmHocSinh = null;
-        private frmNguoiDung frmNguoiDung = null;
+        private frmNguoiDung m_FrmNguoiDung = null;
         private frmPhanLop m_FrmPhanLop = null;
         private frmThongSo m_FrmQuyDinh = null;
         private frmPhanCong m_FrmPhanCong = null;
         private frmHocSinhTheoLop m_FrmTimLop = null;
         private frmTimHocSinh m_FrmTimHocSinh = null;
+        private frmDangNhap m_FrmLogin = null;
 
         public frmMain()
         {
             InitializeComponent();
+
+            //frmScreen f = new frmScreen();
+            //f.Show();
+            //Thread.Sleep(5000);
         }
 
         private void btnThemeBlue_Click(object sender, EventArgs e)
@@ -60,15 +65,15 @@ namespace QuanLiHocSinh
 
         private void btnThongTin_Click(object sender, EventArgs e)
         {
-            if (frmNguoiDung == null || frmNguoiDung.IsDisposed)
+            if (m_FrmNguoiDung == null || m_FrmNguoiDung.IsDisposed)
             {
-                frmNguoiDung = new frmNguoiDung();
-                frmNguoiDung.FormBorderStyle = FormBorderStyle.None;
-                frmNguoiDung.MdiParent = frmMain.ActiveForm;
-                frmNguoiDung.Show();
+                m_FrmNguoiDung = new frmNguoiDung();
+                m_FrmNguoiDung.FormBorderStyle = FormBorderStyle.None;
+                m_FrmNguoiDung.MdiParent = frmMain.ActiveForm;
+                m_FrmNguoiDung.Show();
             }
             else
-                frmNguoiDung.Activate();
+                m_FrmNguoiDung.Activate();
         }
 
         private void btnGiaoVien_Click(object sender, EventArgs e)
@@ -121,11 +126,6 @@ namespace QuanLiHocSinh
             }
             else
                 m_FrmLop.Activate();
-        }
-
-        private void btnDangXuat_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void btnHocSinh_Click(object sender, EventArgs e)
@@ -207,5 +207,87 @@ namespace QuanLiHocSinh
             else
                 m_FrmTimHocSinh.Activate();
         }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            // Create the list of frequently used commands for the QAT Customize menu
+            ribbonControl1.QatFrequentCommands.Add(btnDangNhap);
+            ribbonControl1.QatFrequentCommands.Add(btnDangXuat);
+            ribbonControl1.QatFrequentCommands.Add(btnThoat);
+
+            // Load Quick Access Toolbar layout if one is saved from last session...
+            Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\DevComponents\Ribbon");
+            if (key != null)
+            {
+                try
+                {
+                    string layout = key.GetValue("RibbonPadCSLayout", "").ToString();
+                    if (layout != "" && layout != null)
+                        ribbonControl1.QatLayout = layout;
+                }
+                finally
+                {
+                    key.Close();
+                }
+            }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDangNhap_Click(object sender, EventArgs e)
+        {
+            //if (m_FrmLogin == null || m_FrmLogin.IsDisposed)
+            //    m_FrmLogin = new frmDangNhap();
+
+            ////m_FrmLogin.txtUsername.Text = "";
+            ////m_FrmLogin.txtPassword.Text = "";
+            ////m_FrmLogin.lblUserError.Text = "";
+            ////m_FrmLogin.lblPassError.Text = "";
+
+            ////DangNhap();
+        }
+
+        private void btnDangXuat_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMatKhau_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNguoiDung_Click(object sender, EventArgs e)
+        {
+            if (m_FrmNguoiDung == null || m_FrmNguoiDung.IsDisposed)
+            {
+                m_FrmNguoiDung = new frmNguoiDung();
+                m_FrmNguoiDung.MdiParent = this;
+                m_FrmNguoiDung.Show();
+            }
+            else
+                m_FrmNguoiDung.Activate();
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Save Quick Access Toolbar layout if it has changed...
+            if (ribbonControl1.QatLayoutChanged)
+            {
+                Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\DevComponents\Ribbon");
+                try
+                {
+                    key.SetValue("RibbonPadCSLayout", ribbonControl1.QatLayout);
+                }
+                finally
+                {
+                    key.Close();
+                }
+            }
+        }
+
     }
 }

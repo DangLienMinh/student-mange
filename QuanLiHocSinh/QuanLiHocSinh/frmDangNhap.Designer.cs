@@ -31,6 +31,7 @@
             this.gPanelDangNhap = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.lblPassError = new System.Windows.Forms.Label();
             this.lblUserError = new System.Windows.Forms.Label();
+            this.rImageDangNhap = new DevComponents.DotNetBar.Controls.ReflectionImage();
             this.btnHuyBo = new DevComponents.DotNetBar.ButtonX();
             this.btnDangNhap = new DevComponents.DotNetBar.ButtonX();
             this.lblPassword = new DevComponents.DotNetBar.LabelX();
@@ -39,7 +40,6 @@
             this.txtTenDN = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.panelTop = new System.Windows.Forms.Panel();
             this.lblTitle = new DevComponents.DotNetBar.LabelX();
-            this.rImageDangNhap = new DevComponents.DotNetBar.Controls.ReflectionImage();
             this.gPanelDangNhap.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
@@ -114,6 +114,21 @@
             this.lblUserError.Name = "lblUserError";
             this.lblUserError.Size = new System.Drawing.Size(0, 13);
             this.lblUserError.TabIndex = 5;
+            // 
+            // rImageDangNhap
+            // 
+            this.rImageDangNhap.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.rImageDangNhap.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.rImageDangNhap.BackgroundStyle.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.rImageDangNhap.Image = global::QuanLiHocSinh.Properties.Resources._3485271;
+            this.rImageDangNhap.Location = new System.Drawing.Point(-3, 3);
+            this.rImageDangNhap.Name = "rImageDangNhap";
+            this.rImageDangNhap.Size = new System.Drawing.Size(71, 115);
+            this.rImageDangNhap.TabIndex = 0;
+            this.rImageDangNhap.Tag = ".";
             // 
             // btnHuyBo
             // 
@@ -225,21 +240,6 @@
             this.lblTitle.Text = "QUẢN LÝ HỌC SINH THPT";
             this.lblTitle.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // rImageDangNhap
-            // 
-            this.rImageDangNhap.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.rImageDangNhap.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.rImageDangNhap.BackgroundStyle.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.rImageDangNhap.Image = global::QuanLiHocSinh.Properties.Resources._3485271;
-            this.rImageDangNhap.Location = new System.Drawing.Point(-3, 3);
-            this.rImageDangNhap.Name = "rImageDangNhap";
-            this.rImageDangNhap.Size = new System.Drawing.Size(71, 115);
-            this.rImageDangNhap.TabIndex = 0;
-            this.rImageDangNhap.Tag = ".";
-            // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,6 +249,7 @@
             this.Controls.Add(this.panelTop);
             this.DoubleBuffered = true;
             this.Name = "frmDangNhap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ĐĂNG NHẬP";
             this.gPanelDangNhap.ResumeLayout(false);
             this.gPanelDangNhap.PerformLayout();
