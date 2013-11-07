@@ -161,8 +161,10 @@ namespace QuanLiHocSinh
         {
             if (m_FrmQuyDinh == null || m_FrmQuyDinh.IsDisposed)
             {
+                
                 m_FrmQuyDinh = new frmThongSo();
                 m_FrmQuyDinh.Show();
+                
             }
             else
                 m_FrmQuyDinh.Activate();

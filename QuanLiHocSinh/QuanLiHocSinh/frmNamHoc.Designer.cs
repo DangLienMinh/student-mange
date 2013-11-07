@@ -54,9 +54,9 @@
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.txtMaNH = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.btnItemNhapNH = new DevComponents.DotNetBar.ButtonItem();
             this.btnItemNamHoc = new DevComponents.DotNetBar.TabItem(this.components);
             this.btnItemNhapHK = new DevComponents.DotNetBar.TabItem(this.components);
+            this.btnItemNhapNH = new DevComponents.DotNetBar.ButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabControlPanel1.SuspendLayout();
@@ -426,15 +426,6 @@
             this.labelX1.TabIndex = 27;
             this.labelX1.Text = "Tên năm học:";
             // 
-            // btnItemNhapNH
-            // 
-            this.btnItemNhapNH.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemNhapNH.Checked = true;
-            this.btnItemNhapNH.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhapNH.Image")));
-            this.btnItemNhapNH.Name = "btnItemNhapNH";
-            this.btnItemNhapNH.OptionGroup = "navBar";
-            this.btnItemNhapNH.Text = "Nhập liệu năm học";
-            // 
             // btnItemNamHoc
             // 
             this.btnItemNamHoc.AttachedControl = this.tabControlPanel1;
@@ -445,6 +436,15 @@
             // 
             this.btnItemNhapHK.Name = "btnItemNhapHK";
             this.btnItemNhapHK.Text = "Học kỳ";
+            // 
+            // btnItemNhapNH
+            // 
+            this.btnItemNhapNH.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemNhapNH.Checked = true;
+            this.btnItemNhapNH.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhapNH.Image")));
+            this.btnItemNhapNH.Name = "btnItemNhapNH";
+            this.btnItemNhapNH.OptionGroup = "navBar";
+            this.btnItemNhapNH.Text = "Nhập liệu năm học";
             // 
             // frmNamHoc
             // 
