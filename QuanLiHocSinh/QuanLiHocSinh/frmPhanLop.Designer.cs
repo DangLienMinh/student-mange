@@ -28,13 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
-            this.lstLopCu = new DevComponents.DotNetBar.Controls.ListViewEx();
+            this.lvwLopCu = new DevComponents.DotNetBar.Controls.ListViewEx();
             this.colMaHSCu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHoTenCu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.imageListPhanLop = new System.Windows.Forms.ImageList(this.components);
             this.cboLopMoi = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.cboKhoiLopMoi = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -50,7 +48,7 @@
             this.cboNamHocMoi = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.colHoTenMoi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colMaHSMoi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lstLopMoi = new DevComponents.DotNetBar.Controls.ListViewEx();
+            this.lvwLopMoi = new DevComponents.DotNetBar.Controls.ListViewEx();
             this.btnThoat = new DevComponents.DotNetBar.ButtonX();
             this.btnLuu = new DevComponents.DotNetBar.ButtonX();
             this.btnXoa = new DevComponents.DotNetBar.ButtonX();
@@ -95,26 +93,25 @@
             this.labelX6.TabIndex = 0;
             this.labelX6.Text = "Lớp:";
             // 
-            // lstLopCu
+            // lvwLopCu
             // 
             // 
             // 
             // 
-            this.lstLopCu.Border.Class = "ListViewBorder";
-            this.lstLopCu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lstLopCu.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvwLopCu.Border.Class = "ListViewBorder";
+            this.lvwLopCu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lvwLopCu.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colMaHSCu,
             this.colHoTenCu});
-            this.lstLopCu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstLopCu.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstLopCu.FullRowSelect = true;
-            this.lstLopCu.Location = new System.Drawing.Point(0, 120);
-            this.lstLopCu.Name = "lstLopCu";
-            this.lstLopCu.Size = new System.Drawing.Size(668, 418);
-            this.lstLopCu.SmallImageList = this.imageListPhanLop;
-            this.lstLopCu.TabIndex = 2;
-            this.lstLopCu.UseCompatibleStateImageBehavior = false;
-            this.lstLopCu.View = System.Windows.Forms.View.Details;
+            this.lvwLopCu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvwLopCu.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvwLopCu.FullRowSelect = true;
+            this.lvwLopCu.Location = new System.Drawing.Point(0, 120);
+            this.lvwLopCu.Name = "lvwLopCu";
+            this.lvwLopCu.Size = new System.Drawing.Size(668, 418);
+            this.lvwLopCu.TabIndex = 2;
+            this.lvwLopCu.UseCompatibleStateImageBehavior = false;
+            this.lvwLopCu.View = System.Windows.Forms.View.Details;
             // 
             // colMaHSCu
             // 
@@ -125,12 +122,6 @@
             // 
             this.colHoTenCu.Text = "Họ và tên";
             this.colHoTenCu.Width = 267;
-            // 
-            // imageListPhanLop
-            // 
-            this.imageListPhanLop.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imageListPhanLop.ImageSize = new System.Drawing.Size(1, 18);
-            this.imageListPhanLop.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // cboLopMoi
             // 
@@ -367,26 +358,25 @@
             this.colMaHSMoi.Text = "Mã học sinh";
             this.colMaHSMoi.Width = 90;
             // 
-            // lstLopMoi
+            // lvwLopMoi
             // 
             // 
             // 
             // 
-            this.lstLopMoi.Border.Class = "ListViewBorder";
-            this.lstLopMoi.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lstLopMoi.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvwLopMoi.Border.Class = "ListViewBorder";
+            this.lvwLopMoi.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lvwLopMoi.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colMaHSMoi,
             this.colHoTenMoi});
-            this.lstLopMoi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstLopMoi.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstLopMoi.FullRowSelect = true;
-            this.lstLopMoi.Location = new System.Drawing.Point(0, 120);
-            this.lstLopMoi.Name = "lstLopMoi";
-            this.lstLopMoi.Size = new System.Drawing.Size(624, 418);
-            this.lstLopMoi.SmallImageList = this.imageListPhanLop;
-            this.lstLopMoi.TabIndex = 5;
-            this.lstLopMoi.UseCompatibleStateImageBehavior = false;
-            this.lstLopMoi.View = System.Windows.Forms.View.Details;
+            this.lvwLopMoi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvwLopMoi.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvwLopMoi.FullRowSelect = true;
+            this.lvwLopMoi.Location = new System.Drawing.Point(0, 120);
+            this.lvwLopMoi.Name = "lvwLopMoi";
+            this.lvwLopMoi.Size = new System.Drawing.Size(624, 418);
+            this.lvwLopMoi.TabIndex = 5;
+            this.lvwLopMoi.UseCompatibleStateImageBehavior = false;
+            this.lvwLopMoi.View = System.Windows.Forms.View.Details;
             // 
             // btnThoat
             // 
@@ -449,7 +439,7 @@
             // 
             // panelChaTrai
             // 
-            this.panelChaTrai.Controls.Add(this.lstLopCu);
+            this.panelChaTrai.Controls.Add(this.lvwLopCu);
             this.panelChaTrai.Controls.Add(this.panelConTren);
             this.panelChaTrai.Controls.Add(this.panelConPhai);
             this.panelChaTrai.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -470,7 +460,7 @@
             // 
             // splitContainerPhanLop.Panel2
             // 
-            this.splitContainerPhanLop.Panel2.Controls.Add(this.lstLopMoi);
+            this.splitContainerPhanLop.Panel2.Controls.Add(this.lvwLopMoi);
             this.splitContainerPhanLop.Panel2.Controls.Add(this.groupPanelLopMoi);
             this.splitContainerPhanLop.Size = new System.Drawing.Size(1366, 538);
             this.splitContainerPhanLop.SplitterDistance = 738;
@@ -504,10 +494,9 @@
 
         private DevComponents.DotNetBar.LabelX labelX4;
         private DevComponents.DotNetBar.LabelX labelX6;
-        private DevComponents.DotNetBar.Controls.ListViewEx lstLopCu;
+        private DevComponents.DotNetBar.Controls.ListViewEx lvwLopCu;
         private System.Windows.Forms.ColumnHeader colMaHSCu;
         private System.Windows.Forms.ColumnHeader colHoTenCu;
-        private System.Windows.Forms.ImageList imageListPhanLop;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cboLopMoi;
         private DevComponents.DotNetBar.LabelX labelX5;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cboKhoiLopMoi;
@@ -523,7 +512,7 @@
         private DevComponents.DotNetBar.Controls.ComboBoxEx cboNamHocMoi;
         private System.Windows.Forms.ColumnHeader colHoTenMoi;
         private System.Windows.Forms.ColumnHeader colMaHSMoi;
-        private DevComponents.DotNetBar.Controls.ListViewEx lstLopMoi;
+        private DevComponents.DotNetBar.Controls.ListViewEx lvwLopMoi;
         private DevComponents.DotNetBar.ButtonX btnThoat;
         private DevComponents.DotNetBar.ButtonX btnLuu;
         private DevComponents.DotNetBar.ButtonX btnXoa;

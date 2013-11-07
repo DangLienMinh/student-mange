@@ -162,8 +162,6 @@ namespace QuanLiHocSinh
             if (m_FrmQuyDinh == null || m_FrmQuyDinh.IsDisposed)
             {
                 m_FrmQuyDinh = new frmThongSo();
-                m_FrmQuyDinh.FormBorderStyle = FormBorderStyle.None;
-                m_FrmQuyDinh.MdiParent = frmMain.ActiveForm;
                 m_FrmQuyDinh.Show();
             }
             else

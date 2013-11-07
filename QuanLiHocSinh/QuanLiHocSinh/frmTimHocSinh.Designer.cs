@@ -67,6 +67,8 @@
             this.NGNHAPHOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HINHANHHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.navigationPanePanel1 = new DevComponents.DotNetBar.NavigationPanePanel();
+            this.optOr = new System.Windows.Forms.RadioButton();
+            this.optAnd = new System.Windows.Forms.RadioButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.optNgNhapHoc1 = new System.Windows.Forms.RadioButton();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -88,8 +90,6 @@
             this.btnTim1 = new DevComponents.DotNetBar.ButtonX();
             this.btnItemTimNC = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
-            this.optAnd = new System.Windows.Forms.RadioButton();
-            this.optOr = new System.Windows.Forms.RadioButton();
             this.navigationPanePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtiNgNhapHoc)).BeginInit();
             this.groupPanel1.SuspendLayout();
@@ -500,7 +500,7 @@
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdHocSinh.DefaultCellStyle = dataGridViewCellStyle4;
             this.grdHocSinh.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -603,13 +603,35 @@
             this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemTimNC;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(292, 536);
+            this.navigationPanePanel1.Size = new System.Drawing.Size(292, 434);
             this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
             this.navigationPanePanel1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.navigationPanePanel1.Style.GradientAngle = 90;
             this.navigationPanePanel1.TabIndex = 2;
+            // 
+            // optOr
+            // 
+            this.optOr.AutoSize = true;
+            this.optOr.Location = new System.Drawing.Point(208, 251);
+            this.optOr.Name = "optOr";
+            this.optOr.Size = new System.Drawing.Size(41, 17);
+            this.optOr.TabIndex = 0;
+            this.optOr.TabStop = true;
+            this.optOr.Text = "OR";
+            this.optOr.UseVisualStyleBackColor = true;
+            // 
+            // optAnd
+            // 
+            this.optAnd.AutoSize = true;
+            this.optAnd.Location = new System.Drawing.Point(146, 251);
+            this.optAnd.Name = "optAnd";
+            this.optAnd.Size = new System.Drawing.Size(48, 17);
+            this.optAnd.TabIndex = 0;
+            this.optAnd.TabStop = true;
+            this.optAnd.Text = "AND";
+            this.optAnd.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -919,28 +941,6 @@
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
             this.navigationPane1.TitlePanel.Text = "Tìm kiếm căn bản";
-            // 
-            // optAnd
-            // 
-            this.optAnd.AutoSize = true;
-            this.optAnd.Location = new System.Drawing.Point(146, 251);
-            this.optAnd.Name = "optAnd";
-            this.optAnd.Size = new System.Drawing.Size(48, 17);
-            this.optAnd.TabIndex = 0;
-            this.optAnd.TabStop = true;
-            this.optAnd.Text = "AND";
-            this.optAnd.UseVisualStyleBackColor = true;
-            // 
-            // optOr
-            // 
-            this.optOr.AutoSize = true;
-            this.optOr.Location = new System.Drawing.Point(208, 251);
-            this.optOr.Name = "optOr";
-            this.optOr.Size = new System.Drawing.Size(41, 17);
-            this.optOr.TabIndex = 0;
-            this.optOr.TabStop = true;
-            this.optOr.Text = "OR";
-            this.optOr.UseVisualStyleBackColor = true;
             // 
             // frmTimHocSinh
             // 

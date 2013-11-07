@@ -33,11 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
-            this.navigationPanePanel1 = new DevComponents.DotNetBar.NavigationPanePanel();
-            this.txtTim = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX7 = new DevComponents.DotNetBar.LabelX();
-            this.btnTim = new DevComponents.DotNetBar.ButtonX();
-            this.btnItemTim = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.btnSua = new DevComponents.DotNetBar.ButtonX();
             this.btnXoa = new DevComponents.DotNetBar.ButtonX();
@@ -57,22 +52,27 @@
             this.txtMaLop = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
+            this.navigationPanePanel1 = new DevComponents.DotNetBar.NavigationPanePanel();
+            this.txtTim = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX7 = new DevComponents.DotNetBar.LabelX();
+            this.btnTim = new DevComponents.DotNetBar.ButtonX();
+            this.btnItemTim = new DevComponents.DotNetBar.ButtonItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.grdLop = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.btnCuoi = new DevComponents.DotNetBar.ButtonX();
-            this.btnSau = new DevComponents.DotNetBar.ButtonX();
-            this.btnTruoc = new DevComponents.DotNetBar.ButtonX();
-            this.btnDau = new DevComponents.DotNetBar.ButtonX();
-            this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.MALOP1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENLOP1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAKHOI1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.MANH1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.SISO1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAGV1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.btnCuoi = new DevComponents.DotNetBar.ButtonX();
+            this.btnSau = new DevComponents.DotNetBar.ButtonX();
+            this.btnTruoc = new DevComponents.DotNetBar.ButtonX();
+            this.btnDau = new DevComponents.DotNetBar.ButtonX();
+            this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.navigationPane1.SuspendLayout();
-            this.navigationPanePanel1.SuspendLayout();
             this.navigationPanePanel2.SuspendLayout();
+            this.navigationPanePanel1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdLop)).BeginInit();
             this.SuspendLayout();
@@ -114,67 +114,6 @@
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
             this.navigationPane1.TitlePanel.Text = "Nhập liệu thông tin";
-            // 
-            // navigationPanePanel1
-            // 
-            this.navigationPanePanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.navigationPanePanel1.Controls.Add(this.txtTim);
-            this.navigationPanePanel1.Controls.Add(this.labelX7);
-            this.navigationPanePanel1.Controls.Add(this.btnTim);
-            this.navigationPanePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
-            this.navigationPanePanel1.Name = "navigationPanePanel1";
-            this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(186, 536);
-            this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.navigationPanePanel1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.navigationPanePanel1.Style.GradientAngle = 90;
-            this.navigationPanePanel1.TabIndex = 2;
-            // 
-            // txtTim
-            // 
-            // 
-            // 
-            // 
-            this.txtTim.Border.Class = "TextBoxBorder";
-            this.txtTim.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtTim.Location = new System.Drawing.Point(11, 34);
-            this.txtTim.Name = "txtTim";
-            this.txtTim.Size = new System.Drawing.Size(155, 20);
-            this.txtTim.TabIndex = 3;
-            // 
-            // labelX7
-            // 
-            // 
-            // 
-            // 
-            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(11, 11);
-            this.labelX7.Name = "labelX7";
-            this.labelX7.Size = new System.Drawing.Size(145, 23);
-            this.labelX7.TabIndex = 2;
-            this.labelX7.Text = "Nhập thông tin tìm kiếm";
-            // 
-            // btnTim
-            // 
-            this.btnTim.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnTim.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTim.Location = new System.Drawing.Point(34, 65);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(101, 23);
-            this.btnTim.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnTim.TabIndex = 8;
-            this.btnTim.Text = "Tìm kiếm";
-            // 
-            // btnItemTim
-            // 
-            this.btnItemTim.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemTim.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTim.Image")));
-            this.btnItemTim.Name = "btnItemTim";
-            this.btnItemTim.OptionGroup = "navBar";
-            this.btnItemTim.Text = "Tìm kiếm thông tin";
             // 
             // navigationPanePanel2
             // 
@@ -431,6 +370,67 @@
             this.btnItemNhap.OptionGroup = "navBar";
             this.btnItemNhap.Text = "Nhập liệu thông tin";
             // 
+            // navigationPanePanel1
+            // 
+            this.navigationPanePanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.navigationPanePanel1.Controls.Add(this.txtTim);
+            this.navigationPanePanel1.Controls.Add(this.labelX7);
+            this.navigationPanePanel1.Controls.Add(this.btnTim);
+            this.navigationPanePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
+            this.navigationPanePanel1.Name = "navigationPanePanel1";
+            this.navigationPanePanel1.ParentItem = this.btnItemTim;
+            this.navigationPanePanel1.Size = new System.Drawing.Size(186, 434);
+            this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.navigationPanePanel1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.navigationPanePanel1.Style.GradientAngle = 90;
+            this.navigationPanePanel1.TabIndex = 2;
+            // 
+            // txtTim
+            // 
+            // 
+            // 
+            // 
+            this.txtTim.Border.Class = "TextBoxBorder";
+            this.txtTim.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtTim.Location = new System.Drawing.Point(11, 34);
+            this.txtTim.Name = "txtTim";
+            this.txtTim.Size = new System.Drawing.Size(155, 20);
+            this.txtTim.TabIndex = 3;
+            // 
+            // labelX7
+            // 
+            // 
+            // 
+            // 
+            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX7.Location = new System.Drawing.Point(11, 11);
+            this.labelX7.Name = "labelX7";
+            this.labelX7.Size = new System.Drawing.Size(145, 23);
+            this.labelX7.TabIndex = 2;
+            this.labelX7.Text = "Nhập thông tin tìm kiếm";
+            // 
+            // btnTim
+            // 
+            this.btnTim.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnTim.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnTim.Location = new System.Drawing.Point(34, 65);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(101, 23);
+            this.btnTim.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnTim.TabIndex = 8;
+            this.btnTim.Text = "Tìm kiếm";
+            // 
+            // btnItemTim
+            // 
+            this.btnItemTim.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemTim.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTim.Image")));
+            this.btnItemTim.Name = "btnItemTim";
+            this.btnItemTim.OptionGroup = "navBar";
+            this.btnItemTim.Text = "Tìm kiếm thông tin";
+            // 
             // groupPanel1
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
@@ -501,7 +501,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdLop.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdLop.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -521,6 +521,42 @@
             this.grdLop.TabIndex = 9;
             this.grdLop.TabStop = false;
             this.grdLop.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdLop_CellClick);
+            // 
+            // MALOP1
+            // 
+            this.MALOP1.DataPropertyName = "MALOP";
+            this.MALOP1.HeaderText = "Mã lớp học";
+            this.MALOP1.Name = "MALOP1";
+            // 
+            // TENLOP1
+            // 
+            this.TENLOP1.DataPropertyName = "TENLOP";
+            this.TENLOP1.HeaderText = "Tên lớp học";
+            this.TENLOP1.Name = "TENLOP1";
+            // 
+            // MAKHOI1
+            // 
+            this.MAKHOI1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MAKHOI1.HeaderText = "Khối lớp";
+            this.MAKHOI1.Name = "MAKHOI1";
+            // 
+            // MANH1
+            // 
+            this.MANH1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MANH1.HeaderText = "Năm học ";
+            this.MANH1.Name = "MANH1";
+            // 
+            // SISO1
+            // 
+            this.SISO1.DataPropertyName = "SISO";
+            this.SISO1.HeaderText = "Sỉ số";
+            this.SISO1.Name = "SISO1";
+            // 
+            // MAGV1
+            // 
+            this.MAGV1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MAGV1.HeaderText = "Giáo viên chủ nhiệm";
+            this.MAGV1.Name = "MAGV1";
             // 
             // btnCuoi
             // 
@@ -589,42 +625,6 @@
             this.txtHienTai.TabIndex = 4;
             this.txtHienTai.TabStop = false;
             // 
-            // MALOP1
-            // 
-            this.MALOP1.DataPropertyName = "MALOP";
-            this.MALOP1.HeaderText = "Mã lớp học";
-            this.MALOP1.Name = "MALOP1";
-            // 
-            // TENLOP1
-            // 
-            this.TENLOP1.DataPropertyName = "TENLOP";
-            this.TENLOP1.HeaderText = "Tên lớp học";
-            this.TENLOP1.Name = "TENLOP1";
-            // 
-            // MAKHOI1
-            // 
-            this.MAKHOI1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MAKHOI1.HeaderText = "Khối lớp";
-            this.MAKHOI1.Name = "MAKHOI1";
-            // 
-            // MANH1
-            // 
-            this.MANH1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MANH1.HeaderText = "Năm học ";
-            this.MANH1.Name = "MANH1";
-            // 
-            // SISO1
-            // 
-            this.SISO1.DataPropertyName = "SISO";
-            this.SISO1.HeaderText = "Sỉ số";
-            this.SISO1.Name = "SISO1";
-            // 
-            // MAGV1
-            // 
-            this.MAGV1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MAGV1.HeaderText = "Giáo viên chủ nhiệm";
-            this.MAGV1.Name = "MAGV1";
-            // 
             // frmLopHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -639,8 +639,8 @@
             this.Load += new System.EventHandler(this.frmLopHoc_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLopHoc_KeyDown);
             this.navigationPane1.ResumeLayout(false);
-            this.navigationPanePanel1.ResumeLayout(false);
             this.navigationPanePanel2.ResumeLayout(false);
+            this.navigationPanePanel1.ResumeLayout(false);
             this.groupPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdLop)).EndInit();
             this.ResumeLayout(false);
