@@ -256,6 +256,7 @@
     <None Include="resources\348527.png" />
     <None Include="resources\902759421.png" />
     <None Include="resources\3485271.png" />
+    <None Include="resources\37.png" />
     <Content Include="resources\books copy.png" />
     <Content Include="resources\cal-ico copy.png" />
     <Content Include="resources\Calendar-icon.png" />
@@ -283,6 +284,7 @@
     <Content Include="resources\Search-Male-User.png" />
     <Content Include="resources\Search.png" />
     <Content Include="resources\search_user.png" />
+    <None Include="resources\splash-of-spring-backgrounds-wallpapaers.jpg" />
     <Content Include="resources\student_icon copy.png" />
     <Content Include="resources\Teacher-icon.png" />
     <Content Include="resources\Teacher_Female_Dark.png" />

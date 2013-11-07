@@ -83,6 +83,16 @@ namespace QuanLiHocSinh.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _37 {
+            get {
+                object obj = ResourceManager.GetObject("37", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _39 {
             get {
                 object obj = ResourceManager.GetObject("39", resourceCulture);
@@ -126,6 +136,16 @@ namespace QuanLiHocSinh.Properties {
         internal static System.Drawing.Bitmap saoluu {
             get {
                 object obj = ResourceManager.GetObject("saoluu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap splash_of_spring_backgrounds_wallpapaers {
+            get {
+                object obj = ResourceManager.GetObject("splash-of-spring-backgrounds-wallpapaers", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
