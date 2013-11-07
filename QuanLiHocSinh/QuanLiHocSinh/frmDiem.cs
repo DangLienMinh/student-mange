@@ -25,8 +25,8 @@ namespace QuanLiHocSinh
 
         private void cbNamHoc_SelectedValueChanged(object sender, EventArgs e)
         {
-            treeKhoi.Nodes.Clear();
-            lop_BUS.hienThiLopTheoNamHoc(cboNamHoc.SelectedValue.ToString(), treeKhoi);
+            treKhoi.Nodes.Clear();
+            lop_BUS.hienThiLopTheoNamHoc(cboNamHoc.SelectedValue.ToString(), treKhoi);
         }
 
         private void frmDiem_Load(object sender, EventArgs e)

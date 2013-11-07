@@ -51,6 +51,7 @@ namespace QuanLiHocSinh
         private void mainFormStart()
         {
            frmMain main=new frmMain();
+           
             Application.Run(main);
             
             

@@ -29,28 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHocSinhTheoLop));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.lblchonlop = new DevComponents.DotNetBar.LabelX();
             this.cboNamHoc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.elementStyle2 = new DevComponents.DotNetBar.ElementStyle();
             this.nodeConnector2 = new DevComponents.AdvTree.NodeConnector();
-            this.treeLop = new DevComponents.AdvTree.AdvTree();
+            this.treLop = new DevComponents.AdvTree.AdvTree();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.btnDanhSach = new DevComponents.DotNetBar.ButtonX();
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.grdHocSinh = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.btnCuoi = new DevComponents.DotNetBar.ButtonX();
-            this.btnSau = new DevComponents.DotNetBar.ButtonX();
-            this.btnTruoc = new DevComponents.DotNetBar.ButtonX();
-            this.btnDau = new DevComponents.DotNetBar.ButtonX();
-            this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.MAHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NGSINHHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,7 +55,12 @@
             this.DANTOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NGNHAPHOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HINHANHHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.treeLop)).BeginInit();
+            this.btnCuoi = new DevComponents.DotNetBar.ButtonX();
+            this.btnSau = new DevComponents.DotNetBar.ButtonX();
+            this.btnTruoc = new DevComponents.DotNetBar.ButtonX();
+            this.btnDau = new DevComponents.DotNetBar.ButtonX();
+            this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
+            ((System.ComponentModel.ISupportInitialize)(this.treLop)).BeginInit();
             this.navigationPanePanel2.SuspendLayout();
             this.navigationPane1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
@@ -117,30 +117,30 @@
             // 
             this.nodeConnector2.LineColor = System.Drawing.SystemColors.ControlText;
             // 
-            // treeLop
+            // treLop
             // 
-            this.treeLop.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
-            this.treeLop.AllowDrop = true;
-            this.treeLop.BackColor = System.Drawing.SystemColors.Window;
+            this.treLop.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
+            this.treLop.AllowDrop = true;
+            this.treLop.BackColor = System.Drawing.SystemColors.Window;
             // 
             // 
             // 
-            this.treeLop.BackgroundStyle.Class = "TreeBorderKey";
-            this.treeLop.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.treeLop.Location = new System.Drawing.Point(14, 95);
-            this.treeLop.Name = "treeLop";
-            this.treeLop.NodesConnector = this.nodeConnector2;
-            this.treeLop.NodeStyle = this.elementStyle2;
-            this.treeLop.PathSeparator = ";";
-            this.treeLop.Size = new System.Drawing.Size(177, 245);
-            this.treeLop.Styles.Add(this.elementStyle2);
-            this.treeLop.TabIndex = 2;
-            this.treeLop.Text = "advTree2";
+            this.treLop.BackgroundStyle.Class = "TreeBorderKey";
+            this.treLop.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.treLop.Location = new System.Drawing.Point(14, 95);
+            this.treLop.Name = "treLop";
+            this.treLop.NodesConnector = this.nodeConnector2;
+            this.treLop.NodeStyle = this.elementStyle2;
+            this.treLop.PathSeparator = ";";
+            this.treLop.Size = new System.Drawing.Size(177, 245);
+            this.treLop.Styles.Add(this.elementStyle2);
+            this.treLop.TabIndex = 2;
+            this.treLop.Text = "advTree2";
             // 
             // navigationPanePanel2
             // 
             this.navigationPanePanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.navigationPanePanel2.Controls.Add(this.treeLop);
+            this.navigationPanePanel2.Controls.Add(this.treLop);
             this.navigationPanePanel2.Controls.Add(this.lblchonlop);
             this.navigationPanePanel2.Controls.Add(this.cboNamHoc);
             this.navigationPanePanel2.Controls.Add(this.btnDanhSach);
@@ -261,14 +261,14 @@
             // 
             // grdHocSinh
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdHocSinh.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdHocSinh.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.grdHocSinh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdHocSinh.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MAHS,
@@ -280,31 +280,90 @@
             this.DANTOC,
             this.NGNHAPHOC,
             this.HINHANHHS});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdHocSinh.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdHocSinh.DefaultCellStyle = dataGridViewCellStyle9;
             this.grdHocSinh.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grdHocSinh.EnableHeadersVisualStyles = false;
             this.grdHocSinh.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grdHocSinh.Location = new System.Drawing.Point(0, 43);
             this.grdHocSinh.Name = "grdHocSinh";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdHocSinh.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdHocSinh.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.grdHocSinh.Size = new System.Drawing.Size(1149, 474);
             this.grdHocSinh.TabIndex = 16;
             this.grdHocSinh.TabStop = false;
             this.grdHocSinh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdHocSinh_CellClick);
+            // 
+            // MAHS
+            // 
+            this.MAHS.DataPropertyName = "MAHS";
+            this.MAHS.HeaderText = "Mã học sinh";
+            this.MAHS.Name = "MAHS";
+            // 
+            // TENHS
+            // 
+            this.TENHS.DataPropertyName = "TENHS";
+            this.TENHS.HeaderText = "Tên học sinh";
+            this.TENHS.Name = "TENHS";
+            // 
+            // NGSINHHS
+            // 
+            this.NGSINHHS.DataPropertyName = "NGSINHHS";
+            dataGridViewCellStyle7.Format = "dd/MM/yyyy";
+            this.NGSINHHS.DefaultCellStyle = dataGridViewCellStyle7;
+            this.NGSINHHS.HeaderText = "Ngày sinh";
+            this.NGSINHHS.Name = "NGSINHHS";
+            // 
+            // GIOITINHHS
+            // 
+            this.GIOITINHHS.DataPropertyName = "GIOITINHHS";
+            this.GIOITINHHS.HeaderText = "Giới tính";
+            this.GIOITINHHS.Name = "GIOITINHHS";
+            // 
+            // DIACHIHS
+            // 
+            this.DIACHIHS.DataPropertyName = "DIACHIHS";
+            this.DIACHIHS.HeaderText = "Địa chỉ";
+            this.DIACHIHS.Name = "DIACHIHS";
+            // 
+            // DIENTHOAIHS
+            // 
+            this.DIENTHOAIHS.DataPropertyName = "DIENTHOAIHS";
+            this.DIENTHOAIHS.HeaderText = "Điện thoại";
+            this.DIENTHOAIHS.Name = "DIENTHOAIHS";
+            // 
+            // DANTOC
+            // 
+            this.DANTOC.DataPropertyName = "DANTOC";
+            this.DANTOC.HeaderText = "Dân tộc";
+            this.DANTOC.Name = "DANTOC";
+            // 
+            // NGNHAPHOC
+            // 
+            this.NGNHAPHOC.DataPropertyName = "NGNHAPHOC";
+            dataGridViewCellStyle8.Format = "dd/MM/yyyy";
+            this.NGNHAPHOC.DefaultCellStyle = dataGridViewCellStyle8;
+            this.NGNHAPHOC.HeaderText = "Ngày nhập học";
+            this.NGNHAPHOC.Name = "NGNHAPHOC";
+            // 
+            // HINHANHHS
+            // 
+            this.HINHANHHS.DataPropertyName = "HINHANHHS";
+            this.HINHANHHS.HeaderText = "Hình ảnh";
+            this.HINHANHHS.Name = "HINHANHHS";
+            this.HINHANHHS.Visible = false;
             // 
             // btnCuoi
             // 
@@ -373,65 +432,6 @@
             this.txtHienTai.TabIndex = 15;
             this.txtHienTai.TabStop = false;
             // 
-            // MAHS
-            // 
-            this.MAHS.DataPropertyName = "MAHS";
-            this.MAHS.HeaderText = "Mã học sinh";
-            this.MAHS.Name = "MAHS";
-            // 
-            // TENHS
-            // 
-            this.TENHS.DataPropertyName = "TENHS";
-            this.TENHS.HeaderText = "Tên học sinh";
-            this.TENHS.Name = "TENHS";
-            // 
-            // NGSINHHS
-            // 
-            this.NGSINHHS.DataPropertyName = "NGSINHHS";
-            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
-            this.NGSINHHS.DefaultCellStyle = dataGridViewCellStyle2;
-            this.NGSINHHS.HeaderText = "Ngày sinh";
-            this.NGSINHHS.Name = "NGSINHHS";
-            // 
-            // GIOITINHHS
-            // 
-            this.GIOITINHHS.DataPropertyName = "GIOITINHHS";
-            this.GIOITINHHS.HeaderText = "Giới tính";
-            this.GIOITINHHS.Name = "GIOITINHHS";
-            // 
-            // DIACHIHS
-            // 
-            this.DIACHIHS.DataPropertyName = "DIACHIHS";
-            this.DIACHIHS.HeaderText = "Địa chỉ";
-            this.DIACHIHS.Name = "DIACHIHS";
-            // 
-            // DIENTHOAIHS
-            // 
-            this.DIENTHOAIHS.DataPropertyName = "DIENTHOAIHS";
-            this.DIENTHOAIHS.HeaderText = "Điện thoại";
-            this.DIENTHOAIHS.Name = "DIENTHOAIHS";
-            // 
-            // DANTOC
-            // 
-            this.DANTOC.DataPropertyName = "DANTOC";
-            this.DANTOC.HeaderText = "Dân tộc";
-            this.DANTOC.Name = "DANTOC";
-            // 
-            // NGNHAPHOC
-            // 
-            this.NGNHAPHOC.DataPropertyName = "NGNHAPHOC";
-            dataGridViewCellStyle3.Format = "dd/MM/yyyy";
-            this.NGNHAPHOC.DefaultCellStyle = dataGridViewCellStyle3;
-            this.NGNHAPHOC.HeaderText = "Ngày nhập học";
-            this.NGNHAPHOC.Name = "NGNHAPHOC";
-            // 
-            // HINHANHHS
-            // 
-            this.HINHANHHS.DataPropertyName = "HINHANHHS";
-            this.HINHANHHS.HeaderText = "Hình ảnh";
-            this.HINHANHHS.Name = "HINHANHHS";
-            this.HINHANHHS.Visible = false;
-            // 
             // frmHocSinhTheoLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -445,7 +445,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmHocSinhTheoLop_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmHocSinhTheoLop_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.treeLop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treLop)).EndInit();
             this.navigationPanePanel2.ResumeLayout(false);
             this.navigationPane1.ResumeLayout(false);
             this.groupPanel1.ResumeLayout(false);
@@ -461,7 +461,7 @@
         private DevComponents.DotNetBar.Controls.ComboBoxEx cboNamHoc;
         private DevComponents.DotNetBar.ElementStyle elementStyle2;
         private DevComponents.AdvTree.NodeConnector nodeConnector2;
-        private DevComponents.AdvTree.AdvTree treeLop;
+        private DevComponents.AdvTree.AdvTree treLop;
         private DevComponents.DotNetBar.NavigationPanePanel navigationPanePanel2;
         private DevComponents.DotNetBar.ButtonX btnDanhSach;
         private DevComponents.DotNetBar.ButtonItem btnItemNhap;

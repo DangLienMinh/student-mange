@@ -43,7 +43,7 @@ namespace QuanLiHocSinh
 
         private void btnChuyen_Click(object sender, EventArgs e)
         {
-            IEnumerator ie = lstLopCu.SelectedItems.GetEnumerator();
+            IEnumerator ie = lvwLopCu.SelectedItems.GetEnumerator();
             while (ie.MoveNext())
             {
                 ListViewItem oldItem = (ListViewItem)ie.Current;
@@ -52,7 +52,7 @@ namespace QuanLiHocSinh
                 //Trạng thái học sinh đã được chuyển lớp hay chưa?
                 bool state = false;
 
-                foreach (ListViewItem item in lstLopMoi.Items)
+                foreach (ListViewItem item in lvwLopMoi.Items)
                 {
                     if (item.SubItems[0].Text == oldItem.SubItems[0].Text)
                     {
@@ -81,9 +81,9 @@ namespace QuanLiHocSinh
                 newItem.SubItems.Add(oldItem.SubItems[1].Text);
                 newItem.Tag = oldItem.Tag;
 
-                lstLopMoi.Items.Add(newItem);
-                lstLopMoi.Items[lstLopMoi.Items.IndexOf(newItem)].Text = oldItem.SubItems[0].Text;
-                lstLopCu.Items.Remove(oldItem);
+                lvwLopMoi.Items.Add(newItem);
+                lvwLopMoi.Items[lvwLopMoi.Items.IndexOf(newItem)].Text = oldItem.SubItems[0].Text;
+                lvwLopCu.Items.Remove(oldItem);
 
             Cont:
                 if (state == true)
@@ -132,7 +132,7 @@ namespace QuanLiHocSinh
         {
             if (cboNamHocCu.SelectedValue != null && cboLopCu.SelectedValue != null)
             {
-                hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocCu, cboLopCu, lstLopCu);
+                hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocCu, cboLopCu, lvwLopCu);
             }
         }
 
@@ -140,7 +140,7 @@ namespace QuanLiHocSinh
         {
             if (cboNamHocMoi.SelectedValue != null && cboLopMoi.SelectedValue != null)
             {
-                hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocMoi, cboLopMoi, lstLopMoi);
+                hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocMoi, cboLopMoi, lvwLopMoi);
             }
         }
 
@@ -148,11 +148,11 @@ namespace QuanLiHocSinh
         {
             if (MessageBox.Show("Bạn có muốn xóa học sinh này khỏi lớp mới không?", "DELETE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                IEnumerator ie = lstLopMoi.SelectedItems.GetEnumerator();
+                IEnumerator ie = lvwLopMoi.SelectedItems.GetEnumerator();
                 while (ie.MoveNext())
                 {
                     ListViewItem item = (ListViewItem)ie.Current;
-                    lstLopMoi.Items.Remove(item);
+                    lvwLopMoi.Items.Remove(item);
                 }
             }
         }
@@ -166,7 +166,7 @@ namespace QuanLiHocSinh
                 cboKhoiLopMoi.SelectedValue != null &&
                 cboLopMoi.SelectedValue != null)
             {
-                hocSinh_BUS.themPhanLop(cboNamHocMoi, cboLopMoi, lstLopMoi);
+                hocSinh_BUS.themPhanLop(cboNamHocMoi, cboLopMoi, lvwLopMoi);
                 MessageBox.Show("Đã lưu vào bảng phân lớp!", "COMPLETED", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else

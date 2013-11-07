@@ -50,17 +50,17 @@ namespace QuanLiHocSinh
 
         private void cboNamHoc_SelectedValueChanged(object sender, EventArgs e)
         {
-            treeLop.Nodes.Clear();
-            lop_BUS.hienThiLopTheoNamHoc(cboNamHoc.SelectedValue.ToString(), treeLop);
+            treLop.Nodes.Clear();
+            lop_BUS.hienThiLopTheoNamHoc(cboNamHoc.SelectedValue.ToString(), treLop);
         }
 
         private void btnDanhSach_Click(object sender, EventArgs e)
         {
-            if (treeLop.SelectedNode==null)
+            if (treLop.SelectedNode==null)
             {
                 MessageBox.Show("Bạn phải chon một lớp");
             }else
-            grdHocSinh.DataSource = hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHoc, treeLop);
+            grdHocSinh.DataSource = hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHoc, treLop);
             if (grdHocSinh.Rows.Count > 1)
             {
                 foreach (DataGridViewRow row in grdHocSinh.Rows)
