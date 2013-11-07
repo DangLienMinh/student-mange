@@ -184,6 +184,9 @@
   <data name="classroom_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\classroom_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="HuongDan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\HuongDan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="3485271" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\3485271.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -211,7 +214,7 @@
   <data name="winBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\winBlack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="HuongDan" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\HuongDan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ThamSo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\ThamSo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
