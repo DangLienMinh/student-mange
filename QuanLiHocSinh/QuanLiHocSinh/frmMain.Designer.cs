@@ -81,6 +81,7 @@
             this.btnMatKhau = new DevComponents.DotNetBar.ButtonItem();
             this.btnNguoiDung = new DevComponents.DotNetBar.ButtonItem();
             this.btnSaoLuu = new DevComponents.DotNetBar.ButtonItem();
+            this.btnPhucHoi = new DevComponents.DotNetBar.ButtonItem();
             this.btnThoat = new DevComponents.DotNetBar.ButtonItem();
             this.qatCustomizeItem1 = new DevComponents.DotNetBar.QatCustomizeItem();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
@@ -853,6 +854,7 @@
             this.btnMatKhau,
             this.btnNguoiDung,
             this.btnSaoLuu,
+            this.btnPhucHoi,
             this.btnThoat});
             // 
             // 
@@ -902,6 +904,15 @@
             this.btnSaoLuu.Name = "btnSaoLuu";
             this.btnSaoLuu.SubItemsExpandWidth = 24;
             this.btnSaoLuu.Text = "Sao lưu dữ liệu";
+            this.btnSaoLuu.Click += new System.EventHandler(this.btnSaoLuu_Click);
+            // 
+            // btnPhucHoi
+            // 
+            this.btnPhucHoi.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnPhucHoi.Image = global::QuanLiHocSinh.Properties.Resources.phuchoi;
+            this.btnPhucHoi.Name = "btnPhucHoi";
+            this.btnPhucHoi.Text = "Phục hồi dữ liệu";
+            this.btnPhucHoi.Click += new System.EventHandler(this.btnPhucHoi_Click);
             // 
             // btnThoat
             // 
@@ -1050,5 +1061,6 @@
         private DevComponents.DotNetBar.Bar bar1;
         private DevComponents.DotNetBar.LabelItem lblName;
         private DevComponents.DotNetBar.ButtonItem btnDangNhap;
+        private DevComponents.DotNetBar.ButtonItem btnPhucHoi;
     }
 }

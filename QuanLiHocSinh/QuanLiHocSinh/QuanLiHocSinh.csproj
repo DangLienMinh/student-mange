@@ -275,6 +275,7 @@
     <Content Include="resources\ismages copy.png" />
     <None Include="resources\learning-prv.png" />
     <Content Include="resources\notus-icon.png" />
+    <None Include="resources\phuchoi.png" />
     <Content Include="resources\picture1_02.gif" />
     <Content Include="resources\picture1_03.gif" />
     <Content Include="resources\picture2.gif" />
