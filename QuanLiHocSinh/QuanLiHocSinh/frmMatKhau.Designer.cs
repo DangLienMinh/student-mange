@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.gPanelDoiMK = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.btnHuy = new DevComponents.DotNetBar.ButtonX();
+            this.btnDongY = new DevComponents.DotNetBar.ButtonX();
             this.lblNewPassError = new System.Windows.Forms.Label();
             this.lblOldPassError = new System.Windows.Forms.Label();
+            this.lblReNPassError = new System.Windows.Forms.Label();
             this.lblReNewPass = new DevComponents.DotNetBar.LabelX();
             this.lblNewPass = new DevComponents.DotNetBar.LabelX();
             this.lblOldPass = new DevComponents.DotNetBar.LabelX();
             this.txtMkNhapLai = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtMkMoi = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtMkCu = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.btnDongY = new DevComponents.DotNetBar.ButtonX();
-            this.btnHuy = new DevComponents.DotNetBar.ButtonX();
             this.gPanelDoiMK.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +51,7 @@
             this.gPanelDoiMK.Controls.Add(this.btnDongY);
             this.gPanelDoiMK.Controls.Add(this.lblNewPassError);
             this.gPanelDoiMK.Controls.Add(this.lblOldPassError);
+            this.gPanelDoiMK.Controls.Add(this.lblReNPassError);
             this.gPanelDoiMK.Controls.Add(this.lblReNewPass);
             this.gPanelDoiMK.Controls.Add(this.lblNewPass);
             this.gPanelDoiMK.Controls.Add(this.lblOldPass);
@@ -92,6 +94,30 @@
             this.gPanelDoiMK.TabIndex = 1;
             this.gPanelDoiMK.Text = "Đổi mật khẩu cá nhân";
             // 
+            // btnHuy
+            // 
+            this.btnHuy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnHuy.Location = new System.Drawing.Point(223, 143);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(75, 23);
+            this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnHuy.TabIndex = 4;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
+            // btnDongY
+            // 
+            this.btnDongY.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnDongY.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnDongY.Location = new System.Drawing.Point(114, 143);
+            this.btnDongY.Name = "btnDongY";
+            this.btnDongY.Size = new System.Drawing.Size(75, 23);
+            this.btnDongY.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnDongY.TabIndex = 4;
+            this.btnDongY.Text = "Đồng ý";
+            this.btnDongY.Click += new System.EventHandler(this.btnDongY_Click);
+            // 
             // lblNewPassError
             // 
             this.lblNewPassError.AutoSize = true;
@@ -113,6 +139,17 @@
             this.lblOldPassError.Name = "lblOldPassError";
             this.lblOldPassError.Size = new System.Drawing.Size(0, 13);
             this.lblOldPassError.TabIndex = 0;
+            // 
+            // lblReNPassError
+            // 
+            this.lblReNPassError.AutoSize = true;
+            this.lblReNPassError.BackColor = System.Drawing.Color.Transparent;
+            this.lblReNPassError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReNPassError.ForeColor = System.Drawing.Color.Red;
+            this.lblReNPassError.Location = new System.Drawing.Point(167, 120);
+            this.lblReNPassError.Name = "lblReNPassError";
+            this.lblReNPassError.Size = new System.Drawing.Size(0, 13);
+            this.lblReNPassError.TabIndex = 0;
             // 
             // lblReNewPass
             // 
@@ -170,6 +207,7 @@
             this.txtMkNhapLai.Size = new System.Drawing.Size(160, 23);
             this.txtMkNhapLai.TabIndex = 3;
             this.txtMkNhapLai.WatermarkText = "Xác nhận mật khẩu mới";
+            this.txtMkNhapLai.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMkNhapLai_KeyDown);
             // 
             // txtMkMoi
             // 
@@ -201,28 +239,6 @@
             this.txtMkCu.TabIndex = 1;
             this.txtMkCu.WatermarkText = "Mật khẩu cũ";
             // 
-            // btnDongY
-            // 
-            this.btnDongY.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnDongY.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDongY.Location = new System.Drawing.Point(114, 143);
-            this.btnDongY.Name = "btnDongY";
-            this.btnDongY.Size = new System.Drawing.Size(75, 23);
-            this.btnDongY.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnDongY.TabIndex = 4;
-            this.btnDongY.Text = "Đồng ý";
-            // 
-            // btnHuy
-            // 
-            this.btnHuy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnHuy.Location = new System.Drawing.Point(223, 143);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnHuy.TabIndex = 4;
-            this.btnHuy.Text = "Hủy";
-            // 
             // frmMatKhau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,6 +247,7 @@
             this.Controls.Add(this.gPanelDoiMK);
             this.DoubleBuffered = true;
             this.Name = "frmMatKhau";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ĐỔI MẬT KHẨU";
             this.gPanelDoiMK.ResumeLayout(false);
             this.gPanelDoiMK.PerformLayout();
@@ -243,6 +260,7 @@
         private DevComponents.DotNetBar.Controls.GroupPanel gPanelDoiMK;
         public System.Windows.Forms.Label lblNewPassError;
         public System.Windows.Forms.Label lblOldPassError;
+        public System.Windows.Forms.Label lblReNPassError;
         private DevComponents.DotNetBar.LabelX lblReNewPass;
         private DevComponents.DotNetBar.LabelX lblNewPass;
         private DevComponents.DotNetBar.LabelX lblOldPass;

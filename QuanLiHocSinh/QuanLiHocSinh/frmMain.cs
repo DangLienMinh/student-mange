@@ -32,6 +32,7 @@ namespace QuanLiHocSinh
         private frmPhanCong m_FrmPhanCong = null;
         private frmHocSinhTheoLop m_FrmTimLop = null;
         private frmTimHocSinh m_FrmTimHocSinh = null;
+        private frmMatKhau m_FrmMatKhau = null;
         
         frmDangNhap m_FrmLogin = null;
 
@@ -272,18 +273,29 @@ namespace QuanLiHocSinh
             m_FrmLogin.txtMatKhau.Text = "";
             m_FrmLogin.lblUserError.Text = "";
             m_FrmLogin.lblPassError.Text = "";
-
+            
             dangNhap();
         }
 
         private void btnDangXuat_Click_1(object sender, EventArgs e)
         {
-
+            lblName.Text = "Không có";
+            macDinh();
         }
 
         private void btnMatKhau_Click(object sender, EventArgs e)
         {
+            if (m_FrmMatKhau == null || m_FrmMatKhau.IsDisposed)
+                m_FrmMatKhau = new frmMatKhau();
 
+            m_FrmMatKhau.txtMkCu.Text = "";
+            m_FrmMatKhau.txtMkMoi.Text = "";
+            m_FrmMatKhau.txtMkNhapLai.Text = "";
+            m_FrmMatKhau.lblOldPassError.Text = "";
+            m_FrmMatKhau.lblNewPassError.Text = "";
+            m_FrmMatKhau.lblReNPassError.Text = "";
+            m_FrmMatKhau.txtMkCu.Focus();
+            doiMatKhau();
         }
 
         private void btnNguoiDung_Click(object sender, EventArgs e)
@@ -357,7 +369,7 @@ namespace QuanLiHocSinh
         Cont:
             if (m_FrmLogin == null || m_FrmLogin.IsDisposed)
                 m_FrmLogin = new frmDangNhap();
-
+       
             if (m_FrmLogin.ShowDialog() == DialogResult.OK)
             {
                 if (m_FrmLogin.txtTenDN.Text == "")
@@ -389,7 +401,68 @@ namespace QuanLiHocSinh
                     case 2:
                         lblName.Text += " "+ nguoiDung_DTO.Tennd;
                         phanQuyen(nguoiDung_DTO.Malnd);
+                        
                         break;
+                }
+            }
+            else
+                return;
+        }
+
+        private void doiMatKhau() 
+        {
+        Cont:
+            if (m_FrmMatKhau.ShowDialog() == DialogResult.OK)
+            {
+                if (m_FrmMatKhau.txtMkCu.Text == "")
+                {
+                    m_FrmMatKhau.lblOldPassError.Text = "Chưa nhập mật khẩu hiện tại!";
+                    m_FrmMatKhau.lblNewPassError.Text = "";
+                    m_FrmMatKhau.Text = "";
+                    goto Cont;
+                }
+
+                if (m_FrmMatKhau.txtMkMoi.Text == "")
+                {
+                    m_FrmMatKhau.lblOldPassError.Text = "";
+                    m_FrmMatKhau.lblNewPassError.Text = "Chưa nhập mật khẩu mới!";
+                    m_FrmMatKhau.lblReNPassError.Text = "";
+                    goto Cont;
+                }
+
+                if (m_FrmMatKhau.txtMkNhapLai.Text == "")
+                {
+                    m_FrmMatKhau.lblOldPassError.Text = "";
+                    m_FrmMatKhau.lblNewPassError.Text = "";
+                    m_FrmMatKhau.lblReNPassError.Text = "Chưa nhập xác nhận mật khẩu!";
+                    goto Cont;
+                }
+
+                String m_Username = m_FrmLogin.txtTenDN.Text;
+                String m_Password = m_FrmLogin.txtMatKhau.Text;
+
+                String m_OldPassword = m_FrmMatKhau.txtMkCu.Text;
+                String m_NewPassword = m_FrmMatKhau.txtMkMoi.Text;
+                String m_ReNPassword = m_FrmMatKhau.txtMkNhapLai.Text;
+
+                if (m_Password != m_OldPassword)
+                {
+                    m_FrmMatKhau.lblOldPassError.Text = "Nhập sai mật khẩu cũ!";
+                    m_FrmMatKhau.lblNewPassError.Text = "";
+                    m_FrmMatKhau.lblReNPassError.Text = "";
+                    goto Cont;
+                }
+                else if (m_NewPassword != m_ReNPassword)
+                {
+                    m_FrmMatKhau.lblOldPassError.Text = "";
+                    m_FrmMatKhau.lblNewPassError.Text = "";
+                    m_FrmMatKhau.lblReNPassError.Text = "Nhập xác nhận không khớp!";
+                    goto Cont;
+                }
+                else
+                {
+                    nguoiDung_BUS.suaMatKhau(m_Username, m_NewPassword);
+                    MessageBox.Show("Đổi mật khẩu thành công!", "PASSWORD CHANGED", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else

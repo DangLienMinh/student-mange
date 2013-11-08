@@ -103,6 +103,14 @@ namespace QLHS.BUS
             nguoiDung_DAO.suaNguoiDung(nguoiDung_DTO);
         }
 
+        public void suaMatKhau(string TenDN, string MatKhau)
+        {
+            nguoiDung_DTO = new clsNGUOIDUNG_DTO();
+            nguoiDung_DTO.Tendn = TenDN;
+            nguoiDung_DTO.Matkhau = MatKhau;
+            nguoiDung_DAO.suaMatKhau(nguoiDung_DTO);
+        }
+
         
         private DataRow getDatarow()
         {
