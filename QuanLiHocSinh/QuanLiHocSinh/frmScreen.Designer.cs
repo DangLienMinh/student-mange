@@ -48,6 +48,7 @@
             this.circularProgress1.TabIndex = 0;
             this.circularProgress1.TabStop = false;
             this.circularProgress1.Value = 1;
+            this.circularProgress1.ValueChanged += new System.EventHandler(this.circularProgress1_ValueChanged);
             // 
             // frmScreen
             // 

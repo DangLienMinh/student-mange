@@ -60,7 +60,8 @@ namespace QuanLiHocSinh
                 //tạo mã học sinh
                 txtMaHS.Text = hocSinh_BUS.taoMaHocSinh(cboNamHoc);
                 //load danh sách học sinh vào datagrid học sinh
-                grdHocSinh.DataSource = hocSinh_BUS.danhSachHocSinh(cboNamHoc);
+                //grdHocSinh.DataSource = hocSinh_BUS.danhSachHocSinh(cboNamHoc);
+               hocSinh_BUS.tailaiDataGrid(grdHocSinh,hocSinh_BUS.danhSachHocSinh(cboNamHoc));
             }
             
             dtiNgaySinh.Value = DateTime.Now;
@@ -202,22 +203,22 @@ namespace QuanLiHocSinh
         {
             if (grdHocSinh.Rows.Count>1)
             {
-                cboNamHoc.SelectedValue = grdHocSinh.CurrentRow.Cells["MANH"].Value.ToString();
-                cboLop.SelectedValue = grdHocSinh.CurrentRow.Cells["MALOP"].Value.ToString();
-                cboGioiTinh.SelectedValue = grdHocSinh.CurrentRow.Cells["GIOITINHHS"].Value.ToString();
-                txtMaHS.Text = grdHocSinh.CurrentRow.Cells["MAHS"].Value.ToString();
-                txtTenHS.Text = grdHocSinh.CurrentRow.Cells["TENHS"].Value.ToString();
-                txtDiaChi.Text = grdHocSinh.CurrentRow.Cells["DIACHIHS"].Value.ToString();
-                txtDantoc.Text = grdHocSinh.CurrentRow.Cells["DANTOC"].Value.ToString();
-                txtDienThoai.Text = grdHocSinh.CurrentRow.Cells["DIENTHOAIHS"].Value.ToString();
-                dtiNgaySinh.Text = grdHocSinh.CurrentRow.Cells["NGSINHHS"].Value.ToString();
-                dtiNgayNhapHoc.Text = grdHocSinh.CurrentRow.Cells["NGNHAPHOC"].Value.ToString();
-                if (grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString() != "")
-                {
-                    FileStream fs = new FileStream(grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString(), FileMode.Open, FileAccess.Read);
-                    picHocSinh.Image = Image.FromStream(fs);
-                    fs.Close();
-                }
+                    cboNamHoc.SelectedValue = grdHocSinh.CurrentRow.Cells["MANH"].Value.ToString();
+                    cboLop.SelectedValue = grdHocSinh.CurrentRow.Cells["MALOP"].Value.ToString();
+                    cboGioiTinh.SelectedItem = grdHocSinh.CurrentRow.Cells["GIOITINHHS"].Value.ToString();
+                    txtMaHS.Text = grdHocSinh.CurrentRow.Cells["MAHS"].Value.ToString();
+                    txtTenHS.Text = grdHocSinh.CurrentRow.Cells["TENHS"].Value.ToString();
+                    txtDiaChi.Text = grdHocSinh.CurrentRow.Cells["DIACHIHS"].Value.ToString();
+                    txtDantoc.Text = grdHocSinh.CurrentRow.Cells["DANTOC"].Value.ToString();
+                    txtDienThoai.Text = grdHocSinh.CurrentRow.Cells["DIENTHOAIHS"].Value.ToString();
+                    dtiNgaySinh.Text = grdHocSinh.CurrentRow.Cells["NGSINHHS"].Value.ToString();
+                    dtiNgayNhapHoc.Text = grdHocSinh.CurrentRow.Cells["NGNHAPHOC"].Value.ToString();
+                    if (grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString() != "")
+                    {
+                        FileStream fs = new FileStream(grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString(), FileMode.Open, FileAccess.Read);
+                        picHocSinh.Image = Image.FromStream(fs);
+                        fs.Close();
+                    }
             }
             
         }
@@ -299,7 +300,7 @@ namespace QuanLiHocSinh
                     File.Copy(linkGoc, hocSinh_DTO.Hinhanhhs);
                     hocSinh_BUS.themHocSinh(hocSinh_DTO);
                     resetALL();
-                    grdHocSinh.DataSource = hocSinh_BUS.danhSachHocSinh(cboNamHoc);//tải lại danh sách sau khi thêm
+                    hocSinh_BUS.tailaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh(cboNamHoc));//tải lại danh sách sau khi thêm
                     flagChonAnh = false;
                     flagInsert = false;
                     MessageBox.Show("Đã thêm học sinh thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -321,7 +322,8 @@ namespace QuanLiHocSinh
                 {
                     hocSinh_BUS.xoaHocSinh(hocSinh_DTO);
                     File.Delete(grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString());
-                    grdHocSinh.DataSource = hocSinh_BUS.danhSachHocSinh(cboNamHoc);//tải lại danh sách sau khi xóa
+
+                    hocSinh_BUS.tailaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh(cboNamHoc));//tải lại danh sách sau khi xóa
                     flagDelete = false;
                     MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -375,7 +377,8 @@ namespace QuanLiHocSinh
                     hocSinh_BUS.suaHocSinh(hocSinh_DTO,grdHocSinh);
                     flagUpdate = false;
                     resetALL();
-                    grdHocSinh.DataSource = hocSinh_BUS.danhSachHocSinh(cboNamHoc);//tải lại danh sách sau khi thêm
+
+                    hocSinh_BUS.tailaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh(cboNamHoc));//tải lại danh sách sau khi thêm
                     MessageBox.Show("Đã sửa học sinh thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
@@ -400,7 +403,7 @@ namespace QuanLiHocSinh
                 txtDantoc.Text = grdHocSinh.Rows[vitri].Cells["DANTOC"].Value.ToString();
                 txtDienThoai.Text = grdHocSinh.Rows[vitri].Cells["DIENTHOAIHS"].Value.ToString();
                 txtDiaChi.Text = grdHocSinh.Rows[vitri].Cells["DIACHIHS"].Value.ToString();
-                cboGioiTinh.SelectedValue = grdHocSinh.Rows[vitri].Cells["GIOITINHHS"].Value.ToString();
+                cboGioiTinh.SelectedItem = grdHocSinh.Rows[vitri].Cells["GIOITINHHS"].Value.ToString();
                 cboLop.SelectedValue = grdHocSinh.Rows[vitri].Cells["MALOP"].Value.ToString();
                 cboNamHoc.SelectedValue = grdHocSinh.Rows[vitri].Cells["MANH"].Value.ToString();
                 dtiNgaySinh.Text = grdHocSinh.Rows[vitri].Cells["NGSINHHS"].Value.ToString();
@@ -514,5 +517,11 @@ namespace QuanLiHocSinh
         {
 
         }
+
+        private void progressBarX1_Click(object sender, EventArgs e)
+        {
+
+        }
+        
     }
 }
