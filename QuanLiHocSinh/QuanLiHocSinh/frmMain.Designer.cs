@@ -115,8 +115,8 @@
             // 
             this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonControl1.CaptionVisible = true;
-            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
             this.ribbonControl1.Controls.Add(this.ribbonPanel2);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
             this.ribbonControl1.Controls.Add(this.ribbonPanel3);
             this.ribbonControl1.Controls.Add(this.ribbonPanel4);
             this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -177,6 +177,7 @@
             // 
             this.ribbonPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel1.TabIndex = 1;
+            this.ribbonPanel1.Visible = false;
             // 
             // ribbonBar1
             // 
@@ -193,7 +194,7 @@
             this.ribbonBar1.Dock = System.Windows.Forms.DockStyle.Left;
             this.ribbonBar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.galleryContainer2});
-            this.ribbonBar1.Location = new System.Drawing.Point(298, 0);
+            this.ribbonBar1.Location = new System.Drawing.Point(241, 0);
             this.ribbonBar1.Name = "ribbonBar1";
             this.ribbonBar1.Size = new System.Drawing.Size(167, 92);
             this.ribbonBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -302,7 +303,7 @@
             this.btnChuyenLop});
             this.ribbonBar9.Location = new System.Drawing.Point(3, 0);
             this.ribbonBar9.Name = "ribbonBar9";
-            this.ribbonBar9.Size = new System.Drawing.Size(295, 92);
+            this.ribbonBar9.Size = new System.Drawing.Size(238, 92);
             this.ribbonBar9.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar9.TabIndex = 3;
             this.ribbonBar9.Text = "Công Việc Đầu Năm";
@@ -372,7 +373,6 @@
             // 
             this.ribbonPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel2.TabIndex = 2;
-            this.ribbonPanel2.Visible = false;
             // 
             // ribbonBar10
             // 
@@ -769,13 +769,13 @@
             // 
             // ribbonTabItem1
             // 
-            this.ribbonTabItem1.Checked = true;
             this.ribbonTabItem1.Name = "ribbonTabItem1";
             this.ribbonTabItem1.Panel = this.ribbonPanel1;
             this.ribbonTabItem1.Text = "HỆ THỐNG";
             // 
             // ribbonTabItem2
             // 
+            this.ribbonTabItem2.Checked = true;
             this.ribbonTabItem2.Name = "ribbonTabItem2";
             this.ribbonTabItem2.Panel = this.ribbonPanel2;
             this.ribbonTabItem2.Text = "QUẢN LÝ";
@@ -980,7 +980,7 @@
             this.buttonX7.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX7.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX7.Image = global::QuanLiHocSinh.Properties.Resources.Teacher_icon;
-            this.buttonX7.Location = new System.Drawing.Point(532, 479);
+            this.buttonX7.Location = new System.Drawing.Point(537, 479);
             this.buttonX7.Name = "buttonX7";
             this.buttonX7.Size = new System.Drawing.Size(112, 55);
             this.buttonX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1016,7 +1016,7 @@
             this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX5.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX5.Image = global::QuanLiHocSinh.Properties.Resources.student_icon_copy;
-            this.buttonX5.Location = new System.Drawing.Point(532, 326);
+            this.buttonX5.Location = new System.Drawing.Point(537, 326);
             this.buttonX5.Name = "buttonX5";
             this.buttonX5.Size = new System.Drawing.Size(112, 55);
             this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1063,7 +1063,7 @@
             this.buttonX6.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX6.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX6.Image = global::QuanLiHocSinh.Properties.Resources.classroom_icon;
-            this.buttonX6.Location = new System.Drawing.Point(532, 402);
+            this.buttonX6.Location = new System.Drawing.Point(537, 402);
             this.buttonX6.Name = "buttonX6";
             this.buttonX6.Size = new System.Drawing.Size(112, 55);
             this.buttonX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
