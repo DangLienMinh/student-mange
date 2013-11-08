@@ -38,10 +38,17 @@ namespace QLHS.BUS
         //lấy danh sách học sinh theo combobox mã năm học chứ không load hết vì rất nhiều 
         public DataTable danhSachHocSinh(ComboBoxEx comboBox)
         {
-            return hocSinh_DAO.danhSachHocSinh(comboBox.SelectedValue.ToString());
+            DataTable table = hocSinh_DAO.danhSachHocSinh(comboBox.SelectedValue.ToString());
+            //for (int i = 0; i < table.Rows.Count; i++)
+            //{
+            //    if (table.Rows[i]["GIOITINHHS"].ToString() == "0")
+            //    {
+            //        table.Rows[i]["GIOITINHHS"] == "Nữ";
+            //    }
+            //}
+            return table;
         }
-
-
+        
         public void themHocSinh(clsHOCSINH_DTO hs)
         {
             hocSinh_DAO.themHocSinh(hs);
@@ -235,6 +242,26 @@ namespace QLHS.BUS
         {
             return hocSinh_DAO.timHocSinhNangCao(hs, dieuKien.Text);
         }
-
+        public void tailaiDataGrid(DataGridViewX grdHocSinh,DataTable dsHocsinh)
+        {
+            grdHocSinh.DataSource = dsHocsinh;
+            if (grdHocSinh.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in grdHocSinh.Rows)
+                {
+                    if (row.Cells["MAHS"].Value != null)
+                    {
+                        if (row.Cells["GIOITINHHS"].Value.ToString() == "0")
+                        {
+                            row.Cells["GIOITINHHS"].Value = "Nữ";
+                        }
+                        else
+                        {
+                            row.Cells["GIOITINHHS"].Value = "Nam";
+                        }
+                    }
+                }
+            }
+        }
     }     
 }
