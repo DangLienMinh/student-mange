@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbonControl1 = new DevComponents.DotNetBar.RibbonControl();
             this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
-            this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
+            this.rbGiaoDien = new DevComponents.DotNetBar.RibbonBar();
             this.galleryContainer2 = new DevComponents.DotNetBar.GalleryContainer();
             this.btnThemeBlue = new DevComponents.DotNetBar.ButtonItem();
             this.btnThemeBlack = new DevComponents.DotNetBar.ButtonItem();
@@ -115,9 +115,9 @@
             // 
             this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonControl1.CaptionVisible = true;
+            this.ribbonControl1.Controls.Add(this.ribbonPanel3);
             this.ribbonControl1.Controls.Add(this.ribbonPanel2);
             this.ribbonControl1.Controls.Add(this.ribbonPanel1);
-            this.ribbonControl1.Controls.Add(this.ribbonPanel3);
             this.ribbonControl1.Controls.Add(this.ribbonPanel4);
             this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl1.ForeColor = System.Drawing.Color.Black;
@@ -157,7 +157,7 @@
             // ribbonPanel1
             // 
             this.ribbonPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonPanel1.Controls.Add(this.ribbonBar1);
+            this.ribbonPanel1.Controls.Add(this.rbGiaoDien);
             this.ribbonPanel1.Controls.Add(this.ribbonBar9);
             this.ribbonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ribbonPanel1.Location = new System.Drawing.Point(0, 56);
@@ -179,35 +179,35 @@
             this.ribbonPanel1.TabIndex = 1;
             this.ribbonPanel1.Visible = false;
             // 
-            // ribbonBar1
+            // rbGiaoDien
             // 
-            this.ribbonBar1.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.ribbonBar1.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.rbGiaoDien.AutoOverflowEnabled = true;
             // 
             // 
             // 
-            this.ribbonBar1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar1.ContainerControlProcessDialogKey = true;
-            this.ribbonBar1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonBar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.rbGiaoDien.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.rbGiaoDien.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.rbGiaoDien.ContainerControlProcessDialogKey = true;
+            this.rbGiaoDien.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbGiaoDien.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.galleryContainer2});
-            this.ribbonBar1.Location = new System.Drawing.Point(241, 0);
-            this.ribbonBar1.Name = "ribbonBar1";
-            this.ribbonBar1.Size = new System.Drawing.Size(167, 92);
-            this.ribbonBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonBar1.TabIndex = 4;
-            this.ribbonBar1.Text = "Giao Diện";
+            this.rbGiaoDien.Location = new System.Drawing.Point(241, 0);
+            this.rbGiaoDien.Name = "rbGiaoDien";
+            this.rbGiaoDien.Size = new System.Drawing.Size(167, 92);
+            this.rbGiaoDien.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.rbGiaoDien.TabIndex = 4;
+            this.rbGiaoDien.Text = "Giao Diện";
             // 
             // 
             // 
-            this.ribbonBar1.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.rbGiaoDien.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
             // 
             // 
-            this.ribbonBar1.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.rbGiaoDien.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
             // galleryContainer2
             // 
@@ -373,6 +373,7 @@
             // 
             this.ribbonPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel2.TabIndex = 2;
+            this.ribbonPanel2.Visible = false;
             // 
             // ribbonBar10
             // 
@@ -602,7 +603,6 @@
             // 
             this.ribbonPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel3.TabIndex = 3;
-            this.ribbonPanel3.Visible = false;
             // 
             // ribbonBar8
             // 
@@ -775,13 +775,13 @@
             // 
             // ribbonTabItem2
             // 
-            this.ribbonTabItem2.Checked = true;
             this.ribbonTabItem2.Name = "ribbonTabItem2";
             this.ribbonTabItem2.Panel = this.ribbonPanel2;
             this.ribbonTabItem2.Text = "QUẢN LÝ";
             // 
             // ribbonTabItem3
             // 
+            this.ribbonTabItem3.Checked = true;
             this.ribbonTabItem3.Name = "ribbonTabItem3";
             this.ribbonTabItem3.Panel = this.ribbonPanel3;
             this.ribbonTabItem3.Text = "BÁO CÁO - TRA CỨU";
@@ -1225,7 +1225,7 @@
         private DevComponents.DotNetBar.ButtonItem btnPhanCong;
         private DevComponents.DotNetBar.ButtonItem btnHanhKiem;
         private DevComponents.DotNetBar.ButtonItem btnChuyenLop;
-        private DevComponents.DotNetBar.RibbonBar ribbonBar1;
+        private DevComponents.DotNetBar.RibbonBar rbGiaoDien;
         private DevComponents.DotNetBar.GalleryContainer galleryContainer2;
         private DevComponents.DotNetBar.ButtonItem btnThemeBlue;
         private DevComponents.DotNetBar.ButtonItem btnThemeBlack;

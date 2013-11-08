@@ -145,5 +145,26 @@ namespace QLHS.BUS
                 }
             }
         }
+
+        public int DangNhap(string tenDN, string matKhau,clsNGUOIDUNG_DTO nguoiDung_DTO)
+        {
+
+            DataTable nguoiDung = nguoiDung_DAO.danhSachNguoiDungTheoTENDN(tenDN);
+
+            if (nguoiDung.Rows.Count == 0)
+                return 0;
+            //lấy mật khẩu hệ thống
+            String matKhauHT = nguoiDung.Rows[0]["MATKHAU"].ToString();
+
+            if (matKhauHT != matKhau)
+                return 1;
+            else
+            {
+                nguoiDung_DTO.Tendn = nguoiDung.Rows[0]["TenND"].ToString();
+                nguoiDung_DTO.Malnd = nguoiDung.Rows[0]["MALND"].ToString();
+                nguoiDung_DTO.Tennd = nguoiDung.Rows[0]["TENND"].ToString();
+                return 2;
+            }
+        }
     }
 }
