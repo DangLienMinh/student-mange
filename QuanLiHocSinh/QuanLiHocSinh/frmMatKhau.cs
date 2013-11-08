@@ -15,5 +15,24 @@ namespace QuanLiHocSinh
         {
             InitializeComponent();
         }
+
+        private void btnDongY_Click(object sender, EventArgs e)
+        {
+            txtMkCu.Focus();
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void txtMkNhapLai_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+        }
     }
 }

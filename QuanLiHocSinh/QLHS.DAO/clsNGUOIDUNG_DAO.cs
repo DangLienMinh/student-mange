@@ -119,6 +119,17 @@ namespace QLHS.DAO
             con.Close();
         }
 
+        public void suaMatKhau(clsNGUOIDUNG_DTO nguoidung)
+        {
+            SqlCommand command = new SqlCommand("SP_SuaMatKhau", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@TENDN", SqlDbType.VarChar).Value = nguoidung.Tendn;
+            command.Parameters.Add("@MATKHAU", SqlDbType.VarChar).Value = nguoidung.Matkhau;
+            connection.kiemTraKetNoi(con);
+            command.ExecuteNonQuery();
+            con.Close();
+        }
+
         public void xoaNguoiDung(clsNGUOIDUNG_DTO nguoidung)
         {
             SqlCommand command = new SqlCommand("SP_XoaNguoiDung", con);

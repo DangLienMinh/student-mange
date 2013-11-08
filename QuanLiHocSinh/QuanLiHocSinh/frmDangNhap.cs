@@ -33,5 +33,10 @@ namespace QuanLiHocSinh
                 this.DialogResult = DialogResult.OK;
             }
         }
+
+        private void frmDangNhap_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
