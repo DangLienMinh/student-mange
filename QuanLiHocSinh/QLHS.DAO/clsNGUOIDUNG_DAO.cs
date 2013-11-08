@@ -30,6 +30,19 @@ namespace QLHS.DAO
             return table;
         }
 
+        public DataTable danhSachNguoiDungTheoTENDN(string tenDN)
+        {
+            DataTable table = new DataTable();
+            SqlCommand command = new SqlCommand("SP_ThongTinNguoiDungTheoTENDN", con);
+            command.Parameters.Add("@TENDN", SqlDbType.VarChar).Value = tenDN;
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            connection.kiemTraKetNoi(con);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
         public int soNguoiDung()
         {
             int temp = -1;

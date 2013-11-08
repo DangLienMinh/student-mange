@@ -9,11 +9,15 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Data;
 using System.Data.SqlClient;
+using QLHS.BUS;
+using QLHS.DTO;
 
 namespace QuanLiHocSinh
 {   
     public partial class frmMain : DevComponents.DotNetBar.Office2007RibbonForm
     {
+        private clsNGUOIDUNG_DTO nguoiDung_DTO;
+        private clsNGUOIDUNG_BUS nguoiDung_BUS;
         private OpenFileDialog restoreDialog;
         private SaveFileDialog backupDialog;
         private SqlConnection connection;
@@ -28,11 +32,14 @@ namespace QuanLiHocSinh
         private frmPhanCong m_FrmPhanCong = null;
         private frmHocSinhTheoLop m_FrmTimLop = null;
         private frmTimHocSinh m_FrmTimHocSinh = null;
-        private frmDangNhap m_FrmLogin = null;
+        
+        frmDangNhap m_FrmLogin = null;
 
         public frmMain()
         {
             InitializeComponent();
+            nguoiDung_DTO = new clsNGUOIDUNG_DTO();
+            nguoiDung_BUS = new clsNGUOIDUNG_BUS();
             backupDialog = new SaveFileDialog();
             this.backupDialog.DefaultExt = "*.BAK";
             this.backupDialog.FileName = "QLHocSinhTHPT";
@@ -226,6 +233,8 @@ namespace QuanLiHocSinh
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            macDinh();
+            dangNhap();
             // Create the list of frequently used commands for the QAT Customize menu
             ribbonControl1.QatFrequentCommands.Add(btnDangNhap);
             ribbonControl1.QatFrequentCommands.Add(btnDangXuat);
@@ -246,6 +255,7 @@ namespace QuanLiHocSinh
                     key.Close();
                 }
             }
+            
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -255,7 +265,15 @@ namespace QuanLiHocSinh
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
+            if (m_FrmLogin == null || m_FrmLogin.IsDisposed)
+                m_FrmLogin = new frmDangNhap();
 
+            m_FrmLogin.txtTenDN.Text = "";
+            m_FrmLogin.txtMatKhau.Text = "";
+            m_FrmLogin.lblUserError.Text = "";
+            m_FrmLogin.lblPassError.Text = "";
+
+            dangNhap();
         }
 
         private void btnDangXuat_Click_1(object sender, EventArgs e)
@@ -332,6 +350,179 @@ namespace QuanLiHocSinh
             }
             else
                 return;
+        }
+
+        private void dangNhap()
+        {
+        Cont:
+            if (m_FrmLogin == null || m_FrmLogin.IsDisposed)
+                m_FrmLogin = new frmDangNhap();
+
+            if (m_FrmLogin.ShowDialog() == DialogResult.OK)
+            {
+                if (m_FrmLogin.txtTenDN.Text == "")
+                {
+                    m_FrmLogin.lblPassError.Text = "";
+                    m_FrmLogin.lblUserError.Text = "Bạn chưa nhập tên!";
+                    goto Cont;
+                }
+
+                if (m_FrmLogin.txtMatKhau.Text == "")
+                {
+                    m_FrmLogin.lblUserError.Text = "";
+                    m_FrmLogin.lblPassError.Text = "Bạn chưa nhập mật khẩu!";
+                    goto Cont;
+                }
+
+                int ketQua = nguoiDung_BUS.DangNhap(m_FrmLogin.txtTenDN.Text, m_FrmLogin.txtMatKhau.Text,nguoiDung_DTO);
+
+                switch (ketQua)
+                {
+                    case 0:
+                        m_FrmLogin.lblPassError.Text = "";
+                        m_FrmLogin.lblUserError.Text = "Người dùng này không tồn tại!";
+                        goto Cont;
+                    case 1:
+                        m_FrmLogin.lblUserError.Text = "";
+                        m_FrmLogin.lblPassError.Text = "Mật khẩu không hợp lệ!";
+                        goto Cont;
+                    case 2:
+                        lblName.Text += " "+ nguoiDung_DTO.Tennd;
+                        phanQuyen(nguoiDung_DTO.Malnd);
+                        break;
+                }
+            }
+            else
+                return;
+        }
+
+        public void phanQuyen(String quyen)
+        {
+            switch (quyen)
+            {
+                case "ADMIN": quyenAdmin(); break;
+                case "GIAOVU": quyenGiaoVu(); break;
+                case "GIAOVIEN":quyenGiaoVien(); break;
+                default: macDinh(); break;
+            }
+        }
+
+        public void macDinh()
+        {
+            //True
+            btnDangNhap.Enabled = true;
+            btnThoat.Enabled = true;
+            btnHuongDan.Enabled = true;
+
+            //False
+            btnDangXuat.Enabled = false;
+            btnMatKhau.Enabled = false;
+            btnNguoiDung.Enabled = false;
+            btnSaoLuu.Enabled = false;
+            btnPhucHoi.Enabled = false;
+            btnLop.Enabled = false;
+            btnKhaiBao.Enabled = false;
+            btnMonHoc.Enabled = false;
+            btnDiem.Enabled = false;
+            btnHanhKiem.Enabled = false;
+            btnHocSinh.Enabled = false;
+            btnGiaoVien.Enabled = false;
+            btnPhanLop.Enabled = false;
+            btnGiaoVien.Enabled = false;
+            btnPhanCong.Enabled = false;
+            btnChuyenLop.Enabled = false;
+            btnTimHocSinh.Enabled = false;
+            btnTimLop.Enabled = false;
+            btnThamSo.Enabled = false;
+
+            rbGiaoDien.Enabled = false;
+        }
+
+        public void quyenAdmin()
+        {
+            //False
+            btnDangNhap.Enabled = false;
+
+            //True
+            btnDangXuat.Enabled = true;
+            btnMatKhau.Enabled = true;
+            btnNguoiDung.Enabled = true;
+            btnSaoLuu.Enabled = true;
+            btnPhucHoi.Enabled = true;
+            btnLop.Enabled = true;
+            btnKhaiBao.Enabled = true;
+            btnMonHoc.Enabled = true;
+            btnDiem.Enabled = true;
+            btnHanhKiem.Enabled = true;
+            btnHocSinh.Enabled = true;
+            btnGiaoVien.Enabled = true;
+            btnPhanLop.Enabled = true;
+            btnGiaoVien.Enabled = true;
+            btnPhanCong.Enabled = true;
+            btnChuyenLop.Enabled = true;
+            btnTimHocSinh.Enabled = true;
+            btnTimLop.Enabled = true;
+            btnThamSo.Enabled = true;
+
+            rbGiaoDien.Enabled = true;
+        }
+
+        public void quyenGiaoVien()
+        {
+            //True
+            btnDangXuat.Enabled = true;
+            btnMatKhau.Enabled = true;
+            btnThoat.Enabled = true;
+            btnMonHoc.Enabled = true;
+            btnDiem.Enabled = true;
+            btnHanhKiem.Enabled = true;
+            btnTimLop.Enabled = true;
+            btnTimHocSinh.Enabled = true;
+            rbGiaoDien.Enabled = true;
+
+            //False
+            btnDangNhap.Enabled = false;
+            btnSaoLuu.Enabled = false;
+            btnPhucHoi.Enabled = false;
+            btnKhaiBao.Enabled = false;
+            btnHocSinh.Enabled = false;
+            btnPhanLop.Enabled = false;
+            btnGiaoVien.Enabled = false;
+            btnPhanCong.Enabled = false;
+            btnLop.Enabled = false;
+            btnKhaiBao.Enabled = false;
+            
+        }
+
+        public void quyenGiaoVu()
+        {
+            //True
+            btnDangXuat.Enabled = true;
+            btnMatKhau.Enabled = true;
+            btnThoat.Enabled = true;
+            btnKhaiBao.Enabled = true;
+            btnDangXuat.Enabled = true;
+            btnMatKhau.Enabled = true;
+            btnLop.Enabled = true;
+            btnMonHoc.Enabled = true;
+            btnDiem.Enabled = true;
+            btnHanhKiem.Enabled = true;
+            btnHocSinh.Enabled = true;
+            btnChuyenLop.Enabled = true;
+            btnTimHocSinh.Enabled = true;
+            btnTimLop.Enabled = true;
+            btnPhanLop.Enabled = true;
+            rbGiaoDien.Enabled = true;
+            btnGiaoVien.Enabled = true;
+            btnPhanCong.Enabled = true;
+            btnThamSo.Enabled = true;
+
+            //False
+            btnDangNhap.Enabled = false;
+            btnNguoiDung.Enabled = false;
+            btnSaoLuu.Enabled = false;
+            btnPhucHoi.Enabled = false;
+           
         }
 
     }

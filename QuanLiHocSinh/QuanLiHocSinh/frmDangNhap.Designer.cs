@@ -141,6 +141,7 @@
             this.btnHuyBo.Size = new System.Drawing.Size(75, 23);
             this.btnHuyBo.TabIndex = 4;
             this.btnHuyBo.Text = "Hủy bỏ";
+            this.btnHuyBo.Click += new System.EventHandler(this.btnHuyBo_Click);
             // 
             // btnDangNhap
             // 
@@ -153,6 +154,7 @@
             this.btnDangNhap.Size = new System.Drawing.Size(75, 23);
             this.btnDangNhap.TabIndex = 3;
             this.btnDangNhap.Text = "Đăng nhập";
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // lblPassword
             // 
@@ -198,6 +200,7 @@
             this.txtMatKhau.Size = new System.Drawing.Size(160, 23);
             this.txtMatKhau.TabIndex = 2;
             this.txtMatKhau.WatermarkText = "Mật khẩu";
+            this.txtMatKhau.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMatKhau_KeyDown);
             // 
             // txtTenDN
             // 
