@@ -509,5 +509,10 @@ namespace QuanLiHocSinh
                 this.Close();
             }
         }
+
+        private void navigationPanePanel2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
