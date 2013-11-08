@@ -979,6 +979,7 @@
             // 
             this.buttonX7.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX7.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX7.Enabled = false;
             this.buttonX7.Image = global::QuanLiHocSinh.Properties.Resources.Teacher_icon;
             this.buttonX7.Location = new System.Drawing.Point(537, 479);
             this.buttonX7.Name = "buttonX7";
@@ -986,11 +987,13 @@
             this.buttonX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX7.TabIndex = 54;
             this.buttonX7.Text = "Hồ sơ giáo viên";
+            this.buttonX7.Visible = false;
             // 
             // buttonX2
             // 
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX2.Enabled = false;
             this.buttonX2.Image = global::QuanLiHocSinh.Properties.Resources.ThamSo;
             this.buttonX2.Location = new System.Drawing.Point(374, 361);
             this.buttonX2.Name = "buttonX2";
@@ -998,11 +1001,13 @@
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 55;
             this.buttonX2.Text = "Tùy chỉnh quy định";
+            this.buttonX2.Visible = false;
             // 
             // buttonX1
             // 
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX1.Enabled = false;
             this.buttonX1.Image = global::QuanLiHocSinh.Properties.Resources.Calendar_icon;
             this.buttonX1.Location = new System.Drawing.Point(374, 287);
             this.buttonX1.Name = "buttonX1";
@@ -1010,11 +1015,13 @@
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX1.TabIndex = 56;
             this.buttonX1.Text = "Khai báo năm học";
+            this.buttonX1.Visible = false;
             // 
             // buttonX5
             // 
             this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX5.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX5.Enabled = false;
             this.buttonX5.Image = global::QuanLiHocSinh.Properties.Resources.student_icon_copy;
             this.buttonX5.Location = new System.Drawing.Point(537, 326);
             this.buttonX5.Name = "buttonX5";
@@ -1022,11 +1029,13 @@
             this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX5.TabIndex = 53;
             this.buttonX5.Text = "Tiếp nhận học sinh";
+            this.buttonX5.Visible = false;
             // 
             // buttonX8
             // 
             this.buttonX8.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX8.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX8.Enabled = false;
             this.buttonX8.Image = global::QuanLiHocSinh.Properties.Resources.images_copy;
             this.buttonX8.Location = new System.Drawing.Point(693, 475);
             this.buttonX8.Name = "buttonX8";
@@ -1034,11 +1043,13 @@
             this.buttonX8.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX8.TabIndex = 52;
             this.buttonX8.Text = "Nhập điểm học sinh";
+            this.buttonX8.Visible = false;
             // 
             // buttonX4
             // 
             this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX4.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX4.Enabled = false;
             this.buttonX4.Image = global::QuanLiHocSinh.Properties.Resources.books_copy;
             this.buttonX4.Location = new System.Drawing.Point(374, 515);
             this.buttonX4.Name = "buttonX4";
@@ -1046,22 +1057,26 @@
             this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX4.TabIndex = 45;
             this.buttonX4.Text = "Tùy chỉnh môn học";
+            this.buttonX4.Visible = false;
             // 
             // buttonX10
             // 
             this.buttonX10.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX10.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX10.Enabled = false;
             this.buttonX10.Location = new System.Drawing.Point(855, 262);
             this.buttonX10.Name = "buttonX10";
             this.buttonX10.Size = new System.Drawing.Size(112, 55);
             this.buttonX10.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX10.TabIndex = 51;
             this.buttonX10.Text = "Tổng kết môn";
+            this.buttonX10.Visible = false;
             // 
             // buttonX6
             // 
             this.buttonX6.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX6.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX6.Enabled = false;
             this.buttonX6.Image = global::QuanLiHocSinh.Properties.Resources.classroom_icon;
             this.buttonX6.Location = new System.Drawing.Point(537, 402);
             this.buttonX6.Name = "buttonX6";
@@ -1069,22 +1084,26 @@
             this.buttonX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX6.TabIndex = 46;
             this.buttonX6.Text = "Nhập danh sách lớp";
+            this.buttonX6.Visible = false;
             // 
             // buttonX11
             // 
             this.buttonX11.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX11.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX11.Enabled = false;
             this.buttonX11.Location = new System.Drawing.Point(855, 340);
             this.buttonX11.Name = "buttonX11";
             this.buttonX11.Size = new System.Drawing.Size(112, 55);
             this.buttonX11.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX11.TabIndex = 50;
             this.buttonX11.Text = "Xuất bản điểm";
+            this.buttonX11.Visible = false;
             // 
             // buttonX3
             // 
             this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX3.Enabled = false;
             this.buttonX3.Image = global::QuanLiHocSinh.Properties.Resources.classroom;
             this.buttonX3.Location = new System.Drawing.Point(374, 438);
             this.buttonX3.Name = "buttonX3";
@@ -1092,22 +1111,26 @@
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX3.TabIndex = 47;
             this.buttonX3.Text = "Phân lớp học sinh cũ";
+            this.buttonX3.Visible = false;
             // 
             // buttonX12
             // 
             this.buttonX12.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX12.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX12.Enabled = false;
             this.buttonX12.Location = new System.Drawing.Point(855, 415);
             this.buttonX12.Name = "buttonX12";
             this.buttonX12.Size = new System.Drawing.Size(112, 55);
             this.buttonX12.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX12.TabIndex = 49;
             this.buttonX12.Text = "Tổng kết điểm";
+            this.buttonX12.Visible = false;
             // 
             // buttonX9
             // 
             this.buttonX9.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX9.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX9.Enabled = false;
             this.buttonX9.Image = global::QuanLiHocSinh.Properties.Resources.search_user;
             this.buttonX9.Location = new System.Drawing.Point(693, 305);
             this.buttonX9.Name = "buttonX9";
@@ -1115,6 +1138,7 @@
             this.buttonX9.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX9.TabIndex = 48;
             this.buttonX9.Text = "Tìm kiếm học sinh";
+            this.buttonX9.Visible = false;
             // 
             // frmMain
             // 
