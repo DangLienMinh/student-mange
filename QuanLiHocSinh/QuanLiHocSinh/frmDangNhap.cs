@@ -36,7 +36,7 @@ namespace QuanLiHocSinh
 
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
-            
+            txtTenDN.Select();
         }
     }
 }

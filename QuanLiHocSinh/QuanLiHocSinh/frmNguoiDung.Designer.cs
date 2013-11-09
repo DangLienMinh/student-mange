@@ -286,7 +286,6 @@
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(133, 20);
             this.txtMatKhau.TabIndex = 5;
-            this.txtMatKhau.UseSystemPasswordChar = true;
             this.txtMatKhau.Enter += new System.EventHandler(this.txt_Enter);
             this.txtMatKhau.Leave += new System.EventHandler(this.txt_Leave);
             // 
