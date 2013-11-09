@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoaiDiem));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoaiDiem));
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.cboHeSo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -45,6 +45,7 @@
             this.btnHuy = new DevComponents.DotNetBar.ButtonX();
             this.btnDongY = new DevComponents.DotNetBar.ButtonX();
             this.btnThem = new DevComponents.DotNetBar.ButtonX();
+            this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.grdLoaiDiem = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.MALD = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +56,6 @@
             this.btnTruoc = new DevComponents.DotNetBar.ButtonX();
             this.btnDau = new DevComponents.DotNetBar.ButtonX();
             this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPane1.SuspendLayout();
             this.navigationPanePanel2.SuspendLayout();
             this.groupPanel1.SuspendLayout();
@@ -262,6 +262,15 @@
             this.btnThem.Text = "Thêm";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // btnItemNhap
+            // 
+            this.btnItemNhap.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemNhap.Checked = true;
+            this.btnItemNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhap.Image")));
+            this.btnItemNhap.Name = "btnItemNhap";
+            this.btnItemNhap.OptionGroup = "navBar";
+            this.btnItemNhap.Text = "Nhập liệu thông tin";
+            // 
             // groupPanel1
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
@@ -310,7 +319,7 @@
             // grdLoaiDiem
             // 
             this.grdLoaiDiem.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -328,7 +337,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdLoaiDiem.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdLoaiDiem.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -433,15 +442,6 @@
             this.txtHienTai.Size = new System.Drawing.Size(69, 20);
             this.txtHienTai.TabIndex = 4;
             this.txtHienTai.TabStop = false;
-            // 
-            // btnItemNhap
-            // 
-            this.btnItemNhap.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemNhap.Checked = true;
-            this.btnItemNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhap.Image")));
-            this.btnItemNhap.Name = "btnItemNhap";
-            this.btnItemNhap.OptionGroup = "navBar";
-            this.btnItemNhap.Text = "Nhập liệu thông tin";
             // 
             // frmLoaiDiem
             // 
