@@ -151,7 +151,7 @@ namespace QLHS.BUS
         /// </summary>
         /// <param name="maNH"></param>
         /// <param name="tree"></param>
-        public void hienThiLopTheoNamHoc(string maNH, AdvTree tree)
+        public void hienThiTreeLopTheoNamHoc(string maNH, AdvTree tree)
         {
             Node temp;
             lop_DTO = new clsLOP_DTO();
@@ -184,6 +184,16 @@ namespace QLHS.BUS
             tree.Nodes.Add(k10);
             tree.Nodes.Add(k11);
             tree.Nodes.Add(k12);
+        }
+
+        public void hienThiCboLopTheoNamHoc(string maNH, ComboBoxEx cboLop)
+        {
+            lop_DTO = new clsLOP_DTO();
+            lop_DTO.Manh = maNH;
+            tblLop = lop_DAO.danhSachLopTheoNamHoc(lop_DTO);
+            cboLop.DataSource = tblLop;
+            cboLop.DisplayMember = "TENLOP";
+            cboLop.ValueMember = "MALOP";
         }
 
         public void hienThiCbLopTheoNamHocKhoi(string maNH, ComboBoxEx comboBoxLop, string maKhoi)
