@@ -63,7 +63,7 @@ namespace QuanLiHocSinh
             //load danh sách loại điểm vào datagrid loại điểm
             loaiDiem_BUS.hienThiDanhSach(grdLoaiDiem);
             //load dữ liệu vào comboBox hệ số
-            loaiDiem_BUS.hienThiComboBox(cboHeSo);
+            loaiDiem_BUS.hienThiComboBoxHeSo(cboHeSo);
             FlagDisable();
             flag = 0;
             sapXep();

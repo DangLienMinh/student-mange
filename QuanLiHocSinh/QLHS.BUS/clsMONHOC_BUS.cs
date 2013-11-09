@@ -39,6 +39,13 @@ namespace QLHS.BUS
 
         public void hienThiComboBox(ComboBoxEx comboBox)
         {
+            comboBox.DataSource = monHoc_DAO.danhSachMonhoc();
+            comboBox.DisplayMember = "TENMH";
+            comboBox.ValueMember = "MAMH";
+        }
+
+        public void hienThiComboBoxHeSo(ComboBoxEx comboBox)
+        {
             comboBox.Items.Add("1");
             comboBox.Items.Add("2");
             comboBox.SelectedItem = "1";

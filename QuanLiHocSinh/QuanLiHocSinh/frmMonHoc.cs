@@ -62,7 +62,7 @@ namespace QuanLiHocSinh
             //load danh sách môn học vào datagrid môn học
             monHoc_BUS.hienThiDanhSach(grdMonHoc);
             //load dữ liệu vào comboBox hê số
-            monHoc_BUS.hienThiComboBox(cboHeSo);
+            monHoc_BUS.hienThiComboBoxHeSo(cboHeSo);
             FlagDisable();
             flag = 0;
             sapXep();

@@ -18,13 +18,21 @@ namespace QLHS.BUS
         private DataRow dr;
 
         //Hệ số loại điểm
-        public void hienThiComboBox(ComboBoxEx comboBox)
+        public void hienThiComboBoxHeSo(ComboBoxEx comboBox)
         {
             comboBox.Items.Add("1");
             comboBox.Items.Add("2");
             comboBox.Items.Add("3");
             comboBox.SelectedItem = "1";
         }
+
+        public void hienThiComboBox(ComboBoxEx comboBox)
+        {
+            comboBox.DataSource = loaiDiem_DAO.danhSachLoaiDiem();
+            comboBox.DisplayMember = "TENLD";
+            comboBox.ValueMember = "MALD";
+        }
+
 
         public clsLOAIDIEM_BUS()
         {

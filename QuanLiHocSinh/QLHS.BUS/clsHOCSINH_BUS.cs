@@ -186,6 +186,16 @@ namespace QLHS.BUS
             }
         }
 
+        public void danhSachHocSinhTheoLop(ComboBoxEx comboNamHoc, ComboBoxEx comboLop,ComboBoxEx cboHocSinh)
+        {
+            hocSinh_DTO.Manh = comboNamHoc.SelectedValue.ToString();
+            hocSinh_DTO.Malop = comboLop.SelectedValue.ToString();
+            tbHocSinh = hocSinh_DAO.danhSachHocSinhTheoLop(hocSinh_DTO);
+            cboHocSinh.DataSource = tbHocSinh;
+            cboHocSinh.DisplayMember = "TENHS";
+            cboHocSinh.ValueMember = "MAHS";
+        }
+
         public DataTable danhSachPhanLop(ComboBoxEx comboNamHoc)
         {
             hocSinh_DTO.Manh = comboNamHoc.SelectedValue.ToString();
