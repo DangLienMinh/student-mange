@@ -50,6 +50,7 @@
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.btnTim = new DevComponents.DotNetBar.ButtonX();
             this.navigationPanePanel1 = new DevComponents.DotNetBar.NavigationPanePanel();
+            this.btnItemTim = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.btnSua = new DevComponents.DotNetBar.ButtonX();
             this.btnXoa = new DevComponents.DotNetBar.ButtonX();
@@ -66,10 +67,9 @@
             this.cboLop = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
+            this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
-            this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
-            this.btnItemTim = new DevComponents.DotNetBar.ButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.grdPhanCong)).BeginInit();
             this.navigationPanePanel1.SuspendLayout();
             this.navigationPanePanel2.SuspendLayout();
@@ -81,7 +81,7 @@
             // 
             this.grdPhanCong.AllowUserToDeleteRows = false;
             this.grdPhanCong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -100,7 +100,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdPhanCong.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdPhanCong.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -327,6 +327,14 @@
             this.navigationPanePanel1.Style.GradientAngle = 90;
             this.navigationPanePanel1.TabIndex = 2;
             // 
+            // btnItemTim
+            // 
+            this.btnItemTim.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemTim.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTim.Image")));
+            this.btnItemTim.Name = "btnItemTim";
+            this.btnItemTim.OptionGroup = "navBar";
+            this.btnItemTim.Text = "Tìm kiếm thông tin";
+            // 
             // navigationPanePanel2
             // 
             this.navigationPanePanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
@@ -543,6 +551,15 @@
             this.labelX4.TabIndex = 16;
             this.labelX4.Text = "Môn học:";
             // 
+            // btnItemNhap
+            // 
+            this.btnItemNhap.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemNhap.Checked = true;
+            this.btnItemNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhap.Image")));
+            this.btnItemNhap.Name = "btnItemNhap";
+            this.btnItemNhap.OptionGroup = "navBar";
+            this.btnItemNhap.Text = "Nhập liệu thông tin";
+            // 
             // groupPanel1
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
@@ -625,23 +642,6 @@
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
             this.navigationPane1.TitlePanel.Text = "Nhập liệu thông tin";
-            // 
-            // btnItemNhap
-            // 
-            this.btnItemNhap.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemNhap.Checked = true;
-            this.btnItemNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhap.Image")));
-            this.btnItemNhap.Name = "btnItemNhap";
-            this.btnItemNhap.OptionGroup = "navBar";
-            this.btnItemNhap.Text = "Nhập liệu thông tin";
-            // 
-            // btnItemTim
-            // 
-            this.btnItemTim.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemTim.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTim.Image")));
-            this.btnItemTim.Name = "btnItemTim";
-            this.btnItemTim.OptionGroup = "navBar";
-            this.btnItemTim.Text = "Tìm kiếm thông tin";
             // 
             // frmPhanCong
             // 

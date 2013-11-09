@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
-using System.Data;
 using System.Data.SqlClient;
 using QLHS.BUS;
 using QLHS.DTO;
@@ -33,7 +32,7 @@ namespace QuanLiHocSinh
         private frmHocSinhTheoLop m_FrmTimLop = null;
         private frmTimHocSinh m_FrmTimHocSinh = null;
         private frmMatKhau m_FrmMatKhau = null;
-        
+        private frmDiem m_FrmDiem = null;
         frmDangNhap m_FrmLogin = null;
 
         public frmMain()
@@ -598,6 +597,19 @@ namespace QuanLiHocSinh
             btnSaoLuu.Enabled = false;
             btnPhucHoi.Enabled = false;
            
+        }
+
+        private void btnDiem_Click(object sender, EventArgs e)
+        {
+            if (m_FrmDiem == null || m_FrmDiem.IsDisposed)
+            {
+                m_FrmDiem = new frmDiem();
+                m_FrmDiem.FormBorderStyle = FormBorderStyle.None;
+                m_FrmDiem.MdiParent = frmMain.ActiveForm;
+                m_FrmDiem.Show();
+            }
+            else
+                m_FrmDiem.Activate();
         }
 
     }

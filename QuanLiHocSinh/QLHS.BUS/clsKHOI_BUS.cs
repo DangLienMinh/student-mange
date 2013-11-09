@@ -16,7 +16,6 @@ namespace QLHS.BUS
         clsKHOI_DAO khoi_DAO;
         clsKHOI_DTO khoi_DTO;
         DataTable tblKhoi;
-        private DataRow dr;
 
         public clsKHOI_BUS() 
         {

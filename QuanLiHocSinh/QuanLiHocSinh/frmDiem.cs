@@ -32,6 +32,7 @@ namespace QuanLiHocSinh
         private void frmDiem_Load(object sender, EventArgs e)
         {
             namHoc_BUS.hienThiComboBox(cboNamHoc);
+            tabControl1.SelectedTab = btnItemLop;
         }
 
         private void btnDanhSach_Click(object sender, EventArgs e)

@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHocSinhTheoLop));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHocSinhTheoLop));
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.lblchonlop = new DevComponents.DotNetBar.LabelX();
             this.cboNamHoc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -42,9 +42,15 @@
             this.treLop = new DevComponents.AdvTree.AdvTree();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.btnDanhSach = new DevComponents.DotNetBar.ButtonX();
+            this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.grdHocSinh = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.btnCuoi = new DevComponents.DotNetBar.ButtonX();
+            this.btnSau = new DevComponents.DotNetBar.ButtonX();
+            this.btnTruoc = new DevComponents.DotNetBar.ButtonX();
+            this.btnDau = new DevComponents.DotNetBar.ButtonX();
+            this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.MAHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NGSINHHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,12 +60,6 @@
             this.DANTOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NGNHAPHOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HINHANHHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCuoi = new DevComponents.DotNetBar.ButtonX();
-            this.btnSau = new DevComponents.DotNetBar.ButtonX();
-            this.btnTruoc = new DevComponents.DotNetBar.ButtonX();
-            this.btnDau = new DevComponents.DotNetBar.ButtonX();
-            this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.treLop)).BeginInit();
             this.navigationPanePanel2.SuspendLayout();
             this.navigationPane1.SuspendLayout();
@@ -169,6 +169,15 @@
             this.btnDanhSach.Text = "Hiển thị danh sách";
             this.btnDanhSach.Click += new System.EventHandler(this.btnDanhSach_Click);
             // 
+            // btnItemNhap
+            // 
+            this.btnItemNhap.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemNhap.Checked = true;
+            this.btnItemNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhap.Image")));
+            this.btnItemNhap.Name = "btnItemNhap";
+            this.btnItemNhap.OptionGroup = "navBar";
+            this.btnItemNhap.Text = "Nhập liệu thông tin";
+            // 
             // navigationPane1
             // 
             this.navigationPane1.CanCollapse = true;
@@ -252,7 +261,7 @@
             // 
             // grdHocSinh
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -276,7 +285,7 @@
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdHocSinh.DefaultCellStyle = dataGridViewCellStyle4;
             this.grdHocSinh.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -296,65 +305,6 @@
             this.grdHocSinh.TabIndex = 16;
             this.grdHocSinh.TabStop = false;
             this.grdHocSinh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdHocSinh_CellClick);
-            // 
-            // MAHS
-            // 
-            this.MAHS.DataPropertyName = "MAHS";
-            this.MAHS.HeaderText = "Mã học sinh";
-            this.MAHS.Name = "MAHS";
-            // 
-            // TENHS
-            // 
-            this.TENHS.DataPropertyName = "TENHS";
-            this.TENHS.HeaderText = "Tên học sinh";
-            this.TENHS.Name = "TENHS";
-            // 
-            // NGSINHHS
-            // 
-            this.NGSINHHS.DataPropertyName = "NGSINHHS";
-            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
-            this.NGSINHHS.DefaultCellStyle = dataGridViewCellStyle2;
-            this.NGSINHHS.HeaderText = "Ngày sinh";
-            this.NGSINHHS.Name = "NGSINHHS";
-            // 
-            // GIOITINHHS
-            // 
-            this.GIOITINHHS.DataPropertyName = "GIOITINHHS";
-            this.GIOITINHHS.HeaderText = "Giới tính";
-            this.GIOITINHHS.Name = "GIOITINHHS";
-            // 
-            // DIACHIHS
-            // 
-            this.DIACHIHS.DataPropertyName = "DIACHIHS";
-            this.DIACHIHS.HeaderText = "Địa chỉ";
-            this.DIACHIHS.Name = "DIACHIHS";
-            // 
-            // DIENTHOAIHS
-            // 
-            this.DIENTHOAIHS.DataPropertyName = "DIENTHOAIHS";
-            this.DIENTHOAIHS.HeaderText = "Điện thoại";
-            this.DIENTHOAIHS.Name = "DIENTHOAIHS";
-            // 
-            // DANTOC
-            // 
-            this.DANTOC.DataPropertyName = "DANTOC";
-            this.DANTOC.HeaderText = "Dân tộc";
-            this.DANTOC.Name = "DANTOC";
-            // 
-            // NGNHAPHOC
-            // 
-            this.NGNHAPHOC.DataPropertyName = "NGNHAPHOC";
-            dataGridViewCellStyle3.Format = "dd/MM/yyyy";
-            this.NGNHAPHOC.DefaultCellStyle = dataGridViewCellStyle3;
-            this.NGNHAPHOC.HeaderText = "Ngày nhập học";
-            this.NGNHAPHOC.Name = "NGNHAPHOC";
-            // 
-            // HINHANHHS
-            // 
-            this.HINHANHHS.DataPropertyName = "HINHANHHS";
-            this.HINHANHHS.HeaderText = "Hình ảnh";
-            this.HINHANHHS.Name = "HINHANHHS";
-            this.HINHANHHS.Visible = false;
             // 
             // btnCuoi
             // 
@@ -423,14 +373,65 @@
             this.txtHienTai.TabIndex = 15;
             this.txtHienTai.TabStop = false;
             // 
-            // btnItemNhap
+            // MAHS
             // 
-            this.btnItemNhap.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemNhap.Checked = true;
-            this.btnItemNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhap.Image")));
-            this.btnItemNhap.Name = "btnItemNhap";
-            this.btnItemNhap.OptionGroup = "navBar";
-            this.btnItemNhap.Text = "Nhập liệu thông tin";
+            this.MAHS.DataPropertyName = "MAHS";
+            this.MAHS.HeaderText = "Mã học sinh";
+            this.MAHS.Name = "MAHS";
+            // 
+            // TENHS
+            // 
+            this.TENHS.DataPropertyName = "TENHS";
+            this.TENHS.HeaderText = "Tên học sinh";
+            this.TENHS.Name = "TENHS";
+            // 
+            // NGSINHHS
+            // 
+            this.NGSINHHS.DataPropertyName = "NGSINHHS";
+            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
+            this.NGSINHHS.DefaultCellStyle = dataGridViewCellStyle2;
+            this.NGSINHHS.HeaderText = "Ngày sinh";
+            this.NGSINHHS.Name = "NGSINHHS";
+            // 
+            // GIOITINHHS
+            // 
+            this.GIOITINHHS.DataPropertyName = "GIOITINHHS";
+            this.GIOITINHHS.HeaderText = "Giới tính";
+            this.GIOITINHHS.Name = "GIOITINHHS";
+            // 
+            // DIACHIHS
+            // 
+            this.DIACHIHS.DataPropertyName = "DIACHIHS";
+            this.DIACHIHS.HeaderText = "Địa chỉ";
+            this.DIACHIHS.Name = "DIACHIHS";
+            // 
+            // DIENTHOAIHS
+            // 
+            this.DIENTHOAIHS.DataPropertyName = "DIENTHOAIHS";
+            this.DIENTHOAIHS.HeaderText = "Điện thoại";
+            this.DIENTHOAIHS.Name = "DIENTHOAIHS";
+            // 
+            // DANTOC
+            // 
+            this.DANTOC.DataPropertyName = "DANTOC";
+            this.DANTOC.HeaderText = "Dân tộc";
+            this.DANTOC.Name = "DANTOC";
+            // 
+            // NGNHAPHOC
+            // 
+            this.NGNHAPHOC.DataPropertyName = "NGNHAPHOC";
+            dataGridViewCellStyle3.Format = "dd/MM/yyyy";
+            this.NGNHAPHOC.DefaultCellStyle = dataGridViewCellStyle3;
+            this.NGNHAPHOC.HeaderText = "Ngày nhập học";
+            this.NGNHAPHOC.Name = "NGNHAPHOC";
+            this.NGNHAPHOC.Width = 120;
+            // 
+            // HINHANHHS
+            // 
+            this.HINHANHHS.DataPropertyName = "HINHANHHS";
+            this.HINHANHHS.HeaderText = "Hình ảnh";
+            this.HINHANHHS.Name = "HINHANHHS";
+            this.HINHANHHS.Visible = false;
             // 
             // frmHocSinhTheoLop
             // 

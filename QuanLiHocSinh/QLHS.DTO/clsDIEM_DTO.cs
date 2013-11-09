@@ -54,7 +54,10 @@ namespace QLHS.DTO
         public int Stt
         {
             get { return stt; }
+            set { stt = value; }
         }
+
+        
         private string mahk;
 
         public string Mahk

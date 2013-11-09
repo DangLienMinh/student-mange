@@ -148,7 +148,7 @@ namespace QuanLiHocSinh
                 }
                 else
                 {
-                    Update();
+                    update();
                 }
             }
             hienThiDuLieu();
@@ -340,7 +340,7 @@ namespace QuanLiHocSinh
             }
         }
 
-        public void Update()
+        public void update()
         {
             if (kiemTraDulieu() == 0)
             {
