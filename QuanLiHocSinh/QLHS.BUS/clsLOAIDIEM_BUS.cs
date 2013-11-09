@@ -33,6 +33,13 @@ namespace QLHS.BUS
             comboBox.ValueMember = "MALD";
         }
 
+        public void HienThiDataGridViewComboBoxColumn(DataGridViewComboBoxColumn cboColumn)
+        {
+            cboColumn.DataSource = loaiDiem_DAO.danhSachLoaiDiem();
+            cboColumn.DisplayMember = "TENLD";
+            cboColumn.ValueMember = "MALD";
+            cboColumn.DataPropertyName = "MALD";
+        }
 
         public clsLOAIDIEM_BUS()
         {
