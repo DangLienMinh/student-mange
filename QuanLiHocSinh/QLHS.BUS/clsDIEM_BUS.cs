@@ -13,6 +13,8 @@ namespace QLHS.BUS
     public class clsDIEM_BUS
     {
         clsDIEM_DAO diem_DAO;
+        clsHOCSINH_BUS hocSinh_BUS;
+        clsLOP_BUS lop_BUS;
         clsDIEM_DTO diem_DTO;
         clsHOCSINH_DTO hocSinh_DTO;
         DataTable tblDiem;
@@ -20,7 +22,8 @@ namespace QLHS.BUS
 
         public clsDIEM_BUS() 
         {
-            
+            hocSinh_BUS = new clsHOCSINH_BUS();
+            lop_BUS = new clsLOP_BUS();
             diem_DAO = new clsDIEM_DAO();
             tblDiem = new DataTable();
         }
@@ -41,6 +44,11 @@ namespace QLHS.BUS
             diem_DTO.Mahs = cboMaHS.SelectedValue.ToString();
             diem_DTO.Mald = cboMaLD.SelectedValue.ToString();
             diem_DTO.Diemso = txtDiem.Text;
+            if (diem_DTO.Mahs != "" && diem_DTO.Manh != "")
+            {
+                diem_DTO.Tenhs = hocSinh_BUS.tenHocSinh(diem_DTO.Mahs);
+                diem_DTO.Malop = lop_BUS.danhSachLop(diem_DTO.Mahs, diem_DTO.Manh);
+            }
             diem_DAO.themDiemTheoHS(diem_DTO);
         }
 
@@ -60,6 +68,12 @@ namespace QLHS.BUS
             diem_DTO.Mamh = cboMaMH.SelectedValue.ToString();
             diem_DTO.Mald = cboMaLD.SelectedValue.ToString();
             diem_DTO.Mahs = cboMaHS.SelectedValue.ToString();
+            if (diem_DTO.Mahs!=""&&diem_DTO.Manh!="")
+            {
+                diem_DTO.Tenhs = hocSinh_BUS.tenHocSinh(diem_DTO.Mahs);
+                diem_DTO.Malop = lop_BUS.danhSachLop(diem_DTO.Mahs, diem_DTO.Manh);
+            }
+           
             tblDiem = diem_DAO.thongTinDiemTheoHS(diem_DTO);
             grdDiem.DataSource = tblDiem;
         }
@@ -84,7 +98,8 @@ namespace QLHS.BUS
             dr["MANH"] = diem_DTO.Manh;
             dr["MALD"] = diem_DTO.Mald;
             dr["DIEMSO"] = diem_DTO.Diemso;
-            //dr["TENHS"] = diem_DTO.Diemso;
+            dr["MALOP"] = diem_DTO.Malop;
+            dr["TENHS"] = diem_DTO.Tenhs;
             return dr;
         }
 

@@ -54,6 +54,17 @@ namespace QLHS.BUS
             hocSinh_DAO.themHocSinh(hs);
         }
 
+        public string tenHocSinh(string maHS)
+        {
+            DataTable table=new DataTable();
+            table=hocSinh_DAO.tenHocSinh(maHS);
+            if (table.Rows.Count > 0)
+            {
+                return table.Rows[0][0].ToString();
+            }
+            else return "";
+        }
+
         public void suaHocSinh(clsHOCSINH_DTO hs,DataGridViewX grdHocSinh)
         {
             foreach (DataGridViewRow row1 in grdHocSinh.Rows)

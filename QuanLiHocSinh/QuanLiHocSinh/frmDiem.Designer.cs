@@ -128,7 +128,8 @@
             this.MALD1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.MAHK1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAMH1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.DIEM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIEMSO1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MALOP1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdDiemRieng)).BeginInit();
             this.navigationPanePanel3.SuspendLayout();
             this.tabControlPanel2.SuspendLayout();
@@ -217,7 +218,8 @@
             this.MALD1,
             this.MAHK1,
             this.MAMH1,
-            this.DIEM});
+            this.DIEMSO1,
+            this.MALOP1});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -242,6 +244,7 @@
             this.grdDiemRieng.Size = new System.Drawing.Size(1062, 449);
             this.grdDiemRieng.TabIndex = 1;
             this.grdDiemRieng.TabStop = false;
+            this.grdDiemRieng.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDiemRieng_CellClick);
             // 
             // navigationPanePanel3
             // 
@@ -1409,11 +1412,17 @@
             this.MAMH1.HeaderText = "Môn học";
             this.MAMH1.Name = "MAMH1";
             // 
-            // DIEM
+            // DIEMSO1
             // 
-            this.DIEM.DataPropertyName = "DIEMSO";
-            this.DIEM.HeaderText = "Điểm";
-            this.DIEM.Name = "DIEM";
+            this.DIEMSO1.DataPropertyName = "DIEMSO";
+            this.DIEMSO1.HeaderText = "Điểm";
+            this.DIEMSO1.Name = "DIEMSO1";
+            // 
+            // MALOP1
+            // 
+            this.MALOP1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MALOP1.HeaderText = "Lớp";
+            this.MALOP1.Name = "MALOP1";
             // 
             // frmDiem
             // 
@@ -1539,6 +1548,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn MALD1;
         private System.Windows.Forms.DataGridViewTextBoxColumn MAHK1;
         private System.Windows.Forms.DataGridViewComboBoxColumn MAMH1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DIEM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DIEMSO1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MALOP1;
     }
 }

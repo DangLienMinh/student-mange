@@ -38,6 +38,7 @@ namespace QuanLiHocSinh
             monHoc_BUS.HienThiDataGridViewComboBoxColumn(MAMH1);
             loaiDiem_BUS.HienThiDataGridViewComboBoxColumn(MALD1);
             namHoc_BUS.HienThiDataGridViewComboBoxColumn(MANH1);
+            lop_BUS.HienThiDataGridViewComboBoxColumn(MALOP1);
             this.KeyPreview = true;
             datagridMakeUp(grdDiemRieng);
         }
@@ -101,7 +102,7 @@ namespace QuanLiHocSinh
             int test = 1;
             int count=0;
 
-            if (cboHocSinh1.SelectedValue==null||cboLoaiDiem1.SelectedValue==null||cboHocKy1.SelectedItem==null||cboNamHoc1.SelectedValue==null||cboMonHoc1.SelectedValue==null)
+            if (cboHocSinh1.SelectedValue==null||cboLoaiDiem1.SelectedValue==null||cboHocKy1.SelectedItem==null||cboNamHoc1.SelectedValue==null||cboMonHoc1.SelectedValue==null||txtDiem1.Text=="")
             {
                 MessageBox.Show("Xin chọn dữ liệu đầy đủ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -150,7 +151,7 @@ namespace QuanLiHocSinh
                 if (test!=-1)
                 {
                     diem_BUS.themDiemTheoHS(cboNamHoc1, cboHocKy1, cboLoaiDiem1, cboMonHoc1, cboHocSinh1, txtDiem1);
-                    MessageBox.Show("thêm điểm thành công");
+                    MessageBox.Show("Thêm điểm thành công");
                     diem_BUS.themDong();
                 }
                 else
@@ -198,6 +199,7 @@ namespace QuanLiHocSinh
         {
             FlagEnable();
             flag = 1;
+            txtDiem1.Text = "";
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -238,6 +240,26 @@ namespace QuanLiHocSinh
             {
                 diem_BUS.thongTinDiemTheoHS(cboNamHoc1, cboHocKy1, cboLoaiDiem1, cboMonHoc1, cboHocSinh1, grdDiemRieng);
             }
+        }
+
+        private void grdDiemRieng_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            cboLoaiDiem1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MALD1"].Value.ToString();
+            cboNamHoc1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MANH1"].Value.ToString();
+            cboHocSinh1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MAHS1"].Value.ToString();
+            cboMonHoc1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MAMH1"].Value.ToString();
+            cboLop1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MALOP1"].Value.ToString();
+            txtDiem1.Text = grdDiemRieng.CurrentRow.Cells["DIEMSO1"].Value.ToString();
+            if ( grdDiemRieng.CurrentRow.Cells["MAHK1"].Value.ToString()=="HK1")
+            {
+                cboHocKy1.SelectedItem = "Học kỳ 1";
+            }
+            else
+            {
+                cboHocKy1.SelectedItem = "Học kỳ 2";
+            }
+            
+           // sapXep();      
         }
 
 

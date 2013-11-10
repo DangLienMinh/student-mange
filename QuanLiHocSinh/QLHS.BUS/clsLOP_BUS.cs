@@ -117,6 +117,20 @@ namespace QLHS.BUS
             return lop_DAO.danhSachLop();
         }
 
+        public string danhSachLop(string maHS,string maNH)
+        {
+            string text = "";
+            DataTable temp = new DataTable();
+            temp=lop_DAO.danhSachLop(maHS, maNH);
+            if (temp.Rows.Count>0)
+            {
+                return temp.Rows[0][0].ToString();
+                
+            }
+            return text;
+            
+        }
+
         public void xoaLop(clsLOP_DTO lop)
         {
             lop_DAO.xoaLop(lop);
