@@ -59,6 +59,10 @@ namespace QLHS.BUS
         {
             return giangday_dao.danhsachPhancong();
         }
+        public void suaPhanCong(clsGIANGDAY_DTO giangdaymoi, clsGIANGDAY_DTO giangdaycu)
+        {
+            giangday_dao.suaPhanCong(giangdaymoi, giangdaycu);
+        }
         public void xoaPhanCong(clsGIANGDAY_DTO giangday)
         {
             giangday_dao.xoaPhanCong(giangday);
