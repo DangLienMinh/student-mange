@@ -31,6 +31,20 @@ namespace QLHS.DAO
             return table;
         }
 
+        //tên học sinh theo mã học sinh
+        public DataTable tenHocSinh(string maHS)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_TenHocSinhMaHS", con);
+            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = maHS;
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
         //form đổi thành form tiếp nhận học sinh, vừa vào cho chỉ chọn mã lớp 10 cho học sinh
         public void themHocSinh(clsHOCSINH_DTO hocsinh)
         {

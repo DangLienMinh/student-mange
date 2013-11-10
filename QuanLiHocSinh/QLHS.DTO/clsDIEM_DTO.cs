@@ -72,5 +72,13 @@ namespace QLHS.DTO
             get { return diemso; }
             set { diemso = value; }
         }
+
+        private string tenhs;
+
+        public string Tenhs
+        {
+            get { return tenhs; }
+            set { tenhs = value; }
+        }
     }
 }

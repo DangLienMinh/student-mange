@@ -54,7 +54,7 @@ namespace QLHS.DAO
             command.Parameters.Add("@MAHS", SqlDbType.VarChar, 8).Value = diem_DTO.Mahs;
             command.Parameters.Add("@DIEMSO", SqlDbType.Char, 2).Value = diem_DTO.Diemso;
             connection.kiemTraKetNoi(con);
-            command.ExecuteNonQuery();
+            command.ExecuteNonQuery();   
             con.Close();
         }
 

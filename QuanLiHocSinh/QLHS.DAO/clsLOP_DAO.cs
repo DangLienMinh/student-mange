@@ -30,6 +30,20 @@ namespace QLHS.DAO
             return table;
         }
 
+        public DataTable danhSachLop(string maHS,string maNH)
+        {
+            connection.kiemTraKetNoi(con);
+            DataTable table = new DataTable();
+            SqlCommand command = new SqlCommand("SP_ThongTinLopMaHSMaNH", con);
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = maNH;
+            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = maHS;
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
         public DataTable danhSachLopTheoNamHoc(clsLOP_DTO lop)
         {
             connection.kiemTraKetNoi(con);
