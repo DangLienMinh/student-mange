@@ -42,12 +42,6 @@
             this.btnDau = new DevComponents.DotNetBar.ButtonX();
             this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.grdDiemRieng = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.MAHS1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENHS1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MANH1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.MAHK1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.MALD1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.DIEM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.navigationPanePanel3 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.btnLoaiDiem = new DevComponents.DotNetBar.ButtonX();
             this.txtDiem1 = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -128,6 +122,13 @@
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.btnItemNhapLop = new DevComponents.DotNetBar.ButtonItem();
             this.btnItemLop = new DevComponents.DotNetBar.TabItem(this.components);
+            this.MAHS1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENHS1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MANH1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.MALD1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.MAHK1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAMH1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DIEM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdDiemRieng)).BeginInit();
             this.navigationPanePanel3.SuspendLayout();
             this.tabControlPanel2.SuspendLayout();
@@ -213,8 +214,9 @@
             this.MAHS1,
             this.TENHS1,
             this.MANH1,
-            this.MAHK1,
             this.MALD1,
+            this.MAHK1,
+            this.MAMH1,
             this.DIEM});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -240,41 +242,6 @@
             this.grdDiemRieng.Size = new System.Drawing.Size(1062, 449);
             this.grdDiemRieng.TabIndex = 1;
             this.grdDiemRieng.TabStop = false;
-            // 
-            // MAHS1
-            // 
-            this.MAHS1.DataPropertyName = "MAHK";
-            this.MAHS1.HeaderText = "Mã học sinh";
-            this.MAHS1.Name = "MAHS1";
-            // 
-            // TENHS1
-            // 
-            this.TENHS1.DataPropertyName = "TENHK";
-            this.TENHS1.HeaderText = "Tên học sinh";
-            this.TENHS1.Name = "TENHS1";
-            // 
-            // MANH1
-            // 
-            this.MANH1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MANH1.HeaderText = "Năm học";
-            this.MANH1.Name = "MANH1";
-            // 
-            // MAHK1
-            // 
-            this.MAHK1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MAHK1.HeaderText = "Học kỳ";
-            this.MAHK1.Name = "MAHK1";
-            // 
-            // MALD1
-            // 
-            this.MALD1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MALD1.HeaderText = "Loại điểm";
-            this.MALD1.Name = "MALD1";
-            // 
-            // DIEM
-            // 
-            this.DIEM.HeaderText = "Điểm";
-            this.DIEM.Name = "DIEM";
             // 
             // navigationPanePanel3
             // 
@@ -347,6 +314,7 @@
             this.cboLoaiDiem1.Size = new System.Drawing.Size(100, 20);
             this.cboLoaiDiem1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cboLoaiDiem1.TabIndex = 3;
+            this.cboLoaiDiem1.SelectedValueChanged += new System.EventHandler(this.cboLoaiDiem1_SelectedValueChanged);
             // 
             // cboHocSinh1
             // 
@@ -360,6 +328,7 @@
             this.cboHocSinh1.Size = new System.Drawing.Size(139, 20);
             this.cboHocSinh1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cboHocSinh1.TabIndex = 3;
+            this.cboHocSinh1.SelectedValueChanged += new System.EventHandler(this.cboHocSinh1_SelectedValueChanged);
             // 
             // cboLop1
             // 
@@ -1404,6 +1373,48 @@
             this.btnItemLop.Name = "btnItemLop";
             this.btnItemLop.Text = "Nhập điểm theo Lớp";
             // 
+            // MAHS1
+            // 
+            this.MAHS1.DataPropertyName = "MAHS";
+            this.MAHS1.HeaderText = "Mã học sinh";
+            this.MAHS1.Name = "MAHS1";
+            // 
+            // TENHS1
+            // 
+            this.TENHS1.DataPropertyName = "TENHS";
+            this.TENHS1.HeaderText = "Tên học sinh";
+            this.TENHS1.Name = "TENHS1";
+            // 
+            // MANH1
+            // 
+            this.MANH1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MANH1.HeaderText = "Năm học";
+            this.MANH1.Name = "MANH1";
+            // 
+            // MALD1
+            // 
+            this.MALD1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MALD1.HeaderText = "Loại điểm";
+            this.MALD1.Name = "MALD1";
+            // 
+            // MAHK1
+            // 
+            this.MAHK1.DataPropertyName = "MAHK";
+            this.MAHK1.HeaderText = "Học kỳ";
+            this.MAHK1.Name = "MAHK1";
+            // 
+            // MAMH1
+            // 
+            this.MAMH1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MAMH1.HeaderText = "Môn học";
+            this.MAMH1.Name = "MAMH1";
+            // 
+            // DIEM
+            // 
+            this.DIEM.DataPropertyName = "DIEMSO";
+            this.DIEM.HeaderText = "Điểm";
+            this.DIEM.Name = "DIEM";
+            // 
             // frmDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1493,12 +1504,6 @@
         private DevComponents.DotNetBar.PanelEx panelEx5;
         private DevComponents.DotNetBar.PanelEx panelEx10;
         private DevComponents.DotNetBar.PanelEx panelEx11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MAHS1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TENHS1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn MANH1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn MAHK1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn MALD1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DIEM;
         private DevComponents.DotNetBar.Controls.TextBoxX txtDiem1;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cboLoaiDiem1;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cboHocSinh1;
@@ -1528,5 +1533,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private DevComponents.DotNetBar.ButtonX btnLoaiDiem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAHS1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TENHS1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MANH1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MALD1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAHK1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MAMH1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DIEM;
     }
 }
