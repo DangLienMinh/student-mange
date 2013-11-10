@@ -288,6 +288,7 @@
     <Content Include="resources\classroom_icon.png" />
     <Content Include="resources\class_room_icon.jpg" />
     <Content Include="resources\DangXuat.png" />
+    <None Include="resources\danhsach.ico" />
     <Content Include="resources\DoiMatKhau.png" />
     <None Include="resources\Dongy.ico" />
     <Content Include="resources\education-edutainment-2.png" />

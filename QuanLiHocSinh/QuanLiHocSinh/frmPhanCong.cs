@@ -120,6 +120,10 @@ namespace QuanLiHocSinh
         private void btnHuy_Click(object sender, EventArgs e)
         {
             anHienButton(true);
+            huyboDulieu();
+            flagDelete = false;
+            flagInsert = false;
+            flagUpdate = false;
         }
         public void Insert()
         {
@@ -161,7 +165,53 @@ namespace QuanLiHocSinh
         }
         public void Update()
         {
+            int khoa = 0;
+            clsGIANGDAY_DTO tam=new clsGIANGDAY_DTO();
+            if (grdPhanCong.SelectedRows.Count >= 1)
+            {
+                giangday_dto.Malop = cboLop.SelectedValue.ToString();
+                giangday_dto.Mamh = cboMonHoc.SelectedValue.ToString();
+                giangday_dto.Manh = cboNamHoc.SelectedValue.ToString();
+                giangday_dto.Magv = cboGiaoVien.SelectedValue.ToString();
+                tam.Magv = grdPhanCong.CurrentRow.Cells["MAGV"].Value.ToString();
+                tam.Malop = grdPhanCong.CurrentRow.Cells["MALOP"].Value.ToString();
+                tam.Mamh = grdPhanCong.CurrentRow.Cells["MAMH"].Value.ToString();
+                tam.Manh = grdPhanCong.CurrentRow.Cells["MANH"].Value.ToString();
+                foreach (DataGridViewRow row in grdPhanCong.Rows)
+                {
+                    if (row.Cells["MAMH"].Value != null)
+                    {
+                        if (string.Compare(row.Cells["MAMH"].Value.ToString(), cboMonHoc.SelectedValue.ToString()) == 0 && string.Compare(row.Cells["MAGV"].Value.ToString(), cboGiaoVien.SelectedValue.ToString()) == 0 && string.Compare(row.Cells["MANH"].Value.ToString(), cboNamHoc.SelectedValue.ToString()) == 0 && string.Compare(row.Cells["MALOP"].Value.ToString(), cboLop.SelectedValue.ToString()) == 0)
+                        {
+                            khoa = 1;
+                            break;
+                        }
+                    }
+                }
+                if (khoa == 1)
+                {
+                    MessageBox.Show("Lỗi ! Phân công đã tồn tại trong cơ sở dữ liệu ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    flagUpdate = false;
+                }
+                else
+                {
+                    try
+                    {
+                        giangday_bus.suaPhanCong(giangday_dto, tam);
+                        MessageBox.Show("Sửa Phân công giảng dạy thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        flagUpdate = false;//gán lại flagUpdate để đảm bảo thực hiện thêm sửa xóa nhiều lần liên tục sẽ không gây ra lỗi
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("Lỗi ! Sửa không thành công " + e.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        flagUpdate = false;//gán lại flagUpdate để đảm bảo thực hiện thêm sửa xóa nhiều lần liên tục sẽ không gây ra lỗi
+                    }
+                }
+            }
+            else
+            {
 
+            }
         }
         public void Delete()
         {
@@ -324,6 +374,21 @@ namespace QuanLiHocSinh
             }
             else
                 m_frmGiaovien.Activate();
+        }
+
+        private void cboNamHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupPanel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void navigationPanePanel2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

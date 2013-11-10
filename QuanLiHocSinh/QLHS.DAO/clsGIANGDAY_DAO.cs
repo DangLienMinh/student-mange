@@ -38,6 +38,23 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
+        public void suaPhanCong(clsGIANGDAY_DTO giangdaymoi, clsGIANGDAY_DTO giangdaycu)
+        {
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_SuaGiangDay", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MAMH", SqlDbType.VarChar, 10).Value = giangdaymoi.Mamh;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar, 6).Value = giangdaymoi.Manh;
+            command.Parameters.Add("@MAGV", SqlDbType.Char, 5).Value = giangdaymoi.Magv;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar, 10).Value = giangdaycu.Malop;
+            command.Parameters.Add("@MAMH1", SqlDbType.VarChar, 10).Value = giangdaycu.Mamh;
+            command.Parameters.Add("@MANH1", SqlDbType.VarChar, 6).Value = giangdaycu.Manh;
+            command.Parameters.Add("@MAGV1", SqlDbType.Char, 5).Value = giangdaycu.Magv;
+            command.Parameters.Add("@MALOP1", SqlDbType.VarChar, 10).Value = giangdaycu.Malop;
+            command.ExecuteNonQuery();
+            con.Close();
+            
+        }
         public void xoaPhanCong(clsGIANGDAY_DTO giangday)
         {
             connection.kiemTraKetNoi(con);
