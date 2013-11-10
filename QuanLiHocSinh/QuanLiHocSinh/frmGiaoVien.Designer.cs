@@ -121,7 +121,7 @@
             this.navigationPane1.TitlePanel.Style.GradientAngle = 90;
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
-            this.navigationPane1.TitlePanel.Text = "Tìm kiếm thông tin";
+            this.navigationPane1.TitlePanel.Text = "Nhập liệu thông tin";
             // 
             // navigationPanePanel2
             // 
@@ -365,7 +365,7 @@
             // 
             // txtDienThoai
             // 
-            this.txtDienThoai.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDienThoai.BackColor = System.Drawing.SystemColors.Window;
             // 
             // 
             // 
@@ -382,7 +382,7 @@
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDiaChi.BackColor = System.Drawing.SystemColors.Window;
             // 
             // 
             // 
@@ -398,7 +398,7 @@
             // 
             // txtTenGV
             // 
-            this.txtTenGV.BackColor = System.Drawing.SystemColors.Control;
+            this.txtTenGV.BackColor = System.Drawing.SystemColors.Window;
             // 
             // 
             // 
@@ -461,7 +461,7 @@
             this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(292, 434);
+            this.navigationPanePanel1.Size = new System.Drawing.Size(292, 536);
             this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -497,7 +497,7 @@
             // 
             // txtTim
             // 
-            this.txtTim.BackColor = System.Drawing.SystemColors.Control;
+            this.txtTim.BackColor = System.Drawing.SystemColors.Window;
             // 
             // 
             // 
@@ -641,7 +641,7 @@
             // txtHienTai
             // 
             this.txtHienTai.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtHienTai.BackColor = System.Drawing.SystemColors.Control;
+            this.txtHienTai.BackColor = System.Drawing.SystemColors.Window;
             // 
             // 
             // 

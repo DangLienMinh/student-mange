@@ -34,6 +34,10 @@ namespace QuanLiHocSinh
             monHoc_BUS = new clsMONHOC_BUS();
             hocSinh_BUS = new clsHOCSINH_BUS();
             diem_BUS=new clsDIEM_BUS();
+           
+            monHoc_BUS.HienThiDataGridViewComboBoxColumn(MAMH1);
+            loaiDiem_BUS.HienThiDataGridViewComboBoxColumn(MALD1);
+            namHoc_BUS.HienThiDataGridViewComboBoxColumn(MANH1);
             this.KeyPreview = true;
             datagridMakeUp(grdDiemRieng);
         }
@@ -85,9 +89,7 @@ namespace QuanLiHocSinh
             monHoc_BUS.hienThiComboBox(cboMonHoc1);
             loaiDiem_BUS.hienThiComboBox(cboLoaiDiem1);
 
-            monHoc_BUS.HienThiDataGridViewComboBoxColumn(MANH1);
-            loaiDiem_BUS.HienThiDataGridViewComboBoxColumn(MALD1);
-            namHoc_BUS.HienThiDataGridViewComboBoxColumn(MANH1);
+           
 
            
             tabControl1.SelectedTab = btnItemLop;
@@ -222,5 +224,25 @@ namespace QuanLiHocSinh
             FlagDisable();
             flag = 0;
         }
+
+        private void cboLoaiDiem1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cboLoaiDiem1.SelectedValue != null && cboHocSinh1.SelectedValue!=null){
+                diem_BUS.thongTinDiemTheoHS(cboNamHoc1,cboHocKy1,cboLoaiDiem1, cboMonHoc1,cboHocSinh1,grdDiemRieng);
+            }
+        }
+
+        private void cboHocSinh1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cboLoaiDiem1.SelectedValue != null && cboHocSinh1.SelectedValue != null)
+            {
+                diem_BUS.thongTinDiemTheoHS(cboNamHoc1, cboHocKy1, cboLoaiDiem1, cboMonHoc1, cboHocSinh1, grdDiemRieng);
+            }
+        }
+
+
+
+
     }
 }
+

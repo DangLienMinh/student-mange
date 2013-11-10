@@ -48,7 +48,14 @@ namespace QLHS.BUS
         {
             diem_DTO = new clsDIEM_DTO();
             hocSinh_DTO = new clsHOCSINH_DTO();
-            diem_DTO.Mahk = cboMaHK.SelectedItem.ToString();
+            if (string.Compare(cboMaHK.SelectedItem.ToString(), "Học kỳ 1") == 0)
+            {
+                diem_DTO.Mahk = "HK1";
+            }
+            else
+            {
+                diem_DTO.Mahk = "HK2";
+            }
             diem_DTO.Manh = cboMaNH.SelectedValue.ToString();
             diem_DTO.Mamh = cboMaMH.SelectedValue.ToString();
             diem_DTO.Mald = cboMaLD.SelectedValue.ToString();
