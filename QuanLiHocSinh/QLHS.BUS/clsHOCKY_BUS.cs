@@ -18,11 +18,20 @@ namespace QLHS.BUS
         {
             hocky=new clsHOCKY_DAO();
         }
+
+        //public void hienThiComboBox(ComboBoxEx comboBox)
+        //{
+        //    comboBox.DataSource = hocky.danhsachHocky();
+        //    comboBox.DisplayMember = "TENHK";
+        //    comboBox.ValueMember = "MAHK";
+        //}
+
         public void hienThiComboBox(ComboBoxEx comboBox)
         {
-            comboBox.DataSource = hocky.danhsachHocky();
-            comboBox.DisplayMember = "TENHK";
-            comboBox.ValueMember = "MAHK";
+            comboBox.Items.Add("Học kỳ 1");
+            comboBox.Items.Add("Học kỳ 2");
+            comboBox.SelectedItem = "Học kỳ 1";
         }
+
     }
 }
