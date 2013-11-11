@@ -82,6 +82,7 @@ namespace QuanLiHocSinh
 
         private void frmDiem_Load(object sender, EventArgs e)
         {
+            //load dữ liệu vào comboBox 
             namHoc_BUS.hienThiComboBox(cboNamHoc);
             namHoc_BUS.hienThiComboBox(cboNamHoc1);
             hocKy_BUS.hienThiComboBox(cboHocKy1);
@@ -89,11 +90,37 @@ namespace QuanLiHocSinh
             monHoc_BUS.hienThiComboBox(cboMonHoc);
             monHoc_BUS.hienThiComboBox(cboMonHoc1);
             loaiDiem_BUS.hienThiComboBox(cboLoaiDiem1);
-
-           
-
-           
             tabControl1.SelectedTab = btnItemLop;
+
+            FlagDisable();
+            flag = 0;
+            sapXep();
+            btnDau.Enabled = false;
+            btnTruoc.Enabled = false;
+        }
+
+        private void sapXep()
+        {
+            viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
+            Tong = this.BindingContext[grdDiemRieng.DataSource].Count;
+            if (viTri != -1)
+            {
+                txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
+                cboLoaiDiem1.Text = grdDiemRieng.Rows[viTri].Cells["MALD1"].Value.ToString();
+                cboNamHoc1.Text = grdDiemRieng.Rows[viTri].Cells["MANH1"].Value.ToString();
+                cboHocSinh1.Text = grdDiemRieng.Rows[viTri].Cells["MAHS1"].Value.ToString();
+                cboMonHoc1.Text = grdDiemRieng.Rows[viTri].Cells["MAMH1"].Value.ToString();
+                cboLop1.SelectedItem = grdDiemRieng.Rows[viTri].Cells["MALOP1"].Value.ToString();
+                txtDiem1.Text = grdDiemRieng.Rows[viTri].Cells["DIEMSO1"].Value.ToString();
+                if (grdDiemRieng.Rows[viTri].Cells["MAHK1"].Value.ToString() == "HK1")
+                {
+                    cboHocKy1.SelectedItem = "Học kỳ 1";
+                }
+                else
+                {
+                    cboHocKy1.SelectedItem = "Học kỳ 2";
+                }
+            }
         }
 
         private void insert()
@@ -161,6 +188,30 @@ namespace QuanLiHocSinh
             }
         }
 
+        private void delete()
+        {
+            if (grdDiemRieng.SelectedRows.Count >= 1)
+            {
+                if (MessageBox.Show("Bạn có chắc muốn xóa điểm đã được lựa chọn ", "Xóa điểm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    diem_BUS.xoaDiemTheoHS(grdDiemRieng.CurrentRow.Cells["STT"].Value.ToString());
+                    diem_BUS.xoaDong(grdDiemRieng, grdDiemRieng.CurrentRow.Cells["STT"].Value.ToString());
+                    resetAll();
+                    FlagDisable();
+                    flag = 0;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải lựa chọn một hàng để xóa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void resetAll()
+        {
+            txtDiem1.Text = "";
+        }
+
         private void btnDanhSach_Click(object sender, EventArgs e)
         {
 
@@ -204,20 +255,45 @@ namespace QuanLiHocSinh
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-
+            flag = 2;
+            FlagEnable();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            flag = 3;
+            FlagEnable();
+            txtDiem1.Focus();
+        }
 
+        private void update()
+        {
+            if (grdDiemRieng.SelectedRows.Count >= 1)
+            {
+
+                diem_BUS.suaDiemTheoHS(grdDiemRieng.CurrentRow.Cells["STT"].Value.ToString(), txtDiem1);
+
+
+                MessageBox.Show("Bạn đã sửa thành công!");
+
+                //sửa trong datagrid view
+                diem_BUS.suaDataGrid(grdDiemRieng);
+
+                FlagDisable();
+                flag = 0;
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải lựa chọn một hàng để sửa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnDongY_Click(object sender, EventArgs e)
         {
             if (flag == 1) insert();
-            //if (flag == 2) delete();
-            //if (flag == 3) update();
-            //sapXep();
+            if (flag == 2) delete();
+            if (flag == 3) update();
+            sapXep();
             //txtMaGV.Enabled = true;
         }
 
@@ -259,7 +335,64 @@ namespace QuanLiHocSinh
                 cboHocKy1.SelectedItem = "Học kỳ 2";
             }
             
-           // sapXep();      
+           sapXep();      
+        }
+
+        private void btnDau_Click(object sender, EventArgs e)
+        {
+            viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
+            this.BindingContext[grdDiemRieng.DataSource].Position = 0;
+            sapXep();
+            btnTruoc.Enabled = false;
+            btnDau.Enabled = false;
+            btnCuoi.Enabled = true;
+            btnSau.Enabled = true;
+        }
+
+        private void btnCuoi_Click(object sender, EventArgs e)
+        {
+            viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
+            this.BindingContext[grdDiemRieng.DataSource].Position = this.BindingContext[grdDiemRieng.DataSource].Count - 1;
+            sapXep();
+            btnCuoi.Enabled = false;
+            btnSau.Enabled = false;
+            btnTruoc.Enabled = true;
+            btnDau.Enabled = true;
+        }
+
+        private void btnTruoc_Click(object sender, EventArgs e)
+        {
+            viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
+            btnCuoi.Enabled = true;
+            btnSau.Enabled = true;
+            this.BindingContext[grdDiemRieng.DataSource].Position = viTri - 1;
+            sapXep();
+        }
+
+        private void btnSau_Click(object sender, EventArgs e)
+        {
+            viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
+            btnDau.Enabled = true;
+            btnTruoc.Enabled = true;
+            this.BindingContext[grdDiemRieng.DataSource].Position = viTri + 1;
+            sapXep();
+        }
+
+        private void frmDiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+
+        private void txtDiem1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Chỉ nhập số,không nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }  
         }
 
 
