@@ -13,11 +13,16 @@ namespace QLHS.BUS
 {
     public class clsHOCKY_BUS
     {
+        private clsHOCKY_DAO hocky;
+        public clsHOCKY_BUS()
+        {
+            hocky=new clsHOCKY_DAO();
+        }
         public void hienThiComboBox(ComboBoxEx comboBox)
         {
-            comboBox.Items.Add("Học kỳ 1");
-            comboBox.Items.Add("Học kỳ 2");
-            comboBox.SelectedItem = "Học kỳ 1";
+            comboBox.DataSource = hocky.danhsachHocky();
+            comboBox.DisplayMember = "TENHK";
+            comboBox.ValueMember = "MAHK";
         }
     }
 }

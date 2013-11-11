@@ -321,6 +321,7 @@
     <None Include="resources\Them.ico" />
     <Content Include="resources\ThongTin.png" />
     <None Include="resources\Truoc.ico" />
+    <None Include="resources\Timkiem.ico" />
     <Content Include="resources\Untitled-d.png" />
     <Content Include="resources\win7.png" />
     <Content Include="resources\win8.png" />

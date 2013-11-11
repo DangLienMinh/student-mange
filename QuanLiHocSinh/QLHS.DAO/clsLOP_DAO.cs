@@ -157,5 +157,18 @@ namespace QLHS.DAO
             adapter.Fill(table);
             return table;
         }
+        public DataTable danhsachLopMAKHOI(string Makhoi,string Manh)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_DanhSachLopMAKHOIMANH", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = Makhoi;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = Manh;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
     }
 }

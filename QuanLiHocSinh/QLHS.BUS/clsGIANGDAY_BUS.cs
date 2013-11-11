@@ -67,5 +67,9 @@ namespace QLHS.BUS
         {
             giangday_dao.xoaPhanCong(giangday);
         }
+        public DataTable timPhanCong(clsGIAOVIEN_DTO giaovien, clsLOP_DTO lop)
+        {
+            return giangday_dao.timPhanCong(giaovien, lop);
+        }
     }
 }

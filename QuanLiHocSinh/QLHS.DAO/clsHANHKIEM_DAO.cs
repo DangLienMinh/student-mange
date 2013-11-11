@@ -6,5 +6,6 @@ namespace QLHS.DAO
 {
     class clsHANHKIEM_DAO
     {
+
     }
 }

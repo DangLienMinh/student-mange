@@ -24,6 +24,8 @@ namespace QuanLiHocSinh
         private Boolean flagUpdate;
         private Boolean flagDelete;
         private clsGIANGDAY_DTO giangday_dto;
+        private clsLOP_DTO lop_dto;
+        private clsGIAOVIEN_DTO giaovien_dto;
         private clsGIAOVIEN_BUS giaoVien_BUS;
         private clsNAMHOC_BUS namHoc_BUS;
         private clsLOP_BUS lop_BUS;
@@ -39,6 +41,8 @@ namespace QuanLiHocSinh
             monHoc_BUS = new clsMONHOC_BUS();
             giaoVien_BUS = new clsGIAOVIEN_BUS();
             giangday_dto = new clsGIANGDAY_DTO();
+            lop_dto = new clsLOP_DTO();
+            giaovien_dto = new clsGIAOVIEN_DTO();
             flagInsert = false;
             flagUpdate = false;
             flagDelete = false;
@@ -387,6 +391,60 @@ namespace QuanLiHocSinh
         }
 
         private void navigationPanePanel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void optMaGV_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            if (txtTim.Text == "")
+            {
+                MessageBox.Show("Chưa nhập từ khóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (optTenLop.Checked == true)
+                {
+                    lop_dto.Tenlop = txtTim.Text;
+                    giaovien_dto.Tengv = "";
+                    if (giangday_bus.timPhanCong(giaovien_dto, lop_dto).Rows.Count > 0)
+                    {
+                        grdPhanCong.DataSource = giangday_bus.timPhanCong(giaovien_dto, lop_dto);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy ! Vui lòng thử lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    if (optTenGV.Checked == true)
+                    {
+                        giaovien_dto.Tengv = txtTim.Text;
+                        lop_dto.Tenlop = "";
+                        if (giangday_bus.timPhanCong(giaovien_dto, lop_dto).Rows.Count > 0)
+                        {
+                            grdPhanCong.DataSource = giangday_bus.timPhanCong(giaovien_dto, lop_dto);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không tìm thấy ! Vui lòng thử lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Phải chọn Tìm kiếm theo Tên Giáo Viên hoặc tìm theo Tên Lớp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void optTenGV_CheckedChanged(object sender, EventArgs e)
         {
 
         }
