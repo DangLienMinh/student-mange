@@ -67,5 +67,18 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
+        public DataTable timPhanCong(clsGIAOVIEN_DTO giaovien, clsLOP_DTO lop)
+        {
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_TimGiangDay", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@TENGV", SqlDbType.NVarChar).Value = giaovien.Tengv;
+            command.Parameters.Add("@TENLOP", SqlDbType.NVarChar).Value = lop.Tenlop;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
     }
 }

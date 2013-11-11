@@ -44,10 +44,11 @@
     <Compile Include="clsDIEM_DAO.cs" />
     <Compile Include="clsGIANGDAY_DAO.cs" />
     <Compile Include="clsGIAOVIEN_DAO.cs" />
+    <Compile Include="clsHOCKY_DAO.cs" />
     <Compile Include="clsHOCSINH_DAO.cs" />
     <Compile Include="clsKHOI_DAO.cs" />
     <Compile Include="clsLOAIDIEM_DAO.cs" />
-    <Compile Include="clsLOAIHANHKIEM.cs" />
+    <Compile Include="clsLOAIHANHKIEM_DAO.cs" />
     <Compile Include="clsLOAINGUOIDUNG_DAO.cs" />
     <Compile Include="clsLOP_DAO.cs" />
     <Compile Include="clsMONHOC_DAO.cs" />
