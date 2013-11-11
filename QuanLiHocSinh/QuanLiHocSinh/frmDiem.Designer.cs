@@ -130,6 +130,7 @@
             this.MAMH1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.DIEMSO1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MALOP1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdDiemRieng)).BeginInit();
             this.navigationPanePanel3.SuspendLayout();
             this.tabControlPanel2.SuspendLayout();
@@ -153,36 +154,39 @@
             this.btnSau.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnSau.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSau.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSau.Location = new System.Drawing.Point(556, 3);
+            this.btnSau.Location = new System.Drawing.Point(556, 8);
             this.btnSau.Name = "btnSau";
             this.btnSau.Size = new System.Drawing.Size(29, 23);
             this.btnSau.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnSau.TabIndex = 11;
             this.btnSau.Text = ">";
+            this.btnSau.Click += new System.EventHandler(this.btnSau_Click);
             // 
             // btnTruoc
             // 
             this.btnTruoc.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnTruoc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnTruoc.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTruoc.Location = new System.Drawing.Point(481, 3);
+            this.btnTruoc.Location = new System.Drawing.Point(481, 8);
             this.btnTruoc.Name = "btnTruoc";
             this.btnTruoc.Size = new System.Drawing.Size(29, 23);
             this.btnTruoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnTruoc.TabIndex = 10;
             this.btnTruoc.Text = "<";
+            this.btnTruoc.Click += new System.EventHandler(this.btnTruoc_Click);
             // 
             // btnDau
             // 
             this.btnDau.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDau.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDau.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDau.Location = new System.Drawing.Point(446, 3);
+            this.btnDau.Location = new System.Drawing.Point(424, 8);
             this.btnDau.Name = "btnDau";
-            this.btnDau.Size = new System.Drawing.Size(29, 23);
+            this.btnDau.Size = new System.Drawing.Size(51, 23);
             this.btnDau.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnDau.TabIndex = 9;
             this.btnDau.Text = "|<";
+            this.btnDau.Click += new System.EventHandler(this.btnDau_Click);
             // 
             // txtHienTai
             // 
@@ -192,7 +196,7 @@
             // 
             this.txtHienTai.Border.Class = "TextBoxBorder";
             this.txtHienTai.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtHienTai.Location = new System.Drawing.Point(516, 6);
+            this.txtHienTai.Location = new System.Drawing.Point(516, 11);
             this.txtHienTai.Name = "txtHienTai";
             this.txtHienTai.ReadOnly = true;
             this.txtHienTai.Size = new System.Drawing.Size(34, 20);
@@ -219,7 +223,8 @@
             this.MAHK1,
             this.MAMH1,
             this.DIEMSO1,
-            this.MALOP1});
+            this.MALOP1,
+            this.STT});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -302,8 +307,9 @@
             this.txtDiem1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtDiem1.Location = new System.Drawing.Point(15, 317);
             this.txtDiem1.Name = "txtDiem1";
-            this.txtDiem1.Size = new System.Drawing.Size(100, 20);
+            this.txtDiem1.Size = new System.Drawing.Size(55, 20);
             this.txtDiem1.TabIndex = 44;
+            this.txtDiem1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiem1_KeyPress);
             // 
             // cboLoaiDiem1
             // 
@@ -545,12 +551,13 @@
             this.btnCuoi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCuoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCuoi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCuoi.Location = new System.Drawing.Point(591, 3);
+            this.btnCuoi.Location = new System.Drawing.Point(591, 8);
             this.btnCuoi.Name = "btnCuoi";
-            this.btnCuoi.Size = new System.Drawing.Size(29, 23);
+            this.btnCuoi.Size = new System.Drawing.Size(48, 23);
             this.btnCuoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCuoi.TabIndex = 12;
             this.btnCuoi.Text = ">|";
+            this.btnCuoi.Click += new System.EventHandler(this.btnCuoi_Click);
             // 
             // btnItemHS
             // 
@@ -1393,6 +1400,7 @@
             this.MANH1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.MANH1.HeaderText = "Năm học";
             this.MANH1.Name = "MANH1";
+            this.MANH1.Width = 150;
             // 
             // MALD1
             // 
@@ -1424,6 +1432,13 @@
             this.MALOP1.HeaderText = "Lớp";
             this.MALOP1.Name = "MALOP1";
             // 
+            // STT
+            // 
+            this.STT.DataPropertyName = "STT";
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.Visible = false;
+            // 
             // frmDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1435,6 +1450,7 @@
             this.Text = "QUẢN LÝ ĐIỂM";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmDiem_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmDiem_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.grdDiemRieng)).EndInit();
             this.navigationPanePanel3.ResumeLayout(false);
             this.tabControlPanel2.ResumeLayout(false);
@@ -1550,5 +1566,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn MAMH1;
         private System.Windows.Forms.DataGridViewTextBoxColumn DIEMSO1;
         private System.Windows.Forms.DataGridViewComboBoxColumn MALOP1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
     }
 }

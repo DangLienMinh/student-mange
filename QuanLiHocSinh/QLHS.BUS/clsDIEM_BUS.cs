@@ -52,6 +52,51 @@ namespace QLHS.BUS
             diem_DAO.themDiemTheoHS(diem_DTO);
         }
 
+        public void suaDiemTheoHS(string STT, TextBoxX txtDiem)
+        {
+            diem_DTO = new clsDIEM_DTO();
+            diem_DTO.Diemso = txtDiem.Text;
+            diem_DTO.Stt = int.Parse(STT);
+            diem_DAO.suaDiemTheoHS(diem_DTO);
+        }
+
+        public void xoaDiemTheoHS(string STT)
+        {
+            diem_DTO = new clsDIEM_DTO();
+            diem_DTO.Stt = int.Parse(STT);
+            diem_DAO.xoaDiemTheoHS(diem_DTO);
+        }
+
+        public void xoaDong(DataGridViewX grdDiemRieng, string STT)
+        {
+            DataRow row = tblDiem.Select("STT='" + STT + "'")[0];
+            row.Delete();
+            grdDiemRieng.DataSource = tblDiem;
+        }
+
+        public void xoaGiaoVien(string STT)
+        {
+            diem_DTO = new clsDIEM_DTO();
+            diem_DTO.Stt = int.Parse(STT);
+            diem_DAO.xoaDiemTheoHS(diem_DTO);
+        }
+
+        public void suaDataGrid(DataGridViewX grdDiemRieng)
+        {
+            foreach (DataGridViewRow row1 in grdDiemRieng.Rows)
+            {
+                if (row1.Cells["STT"].Value!=null)
+                {
+                    if ((int.Parse(row1.Cells["STT"].Value.ToString().Trim()) == diem_DTO.Stt))
+                    {
+                        row1.Cells["DIEMSO1"].Value = diem_DTO.Diemso;
+                    }
+                    
+                }
+                
+            }
+        }
+
         public void thongTinDiemTheoHS(ComboBoxEx cboMaNH, ComboBoxEx cboMaHK, ComboBoxEx cboMaLD, ComboBoxEx cboMaMH, ComboBoxEx cboMaHS,DataGridViewX grdDiem)
         {
             diem_DTO = new clsDIEM_DTO();

@@ -74,5 +74,26 @@ namespace QLHS.DAO
             con.Close();
             return table;
         }
+
+        public void suaDiemTheoHS(clsDIEM_DTO diem_DTO)
+        {
+            SqlCommand command = new SqlCommand("SP_SuaDiemTheoHS", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@STT", SqlDbType.Int).Value = diem_DTO.Stt;
+            command.Parameters.Add("@DIEMSO", SqlDbType.Char, 2).Value = diem_DTO.Diemso;
+            connection.kiemTraKetNoi(con);
+            command.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public void xoaDiemTheoHS(clsDIEM_DTO diem_DTO)
+        {
+            SqlCommand command = new SqlCommand("SP_XoaDiemTheoHS", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@STT", SqlDbType.Int).Value = diem_DTO.Stt;
+            connection.kiemTraKetNoi(con);
+            command.ExecuteNonQuery();
+            con.Close();
+        }
     }
 }
