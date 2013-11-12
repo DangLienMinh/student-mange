@@ -108,7 +108,7 @@
             this.lvwLopCu.FullRowSelect = true;
             this.lvwLopCu.Location = new System.Drawing.Point(0, 120);
             this.lvwLopCu.Name = "lvwLopCu";
-            this.lvwLopCu.Size = new System.Drawing.Size(668, 418);
+            this.lvwLopCu.Size = new System.Drawing.Size(665, 418);
             this.lvwLopCu.TabIndex = 2;
             this.lvwLopCu.UseCompatibleStateImageBehavior = false;
             this.lvwLopCu.View = System.Windows.Forms.View.Details;
@@ -166,7 +166,7 @@
             this.panelConTren.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelConTren.Location = new System.Drawing.Point(0, 0);
             this.panelConTren.Name = "panelConTren";
-            this.panelConTren.Size = new System.Drawing.Size(668, 120);
+            this.panelConTren.Size = new System.Drawing.Size(665, 120);
             this.panelConTren.TabIndex = 0;
             // 
             // groupPanelLopCu
@@ -183,7 +183,7 @@
             this.groupPanelLopCu.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupPanelLopCu.Location = new System.Drawing.Point(0, 0);
             this.groupPanelLopCu.Name = "groupPanelLopCu";
-            this.groupPanelLopCu.Size = new System.Drawing.Size(668, 120);
+            this.groupPanelLopCu.Size = new System.Drawing.Size(665, 120);
             // 
             // 
             // 
@@ -304,7 +304,7 @@
             this.groupPanelLopMoi.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupPanelLopMoi.Location = new System.Drawing.Point(0, 0);
             this.groupPanelLopMoi.Name = "groupPanelLopMoi";
-            this.groupPanelLopMoi.Size = new System.Drawing.Size(624, 120);
+            this.groupPanelLopMoi.Size = new System.Drawing.Size(623, 120);
             // 
             // 
             // 
@@ -373,7 +373,7 @@
             this.lvwLopMoi.FullRowSelect = true;
             this.lvwLopMoi.Location = new System.Drawing.Point(0, 120);
             this.lvwLopMoi.Name = "lvwLopMoi";
-            this.lvwLopMoi.Size = new System.Drawing.Size(624, 418);
+            this.lvwLopMoi.Size = new System.Drawing.Size(623, 418);
             this.lvwLopMoi.TabIndex = 5;
             this.lvwLopMoi.UseCompatibleStateImageBehavior = false;
             this.lvwLopMoi.View = System.Windows.Forms.View.Details;
@@ -432,7 +432,7 @@
             this.panelConPhai.Controls.Add(this.btnXoa);
             this.panelConPhai.Controls.Add(this.btnChuyen);
             this.panelConPhai.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelConPhai.Location = new System.Drawing.Point(668, 0);
+            this.panelConPhai.Location = new System.Drawing.Point(665, 0);
             this.panelConPhai.Name = "panelConPhai";
             this.panelConPhai.Size = new System.Drawing.Size(70, 538);
             this.panelConPhai.TabIndex = 3;
@@ -445,7 +445,7 @@
             this.panelChaTrai.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChaTrai.Location = new System.Drawing.Point(0, 0);
             this.panelChaTrai.Name = "panelChaTrai";
-            this.panelChaTrai.Size = new System.Drawing.Size(738, 538);
+            this.panelChaTrai.Size = new System.Drawing.Size(735, 538);
             this.panelChaTrai.TabIndex = 0;
             // 
             // splitContainerPhanLop
@@ -462,15 +462,15 @@
             // 
             this.splitContainerPhanLop.Panel2.Controls.Add(this.lvwLopMoi);
             this.splitContainerPhanLop.Panel2.Controls.Add(this.groupPanelLopMoi);
-            this.splitContainerPhanLop.Size = new System.Drawing.Size(1366, 538);
-            this.splitContainerPhanLop.SplitterDistance = 738;
+            this.splitContainerPhanLop.Size = new System.Drawing.Size(1362, 538);
+            this.splitContainerPhanLop.SplitterDistance = 735;
             this.splitContainerPhanLop.TabIndex = 1;
             // 
             // frmPhanLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1366, 538);
+            this.ClientSize = new System.Drawing.Size(1362, 538);
             this.Controls.Add(this.splitContainerPhanLop);
             this.DoubleBuffered = true;
             this.Name = "frmPhanLop";

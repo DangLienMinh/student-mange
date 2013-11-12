@@ -13,25 +13,32 @@ namespace QLHS.BUS
 {
     public class clsHOCKY_BUS
     {
-        private clsHOCKY_DAO hocky;
+        private clsHOCKY_DAO hocKy_DAO;
         public clsHOCKY_BUS()
         {
-            hocky=new clsHOCKY_DAO();
+            hocKy_DAO=new clsHOCKY_DAO();
         }
-
-        //public void hienThiComboBox(ComboBoxEx comboBox)
-        //{
-        //    comboBox.DataSource = hocky.danhsachHocky();
-        //    comboBox.DisplayMember = "TENHK";
-        //    comboBox.ValueMember = "MAHK";
-        //}
 
         public void hienThiComboBox(ComboBoxEx comboBox)
         {
-            comboBox.Items.Add("Học kỳ 1");
-            comboBox.Items.Add("Học kỳ 2");
-            comboBox.SelectedItem = "Học kỳ 1";
+            comboBox.DataSource = hocKy_DAO.danhSachHocKy();
+            comboBox.DisplayMember = "TENHK";
+            comboBox.ValueMember = "MAHK";
         }
+
+        public void HienThiDataGridViewComboBoxColumn(DataGridViewComboBoxColumn cboColumn)
+        {
+            cboColumn.DataSource = hocKy_DAO.danhSachHocKy();
+            cboColumn.DisplayMember = "TENHK";
+            cboColumn.ValueMember = "MAHK";
+            cboColumn.DataPropertyName = "MAHK";
+        }
+        //public void hienThiComboBox(ComboBoxEx comboBox)
+        //{
+        //    comboBox.Items.Add("Học kỳ 1");
+        //    comboBox.Items.Add("Học kỳ 2");
+        //    comboBox.SelectedItem = "Học kỳ 1";
+        //}
 
     }
 }
