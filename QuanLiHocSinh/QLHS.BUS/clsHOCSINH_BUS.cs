@@ -35,17 +35,10 @@ namespace QLHS.BUS
             tbHocSinh = new DataTable();
         }
 
-        //lấy danh sách học sinh theo combobox mã năm học chứ không load hết vì rất nhiều 
-        public DataTable danhSachHocSinh(ComboBoxEx comboBox)
+       
+        public DataTable danhSachHocSinh()
         {
-            DataTable table = hocSinh_DAO.danhSachHocSinh(comboBox.SelectedValue.ToString());
-            //for (int i = 0; i < table.Rows.Count; i++)
-            //{
-            //    if (table.Rows[i]["GIOITINHHS"].ToString() == "0")
-            //    {
-            //        table.Rows[i]["GIOITINHHS"] == "Nữ";
-            //    }
-            //}
+            DataTable table = hocSinh_DAO.danhSachHocSinh();
             return table;
         }
         
@@ -65,19 +58,9 @@ namespace QLHS.BUS
             else return "";
         }
 
-        public void suaHocSinh(clsHOCSINH_DTO hs,DataGridViewX grdHocSinh)
+        public void suaHocSinh(clsHOCSINH_DTO hs)
         {
-            foreach (DataGridViewRow row1 in grdHocSinh.Rows)
-            {
-                if (row1.Cells["MAHS"].Value != null)
-                {
-                    if (string.Compare(row1.Cells["MAHS"].Value.ToString().Trim(), hs.Mahs.Trim()) == 0)
-                    {
-                        hocSinh_DAO.suaHocSinh(hs, row1.Cells["MANH"].Value.ToString(), row1.Cells["MALOP"].Value.ToString());
-                    }
-                }
-            }
-           
+            hocSinh_DAO.suaHocSinh(hs);
         }
 
         public void xoaHocSinh(clsHOCSINH_DTO hs)
@@ -91,23 +74,8 @@ namespace QLHS.BUS
             comboBox.Items.Add("Nữ");
             comboBox.SelectedItem = "Nam";
         }
-
-
-
-        //public string taoMaHocSinh()
-        //{
-        //    string Mahs;
-        //    string str;
-        //    str = DateTime.Now.ToString().Trim();
-        //    string Namhientai = str.Substring(6, 4);
-        //    string makhoitao= Namhientai.Trim() + "0000";
-        //    int intmahs = int.Parse(makhoitao) + hocsinh.danhsachHocSinh().Rows.Count;
-        //    Mahs = intmahs.ToString();
-        //    return Mahs;
-        //}
-
-        //tạo mã học sinh dựa trên cboNamHoc 
-        public string taoMaHocSinh(ComboBoxEx comboBox)
+       //tạo mã học sinh
+        public string taoMaHocSinh()
         {
             string tam = "";
             string maHS;
@@ -115,8 +83,7 @@ namespace QLHS.BUS
             str = DateTime.Now.Year.ToString();
             string namHienTai = str; 
             string maKhoiTao = namHienTai.Trim() + "0000";
-            //số học sinh của năm học đó
-            int soDong = hocSinh_DAO.danhSachHocSinh(comboBox.SelectedValue.ToString()).Rows.Count;
+            int soDong = hocSinh_DAO.danhSachHocSinh().Rows.Count;
             if (soDong == 0)
             {
                 maHS = maKhoiTao;
@@ -124,9 +91,9 @@ namespace QLHS.BUS
             else
             {
                 int max = 0;
-                for (int i = 0; i < hocSinh_DAO.danhSachHocSinh(comboBox.SelectedValue.ToString()).Rows.Count; i++)
+                for (int i = 0; i < hocSinh_DAO.danhSachHocSinh().Rows.Count; i++)
                 {
-                    tam = hocSinh_DAO.danhSachHocSinh(comboBox.SelectedValue.ToString()).Rows[i]["MAHS"].ToString();
+                    tam = hocSinh_DAO.danhSachHocSinh().Rows[i]["MAHS"].ToString();
                     int tam1 = int.Parse(tam);
                     if (max < tam1)
                     {
@@ -137,6 +104,27 @@ namespace QLHS.BUS
                 maHS = namHienTai + max.ToString().Trim().Substring(4, 4);
             }
             return maHS;
+        }
+        public void tailaiDataGrid(DataGridViewX grdHocSinh, DataTable dsHocsinh)
+        {
+            grdHocSinh.DataSource = dsHocsinh;
+            if (grdHocSinh.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in grdHocSinh.Rows)
+                {
+                    if (row.Cells["MAHS"].Value != null)
+                    {
+                        if (row.Cells["GIOITINHHS"].Value.ToString() == "0")
+                        {
+                            row.Cells["GIOITINHHS"].Value = "Nữ";
+                        }
+                        else
+                        {
+                            row.Cells["GIOITINHHS"].Value = "Nam";
+                        }
+                    }
+                }
+            }
         }
 
 
@@ -263,26 +251,6 @@ namespace QLHS.BUS
         {
             return hocSinh_DAO.timHocSinhNangCao(hs, dieuKien.Text);
         }
-        public void tailaiDataGrid(DataGridViewX grdHocSinh,DataTable dsHocsinh)
-        {
-            grdHocSinh.DataSource = dsHocsinh;
-            if (grdHocSinh.Rows.Count > 0)
-            {
-                foreach (DataGridViewRow row in grdHocSinh.Rows)
-                {
-                    if (row.Cells["MAHS"].Value != null)
-                    {
-                        if (row.Cells["GIOITINHHS"].Value.ToString() == "0")
-                        {
-                            row.Cells["GIOITINHHS"].Value = "Nữ";
-                        }
-                        else
-                        {
-                            row.Cells["GIOITINHHS"].Value = "Nam";
-                        }
-                    }
-                }
-            }
-        }
+
     }     
 }
