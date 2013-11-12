@@ -32,16 +32,25 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDiem));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDiem));
             this.btnSau = new DevComponents.DotNetBar.ButtonX();
             this.btnTruoc = new DevComponents.DotNetBar.ButtonX();
             this.btnDau = new DevComponents.DotNetBar.ButtonX();
             this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.grdDiemRieng = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.MAHS1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENHS1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MANH1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.MALD1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.MAHK1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAMH1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DIEMSO1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MALOP1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.navigationPanePanel3 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.btnLoaiDiem = new DevComponents.DotNetBar.ButtonX();
             this.txtDiem1 = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -63,7 +72,6 @@
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.btnThem = new DevComponents.DotNetBar.ButtonX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
-            this.btnItemNhapHS = new DevComponents.DotNetBar.ButtonItem();
             this.btnCuoi = new DevComponents.DotNetBar.ButtonX();
             this.btnItemHS = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
@@ -82,15 +90,6 @@
             this.panelEx5 = new DevComponents.DotNetBar.PanelEx();
             this.panelEx10 = new DevComponents.DotNetBar.PanelEx();
             this.panelEx11 = new DevComponents.DotNetBar.PanelEx();
-            this.bindingNavigatorEx1 = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
-            this.bindingNavigatorAddNewItem = new DevComponents.DotNetBar.ButtonItem();
-            this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
-            this.bindingNavigatorDeleteItem = new DevComponents.DotNetBar.ButtonItem();
-            this.bindingNavigatorMoveFirstItem = new DevComponents.DotNetBar.ButtonItem();
-            this.bindingNavigatorMovePreviousItem = new DevComponents.DotNetBar.ButtonItem();
-            this.bindingNavigatorPositionItem = new DevComponents.DotNetBar.TextBoxItem();
-            this.bindingNavigatorMoveNextItem = new DevComponents.DotNetBar.ButtonItem();
-            this.bindingNavigatorMoveLastItem = new DevComponents.DotNetBar.ButtonItem();
             this.grdDiemChung = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.MAHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HOTENHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -120,17 +119,17 @@
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.btnItemNhapLop = new DevComponents.DotNetBar.ButtonItem();
             this.btnItemLop = new DevComponents.DotNetBar.TabItem(this.components);
-            this.MAHS1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENHS1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MANH1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.MALD1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.MAHK1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAMH1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.DIEMSO1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MALOP1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnItemNhapLop = new DevComponents.DotNetBar.ButtonItem();
+            this.btnItemNhapHS = new DevComponents.DotNetBar.ButtonItem();
+            this.bindingNavigatorMoveFirstItem = new DevComponents.DotNetBar.ButtonItem();
+            this.bindingNavigatorMovePreviousItem = new DevComponents.DotNetBar.ButtonItem();
+            this.bindingNavigatorPositionItem = new DevComponents.DotNetBar.TextBoxItem();
+            this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
+            this.bindingNavigatorMoveNextItem = new DevComponents.DotNetBar.ButtonItem();
+            this.bindingNavigatorMoveLastItem = new DevComponents.DotNetBar.ButtonItem();
+            this.bindingNavigatorEx1 = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
+            this.btnLuuDiem = new DevComponents.DotNetBar.ButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.grdDiemRieng)).BeginInit();
             this.navigationPanePanel3.SuspendLayout();
             this.tabControlPanel2.SuspendLayout();
@@ -142,11 +141,11 @@
             this.groupPanel1.SuspendLayout();
             this.panelEx1.SuspendLayout();
             this.panelEx9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorEx1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDiemChung)).BeginInit();
             this.navigationPane1.SuspendLayout();
             this.navigationPanePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treKhoi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorEx1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSau
@@ -250,6 +249,62 @@
             this.grdDiemRieng.TabIndex = 1;
             this.grdDiemRieng.TabStop = false;
             this.grdDiemRieng.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDiemRieng_CellClick);
+            // 
+            // MAHS1
+            // 
+            this.MAHS1.DataPropertyName = "MAHS";
+            this.MAHS1.HeaderText = "Mã học sinh";
+            this.MAHS1.Name = "MAHS1";
+            // 
+            // TENHS1
+            // 
+            this.TENHS1.DataPropertyName = "TENHS";
+            this.TENHS1.HeaderText = "Tên học sinh";
+            this.TENHS1.Name = "TENHS1";
+            // 
+            // MANH1
+            // 
+            this.MANH1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MANH1.HeaderText = "Năm học";
+            this.MANH1.Name = "MANH1";
+            this.MANH1.Width = 150;
+            // 
+            // MALD1
+            // 
+            this.MALD1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MALD1.HeaderText = "Loại điểm";
+            this.MALD1.Name = "MALD1";
+            // 
+            // MAHK1
+            // 
+            this.MAHK1.DataPropertyName = "MAHK";
+            this.MAHK1.HeaderText = "Học kỳ";
+            this.MAHK1.Name = "MAHK1";
+            // 
+            // MAMH1
+            // 
+            this.MAMH1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MAMH1.HeaderText = "Môn học";
+            this.MAMH1.Name = "MAMH1";
+            // 
+            // DIEMSO1
+            // 
+            this.DIEMSO1.DataPropertyName = "DIEMSO";
+            this.DIEMSO1.HeaderText = "Điểm";
+            this.DIEMSO1.Name = "DIEMSO1";
+            // 
+            // MALOP1
+            // 
+            this.MALOP1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MALOP1.HeaderText = "Lớp";
+            this.MALOP1.Name = "MALOP1";
+            // 
+            // STT
+            // 
+            this.STT.DataPropertyName = "STT";
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.Visible = false;
             // 
             // navigationPanePanel3
             // 
@@ -537,15 +592,6 @@
             this.labelX3.TabIndex = 43;
             this.labelX3.Text = "Năm học:";
             // 
-            // btnItemNhapHS
-            // 
-            this.btnItemNhapHS.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemNhapHS.Checked = true;
-            this.btnItemNhapHS.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhapHS.Image")));
-            this.btnItemNhapHS.Name = "btnItemNhapHS";
-            this.btnItemNhapHS.OptionGroup = "navBar";
-            this.btnItemNhapHS.Text = "Nhập liệu điểm";
-            // 
             // btnCuoi
             // 
             this.btnCuoi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -668,8 +714,8 @@
             // 
             this.tabControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
             this.tabControl1.CanReorderTabs = true;
-            this.tabControl1.Controls.Add(this.tabControlPanel2);
             this.tabControl1.Controls.Add(this.tabControlPanel1);
+            this.tabControl1.Controls.Add(this.tabControlPanel2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -950,90 +996,6 @@
             this.panelEx11.Style.GradientAngle = 90;
             this.panelEx11.StyleMouseOver.BackColor1.Color = System.Drawing.Color.Gainsboro;
             this.panelEx11.TabIndex = 1;
-            // 
-            // bindingNavigatorEx1
-            // 
-            this.bindingNavigatorEx1.AddNewRecordButton = this.bindingNavigatorAddNewItem;
-            this.bindingNavigatorEx1.AntiAlias = true;
-            this.bindingNavigatorEx1.CountLabel = this.bindingNavigatorCountItem;
-            this.bindingNavigatorEx1.CountLabelFormat = "of {0}";
-            this.bindingNavigatorEx1.DeleteButton = this.bindingNavigatorDeleteItem;
-            this.bindingNavigatorEx1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bindingNavigatorEx1.DockSide = DevComponents.DotNetBar.eDockSide.Document;
-            this.bindingNavigatorEx1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorEx1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
-            this.bindingNavigatorEx1.Location = new System.Drawing.Point(0, 0);
-            this.bindingNavigatorEx1.MoveFirstButton = this.bindingNavigatorMoveFirstItem;
-            this.bindingNavigatorEx1.MoveLastButton = this.bindingNavigatorMoveLastItem;
-            this.bindingNavigatorEx1.MoveNextButton = this.bindingNavigatorMoveNextItem;
-            this.bindingNavigatorEx1.MovePreviousButton = this.bindingNavigatorMovePreviousItem;
-            this.bindingNavigatorEx1.Name = "bindingNavigatorEx1";
-            this.bindingNavigatorEx1.PositionTextBox = this.bindingNavigatorPositionItem;
-            this.bindingNavigatorEx1.Size = new System.Drawing.Size(1073, 25);
-            this.bindingNavigatorEx1.Stretch = true;
-            this.bindingNavigatorEx1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.bindingNavigatorEx1.TabIndex = 26;
-            this.bindingNavigatorEx1.TabStop = false;
-            this.bindingNavigatorEx1.Text = "bindingNavigatorEx1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.BeginGroup = true;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.TextBoxWidth = 54;
-            this.bindingNavigatorPositionItem.WatermarkColor = System.Drawing.SystemColors.GrayText;
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.BeginGroup = true;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // grdDiemChung
             // 
@@ -1368,6 +1330,12 @@
             this.labelX1.TabIndex = 27;
             this.labelX1.Text = "Chọn học kỳ:";
             // 
+            // btnItemLop
+            // 
+            this.btnItemLop.AttachedControl = this.tabControlPanel1;
+            this.btnItemLop.Name = "btnItemLop";
+            this.btnItemLop.Text = "Nhập điểm theo Lớp";
+            // 
             // btnItemNhapLop
             // 
             this.btnItemNhapLop.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
@@ -1377,67 +1345,96 @@
             this.btnItemNhapLop.OptionGroup = "navBar";
             this.btnItemNhapLop.Text = "Nhập điểm theo lớp";
             // 
-            // btnItemLop
+            // btnItemNhapHS
             // 
-            this.btnItemLop.AttachedControl = this.tabControlPanel1;
-            this.btnItemLop.Name = "btnItemLop";
-            this.btnItemLop.Text = "Nhập điểm theo Lớp";
+            this.btnItemNhapHS.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemNhapHS.Checked = true;
+            this.btnItemNhapHS.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhapHS.Image")));
+            this.btnItemNhapHS.Name = "btnItemNhapHS";
+            this.btnItemNhapHS.OptionGroup = "navBar";
+            this.btnItemNhapHS.Text = "Nhập liệu điểm";
             // 
-            // MAHS1
+            // bindingNavigatorMoveFirstItem
             // 
-            this.MAHS1.DataPropertyName = "MAHS";
-            this.MAHS1.HeaderText = "Mã học sinh";
-            this.MAHS1.Name = "MAHS1";
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.Text = "Đến đầu danh sách";
+            this.bindingNavigatorMoveFirstItem.Tooltip = "Đến đầu danh sách";
             // 
-            // TENHS1
+            // bindingNavigatorMovePreviousItem
             // 
-            this.TENHS1.DataPropertyName = "TENHS";
-            this.TENHS1.HeaderText = "Tên học sinh";
-            this.TENHS1.Name = "TENHS1";
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.Text = "Trở lại dòng trước";
+            this.bindingNavigatorMovePreviousItem.Tooltip = "Trở lại dòng trước";
             // 
-            // MANH1
+            // bindingNavigatorPositionItem
             // 
-            this.MANH1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MANH1.HeaderText = "Năm học";
-            this.MANH1.Name = "MANH1";
-            this.MANH1.Width = 150;
+            this.bindingNavigatorPositionItem.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem.BeginGroup = true;
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.TextBoxWidth = 54;
+            this.bindingNavigatorPositionItem.Tooltip = "Vị trí hiện tại";
+            this.bindingNavigatorPositionItem.WatermarkColor = System.Drawing.SystemColors.GrayText;
             // 
-            // MALD1
+            // bindingNavigatorCountItem
             // 
-            this.MALD1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MALD1.HeaderText = "Loại điểm";
-            this.MALD1.Name = "MALD1";
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Text = "of {0}";
             // 
-            // MAHK1
+            // bindingNavigatorMoveNextItem
             // 
-            this.MAHK1.DataPropertyName = "MAHK";
-            this.MAHK1.HeaderText = "Học kỳ";
-            this.MAHK1.Name = "MAHK1";
+            this.bindingNavigatorMoveNextItem.BeginGroup = true;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.Text = "Tới dòng kế tiếp";
+            this.bindingNavigatorMoveNextItem.Tooltip = "Tới dòng kế tiếp";
             // 
-            // MAMH1
+            // bindingNavigatorMoveLastItem
             // 
-            this.MAMH1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MAMH1.HeaderText = "Môn học";
-            this.MAMH1.Name = "MAMH1";
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.Text = "Đến cuối danh sách";
+            this.bindingNavigatorMoveLastItem.Tooltip = "Đến cuối danh sách";
             // 
-            // DIEMSO1
+            // bindingNavigatorEx1
             // 
-            this.DIEMSO1.DataPropertyName = "DIEMSO";
-            this.DIEMSO1.HeaderText = "Điểm";
-            this.DIEMSO1.Name = "DIEMSO1";
+            this.bindingNavigatorEx1.AntiAlias = true;
+            this.bindingNavigatorEx1.CountLabel = this.bindingNavigatorCountItem;
+            this.bindingNavigatorEx1.CountLabelFormat = "of {0}";
+            this.bindingNavigatorEx1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bindingNavigatorEx1.DockSide = DevComponents.DotNetBar.eDockSide.Document;
+            this.bindingNavigatorEx1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bindingNavigatorEx1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.btnLuuDiem});
+            this.bindingNavigatorEx1.Location = new System.Drawing.Point(0, 0);
+            this.bindingNavigatorEx1.MoveFirstButton = this.bindingNavigatorMoveFirstItem;
+            this.bindingNavigatorEx1.MoveLastButton = this.bindingNavigatorMoveLastItem;
+            this.bindingNavigatorEx1.MoveNextButton = this.bindingNavigatorMoveNextItem;
+            this.bindingNavigatorEx1.MovePreviousButton = this.bindingNavigatorMovePreviousItem;
+            this.bindingNavigatorEx1.Name = "bindingNavigatorEx1";
+            this.bindingNavigatorEx1.PositionTextBox = this.bindingNavigatorPositionItem;
+            this.bindingNavigatorEx1.Size = new System.Drawing.Size(1073, 25);
+            this.bindingNavigatorEx1.Stretch = true;
+            this.bindingNavigatorEx1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.bindingNavigatorEx1.TabIndex = 26;
+            this.bindingNavigatorEx1.TabStop = false;
+            this.bindingNavigatorEx1.Text = "bindingNavigatorEx1";
             // 
-            // MALOP1
+            // btnLuuDiem
             // 
-            this.MALOP1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MALOP1.HeaderText = "Lớp";
-            this.MALOP1.Name = "MALOP1";
-            // 
-            // STT
-            // 
-            this.STT.DataPropertyName = "STT";
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            this.STT.Visible = false;
+            this.btnLuuDiem.Image = global::QuanLiHocSinh.Properties.Resources.save;
+            this.btnLuuDiem.ImagePaddingHorizontal = 10;
+            this.btnLuuDiem.Name = "btnLuuDiem";
+            this.btnLuuDiem.Text = "Lưu điểm";
+            this.btnLuuDiem.Tooltip = "Lưu điểm";
             // 
             // frmDiem
             // 
@@ -1462,11 +1459,11 @@
             this.groupPanel1.ResumeLayout(false);
             this.panelEx1.ResumeLayout(false);
             this.panelEx9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorEx1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDiemChung)).EndInit();
             this.navigationPane1.ResumeLayout(false);
             this.navigationPanePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treKhoi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorEx1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1510,15 +1507,6 @@
         private DevComponents.DotNetBar.ElementStyle elementStyle2;
         private DevComponents.DotNetBar.LabelX lblchonlop;
         private DevComponents.DotNetBar.Controls.DataGridViewX grdDiemChung;
-        private DevComponents.DotNetBar.Controls.BindingNavigatorEx bindingNavigatorEx1;
-        private DevComponents.DotNetBar.ButtonItem bindingNavigatorAddNewItem;
-        private DevComponents.DotNetBar.LabelItem bindingNavigatorCountItem;
-        private DevComponents.DotNetBar.ButtonItem bindingNavigatorDeleteItem;
-        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveFirstItem;
-        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMovePreviousItem;
-        private DevComponents.DotNetBar.TextBoxItem bindingNavigatorPositionItem;
-        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveNextItem;
-        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveLastItem;
         private DevComponents.DotNetBar.PanelEx panelEx1;
         private DevComponents.DotNetBar.PanelEx panelEx4;
         private DevComponents.DotNetBar.PanelEx panelEx8;
@@ -1567,5 +1555,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DIEMSO1;
         private System.Windows.Forms.DataGridViewComboBoxColumn MALOP1;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private DevComponents.DotNetBar.Controls.BindingNavigatorEx bindingNavigatorEx1;
+        private DevComponents.DotNetBar.LabelItem bindingNavigatorCountItem;
+        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveFirstItem;
+        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMovePreviousItem;
+        private DevComponents.DotNetBar.TextBoxItem bindingNavigatorPositionItem;
+        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveNextItem;
+        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveLastItem;
+        private DevComponents.DotNetBar.ButtonItem btnLuuDiem;
     }
 }
