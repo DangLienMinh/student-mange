@@ -23,6 +23,44 @@ namespace QLHS.BUS
             tblQuyDinh = new DataTable();
         }
 
+        public int siSoToiThieu()
+        {
+            int value = -1;
+            tblQuyDinh = quyDinh_DAO.thongTinQuyDinh();
+            for (int i = 0; i < tblQuyDinh.Rows.Count; i++)
+            {
+                switch (i)
+                {
+
+                    case 4: value = int.Parse(tblQuyDinh.Rows[i][0].ToString());
+                        break;
+                   
+                    default:
+                        break;
+                }
+            }
+            return value;
+        }
+        public int siSoToiDa()
+        {
+            int value = -1;
+            tblQuyDinh = quyDinh_DAO.thongTinQuyDinh();
+            for (int i = 0; i < tblQuyDinh.Rows.Count; i++)
+            {
+                switch (i)
+                {
+
+                    case 5: value = int.Parse(tblQuyDinh.Rows[i][0].ToString());
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            return value;
+        }
+
+
         public void hienThiDanhSach(IntegerInput txtTuoiTT,
                             IntegerInput txtTuoiTD,
                             IntegerInput txtSiSoTT,

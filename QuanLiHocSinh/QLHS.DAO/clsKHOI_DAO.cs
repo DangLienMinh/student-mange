@@ -43,5 +43,17 @@ namespace QLHS.DAO
             return table;
         }
 
+        public DataTable danhSachKhoi10()
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_HienThiKhoi10", con);
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
     }
 }

@@ -169,19 +169,44 @@ namespace QLHS.BUS
             return hocSinh_DAO.danhSachHocSinhTheoLop(hocSinh_DTO);
         }
 
-        public void danhSachHocSinhTheoLop(ComboBoxEx comboNamHoc, ComboBoxEx comboLop,ListViewEx list)
+        //load danh sách học sinh chưa phân lớp theo mã năm học vào ListViewEx 
+        public void danhSachHocSinhChuaPhanLop(ComboBoxEx cboNamHoc, ListViewEx list)
         {
-            list.Items.Clear();   
-            hocSinh_DTO.Manh = comboNamHoc.SelectedValue.ToString();
-            hocSinh_DTO.Malop = comboLop.SelectedValue.ToString();
-            tbHocSinh=hocSinh_DAO.danhSachHocSinhTheoLop(hocSinh_DTO);
+            list.Items.Clear();
+            hocSinh_DTO.Manh = cboNamHoc.SelectedValue.ToString();
+            tbHocSinh = hocSinh_DAO.danhSachHocSinhChuaPhanLop(hocSinh_DTO);
+            int i = 0;
             foreach (DataRow row in tbHocSinh.Rows)
             {
+                ++i;
                 ListViewItem item = new ListViewItem();
-                item.Text = row["MAHS"].ToString();
+                item.Text = i.ToString();
+                item.SubItems.Add (row["MAHS"].ToString());
                 item.SubItems.Add(row["TENHS"].ToString());
 
                 list.Items.Add(item);
+            }
+            
+        }
+
+        public void danhSachHocSinhTheoLop(ComboBoxEx cboNamHoc, ComboBoxEx cboLop,ListViewEx list)
+        {
+            list.Items.Clear();   
+            hocSinh_DTO.Manh = cboNamHoc.SelectedValue.ToString();
+            hocSinh_DTO.Malop = cboLop.SelectedValue.ToString();
+            tbHocSinh=hocSinh_DAO.danhSachHocSinhTheoLop(hocSinh_DTO);
+            int i=0;
+            foreach (DataRow row in tbHocSinh.Rows)
+            {
+                ++i;
+                ListViewItem item = new ListViewItem();
+                item.Text = i.ToString();
+                item.SubItems.Add(row["MAHS"].ToString());
+                item.SubItems.Add(row["TENHS"].ToString());
+
+                list.Items.Add(item);
+
+               
             }
         }
 
@@ -216,6 +241,44 @@ namespace QLHS.BUS
                 hocSinh_DTO = new clsHOCSINH_DTO();
                 hocSinh_DTO.Mahs = item.SubItems[0].Text.ToString();
                 hocSinh_DAO.themPhanLop(hocSinh_DTO,namHoc_DTO,lop_DTO);
+            }
+        }
+
+        public void phanLopHocSinhLop10(ComboBoxEx comboNamHoc, ComboBoxEx comboLop, ListViewEx lstHocSinh)
+        {
+            lop_DTO = new clsLOP_DTO();
+            namHoc_DTO = new clsNAMHOC_DTO();
+
+            lop_DTO.Malop = comboLop.SelectedValue.ToString();
+            namHoc_DTO.Manh = comboNamHoc.SelectedValue.ToString();
+            foreach (ListViewItem item in lstHocSinh.Items)
+            {
+                hocSinh_DTO = new clsHOCSINH_DTO();
+                hocSinh_DTO.Mahs = item.SubItems[1].Text.ToString();
+                try
+                {
+                    hocSinh_DAO.themPhanLop(hocSinh_DTO, namHoc_DTO, lop_DTO);
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
+                
+            }
+        }
+
+        public void xoaPhanLop(ComboBoxEx comboNamHoc, ComboBoxEx comboLop, ListViewEx lstHocSinh)
+        {
+            lop_DTO = new clsLOP_DTO();
+            namHoc_DTO = new clsNAMHOC_DTO();
+
+            lop_DTO.Malop = comboLop.SelectedValue.ToString();
+            namHoc_DTO.Manh = comboNamHoc.SelectedValue.ToString();
+            foreach (ListViewItem item in lstHocSinh.Items)
+            {
+                hocSinh_DTO = new clsHOCSINH_DTO();
+                hocSinh_DTO.Mahs = item.SubItems[0].Text.ToString();
+                hocSinh_DAO.xoaPhanLop(hocSinh_DTO, namHoc_DTO, lop_DTO);
             }
         }
 
