@@ -307,6 +307,7 @@
     <Content Include="resources\picture2.gif" />
     <Content Include="resources\preferences-desktop-personal.png" />
     <None Include="resources\saoluu.png" />
+    <None Include="resources\save.png" />
     <Content Include="resources\school.png" />
     <Content Include="resources\Search-Male-User.png" />
     <Content Include="resources\Search.png" />
