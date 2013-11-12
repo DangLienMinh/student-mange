@@ -142,11 +142,37 @@ namespace QLHS.DAO
             return table;
         }
 
+        public DataTable danhSachHocSinhChuaPhanLop(clsHOCSINH_DTO hocsinh)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_ThongTinHocSinhChuaPhanLop", con);
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hocsinh.Manh;
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
         public void themPhanLop(clsHOCSINH_DTO hocsinh,clsNAMHOC_DTO namhoc,clsLOP_DTO lop)
         {
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThemPhanLop", con);
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = namhoc.Manh;
+            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hocsinh.Mahs;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop.Malop;
+            command.CommandType = CommandType.StoredProcedure;
+            command.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public void xoaPhanLop(clsHOCSINH_DTO hocsinh, clsNAMHOC_DTO namhoc, clsLOP_DTO lop)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_XoaPhanLop", con);
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = namhoc.Manh;
             command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hocsinh.Mahs;
             command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop.Malop;

@@ -30,6 +30,13 @@ namespace QLHS.BUS
             comboBox.ValueMember = "MAKHOI";
         }
 
+        public void hienThiComboBoxKhoi10(ComboBoxEx comboBox)
+        {
+            comboBox.DataSource = khoi_DAO.danhSachKhoi10();
+            comboBox.DisplayMember = "TENKHOI";
+            comboBox.ValueMember = "MAKHOI";
+        }
+
         public void HienThiDataGridViewComboBoxColumn(DataGridViewComboBoxColumn cboColumn)
         {
             cboColumn.DataSource = khoi_DAO.danhSachKhoi();
