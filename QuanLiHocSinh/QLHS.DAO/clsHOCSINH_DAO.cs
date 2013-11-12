@@ -18,12 +18,11 @@ namespace QLHS.DAO
         }
 
         //danh sách học sinh theo combobox mã năm học
-        public DataTable danhSachHocSinh(string maNH)
+        public DataTable danhSachHocSinh()
         {
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);
-            SqlCommand command = new SqlCommand("SP_ThongTinHocSinhMANH", con);
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = maNH;
+            SqlCommand command = new SqlCommand("SP_ThongTinHocSinh", con);
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);
@@ -51,8 +50,6 @@ namespace QLHS.DAO
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThemHocSinh", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hocsinh.Manh;
-            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = hocsinh.Malop;
             command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hocsinh.Mahs;
             command.Parameters.Add("@TENHS", SqlDbType.NVarChar).Value = hocsinh.Tenhs;
             command.Parameters.Add("@NGSINHHS", SqlDbType.SmallDateTime).Value = hocsinh.Ngaysinhhs;
@@ -66,15 +63,11 @@ namespace QLHS.DAO
             con.Close();
         }
 
-        public void suaHocSinh(clsHOCSINH_DTO hocsinh,string maNHTruoc,string maLopTruoc)
+        public void suaHocSinh(clsHOCSINH_DTO hocsinh)
         {
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_SuaHocSinh", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MANHTRUOC", SqlDbType.VarChar).Value = maNHTruoc;
-            command.Parameters.Add("@MALOPTRUOC", SqlDbType.VarChar).Value = maLopTruoc;
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hocsinh.Manh;
-            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = hocsinh.Malop;
             command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hocsinh.Mahs;
             command.Parameters.Add("@TENHS", SqlDbType.NVarChar).Value = hocsinh.Tenhs;
             command.Parameters.Add("@NGSINHHS", SqlDbType.SmallDateTime).Value = hocsinh.Ngaysinhhs;
