@@ -30,7 +30,7 @@ namespace QLHS.BUS
         }
         public void hienThicboHK(ComboBoxEx comboBox)
         {
-            comboBox.DataSource = hocky.danhsachHocky();
+            comboBox.DataSource = hocky.danhSachHocKy();
             comboBox.DisplayMember = "TENHK";
             comboBox.ValueMember = "MAHK";
         }

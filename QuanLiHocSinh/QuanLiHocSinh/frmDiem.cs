@@ -39,6 +39,7 @@ namespace QuanLiHocSinh
             loaiDiem_BUS.HienThiDataGridViewComboBoxColumn(MALD1);
             namHoc_BUS.HienThiDataGridViewComboBoxColumn(MANH1);
             lop_BUS.HienThiDataGridViewComboBoxColumn(MALOP1);
+            hocKy_BUS.HienThiDataGridViewComboBoxColumn(MAHK1);
             this.KeyPreview = true;
             datagridMakeUp(grdDiemRieng);
         }
@@ -112,14 +113,7 @@ namespace QuanLiHocSinh
                 cboMonHoc1.Text = grdDiemRieng.Rows[viTri].Cells["MAMH1"].Value.ToString();
                 cboLop1.SelectedItem = grdDiemRieng.Rows[viTri].Cells["MALOP1"].Value.ToString();
                 txtDiem1.Text = grdDiemRieng.Rows[viTri].Cells["DIEMSO1"].Value.ToString();
-                if (grdDiemRieng.Rows[viTri].Cells["MAHK1"].Value.ToString() == "HK1")
-                {
-                    cboHocKy1.SelectedItem = "Học kỳ 1";
-                }
-                else
-                {
-                    cboHocKy1.SelectedItem = "Học kỳ 2";
-                }
+                cboHocKy1.Text = grdDiemRieng.Rows[viTri].Cells["MAHK1"].Value.ToString();
             }
         }
 
@@ -325,15 +319,9 @@ namespace QuanLiHocSinh
             cboHocSinh1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MAHS1"].Value.ToString();
             cboMonHoc1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MAMH1"].Value.ToString();
             cboLop1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MALOP1"].Value.ToString();
+            cboHocKy1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MAHK1"].Value.ToString();
             txtDiem1.Text = grdDiemRieng.CurrentRow.Cells["DIEMSO1"].Value.ToString();
-            if ( grdDiemRieng.CurrentRow.Cells["MAHK1"].Value.ToString()=="HK1")
-            {
-                cboHocKy1.SelectedItem = "Học kỳ 1";
-            }
-            else
-            {
-                cboHocKy1.SelectedItem = "Học kỳ 2";
-            }
+           
             
            sapXep();      
         }

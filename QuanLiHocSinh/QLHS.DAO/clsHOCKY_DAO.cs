@@ -17,11 +17,11 @@ namespace QLHS.DAO
             connection = new clsConnectDatabase();
             con = connection.KetNoi();
         }
-        public DataTable danhsachHocky()
+        public DataTable danhSachHocKy()
         {
             connection.kiemTraKetNoi(con);
             DataTable table = new DataTable();
-            SqlCommand command = new SqlCommand("SP_DanhSachHK", con);
+            SqlCommand command = new SqlCommand("SP_ThongTinHocKy", con);
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);
