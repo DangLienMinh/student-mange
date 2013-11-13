@@ -20,6 +20,7 @@ namespace QuanLiHocSinh
         private clsNAMHOC_BUS namHoc_BUS;
         private clsLOP_DTO lop_DTO;
         private clsGIAOVIEN_BUS giaoVien_BUS;
+        private clsQUYDINH_BUS quyDinh_BUS;
         private Boolean flagInsert;
         private Boolean flagUpdate;
         private Boolean flagDelete;
@@ -34,6 +35,7 @@ namespace QuanLiHocSinh
             khoi_BUS = new clsKHOI_BUS();
             lop_DTO = new clsLOP_DTO();
             giaoVien_BUS = new clsGIAOVIEN_BUS();
+            quyDinh_BUS = new clsQUYDINH_BUS();
         }
 
         private void frmLopHoc_Load(object sender, EventArgs e)
@@ -99,16 +101,27 @@ namespace QuanLiHocSinh
                     lop_DTO.Manh = cboNamHoc.SelectedValue.ToString();
                     lop_DTO.Magv = cboGiaoVien.SelectedValue.ToString();
                     lop_DTO.Siso = txtSiSo.Text;
-                    try
+                    if (int.Parse(lop_DTO.Siso)>quyDinh_BUS.siSoToiDa())
                     {
-                        lop_BUS.themLopHoc(lop_DTO);
-                        grdLop.DataSource = lop_BUS.danhSachLop();//Load lại danh sách sau khi thêm
-                        MessageBox.Show("Thêm lớp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        flagInsert = false;
+                        MessageBox.Show("Sỉ số nhập vào không được vượt quá sỉ sổ tối đa"+quyDinh_BUS.siSoToiDa().ToString());
                     }
-                    catch (Exception ex)
+                    else if (int.Parse(lop_DTO.Siso)<quyDinh_BUS.siSoToiThieu())
                     {
-                        MessageBox.Show("Lỗi !" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                         MessageBox.Show("Sỉ số nhập vào không được nhỏ hơn sỉ số tối thiểu "+quyDinh_BUS.siSoToiThieu().ToString());
+                    }
+                    else
+                    {
+                        try
+                        {
+                            lop_BUS.themLopHoc(lop_DTO);
+                            grdLop.DataSource = lop_BUS.danhSachLop();//Load lại danh sách sau khi thêm
+                            MessageBox.Show("Thêm lớp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            flagInsert = false;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi !" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }

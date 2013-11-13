@@ -34,6 +34,14 @@ namespace QLHS.BUS
             comboBox.ValueMember = "MAGV";
         }
 
+        public int siSoLop(ComboBoxEx cboMaLop)
+        {
+            lop_DTO=new clsLOP_DTO();
+            lop_DTO.Malop=cboMaLop.SelectedValue.ToString();
+            return lop_DAO.siSoLop(lop_DTO);
+ 
+        }
+
         public void HienThiDataGridViewComboBoxColumn(DataGridViewComboBoxColumn cboColumn)
         {
             cboColumn.DataSource = lop_DAO.danhSachLop();
