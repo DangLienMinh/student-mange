@@ -33,10 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhanCong));
             this.grdPhanCong = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.MANH = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.MALOP = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.MAMH = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.MAGV = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.btnTruoc = new DevComponents.DotNetBar.ButtonX();
             this.btnDau = new DevComponents.DotNetBar.ButtonX();
@@ -70,6 +66,10 @@
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
+            this.MANH = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.MALOP = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.MAMH = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.MAGV = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdPhanCong)).BeginInit();
             this.navigationPanePanel1.SuspendLayout();
             this.navigationPanePanel2.SuspendLayout();
@@ -122,34 +122,6 @@
             this.grdPhanCong.TabStop = false;
             this.grdPhanCong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPhanCong_CellClick);
             this.grdPhanCong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPhanCong_CellContentClick);
-            // 
-            // MANH
-            // 
-            this.MANH.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MANH.HeaderText = "Năm học";
-            this.MANH.Name = "MANH";
-            this.MANH.Width = 56;
-            // 
-            // MALOP
-            // 
-            this.MALOP.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MALOP.HeaderText = "Lớp";
-            this.MALOP.Name = "MALOP";
-            this.MALOP.Width = 39;
-            // 
-            // MAMH
-            // 
-            this.MAMH.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MAMH.HeaderText = "Môn học";
-            this.MAMH.Name = "MAMH";
-            this.MAMH.Width = 55;
-            // 
-            // MAGV
-            // 
-            this.MAGV.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MAGV.HeaderText = "Giáo viên";
-            this.MAGV.Name = "MAGV";
-            this.MAGV.Width = 58;
             // 
             // txtHienTai
             // 
@@ -663,6 +635,34 @@
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
             this.navigationPane1.TitlePanel.Text = "Tìm kiếm thông tin";
+            // 
+            // MANH
+            // 
+            this.MANH.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MANH.HeaderText = "Năm học";
+            this.MANH.Name = "MANH";
+            this.MANH.Width = 56;
+            // 
+            // MALOP
+            // 
+            this.MALOP.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MALOP.HeaderText = "Lớp";
+            this.MALOP.Name = "MALOP";
+            this.MALOP.Width = 39;
+            // 
+            // MAMH
+            // 
+            this.MAMH.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MAMH.HeaderText = "Môn học";
+            this.MAMH.Name = "MAMH";
+            this.MAMH.Width = 55;
+            // 
+            // MAGV
+            // 
+            this.MAGV.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MAGV.HeaderText = "Giáo viên";
+            this.MAGV.Name = "MAGV";
+            this.MAGV.Width = 58;
             // 
             // frmPhanCong
             // 

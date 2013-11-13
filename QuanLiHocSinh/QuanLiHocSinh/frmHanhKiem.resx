@@ -183,7 +183,7 @@
   <metadata name="MAHS.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="HOTENHS.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="TENHS.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="MANH.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -198,7 +198,7 @@
   <data name="btnDanhSach.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAU/SURBVFhHzZdZT1xlHMZ70cQl2salcFG/gfEDeKNN/AQm
+        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAU/SURBVFhHzZdZT1xlHMZ70cQl2salcFG/gfEDeKNN/AQm
         fgNjjMYbY7TalVJaWmiZssMwDFuZFmmbmLSIsTW2GtPEtGoFpMAMzD7MvjLLOTOP/+cdzpFSxrtB3+QJ
         73+Z9/ec/zkz5OzZ8z9Yew82z9xsPD2LhuZv0XCqzhIGWWTKte/l9b/Y2DyLod/iGHgQhfVhfUUGWWSS
         TQMHXj01g6mFFBrb/8DBjkd4rU7i2WSQRSbZNNDwctMMZp05vGl/jLdGl3BorD7i2WSQRSbZysD+E7dw

@@ -33,6 +33,7 @@ namespace QuanLiHocSinh
         private frmTimHocSinh m_FrmTimHocSinh = null;
         private frmMatKhau m_FrmMatKhau = null;
         private frmDiem m_FrmDiem = null;
+        private frmHanhKiem m_FrmHanhKiem = null;
         frmDangNhap m_FrmLogin = null;
 
         public frmMain()
@@ -615,6 +616,21 @@ namespace QuanLiHocSinh
         private void ribbonControl1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnHanhKiem_Click(object sender, EventArgs e)
+        {
+            if (m_FrmHanhKiem == null || m_FrmHanhKiem.IsDisposed)
+            {
+                m_FrmHanhKiem = new frmHanhKiem();
+                m_FrmHanhKiem.FormBorderStyle = FormBorderStyle.None;
+                m_FrmHanhKiem.MdiParent = frmMain.ActiveForm;
+                m_FrmHanhKiem.Show();
+            }
+            else
+            {
+                m_FrmHanhKiem.Activate();
+            }
         }
 
     }

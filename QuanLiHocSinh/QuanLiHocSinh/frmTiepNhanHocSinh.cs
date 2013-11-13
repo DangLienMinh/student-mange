@@ -457,5 +457,10 @@ namespace QuanLiHocSinh
 
         }
 
+        private void grdHocSinh_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
     }
 }
