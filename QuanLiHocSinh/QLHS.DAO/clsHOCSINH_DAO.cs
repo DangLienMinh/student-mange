@@ -90,7 +90,28 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
-
+        //Danh sách học sinh học lớp ,học kỳ của năm học
+        public DataTable danhsachHocSinhMALOPMANHMAHK(string malop, string manh, string mahk)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_DanhSachHocSinh_LOP_NAMHOC_HOCKY", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = malop;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = manh;
+            command.Parameters.Add("@MAHK", SqlDbType.VarChar).Value = mahk;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+//--DANH SACH HOC SINH THEO LON,NAM HOC,HOC KY
+//CREATE CREATE PROC SP_DanhSachHocSinh_LOP_NAMHOC_HOCKY
+//@MALOP VARCHAR(10),@MANH VARCHAR(6),@MAHK VARCHAR(10)
+//AS
+//    BEGIN
+//        SELECT HOCSINH.MAHS,TENHS,NAMHOC.MANH,MAHK FROM HOCSINH,HOCLOP,NAMHOC,HOCKY WHERE HOCSINH.MAHS=HOCLOP.MAHS AND HOCLOP.MANH=NAMHOC.MANH AND HOCKY.MANH=NAMHOC.MANH AND MALOP=@MALOP AND NAMHOC.MANH=@MANH AND MAHK=@MAHK
+//    END
 
 
 

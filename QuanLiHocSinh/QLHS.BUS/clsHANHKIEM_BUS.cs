@@ -18,6 +18,7 @@ namespace QLHS.BUS
         private clsKHOI_DAO khoi_dao;
         private clsLOP_DAO lop;
         private clsLOAIHANHKIEM_DAO loaihk;
+        private clsHOCSINH_DAO hocsinh;
         //private clsKHOI_DTO khoi_dto;
         public clsHANHKIEM_BUS()
         {
@@ -27,6 +28,7 @@ namespace QLHS.BUS
             khoi_dao = new clsKHOI_DAO();
             lop = new clsLOP_DAO();
             loaihk = new clsLOAIHANHKIEM_DAO();
+            hocsinh = new clsHOCSINH_DAO();
         }
         public void hienThicboHK(ComboBoxEx comboBox)
         {
@@ -76,7 +78,25 @@ namespace QLHS.BUS
             clnHanhkiem.DisplayMember = "TENLHK";
             clnHanhkiem.ValueMember = "MALHK";
             clnHanhkiem.DataPropertyName = "MALHK";
+            clnHanhkiem.DefaultCellStyle.NullValue = "Yếu";
         }
-        //public void 
+        public void hienthiCboClnNamHoc(DataGridViewComboBoxColumn clnNamHoc)
+        {
+            clnNamHoc.DataSource = namhoc.danhSachNamHoc();
+            clnNamHoc.DisplayMember = "TENNH";
+            clnNamHoc.ValueMember = "MANH";
+            clnNamHoc.DataPropertyName = "MANH";
+        }
+        public void hienthiCboClnHocKy(DataGridViewComboBoxColumn clnHocKy)
+        {
+            clnHocKy.DataSource = hocky.danhSachHocKy();
+            clnHocKy.DisplayMember = "TENHK";
+            clnHocKy.ValueMember = "MAHK";
+            clnHocKy.DataPropertyName = "MAHK";
+        }
+        public DataTable danhsachHocsinhMALOPMANHMAHK(string malop, string manh, string mahk)
+        {
+            return hocsinh.danhsachHocSinhMALOPMANHMAHK(malop, manh, mahk);
+        }
     }
 }

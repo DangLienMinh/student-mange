@@ -29,8 +29,9 @@ namespace QuanLiHocSinh
             treKhoi.Nodes.Clear();
             hanhkiem_bus.hienThicboHK(cboHocKy);//Hien thi danh sach hoc ky len combobox
             hanhkiem_bus.hienthicboNamHoc(cboNamHoc);//Hien thi danh sach hoc ky len combobox
-            //hanhkiem_bus.hienthiLophoc(treKhoi, cboNamHoc);//Hiển thị danh sách lớp lên treeview
             hanhkiem_bus.hienthiCboLoaiHK(MALHK);
+            hanhkiem_bus.hienthiCboClnNamHoc(MANH);
+            hanhkiem_bus.hienthiCboClnHocKy(MAHK);
         }
 
         private void cboNamHoc_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,10 +52,31 @@ namespace QuanLiHocSinh
 
         private void treKhoi_NodeClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
         {
-            label1.Text = treKhoi.SelectedNode.Name;
+            string malop;
+            string manh;
+            string mahk;
+            manh = cboNamHoc.SelectedValue.ToString();
+            mahk = cboHocKy.SelectedValue.ToString();
+            malop = treKhoi.SelectedNode.Name;
+            if (malop.Substring(0, 1).ToString().Trim() == "L")//Kiểm tra xem node vừa click có phải là node lớp không,nếu phải thì thực thi dòng lệnh bên trong
+            {
+                try
+                {
+                    grdHanhKiemChung.DataSource = hanhkiem_bus.danhsachHocsinhMALOPMANHMAHK(malop, manh, mahk);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void grdHanhKiemChung_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tabControl1_Click(object sender, EventArgs e)
         {
 
         }

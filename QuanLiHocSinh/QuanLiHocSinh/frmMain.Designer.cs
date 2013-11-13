@@ -335,6 +335,7 @@
             this.btnHanhKiem.Name = "btnHanhKiem";
             this.btnHanhKiem.SubItemsExpandWidth = 14;
             this.btnHanhKiem.Text = "Hạnh Kiểm";
+            this.btnHanhKiem.Click += new System.EventHandler(this.btnHanhKiem_Click);
             // 
             // ribbonBar3
             // 
