@@ -269,6 +269,7 @@
             // 
             this.cboNamHocCu1.DisplayMember = "Text";
             this.cboNamHocCu1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboNamHocCu1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNamHocCu1.FormattingEnabled = true;
             this.cboNamHocCu1.ItemHeight = 14;
             this.cboNamHocCu1.Location = new System.Drawing.Point(145, 27);
@@ -306,18 +307,19 @@
             // 
             this.btnThoat1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnThoat1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnThoat1.Location = new System.Drawing.Point(15, 217);
+            this.btnThoat1.Location = new System.Drawing.Point(13, 217);
             this.btnThoat1.Name = "btnThoat1";
             this.btnThoat1.Size = new System.Drawing.Size(43, 47);
             this.btnThoat1.TabIndex = 3;
             this.btnThoat1.Text = "Thoát";
             this.btnThoat1.Tooltip = "Đóng bảng phân lớp";
+            this.btnThoat1.Click += new System.EventHandler(this.btnThoat1_Click);
             // 
             // btnLuu1
             // 
             this.btnLuu1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnLuu1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnLuu1.Location = new System.Drawing.Point(15, 153);
+            this.btnLuu1.Location = new System.Drawing.Point(13, 153);
             this.btnLuu1.Name = "btnLuu1";
             this.btnLuu1.Size = new System.Drawing.Size(43, 46);
             this.btnLuu1.TabIndex = 3;
@@ -329,18 +331,19 @@
             // 
             this.btnXoa1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnXoa1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnXoa1.Location = new System.Drawing.Point(15, 88);
+            this.btnXoa1.Location = new System.Drawing.Point(13, 88);
             this.btnXoa1.Name = "btnXoa1";
             this.btnXoa1.Size = new System.Drawing.Size(43, 46);
             this.btnXoa1.TabIndex = 2;
             this.btnXoa1.Text = "Hủy";
             this.btnXoa1.Tooltip = "Xóa học sinh khỏi lớp mới";
+            this.btnXoa1.Click += new System.EventHandler(this.btnXoa1_Click);
             // 
             // buttonX2
             // 
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX2.Location = new System.Drawing.Point(15, 28);
+            this.buttonX2.Location = new System.Drawing.Point(13, 28);
             this.buttonX2.Name = "buttonX2";
             this.buttonX2.Size = new System.Drawing.Size(43, 37);
             this.buttonX2.TabIndex = 1;
@@ -433,6 +436,7 @@
             // 
             this.cboLopMoi1.DisplayMember = "Text";
             this.cboLopMoi1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboLopMoi1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLopMoi1.FormattingEnabled = true;
             this.cboLopMoi1.ItemHeight = 14;
             this.cboLopMoi1.Location = new System.Drawing.Point(120, 70);
@@ -458,6 +462,7 @@
             // 
             this.cboKhoiLopMoi1.DisplayMember = "Text";
             this.cboKhoiLopMoi1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboKhoiLopMoi1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboKhoiLopMoi1.FormattingEnabled = true;
             this.cboKhoiLopMoi1.ItemHeight = 14;
             this.cboKhoiLopMoi1.Location = new System.Drawing.Point(120, 40);
@@ -483,6 +488,7 @@
             // 
             this.cboNamHocMoi1.DisplayMember = "Text";
             this.cboNamHocMoi1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboNamHocMoi1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNamHocMoi1.FormattingEnabled = true;
             this.cboNamHocMoi1.ItemHeight = 14;
             this.cboNamHocMoi1.Location = new System.Drawing.Point(120, 10);
@@ -651,6 +657,7 @@
             // 
             this.cboLopCu.DisplayMember = "Text";
             this.cboLopCu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboLopCu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLopCu.FormattingEnabled = true;
             this.cboLopCu.ItemHeight = 14;
             this.cboLopCu.Location = new System.Drawing.Point(123, 70);
@@ -663,6 +670,7 @@
             // 
             this.cboKhoiLopCu.DisplayMember = "Text";
             this.cboKhoiLopCu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboKhoiLopCu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboKhoiLopCu.FormattingEnabled = true;
             this.cboKhoiLopCu.ItemHeight = 14;
             this.cboKhoiLopCu.Location = new System.Drawing.Point(123, 40);
@@ -675,6 +683,7 @@
             // 
             this.cboNamHocCu.DisplayMember = "Text";
             this.cboNamHocCu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboNamHocCu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNamHocCu.FormattingEnabled = true;
             this.cboNamHocCu.ItemHeight = 14;
             this.cboNamHocCu.Location = new System.Drawing.Point(123, 10);
@@ -867,6 +876,7 @@
             // 
             this.cboLopMoi.DisplayMember = "Text";
             this.cboLopMoi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboLopMoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLopMoi.FormattingEnabled = true;
             this.cboLopMoi.ItemHeight = 14;
             this.cboLopMoi.Location = new System.Drawing.Point(125, 70);
@@ -892,6 +902,7 @@
             // 
             this.cboKhoiLopMoi.DisplayMember = "Text";
             this.cboKhoiLopMoi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboKhoiLopMoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboKhoiLopMoi.FormattingEnabled = true;
             this.cboKhoiLopMoi.ItemHeight = 14;
             this.cboKhoiLopMoi.Location = new System.Drawing.Point(125, 40);
@@ -917,6 +928,7 @@
             // 
             this.cboNamHocMoi.DisplayMember = "Text";
             this.cboNamHocMoi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboNamHocMoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNamHocMoi.FormattingEnabled = true;
             this.cboNamHocMoi.ItemHeight = 14;
             this.cboNamHocMoi.Location = new System.Drawing.Point(125, 10);

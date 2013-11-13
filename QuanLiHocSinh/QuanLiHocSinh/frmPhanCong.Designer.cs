@@ -33,6 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhanCong));
             this.grdPhanCong = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.MANH = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.MALOP = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.MAMH = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.MAGV = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.btnTruoc = new DevComponents.DotNetBar.ButtonX();
             this.btnDau = new DevComponents.DotNetBar.ButtonX();
@@ -66,10 +70,6 @@
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
-            this.MANH = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.MALOP = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.MAMH = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.MAGV = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdPhanCong)).BeginInit();
             this.navigationPanePanel1.SuspendLayout();
             this.navigationPanePanel2.SuspendLayout();
@@ -117,11 +117,39 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdPhanCong.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grdPhanCong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdPhanCong.Size = new System.Drawing.Size(1080, 474);
+            this.grdPhanCong.Size = new System.Drawing.Size(1076, 474);
             this.grdPhanCong.TabIndex = 9;
             this.grdPhanCong.TabStop = false;
             this.grdPhanCong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPhanCong_CellClick);
             this.grdPhanCong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPhanCong_CellContentClick);
+            // 
+            // MANH
+            // 
+            this.MANH.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MANH.HeaderText = "Năm học";
+            this.MANH.Name = "MANH";
+            this.MANH.Width = 56;
+            // 
+            // MALOP
+            // 
+            this.MALOP.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MALOP.HeaderText = "Lớp";
+            this.MALOP.Name = "MALOP";
+            this.MALOP.Width = 39;
+            // 
+            // MAMH
+            // 
+            this.MAMH.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MAMH.HeaderText = "Môn học";
+            this.MAMH.Name = "MAMH";
+            this.MAMH.Width = 55;
+            // 
+            // MAGV
+            // 
+            this.MAGV.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MAGV.HeaderText = "Giáo viên";
+            this.MAGV.Name = "MAGV";
+            this.MAGV.Width = 58;
             // 
             // txtHienTai
             // 
@@ -137,7 +165,7 @@
             this.txtHienTai.Border.Class = "TextBoxBorder";
             this.txtHienTai.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtHienTai.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtHienTai.Location = new System.Drawing.Point(502, 11);
+            this.txtHienTai.Location = new System.Drawing.Point(500, 11);
             this.txtHienTai.Name = "txtHienTai";
             this.txtHienTai.ReadOnly = true;
             this.txtHienTai.Size = new System.Drawing.Size(69, 20);
@@ -149,7 +177,7 @@
             this.btnTruoc.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnTruoc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnTruoc.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTruoc.Location = new System.Drawing.Point(427, 9);
+            this.btnTruoc.Location = new System.Drawing.Point(425, 9);
             this.btnTruoc.Name = "btnTruoc";
             this.btnTruoc.Size = new System.Drawing.Size(64, 23);
             this.btnTruoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -162,7 +190,7 @@
             this.btnDau.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDau.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDau.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDau.Location = new System.Drawing.Point(357, 9);
+            this.btnDau.Location = new System.Drawing.Point(355, 9);
             this.btnDau.Name = "btnDau";
             this.btnDau.Size = new System.Drawing.Size(64, 23);
             this.btnDau.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -175,7 +203,7 @@
             this.btnCuoi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCuoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCuoi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCuoi.Location = new System.Drawing.Point(652, 9);
+            this.btnCuoi.Location = new System.Drawing.Point(650, 9);
             this.btnCuoi.Name = "btnCuoi";
             this.btnCuoi.Size = new System.Drawing.Size(64, 23);
             this.btnCuoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -212,7 +240,7 @@
             this.btnSau.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnSau.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSau.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSau.Location = new System.Drawing.Point(580, 9);
+            this.btnSau.Location = new System.Drawing.Point(578, 9);
             this.btnSau.Name = "btnSau";
             this.btnSau.Size = new System.Drawing.Size(64, 23);
             this.btnSau.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -287,10 +315,10 @@
             this.navigationPanePanel1.Controls.Add(this.labelX7);
             this.navigationPanePanel1.Controls.Add(this.btnTim);
             this.navigationPanePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel1.Location = new System.Drawing.Point(1, 25);
+            this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(278, 410);
+            this.navigationPanePanel1.Size = new System.Drawing.Size(278, 536);
             this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -315,7 +343,6 @@
             // btnItemTim
             // 
             this.btnItemTim.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemTim.Checked = true;
             this.btnItemTim.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTim.Image")));
             this.btnItemTim.Name = "btnItemTim";
             this.btnItemTim.OptionGroup = "navBar";
@@ -342,10 +369,10 @@
             this.navigationPanePanel2.Controls.Add(this.labelX4);
             this.navigationPanePanel2.Controls.Add(this.labelX13);
             this.navigationPanePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel2.Location = new System.Drawing.Point(1, 1);
+            this.navigationPanePanel2.Location = new System.Drawing.Point(1, 25);
             this.navigationPanePanel2.Name = "navigationPanePanel2";
             this.navigationPanePanel2.ParentItem = this.btnItemNhap;
-            this.navigationPanePanel2.Size = new System.Drawing.Size(278, 434);
+            this.navigationPanePanel2.Size = new System.Drawing.Size(278, 410);
             this.navigationPanePanel2.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel2.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -475,6 +502,7 @@
             // 
             this.cboGiaoVien.DisplayMember = "Text";
             this.cboGiaoVien.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboGiaoVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboGiaoVien.FormattingEnabled = true;
             this.cboGiaoVien.ItemHeight = 14;
             this.cboGiaoVien.Location = new System.Drawing.Point(14, 209);
@@ -487,6 +515,7 @@
             // 
             this.cboMonHoc.DisplayMember = "Text";
             this.cboMonHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMonHoc.FormattingEnabled = true;
             this.cboMonHoc.ItemHeight = 14;
             this.cboMonHoc.Location = new System.Drawing.Point(14, 159);
@@ -499,6 +528,7 @@
             // 
             this.cboNamHoc.DisplayMember = "Text";
             this.cboNamHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboNamHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNamHoc.FormattingEnabled = true;
             this.cboNamHoc.ItemHeight = 14;
             this.cboNamHoc.Location = new System.Drawing.Point(14, 59);
@@ -512,6 +542,7 @@
             // 
             this.cboLop.DisplayMember = "Text";
             this.cboLop.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLop.FormattingEnabled = true;
             this.cboLop.ItemHeight = 14;
             this.cboLop.Location = new System.Drawing.Point(14, 108);
@@ -547,6 +578,7 @@
             // btnItemNhap
             // 
             this.btnItemNhap.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemNhap.Checked = true;
             this.btnItemNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhap.Image")));
             this.btnItemNhap.Name = "btnItemNhap";
             this.btnItemNhap.OptionGroup = "navBar";
@@ -565,7 +597,7 @@
             this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupPanel1.Location = new System.Drawing.Point(280, 0);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(1086, 538);
+            this.groupPanel1.Size = new System.Drawing.Size(1082, 538);
             // 
             // 
             // 
@@ -601,8 +633,8 @@
             // navigationPane1
             // 
             this.navigationPane1.CanCollapse = true;
-            this.navigationPane1.Controls.Add(this.navigationPanePanel1);
             this.navigationPane1.Controls.Add(this.navigationPanePanel2);
+            this.navigationPane1.Controls.Add(this.navigationPanePanel1);
             this.navigationPane1.Dock = System.Windows.Forms.DockStyle.Left;
             this.navigationPane1.ItemPaddingBottom = 2;
             this.navigationPane1.ItemPaddingTop = 2;
@@ -634,43 +666,16 @@
             this.navigationPane1.TitlePanel.Style.GradientAngle = 90;
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
-            this.navigationPane1.TitlePanel.Text = "Tìm kiếm thông tin";
-            // 
-            // MANH
-            // 
-            this.MANH.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MANH.HeaderText = "Năm học";
-            this.MANH.Name = "MANH";
-            this.MANH.Width = 56;
-            // 
-            // MALOP
-            // 
-            this.MALOP.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MALOP.HeaderText = "Lớp";
-            this.MALOP.Name = "MALOP";
-            this.MALOP.Width = 39;
-            // 
-            // MAMH
-            // 
-            this.MAMH.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MAMH.HeaderText = "Môn học";
-            this.MAMH.Name = "MAMH";
-            this.MAMH.Width = 55;
-            // 
-            // MAGV
-            // 
-            this.MAGV.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MAGV.HeaderText = "Giáo viên";
-            this.MAGV.Name = "MAGV";
-            this.MAGV.Width = 58;
+            this.navigationPane1.TitlePanel.Text = "Nhập liệu thông tin";
             // 
             // frmPhanCong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1366, 538);
+            this.ClientSize = new System.Drawing.Size(1362, 538);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.navigationPane1);
+            this.DoubleBuffered = true;
             this.Name = "frmPhanCong";
             this.Text = "PHÂN CÔNG GIẢNG DẠY";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
