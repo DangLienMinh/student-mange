@@ -239,7 +239,7 @@ namespace QLHS.BUS
             foreach (ListViewItem item in lstHocSinh.Items)
             {
                 hocSinh_DTO = new clsHOCSINH_DTO();
-                hocSinh_DTO.Mahs = item.SubItems[0].Text.ToString();
+                hocSinh_DTO.Mahs = item.SubItems[1].Text.ToString();
                 hocSinh_DAO.themPhanLop(hocSinh_DTO,namHoc_DTO,lop_DTO);
             }
         }
@@ -267,19 +267,31 @@ namespace QLHS.BUS
             }
         }
 
-        public void xoaPhanLop(ComboBoxEx comboNamHoc, ComboBoxEx comboLop, ListViewEx lstHocSinh)
+        //public void xoaPhanLop(ComboBoxEx comboNamHoc, ComboBoxEx comboLop, ListViewEx lstHocSinh)
+        //{
+        //    lop_DTO = new clsLOP_DTO();
+        //    namHoc_DTO = new clsNAMHOC_DTO();
+
+        //    lop_DTO.Malop = comboLop.SelectedValue.ToString();
+        //    namHoc_DTO.Manh = comboNamHoc.SelectedValue.ToString();
+        //    foreach (ListViewItem item in lstHocSinh.Items)
+        //    {
+        //        hocSinh_DTO = new clsHOCSINH_DTO();
+        //        hocSinh_DTO.Mahs = item.SubItems[1].Text.ToString();
+        //        hocSinh_DAO.xoaPhanLop(hocSinh_DTO, namHoc_DTO, lop_DTO);
+        //    }
+        //}
+
+        public void xoaPhanLop(ComboBoxEx comboNamHoc, ComboBoxEx comboLop,string maHS)
         {
             lop_DTO = new clsLOP_DTO();
             namHoc_DTO = new clsNAMHOC_DTO();
-
+            hocSinh_DTO = new clsHOCSINH_DTO();
+            hocSinh_DTO.Mahs = maHS;
             lop_DTO.Malop = comboLop.SelectedValue.ToString();
             namHoc_DTO.Manh = comboNamHoc.SelectedValue.ToString();
-            foreach (ListViewItem item in lstHocSinh.Items)
-            {
-                hocSinh_DTO = new clsHOCSINH_DTO();
-                hocSinh_DTO.Mahs = item.SubItems[0].Text.ToString();
-                hocSinh_DAO.xoaPhanLop(hocSinh_DTO, namHoc_DTO, lop_DTO);
-            }
+        
+            hocSinh_DAO.xoaPhanLop(hocSinh_DTO, namHoc_DTO, lop_DTO);
         }
 
         public void timHocSinhMaHS(DataGridViewX grdHocSinh,TextBoxX maHS)

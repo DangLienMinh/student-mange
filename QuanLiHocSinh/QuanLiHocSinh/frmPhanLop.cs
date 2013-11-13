@@ -20,6 +20,7 @@ namespace QuanLiHocSinh
         private clsNAMHOC_BUS namHoc_BUS;
         private clsHOCSINH_BUS hocSinh_BUS;
         clsQUYDINH_BUS quyDinh_BUS;
+        int flag = -1;//kiểm tra bấm hủy hay chuyển 
 
         public frmPhanLop()
         {
@@ -164,12 +165,20 @@ namespace QuanLiHocSinh
         {
             if (MessageBox.Show("Bạn có muốn xóa học sinh này khỏi lớp mới không?", "DELETE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                for (int i = 0; i < lstLopMoi.SelectedItems.Count; i++)
+                {
+                    string maHS = lstLopMoi.SelectedItems[i].SubItems[1].Text;
+                    hocSinh_BUS.xoaPhanLop(cboNamHocMoi, cboLopMoi, maHS);
+
+                }
+                flag = 1;
                 IEnumerator ie = lstLopMoi.SelectedItems.GetEnumerator();
                 while (ie.MoveNext())
                 {
                     ListViewItem item = (ListViewItem)ie.Current;
                     lstLopMoi.Items.Remove(item);
                 }
+
             }
         }
 
@@ -182,8 +191,11 @@ namespace QuanLiHocSinh
                 cboKhoiLopMoi.SelectedValue != null &&
                 cboLopMoi.SelectedValue != null)
             {
-                hocSinh_BUS.xoaPhanLop(cboNamHocMoi, cboLopMoi, lstLopMoi);
-                hocSinh_BUS.themPhanLop(cboNamHocCu, cboLopCu, lstLopMoi);
+                if (flag!=1)
+                {
+                    hocSinh_BUS.themPhanLop(cboNamHocMoi, cboLopMoi, lstLopMoi);
+                }
+               
                 MessageBox.Show("Đã lưu vào bảng phân lớp!", "COMPLETED", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -252,7 +264,7 @@ namespace QuanLiHocSinh
 
         private void btnLuu1_Click(object sender, EventArgs e)
         {
-            if (lstLopMoi1.Items.Count>quyDinh_BUS.siSoToiDa())
+            if (lstLopMoi1.Items.Count > lop_BUS.siSoLop(cboLopMoi1))
             {
                 MessageBox.Show("Số lượng học sinh đã vượt quá sỉ số tối đa của lớp");
             }

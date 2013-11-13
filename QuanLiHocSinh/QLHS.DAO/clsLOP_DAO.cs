@@ -44,6 +44,19 @@ namespace QLHS.DAO
             return table;
         }
 
+        public int siSoLop(clsLOP_DTO lop)
+        {
+            int result = -1;
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_ThongTinSiSoLop", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop.Malop;
+            result=int.Parse(command.ExecuteScalar().ToString());
+            con.Close();
+            return result;
+
+        }
+
         public DataTable danhSachLopTheoNamHoc(clsLOP_DTO lop)
         {
             connection.kiemTraKetNoi(con);
