@@ -58,11 +58,14 @@ namespace QuanLiHocSinh
             manh = cboNamHoc.SelectedValue.ToString();
             mahk = cboHocKy.SelectedValue.ToString();
             malop = treKhoi.SelectedNode.Name;
+            hanhkiem_dto.Malop=malop;
             if (malop.Substring(0, 1).ToString().Trim() == "L")//Kiểm tra xem node vừa click có phải là node lớp không,nếu phải thì thực thi dòng lệnh bên trong
             {
                 try
                 {
                     grdHanhKiemChung.DataSource = hanhkiem_bus.danhsachHocsinhMALOPMANHMAHK(malop, manh, mahk);
+                    hanhkiem_dto.Manh = manh;
+                    hanhkiem_dto.Mahk = mahk;
                 }
                 catch (Exception ex)
                 {
@@ -79,6 +82,45 @@ namespace QuanLiHocSinh
         private void tabControl1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLuulai_Click(object sender, EventArgs e)
+        {
+            if ((MessageBox.Show("Bạn có chắc chắn muốn lưu lại", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
+            {
+                int khoa = 0;
+                foreach (DataGridViewRow row in grdHanhKiemChung.Rows)
+                {
+                    if (row.Cells["MAHS"].Value != null)
+                    {
+                        
+                        try
+                        {
+                            hanhkiem_dto.Malhk = row.Cells["MALHK"].Value.ToString();
+                            hanhkiem_dto.Mahs = row.Cells["MAHS"].Value.ToString();
+                            hanhkiem_bus.themHanhKiem(hanhkiem_dto);
+                            khoa++;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                hanhkiem_dto.Mahs = "";
+                hanhkiem_dto.Malhk = "";
+                hanhkiem_dto.Manh = "";
+                hanhkiem_dto.Mahk = "";
+            }
+        }
+
+        private void btnDanhSach_Click(object sender, EventArgs e)
+        {
+            grdHanhKiemChung.DataSource = hanhkiem_bus.danhsachHanhKiem(hanhkiem_dto.Manh, hanhkiem_dto.Malop, hanhkiem_dto.Mahk);
         }
     }
 }
