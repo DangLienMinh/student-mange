@@ -163,6 +163,20 @@ namespace QLHS.DAO
             return table;
         }
 
+        public DataTable danhSachMaHSTheoLop(clsLOP_DTO lop)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_ThongTinMaHSTheoLop", con);
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = lop.Manh;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop.Malop;
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
         public DataTable danhSachHocSinhChuaPhanLop(clsHOCSINH_DTO hocsinh)
         {
             DataTable table = new DataTable();

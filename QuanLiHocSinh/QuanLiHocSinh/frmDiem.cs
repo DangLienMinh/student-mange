@@ -77,8 +77,8 @@ namespace QuanLiHocSinh
 
         private void cbNamHoc_SelectedValueChanged(object sender, EventArgs e)
         {
-            treKhoi.Nodes.Clear();
-            lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHoc.SelectedValue.ToString(), treKhoi);
+            treLop.Nodes.Clear();
+            lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHoc.SelectedValue.ToString(), treLop);
         }
 
         private void frmDiem_Load(object sender, EventArgs e)
@@ -208,7 +208,14 @@ namespace QuanLiHocSinh
 
         private void btnDanhSach_Click(object sender, EventArgs e)
         {
-
+            if (treLop.SelectedNode == null||treLop.SelectedNode.Parent==null)
+            {
+                MessageBox.Show("Bạn phải chon một lớp");
+            }
+            else
+            {
+                grdDiemChung.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
+            }
         }
 
         private void btnLoaiDiem_Click(object sender, EventArgs e)
