@@ -91,7 +91,7 @@
             this.panelEx5 = new DevComponents.DotNetBar.PanelEx();
             this.panelEx10 = new DevComponents.DotNetBar.PanelEx();
             this.panelEx11 = new DevComponents.DotNetBar.PanelEx();
-            this.bindingNavigatorEx1 = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
+            this.bnaDiem = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
             this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
             this.bindingNavigatorMoveFirstItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorMovePreviousItem = new DevComponents.DotNetBar.ButtonItem();
@@ -100,21 +100,6 @@
             this.bindingNavigatorMoveLastItem = new DevComponents.DotNetBar.ButtonItem();
             this.btnLuuDiem = new DevComponents.DotNetBar.ButtonItem();
             this.grdDiemChung = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
-            this.navigationPanePanel1 = new DevComponents.DotNetBar.NavigationPanePanel();
-            this.treLop = new DevComponents.AdvTree.AdvTree();
-            this.nodeConnector2 = new DevComponents.AdvTree.NodeConnector();
-            this.elementStyle2 = new DevComponents.DotNetBar.ElementStyle();
-            this.lblchonlop = new DevComponents.DotNetBar.LabelX();
-            this.cboMonHoc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.cboHocKy = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.cboNamHoc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.btnDanhSach = new DevComponents.DotNetBar.ButtonX();
-            this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.labelX6 = new DevComponents.DotNetBar.LabelX();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.btnItemNhapLop = new DevComponents.DotNetBar.ButtonItem();
-            this.btnItemLop = new DevComponents.DotNetBar.TabItem(this.components);
             this.MAHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.a1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -130,6 +115,21 @@
             this.c4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.d1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
+            this.navigationPanePanel1 = new DevComponents.DotNetBar.NavigationPanePanel();
+            this.treLop = new DevComponents.AdvTree.AdvTree();
+            this.nodeConnector2 = new DevComponents.AdvTree.NodeConnector();
+            this.elementStyle2 = new DevComponents.DotNetBar.ElementStyle();
+            this.lblchonlop = new DevComponents.DotNetBar.LabelX();
+            this.cboMonHoc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cboHocKy = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cboNamHoc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.btnDanhSach = new DevComponents.DotNetBar.ButtonX();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
+            this.labelX6 = new DevComponents.DotNetBar.LabelX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.btnItemNhapLop = new DevComponents.DotNetBar.ButtonItem();
+            this.btnItemLop = new DevComponents.DotNetBar.TabItem(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grdDiemRieng)).BeginInit();
             this.navigationPanePanel3.SuspendLayout();
             this.tabControlPanel2.SuspendLayout();
@@ -141,7 +141,7 @@
             this.groupPanel1.SuspendLayout();
             this.panelEx1.SuspendLayout();
             this.panelEx9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorEx1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bnaDiem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDiemChung)).BeginInit();
             this.navigationPane1.SuspendLayout();
             this.navigationPanePanel1.SuspendLayout();
@@ -763,7 +763,7 @@
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel1.Controls.Add(this.panelEx1);
             this.groupPanel1.Controls.Add(this.panelEx9);
-            this.groupPanel1.Controls.Add(this.bindingNavigatorEx1);
+            this.groupPanel1.Controls.Add(this.bnaDiem);
             this.groupPanel1.Controls.Add(this.grdDiemChung);
             this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupPanel1.Location = new System.Drawing.Point(191, 1);
@@ -1006,15 +1006,15 @@
             this.panelEx11.StyleMouseOver.BackColor1.Color = System.Drawing.Color.Gainsboro;
             this.panelEx11.TabIndex = 1;
             // 
-            // bindingNavigatorEx1
+            // bnaDiem
             // 
-            this.bindingNavigatorEx1.AntiAlias = true;
-            this.bindingNavigatorEx1.CountLabel = this.bindingNavigatorCountItem;
-            this.bindingNavigatorEx1.CountLabelFormat = "of {0}";
-            this.bindingNavigatorEx1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bindingNavigatorEx1.DockSide = DevComponents.DotNetBar.eDockSide.Document;
-            this.bindingNavigatorEx1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorEx1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.bnaDiem.AntiAlias = true;
+            this.bnaDiem.CountLabel = this.bindingNavigatorCountItem;
+            this.bnaDiem.CountLabelFormat = "of {0}";
+            this.bnaDiem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bnaDiem.DockSide = DevComponents.DotNetBar.eDockSide.Document;
+            this.bnaDiem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bnaDiem.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorPositionItem,
@@ -1022,19 +1022,19 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.btnLuuDiem});
-            this.bindingNavigatorEx1.Location = new System.Drawing.Point(0, 0);
-            this.bindingNavigatorEx1.MoveFirstButton = this.bindingNavigatorMoveFirstItem;
-            this.bindingNavigatorEx1.MoveLastButton = this.bindingNavigatorMoveLastItem;
-            this.bindingNavigatorEx1.MoveNextButton = this.bindingNavigatorMoveNextItem;
-            this.bindingNavigatorEx1.MovePreviousButton = this.bindingNavigatorMovePreviousItem;
-            this.bindingNavigatorEx1.Name = "bindingNavigatorEx1";
-            this.bindingNavigatorEx1.PositionTextBox = this.bindingNavigatorPositionItem;
-            this.bindingNavigatorEx1.Size = new System.Drawing.Size(1073, 25);
-            this.bindingNavigatorEx1.Stretch = true;
-            this.bindingNavigatorEx1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.bindingNavigatorEx1.TabIndex = 26;
-            this.bindingNavigatorEx1.TabStop = false;
-            this.bindingNavigatorEx1.Text = "bindingNavigatorEx1";
+            this.bnaDiem.Location = new System.Drawing.Point(0, 0);
+            this.bnaDiem.MoveFirstButton = this.bindingNavigatorMoveFirstItem;
+            this.bnaDiem.MoveLastButton = this.bindingNavigatorMoveLastItem;
+            this.bnaDiem.MoveNextButton = this.bindingNavigatorMoveNextItem;
+            this.bnaDiem.MovePreviousButton = this.bindingNavigatorMovePreviousItem;
+            this.bnaDiem.Name = "bnaDiem";
+            this.bnaDiem.PositionTextBox = this.bindingNavigatorPositionItem;
+            this.bnaDiem.Size = new System.Drawing.Size(1073, 25);
+            this.bnaDiem.Stretch = true;
+            this.bnaDiem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.bnaDiem.TabIndex = 26;
+            this.bnaDiem.TabStop = false;
+            this.bnaDiem.Text = "bindingNavigatorEx1";
             // 
             // bindingNavigatorCountItem
             // 
@@ -1087,6 +1087,7 @@
             this.btnLuuDiem.Name = "btnLuuDiem";
             this.btnLuuDiem.Text = "Lưu điểm";
             this.btnLuuDiem.Tooltip = "Lưu điểm";
+            this.btnLuuDiem.Click += new System.EventHandler(this.btnLuuDiem_Click);
             // 
             // grdDiemChung
             // 
@@ -1138,6 +1139,99 @@
             this.grdDiemChung.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.grdDiemChung.Size = new System.Drawing.Size(1073, 405);
             this.grdDiemChung.TabIndex = 16;
+            // 
+            // MAHS
+            // 
+            this.MAHS.DataPropertyName = "MAHS";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.MAHS.DefaultCellStyle = dataGridViewCellStyle5;
+            this.MAHS.HeaderText = "Mã học sinh";
+            this.MAHS.Name = "MAHS";
+            // 
+            // TENHS
+            // 
+            this.TENHS.DataPropertyName = "TENHS";
+            this.TENHS.HeaderText = "Họ tên học sinh";
+            this.TENHS.Name = "TENHS";
+            this.TENHS.Width = 140;
+            // 
+            // a1
+            // 
+            this.a1.HeaderText = "1";
+            this.a1.Name = "a1";
+            this.a1.Width = 55;
+            // 
+            // a2
+            // 
+            this.a2.HeaderText = "2";
+            this.a2.Name = "a2";
+            this.a2.Width = 55;
+            // 
+            // b1
+            // 
+            this.b1.HeaderText = "1";
+            this.b1.Name = "b1";
+            this.b1.Width = 55;
+            // 
+            // b2
+            // 
+            this.b2.HeaderText = "2";
+            this.b2.Name = "b2";
+            this.b2.Width = 55;
+            // 
+            // b3
+            // 
+            this.b3.HeaderText = "3";
+            this.b3.Name = "b3";
+            this.b3.Width = 55;
+            // 
+            // b4
+            // 
+            this.b4.HeaderText = "4";
+            this.b4.Name = "b4";
+            this.b4.Width = 55;
+            // 
+            // b5
+            // 
+            this.b5.HeaderText = "5";
+            this.b5.Name = "b5";
+            this.b5.Width = 55;
+            // 
+            // c1
+            // 
+            this.c1.HeaderText = "1";
+            this.c1.Name = "c1";
+            this.c1.Width = 55;
+            // 
+            // c2
+            // 
+            this.c2.HeaderText = "2";
+            this.c2.Name = "c2";
+            this.c2.Width = 55;
+            // 
+            // c3
+            // 
+            this.c3.HeaderText = "3";
+            this.c3.Name = "c3";
+            this.c3.Width = 55;
+            // 
+            // c4
+            // 
+            this.c4.HeaderText = "4";
+            this.c4.Name = "c4";
+            this.c4.Width = 55;
+            // 
+            // c5
+            // 
+            this.c5.HeaderText = "5";
+            this.c5.Name = "c5";
+            this.c5.Width = 55;
+            // 
+            // d1
+            // 
+            this.d1.HeaderText = "Thi cuối kì";
+            this.d1.Name = "d1";
+            this.d1.Width = 230;
             // 
             // navigationPane1
             // 
@@ -1345,99 +1439,6 @@
             this.btnItemLop.Name = "btnItemLop";
             this.btnItemLop.Text = "Nhập điểm theo Lớp";
             // 
-            // MAHS
-            // 
-            this.MAHS.DataPropertyName = "MAHS";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.MAHS.DefaultCellStyle = dataGridViewCellStyle5;
-            this.MAHS.HeaderText = "Mã học sinh";
-            this.MAHS.Name = "MAHS";
-            // 
-            // TENHS
-            // 
-            this.TENHS.DataPropertyName = "TENHS";
-            this.TENHS.HeaderText = "Họ tên học sinh";
-            this.TENHS.Name = "TENHS";
-            this.TENHS.Width = 140;
-            // 
-            // a1
-            // 
-            this.a1.HeaderText = "1";
-            this.a1.Name = "a1";
-            this.a1.Width = 55;
-            // 
-            // a2
-            // 
-            this.a2.HeaderText = "2";
-            this.a2.Name = "a2";
-            this.a2.Width = 55;
-            // 
-            // b1
-            // 
-            this.b1.HeaderText = "1";
-            this.b1.Name = "b1";
-            this.b1.Width = 55;
-            // 
-            // b2
-            // 
-            this.b2.HeaderText = "2";
-            this.b2.Name = "b2";
-            this.b2.Width = 55;
-            // 
-            // b3
-            // 
-            this.b3.HeaderText = "3";
-            this.b3.Name = "b3";
-            this.b3.Width = 55;
-            // 
-            // b4
-            // 
-            this.b4.HeaderText = "4";
-            this.b4.Name = "b4";
-            this.b4.Width = 55;
-            // 
-            // b5
-            // 
-            this.b5.HeaderText = "5";
-            this.b5.Name = "b5";
-            this.b5.Width = 55;
-            // 
-            // c1
-            // 
-            this.c1.HeaderText = "1";
-            this.c1.Name = "c1";
-            this.c1.Width = 55;
-            // 
-            // c2
-            // 
-            this.c2.HeaderText = "2";
-            this.c2.Name = "c2";
-            this.c2.Width = 55;
-            // 
-            // c3
-            // 
-            this.c3.HeaderText = "3";
-            this.c3.Name = "c3";
-            this.c3.Width = 55;
-            // 
-            // c4
-            // 
-            this.c4.HeaderText = "4";
-            this.c4.Name = "c4";
-            this.c4.Width = 55;
-            // 
-            // c5
-            // 
-            this.c5.HeaderText = "5";
-            this.c5.Name = "c5";
-            this.c5.Width = 55;
-            // 
-            // d1
-            // 
-            this.d1.HeaderText = "Thi cuối kì";
-            this.d1.Name = "d1";
-            this.d1.Width = 230;
-            // 
             // frmDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1461,7 +1462,7 @@
             this.groupPanel1.ResumeLayout(false);
             this.panelEx1.ResumeLayout(false);
             this.panelEx9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorEx1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bnaDiem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDiemChung)).EndInit();
             this.navigationPane1.ResumeLayout(false);
             this.navigationPanePanel1.ResumeLayout(false);
@@ -1533,7 +1534,7 @@
         private DevComponents.DotNetBar.LabelX labelX5;
         private DevComponents.DotNetBar.LabelX labelX4;
         private DevComponents.DotNetBar.ButtonX btnLoaiDiem;
-        private DevComponents.DotNetBar.Controls.BindingNavigatorEx bindingNavigatorEx1;
+        private DevComponents.DotNetBar.Controls.BindingNavigatorEx bnaDiem;
         private DevComponents.DotNetBar.LabelItem bindingNavigatorCountItem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveFirstItem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMovePreviousItem;

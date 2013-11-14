@@ -109,6 +109,60 @@ namespace QLHS.BUS
             grdDiem.DataSource = tblDiem;
         }
 
+        public void thongTinDiemTheoMaLD(ComboBoxEx cboMaNH, ComboBoxEx cboMaHK, ComboBoxEx cboMaMH, DataGridViewX grdDiem)
+        {
+            tblDiem = new DataTable();
+            diem_DTO = new clsDIEM_DTO();
+            hocSinh_DTO = new clsHOCSINH_DTO();
+            diem_DTO.Mahk = cboMaHK.SelectedValue.ToString();
+            diem_DTO.Manh = cboMaNH.SelectedValue.ToString();
+            diem_DTO.Mamh = cboMaMH.SelectedValue.ToString();
+
+            foreach (DataGridViewRow row in grdDiem.Rows)
+            {
+                if (row.Cells["MAHS"].Value!=null)
+                {
+                    int i=1;
+                    diem_DTO.Mald="LD01";
+                    diem_DTO.Mahs = row.Cells["MAHS"].Value.ToString();
+                    tblDiem = diem_DAO.thongTinDiemTheoMaLD(diem_DTO);
+                    foreach (DataRow item in tblDiem.Rows)
+                    {
+                        row.Cells["a" + i.ToString()].Value=item[0].ToString();
+                        ++i;
+                    }
+
+                    i = 1;
+                    diem_DTO.Mald = "LD02";
+                    diem_DTO.Mahs = row.Cells["MAHS"].Value.ToString();
+                    tblDiem = diem_DAO.thongTinDiemTheoMaLD(diem_DTO);
+                    foreach (DataRow item in tblDiem.Rows)
+                    {
+                        row.Cells["b" + i.ToString()].Value = item[0].ToString();
+                        ++i;
+                    }
+
+                    i = 1;
+                    diem_DTO.Mald = "LD03";
+                    diem_DTO.Mahs = row.Cells["MAHS"].Value.ToString();
+                    tblDiem = diem_DAO.thongTinDiemTheoMaLD(diem_DTO);
+                    foreach (DataRow item in tblDiem.Rows)
+                    {
+                        row.Cells["c" + i.ToString()].Value = item[0].ToString();
+                        ++i;
+                    }
+
+                    diem_DTO.Mald = "LD04";
+                    diem_DTO.Mahs = row.Cells["MAHS"].Value.ToString();
+                    tblDiem = diem_DAO.thongTinDiemTheoMaLD(diem_DTO);
+                    foreach (DataRow item in tblDiem.Rows)
+                    {
+                        row.Cells["d1"].Value = item[0].ToString();
+                    }
+                }
+            }
+        }
+
         public int demDiem(ComboBoxEx cboMaNH,ComboBoxEx cboMaHK,ComboBoxEx cboMaLD,ComboBoxEx cboMaMH,ComboBoxEx cboMaHS)
         {
             diem_DTO = new clsDIEM_DTO();

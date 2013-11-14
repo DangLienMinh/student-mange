@@ -34,7 +34,8 @@ namespace QuanLiHocSinh
             monHoc_BUS = new clsMONHOC_BUS();
             hocSinh_BUS = new clsHOCSINH_BUS();
             diem_BUS=new clsDIEM_BUS();
-           
+
+
             monHoc_BUS.HienThiDataGridViewComboBoxColumn(MAMH1);
             loaiDiem_BUS.HienThiDataGridViewComboBoxColumn(MALD1);
             namHoc_BUS.HienThiDataGridViewComboBoxColumn(MANH1);
@@ -214,7 +215,12 @@ namespace QuanLiHocSinh
             }
             else
             {
-                grdDiemChung.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
+                //.biding navigator
+                BindingSource bs = new BindingSource();
+                bs.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
+                grdDiemChung.DataSource = bs;
+                bnaDiem.BindingSource = bs;
+                diem_BUS.thongTinDiemTheoMaLD(cboNamHoc, cboHocKy, cboMonHoc, grdDiemChung);
             }
         }
 
@@ -388,6 +394,11 @@ namespace QuanLiHocSinh
                 e.Handled = true;
                 MessageBox.Show("Chỉ nhập số,không nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }  
+        }
+
+        private void btnLuuDiem_Click(object sender, EventArgs e)
+        {
+
         }
 
 
