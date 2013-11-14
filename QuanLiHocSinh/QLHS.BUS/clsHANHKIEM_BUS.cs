@@ -19,6 +19,7 @@ namespace QLHS.BUS
         private clsLOP_DAO lop;
         private clsLOAIHANHKIEM_DAO loaihk;
         private clsHOCSINH_DAO hocsinh;
+        private clsHANHKIEM_DAO hanhkiem_dao;
         //private clsKHOI_DTO khoi_dto;
         public clsHANHKIEM_BUS()
         {
@@ -29,6 +30,7 @@ namespace QLHS.BUS
             lop = new clsLOP_DAO();
             loaihk = new clsLOAIHANHKIEM_DAO();
             hocsinh = new clsHOCSINH_DAO();
+            hanhkiem_dao = new clsHANHKIEM_DAO();
         }
         public void hienThicboHK(ComboBoxEx comboBox)
         {
@@ -94,9 +96,17 @@ namespace QLHS.BUS
             clnHocKy.ValueMember = "MAHK";
             clnHocKy.DataPropertyName = "MAHK";
         }
+        public void themHanhKiem(clsHANHKIEM_DTO hanhkiem)
+        {
+            hanhkiem_dao.ThemHanhKiem(hanhkiem);
+        }
         public DataTable danhsachHocsinhMALOPMANHMAHK(string malop, string manh, string mahk)
         {
             return hocsinh.danhsachHocSinhMALOPMANHMAHK(malop, manh, mahk);
+        }
+        public DataTable danhsachHanhKiem(string manh, string malop, string mahk)
+        {
+            return hanhkiem_dao.danhsachHanhKiem(manh, malop, mahk);
         }
     }
 }
