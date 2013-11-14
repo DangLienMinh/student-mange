@@ -14,8 +14,6 @@ using DevComponents.Editors.DateTimeAdv;
 
 namespace QuanLiHocSinh
 {
-   
-
     public partial class frmTimHocSinh : DevComponents.DotNetBar.Office2007Form
     {
         #region Fields
@@ -373,6 +371,5 @@ namespace QuanLiHocSinh
             ((TextBox)sender).BackColor = SystemColors.Control;
             
         }
-
     }
 }

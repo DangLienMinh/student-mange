@@ -284,7 +284,7 @@
             this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupPanel1.Location = new System.Drawing.Point(192, 0);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(1174, 538);
+            this.groupPanel1.Size = new System.Drawing.Size(1170, 538);
             // 
             // 
             // 
@@ -353,7 +353,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdLoaiDiem.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.grdLoaiDiem.Size = new System.Drawing.Size(1168, 475);
+            this.grdLoaiDiem.Size = new System.Drawing.Size(1164, 475);
             this.grdLoaiDiem.TabIndex = 14;
             this.grdLoaiDiem.TabStop = false;
             this.grdLoaiDiem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdMonHoc_CellClick);
@@ -381,7 +381,7 @@
             this.btnCuoi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCuoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCuoi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCuoi.Location = new System.Drawing.Point(697, 6);
+            this.btnCuoi.Location = new System.Drawing.Point(695, 6);
             this.btnCuoi.Name = "btnCuoi";
             this.btnCuoi.Size = new System.Drawing.Size(64, 23);
             this.btnCuoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -394,7 +394,7 @@
             this.btnSau.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnSau.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSau.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSau.Location = new System.Drawing.Point(625, 6);
+            this.btnSau.Location = new System.Drawing.Point(623, 6);
             this.btnSau.Name = "btnSau";
             this.btnSau.Size = new System.Drawing.Size(64, 23);
             this.btnSau.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -407,7 +407,7 @@
             this.btnTruoc.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnTruoc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnTruoc.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTruoc.Location = new System.Drawing.Point(472, 6);
+            this.btnTruoc.Location = new System.Drawing.Point(470, 6);
             this.btnTruoc.Name = "btnTruoc";
             this.btnTruoc.Size = new System.Drawing.Size(64, 23);
             this.btnTruoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -420,7 +420,7 @@
             this.btnDau.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDau.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDau.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDau.Location = new System.Drawing.Point(402, 6);
+            this.btnDau.Location = new System.Drawing.Point(400, 6);
             this.btnDau.Name = "btnDau";
             this.btnDau.Size = new System.Drawing.Size(64, 23);
             this.btnDau.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -436,7 +436,7 @@
             // 
             this.txtHienTai.Border.Class = "TextBoxBorder";
             this.txtHienTai.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtHienTai.Location = new System.Drawing.Point(547, 8);
+            this.txtHienTai.Location = new System.Drawing.Point(545, 8);
             this.txtHienTai.Name = "txtHienTai";
             this.txtHienTai.ReadOnly = true;
             this.txtHienTai.Size = new System.Drawing.Size(69, 20);
@@ -447,7 +447,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1366, 538);
+            this.ClientSize = new System.Drawing.Size(1362, 538);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.navigationPane1);
             this.DoubleBuffered = true;

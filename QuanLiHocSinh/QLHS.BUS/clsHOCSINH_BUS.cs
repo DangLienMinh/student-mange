@@ -169,6 +169,24 @@ namespace QLHS.BUS
             return hocSinh_DAO.danhSachHocSinhTheoLop(hocSinh_DTO);
         }
 
+        //load danh sách mahs ,ten học sinh theo manh malop 
+        public DataTable danhSachMaHSTheoLop(ComboBoxEx cboMaNH, AdvTree tree)
+        {
+            string temp = "";
+            lop_DTO = new clsLOP_DTO();
+            lop_DTO.Manh = cboMaNH.SelectedValue.ToString();
+            tblLop = lop_DAO.danhSachLopTheoNamHoc(lop_DTO);
+            foreach (DataRow row in tblLop.Rows)
+            {
+                if (row["TENLOP"].ToString() == tree.SelectedNode.ToString())
+                {
+                    temp = row["MALOP"].ToString();
+                }
+            }
+            lop_DTO.Malop = temp;
+            return hocSinh_DAO.danhSachMaHSTheoLop(lop_DTO);
+        }
+
         //load danh sách học sinh chưa phân lớp theo mã năm học vào ListViewEx 
         public void danhSachHocSinhChuaPhanLop(ComboBoxEx cboNamHoc, ListViewEx list)
         {
