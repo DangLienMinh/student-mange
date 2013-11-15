@@ -398,7 +398,24 @@ namespace QuanLiHocSinh
 
         private void btnLuuDiem_Click(object sender, EventArgs e)
         {
+            diem_BUS.xoaDiemTheoMaLD(cboNamHoc, cboHocKy, cboMonHoc, grdDiemChung);
+            MessageBox.Show("Chỉnh sửa điểm thành công!");
+        }
 
+        private void treLop_NodeDoubleClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
+        {
+            if (treLop.SelectedNode.Parent==null)
+            {   
+            }
+            else
+            {
+                //.biding navigator
+                BindingSource bs = new BindingSource();
+                bs.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
+                grdDiemChung.DataSource = bs;
+                bnaDiem.BindingSource = bs;
+                diem_BUS.thongTinDiemTheoMaLD(cboNamHoc, cboHocKy, cboMonHoc, grdDiemChung);
+            }
         }
 
 

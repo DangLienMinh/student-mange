@@ -163,6 +163,69 @@ namespace QLHS.BUS
             }
         }
 
+        public void xoaDiemTheoMaLD(ComboBoxEx cboMaNH, ComboBoxEx cboMaHK, ComboBoxEx cboMaMH, DataGridViewX grdDiem)
+        {
+            tblDiem = new DataTable();
+            diem_DTO = new clsDIEM_DTO();
+            hocSinh_DTO = new clsHOCSINH_DTO();
+            diem_DTO.Mahk = cboMaHK.SelectedValue.ToString();
+            diem_DTO.Manh = cboMaNH.SelectedValue.ToString();
+            diem_DTO.Mamh = cboMaMH.SelectedValue.ToString();
+
+            foreach (DataGridViewRow row in grdDiem.Rows)
+            {
+                if (row.Cells["MAHS"].Value != null)
+                {
+                    diem_DTO.Mald = "LD01";
+                    diem_DTO.Mahs = row.Cells["MAHS"].Value.ToString();
+                    diem_DAO.xoaDiemTheoMaLD(diem_DTO);
+                    if (row.Cells["a1"].Value!=null)
+                    {
+                        diem_DTO.Diemso=row.Cells["a1"].Value.ToString();
+                        diem_DAO.themDiemTheoHS(diem_DTO);
+                    }
+                    if (row.Cells["a2"].Value != null)
+                    {
+                        diem_DTO.Diemso = row.Cells["a2"].Value.ToString();
+                        diem_DAO.themDiemTheoHS(diem_DTO);
+                    }
+
+                    diem_DTO.Mald = "LD02";
+                    diem_DTO.Mahs = row.Cells["MAHS"].Value.ToString();
+                    diem_DAO.xoaDiemTheoMaLD(diem_DTO);
+                    for (int i = 1; i <=5; i++)
+                    {
+                        if (row.Cells["b"+i.ToString()].Value!=null)
+                        {
+                            diem_DTO.Diemso = row.Cells["b" + i.ToString()].Value.ToString();
+                            diem_DAO.themDiemTheoHS(diem_DTO);
+                        }
+                    }
+
+                    diem_DTO.Mald = "LD03";
+                    diem_DTO.Mahs = row.Cells["MAHS"].Value.ToString();
+                    diem_DAO.xoaDiemTheoMaLD(diem_DTO);
+                    for (int i = 1; i <= 5; i++)
+                    {
+                        if (row.Cells["c" + i.ToString()].Value != null)
+                        {
+                            diem_DTO.Diemso = row.Cells["c" + i.ToString()].Value.ToString();
+                            diem_DAO.themDiemTheoHS(diem_DTO);
+                        }
+                    }
+
+                    diem_DTO.Mald = "LD04";
+                    diem_DTO.Mahs = row.Cells["MAHS"].Value.ToString();
+                    diem_DAO.xoaDiemTheoMaLD(diem_DTO);
+                    if (row.Cells["d1"].Value != null)
+                    {
+                        diem_DTO.Diemso = row.Cells["d1"].Value.ToString();
+                        diem_DAO.themDiemTheoHS(diem_DTO);
+                    }
+                }
+            }
+        }
+
         public int demDiem(ComboBoxEx cboMaNH,ComboBoxEx cboMaHK,ComboBoxEx cboMaLD,ComboBoxEx cboMaMH,ComboBoxEx cboMaHS)
         {
             diem_DTO = new clsDIEM_DTO();
