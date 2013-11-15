@@ -23,10 +23,10 @@ namespace QLHS.BUS
             tblMonHoc = new DataTable();
         }
 
-        public void hienThiDanhSach(DataGridViewX grdMonHoc)
+        public DataTable hienThiDanhSach()
         {
-            tblMonHoc = monHoc_DAO.danhSachMonhoc();
-            grdMonHoc.DataSource = tblMonHoc;
+            return monHoc_DAO.danhSachMonhoc();
+
         }
 
         public void HienThiDataGridViewComboBoxColumn(DataGridViewComboBoxColumn cboColumn)
@@ -78,22 +78,22 @@ namespace QLHS.BUS
             monHoc_DAO.xoaMonHoc(monHoc_DTO);
         }
 
-        private DataRow getDatarow()
-        {
-            dr = tblMonHoc.NewRow();
-            dr["MAMH"] = monHoc_DTO.Mamh;
-            dr["TENMH"] = monHoc_DTO.Tenmh;
-            dr["SOTIET"] = monHoc_DTO.Sotiet;
-            dr["HESOMH"] = monHoc_DTO.Hesomh;
+        //private DataRow getDatarow()
+        //{
+        //    dr = tblMonHoc.NewRow();
+        //    dr["MAMH"] = monHoc_DTO.Mamh;
+        //    dr["TENMH"] = monHoc_DTO.Tenmh;
+        //    dr["SOTIET"] = monHoc_DTO.Sotiet;
+        //    dr["HESOMH"] = monHoc_DTO.Hesomh;
            
-            return dr;
-        }
+        //    return dr;
+        //}
 
         //thêm dòng vừa được thêm vào table môn học
-        public void themDong()
-        {
-            tblMonHoc.Rows.Add(getDatarow());
-        }
+        //public void themDong()
+        //{
+        //    tblMonHoc.Rows.Add(getDatarow());
+        //}
 
         public void suaDataGrid(DataGridViewX grdMonHoc)
         {
@@ -111,11 +111,11 @@ namespace QLHS.BUS
             }
         }
 
-        public void xoaDong(DataGridViewX grdMonHoc, string maMH)
-        {
-            DataRow row = tblMonHoc.Select("MAMH='" + maMH + "'")[0];
-            row.Delete();
-            grdMonHoc.DataSource = tblMonHoc;
-        }
+        //public void xoaDong(DataGridViewX grdMonHoc, string maMH)
+        //{
+        //    DataRow row = tblMonHoc.Select("MAMH='" + maMH + "'")[0];
+        //    row.Delete();
+        //    grdMonHoc.DataSource = tblMonHoc;
+        //}
     }
 }
