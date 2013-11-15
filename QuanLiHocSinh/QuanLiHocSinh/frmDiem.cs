@@ -15,7 +15,8 @@ namespace QuanLiHocSinh
     {
         private int flag = 0;
         private int viTri, Tong;
-        private frmLoaiDiem frm_LoaiDiem = null;
+        private BindingSource bs;
+        private frmLoaiDiem frm_LoaiDiem=null;
         private clsNAMHOC_BUS namHoc_BUS;
         private clsLOP_BUS lop_BUS;
         private clsHOCKY_BUS hocKy_BUS;
@@ -34,6 +35,7 @@ namespace QuanLiHocSinh
             monHoc_BUS = new clsMONHOC_BUS();
             hocSinh_BUS = new clsHOCSINH_BUS();
             diem_BUS=new clsDIEM_BUS();
+            bs = new BindingSource();
 
 
             monHoc_BUS.HienThiDataGridViewComboBoxColumn(MAMH1);
@@ -43,6 +45,7 @@ namespace QuanLiHocSinh
             hocKy_BUS.HienThiDataGridViewComboBoxColumn(MAHK1);
             this.KeyPreview = true;
             datagridMakeUp(grdDiemRieng);
+            grdDiemChung.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
         }
 
         //Trang trí datagrid như nền, canh chỉnh các hàng, ...
@@ -216,7 +219,7 @@ namespace QuanLiHocSinh
             else
             {
                 //.biding navigator
-                BindingSource bs = new BindingSource();
+                bs = new BindingSource();
                 bs.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
                 grdDiemChung.DataSource = bs;
                 bnaDiem.BindingSource = bs;
@@ -398,8 +401,23 @@ namespace QuanLiHocSinh
 
         private void btnLuuDiem_Click(object sender, EventArgs e)
         {
-            diem_BUS.xoaDiemTheoMaLD(cboNamHoc, cboHocKy, cboMonHoc, grdDiemChung);
-            MessageBox.Show("Chỉnh sửa điểm thành công!");
+            if (grdDiemChung.RowCount>1)
+            {
+                diem_BUS.xoaDiemTheoMaLD(cboNamHoc, cboHocKy, cboMonHoc, grdDiemChung);
+
+                //.biding navigator
+                bs = new BindingSource();
+                bs.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
+                grdDiemChung.DataSource = bs;
+                bnaDiem.BindingSource = bs;
+                diem_BUS.thongTinDiemTheoMaLD(cboNamHoc, cboHocKy, cboMonHoc, grdDiemChung);
+                MessageBox.Show("Chỉnh sửa điểm thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Chưa có dữ liệu");
+            }
+            
         }
 
         private void treLop_NodeDoubleClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
@@ -410,7 +428,7 @@ namespace QuanLiHocSinh
             else
             {
                 //.biding navigator
-                BindingSource bs = new BindingSource();
+                bs = new BindingSource();
                 bs.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
                 grdDiemChung.DataSource = bs;
                 bnaDiem.BindingSource = bs;
@@ -418,9 +436,10 @@ namespace QuanLiHocSinh
             }
         }
 
-
-
-
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 

@@ -36,6 +36,7 @@ namespace QuanLiHocSinh
             lop_DTO = new clsLOP_DTO();
             giaoVien_BUS = new clsGIAOVIEN_BUS();
             quyDinh_BUS = new clsQUYDINH_BUS();
+            this.KeyPreview = true;
         }
 
         private void frmLopHoc_Load(object sender, EventArgs e)

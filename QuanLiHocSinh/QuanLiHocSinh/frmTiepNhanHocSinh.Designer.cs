@@ -28,13 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTiepNhanHocSinh));
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.ctxMenu = new DevComponents.DotNetBar.ContextMenuBar();
+            this.btnMenu = new DevComponents.DotNetBar.ButtonItem();
+            this.btnAdd = new DevComponents.DotNetBar.ButtonItem();
+            this.btnRefesh = new DevComponents.DotNetBar.ButtonItem();
+            this.btnDelete = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClose = new DevComponents.DotNetBar.ButtonItem();
             this.btnCuoi = new DevComponents.DotNetBar.ButtonX();
             this.btnSau = new DevComponents.DotNetBar.ButtonX();
             this.btnTruoc = new DevComponents.DotNetBar.ButtonX();
@@ -79,6 +85,7 @@
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.groupPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ctxMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdHocSinh)).BeginInit();
             this.navigationPane1.SuspendLayout();
             this.navigationPanePanel2.SuspendLayout();
@@ -91,6 +98,7 @@
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.groupPanel1.Controls.Add(this.ctxMenu);
             this.groupPanel1.Controls.Add(this.btnCuoi);
             this.groupPanel1.Controls.Add(this.btnSau);
             this.groupPanel1.Controls.Add(this.btnTruoc);
@@ -131,6 +139,65 @@
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 7;
             this.groupPanel1.Text = "DANH SÁCH HỌC SINH";
+            // 
+            // ctxMenu
+            // 
+            this.ctxMenu.DockSide = DevComponents.DotNetBar.eDockSide.Document;
+            this.ctxMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ctxMenu.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnMenu});
+            this.ctxMenu.Location = new System.Drawing.Point(395, 251);
+            this.ctxMenu.Name = "ctxMenu";
+            this.ctxMenu.Size = new System.Drawing.Size(75, 25);
+            this.ctxMenu.Stretch = true;
+            this.ctxMenu.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.ctxMenu.TabIndex = 21;
+            this.ctxMenu.TabStop = false;
+            this.ctxMenu.Text = "ctxMenu";
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.AutoExpandOnClick = true;
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2);
+            this.btnMenu.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnAdd,
+            this.btnRefesh,
+            this.btnDelete,
+            this.btnClose});
+            this.btnMenu.Text = "Menu";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Image = global::QuanLiHocSinh.Properties.Resources.add;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Ins);
+            this.btnAdd.Text = "Thêm mới";
+            this.btnAdd.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // btnRefesh
+            // 
+            this.btnRefesh.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
+            this.btnRefesh.Name = "btnRefesh";
+            this.btnRefesh.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.F5);
+            this.btnRefesh.Text = "Làm tươi danh dách";
+            this.btnRefesh.Click += new System.EventHandler(this.frmHocSinh_Load);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = global::QuanLiHocSinh.Properties.Resources.delete;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Del);
+            this.btnDelete.Text = "Xóa dòng được chọn";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Image = global::QuanLiHocSinh.Properties.Resources.exit;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.AltF4);
+            this.btnClose.Text = "Đóng cửa sổ này";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnCuoi
             // 
@@ -205,14 +272,14 @@
             // 
             // grdHocSinh
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdHocSinh.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdHocSinh.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grdHocSinh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdHocSinh.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MAHS,
@@ -226,32 +293,32 @@
             this.DANTOC,
             this.NGNHAPHOC,
             this.HINHANHHS});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdHocSinh.DefaultCellStyle = dataGridViewCellStyle9;
+            this.ctxMenu.SetContextMenuEx(this.grdHocSinh, this.btnMenu);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdHocSinh.DefaultCellStyle = dataGridViewCellStyle4;
             this.grdHocSinh.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grdHocSinh.EnableHeadersVisualStyles = false;
             this.grdHocSinh.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grdHocSinh.Location = new System.Drawing.Point(0, 53);
             this.grdHocSinh.Name = "grdHocSinh";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdHocSinh.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdHocSinh.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.grdHocSinh.Size = new System.Drawing.Size(864, 474);
             this.grdHocSinh.TabIndex = 9;
             this.grdHocSinh.TabStop = false;
             this.grdHocSinh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdHocSinh_CellClick);
-            this.grdHocSinh.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdHocSinh_CellContentClick);
             // 
             // MAHS
             // 
@@ -282,8 +349,8 @@
             // NGSINHHS
             // 
             this.NGSINHHS.DataPropertyName = "NGSINHHS";
-            dataGridViewCellStyle7.Format = "dd/MM/yyyy";
-            this.NGSINHHS.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
+            this.NGSINHHS.DefaultCellStyle = dataGridViewCellStyle2;
             this.NGSINHHS.HeaderText = "Ngày sinh";
             this.NGSINHHS.Name = "NGSINHHS";
             // 
@@ -314,8 +381,8 @@
             // NGNHAPHOC
             // 
             this.NGNHAPHOC.DataPropertyName = "NGNHAPHOC";
-            dataGridViewCellStyle8.Format = "dd/MM/yyyy";
-            this.NGNHAPHOC.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Format = "dd/MM/yyyy";
+            this.NGNHAPHOC.DefaultCellStyle = dataGridViewCellStyle3;
             this.NGNHAPHOC.HeaderText = "Ngày nhập học";
             this.NGNHAPHOC.Name = "NGNHAPHOC";
             this.NGNHAPHOC.Width = 130;
@@ -401,7 +468,6 @@
             this.navigationPanePanel2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.navigationPanePanel2.Style.GradientAngle = 90;
             this.navigationPanePanel2.TabIndex = 3;
-            this.navigationPanePanel2.Click += new System.EventHandler(this.navigationPanePanel2_Click);
             // 
             // labelX5
             // 
@@ -632,7 +698,6 @@
             this.dtiNgaySinh.Size = new System.Drawing.Size(162, 20);
             this.dtiNgaySinh.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.dtiNgaySinh.TabIndex = 2;
-            this.dtiNgaySinh.Click += new System.EventHandler(this.dtiNgaySinh_Click);
             // 
             // btnSua
             // 
@@ -817,12 +882,14 @@
             this.ClientSize = new System.Drawing.Size(1164, 548);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.navigationPane1);
+            this.DoubleBuffered = true;
             this.Name = "frmTiepNhanHocSinh";
             this.Text = "QUẢN LÝ HỌC SINH";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmHocSinh_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmTiepNhanHocSinh_KeyDown);
             this.groupPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ctxMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdHocSinh)).EndInit();
             this.navigationPane1.ResumeLayout(false);
             this.navigationPanePanel2.ResumeLayout(false);
@@ -879,5 +946,11 @@
         private DevComponents.DotNetBar.Controls.ComboBoxEx cboGioiTinh;
         private DevComponents.DotNetBar.LabelX labelX5;
         private DevComponents.DotNetBar.Controls.TextBoxX txtDienThoai;
+        private DevComponents.DotNetBar.ContextMenuBar ctxMenu;
+        private DevComponents.DotNetBar.ButtonItem btnMenu;
+        private DevComponents.DotNetBar.ButtonItem btnAdd;
+        private DevComponents.DotNetBar.ButtonItem btnRefesh;
+        private DevComponents.DotNetBar.ButtonItem btnDelete;
+        private DevComponents.DotNetBar.ButtonItem btnClose;
     }
 }
