@@ -326,5 +326,17 @@ namespace QuanLiHocSinh
                 MessageBox.Show("Chỉ nhập số, không nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }  
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            anHienButton(false);
+            flagDelete = true;
+            
+        }
     }
 }
