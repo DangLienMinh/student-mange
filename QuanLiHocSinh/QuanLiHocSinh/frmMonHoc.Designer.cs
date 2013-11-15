@@ -59,10 +59,17 @@
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
+            this.contextMenuBar2 = new DevComponents.DotNetBar.ContextMenuBar();
+            this.btnMenu = new DevComponents.DotNetBar.ButtonItem();
+            this.btnAdd = new DevComponents.DotNetBar.ButtonItem();
+            this.btnRefesh = new DevComponents.DotNetBar.ButtonItem();
+            this.btnDelete = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClose = new DevComponents.DotNetBar.ButtonItem();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMonHoc)).BeginInit();
             this.navigationPanePanel2.SuspendLayout();
             this.navigationPane1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contextMenuBar2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSua
@@ -129,6 +136,7 @@
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.contextMenuBar2);
             this.groupPanel1.Controls.Add(this.grdMonHoc);
             this.groupPanel1.Controls.Add(this.btnCuoi);
             this.groupPanel1.Controls.Add(this.btnSau);
@@ -187,6 +195,7 @@
             this.TENMH,
             this.HESOMH,
             this.SOTIET});
+            this.contextMenuBar2.SetContextMenuEx(this.grdMonHoc, this.btnMenu);
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -482,6 +491,65 @@
             this.navigationPane1.TitlePanel.TabIndex = 0;
             this.navigationPane1.TitlePanel.Text = "Nhập liệu thông tin";
             // 
+            // contextMenuBar2
+            // 
+            this.contextMenuBar2.DockSide = DevComponents.DotNetBar.eDockSide.Document;
+            this.contextMenuBar2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.contextMenuBar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnMenu});
+            this.contextMenuBar2.Location = new System.Drawing.Point(545, 246);
+            this.contextMenuBar2.Name = "contextMenuBar2";
+            this.contextMenuBar2.Size = new System.Drawing.Size(75, 25);
+            this.contextMenuBar2.Stretch = true;
+            this.contextMenuBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.contextMenuBar2.TabIndex = 18;
+            this.contextMenuBar2.TabStop = false;
+            this.contextMenuBar2.Text = "contextMenuBar2";
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.AutoExpandOnClick = true;
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2);
+            this.btnMenu.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnAdd,
+            this.btnRefesh,
+            this.btnDelete,
+            this.btnClose});
+            this.btnMenu.Text = "Menu";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Image = global::QuanLiHocSinh.Properties.Resources.add;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Ins);
+            this.btnAdd.Text = "Thêm mới";
+            this.btnAdd.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // btnRefesh
+            // 
+            this.btnRefesh.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
+            this.btnRefesh.Name = "btnRefesh";
+            this.btnRefesh.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.F5);
+            this.btnRefesh.Text = "Làm tươi danh dách";
+            this.btnRefesh.Click += new System.EventHandler(this.frmMonHoc_Load);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = global::QuanLiHocSinh.Properties.Resources.delete;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Del);
+            this.btnDelete.Text = "Xóa dòng được chọn";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Image = global::QuanLiHocSinh.Properties.Resources.exit;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.AltF4);
+            this.btnClose.Text = "Đóng cửa sổ này";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // frmMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -499,6 +567,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdMonHoc)).EndInit();
             this.navigationPanePanel2.ResumeLayout(false);
             this.navigationPane1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.contextMenuBar2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -532,6 +601,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TENMH;
         private System.Windows.Forms.DataGridViewTextBoxColumn HESOMH;
         private System.Windows.Forms.DataGridViewTextBoxColumn SOTIET;
+        private DevComponents.DotNetBar.ContextMenuBar contextMenuBar2;
+        private DevComponents.DotNetBar.ButtonItem btnMenu;
+        private DevComponents.DotNetBar.ButtonItem btnAdd;
+        private DevComponents.DotNetBar.ButtonItem btnRefesh;
+        private DevComponents.DotNetBar.ButtonItem btnDelete;
+        private DevComponents.DotNetBar.ButtonItem btnClose;
 
     }
 }
