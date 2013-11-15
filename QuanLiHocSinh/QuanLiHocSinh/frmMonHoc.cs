@@ -15,7 +15,7 @@ namespace QuanLiHocSinh
     {
         private clsMONHOC_BUS monHoc_BUS;
         private int flag;
-        private int viTri, Tong;
+        private BindingSource bs;
 
         public frmMonHoc()
         {
@@ -59,15 +59,15 @@ namespace QuanLiHocSinh
 
         private void frmMonHoc_Load(object sender, EventArgs e)
         {
-            //load danh sách môn học vào datagrid môn học
-            monHoc_BUS.hienThiDanhSach(grdMonHoc);
+            bindingData();
+            
             //load dữ liệu vào comboBox hê số
             monHoc_BUS.hienThiComboBoxHeSo(cboHeSo);
             FlagDisable();
             flag = 0;
-            sapXep();
-            btnDau.Enabled = false;
-            btnTruoc.Enabled = false;
+            //sapXep();
+            //btnDau.Enabled = false;
+            //btnTruoc.Enabled = false;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -98,7 +98,7 @@ namespace QuanLiHocSinh
             if (flag == 1) insert();
             if (flag == 2) delete();
             if (flag == 3) update();
-            sapXep();
+            //sapXep();
             txtMaMH.Enabled = true;
         }
 
@@ -116,20 +116,20 @@ namespace QuanLiHocSinh
             txtSoTiet.Text = "";
         }
 
-        private void sapXep()
-        {
-            viTri = this.BindingContext[grdMonHoc.DataSource].Position;
-            Tong = this.BindingContext[grdMonHoc.DataSource].Count;
-            if (viTri!=-1)
-            {
-                txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
-                txtMaMH.Text = grdMonHoc.Rows[viTri].Cells["MAMH"].Value.ToString();
-                txtTenMH.Text = grdMonHoc.Rows[viTri].Cells["TENMH"].Value.ToString();
-                txtSoTiet.Text = grdMonHoc.Rows[viTri].Cells["SOTIET"].Value.ToString();
-                cboHeSo.SelectedItem = grdMonHoc.Rows[viTri].Cells["HESOMH"].Value.ToString(); 
-            }
+        //private void sapXep()
+        //{
+        //    viTri = this.BindingContext[grdMonHoc.DataSource].Position;
+        //    Tong = this.BindingContext[grdMonHoc.DataSource].Count;
+        //    if (viTri!=-1)
+        //    {
+        //        txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
+        //        txtMaMH.Text = grdMonHoc.Rows[viTri].Cells["MAMH"].Value.ToString();
+        //        txtTenMH.Text = grdMonHoc.Rows[viTri].Cells["TENMH"].Value.ToString();
+        //        txtSoTiet.Text = grdMonHoc.Rows[viTri].Cells["SOTIET"].Value.ToString();
+        //        cboHeSo.SelectedItem = grdMonHoc.Rows[viTri].Cells["HESOMH"].Value.ToString(); 
+        //    }
             
-        }
+        //}
 
         private void insert()
         {
@@ -161,7 +161,9 @@ namespace QuanLiHocSinh
                     {
                         monHoc_BUS.themMonHoc(txtMaMH.Text, txtTenMH.Text,txtSoTiet.Text,cboHeSo.SelectedItem.ToString());
                         MessageBox.Show("Bạn đã thêm thành công!");
-                        monHoc_BUS.themDong();
+                        bindingData();
+                       
+                        //monHoc_BUS.themDong();
                         FlagDisable();
                         flag = 0;
 
@@ -174,6 +176,15 @@ namespace QuanLiHocSinh
                 }
 
             }
+        }
+
+        private void bindingData() 
+        {
+            //.biding navigator
+            bs = new BindingSource();
+            bs.DataSource = monHoc_BUS.hienThiDanhSach();
+            grdMonHoc.DataSource = bs;
+            bnaMonHoc.BindingSource = bs;
         }
 
         private void update()
@@ -204,17 +215,22 @@ namespace QuanLiHocSinh
                 if (MessageBox.Show("Bạn có chắc muốn xóa môn học đã được lựa chọn ", "Xóa môn học", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     monHoc_BUS.xoaMonHoc(txtMaMH.Text);
-                    foreach (DataGridViewRow row in grdMonHoc.Rows)
-                    {
-                        if (string.Compare(row.Cells["MAMH"].Value.ToString().Trim(), txtMaMH.Text.Trim()) == 0)
-                        {
-                            monHoc_BUS.xoaDong(grdMonHoc, txtMaMH.Text);
-                            resetAll();
-                            FlagDisable();
-                            flag = 0;
-                            break;
-                        }
-                    }
+                    bindingData();
+                    resetAll();
+                    FlagDisable();
+                    flag = 0;
+                    //foreach (DataGridViewRow row in grdMonHoc.Rows)
+                    //{
+                    //    if (string.Compare(row.Cells["MAMH"].Value.ToString().Trim(), txtMaMH.Text.Trim()) == 0)
+                    //    {
+                    //        //monHoc_BUS.xoaDong(grdMonHoc, txtMaMH.Text);
+                    //        bindingData();
+                    //        resetAll();
+                    //        FlagDisable();
+                    //        flag = 0;
+                    //        break;
+                    //    }
+                    //}
                 }
             }
             else
@@ -223,45 +239,45 @@ namespace QuanLiHocSinh
             }
         }
 
-        private void btnDau_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdMonHoc.DataSource].Position;
-            this.BindingContext[grdMonHoc.DataSource].Position = 0;
-            sapXep();
-            btnTruoc.Enabled = false;
-            btnDau.Enabled = false;
-            btnCuoi.Enabled = true;
-            btnSau.Enabled = true;
-        }
+        //private void btnDau_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdMonHoc.DataSource].Position;
+        //    this.BindingContext[grdMonHoc.DataSource].Position = 0;
+        //    sapXep();
+        //    btnTruoc.Enabled = false;
+        //    btnDau.Enabled = false;
+        //    btnCuoi.Enabled = true;
+        //    btnSau.Enabled = true;
+        //}
 
-        private void btnTruoc_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdMonHoc.DataSource].Position;
-            btnCuoi.Enabled = true;
-            btnSau.Enabled = true;
-            this.BindingContext[grdMonHoc.DataSource].Position = viTri - 1;
-            sapXep();
-        }
+        //private void btnTruoc_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdMonHoc.DataSource].Position;
+        //    btnCuoi.Enabled = true;
+        //    btnSau.Enabled = true;
+        //    this.BindingContext[grdMonHoc.DataSource].Position = viTri - 1;
+        //    sapXep();
+        //}
 
-        private void btnSau_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdMonHoc.DataSource].Position;
-            btnDau.Enabled = true;
-            btnTruoc.Enabled = true;
-            this.BindingContext[grdMonHoc.DataSource].Position = viTri + 1;
-            sapXep();
-        }
+        //private void btnSau_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdMonHoc.DataSource].Position;
+        //    btnDau.Enabled = true;
+        //    btnTruoc.Enabled = true;
+        //    this.BindingContext[grdMonHoc.DataSource].Position = viTri + 1;
+        //    sapXep();
+        //}
 
-        private void btnCuoi_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdMonHoc.DataSource].Position;
-            this.BindingContext[grdMonHoc.DataSource].Position = this.BindingContext[grdMonHoc.DataSource].Count - 1;
-            sapXep();
-            btnCuoi.Enabled = false;
-            btnSau.Enabled = false;
-            btnTruoc.Enabled = true;
-            btnDau.Enabled = true;
-        }
+        //private void btnCuoi_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdMonHoc.DataSource].Position;
+        //    this.BindingContext[grdMonHoc.DataSource].Position = this.BindingContext[grdMonHoc.DataSource].Count - 1;
+        //    sapXep();
+        //    btnCuoi.Enabled = false;
+        //    btnSau.Enabled = false;
+        //    btnTruoc.Enabled = true;
+        //    btnDau.Enabled = true;
+        //}
 
         private void grdMonHoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -269,7 +285,7 @@ namespace QuanLiHocSinh
             txtTenMH.Text = grdMonHoc.CurrentRow.Cells["TENMH"].Value.ToString();
             txtSoTiet.Text = grdMonHoc.CurrentRow.Cells["SOTIET"].Value.ToString();
             cboHeSo.SelectedItem = grdMonHoc.CurrentRow.Cells["HESOMH"].Value.ToString();
-            sapXep();        
+            //sapXep();        
         }
 
         private void txtSoTiet_KeyPress(object sender, KeyPressEventArgs e)
