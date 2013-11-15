@@ -279,6 +279,7 @@
     <None Include="resources\902759421.png" />
     <None Include="resources\3485271.png" />
     <None Include="resources\37.png" />
+    <None Include="resources\add.png" />
     <Content Include="resources\books copy.png" />
     <Content Include="resources\cal-ico copy.png" />
     <Content Include="resources\Calendar-icon.png" />
@@ -289,10 +290,12 @@
     <Content Include="resources\class_room_icon.jpg" />
     <Content Include="resources\DangXuat.png" />
     <None Include="resources\danhsach.ico" />
+    <None Include="resources\delete.png" />
     <Content Include="resources\DoiMatKhau.png" />
     <None Include="resources\Dongy.ico" />
     <Content Include="resources\education-edutainment-2.png" />
     <None Include="resources\Employee Add copy.png" />
+    <None Include="resources\exit.png" />
     <Content Include="resources\HuongDan.png" />
     <None Include="resources\Huybo.ico" />
     <Content Include="resources\imagdes copy.png" />
@@ -309,6 +312,7 @@
     <Content Include="resources\preferences-desktop-personal.png" />
     <None Include="resources\saoluu.png" />
     <None Include="resources\save.png" />
+    <None Include="resources\refresh.png" />
     <Content Include="resources\school.png" />
     <Content Include="resources\Search-Male-User.png" />
     <Content Include="resources\Search.png" />

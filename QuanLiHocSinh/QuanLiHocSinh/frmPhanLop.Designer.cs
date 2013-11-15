@@ -967,6 +967,7 @@
             this.Text = "PHÂN LỚP HỌC SINH";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPhanLop_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmPhanLop_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabControlPanel1.ResumeLayout(false);

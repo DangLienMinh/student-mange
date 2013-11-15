@@ -42,7 +42,8 @@ namespace QuanLiHocSinh
             flagInsert = false;
             flagUpdate = false;
             flagDelete = false;
-            flagChonAnh = false;
+            flagChonAnh = false; 
+            this.KeyPreview = true;
         }
 
 
@@ -442,24 +443,17 @@ namespace QuanLiHocSinh
             }
         }
 
-        private void navigationPanePanel2_Click(object sender, EventArgs e)
-        {
 
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
-        private void progressBarX1_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void dtiNgaySinh_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void grdHocSinh_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            anHienButton(false);
+            Delete();
         }
 
     }

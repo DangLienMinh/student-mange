@@ -32,6 +32,7 @@ namespace QuanLiHocSinh
         private clsMONHOC_BUS monHoc_BUS;
         private int vitri;
         private int tong;
+
         public frmPhanCong()
         {
             InitializeComponent();
@@ -50,6 +51,7 @@ namespace QuanLiHocSinh
             m_frmLophoc = null;
             m_frmMonhoc = null;
             m_frmNamhoc = null;
+            this.KeyPreview = true;
         }
 
         private void frmPhanCong_Load(object sender, EventArgs e)
@@ -444,9 +446,23 @@ namespace QuanLiHocSinh
             }
         }
 
-        private void optTenGV_CheckedChanged(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            anHienButton(false);
+            Delete();
+        }
+
+        private void frmPhanCong_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
     }
 }

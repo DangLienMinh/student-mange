@@ -69,11 +69,18 @@
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.ctxMenu = new DevComponents.DotNetBar.ContextMenuBar();
+            this.btnMenu = new DevComponents.DotNetBar.ButtonItem();
+            this.btnAdd = new DevComponents.DotNetBar.ButtonItem();
+            this.btnRefesh = new DevComponents.DotNetBar.ButtonItem();
+            this.btnDelete = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClose = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
             ((System.ComponentModel.ISupportInitialize)(this.grdPhanCong)).BeginInit();
             this.navigationPanePanel1.SuspendLayout();
             this.navigationPanePanel2.SuspendLayout();
             this.groupPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ctxMenu)).BeginInit();
             this.navigationPane1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,6 +102,7 @@
             this.MALOP,
             this.MAMH,
             this.MAGV});
+            this.ctxMenu.SetContextMenuEx(this.grdPhanCong, this.btnMenu);
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -260,7 +268,6 @@
             this.optTenGV.Tag = "";
             this.optTenGV.Text = "Tìm theo tên giáo viên";
             this.optTenGV.UseVisualStyleBackColor = true;
-            this.optTenGV.CheckedChanged += new System.EventHandler(this.optTenGV_CheckedChanged);
             // 
             // optTenLop
             // 
@@ -318,7 +325,7 @@
             this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(278, 536);
+            this.navigationPanePanel1.Size = new System.Drawing.Size(278, 434);
             this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -588,6 +595,7 @@
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.ctxMenu);
             this.groupPanel1.Controls.Add(this.btnCuoi);
             this.groupPanel1.Controls.Add(this.btnSau);
             this.groupPanel1.Controls.Add(this.btnTruoc);
@@ -629,6 +637,65 @@
             this.groupPanel1.TabIndex = 7;
             this.groupPanel1.Text = "DANH SÁCH PHÂN CÔNG GIÁO VIÊN GIẢNG DẠY";
             this.groupPanel1.Click += new System.EventHandler(this.groupPanel1_Click);
+            // 
+            // ctxMenu
+            // 
+            this.ctxMenu.DockSide = DevComponents.DotNetBar.eDockSide.Document;
+            this.ctxMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ctxMenu.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnMenu});
+            this.ctxMenu.Location = new System.Drawing.Point(501, 246);
+            this.ctxMenu.Name = "ctxMenu";
+            this.ctxMenu.Size = new System.Drawing.Size(75, 25);
+            this.ctxMenu.Stretch = true;
+            this.ctxMenu.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.ctxMenu.TabIndex = 17;
+            this.ctxMenu.TabStop = false;
+            this.ctxMenu.Text = "ctxMenu";
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.AutoExpandOnClick = true;
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2);
+            this.btnMenu.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnAdd,
+            this.btnRefesh,
+            this.btnDelete,
+            this.btnClose});
+            this.btnMenu.Text = "Menu";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Image = global::QuanLiHocSinh.Properties.Resources.add;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Ins);
+            this.btnAdd.Text = "Thêm mới";
+            this.btnAdd.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // btnRefesh
+            // 
+            this.btnRefesh.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
+            this.btnRefesh.Name = "btnRefesh";
+            this.btnRefesh.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.F5);
+            this.btnRefesh.Text = "Làm tươi danh dách";
+            this.btnRefesh.Click += new System.EventHandler(this.frmPhanCong_Load);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = global::QuanLiHocSinh.Properties.Resources.delete;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Del);
+            this.btnDelete.Text = "Xóa dòng được chọn";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Image = global::QuanLiHocSinh.Properties.Resources.exit;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.AltF4);
+            this.btnClose.Text = "Đóng cửa sổ này";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // navigationPane1
             // 
@@ -680,11 +747,13 @@
             this.Text = "PHÂN CÔNG GIẢNG DẠY";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPhanCong_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmPhanCong_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.grdPhanCong)).EndInit();
             this.navigationPanePanel1.ResumeLayout(false);
             this.navigationPanePanel1.PerformLayout();
             this.navigationPanePanel2.ResumeLayout(false);
             this.groupPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ctxMenu)).EndInit();
             this.navigationPane1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -730,5 +799,11 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn MALOP;
         private System.Windows.Forms.DataGridViewComboBoxColumn MAMH;
         private System.Windows.Forms.DataGridViewComboBoxColumn MAGV;
+        private DevComponents.DotNetBar.ContextMenuBar ctxMenu;
+        private DevComponents.DotNetBar.ButtonItem btnMenu;
+        private DevComponents.DotNetBar.ButtonItem btnAdd;
+        private DevComponents.DotNetBar.ButtonItem btnRefesh;
+        private DevComponents.DotNetBar.ButtonItem btnDelete;
+        private DevComponents.DotNetBar.ButtonItem btnClose;
     }
 }

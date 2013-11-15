@@ -19,6 +19,7 @@ namespace QuanLiHocSinh
         {
             InitializeComponent();
             quyDinh_BUS = new clsQUYDINH_BUS();
+            this.KeyPreview = true;
         }
 
         private void frmThongSo_Load(object sender, EventArgs e)
@@ -65,6 +66,14 @@ namespace QuanLiHocSinh
         private void btnHuy_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmThongSo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
     }
 }

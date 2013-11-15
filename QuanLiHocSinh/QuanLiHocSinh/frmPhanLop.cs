@@ -33,6 +33,7 @@ namespace QuanLiHocSinh
             namHoc_BUS = new clsNAMHOC_BUS();
             hocSinh_BUS = new clsHOCSINH_BUS();
             quyDinh_BUS = new clsQUYDINH_BUS();
+            this.KeyPreview = true;
         }
 
         #region Load
@@ -348,6 +349,14 @@ namespace QuanLiHocSinh
             }
         }
         #endregion
+
+        private void frmPhanLop_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
         #endregion  
     }
 }
