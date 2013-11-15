@@ -96,6 +96,24 @@ namespace QLHS.BUS
             clnHocKy.ValueMember = "MAHK";
             clnHocKy.DataPropertyName = "MAHK";
         }
+        public void hienthiCboLopHoc(clsLOP_DTO lop_dto,ComboBoxEx cboLop)
+        {
+            cboLop.DataSource = lop.danhSachLopTheoNamHoc(lop_dto);
+            cboLop.DisplayMember = "TENLOP";
+            cboLop.ValueMember = "MALOP";
+        }
+        public void hienthiCboHanhKiem(ComboBoxEx cbohanhKiem)
+        {
+            cbohanhKiem.DataSource = loaihk.danhsachLoaiHK();
+            cbohanhKiem.DisplayMember = "TENLHK";
+            cbohanhKiem.ValueMember = "MALHK";
+        }
+        public void hienthiCboHocSinh(string malop,string manh,string mahk,ComboBoxEx cboHocsinh)
+        {
+            cboHocsinh.DataSource = hocsinh.danhsachHocSinhMALOPMANHMAHK(malop, manh, mahk);
+            cboHocsinh.DisplayMember = "TENHS";
+            cboHocsinh.ValueMember = "MAHS";
+        }
         public void themHanhKiem(clsHANHKIEM_DTO hanhkiem)
         {
             hanhkiem_dao.ThemHanhKiem(hanhkiem);

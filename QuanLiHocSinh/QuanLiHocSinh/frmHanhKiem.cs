@@ -16,6 +16,8 @@ namespace QuanLiHocSinh
         private clsHOCKY_DTO hocky_dto;
         private clsNAMHOC_DTO namhoc_dto;
         private clsHANHKIEM_BUS hanhkiem_bus;
+        private clsLOP_DTO lop_dto;
+        private Boolean flaglist=false;
         public frmHanhKiem()
         {
             InitializeComponent();
@@ -23,21 +25,27 @@ namespace QuanLiHocSinh
             hanhkiem_bus = new clsHANHKIEM_BUS();
             hocky_dto = new clsHOCKY_DTO();
             namhoc_dto = new clsNAMHOC_DTO();
+            lop_dto = new clsLOP_DTO();
         }
         private void frmHanhKiem_Load(object sender, EventArgs e)
         {
             treKhoi.Nodes.Clear();
-            hanhkiem_bus.hienThicboHK(cboHocKy);//Hien thi danh sach hoc ky len combobox
-            hanhkiem_bus.hienthicboNamHoc(cboNamHoc);//Hien thi danh sach hoc ky len combobox
-            hanhkiem_bus.hienthiCboLoaiHK(MALHK);
-            hanhkiem_bus.hienthiCboClnNamHoc(MANH);
-            hanhkiem_bus.hienthiCboClnHocKy(MAHK);
+            hanhkiem_bus.hienThicboHK(cboHocKy);//Hien thi danh sach hoc ky len combobox tab nhập theo lớp
+            hanhkiem_bus.hienThicboHK(cboHocKy1);//Hien thi danh sach hoc ky len combobox tab nhập theo học sinh
+            hanhkiem_bus.hienthicboNamHoc(cboNamHoc);//Hien thi danh sach hoc ky len combobox tab nhập theo lớp
+            hanhkiem_bus.hienthicboNamHoc(cboNamHoc1);//HIên thi danh sach hoc ky len combobo tab nhập điểm theo học sinh
+            lop_dto.Manh = cboNamHoc1.SelectedValue.ToString();
+            hanhkiem_bus.hienthiCboLopHoc(lop_dto, cboLop1);
+            hanhkiem_bus.hienthiCboHocSinh(cboLop1.SelectedValue.ToString(), cboNamHoc1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString(), cboHocSinh1);
+            hanhkiem_bus.hienthiCboHanhKiem(cboHanhKiem1);
+            hanhkiem_bus.hienthiCboLoaiHK(MALHK);//Hien thi TenHanKiem Len Cobobox trong gridview cho nguoi dung chon
+            hanhkiem_bus.hienthiCboClnNamHoc(MANH);//Hien thi Ten Nam Hoc Thay vi MANH TREN COMBOX BOX
+            hanhkiem_bus.hienthiCboClnHocKy(MAHK);//Hien thi Ten HK thay vi hien thi MAHK ten combobox
         }
 
         private void cboNamHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            treKhoi.Nodes.Clear();
-            hanhkiem_bus.hienthiLophoc(treKhoi, cboNamHoc);//Hiển thị danh sách lớp theo năm học lên treeview
+           
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -55,6 +63,7 @@ namespace QuanLiHocSinh
             string malop;
             string manh;
             string mahk;
+            MALHK.DisplayStyleForCurrentCellOnly = false;
             manh = cboNamHoc.SelectedValue.ToString();
             mahk = cboHocKy.SelectedValue.ToString();
             malop = treKhoi.SelectedNode.Name;
@@ -63,7 +72,10 @@ namespace QuanLiHocSinh
             {
                 try
                 {
-                    grdHanhKiemChung.DataSource = hanhkiem_bus.danhsachHocsinhMALOPMANHMAHK(malop, manh, mahk);
+                    if (flaglist != true)//Neu btnDanhsach duoc nhat thi khong hien thi danh sach chua nhap hanh kiem len
+                    {
+                        grdHanhKiemChung.DataSource = hanhkiem_bus.danhsachHocsinhMALOPMANHMAHK(treKhoi.SelectedNode.Name.ToString(), cboNamHoc.SelectedValue.ToString(), cboHocKy.SelectedValue.ToString());
+                    }
                     hanhkiem_dto.Manh = manh;
                     hanhkiem_dto.Mahk = mahk;
                 }
@@ -120,7 +132,40 @@ namespace QuanLiHocSinh
 
         private void btnDanhSach_Click(object sender, EventArgs e)
         {
-            grdHanhKiemChung.DataSource = hanhkiem_bus.danhsachHanhKiem(hanhkiem_dto.Manh, hanhkiem_dto.Malop, hanhkiem_dto.Mahk);
+            btnLuulai.Enabled = false;
+            flaglist = true;
+            MALHK.DisplayStyleForCurrentCellOnly = true;
+            grdHanhKiemChung.DataSource = hanhkiem_bus.danhsachHanhKiem(cboNamHoc.SelectedValue.ToString(), treKhoi.SelectedNode.Name.ToString(), cboHocKy.SelectedValue.ToString());
+            
+        }
+        private void btnCapnhat_Click(object sender, EventArgs e)
+        {
+            btnLuulai.Enabled = true;
+            flaglist = false;
+            
+        }
+
+        private void cboNamHoc1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            lop_dto.Manh = cboNamHoc1.SelectedValue.ToString();
+            hanhkiem_bus.hienthiCboLopHoc(lop_dto, cboLop1);
+            //hanhkiem_bus.hienthiCboHocSinh(cboLop1.SelectedValue.ToString(), cboNamHoc1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString(), cboHocSinh1);
+        }
+
+        private void cboNamHoc_SelectedValueChanged(object sender, EventArgs e)
+        {
+            treKhoi.Nodes.Clear();
+            hanhkiem_bus.hienthiLophoc(treKhoi, cboNamHoc);//Hiển thị danh sách lớp theo năm học lên treeview
+        }
+
+        private void cboHocKy1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //hanhkiem_bus.hienthiCboHocSinh(cboLop1.SelectedValue.ToString(), cboNamHoc1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString(), cboHocSinh1);
+        }
+
+        private void cboLop1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            hanhkiem_bus.hienthiCboHocSinh(cboLop1.SelectedValue.ToString(), cboNamHoc1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString(), cboHocSinh1);
         }
     }
 }
