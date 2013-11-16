@@ -453,6 +453,7 @@
             this.txtSoTiet.Border.Class = "TextBoxBorder";
             this.txtSoTiet.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtSoTiet.Location = new System.Drawing.Point(90, 136);
+            this.txtSoTiet.MaxLength = 3;
             this.txtSoTiet.Name = "txtSoTiet";
             this.txtSoTiet.Size = new System.Drawing.Size(58, 20);
             this.txtSoTiet.TabIndex = 4;

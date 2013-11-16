@@ -140,6 +140,7 @@
             this.treLop.Styles.Add(this.elementStyle2);
             this.treLop.TabIndex = 2;
             this.treLop.Text = "advTree2";
+            this.treLop.NodeDoubleClick += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.treLop_NodeDoubleClick);
             // 
             // navigationPanePanel2
             // 
