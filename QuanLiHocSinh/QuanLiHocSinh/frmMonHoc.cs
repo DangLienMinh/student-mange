@@ -116,20 +116,7 @@ namespace QuanLiHocSinh
             txtSoTiet.Text = "";
         }
 
-        //private void sapXep()
-        //{
-        //    viTri = this.BindingContext[grdMonHoc.DataSource].Position;
-        //    Tong = this.BindingContext[grdMonHoc.DataSource].Count;
-        //    if (viTri!=-1)
-        //    {
-        //        txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
-        //        txtMaMH.Text = grdMonHoc.Rows[viTri].Cells["MAMH"].Value.ToString();
-        //        txtTenMH.Text = grdMonHoc.Rows[viTri].Cells["TENMH"].Value.ToString();
-        //        txtSoTiet.Text = grdMonHoc.Rows[viTri].Cells["SOTIET"].Value.ToString();
-        //        cboHeSo.SelectedItem = grdMonHoc.Rows[viTri].Cells["HESOMH"].Value.ToString(); 
-        //    }
-            
-        //}
+        
 
         private void insert()
         {
@@ -321,6 +308,14 @@ namespace QuanLiHocSinh
             {
                 delete();
             }
+        }
+
+        private void move_Click(object sender, EventArgs e)
+        {
+            txtMaMH.Text = grdMonHoc.CurrentRow.Cells["MAMH"].Value.ToString();
+            txtTenMH.Text = grdMonHoc.CurrentRow.Cells["TENMH"].Value.ToString();
+            txtSoTiet.Text = grdMonHoc.CurrentRow.Cells["SOTIET"].Value.ToString();
+            cboHeSo.SelectedItem = grdMonHoc.CurrentRow.Cells["HESOMH"].Value.ToString();
         }
 
 

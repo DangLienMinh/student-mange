@@ -340,5 +340,14 @@ namespace QuanLiHocSinh
                 delete();
             }
         }
+
+        private void move_Click(object sender, EventArgs e)
+        {
+            txtMaND.Text = grdNguoiDung.CurrentRow.Cells["MAND"].Value.ToString();
+            txtTenND.Text = grdNguoiDung.CurrentRow.Cells["TENND"].Value.ToString();
+            txtTenDN.Text = grdNguoiDung.CurrentRow.Cells["TENDN"].Value.ToString();
+            txtMatKhau.Text = grdNguoiDung.CurrentRow.Cells["MATKHAU"].Value.ToString();
+            cboLoaiND.SelectedValue = grdNguoiDung.CurrentRow.Cells["MALND"].Value.ToString();
+        }
     }
 }

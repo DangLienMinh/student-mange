@@ -467,6 +467,17 @@ namespace QuanLiHocSinh
         {
             delete();
         }
+
+        private void move_Click(object sender, EventArgs e)
+        {
+            cboLoaiDiem1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MALD1"].Value.ToString();
+            cboNamHoc1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MANH1"].Value.ToString();
+            cboHocSinh1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MAHS1"].Value.ToString();
+            cboMonHoc1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MAMH1"].Value.ToString();
+            cboLop1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MALOP1"].Value.ToString();
+            cboHocKy1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MAHK1"].Value.ToString();
+            txtDiem1.Text = grdDiemRieng.CurrentRow.Cells["DIEMSO1"].Value.ToString();
+        }
     }
 }
 

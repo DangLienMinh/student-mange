@@ -252,5 +252,11 @@ namespace QuanLiHocSinh
                 this.Close();
             }
         }
+
+        private void move_Click(object sender, EventArgs e)
+        {
+            txtMaNH.Text = grdNamHoc.CurrentRow.Cells["MANH"].Value.ToString();
+            txtTenNH.Text = grdNamHoc.CurrentRow.Cells["TENNH"].Value.ToString();
+        }
     }
 }

@@ -304,5 +304,12 @@ namespace QuanLiHocSinh
                 delete();
             }
         }
+
+        private void move_Click(object sender, EventArgs e)
+        {
+            txtMaLD.Text = grdLoaiDiem.CurrentRow.Cells["MALD"].Value.ToString();
+            txtTenLD.Text = grdLoaiDiem.CurrentRow.Cells["TENLD"].Value.ToString();
+            cboHeSo.SelectedItem = grdLoaiDiem.CurrentRow.Cells["HESOLD"].Value.ToString();
+        }
     }
 }

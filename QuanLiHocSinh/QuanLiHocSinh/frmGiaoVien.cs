@@ -465,5 +465,32 @@ namespace QuanLiHocSinh
             grdGiaoVien.DataSource = bs;
             bnaGiaoVien.BindingSource = bs;
         }
+
+        private void move_Click(object sender, EventArgs e)
+        {
+            txtMaGV.Text = grdGiaoVien.CurrentRow.Cells["MAGV"].Value.ToString();
+            txtTenGV.Text = grdGiaoVien.CurrentRow.Cells["TENGV"].Value.ToString();
+            txtDiaChi.Text = grdGiaoVien.CurrentRow.Cells["DIACHIGV"].Value.ToString();
+            txtDienThoai.Text = grdGiaoVien.CurrentRow.Cells["DIENTHOAIGV"].Value.ToString();
+            cboGioiTinh.SelectedItem = grdGiaoVien.CurrentRow.Cells["GIOITINHGV"].Value.ToString();
+
+            string ngaySinh = grdGiaoVien.CurrentRow.Cells["NGSINHGV"].Value.ToString();
+            if (ngaySinh != "")
+            {
+                DateTime d = new DateTime();
+                d = DateTime.Parse(ngaySinh);
+                //d = DateTime.ParseExact(ngaySinh,"MM/dd/yyyy",null);
+                dtiNgaySinh.Value = d;
+            }
+
+            // sử dụng filestream để có thể xóa hình ảnh mà không bị thằng picturebox chiếm giữ
+            if (grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString() != "")
+            {
+                string imageLink = grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString();
+                FileStream fs = new FileStream(imageLink, FileMode.Open, FileAccess.Read);
+                picGiaoVien.Image = Image.FromStream(fs);
+                fs.Close();
+            }
+        }
     }
 }

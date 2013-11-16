@@ -300,6 +300,12 @@ namespace QuanLiHocSinh
             }
         }
 
+        private void move_Click(object sender, EventArgs e)
+        {
+            txtMaLND.Text = grdLoaiND.CurrentRow.Cells["MALND"].Value.ToString();
+            txtTenLND.Text = grdLoaiND.CurrentRow.Cells["TENLND"].Value.ToString();
+        }
+
 
     }
 }
