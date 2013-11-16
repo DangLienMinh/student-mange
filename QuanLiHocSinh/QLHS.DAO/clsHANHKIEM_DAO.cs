@@ -28,6 +28,29 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
+        public void suaHanhKiem(clsHANHKIEM_DTO hanhkiem)
+        {
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_SuaHanhKiem", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MALHK", SqlDbType.VarChar).Value = hanhkiem.Malhk;
+            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hanhkiem.Mahs;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hanhkiem.Manh;
+            command.Parameters.Add("@MAHK", SqlDbType.VarChar).Value = hanhkiem.Mahk;
+            command.ExecuteNonQuery();
+            con.Close();
+        }
+        public void xoaHanhKiem(clsHANHKIEM_DTO hanhkiem)
+        {
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_XoaHanhKiem", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hanhkiem.Mahs;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hanhkiem.Manh;
+            command.Parameters.Add("@MAHK", SqlDbType.VarChar).Value = hanhkiem.Mahk;
+            command.ExecuteNonQuery();
+            con.Close();
+        }
         public DataTable danhsachHanhKiem(string manh, string malop, string mahk)
         {
             DataTable table = new DataTable();
