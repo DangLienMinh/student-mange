@@ -24,6 +24,7 @@ namespace QuanLiHocSinh
         private int tempCheckDanToc;
         private int tempCheckNgNhapHoc;
         private int viTri, Tong;
+        private BindingSource bs;
         #endregion
 
         #region Click event
@@ -43,7 +44,7 @@ namespace QuanLiHocSinh
                     }
                     else
                     {
-                        hocSinh_BUS.timHocSinhMaHS(grdHocSinh, txtMaHS);
+                        bindingData(hocSinh_BUS.timHocSinhMaHS(txtMaHS));
                         if (grdHocSinh.Rows.Count == 1)
                         {
                             MessageBox.Show("không tìm thấy");
@@ -58,7 +59,7 @@ namespace QuanLiHocSinh
                     }
                     else
                     {
-                        hocSinh_BUS.timHocSinhTenHS(grdHocSinh, txtTenHS);
+                        bindingData(hocSinh_BUS.timHocSinhTenHS(txtTenHS));
                         if (grdHocSinh.Rows.Count == 1)
                         {
                             MessageBox.Show("không tìm thấy");
@@ -73,7 +74,7 @@ namespace QuanLiHocSinh
                     }
                     else
                     {
-                        hocSinh_BUS.timHocSinhDanToc(grdHocSinh, txtDanToc);
+                        bindingData(hocSinh_BUS.timHocSinhDanToc(txtDanToc));
                         if (grdHocSinh.Rows.Count == 1)
                         {
                             MessageBox.Show("không tìm thấy");
@@ -82,7 +83,7 @@ namespace QuanLiHocSinh
                 }
                 else
                 {
-                    hocSinh_BUS.timHocSinhNgNhapHoc(grdHocSinh, dtiNgNhapHoc);
+                    bindingData(hocSinh_BUS.timHocSinhNgNhapHoc(dtiNgNhapHoc));
                     if (grdHocSinh.Rows.Count == 1)
                     {
                         MessageBox.Show("không tìm thấy");
@@ -156,7 +157,7 @@ namespace QuanLiHocSinh
                     MessageBox.Show("Không tìm thấy");
 
                 }
-                grdHocSinh.DataSource = dt;
+                bindingData(dt);
             tt: ;
             }
         }
@@ -217,45 +218,45 @@ namespace QuanLiHocSinh
 
         }
 
-        private void btnDau_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdHocSinh.DataSource].Position;
-            this.BindingContext[grdHocSinh.DataSource].Position = 0;
-            sapXep();
-            btnTruoc.Enabled = false;
-            btnDau.Enabled = false;
-            btnCuoi.Enabled = true;
-            btnSau.Enabled = true;
-        }
+        //private void btnDau_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdHocSinh.DataSource].Position;
+        //    this.BindingContext[grdHocSinh.DataSource].Position = 0;
+        //    sapXep();
+        //    btnTruoc.Enabled = false;
+        //    btnDau.Enabled = false;
+        //    btnCuoi.Enabled = true;
+        //    btnSau.Enabled = true;
+        //}
 
-        private void btnTruoc_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdHocSinh.DataSource].Position;
-            btnCuoi.Enabled = true;
-            btnSau.Enabled = true;
-            this.BindingContext[grdHocSinh.DataSource].Position = viTri - 1;
-            sapXep();
-        }
+        //private void btnTruoc_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdHocSinh.DataSource].Position;
+        //    btnCuoi.Enabled = true;
+        //    btnSau.Enabled = true;
+        //    this.BindingContext[grdHocSinh.DataSource].Position = viTri - 1;
+        //    sapXep();
+        //}
 
-        private void btnSau_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdHocSinh.DataSource].Position;
-            btnDau.Enabled = true;
-            btnTruoc.Enabled = true;
-            this.BindingContext[grdHocSinh.DataSource].Position = viTri + 1;
-            sapXep();
-        }
+        //private void btnSau_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdHocSinh.DataSource].Position;
+        //    btnDau.Enabled = true;
+        //    btnTruoc.Enabled = true;
+        //    this.BindingContext[grdHocSinh.DataSource].Position = viTri + 1;
+        //    sapXep();
+        //}
 
-        private void btnCuoi_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdHocSinh.DataSource].Position;
-            this.BindingContext[grdHocSinh.DataSource].Position = this.BindingContext[grdHocSinh.DataSource].Count - 1;
-            sapXep();
-            btnCuoi.Enabled = false;
-            btnSau.Enabled = false;
-            btnTruoc.Enabled = true;
-            btnDau.Enabled = true;
-        }
+        //private void btnCuoi_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdHocSinh.DataSource].Position;
+        //    this.BindingContext[grdHocSinh.DataSource].Position = this.BindingContext[grdHocSinh.DataSource].Count - 1;
+        //    sapXep();
+        //    btnCuoi.Enabled = false;
+        //    btnSau.Enabled = false;
+        //    btnTruoc.Enabled = true;
+        //    btnDau.Enabled = true;
+        //}
         #endregion
 
         #region Check changed
@@ -331,23 +332,31 @@ namespace QuanLiHocSinh
         private void frmTimHocSinh_Load(object sender, EventArgs e)
         {
             optAnd.Select();
-            sapXep();
-            btnDau.Enabled = false;
-            btnTruoc.Enabled = false;
+            //sapXep();
+            //btnDau.Enabled = false;
+            //btnTruoc.Enabled = false;
         }
 
-        private void sapXep()
-        {
-            if (grdHocSinh.DataSource!=null)
-            {
-                viTri = this.BindingContext[grdHocSinh.DataSource].Position;
-                Tong = this.BindingContext[grdHocSinh.DataSource].Count;
-                if (viTri != -1)
-                {
-                    txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
-                }
-            }
+        //private void sapXep()
+        //{
+        //    if (grdHocSinh.DataSource!=null)
+        //    {
+        //        viTri = this.BindingContext[grdHocSinh.DataSource].Position;
+        //        Tong = this.BindingContext[grdHocSinh.DataSource].Count;
+        //        if (viTri != -1)
+        //        {
+        //            txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
+        //        }
+        //    }
             
+        //}
+        private void bindingData(DataTable table)
+        {
+            //biding navigator
+            bs = new BindingSource();
+            bs.DataSource = table;
+            grdHocSinh.DataSource = bs;
+            bnaHocSinh.BindingSource = bs;
         }
 
         private void frmTimHocSinh_KeyDown(object sender, KeyEventArgs e)

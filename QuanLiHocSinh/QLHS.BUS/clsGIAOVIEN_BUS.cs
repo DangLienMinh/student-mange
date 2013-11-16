@@ -38,10 +38,10 @@ namespace QLHS.BUS
             cboColumn.DataPropertyName = "MAGV";
         }
 
-        public void hienThiDanhSach(DataGridViewX grdGV)
+        public DataTable hienThiDanhSach()
         {
             tblGiaoVien = giaoVien_DAO.danhSachGiaoVien();
-            grdGV.DataSource=tblGiaoVien;
+            return tblGiaoVien;
         }
 
         //tạo mã giáo viên
@@ -141,38 +141,60 @@ namespace QLHS.BUS
         }
 
         //xóa giáo viên theo mã giáo viên khỏi table giáo viên
-        public void xoaDong(DataGridViewX grdGV,string MaGV)
+        public void xoaDong(string MaGV)
         {
             DataRow row = tblGiaoVien.Select("MAGV='" + MaGV + "'")[0];
             row.Delete();
-            grdGV.DataSource = tblGiaoVien;
         }
 
-        public void suaDataGrid(DataGridViewX grdGV)
+        public void suaDataGrid()
         {
-            foreach (DataGridViewRow row1 in grdGV.Rows)
+            foreach (DataRow row1 in tblGiaoVien.Rows)
             {
-                if (row1.Cells["MAGV"].Value != null)
+                if (row1["MAGV"] != null)
                 {
-                    if (string.Compare(row1.Cells["MAGV"].Value.ToString().Trim(), giaoVien_DTO.Magv.Trim()) == 0)
+                    if (string.Compare(row1["MAGV"].ToString().Trim(), giaoVien_DTO.Magv.Trim()) == 0)
                     {
-                        row1.Cells["TENGV"].Value = giaoVien_DTO.Tengv;
-                        row1.Cells["NGSINHGV"].Value = giaoVien_DTO.Ngsinhgv;
-                        row1.Cells["DIACHIGV"].Value = giaoVien_DTO.Diachigv;
+                        row1["TENGV"] = giaoVien_DTO.Tengv;
+                        row1["NGSINHGV"] = giaoVien_DTO.Ngsinhgv;
+                        row1["DIACHIGV"] = giaoVien_DTO.Diachigv;
                         if (string.Compare(giaoVien_DTO.Gioitinhgv, "0") == 0)
                         {
-                            row1.Cells["GIOITINHGV"].Value = "Nam";
+                            row1["GIOITINHGV"] = "Nam";
                         }
                         else
                         {
-                            row1.Cells["GIOITINHGV"].Value = "Nữ";
+                            row1["GIOITINHGV"] = "Nữ";
                         }
 
-                        row1.Cells["DIENTHOAIGV"].Value = giaoVien_DTO.Dienthoaigv;
-                        row1.Cells["HINHANHGV"].Value = giaoVien_DTO.Hinhanhgv;
+                        row1["DIENTHOAIGV"] = giaoVien_DTO.Dienthoaigv;
+                        row1["HINHANHGV"] = giaoVien_DTO.Hinhanhgv;
                     }
                 }
             }
+            //foreach (DataGridViewRow row1 in grdGV.Rows)
+            //{
+            //    if (row1.Cells["MAGV"].Value != null)
+            //    {
+            //        if (string.Compare(row1.Cells["MAGV"].Value.ToString().Trim(), giaoVien_DTO.Magv.Trim()) == 0)
+            //        {
+            //            row1.Cells["TENGV"].Value = giaoVien_DTO.Tengv;
+            //            row1.Cells["NGSINHGV"].Value = giaoVien_DTO.Ngsinhgv;
+            //            row1.Cells["DIACHIGV"].Value = giaoVien_DTO.Diachigv;
+            //            if (string.Compare(giaoVien_DTO.Gioitinhgv, "0") == 0)
+            //            {
+            //                row1.Cells["GIOITINHGV"].Value = "Nam";
+            //            }
+            //            else
+            //            {
+            //                row1.Cells["GIOITINHGV"].Value = "Nữ";
+            //            }
+
+            //            row1.Cells["DIENTHOAIGV"].Value = giaoVien_DTO.Dienthoaigv;
+            //            row1.Cells["HINHANHGV"].Value = giaoVien_DTO.Hinhanhgv;
+            //        }
+            //    }
+            //}
         }
 
     }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNguoiDung));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -52,28 +53,34 @@
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.contextMenuBar2 = new DevComponents.DotNetBar.ContextMenuBar();
             this.grdNguoiDung = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.MAND = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENND = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MALND = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENDN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MATKHAU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCuoi = new DevComponents.DotNetBar.ButtonX();
-            this.btnSau = new DevComponents.DotNetBar.ButtonX();
-            this.btnTruoc = new DevComponents.DotNetBar.ButtonX();
-            this.btnDau = new DevComponents.DotNetBar.ButtonX();
-            this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.contextMenuBar2 = new DevComponents.DotNetBar.ContextMenuBar();
             this.btnMenu = new DevComponents.DotNetBar.ButtonItem();
             this.btnAdd = new DevComponents.DotNetBar.ButtonItem();
             this.btnRefesh = new DevComponents.DotNetBar.ButtonItem();
             this.btnDelete = new DevComponents.DotNetBar.ButtonItem();
             this.btnClose = new DevComponents.DotNetBar.ButtonItem();
+            this.bnaNguoiDung = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
+            this.bindingNavigatorAddNewItem = new DevComponents.DotNetBar.ButtonItem();
+            this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
+            this.bindingNavigatorDeleteItem = new DevComponents.DotNetBar.ButtonItem();
+            this.bindingNavigatorMoveFirstItem = new DevComponents.DotNetBar.ButtonItem();
+            this.bindingNavigatorMovePreviousItem = new DevComponents.DotNetBar.ButtonItem();
+            this.bindingNavigatorPositionItem = new DevComponents.DotNetBar.TextBoxItem();
+            this.bindingNavigatorMoveNextItem = new DevComponents.DotNetBar.ButtonItem();
+            this.bindingNavigatorMoveLastItem = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPanePanel2.SuspendLayout();
             this.navigationPane1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdNguoiDung)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contextMenuBar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdNguoiDung)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bnaNguoiDung)).BeginInit();
             this.SuspendLayout();
             // 
             // cboLoaiND
@@ -361,11 +368,7 @@
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel1.Controls.Add(this.contextMenuBar2);
             this.groupPanel1.Controls.Add(this.grdNguoiDung);
-            this.groupPanel1.Controls.Add(this.btnCuoi);
-            this.groupPanel1.Controls.Add(this.btnSau);
-            this.groupPanel1.Controls.Add(this.btnTruoc);
-            this.groupPanel1.Controls.Add(this.btnDau);
-            this.groupPanel1.Controls.Add(this.txtHienTai);
+            this.groupPanel1.Controls.Add(this.bnaNguoiDung);
             this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupPanel1.Location = new System.Drawing.Point(192, 0);
             this.groupPanel1.Name = "groupPanel1";
@@ -401,6 +404,21 @@
             this.groupPanel1.TabIndex = 4;
             this.groupPanel1.Text = "DANH SÁCH NGƯỜI DÙNG";
             // 
+            // contextMenuBar2
+            // 
+            this.contextMenuBar2.DockSide = DevComponents.DotNetBar.eDockSide.Document;
+            this.contextMenuBar2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.contextMenuBar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnMenu});
+            this.contextMenuBar2.Location = new System.Drawing.Point(545, 246);
+            this.contextMenuBar2.Name = "contextMenuBar2";
+            this.contextMenuBar2.Size = new System.Drawing.Size(75, 25);
+            this.contextMenuBar2.Stretch = true;
+            this.contextMenuBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.contextMenuBar2.TabIndex = 23;
+            this.contextMenuBar2.TabStop = false;
+            this.contextMenuBar2.Text = "contextMenuBar2";
+            // 
             // grdNguoiDung
             // 
             this.grdNguoiDung.AllowUserToDeleteRows = false;
@@ -428,10 +446,10 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdNguoiDung.DefaultCellStyle = dataGridViewCellStyle2;
-            this.grdNguoiDung.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grdNguoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdNguoiDung.EnableHeadersVisualStyles = false;
             this.grdNguoiDung.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.grdNguoiDung.Location = new System.Drawing.Point(0, 44);
+            this.grdNguoiDung.Location = new System.Drawing.Point(0, 25);
             this.grdNguoiDung.Name = "grdNguoiDung";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -441,7 +459,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdNguoiDung.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.grdNguoiDung.Size = new System.Drawing.Size(1164, 473);
+            this.grdNguoiDung.Size = new System.Drawing.Size(1164, 492);
             this.grdNguoiDung.TabIndex = 20;
             this.grdNguoiDung.TabStop = false;
             this.grdNguoiDung.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdNguoiDung_CellClick);
@@ -480,88 +498,6 @@
             this.MATKHAU.HeaderText = "Mật khẩu";
             this.MATKHAU.Name = "MATKHAU";
             this.MATKHAU.Visible = false;
-            // 
-            // btnCuoi
-            // 
-            this.btnCuoi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnCuoi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuoi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCuoi.Location = new System.Drawing.Point(699, 7);
-            this.btnCuoi.Name = "btnCuoi";
-            this.btnCuoi.Size = new System.Drawing.Size(64, 23);
-            this.btnCuoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnCuoi.TabIndex = 14;
-            this.btnCuoi.Text = ">|";
-            this.btnCuoi.Click += new System.EventHandler(this.btnCuoi_Click);
-            // 
-            // btnSau
-            // 
-            this.btnSau.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnSau.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSau.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSau.Location = new System.Drawing.Point(627, 7);
-            this.btnSau.Name = "btnSau";
-            this.btnSau.Size = new System.Drawing.Size(64, 23);
-            this.btnSau.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnSau.TabIndex = 13;
-            this.btnSau.Text = ">";
-            this.btnSau.Click += new System.EventHandler(this.btnSau_Click);
-            // 
-            // btnTruoc
-            // 
-            this.btnTruoc.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnTruoc.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnTruoc.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTruoc.Location = new System.Drawing.Point(474, 7);
-            this.btnTruoc.Name = "btnTruoc";
-            this.btnTruoc.Size = new System.Drawing.Size(64, 23);
-            this.btnTruoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnTruoc.TabIndex = 12;
-            this.btnTruoc.Text = "<";
-            this.btnTruoc.Click += new System.EventHandler(this.btnTruoc_Click);
-            // 
-            // btnDau
-            // 
-            this.btnDau.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnDau.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDau.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDau.Location = new System.Drawing.Point(404, 7);
-            this.btnDau.Name = "btnDau";
-            this.btnDau.Size = new System.Drawing.Size(64, 23);
-            this.btnDau.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnDau.TabIndex = 11;
-            this.btnDau.Text = "|<";
-            this.btnDau.Click += new System.EventHandler(this.btnDau_Click);
-            // 
-            // txtHienTai
-            // 
-            this.txtHienTai.Anchor = System.Windows.Forms.AnchorStyles.None;
-            // 
-            // 
-            // 
-            this.txtHienTai.Border.Class = "TextBoxBorder";
-            this.txtHienTai.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtHienTai.Location = new System.Drawing.Point(549, 9);
-            this.txtHienTai.Name = "txtHienTai";
-            this.txtHienTai.ReadOnly = true;
-            this.txtHienTai.Size = new System.Drawing.Size(69, 20);
-            this.txtHienTai.TabIndex = 22;
-            this.txtHienTai.TabStop = false;
-            // 
-            // contextMenuBar2
-            // 
-            this.contextMenuBar2.DockSide = DevComponents.DotNetBar.eDockSide.Document;
-            this.contextMenuBar2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.contextMenuBar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnMenu});
-            this.contextMenuBar2.Location = new System.Drawing.Point(545, 246);
-            this.contextMenuBar2.Name = "contextMenuBar2";
-            this.contextMenuBar2.Size = new System.Drawing.Size(75, 25);
-            this.contextMenuBar2.Stretch = true;
-            this.contextMenuBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.contextMenuBar2.TabIndex = 23;
-            this.contextMenuBar2.TabStop = false;
-            this.contextMenuBar2.Text = "contextMenuBar2";
             // 
             // btnMenu
             // 
@@ -607,6 +543,97 @@
             this.btnClose.Text = "Đóng cửa sổ này";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // bnaNguoiDung
+            // 
+            this.bnaNguoiDung.AddNewRecordButton = this.bindingNavigatorAddNewItem;
+            this.bnaNguoiDung.AntiAlias = true;
+            this.bnaNguoiDung.CountLabel = this.bindingNavigatorCountItem;
+            this.bnaNguoiDung.CountLabelFormat = "of {0}";
+            this.bnaNguoiDung.DeleteButton = this.bindingNavigatorDeleteItem;
+            this.bnaNguoiDung.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bnaNguoiDung.DockSide = DevComponents.DotNetBar.eDockSide.Document;
+            this.bnaNguoiDung.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bnaNguoiDung.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorAddNewItem,
+            this.bindingNavigatorDeleteItem,
+            this.buttonItem1});
+            this.bnaNguoiDung.Location = new System.Drawing.Point(0, 0);
+            this.bnaNguoiDung.MoveFirstButton = this.bindingNavigatorMoveFirstItem;
+            this.bnaNguoiDung.MoveLastButton = this.bindingNavigatorMoveLastItem;
+            this.bnaNguoiDung.MoveNextButton = this.bindingNavigatorMoveNextItem;
+            this.bnaNguoiDung.MovePreviousButton = this.bindingNavigatorMovePreviousItem;
+            this.bnaNguoiDung.Name = "bnaNguoiDung";
+            this.bnaNguoiDung.PositionTextBox = this.bindingNavigatorPositionItem;
+            this.bnaNguoiDung.Size = new System.Drawing.Size(1164, 25);
+            this.bnaNguoiDung.Stretch = true;
+            this.bnaNguoiDung.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.bnaNguoiDung.TabIndex = 24;
+            this.bnaNguoiDung.TabStop = false;
+            this.bnaNguoiDung.Text = "bindingNavigatorEx1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem.BeginGroup = true;
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.TextBoxWidth = 54;
+            this.bindingNavigatorPositionItem.WatermarkColor = System.Drawing.SystemColors.GrayText;
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.BeginGroup = true;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.Text = "Move last";
+            // 
+            // buttonItem1
+            // 
+            this.buttonItem1.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
+            this.buttonItem1.Name = "buttonItem1";
+            this.buttonItem1.Text = "buttonItem1";
+            // 
             // frmNguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -623,8 +650,9 @@
             this.navigationPanePanel2.ResumeLayout(false);
             this.navigationPane1.ResumeLayout(false);
             this.groupPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdNguoiDung)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contextMenuBar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdNguoiDung)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bnaNguoiDung)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -650,11 +678,6 @@
         private DevComponents.DotNetBar.ButtonX btnThem;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
         private DevComponents.DotNetBar.Controls.DataGridViewX grdNguoiDung;
-        private DevComponents.DotNetBar.ButtonX btnCuoi;
-        private DevComponents.DotNetBar.ButtonX btnSau;
-        private DevComponents.DotNetBar.ButtonX btnTruoc;
-        private DevComponents.DotNetBar.ButtonX btnDau;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtHienTai;
         private DevComponents.DotNetBar.ButtonX btnLND;
         private System.Windows.Forms.DataGridViewTextBoxColumn MAND;
         private System.Windows.Forms.DataGridViewTextBoxColumn TENND;
@@ -668,5 +691,15 @@
         private DevComponents.DotNetBar.ButtonItem btnRefesh;
         private DevComponents.DotNetBar.ButtonItem btnDelete;
         private DevComponents.DotNetBar.ButtonItem btnClose;
+        private DevComponents.DotNetBar.Controls.BindingNavigatorEx bnaNguoiDung;
+        private DevComponents.DotNetBar.ButtonItem bindingNavigatorAddNewItem;
+        private DevComponents.DotNetBar.LabelItem bindingNavigatorCountItem;
+        private DevComponents.DotNetBar.ButtonItem bindingNavigatorDeleteItem;
+        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveFirstItem;
+        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMovePreviousItem;
+        private DevComponents.DotNetBar.TextBoxItem bindingNavigatorPositionItem;
+        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveNextItem;
+        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveLastItem;
+        private DevComponents.DotNetBar.ButtonItem buttonItem1;
     }
 }

@@ -23,10 +23,10 @@ namespace QLHS.BUS
             tblLoaiNguoiDung = new DataTable();
         }
 
-        public void hienThiDanhSach(DataGridViewX grdLoaiND)
+        public DataTable hienThiDanhSach()
         {
             tblLoaiNguoiDung = loaiNguoiDung_DAO.danhSachLoaiNguoiDung();
-            grdLoaiND.DataSource=tblLoaiNguoiDung;
+           return tblLoaiNguoiDung;
         }
 
         public void xoaLoaiNguoiDung(string maLND) 
@@ -70,22 +70,21 @@ namespace QLHS.BUS
         }
 
         //xóa loại người dùng trùng với mã loạingười dùng trên table loại người dùng
-        public void xoaDong(DataGridViewX grdLoaiND,string MaLND)
+        public void xoaDong(string MaLND)
         {
             DataRow row = tblLoaiNguoiDung.Select("MALND='" + MaLND + "'")[0];
-            row.Delete();
-            grdLoaiND.DataSource = tblLoaiNguoiDung;
+            row.Delete();         
         }
 
         public void suaDataGrid(DataGridViewX grdLoaiND)
         {
-            foreach (DataGridViewRow row1 in grdLoaiND.Rows)
+            foreach (DataRow row1 in tblLoaiNguoiDung.Rows)
             {
-                if (row1.Cells["MALND"].Value != null)
+                if (row1["MALND"] != null)
                 {
-                    if (string.Compare(row1.Cells["MALND"].Value.ToString().Trim(), loaiNguoiDung_DTO.Malnd.Trim()) == 0)
+                    if (string.Compare(row1["MALND"].ToString().Trim(), loaiNguoiDung_DTO.Malnd.Trim()) == 0)
                     {
-                        row1.Cells["TENLND"].Value = loaiNguoiDung_DTO.Tenlnd;
+                        row1["TENLND"] = loaiNguoiDung_DTO.Tenlnd;
     
                     }
                 }

@@ -320,32 +320,32 @@ namespace QLHS.BUS
             hocSinh_DAO.xoaPhanLop(hocSinh_DTO, namHoc_DTO, lop_DTO);
         }
 
-        public void timHocSinhMaHS(DataGridViewX grdHocSinh,TextBoxX maHS)
+        public DataTable timHocSinhMaHS(TextBoxX maHS)
         {
             clsHOCSINH_DTO hs = new clsHOCSINH_DTO();
             hs.Mahs = maHS.Text;
-            grdHocSinh.DataSource=hocSinh_DAO.timHocSinhMaHS(hs);
+            return hocSinh_DAO.timHocSinhMaHS(hs);
         }
 
-        public void timHocSinhTenHS(DataGridViewX grdHocSinh, TextBoxX tenHS)
+        public DataTable timHocSinhTenHS(TextBoxX tenHS)
         {
             clsHOCSINH_DTO hs = new clsHOCSINH_DTO();
             hs.Tenhs = tenHS.Text;
-            grdHocSinh.DataSource = hocSinh_DAO.timHocSinhTenHS(hs); ;
+           return hocSinh_DAO.timHocSinhTenHS(hs); ;
         }
 
-        public void timHocSinhDanToc(DataGridViewX grdHocSinh, TextBoxX danToc)
+        public DataTable timHocSinhDanToc(TextBoxX danToc)
         {
             clsHOCSINH_DTO hs = new clsHOCSINH_DTO();
             hs.Dantoc = danToc.Text;
-            grdHocSinh.DataSource = hocSinh_DAO.timHocSinhDanToc(hs);
+            return  hocSinh_DAO.timHocSinhDanToc(hs);
         }
 
-        public void timHocSinhNgNhapHoc(DataGridViewX grdHocSinh,DateTimeInput ngNhapHoc)
+        public DataTable timHocSinhNgNhapHoc(DateTimeInput ngNhapHoc)
         {
             clsHOCSINH_DTO hs = new clsHOCSINH_DTO();
             hs.Ngnhaphoc = ngNhapHoc.Value;
-            grdHocSinh.DataSource = hocSinh_DAO.timHocSinhNgNhapHoc(hs);
+            return hocSinh_DAO.timHocSinhNgNhapHoc(hs);
         }
 
         public DataTable timHocSinhNangCao(clsHOCSINH_DTO hs,RadioButton dieuKien)

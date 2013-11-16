@@ -23,10 +23,10 @@ namespace QLHS.BUS
             tblNamHoc = new DataTable();
         }
 
-        public void hienThiDanhSach(DataGridViewX grdNamHoc)
+        public DataTable hienThiDanhSach()
         {
             tblNamHoc = namHoc_DAO.danhSachNamHoc();
-            grdNamHoc.DataSource = tblNamHoc;
+            return tblNamHoc;
         }
 
         public void hienThiComboBox(ComboBoxEx cb)
@@ -74,15 +74,15 @@ namespace QLHS.BUS
             tblNamHoc.Rows.Add(getDatarow());
         }
 
-        public void suaDataGrid(DataGridViewX grdNamHoc)
+        public void suaDataGrid()
         {
-            foreach (DataGridViewRow row1 in grdNamHoc.Rows)
+            foreach (DataRow row1 in tblNamHoc.Rows)
             {
-                if (row1.Cells["MANH"].Value != null)
+                if (row1["MANH"] != null)
                 {
-                    if (string.Compare(row1.Cells["MANH"].Value.ToString().Trim(), namHoc__DTO.Manh.Trim()) == 0)
+                    if (string.Compare(row1["MANH"].ToString().Trim(), namHoc__DTO.Manh.Trim()) == 0)
                     {
-                        row1.Cells["TENNH"].Value = namHoc__DTO.Tenh;
+                        row1["TENNH"] = namHoc__DTO.Tenh;
 
                     }
                 }

@@ -16,6 +16,7 @@ namespace QuanLiHocSinh
         private clsLOAINGUOIDUNG_BUS loaiNguoiDung_BUS;
         private int flag;
         private int viTri, Tong;
+        private BindingSource bs;
 
         public frmLoaiNguoiDung()
         {
@@ -29,12 +30,21 @@ namespace QuanLiHocSinh
         private void frmLoaiNguoiDung_Load(object sender, EventArgs e)
         {
             //load danh sách loại người dùng vào grid loại người dùng
-            loaiNguoiDung_BUS.hienThiDanhSach(grdLoaiND);
+            bindingData();
             FlagDisable();
             flag = 0;
-            sapXep();
-            btnDau.Enabled = false;
-            btnTruoc.Enabled = false;
+            //sapXep();
+            //btnDau.Enabled = false;
+            //btnTruoc.Enabled = false;
+        }
+
+        private void bindingData()
+        {
+            //biding navigator
+            bs = new BindingSource();
+            bs.DataSource = loaiNguoiDung_BUS.hienThiDanhSach();
+            grdLoaiND.DataSource = bs;
+            bnaNguoiDung.BindingSource = bs;
         }
 
         //Trang trí datagrid như nền, canh chỉnh các hàng, ...
@@ -95,7 +105,7 @@ namespace QuanLiHocSinh
             if (flag == 1) insert();
             if (flag == 2) delete();
             if (flag == 3) update();
-            sapXep();
+            //sapXep();
             txtMaLND.Enabled = true;
         }
 
@@ -112,17 +122,17 @@ namespace QuanLiHocSinh
             txtTenLND.Text = "";
         }
 
-        private void sapXep()
-        {
-            viTri = this.BindingContext[grdLoaiND.DataSource].Position;
-            Tong = this.BindingContext[grdLoaiND.DataSource].Count;
-            if (viTri != -1)
-            {
-                txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
-                txtMaLND.Text = grdLoaiND.Rows[viTri].Cells["MALND"].Value.ToString();
-                txtTenLND.Text = grdLoaiND.Rows[viTri].Cells["TENLND"].Value.ToString();
-            }
-        }
+        //private void sapXep()
+        //{
+        //    viTri = this.BindingContext[grdLoaiND.DataSource].Position;
+        //    Tong = this.BindingContext[grdLoaiND.DataSource].Count;
+        //    if (viTri != -1)
+        //    {
+        //        txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
+        //        txtMaLND.Text = grdLoaiND.Rows[viTri].Cells["MALND"].Value.ToString();
+        //        txtTenLND.Text = grdLoaiND.Rows[viTri].Cells["TENLND"].Value.ToString();
+        //    }
+        //}
 
         private void insert()
         {
@@ -201,7 +211,7 @@ namespace QuanLiHocSinh
                     {
                         if (string.Compare(row.Cells["MALND"].Value.ToString().Trim(), txtMaLND.Text.Trim()) == 0)
                         {
-                            loaiNguoiDung_BUS.xoaDong(grdLoaiND, txtMaLND.Text);
+                            loaiNguoiDung_BUS.xoaDong(txtMaLND.Text);
                             resetAll();
                             FlagDisable();
                             flag = 0;
@@ -216,52 +226,52 @@ namespace QuanLiHocSinh
             }
         }
 
-        private void btnDau_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdLoaiND.DataSource].Position;
-            this.BindingContext[grdLoaiND.DataSource].Position = 0;
-            sapXep();
-            btnTruoc.Enabled = false;
-            btnDau.Enabled = false;
-            btnCuoi.Enabled = true;
-            btnSau.Enabled = true;
-        }
+        //private void btnDau_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdLoaiND.DataSource].Position;
+        //    this.BindingContext[grdLoaiND.DataSource].Position = 0;
+        //    sapXep();
+        //    btnTruoc.Enabled = false;
+        //    btnDau.Enabled = false;
+        //    btnCuoi.Enabled = true;
+        //    btnSau.Enabled = true;
+        //}
 
-        private void btnTruoc_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdLoaiND.DataSource].Position;
-            btnCuoi.Enabled = true;
-            btnSau.Enabled = true;
-            this.BindingContext[grdLoaiND.DataSource].Position = viTri - 1;
-            sapXep();
-        }
+        //private void btnTruoc_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdLoaiND.DataSource].Position;
+        //    btnCuoi.Enabled = true;
+        //    btnSau.Enabled = true;
+        //    this.BindingContext[grdLoaiND.DataSource].Position = viTri - 1;
+        //    sapXep();
+        //}
 
-        private void btnSau_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdLoaiND.DataSource].Position;
-            btnDau.Enabled = true;
-            btnTruoc.Enabled = true;
-            this.BindingContext[grdLoaiND.DataSource].Position = viTri + 1;
-            sapXep();
-        }
+        //private void btnSau_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdLoaiND.DataSource].Position;
+        //    btnDau.Enabled = true;
+        //    btnTruoc.Enabled = true;
+        //    this.BindingContext[grdLoaiND.DataSource].Position = viTri + 1;
+        //    sapXep();
+        //}
 
-        private void btnCuoi_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdLoaiND.DataSource].Position;
-            this.BindingContext[grdLoaiND.DataSource].Position = this.BindingContext[grdLoaiND.DataSource].Count - 1;
-            sapXep();
-            btnCuoi.Enabled = false;
-            btnSau.Enabled = false;
-            btnTruoc.Enabled = true;
-            btnDau.Enabled = true;
-        }
+        //private void btnCuoi_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdLoaiND.DataSource].Position;
+        //    this.BindingContext[grdLoaiND.DataSource].Position = this.BindingContext[grdLoaiND.DataSource].Count - 1;
+        //    sapXep();
+        //    btnCuoi.Enabled = false;
+        //    btnSau.Enabled = false;
+        //    btnTruoc.Enabled = true;
+        //    btnDau.Enabled = true;
+        //}
 
         private void grdLoaiND_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtMaLND.Text = grdLoaiND.CurrentRow.Cells["MALND"].Value.ToString();
             txtTenLND.Text = grdLoaiND.CurrentRow.Cells["TENLND"].Value.ToString();
            
-            sapXep();       
+            //sapXep();       
         }
 
         private void txt_Enter(object sender, EventArgs e)
