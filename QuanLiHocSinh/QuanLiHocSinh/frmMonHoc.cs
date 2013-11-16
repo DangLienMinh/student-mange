@@ -60,7 +60,7 @@ namespace QuanLiHocSinh
         private void frmMonHoc_Load(object sender, EventArgs e)
         {
             bindingData();
-            
+            controlValue();
             //load dữ liệu vào comboBox hê số
             monHoc_BUS.hienThiComboBoxHeSo(cboHeSo);
             FlagDisable();
@@ -261,11 +261,7 @@ namespace QuanLiHocSinh
 
         private void grdMonHoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtMaMH.Text = grdMonHoc.CurrentRow.Cells["MAMH"].Value.ToString();
-            txtTenMH.Text = grdMonHoc.CurrentRow.Cells["TENMH"].Value.ToString();
-            txtSoTiet.Text = grdMonHoc.CurrentRow.Cells["SOTIET"].Value.ToString();
-            cboHeSo.SelectedItem = grdMonHoc.CurrentRow.Cells["HESOMH"].Value.ToString();
-            //sapXep();        
+            controlValue();  
         }
 
         private void txtSoTiet_KeyPress(object sender, KeyPressEventArgs e)
@@ -312,10 +308,18 @@ namespace QuanLiHocSinh
 
         private void move_Click(object sender, EventArgs e)
         {
-            txtMaMH.Text = grdMonHoc.CurrentRow.Cells["MAMH"].Value.ToString();
-            txtTenMH.Text = grdMonHoc.CurrentRow.Cells["TENMH"].Value.ToString();
-            txtSoTiet.Text = grdMonHoc.CurrentRow.Cells["SOTIET"].Value.ToString();
-            cboHeSo.SelectedItem = grdMonHoc.CurrentRow.Cells["HESOMH"].Value.ToString();
+            controlValue();
+        }
+
+        private void controlValue()
+        {
+            if (grdMonHoc.CurrentRow.Cells["MAMH"].Value!=null)
+            {
+                txtMaMH.Text = grdMonHoc.CurrentRow.Cells["MAMH"].Value.ToString();
+                txtTenMH.Text = grdMonHoc.CurrentRow.Cells["TENMH"].Value.ToString();
+                txtSoTiet.Text = grdMonHoc.CurrentRow.Cells["SOTIET"].Value.ToString();
+                cboHeSo.SelectedItem = grdMonHoc.CurrentRow.Cells["HESOMH"].Value.ToString();
+            }  
         }
 
 

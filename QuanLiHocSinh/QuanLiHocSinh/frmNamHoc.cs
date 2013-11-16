@@ -16,7 +16,6 @@ namespace QuanLiHocSinh
     {
         private clsNAMHOC_BUS namHoc_BUS;
         private int flag = 0;
-        private int viTri, Tong;
         private BindingSource bs;
         public frmNamHoc()
         {
@@ -44,9 +43,6 @@ namespace QuanLiHocSinh
             txtMaNH.Text = "NH" + DateTime.Now.ToString("yy") + DateTime.Now.AddYears(1).ToString("yy");
             bindingData();
             FlagDisable();
-            //sapXep();
-            //btnFirst.Enabled = false;
-            //btnPrev.Enabled = false;
         }
 
         private void bindingData()
@@ -97,7 +93,6 @@ namespace QuanLiHocSinh
         {
             if (flag == 1) insert();
             if (flag == 3) update();
-            //sapXep();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -171,68 +166,10 @@ namespace QuanLiHocSinh
             flag = 0;
         }
 
-        //private void sapXep()
-        //{
-        //    viTri = this.BindingContext[grdNamHoc.DataSource].Position;
-        //    Tong = this.BindingContext[grdNamHoc.DataSource].Count;
-        //    if (viTri==-1)
-        //    {
-        //        viTri = 0;
-        //    }
-        //    else
-        //    {
-        //        txtCurrent.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
-        //        txtMaNH.Text = grdNamHoc.Rows[viTri].Cells["MANH"].Value.ToString();
-        //        txtTenNH.Text = grdNamHoc.Rows[viTri].Cells["TENNH"].Value.ToString();
-        //    }  
-        //}
-
-        //private void btnPrev_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdNamHoc.DataSource].Position;
-        //    btnLast.Enabled = true;
-        //    btnNext.Enabled = true;
-        //    this.BindingContext[grdNamHoc.DataSource].Position = viTri - 1;
-        //    sapXep();
-        //}
-
-        //private void btnNext_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdNamHoc.DataSource].Position;
-        //    btnFirst.Enabled = true;
-        //    btnPrev.Enabled = true;
-        //    this.BindingContext[grdNamHoc.DataSource].Position = viTri + 1;
-        //    sapXep();
-        //}
-
-        //private void btnFirst_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdNamHoc.DataSource].Position;
-        //    this.BindingContext[grdNamHoc.DataSource].Position = 0;
-        //    sapXep();
-        //    btnPrev.Enabled = false;
-        //    btnFirst.Enabled = false;
-        //    btnLast.Enabled = true;
-        //    btnNext.Enabled = true;
-        //}
-
-        //private void btnLast_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdNamHoc.DataSource].Position;
-        //    this.BindingContext[grdNamHoc.DataSource].Position = this.BindingContext[grdNamHoc.DataSource].Count - 1;
-        //    sapXep();
-        //    btnLast.Enabled = false;
-        //    btnNext.Enabled = false;
-        //    btnPrev.Enabled = true;
-        //    btnFirst.Enabled = true;
-        //}
 
         private void grdNamHoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtMaNH.Text = grdNamHoc.CurrentRow.Cells["MANH"].Value.ToString();
-            txtTenNH.Text = grdNamHoc.CurrentRow.Cells["TENNH"].Value.ToString();
-
-            //sapXep();       
+            controlValue();
         }
 
         private void txt_Enter(object sender, EventArgs e)
@@ -255,8 +192,17 @@ namespace QuanLiHocSinh
 
         private void move_Click(object sender, EventArgs e)
         {
-            txtMaNH.Text = grdNamHoc.CurrentRow.Cells["MANH"].Value.ToString();
-            txtTenNH.Text = grdNamHoc.CurrentRow.Cells["TENNH"].Value.ToString();
+            controlValue();
+        }
+
+        private void controlValue()
+        {
+            if (grdNamHoc.CurrentRow.Cells["MANH"].Value!=null)
+            {
+                txtMaNH.Text = grdNamHoc.CurrentRow.Cells["MANH"].Value.ToString();
+                txtTenNH.Text = grdNamHoc.CurrentRow.Cells["TENNH"].Value.ToString();
+            }
+           
         }
     }
 }

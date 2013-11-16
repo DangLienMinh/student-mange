@@ -16,7 +16,6 @@ namespace QuanLiHocSinh
         private clsLOP_BUS lop_BUS;
         private clsNAMHOC_BUS namHoc_BUS;
         private clsHOCSINH_BUS hocSinh_BUS;
-        private int viTri, Tong;
         private BindingSource bs;
 
         public frmHocSinhTheoLop()
@@ -29,8 +28,6 @@ namespace QuanLiHocSinh
             namHoc_BUS = new clsNAMHOC_BUS();
             hocSinh_BUS = new clsHOCSINH_BUS();
         }
-
-       
 
         //Trang trí datagrid như nền, canh chỉnh các hàng, ...
         private void datagridMakeUp(DataGridViewX temp)
@@ -46,9 +43,6 @@ namespace QuanLiHocSinh
         private void frmHocSinhTheoLop_Load(object sender, EventArgs e)
         {
             namHoc_BUS.hienThiComboBox(cboNamHoc);
-           // sapXep();
-            //btnDau.Enabled = false;
-            //btnTruoc.Enabled = false;
         }
 
         private void cboNamHoc_SelectedValueChanged(object sender, EventArgs e)
@@ -94,61 +88,6 @@ namespace QuanLiHocSinh
             grdHocSinh.DataSource = bs;
             bnaDanhSach.BindingSource = bs;
         }
-        //private void btnDau_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdHocSinh.DataSource].Position;
-        //    this.BindingContext[grdHocSinh.DataSource].Position = 0;
-        //    sapXep();
-        //    btnTruoc.Enabled = false;
-        //    btnDau.Enabled = false;
-        //    btnCuoi.Enabled = true;
-        //    btnSau.Enabled = true;
-        //}
-
-        //private void btnTruoc_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdHocSinh.DataSource].Position;
-        //    btnCuoi.Enabled = true;
-        //    btnSau.Enabled = true;
-        //    this.BindingContext[grdHocSinh.DataSource].Position = viTri - 1;
-        //    sapXep();
-        //}
-
-        //private void btnSau_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdHocSinh.DataSource].Position;
-        //    btnDau.Enabled = true;
-        //    btnTruoc.Enabled = true;
-        //    this.BindingContext[grdHocSinh.DataSource].Position = viTri + 1;
-        //    sapXep();
-        //}
-
-        //private void btnCuoi_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdHocSinh.DataSource].Position;
-        //    this.BindingContext[grdHocSinh.DataSource].Position = this.BindingContext[grdHocSinh.DataSource].Count - 1;
-        //    sapXep();
-        //    btnCuoi.Enabled = false;
-        //    btnSau.Enabled = false;
-        //    btnTruoc.Enabled = true;
-        //    btnDau.Enabled = true;
-        //}
-
-        //private void sapXep()
-        //{
-        //    viTri = this.BindingContext[grdHocSinh.DataSource].Position;
-        //    Tong = this.BindingContext[grdHocSinh.DataSource].Count;
-        //    if (viTri != -1)
-        //    {
-        //        txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
-        //    }
-
-        //}
-
-        //private void grdHocSinh_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    sapXep();
-        //}
 
         private void frmHocSinhTheoLop_KeyDown(object sender, KeyEventArgs e)
         {
