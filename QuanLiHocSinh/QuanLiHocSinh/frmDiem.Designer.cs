@@ -123,6 +123,16 @@
             this.bindingNavigatorMoveNextItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorMoveLastItem = new DevComponents.DotNetBar.ButtonItem();
             this.btnLuuDiem = new DevComponents.DotNetBar.ButtonItem();
+            this.bnaDiemRieng = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
+            this.labelItem1 = new DevComponents.DotNetBar.LabelItem();
+            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem2 = new DevComponents.DotNetBar.ButtonItem();
+            this.textBoxItem1 = new DevComponents.DotNetBar.TextBoxItem();
+            this.buttonItem3 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem4 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem8 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem9 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem5 = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPane2 = new DevComponents.DotNetBar.NavigationPane();
             this.tabControl1 = new DevComponents.DotNetBar.TabControl();
             this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
@@ -141,16 +151,6 @@
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.btnItemNhapLop = new DevComponents.DotNetBar.ButtonItem();
             this.btnItemLop = new DevComponents.DotNetBar.TabItem(this.components);
-            this.bnaDiemRieng = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
-            this.labelItem1 = new DevComponents.DotNetBar.LabelItem();
-            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem2 = new DevComponents.DotNetBar.ButtonItem();
-            this.textBoxItem1 = new DevComponents.DotNetBar.TextBoxItem();
-            this.buttonItem3 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem4 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem8 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem9 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem5 = new DevComponents.DotNetBar.ButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.grdDiemRieng)).BeginInit();
             this.navigationPanePanel3.SuspendLayout();
             this.tabControlPanel2.SuspendLayout();
@@ -162,6 +162,7 @@
             this.panelEx1.SuspendLayout();
             this.panelEx9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bnaDiem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bnaDiemRieng)).BeginInit();
             this.navigationPane2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -169,7 +170,6 @@
             this.navigationPane1.SuspendLayout();
             this.navigationPanePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treLop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bnaDiemRieng)).BeginInit();
             this.SuspendLayout();
             // 
             // grdDiemRieng
@@ -1244,6 +1244,99 @@
             this.btnLuuDiem.Tooltip = "Lưu điểm";
             this.btnLuuDiem.Click += new System.EventHandler(this.btnLuuDiem_Click);
             // 
+            // bnaDiemRieng
+            // 
+            this.bnaDiemRieng.AntiAlias = true;
+            this.bnaDiemRieng.CountLabel = this.labelItem1;
+            this.bnaDiemRieng.CountLabelFormat = "of {0}";
+            this.bnaDiemRieng.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bnaDiemRieng.DockSide = DevComponents.DotNetBar.eDockSide.Document;
+            this.bnaDiemRieng.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bnaDiemRieng.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.buttonItem1,
+            this.buttonItem2,
+            this.textBoxItem1,
+            this.labelItem1,
+            this.buttonItem3,
+            this.buttonItem4,
+            this.buttonItem8,
+            this.buttonItem9,
+            this.buttonItem5});
+            this.bnaDiemRieng.Location = new System.Drawing.Point(0, 0);
+            this.bnaDiemRieng.MoveFirstButton = this.buttonItem1;
+            this.bnaDiemRieng.MoveLastButton = this.buttonItem4;
+            this.bnaDiemRieng.MoveNextButton = this.buttonItem3;
+            this.bnaDiemRieng.MovePreviousButton = this.buttonItem2;
+            this.bnaDiemRieng.Name = "bnaDiemRieng";
+            this.bnaDiemRieng.PositionTextBox = this.textBoxItem1;
+            this.bnaDiemRieng.Size = new System.Drawing.Size(1153, 25);
+            this.bnaDiemRieng.Stretch = true;
+            this.bnaDiemRieng.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.bnaDiemRieng.TabIndex = 25;
+            this.bnaDiemRieng.TabStop = false;
+            this.bnaDiemRieng.Text = "bindingNavigatorEx1";
+            // 
+            // labelItem1
+            // 
+            this.labelItem1.Name = "labelItem1";
+            this.labelItem1.Text = "of {0}";
+            // 
+            // buttonItem1
+            // 
+            this.buttonItem1.Image = ((System.Drawing.Image)(resources.GetObject("buttonItem1.Image")));
+            this.buttonItem1.Name = "buttonItem1";
+            this.buttonItem1.Text = "Move first";
+            this.buttonItem1.Click += new System.EventHandler(this.move_Click);
+            // 
+            // buttonItem2
+            // 
+            this.buttonItem2.Image = ((System.Drawing.Image)(resources.GetObject("buttonItem2.Image")));
+            this.buttonItem2.Name = "buttonItem2";
+            this.buttonItem2.Text = "Move previous";
+            this.buttonItem2.Click += new System.EventHandler(this.move_Click);
+            // 
+            // textBoxItem1
+            // 
+            this.textBoxItem1.AccessibleName = "Position";
+            this.textBoxItem1.BeginGroup = true;
+            this.textBoxItem1.Name = "textBoxItem1";
+            this.textBoxItem1.Text = "0";
+            this.textBoxItem1.TextBoxWidth = 54;
+            this.textBoxItem1.WatermarkColor = System.Drawing.SystemColors.GrayText;
+            // 
+            // buttonItem3
+            // 
+            this.buttonItem3.BeginGroup = true;
+            this.buttonItem3.Image = ((System.Drawing.Image)(resources.GetObject("buttonItem3.Image")));
+            this.buttonItem3.Name = "buttonItem3";
+            this.buttonItem3.Text = "Move next";
+            this.buttonItem3.Click += new System.EventHandler(this.move_Click);
+            // 
+            // buttonItem4
+            // 
+            this.buttonItem4.Image = ((System.Drawing.Image)(resources.GetObject("buttonItem4.Image")));
+            this.buttonItem4.Name = "buttonItem4";
+            this.buttonItem4.Text = "Move last";
+            this.buttonItem4.Click += new System.EventHandler(this.move_Click);
+            // 
+            // buttonItem8
+            // 
+            this.buttonItem8.Image = global::QuanLiHocSinh.Properties.Resources.add;
+            this.buttonItem8.Name = "buttonItem8";
+            this.buttonItem8.Text = "buttonItem2";
+            // 
+            // buttonItem9
+            // 
+            this.buttonItem9.Image = global::QuanLiHocSinh.Properties.Resources.delete;
+            this.buttonItem9.Name = "buttonItem9";
+            this.buttonItem9.Text = "buttonItem3";
+            // 
+            // buttonItem5
+            // 
+            this.buttonItem5.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
+            this.buttonItem5.Name = "buttonItem5";
+            this.buttonItem5.Text = "buttonItem1";
+            // 
             // navigationPane2
             // 
             this.navigationPane2.Controls.Add(this.navigationPanePanel3);
@@ -1523,95 +1616,6 @@
             this.btnItemLop.Name = "btnItemLop";
             this.btnItemLop.Text = "Nhập điểm theo Lớp";
             // 
-            // bnaDiemRieng
-            // 
-            this.bnaDiemRieng.AntiAlias = true;
-            this.bnaDiemRieng.CountLabel = this.labelItem1;
-            this.bnaDiemRieng.CountLabelFormat = "of {0}";
-            this.bnaDiemRieng.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bnaDiemRieng.DockSide = DevComponents.DotNetBar.eDockSide.Document;
-            this.bnaDiemRieng.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bnaDiemRieng.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.buttonItem1,
-            this.buttonItem2,
-            this.textBoxItem1,
-            this.labelItem1,
-            this.buttonItem3,
-            this.buttonItem4,
-            this.buttonItem8,
-            this.buttonItem9,
-            this.buttonItem5});
-            this.bnaDiemRieng.Location = new System.Drawing.Point(0, 0);
-            this.bnaDiemRieng.MoveFirstButton = this.buttonItem1;
-            this.bnaDiemRieng.MoveLastButton = this.buttonItem4;
-            this.bnaDiemRieng.MoveNextButton = this.buttonItem3;
-            this.bnaDiemRieng.MovePreviousButton = this.buttonItem2;
-            this.bnaDiemRieng.Name = "bnaDiemRieng";
-            this.bnaDiemRieng.PositionTextBox = this.textBoxItem1;
-            this.bnaDiemRieng.Size = new System.Drawing.Size(1153, 25);
-            this.bnaDiemRieng.Stretch = true;
-            this.bnaDiemRieng.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.bnaDiemRieng.TabIndex = 25;
-            this.bnaDiemRieng.TabStop = false;
-            this.bnaDiemRieng.Text = "bindingNavigatorEx1";
-            // 
-            // labelItem1
-            // 
-            this.labelItem1.Name = "labelItem1";
-            this.labelItem1.Text = "of {0}";
-            // 
-            // buttonItem1
-            // 
-            this.buttonItem1.Image = ((System.Drawing.Image)(resources.GetObject("buttonItem1.Image")));
-            this.buttonItem1.Name = "buttonItem1";
-            this.buttonItem1.Text = "Move first";
-            // 
-            // buttonItem2
-            // 
-            this.buttonItem2.Image = ((System.Drawing.Image)(resources.GetObject("buttonItem2.Image")));
-            this.buttonItem2.Name = "buttonItem2";
-            this.buttonItem2.Text = "Move previous";
-            // 
-            // textBoxItem1
-            // 
-            this.textBoxItem1.AccessibleName = "Position";
-            this.textBoxItem1.BeginGroup = true;
-            this.textBoxItem1.Name = "textBoxItem1";
-            this.textBoxItem1.Text = "0";
-            this.textBoxItem1.TextBoxWidth = 54;
-            this.textBoxItem1.WatermarkColor = System.Drawing.SystemColors.GrayText;
-            // 
-            // buttonItem3
-            // 
-            this.buttonItem3.BeginGroup = true;
-            this.buttonItem3.Image = ((System.Drawing.Image)(resources.GetObject("buttonItem3.Image")));
-            this.buttonItem3.Name = "buttonItem3";
-            this.buttonItem3.Text = "Move next";
-            // 
-            // buttonItem4
-            // 
-            this.buttonItem4.Image = ((System.Drawing.Image)(resources.GetObject("buttonItem4.Image")));
-            this.buttonItem4.Name = "buttonItem4";
-            this.buttonItem4.Text = "Move last";
-            // 
-            // buttonItem8
-            // 
-            this.buttonItem8.Image = global::QuanLiHocSinh.Properties.Resources.add;
-            this.buttonItem8.Name = "buttonItem8";
-            this.buttonItem8.Text = "buttonItem2";
-            // 
-            // buttonItem9
-            // 
-            this.buttonItem9.Image = global::QuanLiHocSinh.Properties.Resources.delete;
-            this.buttonItem9.Name = "buttonItem9";
-            this.buttonItem9.Text = "buttonItem3";
-            // 
-            // buttonItem5
-            // 
-            this.buttonItem5.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
-            this.buttonItem5.Name = "buttonItem5";
-            this.buttonItem5.Text = "buttonItem1";
-            // 
             // frmDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1635,6 +1639,7 @@
             this.panelEx1.ResumeLayout(false);
             this.panelEx9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bnaDiem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bnaDiemRieng)).EndInit();
             this.navigationPane2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).EndInit();
             this.tabControl1.ResumeLayout(false);
@@ -1642,7 +1647,6 @@
             this.navigationPane1.ResumeLayout(false);
             this.navigationPanePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treLop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bnaDiemRieng)).EndInit();
             this.ResumeLayout(false);
 
         }

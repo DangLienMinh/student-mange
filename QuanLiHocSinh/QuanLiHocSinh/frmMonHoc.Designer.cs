@@ -57,8 +57,9 @@
             this.bindingNavigatorPositionItem = new DevComponents.DotNetBar.TextBoxItem();
             this.bindingNavigatorMoveNextItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorMoveLastItem = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem2 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem3 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.cboHeSo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtSoTiet = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -70,7 +71,6 @@
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
-            this.buttonItem3 = new DevComponents.DotNetBar.ButtonItem();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contextMenuBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdMonHoc)).BeginInit();
@@ -350,12 +350,14 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            this.bindingNavigatorMoveFirstItem.Click += new System.EventHandler(this.move_Click);
             // 
             // bindingNavigatorMovePreviousItem
             // 
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            this.bindingNavigatorMovePreviousItem.Click += new System.EventHandler(this.move_Click);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -372,19 +374,14 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.Text = "Move next";
+            this.bindingNavigatorMoveNextItem.Click += new System.EventHandler(this.move_Click);
             // 
             // bindingNavigatorMoveLastItem
             // 
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // buttonItem1
-            // 
-            this.buttonItem1.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
-            this.buttonItem1.Name = "buttonItem1";
-            this.buttonItem1.Text = "buttonItem1";
-            this.buttonItem1.Click += new System.EventHandler(this.frmMonHoc_Load);
+            this.bindingNavigatorMoveLastItem.Click += new System.EventHandler(this.move_Click);
             // 
             // buttonItem2
             // 
@@ -392,6 +389,20 @@
             this.buttonItem2.Name = "buttonItem2";
             this.buttonItem2.Text = "buttonItem2";
             this.buttonItem2.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // buttonItem3
+            // 
+            this.buttonItem3.Image = global::QuanLiHocSinh.Properties.Resources.delete;
+            this.buttonItem3.Name = "buttonItem3";
+            this.buttonItem3.Text = "buttonItem3";
+            this.buttonItem3.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // buttonItem1
+            // 
+            this.buttonItem1.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
+            this.buttonItem1.Name = "buttonItem1";
+            this.buttonItem1.Text = "buttonItem1";
+            this.buttonItem1.Click += new System.EventHandler(this.frmMonHoc_Load);
             // 
             // navigationPanePanel2
             // 
@@ -570,13 +581,6 @@
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
             this.navigationPane1.TitlePanel.Text = "Nhập liệu thông tin";
-            // 
-            // buttonItem3
-            // 
-            this.buttonItem3.Image = global::QuanLiHocSinh.Properties.Resources.delete;
-            this.buttonItem3.Name = "buttonItem3";
-            this.buttonItem3.Text = "buttonItem3";
-            this.buttonItem3.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // frmMonHoc
             // 
