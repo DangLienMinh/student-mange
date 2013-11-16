@@ -300,6 +300,25 @@ namespace QuanLiHocSinh
             bs.DataSource = table;
             grdHocSinh.DataSource = bs;
             bnaHocSinh.BindingSource = bs;
+            if (grdHocSinh.Rows.Count > 1)
+            {
+                foreach (DataGridViewRow row in grdHocSinh.Rows)
+                {
+                    if (row.Cells["MAHS"].Value != null)
+                    {
+                        char x = char.Parse(row.Cells["GIOITINHHS"].Value.ToString());
+                        if (x == '1')
+                        {
+                            row.Cells["GIOITINHHS"].Value = "Nam";
+                        }
+                        else
+                        {
+                            row.Cells["GIOITINHHS"].Value = "Nữ";
+                        }
+                    }
+
+                }
+            }
         }
 
         private void frmTimHocSinh_KeyDown(object sender, KeyEventArgs e)

@@ -266,11 +266,11 @@ namespace QuanLiHocSinh
 
         private void txtSoTiet_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsNumber(e.KeyChar);
-            if (!char.IsNumber(e.KeyChar))
+            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                MessageBox.Show("Chỉ nhập số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }    
+                e.Handled = true;
+                MessageBox.Show("Chỉ nhập số,không nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }  
         }
 
         private void txt_Enter(object sender, EventArgs e)

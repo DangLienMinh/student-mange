@@ -38,10 +38,10 @@ namespace QuanLiHocSinh
 
         private void frmNamHoc_Load(object sender, EventArgs e)
         {
-
             //tạo mã năm học
             txtMaNH.Text = "NH" + DateTime.Now.ToString("yy") + DateTime.Now.AddYears(1).ToString("yy");
             bindingData();
+            controlValue();
             FlagDisable();
         }
 
