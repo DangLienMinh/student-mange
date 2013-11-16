@@ -54,17 +54,17 @@
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.contextMenuBar2 = new DevComponents.DotNetBar.ContextMenuBar();
+            this.btnMenu = new DevComponents.DotNetBar.ButtonItem();
+            this.btnAdd = new DevComponents.DotNetBar.ButtonItem();
+            this.btnRefesh = new DevComponents.DotNetBar.ButtonItem();
+            this.btnDelete = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClose = new DevComponents.DotNetBar.ButtonItem();
             this.grdNguoiDung = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.MAND = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENND = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MALND = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENDN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MATKHAU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnMenu = new DevComponents.DotNetBar.ButtonItem();
-            this.btnAdd = new DevComponents.DotNetBar.ButtonItem();
-            this.btnRefesh = new DevComponents.DotNetBar.ButtonItem();
-            this.btnDelete = new DevComponents.DotNetBar.ButtonItem();
-            this.btnClose = new DevComponents.DotNetBar.ButtonItem();
             this.bnaNguoiDung = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
             this.bindingNavigatorAddNewItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
@@ -419,6 +419,50 @@
             this.contextMenuBar2.TabStop = false;
             this.contextMenuBar2.Text = "contextMenuBar2";
             // 
+            // btnMenu
+            // 
+            this.btnMenu.AutoExpandOnClick = true;
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2);
+            this.btnMenu.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnAdd,
+            this.btnRefesh,
+            this.btnDelete,
+            this.btnClose});
+            this.btnMenu.Text = "Menu";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Image = global::QuanLiHocSinh.Properties.Resources.add;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Ins);
+            this.btnAdd.Text = "Thêm mới";
+            this.btnAdd.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // btnRefesh
+            // 
+            this.btnRefesh.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
+            this.btnRefesh.Name = "btnRefesh";
+            this.btnRefesh.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.F5);
+            this.btnRefesh.Text = "Làm tươi danh dách";
+            this.btnRefesh.Click += new System.EventHandler(this.frmNguoiDung_Load);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = global::QuanLiHocSinh.Properties.Resources.delete;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Del);
+            this.btnDelete.Text = "Xóa dòng được chọn";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Image = global::QuanLiHocSinh.Properties.Resources.exit;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.AltF4);
+            this.btnClose.Text = "Đóng cửa sổ này";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // grdNguoiDung
             // 
             this.grdNguoiDung.AllowUserToDeleteRows = false;
@@ -499,50 +543,6 @@
             this.MATKHAU.Name = "MATKHAU";
             this.MATKHAU.Visible = false;
             // 
-            // btnMenu
-            // 
-            this.btnMenu.AutoExpandOnClick = true;
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2);
-            this.btnMenu.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnAdd,
-            this.btnRefesh,
-            this.btnDelete,
-            this.btnClose});
-            this.btnMenu.Text = "Menu";
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Image = global::QuanLiHocSinh.Properties.Resources.add;
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Ins);
-            this.btnAdd.Text = "Thêm mới";
-            this.btnAdd.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // btnRefesh
-            // 
-            this.btnRefesh.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
-            this.btnRefesh.Name = "btnRefesh";
-            this.btnRefesh.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.F5);
-            this.btnRefesh.Text = "Làm tươi danh dách";
-            this.btnRefesh.Click += new System.EventHandler(this.frmNguoiDung_Load);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Image = global::QuanLiHocSinh.Properties.Resources.delete;
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Del);
-            this.btnDelete.Text = "Xóa dòng được chọn";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Image = global::QuanLiHocSinh.Properties.Resources.exit;
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.AltF4);
-            this.btnClose.Text = "Đóng cửa sổ này";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // bnaNguoiDung
             // 
             this.bnaNguoiDung.AddNewRecordButton = this.bindingNavigatorAddNewItem;
@@ -582,6 +582,7 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -593,6 +594,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -633,6 +635,7 @@
             this.buttonItem1.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
             this.buttonItem1.Name = "buttonItem1";
             this.buttonItem1.Text = "buttonItem1";
+            this.buttonItem1.Click += new System.EventHandler(this.frmNguoiDung_Load);
             // 
             // frmNguoiDung
             // 

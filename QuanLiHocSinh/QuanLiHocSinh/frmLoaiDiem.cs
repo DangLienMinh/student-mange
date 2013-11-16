@@ -298,5 +298,10 @@ namespace QuanLiHocSinh
             txtMaLD.BackColor = Color.White;
             txtTenLD.BackColor = Color.White;
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            delete();
+        }
     }
 }
