@@ -55,7 +55,7 @@
             this.bnaLoaiDiem = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
             this.bindingNavigatorAddNewItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
-            this.bindingNavigatorDeleteItem = new DevComponents.DotNetBar.ButtonItem();
+            this.btnDelete = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorMoveFirstItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorMovePreviousItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorPositionItem = new DevComponents.DotNetBar.TextBoxItem();
@@ -385,7 +385,7 @@
             this.bnaLoaiDiem.AntiAlias = true;
             this.bnaLoaiDiem.CountLabel = this.bindingNavigatorCountItem;
             this.bnaLoaiDiem.CountLabelFormat = "of {0}";
-            this.bnaLoaiDiem.DeleteButton = this.bindingNavigatorDeleteItem;
+            this.bnaLoaiDiem.DeleteButton = this.btnDelete;
             this.bnaLoaiDiem.Dock = System.Windows.Forms.DockStyle.Top;
             this.bnaLoaiDiem.DockSide = DevComponents.DotNetBar.eDockSide.Document;
             this.bnaLoaiDiem.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -397,7 +397,7 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
+            this.btnDelete,
             this.buttonItem1});
             this.bnaLoaiDiem.Location = new System.Drawing.Point(0, 0);
             this.bnaLoaiDiem.MoveFirstButton = this.bindingNavigatorMoveFirstItem;
@@ -418,17 +418,19 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
             this.bindingNavigatorCountItem.Text = "of {0}";
             // 
-            // bindingNavigatorDeleteItem
+            // btnDelete
             // 
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -469,6 +471,7 @@
             this.buttonItem1.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
             this.buttonItem1.Name = "buttonItem1";
             this.buttonItem1.Text = "buttonItem1";
+            this.buttonItem1.Click += new System.EventHandler(this.frmLoaiDiem_Load);
             // 
             // frmLoaiDiem
             // 
@@ -516,7 +519,7 @@
         private DevComponents.DotNetBar.Controls.BindingNavigatorEx bnaLoaiDiem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorAddNewItem;
         private DevComponents.DotNetBar.LabelItem bindingNavigatorCountItem;
-        private DevComponents.DotNetBar.ButtonItem bindingNavigatorDeleteItem;
+        private DevComponents.DotNetBar.ButtonItem btnDelete;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveFirstItem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMovePreviousItem;
         private DevComponents.DotNetBar.TextBoxItem bindingNavigatorPositionItem;

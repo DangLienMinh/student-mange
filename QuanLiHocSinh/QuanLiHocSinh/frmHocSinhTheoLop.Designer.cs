@@ -57,15 +57,12 @@
             this.NGNHAPHOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HINHANHHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bnaDanhSach = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
-            this.bindingNavigatorAddNewItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
-            this.bindingNavigatorDeleteItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorMoveFirstItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorMovePreviousItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorPositionItem = new DevComponents.DotNetBar.TextBoxItem();
             this.bindingNavigatorMoveNextItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorMoveLastItem = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.treLop)).BeginInit();
             this.navigationPanePanel2.SuspendLayout();
             this.navigationPane1.SuspendLayout();
@@ -370,11 +367,9 @@
             // 
             // bnaDanhSach
             // 
-            this.bnaDanhSach.AddNewRecordButton = this.bindingNavigatorAddNewItem;
             this.bnaDanhSach.AntiAlias = true;
             this.bnaDanhSach.CountLabel = this.bindingNavigatorCountItem;
             this.bnaDanhSach.CountLabelFormat = "of {0}";
-            this.bnaDanhSach.DeleteButton = this.bindingNavigatorDeleteItem;
             this.bnaDanhSach.Dock = System.Windows.Forms.DockStyle.Top;
             this.bnaDanhSach.DockSide = DevComponents.DotNetBar.eDockSide.Document;
             this.bnaDanhSach.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -384,10 +379,7 @@
             this.bindingNavigatorPositionItem,
             this.bindingNavigatorCountItem,
             this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.buttonItem1});
+            this.bindingNavigatorMoveLastItem});
             this.bnaDanhSach.Location = new System.Drawing.Point(0, 0);
             this.bnaDanhSach.MoveFirstButton = this.bindingNavigatorMoveFirstItem;
             this.bnaDanhSach.MoveLastButton = this.bindingNavigatorMoveLastItem;
@@ -402,22 +394,10 @@
             this.bnaDanhSach.TabStop = false;
             this.bnaDanhSach.Text = "bindingNavigatorEx1";
             // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
             this.bindingNavigatorCountItem.Text = "of {0}";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -452,12 +432,6 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // buttonItem1
-            // 
-            this.buttonItem1.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
-            this.buttonItem1.Name = "buttonItem1";
-            this.buttonItem1.Text = "buttonItem1";
             // 
             // frmHocSinhTheoLop
             // 
@@ -506,14 +480,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NGNHAPHOC;
         private System.Windows.Forms.DataGridViewTextBoxColumn HINHANHHS;
         private DevComponents.DotNetBar.Controls.BindingNavigatorEx bnaDanhSach;
-        private DevComponents.DotNetBar.ButtonItem bindingNavigatorAddNewItem;
         private DevComponents.DotNetBar.LabelItem bindingNavigatorCountItem;
-        private DevComponents.DotNetBar.ButtonItem bindingNavigatorDeleteItem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveFirstItem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMovePreviousItem;
         private DevComponents.DotNetBar.TextBoxItem bindingNavigatorPositionItem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveNextItem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveLastItem;
-        private DevComponents.DotNetBar.ButtonItem buttonItem1;
     }
 }

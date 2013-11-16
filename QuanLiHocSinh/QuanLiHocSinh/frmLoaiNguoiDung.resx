@@ -153,7 +153,7 @@
   <data name="bindingNavigatorAddNewItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAABbUlEQVQ4T6WP
+        vAAADrwBlbxySQAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAABbUlEQVQ4T6WP
         3SuDYRjGdyYy+ViRREsKWTP8HSMJNeZjjfloaVlMY9NoZRNNy2c44MQBJw44UaQ0JVHajI35O973vdzP
         Dnaw3QeWg189/bquq+dWAfgXrMwHVgoSxwWIHxbi7aAILztqUnyOlYIoFaWfZUgpLyJbpaT4HCsFz9vq
         zMBtUEOKz7FS8BAqo/ISpO8FXPkrSfG5zON1txhP4RJEqHi/UY6bgIbKc5CTDlx4a3DmrsWpS4sjZz32
@@ -163,7 +163,7 @@
         rJ2eq8cAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="bindingNavigatorDeleteItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAASdJREFUOE+l
         kjFSwzAQRXUDqWFCZ3ehszvo5C7p4gZCp3SU0EGXI3EE+wbxEXQDdIPl7wYjy0qADMUbj1Z6f9eyFRH9

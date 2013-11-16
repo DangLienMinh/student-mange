@@ -293,6 +293,11 @@ namespace QuanLiHocSinh
             }
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            delete();
+        }
+
 
     }
 }
