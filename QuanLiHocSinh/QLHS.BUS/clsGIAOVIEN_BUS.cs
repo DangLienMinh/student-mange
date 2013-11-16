@@ -64,20 +64,20 @@ namespace QLHS.BUS
             return result;
         }
 
-        public void timGVMaGV(DataGridViewX grdGV, string maGV)
+        public DataTable timGVMaGV(string maGV)
         {
             giaoVien_DTO = new clsGIAOVIEN_DTO();
             giaoVien_DTO.Magv = maGV;
             tblGiaoVien = giaoVien_DAO.timGVMaGV(giaoVien_DTO);
-            grdGV.DataSource = tblGiaoVien;
+            return  tblGiaoVien;
         }
 
-        public void timGVTenGV(DataGridViewX grdGV,string tenGV)
+        public DataTable timGVTenGV(string tenGV)
         {
             giaoVien_DTO = new clsGIAOVIEN_DTO();
             giaoVien_DTO.Tengv = tenGV;
             tblGiaoVien = giaoVien_DAO.timGVTenGV(giaoVien_DTO);
-            grdGV.DataSource = tblGiaoVien;
+            return tblGiaoVien;
         }
 
         public void xoaGiaoVien(string maGV) 

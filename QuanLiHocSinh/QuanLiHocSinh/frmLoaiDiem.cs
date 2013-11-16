@@ -16,7 +16,6 @@ namespace QuanLiHocSinh
     {
         private clsLOAIDIEM_BUS loaiDiem_BUS;
         private int flag;
-        private int viTri, Tong;
         private BindingSource bs;
 
         public frmLoaiDiem()
@@ -63,6 +62,7 @@ namespace QuanLiHocSinh
         {
             //load danh sách loại điểm vào datagrid loại điểm
             bindingData();
+            controlValue();
             //load dữ liệu vào comboBox hệ số
             loaiDiem_BUS.hienThiComboBoxHeSo(cboHeSo);
             FlagDisable();
@@ -109,7 +109,6 @@ namespace QuanLiHocSinh
             if (flag == 1) insert();
             if (flag == 2) delete();
             if (flag == 3) update();
-            //sapXep();
             txtMaLD.Enabled = true;
         }
 
@@ -126,19 +125,6 @@ namespace QuanLiHocSinh
             txtTenLD.Text = "";
         }
 
-        //private void sapXep()
-        //{
-        //    viTri = this.BindingContext[grdLoaiDiem.DataSource].Position;
-        //    Tong = this.BindingContext[grdLoaiDiem.DataSource].Count;
-        //    if (viTri != -1)
-        //    {
-        //        txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
-        //        txtMaLD.Text = grdLoaiDiem.Rows[viTri].Cells["MALD"].Value.ToString();
-        //        txtTenLD.Text = grdLoaiDiem.Rows[viTri].Cells["TENLD"].Value.ToString();
-        //        cboHeSo.SelectedItem = grdLoaiDiem.Rows[viTri].Cells["HESOLD"].Value.ToString();
-        //    }
-
-        //}
 
         private void insert()
         {
@@ -230,46 +216,6 @@ namespace QuanLiHocSinh
             }
         }
 
-        //private void btnDau_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdLoaiDiem.DataSource].Position;
-        //    this.BindingContext[grdLoaiDiem.DataSource].Position = 0;
-        //    sapXep();
-        //    btnTruoc.Enabled = false;
-        //    btnDau.Enabled = false;
-        //    btnCuoi.Enabled = true;
-        //    btnSau.Enabled = true;
-        //}
-
-        //private void btnTruoc_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdLoaiDiem.DataSource].Position;
-        //    btnCuoi.Enabled = true;
-        //    btnSau.Enabled = true;
-        //    this.BindingContext[grdLoaiDiem.DataSource].Position = viTri - 1;
-        //    sapXep();
-        //}
-
-        //private void btnSau_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdLoaiDiem.DataSource].Position;
-        //    btnDau.Enabled = true;
-        //    btnTruoc.Enabled = true;
-        //    this.BindingContext[grdLoaiDiem.DataSource].Position = viTri + 1;
-        //    sapXep();
-        //}
-
-        //private void btnCuoi_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdLoaiDiem.DataSource].Position;
-        //    this.BindingContext[grdLoaiDiem.DataSource].Position = this.BindingContext[grdLoaiDiem.DataSource].Count - 1;
-        //    sapXep();
-        //    btnCuoi.Enabled = false;
-        //    btnSau.Enabled = false;
-        //    btnTruoc.Enabled = true;
-        //    btnDau.Enabled = true;
-        //}
-
         private void frmLoaiDiem_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -280,10 +226,7 @@ namespace QuanLiHocSinh
 
         private void grdMonHoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtMaLD.Text = grdLoaiDiem.CurrentRow.Cells["MALD"].Value.ToString();
-            txtTenLD.Text = grdLoaiDiem.CurrentRow.Cells["TENLD"].Value.ToString();
-            cboHeSo.SelectedItem = grdLoaiDiem.CurrentRow.Cells["HESOLD"].Value.ToString();
-           // sapXep();      
+            controlValue();   
         }
 
         private void txt_Enter(object sender, EventArgs e)
@@ -307,9 +250,17 @@ namespace QuanLiHocSinh
 
         private void move_Click(object sender, EventArgs e)
         {
-            txtMaLD.Text = grdLoaiDiem.CurrentRow.Cells["MALD"].Value.ToString();
-            txtTenLD.Text = grdLoaiDiem.CurrentRow.Cells["TENLD"].Value.ToString();
-            cboHeSo.SelectedItem = grdLoaiDiem.CurrentRow.Cells["HESOLD"].Value.ToString();
+            controlValue();
+        }
+
+        private void controlValue()
+        {
+            if (grdLoaiDiem.CurrentRow.Cells["MALD"].Value!=null)
+            {
+                txtMaLD.Text = grdLoaiDiem.CurrentRow.Cells["MALD"].Value.ToString();
+                txtTenLD.Text = grdLoaiDiem.CurrentRow.Cells["TENLD"].Value.ToString();
+                cboHeSo.SelectedItem = grdLoaiDiem.CurrentRow.Cells["HESOLD"].Value.ToString();
+            }
         }
     }
 }

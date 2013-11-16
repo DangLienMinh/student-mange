@@ -15,7 +15,6 @@ namespace QuanLiHocSinh
     {
         private clsLOAINGUOIDUNG_BUS loaiNguoiDung_BUS;
         private int flag;
-        private int viTri, Tong;
         private BindingSource bs;
 
         public frmLoaiNguoiDung()
@@ -31,11 +30,9 @@ namespace QuanLiHocSinh
         {
             //load danh sách loại người dùng vào grid loại người dùng
             bindingData();
+            controlValue();
             FlagDisable();
             flag = 0;
-            //sapXep();
-            //btnDau.Enabled = false;
-            //btnTruoc.Enabled = false;
         }
 
         private void bindingData()
@@ -121,18 +118,6 @@ namespace QuanLiHocSinh
             txtMaLND.Text = "";
             txtTenLND.Text = "";
         }
-
-        //private void sapXep()
-        //{
-        //    viTri = this.BindingContext[grdLoaiND.DataSource].Position;
-        //    Tong = this.BindingContext[grdLoaiND.DataSource].Count;
-        //    if (viTri != -1)
-        //    {
-        //        txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
-        //        txtMaLND.Text = grdLoaiND.Rows[viTri].Cells["MALND"].Value.ToString();
-        //        txtTenLND.Text = grdLoaiND.Rows[viTri].Cells["TENLND"].Value.ToString();
-        //    }
-        //}
 
         private void insert()
         {
@@ -225,52 +210,11 @@ namespace QuanLiHocSinh
             }
         }
 
-        //private void btnDau_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdLoaiND.DataSource].Position;
-        //    this.BindingContext[grdLoaiND.DataSource].Position = 0;
-        //    sapXep();
-        //    btnTruoc.Enabled = false;
-        //    btnDau.Enabled = false;
-        //    btnCuoi.Enabled = true;
-        //    btnSau.Enabled = true;
-        //}
-
-        //private void btnTruoc_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdLoaiND.DataSource].Position;
-        //    btnCuoi.Enabled = true;
-        //    btnSau.Enabled = true;
-        //    this.BindingContext[grdLoaiND.DataSource].Position = viTri - 1;
-        //    sapXep();
-        //}
-
-        //private void btnSau_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdLoaiND.DataSource].Position;
-        //    btnDau.Enabled = true;
-        //    btnTruoc.Enabled = true;
-        //    this.BindingContext[grdLoaiND.DataSource].Position = viTri + 1;
-        //    sapXep();
-        //}
-
-        //private void btnCuoi_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdLoaiND.DataSource].Position;
-        //    this.BindingContext[grdLoaiND.DataSource].Position = this.BindingContext[grdLoaiND.DataSource].Count - 1;
-        //    sapXep();
-        //    btnCuoi.Enabled = false;
-        //    btnSau.Enabled = false;
-        //    btnTruoc.Enabled = true;
-        //    btnDau.Enabled = true;
-        //}
 
         private void grdLoaiND_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtMaLND.Text = grdLoaiND.CurrentRow.Cells["MALND"].Value.ToString();
             txtTenLND.Text = grdLoaiND.CurrentRow.Cells["TENLND"].Value.ToString();
-           
-            //sapXep();       
         }
 
         private void txt_Enter(object sender, EventArgs e)
@@ -302,8 +246,17 @@ namespace QuanLiHocSinh
 
         private void move_Click(object sender, EventArgs e)
         {
-            txtMaLND.Text = grdLoaiND.CurrentRow.Cells["MALND"].Value.ToString();
-            txtTenLND.Text = grdLoaiND.CurrentRow.Cells["TENLND"].Value.ToString();
+            controlValue();
+        }
+
+        private void controlValue()
+        {
+            if (grdLoaiND.CurrentRow.Cells["MALND"].Value!=null)
+            {
+                txtMaLND.Text = grdLoaiND.CurrentRow.Cells["MALND"].Value.ToString();
+                txtTenLND.Text = grdLoaiND.CurrentRow.Cells["TENLND"].Value.ToString();
+            }
+           
         }
 
 

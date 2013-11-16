@@ -23,7 +23,6 @@ namespace QuanLiHocSinh
         private int tempChecTenHS;
         private int tempCheckDanToc;
         private int tempCheckNgNhapHoc;
-        private int viTri, Tong;
         private BindingSource bs;
         #endregion
 
@@ -217,46 +216,6 @@ namespace QuanLiHocSinh
             }
 
         }
-
-        //private void btnDau_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdHocSinh.DataSource].Position;
-        //    this.BindingContext[grdHocSinh.DataSource].Position = 0;
-        //    sapXep();
-        //    btnTruoc.Enabled = false;
-        //    btnDau.Enabled = false;
-        //    btnCuoi.Enabled = true;
-        //    btnSau.Enabled = true;
-        //}
-
-        //private void btnTruoc_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdHocSinh.DataSource].Position;
-        //    btnCuoi.Enabled = true;
-        //    btnSau.Enabled = true;
-        //    this.BindingContext[grdHocSinh.DataSource].Position = viTri - 1;
-        //    sapXep();
-        //}
-
-        //private void btnSau_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdHocSinh.DataSource].Position;
-        //    btnDau.Enabled = true;
-        //    btnTruoc.Enabled = true;
-        //    this.BindingContext[grdHocSinh.DataSource].Position = viTri + 1;
-        //    sapXep();
-        //}
-
-        //private void btnCuoi_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdHocSinh.DataSource].Position;
-        //    this.BindingContext[grdHocSinh.DataSource].Position = this.BindingContext[grdHocSinh.DataSource].Count - 1;
-        //    sapXep();
-        //    btnCuoi.Enabled = false;
-        //    btnSau.Enabled = false;
-        //    btnTruoc.Enabled = true;
-        //    btnDau.Enabled = true;
-        //}
         #endregion
 
         #region Check changed
@@ -332,24 +291,8 @@ namespace QuanLiHocSinh
         private void frmTimHocSinh_Load(object sender, EventArgs e)
         {
             optAnd.Select();
-            //sapXep();
-            //btnDau.Enabled = false;
-            //btnTruoc.Enabled = false;
         }
 
-        //private void sapXep()
-        //{
-        //    if (grdHocSinh.DataSource!=null)
-        //    {
-        //        viTri = this.BindingContext[grdHocSinh.DataSource].Position;
-        //        Tong = this.BindingContext[grdHocSinh.DataSource].Count;
-        //        if (viTri != -1)
-        //        {
-        //            txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
-        //        }
-        //    }
-            
-        //}
         private void bindingData(DataTable table)
         {
             //biding navigator

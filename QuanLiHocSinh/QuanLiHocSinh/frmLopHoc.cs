@@ -338,5 +338,10 @@ namespace QuanLiHocSinh
             flagDelete = true;
             
         }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

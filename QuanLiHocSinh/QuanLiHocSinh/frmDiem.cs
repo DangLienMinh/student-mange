@@ -14,7 +14,6 @@ namespace QuanLiHocSinh
     public partial class frmDiem : DevComponents.DotNetBar.Office2007Form
     {
         private int flag = 0;
-        private int viTri, Tong;
         private BindingSource bsChung;
         private BindingSource bsRieng;
         private frmLoaiDiem frm_LoaiDiem=null;
@@ -100,27 +99,7 @@ namespace QuanLiHocSinh
 
             FlagDisable();
             flag = 0;
-            //sapXep();
-            //btnDau.Enabled = false;
-            //btnTruoc.Enabled = false;
         }
-
-        //private void sapXep()
-        //{
-        //    viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
-        //    Tong = this.BindingContext[grdDiemRieng.DataSource].Count;
-        //    if (viTri != -1)
-        //    {
-        //        txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
-        //        cboLoaiDiem1.Text = grdDiemRieng.Rows[viTri].Cells["MALD1"].Value.ToString();
-        //        cboNamHoc1.Text = grdDiemRieng.Rows[viTri].Cells["MANH1"].Value.ToString();
-        //        cboHocSinh1.Text = grdDiemRieng.Rows[viTri].Cells["MAHS1"].Value.ToString();
-        //        cboMonHoc1.Text = grdDiemRieng.Rows[viTri].Cells["MAMH1"].Value.ToString();
-        //        cboLop1.SelectedItem = grdDiemRieng.Rows[viTri].Cells["MALOP1"].Value.ToString();
-        //        txtDiem1.Text = grdDiemRieng.Rows[viTri].Cells["DIEMSO1"].Value.ToString();
-        //        cboHocKy1.Text = grdDiemRieng.Rows[viTri].Cells["MAHK1"].Value.ToString();
-        //    }
-        //}
 
         private void insert()
         {
@@ -307,8 +286,6 @@ namespace QuanLiHocSinh
             if (flag == 1) insert();
             if (flag == 2) delete();
             if (flag == 3) update();
-            //sapXep();
-            //txtMaGV.Enabled = true;
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -352,57 +329,8 @@ namespace QuanLiHocSinh
 
         private void grdDiemRieng_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            cboLoaiDiem1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MALD1"].Value.ToString();
-            cboNamHoc1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MANH1"].Value.ToString();
-            cboHocSinh1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MAHS1"].Value.ToString();
-            cboMonHoc1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MAMH1"].Value.ToString();
-            cboLop1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MALOP1"].Value.ToString();
-            cboHocKy1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MAHK1"].Value.ToString();
-            txtDiem1.Text = grdDiemRieng.CurrentRow.Cells["DIEMSO1"].Value.ToString();
-           
-            
-           //sapXep();      
+            controlValue();
         }
-
-        //private void btnDau_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
-        //    this.BindingContext[grdDiemRieng.DataSource].Position = 0;
-        //    sapXep();
-        //    btnTruoc.Enabled = false;
-        //    btnDau.Enabled = false;
-        //    btnCuoi.Enabled = true;
-        //    btnSau.Enabled = true;
-        //}
-
-        //private void btnCuoi_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
-        //    this.BindingContext[grdDiemRieng.DataSource].Position = this.BindingContext[grdDiemRieng.DataSource].Count - 1;
-        //    sapXep();
-        //    btnCuoi.Enabled = false;
-        //    btnSau.Enabled = false;
-        //    btnTruoc.Enabled = true;
-        //    btnDau.Enabled = true;
-        //}
-
-        //private void btnTruoc_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
-        //    btnCuoi.Enabled = true;
-        //    btnSau.Enabled = true;
-        //    this.BindingContext[grdDiemRieng.DataSource].Position = viTri - 1;
-        //    sapXep();
-        //}
-
-        //private void btnSau_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
-        //    btnDau.Enabled = true;
-        //    btnTruoc.Enabled = true;
-        //    this.BindingContext[grdDiemRieng.DataSource].Position = viTri + 1;
-        //    sapXep();
-        //}
 
         private void frmDiem_KeyDown(object sender, KeyEventArgs e)
         {
@@ -470,13 +398,21 @@ namespace QuanLiHocSinh
 
         private void move_Click(object sender, EventArgs e)
         {
-            cboLoaiDiem1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MALD1"].Value.ToString();
-            cboNamHoc1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MANH1"].Value.ToString();
-            cboHocSinh1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MAHS1"].Value.ToString();
-            cboMonHoc1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MAMH1"].Value.ToString();
-            cboLop1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MALOP1"].Value.ToString();
-            cboHocKy1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MAHK1"].Value.ToString();
-            txtDiem1.Text = grdDiemRieng.CurrentRow.Cells["DIEMSO1"].Value.ToString();
+            controlValue();
+        }
+
+        private void controlValue()
+        {
+            if ( grdDiemRieng.CurrentRow.Cells["MALD1"].Value!=null)
+            {
+                cboLoaiDiem1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MALD1"].Value.ToString();
+                cboNamHoc1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MANH1"].Value.ToString();
+                cboHocSinh1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MAHS1"].Value.ToString();
+                cboMonHoc1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MAMH1"].Value.ToString();
+                cboLop1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MALOP1"].Value.ToString();
+                cboHocKy1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MAHK1"].Value.ToString();
+                txtDiem1.Text = grdDiemRieng.CurrentRow.Cells["DIEMSO1"].Value.ToString();
+            }
         }
     }
 }

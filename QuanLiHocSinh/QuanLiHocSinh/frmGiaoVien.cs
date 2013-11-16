@@ -18,7 +18,6 @@ namespace QuanLiHocSinh
         private clsGIAOVIEN_BUS giaoVien_BUS;
         private OpenFileDialog open;
         private int flag = 0;
-        private int viTri, Tong;
         private BindingSource bs;
              
         public frmGiaoVien()
@@ -63,8 +62,8 @@ namespace QuanLiHocSinh
 
         private void frmGiaoVien_Load(object sender, EventArgs e)
         {
-            bindingData();
-            
+            bindingData(giaoVien_BUS.hienThiDanhSach());
+            controlValue();
             if (grdGiaoVien.Rows.Count>1)
             {
                 foreach (DataGridViewRow row in grdGiaoVien.Rows)
@@ -88,13 +87,14 @@ namespace QuanLiHocSinh
             giaoVien_BUS.hienThiComboBox(cboGioiTinh);
             FlagDisable();
             flag = 0;
-            //sapXep();
-            //btnDau.Enabled = false;
-            //btnTruoc.Enabled = false;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (btnItemTim.Checked==true)
+            {
+                btnItemNhap.Checked = true;
+            }
             txtTenGV.Focus();
             FlagEnable();
             flag = 1;
@@ -229,7 +229,6 @@ namespace QuanLiHocSinh
             if (flag == 1) insert();
             if (flag == 2) delete();
             if (flag == 3) update();
-           // sapXep();
             txtMaGV.Enabled = true;
         }
 
@@ -242,30 +241,7 @@ namespace QuanLiHocSinh
 
         private void grdGiaoVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtMaGV.Text = grdGiaoVien.CurrentRow.Cells["MAGV"].Value.ToString();
-            txtTenGV.Text = grdGiaoVien.CurrentRow.Cells["TENGV"].Value.ToString();
-            txtDiaChi.Text = grdGiaoVien.CurrentRow.Cells["DIACHIGV"].Value.ToString();
-            txtDienThoai.Text = grdGiaoVien.CurrentRow.Cells["DIENTHOAIGV"].Value.ToString();
-            cboGioiTinh.SelectedItem = grdGiaoVien.CurrentRow.Cells["GIOITINHGV"].Value.ToString();
-
-            string ngaySinh = grdGiaoVien.CurrentRow.Cells["NGSINHGV"].Value.ToString();
-            if (ngaySinh != "")
-            {
-                DateTime d = new DateTime();
-                d = DateTime.Parse(ngaySinh);
-                //d = DateTime.ParseExact(ngaySinh,"MM/dd/yyyy",null);
-                dtiNgaySinh.Value = d;
-            }
-
-            // sử dụng filestream để có thể xóa hình ảnh mà không bị thằng picturebox chiếm giữ
-            if (grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString() != "")
-            {
-                string imageLink = grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString();
-                FileStream fs = new FileStream(imageLink, FileMode.Open, FileAccess.Read);
-                picGiaoVien.Image = Image.FromStream(fs);
-                fs.Close();
-            }
-            //sapXep();               
+            controlValue();
         }
 
         private void delete() 
@@ -319,80 +295,6 @@ namespace QuanLiHocSinh
             txtTenGV.Focus();
         }
 
-        //private void sapXep()
-        //{
-        //    viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
-        //    Tong = this.BindingContext[grdGiaoVien.DataSource].Count;
-        //    if (viTri!=-1)
-        //    {
-        //        txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
-        //        txtMaGV.Text = grdGiaoVien.Rows[viTri].Cells["MAGV"].Value.ToString();
-        //        txtTenGV.Text = grdGiaoVien.Rows[viTri].Cells["TENGV"].Value.ToString();
-        //        txtDiaChi.Text = grdGiaoVien.Rows[viTri].Cells["DIACHIGV"].Value.ToString();
-        //        txtDienThoai.Text = grdGiaoVien.Rows[viTri].Cells["DIENTHOAIGV"].Value.ToString();
-        //        cboGioiTinh.SelectedItem = grdGiaoVien.CurrentRow.Cells["GIOITINHGV"].Value.ToString();
-
-        //        string ngaySinh = grdGiaoVien.Rows[viTri].Cells["NGSINHGV"].Value.ToString();
-
-
-        //        if (ngaySinh != "")
-        //        {
-        //            DateTime d = new DateTime();
-        //            d = DateTime.Parse(ngaySinh);
-        //            dtiNgaySinh.Value = d;
-        //        }
-
-        //        // sử dụng filestream để có thể xóa hình ảnh mà không bị thằng picturebox chiếm giữ
-        //        if (grdGiaoVien.Rows[viTri].Cells["HINHANHGV"].Value.ToString() != "")
-        //        {
-        //            string imageLink = grdGiaoVien.Rows[viTri].Cells["HINHANHGV"].Value.ToString();
-        //            FileStream fs = new FileStream(imageLink, FileMode.Open, FileAccess.Read);
-        //            picGiaoVien.Image = Image.FromStream(fs);
-        //            fs.Close();
-        //        }
-        //    }  
-        //}
-
-        //private void btnDau_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
-        //    this.BindingContext[grdGiaoVien.DataSource].Position = 0;
-        //    sapXep();
-        //    btnTruoc.Enabled = false;
-        //    btnDau.Enabled = false;
-        //    btnCuoi.Enabled = true;
-        //    btnSau.Enabled = true;
-        //}
-
-        //private void btnCuoi_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
-        //    this.BindingContext[grdGiaoVien.DataSource].Position = this.BindingContext[grdGiaoVien.DataSource].Count - 1;
-        //    sapXep();
-        //    btnCuoi.Enabled = false;
-        //    btnSau.Enabled = false;
-        //    btnTruoc.Enabled = true;
-        //    btnDau.Enabled = true;
-        //}
-
-        //private void btnTruoc_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
-        //    btnCuoi.Enabled = true;
-        //    btnSau.Enabled = true;
-        //    this.BindingContext[grdGiaoVien.DataSource].Position = viTri - 1;
-        //    sapXep();
-        //}
-
-        //private void btnSau_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
-        //    btnDau.Enabled = true;
-        //    btnTruoc.Enabled = true;
-        //    this.BindingContext[grdGiaoVien.DataSource].Position = viTri + 1;
-        //    sapXep();
-        //}
-
         private void btnTim_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtTim.Text))
@@ -403,11 +305,12 @@ namespace QuanLiHocSinh
 	        {
                 if (optMaGV.Checked)
                 {
-                    giaoVien_BUS.timGVMaGV(grdGiaoVien,txtTim.Text);
+                    bindingData( giaoVien_BUS.timGVMaGV(txtTim.Text));
+                   
                 }
                 else
                 {
-                    giaoVien_BUS.timGVTenGV(grdGiaoVien,txtTim.Text);
+                    bindingData(giaoVien_BUS.timGVTenGV(txtTim.Text));
                 }
 	        }
             //sapXep();
@@ -457,40 +360,48 @@ namespace QuanLiHocSinh
             }
         }
 
-        private void bindingData()
+        private void bindingData(DataTable table)
         {
             //biding navigator
             bs = new BindingSource();
-            bs.DataSource = giaoVien_BUS.hienThiDanhSach();
+            bs.DataSource = table; 
             grdGiaoVien.DataSource = bs;
             bnaGiaoVien.BindingSource = bs;
         }
 
         private void move_Click(object sender, EventArgs e)
         {
-            txtMaGV.Text = grdGiaoVien.CurrentRow.Cells["MAGV"].Value.ToString();
-            txtTenGV.Text = grdGiaoVien.CurrentRow.Cells["TENGV"].Value.ToString();
-            txtDiaChi.Text = grdGiaoVien.CurrentRow.Cells["DIACHIGV"].Value.ToString();
-            txtDienThoai.Text = grdGiaoVien.CurrentRow.Cells["DIENTHOAIGV"].Value.ToString();
-            cboGioiTinh.SelectedItem = grdGiaoVien.CurrentRow.Cells["GIOITINHGV"].Value.ToString();
+            controlValue();
+        }
 
-            string ngaySinh = grdGiaoVien.CurrentRow.Cells["NGSINHGV"].Value.ToString();
-            if (ngaySinh != "")
+        private void controlValue() 
+        {
+            if (grdGiaoVien.CurrentRow.Cells["MAGV"].Value!=null)
             {
-                DateTime d = new DateTime();
-                d = DateTime.Parse(ngaySinh);
-                //d = DateTime.ParseExact(ngaySinh,"MM/dd/yyyy",null);
-                dtiNgaySinh.Value = d;
-            }
+                txtMaGV.Text = grdGiaoVien.CurrentRow.Cells["MAGV"].Value.ToString();
+                txtTenGV.Text = grdGiaoVien.CurrentRow.Cells["TENGV"].Value.ToString();
+                txtDiaChi.Text = grdGiaoVien.CurrentRow.Cells["DIACHIGV"].Value.ToString();
+                txtDienThoai.Text = grdGiaoVien.CurrentRow.Cells["DIENTHOAIGV"].Value.ToString();
+                cboGioiTinh.SelectedItem = grdGiaoVien.CurrentRow.Cells["GIOITINHGV"].Value.ToString();
 
-            // sử dụng filestream để có thể xóa hình ảnh mà không bị thằng picturebox chiếm giữ
-            if (grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString() != "")
-            {
-                string imageLink = grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString();
-                FileStream fs = new FileStream(imageLink, FileMode.Open, FileAccess.Read);
-                picGiaoVien.Image = Image.FromStream(fs);
-                fs.Close();
+                string ngaySinh = grdGiaoVien.CurrentRow.Cells["NGSINHGV"].Value.ToString();
+                if (ngaySinh != "")
+                {
+                    DateTime d = new DateTime();
+                    d = DateTime.Parse(ngaySinh);
+                    dtiNgaySinh.Value = d;
+                }
+
+                // sử dụng filestream để có thể xóa hình ảnh mà không bị thằng picturebox chiếm giữ
+                if (grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString() != "")
+                {
+                    string imageLink = grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString();
+                    FileStream fs = new FileStream(imageLink, FileMode.Open, FileAccess.Read);
+                    picGiaoVien.Image = Image.FromStream(fs);
+                    fs.Close();
+                }
             }
+           
         }
     }
 }
