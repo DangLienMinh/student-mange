@@ -37,6 +37,7 @@ namespace QLHS.BUS
             comboBox.DataSource = hocky.danhSachHocKy();
             comboBox.DisplayMember = "TENHK";
             comboBox.ValueMember = "MAHK";
+            comboBox.SelectedValue = "HK1";
         }
         public void hienthicboNamHoc(ComboBoxEx comboBox)
         {
@@ -117,6 +118,14 @@ namespace QLHS.BUS
         public void themHanhKiem(clsHANHKIEM_DTO hanhkiem)
         {
             hanhkiem_dao.ThemHanhKiem(hanhkiem);
+        }
+        public void suaHanhKiem(clsHANHKIEM_DTO hanhkiem)
+        {
+            hanhkiem_dao.suaHanhKiem(hanhkiem);
+        }
+        public void xoaHanhKiem(clsHANHKIEM_DTO hanhkiem)
+        {
+            hanhkiem_dao.xoaHanhKiem(hanhkiem);
         }
         public DataTable danhsachHocsinhMALOPMANHMAHK(string malop, string manh, string mahk)
         {

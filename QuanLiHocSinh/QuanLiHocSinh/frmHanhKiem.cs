@@ -18,6 +18,9 @@ namespace QuanLiHocSinh
         private clsHANHKIEM_BUS hanhkiem_bus;
         private clsLOP_DTO lop_dto;
         private Boolean flaglist=false;
+        private Boolean flagInsert;
+        private Boolean flagUpdate;
+        private Boolean flagDelete;
         public frmHanhKiem()
         {
             InitializeComponent();
@@ -26,6 +29,9 @@ namespace QuanLiHocSinh
             hocky_dto = new clsHOCKY_DTO();
             namhoc_dto = new clsNAMHOC_DTO();
             lop_dto = new clsLOP_DTO();
+            flagInsert = false;
+            flagUpdate = false;
+            flagDelete = false;
         }
         private void frmHanhKiem_Load(object sender, EventArgs e)
         {
@@ -34,30 +40,11 @@ namespace QuanLiHocSinh
             hanhkiem_bus.hienThicboHK(cboHocKy1);//Hien thi danh sach hoc ky len combobox tab nhập theo học sinh
             hanhkiem_bus.hienthicboNamHoc(cboNamHoc);//Hien thi danh sach hoc ky len combobox tab nhập theo lớp
             hanhkiem_bus.hienthicboNamHoc(cboNamHoc1);//HIên thi danh sach hoc ky len combobo tab nhập điểm theo học sinh
-            lop_dto.Manh = cboNamHoc1.SelectedValue.ToString();
-            hanhkiem_bus.hienthiCboLopHoc(lop_dto, cboLop1);
-            hanhkiem_bus.hienthiCboHocSinh(cboLop1.SelectedValue.ToString(), cboNamHoc1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString(), cboHocSinh1);
             hanhkiem_bus.hienthiCboHanhKiem(cboHanhKiem1);
             hanhkiem_bus.hienthiCboLoaiHK(MALHK);//Hien thi TenHanKiem Len Cobobox trong gridview cho nguoi dung chon
             hanhkiem_bus.hienthiCboClnNamHoc(MANH);//Hien thi Ten Nam Hoc Thay vi MANH TREN COMBOX BOX
             hanhkiem_bus.hienthiCboClnHocKy(MAHK);//Hien thi Ten HK thay vi hien thi MAHK ten combobox
         }
-
-        private void cboNamHoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void treKhoi_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void treKhoi_NodeClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
         {
             string malop;
@@ -84,16 +71,6 @@ namespace QuanLiHocSinh
                     MessageBox.Show(ex.Message);
                 }
             }
-        }
-
-        private void grdHanhKiemChung_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void tabControl1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnLuulai_Click(object sender, EventArgs e)
@@ -123,10 +100,8 @@ namespace QuanLiHocSinh
             }
             else
             {
-                hanhkiem_dto.Mahs = "";
-                hanhkiem_dto.Malhk = "";
-                hanhkiem_dto.Manh = "";
-                hanhkiem_dto.Mahk = "";
+                HuyBoDuLieu();
+                
             }
         }
 
@@ -149,7 +124,6 @@ namespace QuanLiHocSinh
         {
             lop_dto.Manh = cboNamHoc1.SelectedValue.ToString();
             hanhkiem_bus.hienthiCboLopHoc(lop_dto, cboLop1);
-            //hanhkiem_bus.hienthiCboHocSinh(cboLop1.SelectedValue.ToString(), cboNamHoc1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString(), cboHocSinh1);
         }
 
         private void cboNamHoc_SelectedValueChanged(object sender, EventArgs e)
@@ -157,15 +131,191 @@ namespace QuanLiHocSinh
             treKhoi.Nodes.Clear();
             hanhkiem_bus.hienthiLophoc(treKhoi, cboNamHoc);//Hiển thị danh sách lớp theo năm học lên treeview
         }
-
-        private void cboHocKy1_SelectedValueChanged(object sender, EventArgs e)
-        {
-            //hanhkiem_bus.hienthiCboHocSinh(cboLop1.SelectedValue.ToString(), cboNamHoc1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString(), cboHocSinh1);
-        }
-
         private void cboLop1_SelectedValueChanged(object sender, EventArgs e)
         {
-            hanhkiem_bus.hienthiCboHocSinh(cboLop1.SelectedValue.ToString(), cboNamHoc1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString(), cboHocSinh1);
+            //hanhkiem_bus.hienthiCboLoaiHK(MALHK1);
+            //hanhkiem_bus.hienthiCboClnHocKy(MAHK1);
+            //hanhkiem_bus.hienthiCboClnNamHoc(MANH1);
+            //hanhkiem_bus.hienthiCboHocSinh(cboLop1.SelectedValue.ToString(), cboNamHoc1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString(), cboHocSinh1);
+            //grdHanhKiemRieng.DataSource = hanhkiem_bus.danhsachHanhKiem(cboNamHoc1.SelectedValue.ToString(), cboLop1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString());
+        }
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            anHienButton(false);
+            flagInsert = true;
+        }
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            anHienButton(false);
+            flagDelete = true;
+        }
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            anHienButton(false);
+            flagUpdate = true;
+        }
+        private void btnDongY_Click(object sender, EventArgs e)
+        {
+            anHienButton(true);
+            if (flagInsert == true)
+            {
+                Insert();
+            }
+            else
+            {
+                if (flagDelete == true)
+                {
+                    Delete();
+                }
+                else
+                {
+                    Update();
+                }
+            }
+        }
+        private void Insert()
+        {
+            flagInsert = false;
+            hanhkiem_dto.Mahs = cboHocSinh1.SelectedValue.ToString();
+            hanhkiem_dto.Malhk = cboHanhKiem1.SelectedValue.ToString();
+            hanhkiem_dto.Mahk = cboHocKy1.SelectedValue.ToString();
+            hanhkiem_dto.Manh = cboNamHoc1.SelectedValue.ToString();
+            //hanhkiem_dto.Malop = cboLop1.SelectedValue.ToString();
+            int khoa = 0;
+            foreach (DataGridViewRow row in grdHanhKiemRieng.Rows)
+            {
+                if (row.Cells["MAHS1"].Value != null)
+                {
+                    if (string.Compare(hanhkiem_dto.Mahs, row.Cells["MAHS1"].Value.ToString()) == 0 && string.Compare(hanhkiem_dto.Manh, row.Cells["MANH1"].Value.ToString()) == 0 && string.Compare(hanhkiem_dto.Mahk, row.Cells["MAHK1"].Value.ToString()) == 0)
+                    {
+                        khoa = 1;
+                        break;
+                    }
+                }
+            }
+            if (khoa == 1)
+            {
+                MessageBox.Show("Lỗi !Hạnh hiểm đã tồn tại trong database", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+                try
+                {
+                    hanhkiem_bus.themHanhKiem(hanhkiem_dto);
+                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    grdHanhKiemRieng.DataSource = hanhkiem_bus.danhsachHanhKiem(cboNamHoc1.SelectedValue.ToString(), cboLop1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi !"+ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+        }
+        private void Update()
+        {
+            flagUpdate = false;
+            if (grdHanhKiemRieng.SelectedRows.Count >= 1)
+            {
+                hanhkiem_dto.Mahs = cboHocSinh1.SelectedValue.ToString();
+                hanhkiem_dto.Malhk = cboHanhKiem1.SelectedValue.ToString();
+                hanhkiem_dto.Mahk = cboHocKy1.SelectedValue.ToString();
+                hanhkiem_dto.Manh = cboNamHoc1.SelectedValue.ToString();
+                try
+                {
+                    hanhkiem_bus.suaHanhKiem(hanhkiem_dto);
+                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    grdHanhKiemRieng.DataSource = hanhkiem_bus.danhsachHanhKiem(cboNamHoc1.SelectedValue.ToString(), cboLop1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi !" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lỗi !Phải chọn một dòng để sửa" , "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void Delete()
+        {
+            flagDelete = false;
+            if (grdHanhKiemRieng.SelectedRows.Count >= 1)
+            {
+                hanhkiem_dto.Mahs = cboHocSinh1.SelectedValue.ToString();
+                hanhkiem_dto.Mahk = cboHocKy1.SelectedValue.ToString();
+                hanhkiem_dto.Manh = cboNamHoc1.SelectedValue.ToString();
+                try
+                {
+                    hanhkiem_bus.xoaHanhKiem(hanhkiem_dto);
+                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    grdHanhKiemRieng.DataSource = hanhkiem_bus.danhsachHanhKiem(cboNamHoc1.SelectedValue.ToString(), cboLop1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi !" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lỗi !Phải chọn một dòng để Xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            anHienButton(true);
+            HuyBoDuLieu();
+        }
+        private void btnSau_Click(object sender, EventArgs e)
+        {
+
+        }
+        public void anHienButton(Boolean b)
+        {
+            btnThem.Enabled = b;
+            btnSua.Enabled = b;
+            btnXoa.Enabled = b;
+            if (b == true)
+            {
+                btnDongY.Enabled = false;
+                btnHuy.Enabled = false;
+            }
+            else
+            {
+                btnDongY.Enabled = true;
+                btnHuy.Enabled = true;
+            }
+        }
+        public void HuyBoDuLieu()
+        {
+            hanhkiem_dto.Mahs = "";
+            hanhkiem_dto.Malhk = "";
+            hanhkiem_dto.Manh = "";
+            hanhkiem_dto.Mahk = "";
+        }
+
+        private void cboLop1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //hanhkiem_bus.hienThicboHK(cboHocKy1);
+            hanhkiem_bus.hienthiCboLoaiHK(MALHK1);
+            hanhkiem_bus.hienthiCboClnHocKy(MAHK1);
+            hanhkiem_bus.hienthiCboClnNamHoc(MANH1);
+            string mahk = cboHocKy1.SelectedValue.ToString();
+            hanhkiem_bus.hienthiCboHocSinh(cboLop1.SelectedValue.ToString(), cboNamHoc1.SelectedValue.ToString(),mahk, cboHocSinh1);
+            grdHanhKiemRieng.DataSource = hanhkiem_bus.danhsachHanhKiem(cboNamHoc1.SelectedValue.ToString(), cboLop1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString());
+
+        }
+
+        private void grdHanhKiemRieng_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (grdHanhKiemRieng.CurrentRow.Cells["MAHS1"].Value.ToString() != "")
+            {
+                cboNamHoc1.SelectedValue = grdHanhKiemRieng.CurrentRow.Cells["MANH1"].Value.ToString();
+                cboHocKy1.SelectedValue = grdHanhKiemRieng.CurrentRow.Cells["MAHK1"].Value.ToString();
+                cboHocSinh1.SelectedValue = grdHanhKiemRieng.CurrentRow.Cells["MAHS1"].Value.ToString();
+                cboHanhKiem1.SelectedValue = grdHanhKiemRieng.CurrentRow.Cells["MALHK1"].Value.ToString();
+            }
         }
     }
 }

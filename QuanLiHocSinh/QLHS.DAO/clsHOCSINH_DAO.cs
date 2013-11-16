@@ -95,7 +95,7 @@ namespace QLHS.DAO
         {
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);
-            SqlCommand command = new SqlCommand("SP_DanhSachHocSinh_LOP_NAMHOC_HOCKY1", con);
+            SqlCommand command = new SqlCommand("SP_DanhSachHocSinh_LOP_NAMHOC_HOCKY", con);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = malop;
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = manh;
