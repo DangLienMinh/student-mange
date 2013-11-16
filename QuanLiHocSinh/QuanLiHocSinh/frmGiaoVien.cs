@@ -19,6 +19,7 @@ namespace QuanLiHocSinh
         private OpenFileDialog open;
         private int flag = 0;
         private int viTri, Tong;
+        private BindingSource bs;
              
         public frmGiaoVien()
         {
@@ -62,8 +63,8 @@ namespace QuanLiHocSinh
 
         private void frmGiaoVien_Load(object sender, EventArgs e)
         {
-            //load danh sách giáo viên vào datagrid giáo viên
-            giaoVien_BUS.hienThiDanhSach(grdGiaoVien);
+            bindingData();
+            
             if (grdGiaoVien.Rows.Count>1)
             {
                 foreach (DataGridViewRow row in grdGiaoVien.Rows)
@@ -87,9 +88,9 @@ namespace QuanLiHocSinh
             giaoVien_BUS.hienThiComboBox(cboGioiTinh);
             FlagDisable();
             flag = 0;
-            sapXep();
-            btnDau.Enabled = false;
-            btnTruoc.Enabled = false;
+            //sapXep();
+            //btnDau.Enabled = false;
+            //btnTruoc.Enabled = false;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -212,7 +213,7 @@ namespace QuanLiHocSinh
                 MessageBox.Show("Bạn đã sửa thành công!");
 
                 //sửa trong datagrid view
-                giaoVien_BUS.suaDataGrid(grdGiaoVien);
+                giaoVien_BUS.suaDataGrid();
 
                 FlagDisable();
                 flag = 0;
@@ -228,7 +229,7 @@ namespace QuanLiHocSinh
             if (flag == 1) insert();
             if (flag == 2) delete();
             if (flag == 3) update();
-            sapXep();
+           // sapXep();
             txtMaGV.Enabled = true;
         }
 
@@ -264,7 +265,7 @@ namespace QuanLiHocSinh
                 picGiaoVien.Image = Image.FromStream(fs);
                 fs.Close();
             }
-            sapXep();               
+            //sapXep();               
         }
 
         private void delete() 
@@ -280,7 +281,7 @@ namespace QuanLiHocSinh
                         {
                             
                             File.Delete(row.Cells["HINHANHGV"].Value.ToString());
-                            giaoVien_BUS.xoaDong(grdGiaoVien, txtMaGV.Text);
+                            giaoVien_BUS.xoaDong( txtMaGV.Text);
                             resetAll();
                             FlagDisable();
                             flag = 0;
@@ -320,79 +321,79 @@ namespace QuanLiHocSinh
             txtTenGV.Focus();
         }
 
-        private void sapXep()
-        {
-            viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
-            Tong = this.BindingContext[grdGiaoVien.DataSource].Count;
-            if (viTri!=-1)
-            {
-                txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
-                txtMaGV.Text = grdGiaoVien.Rows[viTri].Cells["MAGV"].Value.ToString();
-                txtTenGV.Text = grdGiaoVien.Rows[viTri].Cells["TENGV"].Value.ToString();
-                txtDiaChi.Text = grdGiaoVien.Rows[viTri].Cells["DIACHIGV"].Value.ToString();
-                txtDienThoai.Text = grdGiaoVien.Rows[viTri].Cells["DIENTHOAIGV"].Value.ToString();
-                cboGioiTinh.SelectedItem = grdGiaoVien.CurrentRow.Cells["GIOITINHGV"].Value.ToString();
+        //private void sapXep()
+        //{
+        //    viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
+        //    Tong = this.BindingContext[grdGiaoVien.DataSource].Count;
+        //    if (viTri!=-1)
+        //    {
+        //        txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
+        //        txtMaGV.Text = grdGiaoVien.Rows[viTri].Cells["MAGV"].Value.ToString();
+        //        txtTenGV.Text = grdGiaoVien.Rows[viTri].Cells["TENGV"].Value.ToString();
+        //        txtDiaChi.Text = grdGiaoVien.Rows[viTri].Cells["DIACHIGV"].Value.ToString();
+        //        txtDienThoai.Text = grdGiaoVien.Rows[viTri].Cells["DIENTHOAIGV"].Value.ToString();
+        //        cboGioiTinh.SelectedItem = grdGiaoVien.CurrentRow.Cells["GIOITINHGV"].Value.ToString();
 
-                string ngaySinh = grdGiaoVien.Rows[viTri].Cells["NGSINHGV"].Value.ToString();
+        //        string ngaySinh = grdGiaoVien.Rows[viTri].Cells["NGSINHGV"].Value.ToString();
 
 
-                if (ngaySinh != "")
-                {
-                    DateTime d = new DateTime();
-                    d = DateTime.Parse(ngaySinh);
-                    dtiNgaySinh.Value = d;
-                }
+        //        if (ngaySinh != "")
+        //        {
+        //            DateTime d = new DateTime();
+        //            d = DateTime.Parse(ngaySinh);
+        //            dtiNgaySinh.Value = d;
+        //        }
 
-                // sử dụng filestream để có thể xóa hình ảnh mà không bị thằng picturebox chiếm giữ
-                if (grdGiaoVien.Rows[viTri].Cells["HINHANHGV"].Value.ToString() != "")
-                {
-                    string imageLink = grdGiaoVien.Rows[viTri].Cells["HINHANHGV"].Value.ToString();
-                    FileStream fs = new FileStream(imageLink, FileMode.Open, FileAccess.Read);
-                    picGiaoVien.Image = Image.FromStream(fs);
-                    fs.Close();
-                }
-            }  
-        }
+        //        // sử dụng filestream để có thể xóa hình ảnh mà không bị thằng picturebox chiếm giữ
+        //        if (grdGiaoVien.Rows[viTri].Cells["HINHANHGV"].Value.ToString() != "")
+        //        {
+        //            string imageLink = grdGiaoVien.Rows[viTri].Cells["HINHANHGV"].Value.ToString();
+        //            FileStream fs = new FileStream(imageLink, FileMode.Open, FileAccess.Read);
+        //            picGiaoVien.Image = Image.FromStream(fs);
+        //            fs.Close();
+        //        }
+        //    }  
+        //}
 
-        private void btnDau_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
-            this.BindingContext[grdGiaoVien.DataSource].Position = 0;
-            sapXep();
-            btnTruoc.Enabled = false;
-            btnDau.Enabled = false;
-            btnCuoi.Enabled = true;
-            btnSau.Enabled = true;
-        }
+        //private void btnDau_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
+        //    this.BindingContext[grdGiaoVien.DataSource].Position = 0;
+        //    sapXep();
+        //    btnTruoc.Enabled = false;
+        //    btnDau.Enabled = false;
+        //    btnCuoi.Enabled = true;
+        //    btnSau.Enabled = true;
+        //}
 
-        private void btnCuoi_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
-            this.BindingContext[grdGiaoVien.DataSource].Position = this.BindingContext[grdGiaoVien.DataSource].Count - 1;
-            sapXep();
-            btnCuoi.Enabled = false;
-            btnSau.Enabled = false;
-            btnTruoc.Enabled = true;
-            btnDau.Enabled = true;
-        }
+        //private void btnCuoi_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
+        //    this.BindingContext[grdGiaoVien.DataSource].Position = this.BindingContext[grdGiaoVien.DataSource].Count - 1;
+        //    sapXep();
+        //    btnCuoi.Enabled = false;
+        //    btnSau.Enabled = false;
+        //    btnTruoc.Enabled = true;
+        //    btnDau.Enabled = true;
+        //}
 
-        private void btnTruoc_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
-            btnCuoi.Enabled = true;
-            btnSau.Enabled = true;
-            this.BindingContext[grdGiaoVien.DataSource].Position = viTri - 1;
-            sapXep();
-        }
+        //private void btnTruoc_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
+        //    btnCuoi.Enabled = true;
+        //    btnSau.Enabled = true;
+        //    this.BindingContext[grdGiaoVien.DataSource].Position = viTri - 1;
+        //    sapXep();
+        //}
 
-        private void btnSau_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
-            btnDau.Enabled = true;
-            btnTruoc.Enabled = true;
-            this.BindingContext[grdGiaoVien.DataSource].Position = viTri + 1;
-            sapXep();
-        }
+        //private void btnSau_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdGiaoVien.DataSource].Position;
+        //    btnDau.Enabled = true;
+        //    btnTruoc.Enabled = true;
+        //    this.BindingContext[grdGiaoVien.DataSource].Position = viTri + 1;
+        //    sapXep();
+        //}
 
         private void btnTim_Click(object sender, EventArgs e)
         {
@@ -411,7 +412,7 @@ namespace QuanLiHocSinh
                     giaoVien_BUS.timGVTenGV(grdGiaoVien,txtTim.Text);
                 }
 	        }
-            sapXep();
+            //sapXep();
             
         }
 
@@ -453,6 +454,15 @@ namespace QuanLiHocSinh
         private void btnDelete_Click(object sender, EventArgs e)
         {
             delete();
+        }
+
+        private void bindingData()
+        {
+            //biding navigator
+            bs = new BindingSource();
+            bs.DataSource = giaoVien_BUS.hienThiDanhSach();
+            grdGiaoVien.DataSource = bs;
+            bnaGiaoVien.BindingSource = bs;
         }
     }
 }

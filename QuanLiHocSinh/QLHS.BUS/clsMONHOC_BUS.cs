@@ -25,8 +25,8 @@ namespace QLHS.BUS
 
         public DataTable hienThiDanhSach()
         {
-            return monHoc_DAO.danhSachMonhoc();
-
+            tblMonHoc= monHoc_DAO.danhSachMonhoc();
+            return tblMonHoc;
         }
 
         public void HienThiDataGridViewComboBoxColumn(DataGridViewComboBoxColumn cboColumn)
@@ -78,44 +78,55 @@ namespace QLHS.BUS
             monHoc_DAO.xoaMonHoc(monHoc_DTO);
         }
 
-        //private DataRow getDatarow()
-        //{
-        //    dr = tblMonHoc.NewRow();
-        //    dr["MAMH"] = monHoc_DTO.Mamh;
-        //    dr["TENMH"] = monHoc_DTO.Tenmh;
-        //    dr["SOTIET"] = monHoc_DTO.Sotiet;
-        //    dr["HESOMH"] = monHoc_DTO.Hesomh;
+        private DataRow getDatarow()
+        {
+            dr = tblMonHoc.NewRow();
+            dr["MAMH"] = monHoc_DTO.Mamh;
+            dr["TENMH"] = monHoc_DTO.Tenmh;
+            dr["SOTIET"] = monHoc_DTO.Sotiet;
+            dr["HESOMH"] = monHoc_DTO.Hesomh;
            
-        //    return dr;
-        //}
+            return dr;
+        }
 
         //thêm dòng vừa được thêm vào table môn học
-        //public void themDong()
-        //{
-        //    tblMonHoc.Rows.Add(getDatarow());
-        //}
-
-        public void suaDataGrid(DataGridViewX grdMonHoc)
+        public void themDong()
         {
-            foreach (DataGridViewRow row1 in grdMonHoc.Rows)
+            tblMonHoc.Rows.Add(getDatarow());
+        }
+
+        public void suaDataGrid()
+        {
+            foreach (DataRow row1 in tblMonHoc.Rows)
             {
-                if (row1.Cells["MAMH"].Value != null)
+                if (row1["MAMH"] != null)
                 {
-                    if (string.Compare(row1.Cells["MAMH"].Value.ToString().Trim(), monHoc_DTO.Mamh.Trim()) == 0)
+                    if (string.Compare(row1["MAMH"].ToString().Trim(), monHoc_DTO.Mamh.Trim()) == 0)
                     {
-                        row1.Cells["TENMH"].Value = monHoc_DTO.Tenmh;
-                        row1.Cells["SOTIET"].Value = monHoc_DTO.Sotiet;
-                        row1.Cells["HESOMH"].Value = monHoc_DTO.Hesomh;
+                        row1["TENMH"] = monHoc_DTO.Tenmh;
+                        row1["SOTIET"]= monHoc_DTO.Sotiet;
+                        row1["HESOMH"] = monHoc_DTO.Hesomh;
                     }
                 }
             }
+            //foreach (DataGridViewRow row1 in grdMonHoc.Rows)
+            //{
+            //    if (row1.Cells["MAMH"].Value != null)
+            //    {
+            //        if (string.Compare(row1.Cells["MAMH"].Value.ToString().Trim(), monHoc_DTO.Mamh.Trim()) == 0)
+            //        {
+            //            row1.Cells["TENMH"].Value = monHoc_DTO.Tenmh;
+            //            row1.Cells["SOTIET"].Value = monHoc_DTO.Sotiet;
+            //            row1.Cells["HESOMH"].Value = monHoc_DTO.Hesomh;
+            //        }
+            //    }
+            //}
         }
 
-        //public void xoaDong(DataGridViewX grdMonHoc, string maMH)
-        //{
-        //    DataRow row = tblMonHoc.Select("MAMH='" + maMH + "'")[0];
-        //    row.Delete();
-        //    grdMonHoc.DataSource = tblMonHoc;
-        //}
+        public void xoaDong(string maMH)
+        {
+            DataRow row = tblMonHoc.Select("MAMH='" + maMH + "'")[0];
+            row.Delete();
+        }
     }
 }

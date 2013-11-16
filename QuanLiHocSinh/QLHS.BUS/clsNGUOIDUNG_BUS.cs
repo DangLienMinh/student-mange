@@ -32,10 +32,10 @@ namespace QLHS.BUS
             comboBox.ValueMember = "MALND";         
         }
 
-        public void hienThiDanhSach(DataGridViewX grdNguoiDung)
+        public DataTable hienThiDanhSach()
         {
             tblNguoiDung = nguoiDung_DAO.danhSachNguoiDung();
-            grdNguoiDung.DataSource=tblNguoiDung;
+            return tblNguoiDung;
         }
 
         //tạo mã người dùng
@@ -134,21 +134,20 @@ namespace QLHS.BUS
         {
             DataRow row = tblNguoiDung.Select("MAND='" + MaND + "'")[0];
             row.Delete();
-            grdNguoiDung.DataSource = tblNguoiDung;
         }
 
-        public void suaDataGrid(DataGridViewX grdNguoiDung)
+        public void suaDataGrid()
         {
-            foreach (DataGridViewRow row1 in grdNguoiDung.Rows)
+            foreach (DataRow row1 in tblNguoiDung.Rows)
             {
-                if (row1.Cells["MAND"].Value != null)
+                if (row1["MAND"] != null)
                 {
-                    if (string.Compare(row1.Cells["MAND"].Value.ToString().Trim(), nguoiDung_DTO.Mand.Trim()) == 0)
+                    if (string.Compare(row1["MAND"].ToString().Trim(), nguoiDung_DTO.Mand.Trim()) == 0)
                     {
-                        row1.Cells["TENND"].Value = nguoiDung_DTO.Tennd;
-                        row1.Cells["MALND"].Value = nguoiDung_DTO.Malnd;
-                        row1.Cells["TENDN"].Value = nguoiDung_DTO.Tendn;
-                        row1.Cells["MATKHAU"].Value = nguoiDung_DTO.Matkhau;
+                        row1["TENND"] = nguoiDung_DTO.Tennd;
+                        row1["MALND"] = nguoiDung_DTO.Malnd;
+                        row1["TENDN"] = nguoiDung_DTO.Tendn;
+                        row1["MATKHAU"] = nguoiDung_DTO.Matkhau;
                     }
                 }
             }

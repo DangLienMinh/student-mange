@@ -47,10 +47,10 @@ namespace QLHS.BUS
             tblLoaiDiem = new DataTable();
         }
 
-        public void hienThiDanhSach(DataGridViewX grdLoaiDiem)
+        public DataTable hienThiDanhSach()
         {
             tblLoaiDiem = loaiDiem_DAO.danhSachLoaiDiem();
-            grdLoaiDiem.DataSource = tblLoaiDiem;
+           return tblLoaiDiem;
         }
 
         public void themLoaiDiem(string maLD, string tenLD,string heSo)
@@ -96,25 +96,24 @@ namespace QLHS.BUS
 
         public void suaDataGrid(DataGridViewX grdLoaiDiem)
         {
-            foreach (DataGridViewRow row1 in grdLoaiDiem.Rows)
+            foreach (DataRow row1 in tblLoaiDiem.Rows)
             {
-                if (row1.Cells["MALD"].Value != null)
+                if (row1["MALD"] != null)
                 {
-                    if (string.Compare(row1.Cells["MALD"].Value.ToString().Trim(), loaiDiem_DTO.Mald.Trim()) == 0)
+                    if (string.Compare(row1["MALD"].ToString().Trim(), loaiDiem_DTO.Mald.Trim()) == 0)
                     {
-                        row1.Cells["TENLD"].Value = loaiDiem_DTO.Tenld;
-                        row1.Cells["HESOLD"].Value = loaiDiem_DTO.Hesold;
+                        row1["TENLD"] = loaiDiem_DTO.Tenld;
+                        row1["HESOLD"] = loaiDiem_DTO.Hesold;
                     }
                 }
             }
         }
 
         //xóa loại điểm trùng với mã loại điểm trên table loại điểm
-        public void xoaDong(DataGridViewX grdLoaiDiem, string maLD)
+        public void xoaDong( string maLD)
         {
             DataRow row = tblLoaiDiem.Select("MALD='" + maLD + "'")[0];
             row.Delete();
-            grdLoaiDiem.DataSource = tblLoaiDiem;
         }
     }
 }

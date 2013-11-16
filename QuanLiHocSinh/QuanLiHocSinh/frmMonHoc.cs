@@ -161,9 +161,9 @@ namespace QuanLiHocSinh
                     {
                         monHoc_BUS.themMonHoc(txtMaMH.Text, txtTenMH.Text,txtSoTiet.Text,cboHeSo.SelectedItem.ToString());
                         MessageBox.Show("Bạn đã thêm thành công!");
-                        bindingData();
+                        //bindingData();
                        
-                        //monHoc_BUS.themDong();
+                        monHoc_BUS.themDong();
                         FlagDisable();
                         flag = 0;
 
@@ -192,12 +192,10 @@ namespace QuanLiHocSinh
             if (grdMonHoc.SelectedRows.Count >= 1 && txtMaMH.Text != "")
             {    
                 monHoc_BUS.suaMonHoc(txtMaMH.Text, txtTenMH.Text, txtSoTiet.Text,cboHeSo.SelectedItem.ToString());
-
-
                 MessageBox.Show("Bạn đã sửa thành công!");
 
                 //sửa trong datagrid view
-                monHoc_BUS.suaDataGrid(grdMonHoc);
+                monHoc_BUS.suaDataGrid();
             }
             else
             {
@@ -214,23 +212,22 @@ namespace QuanLiHocSinh
             {
                 if (MessageBox.Show("Bạn có chắc muốn xóa môn học đã được lựa chọn ", "Xóa môn học", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    monHoc_BUS.xoaMonHoc(txtMaMH.Text);
-                    bindingData();
-                    resetAll();
-                    FlagDisable();
-                    flag = 0;
-                    //foreach (DataGridViewRow row in grdMonHoc.Rows)
-                    //{
-                    //    if (string.Compare(row.Cells["MAMH"].Value.ToString().Trim(), txtMaMH.Text.Trim()) == 0)
-                    //    {
-                    //        //monHoc_BUS.xoaDong(grdMonHoc, txtMaMH.Text);
-                    //        bindingData();
-                    //        resetAll();
-                    //        FlagDisable();
-                    //        flag = 0;
-                    //        break;
-                    //    }
-                    //}
+                    
+                   
+                   
+                    foreach (DataGridViewRow row in grdMonHoc.Rows)
+                    {
+                        if (string.Compare(row.Cells["MAMH"].Value.ToString().Trim(), txtMaMH.Text.Trim()) == 0)
+                        {
+                            monHoc_BUS.xoaMonHoc(txtMaMH.Text);
+                            monHoc_BUS.xoaDong(txtMaMH.Text);
+                            //bindingData();
+                            resetAll();
+                            FlagDisable();
+                            flag = 0;
+                            break;
+                        }
+                    }
                 }
             }
             else
