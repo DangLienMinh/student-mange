@@ -90,7 +90,7 @@ namespace QLHS.BUS
             }
         }
 
-        public void thongTinDiemTheoHS(ComboBoxEx cboMaNH, ComboBoxEx cboMaHK, ComboBoxEx cboMaLD, ComboBoxEx cboMaMH, ComboBoxEx cboMaHS,DataGridViewX grdDiem)
+        public DataTable thongTinDiemTheoHS(ComboBoxEx cboMaNH, ComboBoxEx cboMaHK, ComboBoxEx cboMaLD, ComboBoxEx cboMaMH, ComboBoxEx cboMaHS)
         {
             diem_DTO = new clsDIEM_DTO();
             hocSinh_DTO = new clsHOCSINH_DTO();
@@ -106,7 +106,7 @@ namespace QLHS.BUS
             }
            
             tblDiem = diem_DAO.thongTinDiemTheoHS(diem_DTO);
-            grdDiem.DataSource = tblDiem;
+           return  tblDiem;
         }
 
         public void thongTinDiemTheoMaLD(ComboBoxEx cboMaNH, ComboBoxEx cboMaHK, ComboBoxEx cboMaMH, DataGridViewX grdDiem)

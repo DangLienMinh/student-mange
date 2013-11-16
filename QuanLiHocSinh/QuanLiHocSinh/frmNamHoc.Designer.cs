@@ -40,7 +40,6 @@
             this.MANH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENNH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bnaNamHoc = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
-            this.bindingNavigatorAddNewItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
             this.bindingNavigatorMoveFirstItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorMovePreviousItem = new DevComponents.DotNetBar.ButtonItem();
@@ -61,6 +60,7 @@
             this.btnItemNhapNH = new DevComponents.DotNetBar.ButtonItem();
             this.btnItemNamHoc = new DevComponents.DotNetBar.TabItem(this.components);
             this.btnItemNhapHK = new DevComponents.DotNetBar.TabItem(this.components);
+            this.buttonItem8 = new DevComponents.DotNetBar.ButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabControlPanel1.SuspendLayout();
@@ -205,7 +205,6 @@
             // 
             // bnaNamHoc
             // 
-            this.bnaNamHoc.AddNewRecordButton = this.bindingNavigatorAddNewItem;
             this.bnaNamHoc.AntiAlias = true;
             this.bnaNamHoc.CountLabel = this.bindingNavigatorCountItem;
             this.bnaNamHoc.CountLabelFormat = "of {0}";
@@ -219,7 +218,7 @@
             this.bindingNavigatorCountItem,
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorAddNewItem,
+            this.buttonItem8,
             this.buttonItem1});
             this.bnaNamHoc.Location = new System.Drawing.Point(0, 0);
             this.bnaNamHoc.MoveFirstButton = this.bindingNavigatorMoveFirstItem;
@@ -234,13 +233,6 @@
             this.bnaNamHoc.TabIndex = 22;
             this.bnaNamHoc.TabStop = false;
             this.bnaNamHoc.Text = "bindingNavigatorEx1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -465,6 +457,13 @@
             this.btnItemNhapHK.Name = "btnItemNhapHK";
             this.btnItemNhapHK.Text = "Học kỳ";
             // 
+            // buttonItem8
+            // 
+            this.buttonItem8.Image = global::QuanLiHocSinh.Properties.Resources.add;
+            this.buttonItem8.Name = "buttonItem8";
+            this.buttonItem8.Text = "buttonItem2";
+            this.buttonItem8.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // frmNamHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -511,7 +510,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MANH;
         private System.Windows.Forms.DataGridViewTextBoxColumn TENNH;
         private DevComponents.DotNetBar.Controls.BindingNavigatorEx bnaNamHoc;
-        private DevComponents.DotNetBar.ButtonItem bindingNavigatorAddNewItem;
         private DevComponents.DotNetBar.LabelItem bindingNavigatorCountItem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveFirstItem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMovePreviousItem;
@@ -519,6 +517,7 @@
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveNextItem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveLastItem;
         private DevComponents.DotNetBar.ButtonItem buttonItem1;
+        private DevComponents.DotNetBar.ButtonItem buttonItem8;
 
     }
 }
