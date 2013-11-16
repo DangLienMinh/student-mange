@@ -15,7 +15,8 @@ namespace QuanLiHocSinh
     {
         private int flag = 0;
         private int viTri, Tong;
-        private BindingSource bs;
+        private BindingSource bsChung;
+        private BindingSource bsRieng;
         private frmLoaiDiem frm_LoaiDiem=null;
         private clsNAMHOC_BUS namHoc_BUS;
         private clsLOP_BUS lop_BUS;
@@ -35,8 +36,8 @@ namespace QuanLiHocSinh
             monHoc_BUS = new clsMONHOC_BUS();
             hocSinh_BUS = new clsHOCSINH_BUS();
             diem_BUS=new clsDIEM_BUS();
-            bs = new BindingSource();
-
+            bsChung = new BindingSource();
+            bsRieng = new BindingSource();
 
             monHoc_BUS.HienThiDataGridViewComboBoxColumn(MAMH1);
             loaiDiem_BUS.HienThiDataGridViewComboBoxColumn(MALD1);
@@ -99,27 +100,27 @@ namespace QuanLiHocSinh
 
             FlagDisable();
             flag = 0;
-            sapXep();
-            btnDau.Enabled = false;
-            btnTruoc.Enabled = false;
+            //sapXep();
+            //btnDau.Enabled = false;
+            //btnTruoc.Enabled = false;
         }
 
-        private void sapXep()
-        {
-            viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
-            Tong = this.BindingContext[grdDiemRieng.DataSource].Count;
-            if (viTri != -1)
-            {
-                txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
-                cboLoaiDiem1.Text = grdDiemRieng.Rows[viTri].Cells["MALD1"].Value.ToString();
-                cboNamHoc1.Text = grdDiemRieng.Rows[viTri].Cells["MANH1"].Value.ToString();
-                cboHocSinh1.Text = grdDiemRieng.Rows[viTri].Cells["MAHS1"].Value.ToString();
-                cboMonHoc1.Text = grdDiemRieng.Rows[viTri].Cells["MAMH1"].Value.ToString();
-                cboLop1.SelectedItem = grdDiemRieng.Rows[viTri].Cells["MALOP1"].Value.ToString();
-                txtDiem1.Text = grdDiemRieng.Rows[viTri].Cells["DIEMSO1"].Value.ToString();
-                cboHocKy1.Text = grdDiemRieng.Rows[viTri].Cells["MAHK1"].Value.ToString();
-            }
-        }
+        //private void sapXep()
+        //{
+        //    viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
+        //    Tong = this.BindingContext[grdDiemRieng.DataSource].Count;
+        //    if (viTri != -1)
+        //    {
+        //        txtHienTai.Text = "" + (viTri + 1).ToString() + "/" + Tong.ToString();
+        //        cboLoaiDiem1.Text = grdDiemRieng.Rows[viTri].Cells["MALD1"].Value.ToString();
+        //        cboNamHoc1.Text = grdDiemRieng.Rows[viTri].Cells["MANH1"].Value.ToString();
+        //        cboHocSinh1.Text = grdDiemRieng.Rows[viTri].Cells["MAHS1"].Value.ToString();
+        //        cboMonHoc1.Text = grdDiemRieng.Rows[viTri].Cells["MAMH1"].Value.ToString();
+        //        cboLop1.SelectedItem = grdDiemRieng.Rows[viTri].Cells["MALOP1"].Value.ToString();
+        //        txtDiem1.Text = grdDiemRieng.Rows[viTri].Cells["DIEMSO1"].Value.ToString();
+        //        cboHocKy1.Text = grdDiemRieng.Rows[viTri].Cells["MAHK1"].Value.ToString();
+        //    }
+        //}
 
         private void insert()
         {
@@ -133,7 +134,10 @@ namespace QuanLiHocSinh
             }
             else
             {
-                diem_BUS.thongTinDiemTheoHS(cboNamHoc1, cboHocKy1, cboLoaiDiem1, cboMonHoc1, cboHocSinh1, grdDiemRieng);
+                bsRieng = new BindingSource();
+                bsRieng.DataSource = diem_BUS.thongTinDiemTheoHS(cboNamHoc1, cboHocKy1, cboLoaiDiem1, cboMonHoc1, cboHocSinh1);
+                grdDiemRieng.DataSource = bsRieng;
+                bnaDiemRieng.BindingSource = bsRieng;
                 count = grdDiemRieng.Rows.Count-1;
                 switch (cboLoaiDiem1.SelectedValue.ToString())
                 {
@@ -219,10 +223,10 @@ namespace QuanLiHocSinh
             else
             {
                 //.biding navigator
-                bs = new BindingSource();
-                bs.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
-                grdDiemChung.DataSource = bs;
-                bnaDiem.BindingSource = bs;
+                bsChung = new BindingSource();
+                bsChung.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
+                grdDiemChung.DataSource = bsChung;
+                bnaDiem.BindingSource = bsChung;
                 diem_BUS.thongTinDiemTheoMaLD(cboNamHoc, cboHocKy, cboMonHoc, grdDiemChung);
             }
         }
@@ -303,7 +307,7 @@ namespace QuanLiHocSinh
             if (flag == 1) insert();
             if (flag == 2) delete();
             if (flag == 3) update();
-            sapXep();
+            //sapXep();
             //txtMaGV.Enabled = true;
         }
 
@@ -313,10 +317,25 @@ namespace QuanLiHocSinh
             flag = 0;
         }
 
+        private void dataBinding_DiemRieng()
+        {
+            bsRieng = new BindingSource();
+            bsRieng.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
+            grdDiemChung.DataSource = bsRieng;
+            bnaDiem.BindingSource = bsRieng;
+            diem_BUS.thongTinDiemTheoMaLD(cboNamHoc, cboHocKy, cboMonHoc, grdDiemChung);
+        }
+
         private void cboLoaiDiem1_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cboLoaiDiem1.SelectedValue != null && cboHocSinh1.SelectedValue!=null){
-                diem_BUS.thongTinDiemTheoHS(cboNamHoc1,cboHocKy1,cboLoaiDiem1, cboMonHoc1,cboHocSinh1,grdDiemRieng);
+            if (cboLoaiDiem1.SelectedValue != null && cboHocSinh1.SelectedValue!=null)
+            {
+                bsRieng = new BindingSource();
+                bsRieng.DataSource = diem_BUS.thongTinDiemTheoHS(cboNamHoc1, cboHocKy1, cboLoaiDiem1, cboMonHoc1, cboHocSinh1);
+                grdDiemRieng.DataSource = bsRieng;
+                bnaDiemRieng.BindingSource = bsRieng;
+                
+               
             }
         }
 
@@ -324,7 +343,10 @@ namespace QuanLiHocSinh
         {
             if (cboLoaiDiem1.SelectedValue != null && cboHocSinh1.SelectedValue != null)
             {
-                diem_BUS.thongTinDiemTheoHS(cboNamHoc1, cboHocKy1, cboLoaiDiem1, cboMonHoc1, cboHocSinh1, grdDiemRieng);
+                bsRieng = new BindingSource();
+                bsRieng.DataSource = diem_BUS.thongTinDiemTheoHS(cboNamHoc1, cboHocKy1, cboLoaiDiem1, cboMonHoc1, cboHocSinh1);
+                grdDiemRieng.DataSource = bsRieng;
+                bnaDiemRieng.BindingSource = bsRieng;
             }
         }
 
@@ -339,48 +361,48 @@ namespace QuanLiHocSinh
             txtDiem1.Text = grdDiemRieng.CurrentRow.Cells["DIEMSO1"].Value.ToString();
            
             
-           sapXep();      
+           //sapXep();      
         }
 
-        private void btnDau_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
-            this.BindingContext[grdDiemRieng.DataSource].Position = 0;
-            sapXep();
-            btnTruoc.Enabled = false;
-            btnDau.Enabled = false;
-            btnCuoi.Enabled = true;
-            btnSau.Enabled = true;
-        }
+        //private void btnDau_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
+        //    this.BindingContext[grdDiemRieng.DataSource].Position = 0;
+        //    sapXep();
+        //    btnTruoc.Enabled = false;
+        //    btnDau.Enabled = false;
+        //    btnCuoi.Enabled = true;
+        //    btnSau.Enabled = true;
+        //}
 
-        private void btnCuoi_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
-            this.BindingContext[grdDiemRieng.DataSource].Position = this.BindingContext[grdDiemRieng.DataSource].Count - 1;
-            sapXep();
-            btnCuoi.Enabled = false;
-            btnSau.Enabled = false;
-            btnTruoc.Enabled = true;
-            btnDau.Enabled = true;
-        }
+        //private void btnCuoi_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
+        //    this.BindingContext[grdDiemRieng.DataSource].Position = this.BindingContext[grdDiemRieng.DataSource].Count - 1;
+        //    sapXep();
+        //    btnCuoi.Enabled = false;
+        //    btnSau.Enabled = false;
+        //    btnTruoc.Enabled = true;
+        //    btnDau.Enabled = true;
+        //}
 
-        private void btnTruoc_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
-            btnCuoi.Enabled = true;
-            btnSau.Enabled = true;
-            this.BindingContext[grdDiemRieng.DataSource].Position = viTri - 1;
-            sapXep();
-        }
+        //private void btnTruoc_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
+        //    btnCuoi.Enabled = true;
+        //    btnSau.Enabled = true;
+        //    this.BindingContext[grdDiemRieng.DataSource].Position = viTri - 1;
+        //    sapXep();
+        //}
 
-        private void btnSau_Click(object sender, EventArgs e)
-        {
-            viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
-            btnDau.Enabled = true;
-            btnTruoc.Enabled = true;
-            this.BindingContext[grdDiemRieng.DataSource].Position = viTri + 1;
-            sapXep();
-        }
+        //private void btnSau_Click(object sender, EventArgs e)
+        //{
+        //    viTri = this.BindingContext[grdDiemRieng.DataSource].Position;
+        //    btnDau.Enabled = true;
+        //    btnTruoc.Enabled = true;
+        //    this.BindingContext[grdDiemRieng.DataSource].Position = viTri + 1;
+        //    sapXep();
+        //}
 
         private void frmDiem_KeyDown(object sender, KeyEventArgs e)
         {
@@ -406,10 +428,10 @@ namespace QuanLiHocSinh
                 diem_BUS.xoaDiemTheoMaLD(cboNamHoc, cboHocKy, cboMonHoc, grdDiemChung);
 
                 //.biding navigator
-                bs = new BindingSource();
-                bs.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
-                grdDiemChung.DataSource = bs;
-                bnaDiem.BindingSource = bs;
+                bsChung = new BindingSource();
+                bsChung.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
+                grdDiemChung.DataSource = bsChung;
+                bnaDiem.BindingSource = bsChung;
                 diem_BUS.thongTinDiemTheoMaLD(cboNamHoc, cboHocKy, cboMonHoc, grdDiemChung);
                 MessageBox.Show("Chỉnh sửa điểm thành công!");
             }
@@ -428,10 +450,10 @@ namespace QuanLiHocSinh
             else
             {
                 //.biding navigator
-                bs = new BindingSource();
-                bs.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
-                grdDiemChung.DataSource = bs;
-                bnaDiem.BindingSource = bs;
+                bsChung = new BindingSource();
+                bsChung.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
+                grdDiemChung.DataSource = bsChung;
+                bnaDiem.BindingSource = bsChung;
                 diem_BUS.thongTinDiemTheoMaLD(cboNamHoc, cboHocKy, cboMonHoc, grdDiemChung);
             }
         }

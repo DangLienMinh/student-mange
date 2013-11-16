@@ -317,5 +317,7 @@ namespace QuanLiHocSinh
                 cboHanhKiem1.SelectedValue = grdHanhKiemRieng.CurrentRow.Cells["MALHK1"].Value.ToString();
             }
         }
+
+
     }
 }

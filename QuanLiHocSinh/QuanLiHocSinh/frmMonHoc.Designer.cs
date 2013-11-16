@@ -51,14 +51,14 @@
             this.HESOMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SOTIET = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bnaMonHoc = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
-            this.bindingNavigatorAddNewItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
-            this.bindingNavigatorDeleteItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorMoveFirstItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorMovePreviousItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorPositionItem = new DevComponents.DotNetBar.TextBoxItem();
             this.bindingNavigatorMoveNextItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorMoveLastItem = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem2 = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.cboHeSo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtSoTiet = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -70,7 +70,7 @@
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
-            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem3 = new DevComponents.DotNetBar.ButtonItem();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contextMenuBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdMonHoc)).BeginInit();
@@ -310,11 +310,9 @@
             // 
             // bnaMonHoc
             // 
-            this.bnaMonHoc.AddNewRecordButton = this.bindingNavigatorAddNewItem;
             this.bnaMonHoc.AntiAlias = true;
             this.bnaMonHoc.CountLabel = this.bindingNavigatorCountItem;
             this.bnaMonHoc.CountLabelFormat = "of {0}";
-            this.bnaMonHoc.DeleteButton = this.bindingNavigatorDeleteItem;
             this.bnaMonHoc.Dock = System.Windows.Forms.DockStyle.Top;
             this.bnaMonHoc.DockSide = DevComponents.DotNetBar.eDockSide.Document;
             this.bnaMonHoc.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -325,8 +323,8 @@
             this.bindingNavigatorCountItem,
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
+            this.buttonItem2,
+            this.buttonItem3,
             this.buttonItem1});
             this.bnaMonHoc.Location = new System.Drawing.Point(0, 0);
             this.bnaMonHoc.MoveFirstButton = this.bindingNavigatorMoveFirstItem;
@@ -342,24 +340,10 @@
             this.bnaMonHoc.TabStop = false;
             this.bnaMonHoc.Text = "bindingNavigatorEx1";
             // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
             this.bindingNavigatorCountItem.Text = "of {0}";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -394,6 +378,20 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.Text = "Move last";
+            // 
+            // buttonItem1
+            // 
+            this.buttonItem1.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
+            this.buttonItem1.Name = "buttonItem1";
+            this.buttonItem1.Text = "buttonItem1";
+            this.buttonItem1.Click += new System.EventHandler(this.frmMonHoc_Load);
+            // 
+            // buttonItem2
+            // 
+            this.buttonItem2.Image = global::QuanLiHocSinh.Properties.Resources.add;
+            this.buttonItem2.Name = "buttonItem2";
+            this.buttonItem2.Text = "buttonItem2";
+            this.buttonItem2.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // navigationPanePanel2
             // 
@@ -573,12 +571,12 @@
             this.navigationPane1.TitlePanel.TabIndex = 0;
             this.navigationPane1.TitlePanel.Text = "Nhập liệu thông tin";
             // 
-            // buttonItem1
+            // buttonItem3
             // 
-            this.buttonItem1.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
-            this.buttonItem1.Name = "buttonItem1";
-            this.buttonItem1.Text = "buttonItem1";
-            this.buttonItem1.Click += new System.EventHandler(this.frmMonHoc_Load);
+            this.buttonItem3.Image = global::QuanLiHocSinh.Properties.Resources.delete;
+            this.buttonItem3.Name = "buttonItem3";
+            this.buttonItem3.Text = "buttonItem3";
+            this.buttonItem3.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // frmMonHoc
             // 
@@ -634,15 +632,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn HESOMH;
         private System.Windows.Forms.DataGridViewTextBoxColumn SOTIET;
         private DevComponents.DotNetBar.Controls.BindingNavigatorEx bnaMonHoc;
-        private DevComponents.DotNetBar.ButtonItem bindingNavigatorAddNewItem;
         private DevComponents.DotNetBar.LabelItem bindingNavigatorCountItem;
-        private DevComponents.DotNetBar.ButtonItem bindingNavigatorDeleteItem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveFirstItem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMovePreviousItem;
         private DevComponents.DotNetBar.TextBoxItem bindingNavigatorPositionItem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveNextItem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveLastItem;
         private DevComponents.DotNetBar.ButtonItem buttonItem1;
+        private DevComponents.DotNetBar.ButtonItem buttonItem2;
+        private DevComponents.DotNetBar.ButtonItem buttonItem3;
 
     }
 }

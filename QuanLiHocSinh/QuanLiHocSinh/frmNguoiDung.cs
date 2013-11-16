@@ -219,21 +219,20 @@ namespace QuanLiHocSinh
         {
             if (grdNguoiDung.SelectedRows.Count >= 1 && txtMaND.Text != "")
             {
-                if (MessageBox.Show("Bạn có chắc muốn xóa người dùng đã được lựa chọn ", "Xóa người dùng", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                nguoiDung_BUS.xoaNguoiDung(txtMaND.Text);
+                foreach (DataGridViewRow row in grdNguoiDung.Rows)
                 {
-                    nguoiDung_BUS.xoaNguoiDung(txtMaND.Text);
-                    foreach (DataGridViewRow row in grdNguoiDung.Rows)
+                    if (string.Compare(row.Cells["MAND"].Value.ToString().Trim(), txtMaND.Text.Trim()) == 0)
                     {
-                        if (string.Compare(row.Cells["MAND"].Value.ToString().Trim(), txtMaND.Text.Trim()) == 0)
-                        {
-                            nguoiDung_BUS.xoaDong(grdNguoiDung, txtMaND.Text);
-                            resetAll();
-                            FlagDisable();
-                            flag = 0;
-                            break;
-                        }
+                        nguoiDung_BUS.xoaDong(grdNguoiDung, txtMaND.Text);
+                        resetAll();
+                        FlagDisable();
+                        flag = 0;
+                        break;
                     }
                 }
+
             }
             else
             {
@@ -336,7 +335,10 @@ namespace QuanLiHocSinh
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            delete();
+            if (MessageBox.Show("Bạn có chắc muốn xóa người dùng đã được lựa chọn ", "Xóa người dùng", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                delete();
+            }
         }
     }
 }

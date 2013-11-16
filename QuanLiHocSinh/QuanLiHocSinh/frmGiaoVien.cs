@@ -272,22 +272,20 @@ namespace QuanLiHocSinh
         {
             if (grdGiaoVien.SelectedRows.Count >= 1 && txtMaGV.Text != "")
             {
-                if (MessageBox.Show("Bạn có chắc muốn xóa giáo viên đã được lựa chọn ", "Xóa giáo viên", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                giaoVien_BUS.xoaGiaoVien(txtMaGV.Text);
+                foreach (DataGridViewRow row in grdGiaoVien.Rows)
                 {
-                    giaoVien_BUS.xoaGiaoVien(txtMaGV.Text);
-                    foreach (DataGridViewRow row in grdGiaoVien.Rows)
+                    if (string.Compare(row.Cells["MAGV"].Value.ToString().Trim(), txtMaGV.Text.Trim()) == 0)
                     {
-                        if (string.Compare(row.Cells["MAGV"].Value.ToString().Trim(), txtMaGV.Text.Trim()) == 0)
-                        {
-                            
-                            File.Delete(row.Cells["HINHANHGV"].Value.ToString());
-                            giaoVien_BUS.xoaDong( txtMaGV.Text);
-                            resetAll();
-                            FlagDisable();
-                            flag = 0;
-                            break;
-                        }
-                    } 
+
+                        File.Delete(row.Cells["HINHANHGV"].Value.ToString());
+                        giaoVien_BUS.xoaDong(txtMaGV.Text);
+                        resetAll();
+                        FlagDisable();
+                        flag = 0;
+                        break;
+                    }
+
                 }
             }
             else
@@ -453,7 +451,10 @@ namespace QuanLiHocSinh
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            delete();
+            if (MessageBox.Show("Bạn có chắc muốn xóa giáo viên đã được lựa chọn ", "Xóa giáo viên", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                delete();
+            }
         }
 
         private void bindingData()
