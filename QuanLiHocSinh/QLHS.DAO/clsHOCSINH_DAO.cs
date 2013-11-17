@@ -345,5 +345,21 @@ namespace QLHS.DAO
                 con.Close();
                 return dt;
             }
+        /*////////////////////////////////////////////////////////////////THONG KE////////////////////////////////////////////////////////////////////*/
+        //THONG KE DANH SACH HOC SINH
+        //public DataTable danhSachHocSinh()
+        //{
+        //    DataTable table = new DataTable();
+        //    connection.kiemTraKetNoi(con);
+        //    SqlCommand command = new SqlCommand("SP_ThongTinHocSinh", con);
+        //    command.CommandType = CommandType.StoredProcedure;
+        //    SqlDataAdapter adapter = new SqlDataAdapter(command);
+        //    adapter.Fill(table);
+        //    con.Close();
+        //    return table;
+        //}
         }
+
+
+   
 }
