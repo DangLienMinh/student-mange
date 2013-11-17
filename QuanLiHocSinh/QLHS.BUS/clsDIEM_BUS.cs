@@ -274,19 +274,19 @@ namespace QLHS.BUS
                         if (i < 10)
                         {
                             maMH = row.Cells["MH0" + i.ToString()].OwningColumn.Name;
-                            row.Cells["MH0" + i.ToString()].Value = (diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3;
+                            row.Cells["MH0" + i.ToString()].Value = Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3,2);
                         }
                         else
                         {
                             maMH = row.Cells["MH" + i.ToString()].OwningColumn.Name;
-                            row.Cells["MH" + i.ToString()].Value = (diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3;
+                            row.Cells["MH" + i.ToString()].Value =  Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) +diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3,2);
                         }
                     }
                 }
             }            
         }
 
-        public float diemTBTheoHocKiMonHoc(string maHS,string maHK,string maMH,string maNH)
+        public double diemTBTheoHocKiMonHoc(string maHS,string maHK,string maMH,string maNH)
         {
             float tongMieng=0,tong15=0, tongThi=0, tong1Tiet=0, tong=0;
             int heSoMieng=0,heSo15=0,heSo1iet=0,heSoThi=0,soCotMieng=0, soCot15=0,soCot1Tiet=0;
@@ -337,8 +337,8 @@ namespace QLHS.BUS
                 heSoThi = loaiDiem_BUS.heSoLoaiDiem("LD04");
                 tong += (tongMieng * heSoMieng + tong15 * heSo15 + tong1Tiet * heSo1iet + tongThi * heSoThi) / (soCotMieng * heSoMieng + soCot15 * heSo15 + soCot1Tiet * heSo1iet + heSoThi);
             }
-           
-            return tong;
+           return Math.Round((double)tong,2);
+            //return tong.ToString("n2");
         }
     }
 }
