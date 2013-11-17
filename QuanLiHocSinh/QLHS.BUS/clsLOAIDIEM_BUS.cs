@@ -115,5 +115,12 @@ namespace QLHS.BUS
             DataRow row = tblLoaiDiem.Select("MALD='" + maLD + "'")[0];
             row.Delete();
         }
+
+        public int heSoLoaiDiem(string maLD)
+        {
+            loaiDiem_DTO = new clsLOAIDIEM_DTO();
+            loaiDiem_DTO.Mald = maLD;
+            return loaiDiem_DAO.heSoLoaiDiem(loaiDiem_DTO);
+        }
     }
 }

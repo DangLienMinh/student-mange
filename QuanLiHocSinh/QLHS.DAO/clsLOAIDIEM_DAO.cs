@@ -63,5 +63,25 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
+
+        public int heSoLoaiDiem(clsLOAIDIEM_DTO loaiDiem)
+        {
+            int temp = -1;
+            SqlCommand command = new SqlCommand("SP_HeSoLoaiDiem", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MALD", SqlDbType.VarChar).Value = loaiDiem.Mald;
+            connection.kiemTraKetNoi(con);
+            if (command.ExecuteScalar().ToString() != "")
+            {
+                temp = int.Parse(command.ExecuteScalar().ToString());
+            }
+            else
+            {
+                temp = 0;
+            }
+
+            con.Close();
+            return temp;
+        }
     }
 }

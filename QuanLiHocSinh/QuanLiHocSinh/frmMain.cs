@@ -34,7 +34,8 @@ namespace QuanLiHocSinh
         private frmMatKhau m_FrmMatKhau = null;
         private frmDiem m_FrmDiem = null;
         private frmHanhKiem m_FrmHanhKiem = null;
-        frmDangNhap m_FrmLogin = null;
+        private frmDangNhap m_FrmLogin = null;
+        private frmKetQua m_FrmKQ = null;
 
         public frmMain()
         {
@@ -626,6 +627,21 @@ namespace QuanLiHocSinh
             else
             {
                 m_FrmHanhKiem.Activate();
+            }
+        }
+
+        private void btnKQ_Click(object sender, EventArgs e)
+        {
+            if (m_FrmKQ == null || m_FrmKQ.IsDisposed)
+            {
+                m_FrmKQ = new frmKetQua();
+                m_FrmKQ.FormBorderStyle = FormBorderStyle.None;
+                m_FrmKQ.MdiParent = frmMain.ActiveForm;
+                m_FrmKQ.Show();
+            }
+            else
+            {
+                m_FrmKQ.Activate();
             }
         }
 

@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMonHoc));
             this.btnSua = new DevComponents.DotNetBar.ButtonX();
-            this.btnXoa = new DevComponents.DotNetBar.ButtonX();
             this.btnHuy = new DevComponents.DotNetBar.ButtonX();
             this.btnDongY = new DevComponents.DotNetBar.ButtonX();
             this.btnThem = new DevComponents.DotNetBar.ButtonX();
@@ -43,7 +42,6 @@
             this.btnMenu = new DevComponents.DotNetBar.ButtonItem();
             this.btnAdd = new DevComponents.DotNetBar.ButtonItem();
             this.btnRefesh = new DevComponents.DotNetBar.ButtonItem();
-            this.btnDelete = new DevComponents.DotNetBar.ButtonItem();
             this.btnClose = new DevComponents.DotNetBar.ButtonItem();
             this.grdMonHoc = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.MAMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,7 +56,6 @@
             this.bindingNavigatorMoveNextItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorMoveLastItem = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem2 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem3 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.cboHeSo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -90,18 +87,6 @@
             this.btnSua.TabIndex = 7;
             this.btnSua.Text = "Sửa";
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnXoa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnXoa.Location = new System.Drawing.Point(65, 171);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(57, 23);
-            this.btnXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnXoa.TabIndex = 6;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnHuy
             // 
@@ -204,7 +189,6 @@
             this.btnMenu.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.btnAdd,
             this.btnRefesh,
-            this.btnDelete,
             this.btnClose});
             this.btnMenu.Text = "Menu";
             // 
@@ -224,14 +208,6 @@
             this.btnRefesh.Text = "Làm tươi danh dách";
             this.btnRefesh.Click += new System.EventHandler(this.frmMonHoc_Load);
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Image = global::QuanLiHocSinh.Properties.Resources.delete;
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Del);
-            this.btnDelete.Text = "Xóa dòng được chọn";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // btnClose
             // 
             this.btnClose.Image = global::QuanLiHocSinh.Properties.Resources.exit;
@@ -243,14 +219,14 @@
             // grdMonHoc
             // 
             this.grdMonHoc.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdMonHoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdMonHoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.grdMonHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdMonHoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MAMH,
@@ -258,27 +234,27 @@
             this.HESOMH,
             this.SOTIET});
             this.contextMenuBar2.SetContextMenuEx(this.grdMonHoc, this.btnMenu);
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdMonHoc.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdMonHoc.DefaultCellStyle = dataGridViewCellStyle5;
             this.grdMonHoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdMonHoc.EnableHeadersVisualStyles = false;
             this.grdMonHoc.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grdMonHoc.Location = new System.Drawing.Point(0, 25);
             this.grdMonHoc.Name = "grdMonHoc";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdMonHoc.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdMonHoc.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.grdMonHoc.Size = new System.Drawing.Size(1164, 492);
             this.grdMonHoc.TabIndex = 21;
             this.grdMonHoc.TabStop = false;
@@ -324,7 +300,6 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.buttonItem2,
-            this.buttonItem3,
             this.buttonItem1});
             this.bnaMonHoc.Location = new System.Drawing.Point(0, 0);
             this.bnaMonHoc.MoveFirstButton = this.bindingNavigatorMoveFirstItem;
@@ -390,13 +365,6 @@
             this.buttonItem2.Text = "buttonItem2";
             this.buttonItem2.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // buttonItem3
-            // 
-            this.buttonItem3.Image = global::QuanLiHocSinh.Properties.Resources.delete;
-            this.buttonItem3.Name = "buttonItem3";
-            this.buttonItem3.Text = "buttonItem3";
-            this.buttonItem3.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // buttonItem1
             // 
             this.buttonItem1.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
@@ -416,7 +384,6 @@
             this.navigationPanePanel2.Controls.Add(this.labelX4);
             this.navigationPanePanel2.Controls.Add(this.labelX2);
             this.navigationPanePanel2.Controls.Add(this.btnSua);
-            this.navigationPanePanel2.Controls.Add(this.btnXoa);
             this.navigationPanePanel2.Controls.Add(this.btnHuy);
             this.navigationPanePanel2.Controls.Add(this.btnDongY);
             this.navigationPanePanel2.Controls.Add(this.btnThem);
@@ -497,6 +464,7 @@
             this.txtMaMH.Location = new System.Drawing.Point(11, 35);
             this.txtMaMH.MaxLength = 10;
             this.txtMaMH.Name = "txtMaMH";
+            this.txtMaMH.ReadOnly = true;
             this.txtMaMH.Size = new System.Drawing.Size(137, 20);
             this.txtMaMH.TabIndex = 1;
             this.txtMaMH.Enter += new System.EventHandler(this.txt_Enter);
@@ -609,7 +577,6 @@
         #endregion
 
         private DevComponents.DotNetBar.ButtonX btnSua;
-        private DevComponents.DotNetBar.ButtonX btnXoa;
         private DevComponents.DotNetBar.ButtonX btnHuy;
         private DevComponents.DotNetBar.ButtonX btnDongY;
         private DevComponents.DotNetBar.ButtonX btnThem;
@@ -629,7 +596,6 @@
         private DevComponents.DotNetBar.ButtonItem btnMenu;
         private DevComponents.DotNetBar.ButtonItem btnAdd;
         private DevComponents.DotNetBar.ButtonItem btnRefesh;
-        private DevComponents.DotNetBar.ButtonItem btnDelete;
         private DevComponents.DotNetBar.ButtonItem btnClose;
         private DevComponents.DotNetBar.Controls.DataGridViewX grdMonHoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn MAMH;
@@ -645,7 +611,6 @@
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveLastItem;
         private DevComponents.DotNetBar.ButtonItem buttonItem1;
         private DevComponents.DotNetBar.ButtonItem buttonItem2;
-        private DevComponents.DotNetBar.ButtonItem buttonItem3;
 
     }
 }

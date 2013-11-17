@@ -29,6 +29,22 @@ namespace QLHS.BUS
             return tblMonHoc;
         }
 
+        //tạo mã môn học 
+        public string hienThiSoMon()
+        {
+            string result;
+            int temp = monHoc_DAO.soMonHoc() + 1;
+            if (temp < 10)
+            {
+                result = "0" + temp.ToString();
+            }
+            else
+            {
+                result = temp.ToString();
+            }
+            return result;
+        }
+
         public void HienThiDataGridViewComboBoxColumn(DataGridViewComboBoxColumn cboColumn)
         {
             cboColumn.DataSource = monHoc_DAO.danhSachMonhoc();
