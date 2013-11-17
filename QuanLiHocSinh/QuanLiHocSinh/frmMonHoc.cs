@@ -43,7 +43,7 @@ namespace QuanLiHocSinh
             btnDongY.Enabled = true;
             btnHuy.Enabled = true;
             btnThem.Enabled = false;
-            btnXoa.Enabled = false;
+            //btnXoa.Enabled = false;
             btnSua.Enabled = false;
         }
 
@@ -53,7 +53,7 @@ namespace QuanLiHocSinh
             btnDongY.Enabled = false;
             btnHuy.Enabled = false;
             btnThem.Enabled = true;
-            btnXoa.Enabled = true;
+            //btnXoa.Enabled = true;
             btnSua.Enabled = true;
         }
 
@@ -72,10 +72,12 @@ namespace QuanLiHocSinh
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            txtMaMH.Focus();
+            txtTenMH.Focus();
             FlagEnable();
             flag = 1;
             resetAll();
+            //tạo mã môn
+            txtMaMH.Text = "MH" + monHoc_BUS.hienThiSoMon().ToString();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

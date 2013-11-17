@@ -19,7 +19,6 @@ namespace QLHS.DAO
 
         public int demDiem(clsDIEM_DTO diem_DTO)
         {
-            connection.kiemTraKetNoi(con);
             int temp;
 
             SqlCommand command = new SqlCommand("SP_DemDiem", con);
@@ -56,6 +55,22 @@ namespace QLHS.DAO
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();   
             con.Close();
+        }
+
+        public DataTable diemTBTheoHocKiMonHoc(clsDIEM_DTO diem_DTO)
+        {
+            DataTable table = new DataTable();
+            SqlCommand command = new SqlCommand("SP_DiemTBTheoHocKiMonHoc", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar, 6).Value = diem_DTO.Manh;
+            command.Parameters.Add("@MAHK", SqlDbType.VarChar, 10).Value = diem_DTO.Mahk;
+            command.Parameters.Add("@MAMH", SqlDbType.VarChar, 10).Value = diem_DTO.Mamh;
+            command.Parameters.Add("@MAHS", SqlDbType.VarChar, 8).Value = diem_DTO.Mahs;
+            connection.kiemTraKetNoi(con);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
         }
 
         public DataTable thongTinDiemTheoHS(clsDIEM_DTO diem_DTO)

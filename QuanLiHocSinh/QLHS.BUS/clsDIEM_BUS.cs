@@ -16,6 +16,7 @@ namespace QLHS.BUS
         clsHOCSINH_BUS hocSinh_BUS;
         clsLOP_BUS lop_BUS;
         clsDIEM_DTO diem_DTO;
+        clsLOAIDIEM_BUS loaiDiem_BUS;
         clsHOCSINH_DTO hocSinh_DTO;
         DataTable tblDiem;
         private DataRow dr;
@@ -24,6 +25,7 @@ namespace QLHS.BUS
         {
             hocSinh_BUS = new clsHOCSINH_BUS();
             lop_BUS = new clsLOP_BUS();
+            loaiDiem_BUS = new clsLOAIDIEM_BUS();
             diem_DAO = new clsDIEM_DAO();
             tblDiem = new DataTable();
         }
@@ -255,6 +257,88 @@ namespace QLHS.BUS
         public void themDong()
         {
             tblDiem.Rows.Add(getDatarow());
+        }
+
+        public void ketQuaDiemHK(ComboBoxEx cboMaNH, DataGridViewX grdDiem)
+        {
+            string namHoc=cboMaNH.SelectedValue.ToString();
+            string maMH;
+
+            foreach (DataGridViewRow row in grdDiem.Rows)
+            {
+                if (row.Cells["MAHS"].Value!=null)
+                {
+                    string maHS = row.Cells["MAHS"].Value.ToString();
+                    for (int i = 1; i <= 12; i++)
+                    {
+                        if (i < 10)
+                        {
+                            maMH = row.Cells["MH0" + i.ToString()].OwningColumn.Name;
+                            row.Cells["MH0" + i.ToString()].Value = (diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3;
+                        }
+                        else
+                        {
+                            maMH = row.Cells["MH" + i.ToString()].OwningColumn.Name;
+                            row.Cells["MH" + i.ToString()].Value = (diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3;
+                        }
+                    }
+                }
+            }            
+        }
+
+        public float diemTBTheoHocKiMonHoc(string maHS,string maHK,string maMH,string maNH)
+        {
+            float tongMieng=0,tong15=0, tongThi=0, tong1Tiet=0, tong=0;
+            int heSoMieng=0,heSo15=0,heSo1iet=0,heSoThi=0,soCotMieng=0, soCot15=0,soCot1Tiet=0;
+            DataTable temp = new DataTable();
+            diem_DTO = new clsDIEM_DTO();
+            diem_DTO.Mahk = maHK;
+            diem_DTO.Manh = maNH;
+            diem_DTO.Mamh = maMH;
+            diem_DTO.Mahs = maHS;
+            temp=diem_DAO.diemTBTheoHocKiMonHoc(diem_DTO);
+            if (temp.Rows.Count>1)
+            {
+                foreach (DataRow row in temp.Rows)
+                {
+                    switch (row["MALD"].ToString())
+                    {
+                        case "LD01": 
+                            {
+                                tongMieng += float.Parse(row["DIEMSO"].ToString());
+                                ++soCotMieng;
+                                break;
+                            }
+                        case "LD02":
+                            {
+                                tong15 += float.Parse(row["DIEMSO"].ToString());
+                                ++soCot15;
+                                break;
+                            }
+                        case "LD03":
+                            {
+                                tong1Tiet += float.Parse(row["DIEMSO"].ToString());
+                                ++soCot1Tiet;
+                                break;
+                            }
+                        case "LD04":
+                            {
+                                tongThi += float.Parse(row["DIEMSO"].ToString());
+                                break;
+                            }
+                        default:
+                            break;
+                    } 
+                }
+                //lay he so
+                heSoMieng = loaiDiem_BUS.heSoLoaiDiem("LD01");
+                heSo15 = loaiDiem_BUS.heSoLoaiDiem("LD02");
+                heSo1iet = loaiDiem_BUS.heSoLoaiDiem("LD03");
+                heSoThi = loaiDiem_BUS.heSoLoaiDiem("LD04");
+                tong += (tongMieng * heSoMieng + tong15 * heSo15 + tong1Tiet * heSo1iet + tongThi * heSoThi) / (soCotMieng * heSoMieng + soCot15 * heSo15 + soCot1Tiet * heSo1iet + heSoThi);
+            }
+           
+            return tong;
         }
     }
 }

@@ -82,6 +82,12 @@
     <Compile Include="frmHocSinhTheoLop.Designer.cs">
       <DependentUpon>frmHocSinhTheoLop.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmKetQua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKetQua.Designer.cs">
+      <DependentUpon>frmKetQua.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHocSinhTheoLop.resx">
       <DependentUpon>frmHocSinhTheoLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKetQua.resx">
+      <DependentUpon>frmKetQua.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMatKhau.resx">
       <DependentUpon>frmMatKhau.cs</DependentUpon>

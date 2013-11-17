@@ -35,13 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
-            this.navigationPanePanel1 = new DevComponents.DotNetBar.NavigationPanePanel();
-            this.optTenGV = new System.Windows.Forms.RadioButton();
-            this.optMaGV = new System.Windows.Forms.RadioButton();
-            this.txtTim = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX7 = new DevComponents.DotNetBar.LabelX();
-            this.btnTim = new DevComponents.DotNetBar.ButtonX();
-            this.btnItemTim = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.btnHuy = new DevComponents.DotNetBar.ButtonX();
             this.btnDongY = new DevComponents.DotNetBar.ButtonX();
@@ -63,6 +56,13 @@
             this.txtMaGV = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
+            this.navigationPanePanel1 = new DevComponents.DotNetBar.NavigationPanePanel();
+            this.optTenGV = new System.Windows.Forms.RadioButton();
+            this.optMaGV = new System.Windows.Forms.RadioButton();
+            this.txtTim = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX7 = new DevComponents.DotNetBar.LabelX();
+            this.btnTim = new DevComponents.DotNetBar.ButtonX();
+            this.btnItemTim = new DevComponents.DotNetBar.ButtonItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.ctxMenu = new DevComponents.DotNetBar.ContextMenuBar();
             this.btnMenu = new DevComponents.DotNetBar.ButtonItem();
@@ -89,10 +89,10 @@
             this.buttonItem3 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPane1.SuspendLayout();
-            this.navigationPanePanel1.SuspendLayout();
             this.navigationPanePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picGiaoVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtiNgaySinh)).BeginInit();
+            this.navigationPanePanel1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ctxMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdGiaoVien)).BeginInit();
@@ -136,98 +136,6 @@
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
             this.navigationPane1.TitlePanel.Text = "Nhập liệu thông tin";
-            // 
-            // navigationPanePanel1
-            // 
-            this.navigationPanePanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.navigationPanePanel1.Controls.Add(this.optTenGV);
-            this.navigationPanePanel1.Controls.Add(this.optMaGV);
-            this.navigationPanePanel1.Controls.Add(this.txtTim);
-            this.navigationPanePanel1.Controls.Add(this.labelX7);
-            this.navigationPanePanel1.Controls.Add(this.btnTim);
-            this.navigationPanePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
-            this.navigationPanePanel1.Name = "navigationPanePanel1";
-            this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(292, 536);
-            this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.navigationPanePanel1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.navigationPanePanel1.Style.GradientAngle = 90;
-            this.navigationPanePanel1.TabIndex = 2;
-            // 
-            // optTenGV
-            // 
-            this.optTenGV.AutoSize = true;
-            this.optTenGV.ForeColor = System.Drawing.Color.Blue;
-            this.optTenGV.Location = new System.Drawing.Point(42, 87);
-            this.optTenGV.Name = "optTenGV";
-            this.optTenGV.Size = new System.Drawing.Size(90, 17);
-            this.optTenGV.TabIndex = 15;
-            this.optTenGV.TabStop = true;
-            this.optTenGV.Tag = "";
-            this.optTenGV.Text = "Tên giáo viên";
-            this.optTenGV.UseVisualStyleBackColor = true;
-            // 
-            // optMaGV
-            // 
-            this.optMaGV.AutoSize = true;
-            this.optMaGV.ForeColor = System.Drawing.Color.Blue;
-            this.optMaGV.Location = new System.Drawing.Point(42, 60);
-            this.optMaGV.Name = "optMaGV";
-            this.optMaGV.Size = new System.Drawing.Size(86, 17);
-            this.optMaGV.TabIndex = 14;
-            this.optMaGV.TabStop = true;
-            this.optMaGV.Tag = "";
-            this.optMaGV.Text = "Mã giáo viên";
-            this.optMaGV.UseVisualStyleBackColor = true;
-            // 
-            // txtTim
-            // 
-            this.txtTim.BackColor = System.Drawing.SystemColors.Window;
-            // 
-            // 
-            // 
-            this.txtTim.Border.Class = "TextBoxBorder";
-            this.txtTim.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtTim.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtTim.Location = new System.Drawing.Point(14, 34);
-            this.txtTim.Name = "txtTim";
-            this.txtTim.Size = new System.Drawing.Size(233, 20);
-            this.txtTim.TabIndex = 12;
-            // 
-            // labelX7
-            // 
-            // 
-            // 
-            // 
-            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(14, 11);
-            this.labelX7.Name = "labelX7";
-            this.labelX7.Size = new System.Drawing.Size(145, 23);
-            this.labelX7.TabIndex = 11;
-            this.labelX7.Text = "Nhập thông tin tìm kiếm:";
-            // 
-            // btnTim
-            // 
-            this.btnTim.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnTim.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTim.Location = new System.Drawing.Point(55, 119);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(155, 23);
-            this.btnTim.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnTim.TabIndex = 13;
-            this.btnTim.Text = "Tìm kiếm";
-            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
-            // 
-            // btnItemTim
-            // 
-            this.btnItemTim.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemTim.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTim.Image")));
-            this.btnItemTim.Name = "btnItemTim";
-            this.btnItemTim.OptionGroup = "navBar";
-            this.btnItemTim.Text = "Tìm kiếm thông tin";
             // 
             // navigationPanePanel2
             // 
@@ -529,6 +437,7 @@
             this.txtMaGV.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtMaGV.Location = new System.Drawing.Point(11, 25);
             this.txtMaGV.Name = "txtMaGV";
+            this.txtMaGV.ReadOnly = true;
             this.txtMaGV.Size = new System.Drawing.Size(155, 20);
             this.txtMaGV.TabIndex = 0;
             this.txtMaGV.Enter += new System.EventHandler(this.txt_Enter);
@@ -554,6 +463,98 @@
             this.btnItemNhap.Name = "btnItemNhap";
             this.btnItemNhap.OptionGroup = "navBar";
             this.btnItemNhap.Text = "Nhập liệu thông tin";
+            // 
+            // navigationPanePanel1
+            // 
+            this.navigationPanePanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.navigationPanePanel1.Controls.Add(this.optTenGV);
+            this.navigationPanePanel1.Controls.Add(this.optMaGV);
+            this.navigationPanePanel1.Controls.Add(this.txtTim);
+            this.navigationPanePanel1.Controls.Add(this.labelX7);
+            this.navigationPanePanel1.Controls.Add(this.btnTim);
+            this.navigationPanePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
+            this.navigationPanePanel1.Name = "navigationPanePanel1";
+            this.navigationPanePanel1.ParentItem = this.btnItemTim;
+            this.navigationPanePanel1.Size = new System.Drawing.Size(292, 434);
+            this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.navigationPanePanel1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.navigationPanePanel1.Style.GradientAngle = 90;
+            this.navigationPanePanel1.TabIndex = 2;
+            // 
+            // optTenGV
+            // 
+            this.optTenGV.AutoSize = true;
+            this.optTenGV.ForeColor = System.Drawing.Color.Blue;
+            this.optTenGV.Location = new System.Drawing.Point(42, 87);
+            this.optTenGV.Name = "optTenGV";
+            this.optTenGV.Size = new System.Drawing.Size(90, 17);
+            this.optTenGV.TabIndex = 15;
+            this.optTenGV.TabStop = true;
+            this.optTenGV.Tag = "";
+            this.optTenGV.Text = "Tên giáo viên";
+            this.optTenGV.UseVisualStyleBackColor = true;
+            // 
+            // optMaGV
+            // 
+            this.optMaGV.AutoSize = true;
+            this.optMaGV.ForeColor = System.Drawing.Color.Blue;
+            this.optMaGV.Location = new System.Drawing.Point(42, 60);
+            this.optMaGV.Name = "optMaGV";
+            this.optMaGV.Size = new System.Drawing.Size(86, 17);
+            this.optMaGV.TabIndex = 14;
+            this.optMaGV.TabStop = true;
+            this.optMaGV.Tag = "";
+            this.optMaGV.Text = "Mã giáo viên";
+            this.optMaGV.UseVisualStyleBackColor = true;
+            // 
+            // txtTim
+            // 
+            this.txtTim.BackColor = System.Drawing.SystemColors.Window;
+            // 
+            // 
+            // 
+            this.txtTim.Border.Class = "TextBoxBorder";
+            this.txtTim.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtTim.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtTim.Location = new System.Drawing.Point(14, 34);
+            this.txtTim.Name = "txtTim";
+            this.txtTim.Size = new System.Drawing.Size(233, 20);
+            this.txtTim.TabIndex = 12;
+            // 
+            // labelX7
+            // 
+            // 
+            // 
+            // 
+            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX7.Location = new System.Drawing.Point(14, 11);
+            this.labelX7.Name = "labelX7";
+            this.labelX7.Size = new System.Drawing.Size(145, 23);
+            this.labelX7.TabIndex = 11;
+            this.labelX7.Text = "Nhập thông tin tìm kiếm:";
+            // 
+            // btnTim
+            // 
+            this.btnTim.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnTim.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnTim.Location = new System.Drawing.Point(55, 119);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(155, 23);
+            this.btnTim.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnTim.TabIndex = 13;
+            this.btnTim.Text = "Tìm kiếm";
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
+            // 
+            // btnItemTim
+            // 
+            this.btnItemTim.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemTim.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTim.Image")));
+            this.btnItemTim.Name = "btnItemTim";
+            this.btnItemTim.OptionGroup = "navBar";
+            this.btnItemTim.Text = "Tìm kiếm thông tin";
             // 
             // groupPanel1
             // 
@@ -859,11 +860,11 @@
             this.Load += new System.EventHandler(this.frmGiaoVien_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmGiaoVien_KeyDown);
             this.navigationPane1.ResumeLayout(false);
-            this.navigationPanePanel1.ResumeLayout(false);
-            this.navigationPanePanel1.PerformLayout();
             this.navigationPanePanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picGiaoVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtiNgaySinh)).EndInit();
+            this.navigationPanePanel1.ResumeLayout(false);
+            this.navigationPanePanel1.PerformLayout();
             this.groupPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ctxMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdGiaoVien)).EndInit();

@@ -17,6 +17,7 @@ namespace QLHS.DAO
             connection = new clsConnectDatabase();
             con = connection.KetNoi();
         }
+
         public DataTable danhSachMonhoc()
         {
             connection.kiemTraKetNoi(con);
@@ -28,6 +29,27 @@ namespace QLHS.DAO
             con.Close();
             return table;
         }
+
+        public int soMonHoc()
+        {
+            int temp = -1;
+            DataTable table = new DataTable();
+            SqlCommand command = new SqlCommand("SP_ThongTinSoMon", con);
+            command.CommandType = CommandType.StoredProcedure;
+            connection.kiemTraKetNoi(con);
+            if (command.ExecuteScalar().ToString() != "")
+            {
+                temp = int.Parse(command.ExecuteScalar().ToString());
+            }
+            else
+            {
+                temp = 0;
+            }
+
+            con.Close();
+            return temp;
+        }
+
         public void themMonHoc(clsMONHOC_DTO monhoc)
         {
             SqlCommand command = new SqlCommand("SP_ThemMonHoc", con);
