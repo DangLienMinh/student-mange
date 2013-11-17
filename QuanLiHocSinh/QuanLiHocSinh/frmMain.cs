@@ -613,10 +613,6 @@ namespace QuanLiHocSinh
                 m_FrmDiem.Activate();
         }
 
-        private void ribbonControl1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnHanhKiem_Click(object sender, EventArgs e)
         {

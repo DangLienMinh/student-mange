@@ -44,7 +44,7 @@ namespace QuanLiHocSinh
             btnDongY.Enabled = true;
             btnHuy.Enabled = true;
             btnThem.Enabled = false;
-            btnXoa.Enabled = false;
+            //btnXoa.Enabled = false;
             btnSua.Enabled = false;
         }
 
@@ -54,7 +54,7 @@ namespace QuanLiHocSinh
             btnDongY.Enabled = false;
             btnHuy.Enabled = false;
             btnThem.Enabled = true;
-            btnXoa.Enabled = true;
+           // btnXoa.Enabled = true;
             btnSua.Enabled = true;
         }
 
@@ -89,12 +89,12 @@ namespace QuanLiHocSinh
             resetAll();
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            flag = 2;
-            FlagEnable();
-            txtMaLD.Enabled = false;
-        }
+        //private void btnXoa_Click(object sender, EventArgs e)
+        //{
+        //    flag = 2;
+        //    FlagEnable();
+        //    txtMaLD.Enabled = false;
+        //}
 
         private void btnSua_Click(object sender, EventArgs e)
         {
@@ -107,7 +107,7 @@ namespace QuanLiHocSinh
         private void btnDongY_Click(object sender, EventArgs e)
         {
             if (flag == 1) insert();
-            if (flag == 2) delete();
+            //if (flag == 2) delete();
             if (flag == 3) update();
             txtMaLD.Enabled = true;
         }
@@ -192,29 +192,29 @@ namespace QuanLiHocSinh
             flag = 0;
         }
 
-        private void delete()
-        {
-            if (grdLoaiDiem.SelectedRows.Count >= 1 && txtMaLD.Text != "")
-            {
-                loaiDiem_BUS.xoaLoaiDiem(txtMaLD.Text);
-                foreach (DataGridViewRow row in grdLoaiDiem.Rows)
-                {
-                    if (string.Compare(row.Cells["MALD"].Value.ToString().Trim(), txtMaLD.Text.Trim()) == 0)
-                    {
-                        loaiDiem_BUS.xoaDong(txtMaLD.Text);
-                        resetAll();
-                        FlagDisable();
-                        flag = 0;
-                        break;
-                    }
+        //private void delete()
+        //{
+        //    if (grdLoaiDiem.SelectedRows.Count >= 1 && txtMaLD.Text != "")
+        //    {
+        //        loaiDiem_BUS.xoaLoaiDiem(txtMaLD.Text);
+        //        foreach (DataGridViewRow row in grdLoaiDiem.Rows)
+        //        {
+        //            if (string.Compare(row.Cells["MALD"].Value.ToString().Trim(), txtMaLD.Text.Trim()) == 0)
+        //            {
+        //                loaiDiem_BUS.xoaDong(txtMaLD.Text);
+        //                resetAll();
+        //                FlagDisable();
+        //                flag = 0;
+        //                break;
+        //            }
 
-                }
-            }
-            else
-            {
-                MessageBox.Show("Bạn phải lựa chọn một hàng để xóa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Bạn phải lựa chọn một hàng để xóa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    }
+        //}
 
         private void frmLoaiDiem_KeyDown(object sender, KeyEventArgs e)
         {
@@ -240,13 +240,13 @@ namespace QuanLiHocSinh
             txtTenLD.BackColor = Color.White;
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có chắc muốn xóa loại điểm đã được lựa chọn ", "Xóa loại điểm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                delete();
-            }
-        }
+        //private void btnDelete_Click(object sender, EventArgs e)
+        //{
+        //    if (MessageBox.Show("Bạn có chắc muốn xóa loại điểm đã được lựa chọn ", "Xóa loại điểm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+        //    {
+        //        delete();
+        //    }
+        //}
 
         private void move_Click(object sender, EventArgs e)
         {

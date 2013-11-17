@@ -223,6 +223,16 @@ namespace QuanLiHocSinh.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap good_result_md {
+            get {
+                object obj = ResourceManager.GetObject("good-result-md", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HuongDan {
             get {
                 object obj = ResourceManager.GetObject("HuongDan", resourceCulture);
