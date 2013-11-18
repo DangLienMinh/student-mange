@@ -144,5 +144,12 @@ namespace QLHS.BUS
             DataRow row = tblMonHoc.Select("MAMH='" + maMH + "'")[0];
             row.Delete();
         }
+
+        public int heSoMonHoc(string maMH)
+        {
+            monHoc_DTO = new clsMONHOC_DTO();
+            monHoc_DTO.Mamh = maMH;
+            return monHoc_DAO.heSoMonHoc(monHoc_DTO);
+        }
     }
 }
