@@ -280,9 +280,7 @@ namespace QuanLiHocSinh
                 hocSinh_DTO.Dantoc = txtDantoc.Text;
                 hocSinh_DTO.Dienthoaihs = txtDienThoai.Text;
                 hocSinh_DTO.Diachihs = txtDiaChi.Text;
-
                 hocSinh_DTO.Ngnhaphoc = DateTime.Parse(dtiNgayNhapHoc.Text);
-
                 try
                 {
                     File.Copy(linkGoc, hocSinh_DTO.Hinhanhhs);
@@ -310,9 +308,9 @@ namespace QuanLiHocSinh
                 {
                     hocSinh_BUS.xoaHocSinh(hocSinh_DTO);
                     File.Delete(grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString());
-
                     hocSinh_BUS.tailaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh());//tải lại danh sách sau khi xóa
                     flagDelete = false;
+                    resetALL();
                     MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
@@ -454,6 +452,15 @@ namespace QuanLiHocSinh
         {
             anHienButton(false);
             Delete();
+        }
+
+        private void txtDienThoai_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Chỉ nhập số,không nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
     }
