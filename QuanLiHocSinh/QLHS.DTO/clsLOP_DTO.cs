@@ -49,5 +49,13 @@ namespace QLHS.DTO
             get { return magv; }
             set { magv = value; }
         }
+
+        private string maban;
+
+        public string Maban
+        {
+            get { return maban; }
+            set { maban = value; }
+        }
     }
 }

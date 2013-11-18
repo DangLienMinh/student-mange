@@ -309,7 +309,11 @@ namespace QLHS.BUS
                             }
                         }
                     }
-                    row.Cells["CN"].Value = Math.Round((tong / soCot),1);
+                    if (tong==0||soCot==0)
+                    {
+                        row.Cells["CN"].Value = 0;
+                    }else
+                     row.Cells["CN"].Value = Math.Round((tong / soCot),1);
 
                 }
             }            
