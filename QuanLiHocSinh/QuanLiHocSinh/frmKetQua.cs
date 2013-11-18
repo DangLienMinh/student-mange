@@ -86,5 +86,7 @@ namespace QuanLiHocSinh
                diem_BUS.ketQuaDiemHK(cboNamHoc, grdKQ);
             }
         }
+
+
     }
 }

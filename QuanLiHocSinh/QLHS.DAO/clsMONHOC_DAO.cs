@@ -62,6 +62,7 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
+
         public void suaMonHoc(clsMONHOC_DTO monhoc)
         {
             SqlCommand command = new SqlCommand("SP_SuaMonHoc", con);
@@ -74,6 +75,7 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
+
         public void xoaMonHoc(clsMONHOC_DTO monhoc)
         {
             SqlCommand command = new SqlCommand("SP_XoaMonHoc", con);
@@ -82,6 +84,26 @@ namespace QLHS.DAO
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
+        }
+
+        public int heSoMonHoc(clsMONHOC_DTO monHoc)
+        {
+            int temp = -1;
+            SqlCommand command = new SqlCommand("SP_HeSoMonHoc", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MAMH", SqlDbType.VarChar).Value = monHoc.Mamh;
+            connection.kiemTraKetNoi(con);
+            if (command.ExecuteScalar()!= null)
+            {
+                temp = int.Parse(command.ExecuteScalar().ToString());
+            }
+            else
+            {
+                temp = 0;
+            }
+
+            con.Close();
+            return temp;
         }
     }
 }

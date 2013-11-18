@@ -17,6 +17,7 @@ namespace QLHS.BUS
         clsLOP_BUS lop_BUS;
         clsDIEM_DTO diem_DTO;
         clsLOAIDIEM_BUS loaiDiem_BUS;
+        clsMONHOC_BUS monHoc_BUS;
         clsHOCSINH_DTO hocSinh_DTO;
         DataTable tblDiem;
         private DataRow dr;
@@ -26,6 +27,7 @@ namespace QLHS.BUS
             hocSinh_BUS = new clsHOCSINH_BUS();
             lop_BUS = new clsLOP_BUS();
             loaiDiem_BUS = new clsLOAIDIEM_BUS();
+            monHoc_BUS = new clsMONHOC_BUS();
             diem_DAO = new clsDIEM_DAO();
             tblDiem = new DataTable();
         }
@@ -274,14 +276,41 @@ namespace QLHS.BUS
                         if (i < 10)
                         {
                             maMH = row.Cells["MH0" + i.ToString()].OwningColumn.Name;
-                            row.Cells["MH0" + i.ToString()].Value = Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3,2);
+                            row.Cells["MH0" + i.ToString()].Value = Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3,1);
                         }
                         else
                         {
                             maMH = row.Cells["MH" + i.ToString()].OwningColumn.Name;
-                            row.Cells["MH" + i.ToString()].Value =  Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) +diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3,2);
+                            row.Cells["MH" + i.ToString()].Value =  Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) +diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3,1);
                         }
                     }
+                    double tong=0;
+                    int soCot = 0;
+
+                    for (int i = 1; i <= 12; i++)
+                    {
+                        double diem = 0;
+                        if (i < 10)
+                        {
+                            diem = double.Parse(row.Cells["MH0" + i.ToString()].Value.ToString());
+                            if (diem>0)
+                            {
+                                tong += (diem * monHoc_BUS.heSoMonHoc(row.Cells["MH0" + i.ToString()].OwningColumn.Name));
+                                soCot += monHoc_BUS.heSoMonHoc(row.Cells["MH0" + i.ToString()].OwningColumn.Name);
+                            }
+                        }
+                        else
+                        {
+                            diem = double.Parse(row.Cells["MH" + i.ToString()].Value.ToString());
+                            if (diem>0)
+                            {
+                                tong += (diem * monHoc_BUS.heSoMonHoc(row.Cells["MH" + i.ToString()].OwningColumn.Name));
+                                soCot += monHoc_BUS.heSoMonHoc(row.Cells["MH" + i.ToString()].OwningColumn.Name);
+                            }
+                        }
+                    }
+                    row.Cells["CN"].Value = Math.Round((tong / soCot),1);
+
                 }
             }            
         }
@@ -337,7 +366,7 @@ namespace QLHS.BUS
                 heSoThi = loaiDiem_BUS.heSoLoaiDiem("LD04");
                 tong += (tongMieng * heSoMieng + tong15 * heSo15 + tong1Tiet * heSo1iet + tongThi * heSoThi) / (soCotMieng * heSoMieng + soCot15 * heSo15 + soCot1Tiet * heSo1iet + heSoThi);
             }
-           return Math.Round((double)tong,2);
+           return Math.Round((double)tong,1);
             //return tong.ToString("n2");
         }
     }
