@@ -99,7 +99,15 @@ namespace QLHS.BUS
                     }
                 }
                 max++;
-                maHS = namHienTai + max.ToString().Trim().Substring(4, 4);
+                int tam2 = int.Parse(max.ToString().Substring(0, 4));
+                if (tam2 != DateTime.Now.Year)
+                {
+                    maHS = DateTime.Now.Year.ToString() + "0000";
+                }
+                else
+                {
+                    maHS = namHienTai + max.ToString().Trim().Substring(4, 4);
+                }
             }
             return maHS;
         }
