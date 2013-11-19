@@ -73,7 +73,7 @@ namespace QLHS.BUS
                 }
             }
         }
-        public void hienthiCboLoaiHK(DataGridViewComboBoxColumn clnHanhkiem)
+        public void hienthiCboLoaiHK(DataGridViewComboBoxColumn clnHanhkiem)//ComboboxColumnHanhKiem
         {
             clnHanhkiem.DataSource = loaihk.danhsachLoaiHK();
             clnHanhkiem.DisplayMember = "TENLHK";

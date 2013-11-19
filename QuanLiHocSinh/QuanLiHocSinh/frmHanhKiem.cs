@@ -47,24 +47,18 @@ namespace QuanLiHocSinh
         }
         private void treKhoi_NodeClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
         {
-            string malop;
-            string manh;
-            string mahk;
-            MALHK.DisplayStyleForCurrentCellOnly = false;
-            manh = cboNamHoc.SelectedValue.ToString();
-            mahk = cboHocKy.SelectedValue.ToString();
-            malop = treKhoi.SelectedNode.Name;
-            hanhkiem_dto.Malop=malop;
-            if (malop.Substring(0, 1).ToString().Trim() == "L")//Kiểm tra xem node vừa click có phải là node lớp không,nếu phải thì thực thi dòng lệnh bên trong
+            if (treKhoi.SelectedNode.Name.Substring(0, 1).ToString().Trim() == "L")//Kiểm tra xem node vừa click có phải là node lớp không,nếu phải thì thực thi dòng lệnh bên trong
             {
                 try
                 {
-                    if (flaglist != true)//Neu btnDanhsach duoc nhat thi khong hien thi danh sach chua nhap hanh kiem len
-                    {
-                        grdHanhKiemChung.DataSource = hanhkiem_bus.danhsachHocsinhMALOPMANHMAHK(treKhoi.SelectedNode.Name.ToString(), cboNamHoc.SelectedValue.ToString(), cboHocKy.SelectedValue.ToString());
-                    }
-                    hanhkiem_dto.Manh = manh;
-                    hanhkiem_dto.Mahk = mahk;
+                    //if (flaglist != true)
+                    //{
+                        
+                    //}
+                    grdHanhKiemChung.Columns["MALHK"].Visible = true;
+                    grdHanhKiemChung.DataSource = hanhkiem_bus.danhsachHocsinhMALOPMANHMAHK(treKhoi.SelectedNode.Name.ToString(), cboNamHoc.SelectedValue.ToString(), cboHocKy.SelectedValue.ToString());
+                    hanhkiem_dto.Manh = cboNamHoc.SelectedValue.ToString();
+                    hanhkiem_dto.Mahk = cboHocKy.SelectedValue.ToString();
                 }
                 catch (Exception ex)
                 {
@@ -77,7 +71,7 @@ namespace QuanLiHocSinh
         {
             if ((MessageBox.Show("Bạn có chắc chắn muốn lưu lại", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
             {
-                int khoa = 0;
+                
                 foreach (DataGridViewRow row in grdHanhKiemChung.Rows)
                 {
                     if (row.Cells["MAHS"].Value != null)
@@ -88,7 +82,7 @@ namespace QuanLiHocSinh
                             hanhkiem_dto.Malhk = row.Cells["MALHK"].Value.ToString();
                             hanhkiem_dto.Mahs = row.Cells["MAHS"].Value.ToString();
                             hanhkiem_bus.themHanhKiem(hanhkiem_dto);
-                            khoa++;
+               
                         }
                         catch (Exception ex)
                         {
@@ -109,7 +103,6 @@ namespace QuanLiHocSinh
         {
             btnLuulai.Enabled = false;
             flaglist = true;
-            MALHK.DisplayStyleForCurrentCellOnly = true;
             grdHanhKiemChung.DataSource = hanhkiem_bus.danhsachHanhKiem(cboNamHoc.SelectedValue.ToString(), treKhoi.SelectedNode.Name.ToString(), cboHocKy.SelectedValue.ToString());
             
         }
@@ -297,7 +290,6 @@ namespace QuanLiHocSinh
 
         private void cboLop1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //hanhkiem_bus.hienThicboHK(cboHocKy1);
             hanhkiem_bus.hienthiCboLoaiHK(MALHK1);
             hanhkiem_bus.hienthiCboClnHocKy(MAHK1);
             hanhkiem_bus.hienthiCboClnNamHoc(MANH1);
