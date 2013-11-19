@@ -19,6 +19,7 @@ namespace QuanLiHocSinh
         private clsDIEM_BUS diem_BUS;
         private clsHOCKY_BUS hocKy_BUS;
         private clsNAMHOC_BUS namHoc_BUS;
+        private clsHANHKIEM_BUS hanhKiem_BUS;
 
         public frmKetQua()
         {
@@ -28,6 +29,7 @@ namespace QuanLiHocSinh
             diem_BUS = new clsDIEM_BUS();
             hocKy_BUS = new clsHOCKY_BUS();
             namHoc_BUS = new clsNAMHOC_BUS();
+            hanhKiem_BUS = new clsHANHKIEM_BUS();
             grdKQ.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
         }
 
@@ -72,6 +74,8 @@ namespace QuanLiHocSinh
                 bnaKQ.BindingSource = bs;
                 string maLop = lop_BUS.layPhanBan(lop_BUS.layMaLopTrenTree(cboNamHoc, treLop));
                 diem_BUS.ketQuaDiemHK(cboNamHoc, maLop, grdKQ);
+                hanhKiem_BUS.hanhKiemTheoHocKiNamHoc(cboNamHoc, grdKQ);
+                
             }
         }
 
@@ -89,6 +93,7 @@ namespace QuanLiHocSinh
                 bnaKQ.BindingSource = bs;
                string maLop=lop_BUS.layPhanBan(lop_BUS.layMaLopTrenTree(cboNamHoc,treLop));
                diem_BUS.ketQuaDiemHK(cboNamHoc, maLop, grdKQ);
+               hanhKiem_BUS.hanhKiemTheoHocKiNamHoc(cboNamHoc, grdKQ);
             }
         }
 
