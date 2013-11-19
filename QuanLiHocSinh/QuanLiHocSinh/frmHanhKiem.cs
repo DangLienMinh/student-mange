@@ -22,6 +22,7 @@ namespace QuanLiHocSinh
         private Boolean flagInsert;
         private Boolean flagUpdate;
         private Boolean flagDelete;
+        private DataGridViewColumn cbo;
         public frmHanhKiem()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace QuanLiHocSinh
             flagInsert = false;
             flagUpdate = false;
             flagDelete = false;
+            
         }
         private void frmHanhKiem_Load(object sender, EventArgs e)
         {
@@ -53,12 +55,18 @@ namespace QuanLiHocSinh
             {
                 try
                 {
-                    //if (flaglist != true)
-                    //{
-                        
-                    //}
-                    grdHanhKiemChung.Columns["MALHK"].Visible = true;
+                   
                     grdHanhKiemChung.DataSource = hanhkiem_bus.danhsachHocsinhMALOPMANHMAHKChuaNhap(treKhoi.SelectedNode.Name.ToString(), cboNamHoc.SelectedValue.ToString(), cboHocKy.SelectedValue.ToString());
+                    if (grdHanhKiemChung.Columns.Count==4)
+                    {
+                        grdHanhKiemChung.Columns.Insert(grdHanhKiemChung.Columns.Count,cbo);
+                        hanhkiem_bus.hienthiCboLoaiHK(MALHK);//Hien thi TenHanKiem Len Cobobox trong gridview cho nguoi dung chon
+                    }
+                    else
+                    {
+                        cbo = grdHanhKiemChung.Columns["MALHK"];
+                    }
+                   
                     hanhkiem_dto.Manh = cboNamHoc.SelectedValue.ToString();
                     hanhkiem_dto.Mahk = cboHocKy.SelectedValue.ToString();
                 }
