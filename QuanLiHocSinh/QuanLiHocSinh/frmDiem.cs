@@ -82,7 +82,11 @@ namespace QuanLiHocSinh
         private void cbNamHoc_SelectedValueChanged(object sender, EventArgs e)
         {
             treLop.Nodes.Clear();
-            lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHoc.SelectedValue.ToString(), treLop);
+            if (cboNamHoc.SelectedValue!=null)
+            {
+                lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHoc.SelectedValue.ToString(), treLop);
+            }
+           
         }
 
         private void frmDiem_Load(object sender, EventArgs e)
@@ -342,11 +346,7 @@ namespace QuanLiHocSinh
 
         private void txtDiem1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-                MessageBox.Show("Chỉ nhập số,không nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }  
+
         }
 
         private void btnLuuDiem_Click(object sender, EventArgs e)
@@ -412,6 +412,15 @@ namespace QuanLiHocSinh
                 cboLop1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MALOP1"].Value.ToString();
                 cboHocKy1.SelectedValue = grdDiemRieng.CurrentRow.Cells["MAHK1"].Value.ToString();
                 txtDiem1.Text = grdDiemRieng.CurrentRow.Cells["DIEMSO1"].Value.ToString();
+            }
+        }
+
+        private void txtDiem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar)&&e.KeyChar!='.')
+            {
+                e.Handled = true;
+                MessageBox.Show("Chỉ nhập số,không nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

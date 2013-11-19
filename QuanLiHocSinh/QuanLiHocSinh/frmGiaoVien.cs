@@ -376,7 +376,7 @@ namespace QuanLiHocSinh
 
         private void controlValue() 
         {
-            if (grdGiaoVien.CurrentRow.Cells["MAGV"].Value!=null)
+            if (grdGiaoVien.CurrentRow!=null)
             {
                 txtMaGV.Text = grdGiaoVien.CurrentRow.Cells["MAGV"].Value.ToString();
                 txtTenGV.Text = grdGiaoVien.CurrentRow.Cells["TENGV"].Value.ToString();

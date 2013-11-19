@@ -12,6 +12,7 @@ namespace QuanLiHocSinh
 {
     public partial class frmHanhKiem : DevComponents.DotNetBar.Office2007Form
     {
+        private clsHOCSINH_BUS hocSinh_BUS;
         private clsHANHKIEM_DTO hanhkiem_dto;
         private clsHOCKY_DTO hocky_dto;
         private clsNAMHOC_DTO namhoc_dto;
@@ -29,6 +30,7 @@ namespace QuanLiHocSinh
             hocky_dto = new clsHOCKY_DTO();
             namhoc_dto = new clsNAMHOC_DTO();
             lop_dto = new clsLOP_DTO();
+            hocSinh_BUS = new clsHOCSINH_BUS();
             flagInsert = false;
             flagUpdate = false;
             flagDelete = false;
@@ -56,7 +58,7 @@ namespace QuanLiHocSinh
                         
                     //}
                     grdHanhKiemChung.Columns["MALHK"].Visible = true;
-                    grdHanhKiemChung.DataSource = hanhkiem_bus.danhsachHocsinhMALOPMANHMAHK(treKhoi.SelectedNode.Name.ToString(), cboNamHoc.SelectedValue.ToString(), cboHocKy.SelectedValue.ToString());
+                    grdHanhKiemChung.DataSource = hanhkiem_bus.danhsachHocsinhMALOPMANHMAHKChuaNhap(treKhoi.SelectedNode.Name.ToString(), cboNamHoc.SelectedValue.ToString(), cboHocKy.SelectedValue.ToString());
                     hanhkiem_dto.Manh = cboNamHoc.SelectedValue.ToString();
                     hanhkiem_dto.Mahk = cboHocKy.SelectedValue.ToString();
                 }
@@ -124,6 +126,7 @@ namespace QuanLiHocSinh
             treKhoi.Nodes.Clear();
             hanhkiem_bus.hienthiLophoc(treKhoi, cboNamHoc);//Hiển thị danh sách lớp theo năm học lên treeview
         }
+
         private void cboLop1_SelectedValueChanged(object sender, EventArgs e)
         {
             //hanhkiem_bus.hienthiCboLoaiHK(MALHK1);
@@ -132,6 +135,7 @@ namespace QuanLiHocSinh
             //hanhkiem_bus.hienthiCboHocSinh(cboLop1.SelectedValue.ToString(), cboNamHoc1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString(), cboHocSinh1);
             //grdHanhKiemRieng.DataSource = hanhkiem_bus.danhsachHanhKiem(cboNamHoc1.SelectedValue.ToString(), cboLop1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString());
         }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             anHienButton(false);
@@ -290,11 +294,11 @@ namespace QuanLiHocSinh
 
         private void cboLop1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            hanhkiem_bus.hienthiCboLoaiHK(MALHK1);
+             hanhkiem_bus.hienthiCboLoaiHK(MALHK1);
             hanhkiem_bus.hienthiCboClnHocKy(MAHK1);
             hanhkiem_bus.hienthiCboClnNamHoc(MANH1);
             string mahk = cboHocKy1.SelectedValue.ToString();
-            hanhkiem_bus.hienthiCboHocSinh(cboLop1.SelectedValue.ToString(), cboNamHoc1.SelectedValue.ToString(),mahk, cboHocSinh1);
+            hanhkiem_bus.hienthiCboHocSinhTatCa(cboLop1.SelectedValue.ToString(), cboNamHoc1.SelectedValue.ToString(), mahk, cboHocSinh1);
             grdHanhKiemRieng.DataSource = hanhkiem_bus.danhsachHanhKiem(cboNamHoc1.SelectedValue.ToString(), cboLop1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString());
 
         }

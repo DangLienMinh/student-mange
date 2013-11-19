@@ -197,7 +197,7 @@ namespace QuanLiHocSinh
 
         private void controlValue()
         {
-            if (grdNamHoc.CurrentRow.Cells["MANH"].Value!=null)
+            if (grdNamHoc.CurrentRow!=null)
             {
                 txtMaNH.Text = grdNamHoc.CurrentRow.Cells["MANH"].Value.ToString();
                 txtTenNH.Text = grdNamHoc.CurrentRow.Cells["TENNH"].Value.ToString();

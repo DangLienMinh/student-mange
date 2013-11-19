@@ -56,7 +56,6 @@ namespace QLHS.DAO
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@MAMH", SqlDbType.VarChar).Value = monhoc.Mamh;
             command.Parameters.Add("@TENMH", SqlDbType.NVarChar).Value = monhoc.Tenmh;
-            command.Parameters.Add("@HESOMH", SqlDbType.Char).Value = monhoc.Hesomh;
             command.Parameters.Add("@SOTIET", SqlDbType.Char).Value = monhoc.Sotiet;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
@@ -69,7 +68,6 @@ namespace QLHS.DAO
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@MAMH", SqlDbType.VarChar).Value = monhoc.Mamh;
             command.Parameters.Add("@TENMH", SqlDbType.NVarChar).Value = monhoc.Tenmh;
-            command.Parameters.Add("@HESOMH", SqlDbType.Char).Value = monhoc.Hesomh;
             command.Parameters.Add("@SOTIET", SqlDbType.Char).Value = monhoc.Sotiet;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
@@ -86,24 +84,24 @@ namespace QLHS.DAO
             con.Close();
         }
 
-        public int heSoMonHoc(clsMONHOC_DTO monHoc)
-        {
-            int temp = -1;
-            SqlCommand command = new SqlCommand("SP_HeSoMonHoc", con);
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAMH", SqlDbType.VarChar).Value = monHoc.Mamh;
-            connection.kiemTraKetNoi(con);
-            if (command.ExecuteScalar()!= null)
-            {
-                temp = int.Parse(command.ExecuteScalar().ToString());
-            }
-            else
-            {
-                temp = 0;
-            }
+        //public int heSoMonHoc(clsMONHOC_DTO monHoc)
+        //{
+        //    int temp = -1;
+        //    SqlCommand command = new SqlCommand("SP_HeSoMonHoc", con);
+        //    command.CommandType = CommandType.StoredProcedure;
+        //    command.Parameters.Add("@MAMH", SqlDbType.VarChar).Value = monHoc.Mamh;
+        //    connection.kiemTraKetNoi(con);
+        //    if (command.ExecuteScalar()!= null)
+        //    {
+        //        temp = int.Parse(command.ExecuteScalar().ToString());
+        //    }
+        //    else
+        //    {
+        //        temp = 0;
+        //    }
 
-            con.Close();
-            return temp;
-        }
+        //    con.Close();
+        //    return temp;
+        //}
     }
 }

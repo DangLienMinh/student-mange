@@ -91,11 +91,26 @@ namespace QLHS.DAO
             con.Close();
         }
         //Danh sách học sinh học lớp ,học kỳ của năm học
-        public DataTable danhsachHocSinhMALOPMANHMAHK(string malop, string manh, string mahk)
+        public DataTable danhsachHocSinhMALOPMANHMAHKTatCa(string malop, string manh, string mahk)
         {
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_DanhSachHocSinh_LOP_NAMHOC_HOCKY_TATCA", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = malop;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = manh;
+            command.Parameters.Add("@MAHK", SqlDbType.VarChar).Value = mahk;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
+        public DataTable danhsachHocSinhMALOPMANHMAHKChuaNhap(string malop, string manh, string mahk)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_DanhSachHocSinh_LOP_NAMHOC_HOCKY", con);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = malop;
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = manh;
@@ -233,7 +248,7 @@ namespace QLHS.DAO
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_TimHocSinhTenHS", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@TENHS", SqlDbType.VarChar).Value = hocsinh.Tenhs;
+            command.Parameters.Add("@TENHS", SqlDbType.NVarChar).Value = hocsinh.Tenhs;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);
             con.Close();

@@ -5,6 +5,7 @@ using QLHS.DAO;
 using QLHS.DTO;
 using DevComponents.DotNetBar.Controls;
 using DevComponents.Editors.DateTimeAdv;
+using DevComponents.AdvTree;
 using System.Windows.Forms;
 using System.Data;
 
@@ -19,7 +20,9 @@ namespace QLHS.BUS
         clsLOAIDIEM_BUS loaiDiem_BUS;
         clsMONHOC_BUS monHoc_BUS;
         clsHOCSINH_DTO hocSinh_DTO;
+        clsLOP_DTO lop_DTO;
         DataTable tblDiem;
+        DataTable tblLop;
         private DataRow dr;
 
         public clsDIEM_BUS() 
@@ -29,6 +32,7 @@ namespace QLHS.BUS
             loaiDiem_BUS = new clsLOAIDIEM_BUS();
             monHoc_BUS = new clsMONHOC_BUS();
             diem_DAO = new clsDIEM_DAO();
+            lop_DTO = new clsLOP_DTO();
             tblDiem = new DataTable();
         }
 
@@ -261,62 +265,218 @@ namespace QLHS.BUS
             tblDiem.Rows.Add(getDatarow());
         }
 
-        public void ketQuaDiemHK(ComboBoxEx cboMaNH, DataGridViewX grdDiem)
+        public void ketQuaDiemHK(ComboBoxEx cboMaNH, string maBan, DataGridViewX grdDiem)
         {
-            string namHoc=cboMaNH.SelectedValue.ToString();
+            string namHoc = cboMaNH.SelectedValue.ToString();
             string maMH;
-
+            int flag = -1;
+            
             foreach (DataGridViewRow row in grdDiem.Rows)
             {
-                if (row.Cells["MAHS"].Value!=null)
+                if (row.Cells["MAHS"].Value != null)
                 {
                     string maHS = row.Cells["MAHS"].Value.ToString();
+
                     for (int i = 1; i <= 12; i++)
                     {
                         if (i < 10)
                         {
                             maMH = row.Cells["MH0" + i.ToString()].OwningColumn.Name;
-                            row.Cells["MH0" + i.ToString()].Value = Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3,1);
+                            row.Cells["MH0" + i.ToString()].Value = Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3, 1);
                         }
                         else
                         {
                             maMH = row.Cells["MH" + i.ToString()].OwningColumn.Name;
-                            row.Cells["MH" + i.ToString()].Value =  Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) +diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3,1);
+                            row.Cells["MH" + i.ToString()].Value = Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3, 1);
                         }
                     }
-                    double tong=0;
+                    double tong = 0;
                     int soCot = 0;
-
-                    for (int i = 1; i <= 12; i++)
+                    switch (maBan)
                     {
-                        double diem = 0;
-                        if (i < 10)
-                        {
-                            diem = double.Parse(row.Cells["MH0" + i.ToString()].Value.ToString());
-                            if (diem>0)
+                        case "KHTN":
                             {
-                                tong += (diem * monHoc_BUS.heSoMonHoc(row.Cells["MH0" + i.ToString()].OwningColumn.Name));
-                                soCot += monHoc_BUS.heSoMonHoc(row.Cells["MH0" + i.ToString()].OwningColumn.Name);
+                                for (int i = 1; i <= 12; i++)
+                                {
+                                    double diem = 0;
+                                    if (i < 10)
+                                    {
+                                        diem = double.Parse(row.Cells["MH0" + i.ToString()].Value.ToString());
+                                        if (diem > 0)
+                                        {
+                                            if (i>=1&&i<=4)
+                                            {
+                                                tong += (diem * 2);
+                                                soCot += 2;
+                                            }
+                                            else
+                                            {
+                                                tong += diem ;
+                                                soCot += 1;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        diem = double.Parse(row.Cells["MH" + i.ToString()].Value.ToString());
+                                        if (diem > 0)
+                                        {
+                                            tong += diem;
+                                            soCot += 1;
+                                        }
+                                    }
+                                }
+ 
                             }
-                        }
-                        else
-                        {
-                            diem = double.Parse(row.Cells["MH" + i.ToString()].Value.ToString());
-                            if (diem>0)
+                            break;
+                        case "KHXHNV":
                             {
-                                tong += (diem * monHoc_BUS.heSoMonHoc(row.Cells["MH" + i.ToString()].OwningColumn.Name));
-                                soCot += monHoc_BUS.heSoMonHoc(row.Cells["MH" + i.ToString()].OwningColumn.Name);
+                                for (int i = 1; i <= 12; i++)
+                                {
+                                    double diem = 0;
+                                    if (i < 10)
+                                    {
+                                        diem = double.Parse(row.Cells["MH0" + i.ToString()].Value.ToString());
+                                        if (diem > 0)
+                                        {
+                                            if (i >= 5 && i <= 8)
+                                            {
+                                                tong += (diem * 2);
+                                                soCot += 2;
+                                            }
+                                            else
+                                            {
+                                                tong += diem;
+                                                soCot += 1;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        diem = double.Parse(row.Cells["MH" + i.ToString()].Value.ToString());
+                                        if (diem > 0)
+                                        {
+                                            tong += diem;
+                                            soCot += 1;
+                                        }
+                                    }
+                                }
                             }
-                        }
+                            break;
+                        case "CB":
+                            {
+                                for (int i = 1; i <= 12; i++)
+                                {
+                                    double diem = 0;
+                                    if (i < 10)
+                                    {
+                                        diem = double.Parse(row.Cells["MH0" + i.ToString()].Value.ToString());
+                                        if (diem > 0)
+                                        {
+                                            if (i ==1 || i == 5)
+                                            {
+                                                tong += (diem * 2);
+                                                soCot += 2;
+                                            }
+                                            else
+                                            {
+                                                tong += diem;
+                                                soCot += 1;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        diem = double.Parse(row.Cells["MH" + i.ToString()].Value.ToString());
+                                        if (diem > 0)
+                                        {
+                                            tong += diem;
+                                            soCot += 1;
+                                        }
+                                    }
+                                }
+                            }
+                            break;
+                        default:
+                            break;
                     }
-                    if (tong==0||soCot==0)
+
+                    if (tong == 0 || soCot == 0)
                     {
                         row.Cells["CN"].Value = 0;
-                    }else
-                     row.Cells["CN"].Value = Math.Round((tong / soCot),1);
+                    }
+                    else
+                        row.Cells["CN"].Value = Math.Round((tong / soCot), 1);
 
                 }
-            }            
+            }
+        }
+
+        //public void ketQuaDiemHK(ComboBoxEx cboMaNH, string maBan,DataGridViewX grdDiem)
+        //{
+        //    string namHoc = cboMaNH.SelectedValue.ToString();
+        //    string maMH;
+
+        //    foreach (DataGridViewRow row in grdDiem.Rows)
+        //    {
+        //        if (row.Cells["MAHS"].Value != null)
+        //        {
+        //            string maHS = row.Cells["MAHS"].Value.ToString();
+        //            for (int i = 1; i <= 12; i++)
+        //            {
+        //                if (i < 10)
+        //                {
+        //                    maMH = row.Cells["MH0" + i.ToString()].OwningColumn.Name;
+        //                    row.Cells["MH0" + i.ToString()].Value = Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3, 1);
+        //                }
+        //                else
+        //                {
+        //                    maMH = row.Cells["MH" + i.ToString()].OwningColumn.Name;
+        //                    row.Cells["MH" + i.ToString()].Value = Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3, 1);
+        //                }
+        //            }
+        //            double tong = 0;
+        //            int soCot = 0;
+
+        //            for (int i = 1; i <= 12; i++)
+        //            {
+        //                double diem = 0;
+        //                if (i < 10)
+        //                {
+        //                    diem = double.Parse(row.Cells["MH0" + i.ToString()].Value.ToString());
+        //                    if (diem > 0)
+        //                    {
+        //                        tong += (diem * monHoc_BUS.heSoMonHoc(row.Cells["MH0" + i.ToString()].OwningColumn.Name));
+        //                        soCot += monHoc_BUS.heSoMonHoc(row.Cells["MH0" + i.ToString()].OwningColumn.Name);
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    diem = double.Parse(row.Cells["MH" + i.ToString()].Value.ToString());
+        //                    if (diem > 0)
+        //                    {
+        //                        tong += (diem * monHoc_BUS.heSoMonHoc(row.Cells["MH" + i.ToString()].OwningColumn.Name));
+        //                        soCot += monHoc_BUS.heSoMonHoc(row.Cells["MH" + i.ToString()].OwningColumn.Name);
+        //                    }
+        //                }
+        //            }
+        //            if (tong == 0 || soCot == 0)
+        //            {
+        //                row.Cells["CN"].Value = 0;
+        //            }
+        //            else
+        //                row.Cells["CN"].Value = Math.Round((tong / soCot), 1);
+
+        //        }
+        //    }
+        //}
+
+
+        //load danh sách học sinh theo mã năm học vào tree view
+        public string layPhanBan(ComboBoxEx comboBox, AdvTree tree)
+        {
+           string maLop=lop_BUS.layMaLopTrenTree(comboBox,tree);
+           return lop_BUS.layPhanBan(maLop);
         }
 
         public double diemTBTheoHocKiMonHoc(string maHS,string maHK,string maMH,string maNH)

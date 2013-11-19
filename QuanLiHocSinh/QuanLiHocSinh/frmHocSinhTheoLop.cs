@@ -48,7 +48,10 @@ namespace QuanLiHocSinh
         private void cboNamHoc_SelectedValueChanged(object sender, EventArgs e)
         {
             treLop.Nodes.Clear();
-            lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHoc.SelectedValue.ToString(), treLop);
+            if (cboNamHoc.SelectedValue!=null)
+            {
+                lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHoc.SelectedValue.ToString(), treLop);
+            }
         }
 
         private void btnDanhSach_Click(object sender, EventArgs e)
