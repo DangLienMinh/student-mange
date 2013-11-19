@@ -106,6 +106,9 @@ namespace QLHS.BUS
             cbohanhKiem.DisplayMember = "TENLHK";
             cbohanhKiem.ValueMember = "MALHK";
         }
+
+        
+
         public void hienthiCboHocSinhTatCa(string malop,string manh,string mahk,ComboBoxEx cboHocsinh)
         {
             cboHocsinh.DataSource = hocsinh.danhsachHocSinhMALOPMANHMAHKTatCa(malop, manh, mahk);
