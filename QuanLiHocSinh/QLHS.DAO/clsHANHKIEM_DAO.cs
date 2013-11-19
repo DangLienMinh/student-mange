@@ -51,6 +51,7 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
+
         public DataTable danhsachHanhKiem(string manh, string malop, string mahk)
         {
             DataTable table = new DataTable();
@@ -60,6 +61,22 @@ namespace QLHS.DAO
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = manh;
             command.Parameters.Add("@MAHK", SqlDbType.VarChar).Value = mahk;
             command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = malop;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
+        //form kết quả
+        public DataTable hanhKiemTheoHocKiNamHoc(clsHANHKIEM_DTO hanhKiem_DTO)
+        {
+            DataTable table = new DataTable();
+            SqlCommand command = new SqlCommand("SP_HanhKiemTheoHocKiNamHoc", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar, 6).Value = hanhKiem_DTO.Manh;
+            command.Parameters.Add("@MAHK", SqlDbType.VarChar, 10).Value = hanhKiem_DTO.Mahk;
+            command.Parameters.Add("@MAHS", SqlDbType.VarChar, 8).Value = hanhKiem_DTO.Mahs;
+            connection.kiemTraKetNoi(con);
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);
             con.Close();

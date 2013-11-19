@@ -68,7 +68,7 @@
             this.MH11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MH12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HANHKIEM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdKQ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bnaKQ)).BeginInit();
             this.navigationPane1.SuspendLayout();
@@ -103,7 +103,7 @@
             this.MH11,
             this.MH12,
             this.CN,
-            this.Column16});
+            this.HANHKIEM});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -445,10 +445,10 @@
             this.CN.Name = "CN";
             this.CN.Width = 55;
             // 
-            // Column16
+            // HANHKIEM
             // 
-            this.Column16.HeaderText = "Hạnh kiểm";
-            this.Column16.Name = "Column16";
+            this.HANHKIEM.HeaderText = "Hạnh kiểm";
+            this.HANHKIEM.Name = "HANHKIEM";
             // 
             // frmKetQua
             // 
@@ -508,6 +508,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MH11;
         private System.Windows.Forms.DataGridViewTextBoxColumn MH12;
         private System.Windows.Forms.DataGridViewTextBoxColumn CN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HANHKIEM;
     }
 }

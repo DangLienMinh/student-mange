@@ -18,12 +18,12 @@ namespace QLHS.BUS
         private clsLOAIHANHKIEM_DAO loaihk;
         private clsHOCSINH_DAO hocsinh;
         private clsHANHKIEM_DAO hanhkiem_dao;
-        //private clsKHOI_DTO khoi_dto;
+        private clsHANHKIEM_DTO hanhKiem_DTO;
+
         public clsHANHKIEM_BUS()
         {
             hocky = new clsHOCKY_DAO();
             namhoc = new clsNAMHOC_DAO();
-            //khoi_dto = new clsKHOI_DTO();
             khoi_dao = new clsKHOI_DAO();
             lop = new clsLOP_DAO();
             loaihk = new clsLOAIHANHKIEM_DAO();
@@ -136,6 +136,48 @@ namespace QLHS.BUS
         public DataTable danhsachHanhKiem(string manh, string malop, string mahk)
         {
             return hanhkiem_dao.danhsachHanhKiem(manh, malop, mahk);
+        }
+
+        //FORM KET QUA
+        public void hanhKiemTheoHocKiNamHoc(ComboBoxEx cboMaNH, DataGridViewX grdHanhKiem)
+        {
+            string ketQua = "";
+            string namHoc = cboMaNH.SelectedValue.ToString();
+            foreach (DataGridViewRow row in grdHanhKiem.Rows)
+            {
+                if (row.Cells["MAHS"].Value != null)
+                {
+                    string maHS = row.Cells["MAHS"].Value.ToString();
+
+
+                    string hanhKiemHK1 = hanhKiemTheoHocKiNamHoc(maHS, "HK1", namHoc);
+                    string hanhKiemHK2 = hanhKiemTheoHocKiNamHoc(maHS, "HK2", namHoc);
+                    ketQua = hanhKiemHK2;
+                }
+                row.Cells["HANHKIEM"].Value = ketQua;
+            }
+            
+        }
+
+        public string hanhKiemTheoHocKiNamHoc(string maHS, string maHK, string maNH)
+        {
+            string result = "";
+            DataTable temp = new DataTable();
+            hanhKiem_DTO = new clsHANHKIEM_DTO();
+            hanhKiem_DTO.Mahk = maHK;
+            hanhKiem_DTO.Manh = maNH;
+            hanhKiem_DTO.Mahs = maHS;
+            temp = hanhkiem_dao.hanhKiemTheoHocKiNamHoc(hanhKiem_DTO);
+            if (temp.Rows.Count > 1)
+            {
+                foreach (DataRow row in temp.Rows)
+                {
+                    result = row[0].ToString();
+                }
+                
+                
+            }
+            return result;
         }
     }
 }

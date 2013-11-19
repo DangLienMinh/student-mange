@@ -269,7 +269,6 @@ namespace QLHS.BUS
         {
             string namHoc = cboMaNH.SelectedValue.ToString();
             string maMH;
-            int flag = -1;
             
             foreach (DataGridViewRow row in grdDiem.Rows)
             {
