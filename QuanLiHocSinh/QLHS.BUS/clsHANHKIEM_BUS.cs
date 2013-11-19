@@ -79,7 +79,6 @@ namespace QLHS.BUS
             clnHanhkiem.DisplayMember = "TENLHK";
             clnHanhkiem.ValueMember = "MALHK";
             clnHanhkiem.DataPropertyName = "MALHK";
-            clnHanhkiem.DefaultCellStyle.NullValue = "Yếu";
         }
         public void hienthiCboClnNamHoc(DataGridViewComboBoxColumn clnNamHoc)
         {
@@ -107,11 +106,16 @@ namespace QLHS.BUS
             cbohanhKiem.DisplayMember = "TENLHK";
             cbohanhKiem.ValueMember = "MALHK";
         }
-        public void hienthiCboHocSinh(string malop,string manh,string mahk,ComboBoxEx cboHocsinh)
+        public void hienthiCboHocSinhTatCa(string malop,string manh,string mahk,ComboBoxEx cboHocsinh)
         {
-            cboHocsinh.DataSource = hocsinh.danhsachHocSinhMALOPMANHMAHK(malop, manh, mahk);
+            cboHocsinh.DataSource = hocsinh.danhsachHocSinhMALOPMANHMAHKTatCa(malop, manh, mahk);
             cboHocsinh.DisplayMember = "TENHS";
             cboHocsinh.ValueMember = "MAHS";
+        }
+
+        public DataTable danhsachHocsinhMALOPMANHMAHKChuaNhap(string malop, string manh, string mahk)
+        {
+            return hocsinh.danhsachHocSinhMALOPMANHMAHKChuaNhap(malop, manh, mahk);
         }
         public void themHanhKiem(clsHANHKIEM_DTO hanhkiem)
         {
@@ -125,10 +129,7 @@ namespace QLHS.BUS
         {
             hanhkiem_dao.xoaHanhKiem(hanhkiem);
         }
-        public DataTable danhsachHocsinhMALOPMANHMAHK(string malop, string manh, string mahk)
-        {
-            return hocsinh.danhsachHocSinhMALOPMANHMAHK(malop, manh, mahk);
-        }
+        
         public DataTable danhsachHanhKiem(string manh, string malop, string mahk)
         {
             return hanhkiem_dao.danhsachHanhKiem(manh, malop, mahk);

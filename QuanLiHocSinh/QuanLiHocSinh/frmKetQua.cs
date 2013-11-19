@@ -28,13 +28,13 @@ namespace QuanLiHocSinh
             diem_BUS = new clsDIEM_BUS();
             hocKy_BUS = new clsHOCKY_BUS();
             namHoc_BUS = new clsNAMHOC_BUS();
+            grdKQ.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
         }
 
         private void frmKetQua_Load(object sender, EventArgs e)
         {
             //load dữ liệu vào comboBox 
             namHoc_BUS.hienThiComboBox(cboNamHoc);
-            //MessageBox.Show(diem_BUS.diemTBTheoHocKiMonHoc("20130001","HK1","MH001","NH1314").ToString("n2"));
         }
 
         //Trang trí datagrid như nền, canh chỉnh các hàng, ...
@@ -51,7 +51,10 @@ namespace QuanLiHocSinh
         private void cboNamHoc_SelectedValueChanged(object sender, EventArgs e)
         {
             treLop.Nodes.Clear();
-            lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHoc.SelectedValue.ToString(), treLop);
+            if (cboNamHoc.SelectedValue!=null)
+            {
+                lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHoc.SelectedValue.ToString(), treLop);
+            } 
         }
 
         private void btnDanhSach_Click(object sender, EventArgs e)
@@ -67,7 +70,8 @@ namespace QuanLiHocSinh
                 bs.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
                 grdKQ.DataSource = bs;
                 bnaKQ.BindingSource = bs;
-                diem_BUS.ketQuaDiemHK(cboNamHoc, grdKQ);
+                string maLop = lop_BUS.layPhanBan(lop_BUS.layMaLopTrenTree(cboNamHoc, treLop));
+                diem_BUS.ketQuaDiemHK(cboNamHoc, maLop, grdKQ);
             }
         }
 
@@ -83,7 +87,8 @@ namespace QuanLiHocSinh
                 bs.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
                 grdKQ.DataSource = bs;
                 bnaKQ.BindingSource = bs;
-               diem_BUS.ketQuaDiemHK(cboNamHoc, grdKQ);
+               string maLop=lop_BUS.layPhanBan(lop_BUS.layMaLopTrenTree(cboNamHoc,treLop));
+               diem_BUS.ketQuaDiemHK(cboNamHoc, maLop, grdKQ);
             }
         }
 

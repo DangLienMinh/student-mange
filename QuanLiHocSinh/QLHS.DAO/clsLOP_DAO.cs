@@ -74,7 +74,7 @@ namespace QLHS.DAO
         {
             connection.kiemTraKetNoi(con);
             DataTable table = new DataTable();
-            SqlCommand command = new SqlCommand("SP_ThongTinLopNamHocKhoi", con);
+            SqlCommand command = new SqlCommand("SP_DanhSachLopMAKHOIMANH", con);
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = lop.Manh;
             command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = lop.Makhoi;
             command.CommandType = CommandType.StoredProcedure;
@@ -129,6 +129,7 @@ namespace QLHS.DAO
             command.Parameters.Add("@TENLOP", SqlDbType.NVarChar).Value = lop.Tenlop;
             command.Parameters.Add("@SISO", SqlDbType.VarChar).Value = lop.Siso;
             command.Parameters.Add("@MAGV", SqlDbType.Char).Value = lop.Magv;
+            command.Parameters.Add("@MABAN", SqlDbType.VarChar).Value = lop.Maban;
             command.ExecuteNonQuery();
             con.Close();
         }
@@ -144,6 +145,7 @@ namespace QLHS.DAO
             command.Parameters.Add("@TENLOP", SqlDbType.NVarChar).Value = lop.Tenlop;
             command.Parameters.Add("@SISO", SqlDbType.VarChar).Value = lop.Siso;
             command.Parameters.Add("@MAGV", SqlDbType.Char).Value = lop.Magv;
+            command.Parameters.Add("@MABAN", SqlDbType.VarChar).Value = lop.Maban;
             command.ExecuteNonQuery();
             con.Close();
         }
@@ -182,6 +184,27 @@ namespace QLHS.DAO
             adapter.Fill(table);
             con.Close();
             return table;
+        }
+
+        public string phanBan(clsLOP_DTO lop)
+        {
+            string temp = "";
+            DataTable table = new DataTable();
+            SqlCommand command = new SqlCommand("SP_ThongTinPhanBanTheoLop", con);
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop.Malop;
+            command.CommandType = CommandType.StoredProcedure;
+            connection.kiemTraKetNoi(con);
+            if (command.ExecuteScalar().ToString() != "")
+            {
+                temp =command.ExecuteScalar().ToString();
+            }
+            else
+            {
+                temp = "";
+            }
+
+            con.Close();
+            return temp;
         }
     }
 }

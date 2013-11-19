@@ -47,13 +47,16 @@ namespace QuanLiHocSinh
             khoi_BUS.hienThiComboBox(cboKhoi);
             //load dữ liệu vào comboBox giáo viên chủ nhiệm
             lop_BUS.cbogiaoVienChuNhiem(cboGiaoVien);
+            //load dữ liệu vào comboBox Ban học
+            lop_BUS.hienThiComboBoxBan(cboBan);
            
             //Hiển thị theo tên cho datagrid column ví dụ MAGV sẽ lấy tên hiển thị
             namHoc_BUS.HienThiDataGridViewComboBoxColumn(MANH1);
             giaoVien_BUS.HienThiDataGridViewComboBoxColumn(MAGV1);
             khoi_BUS.HienThiDataGridViewComboBoxColumn(MAKHOI1);
             //load danh sách lớp vào datagrid lớp
-            grdLop.DataSource = lop_BUS.danhSachLop();
+
+            lop_BUS.tailaiDataGrid(grdLop, lop_BUS.danhSachLop());
             datagridMakeUp(grdLop);
         }
 
@@ -102,6 +105,18 @@ namespace QuanLiHocSinh
                     lop_DTO.Manh = cboNamHoc.SelectedValue.ToString();
                     lop_DTO.Magv = cboGiaoVien.SelectedValue.ToString();
                     lop_DTO.Siso = txtSiSo.Text;
+                    if (cboBan.SelectedItem.ToString() == "Cơ bản")
+                    {
+                        lop_DTO.Maban = "CB";
+                    }
+                    else if (cboBan.SelectedItem.ToString() == "Khoa học tự nhiên")
+                    {
+                        lop_DTO.Maban = "KHTN";
+                    }
+                    else
+                    {
+                        lop_DTO.Maban = "KHXHNV";
+                    }
                     if (int.Parse(lop_DTO.Siso)>quyDinh_BUS.siSoToiDa())
                     {
                         MessageBox.Show("Sỉ số nhập vào không được vượt quá sỉ sổ tối đa"+quyDinh_BUS.siSoToiDa().ToString());
@@ -115,7 +130,8 @@ namespace QuanLiHocSinh
                         try
                         {
                             lop_BUS.themLopHoc(lop_DTO);
-                            grdLop.DataSource = lop_BUS.danhSachLop();//Load lại danh sách sau khi thêm
+                            lop_BUS.tailaiDataGrid(grdLop, lop_BUS.danhSachLop());//tải lại danh sách sau khi thêm
+                            
                             MessageBox.Show("Thêm lớp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             flagInsert = false;
                         }
@@ -140,11 +156,23 @@ namespace QuanLiHocSinh
                             lop_DTO.Manh = cboNamHoc.SelectedValue.ToString();
                             lop_DTO.Magv = cboGiaoVien.SelectedValue.ToString();
                             lop_DTO.Siso = txtSiSo.Text;
+                            if (cboBan.SelectedItem.ToString() == "Cơ bản")
+                            {
+                                lop_DTO.Maban = "CB";
+                            }
+                            else if (cboBan.SelectedItem.ToString() == "Khoa học tự nhiên")
+                            {
+                                lop_DTO.Maban = "KHTN";
+                            }
+                            else
+                            {
+                                lop_DTO.Maban = "KHXHNV";
+                            }
                             try
                             {
                                 lop_BUS.suaLop(lop_DTO);
                                 flagUpdate = false;
-                                grdLop.DataSource = lop_BUS.danhSachLop();//Load lại danh sách sau khi sửa
+                                lop_BUS.tailaiDataGrid(grdLop, lop_BUS.danhSachLop());//Load lại danh sách sau khi sửa
                                 MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             }
@@ -169,7 +197,7 @@ namespace QuanLiHocSinh
                             lop_DTO.Manh = cboNamHoc.SelectedValue.ToString();
                             lop_BUS.xoaLop(lop_DTO);
                             flagDelete = false;
-                            grdLop.DataSource = lop_BUS.danhSachLop();//Load lại danh sách sau khi xóa
+                            lop_BUS.tailaiDataGrid(grdLop, lop_BUS.danhSachLop());//Load lại danh sách sau khi xóa
                             MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
@@ -246,6 +274,7 @@ namespace QuanLiHocSinh
             cboGiaoVien.SelectedValue = grdLop.CurrentRow.Cells["MAGV1"].Value.ToString();
             cboKhoi.SelectedValue = grdLop.CurrentRow.Cells["MAKHOI1"].Value.ToString();
             cboNamHoc.SelectedValue = grdLop.CurrentRow.Cells["MANH1"].Value.ToString();
+            cboBan.SelectedItem = grdLop.CurrentRow.Cells["BAN1"].Value.ToString();
         }
         public void hienThiDuLieu()
         {
@@ -260,6 +289,7 @@ namespace QuanLiHocSinh
                 cboGiaoVien.SelectedValue = grdLop.Rows[viTri].Cells["MAGV1"].Value.ToString();
                 cboKhoi.SelectedValue = grdLop.Rows[viTri].Cells["MAKHOI1"].Value.ToString();
                 cboNamHoc.SelectedValue = grdLop.Rows[viTri].Cells["MANH1"].Value.ToString();
+                cboBan.SelectedItem = grdLop.CurrentRow.Cells["BAN1"].Value.ToString();
             }
         }
 

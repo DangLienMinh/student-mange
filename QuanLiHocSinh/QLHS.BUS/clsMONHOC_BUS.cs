@@ -60,30 +60,28 @@ namespace QLHS.BUS
             comboBox.ValueMember = "MAMH";
         }
 
-        public void hienThiComboBoxHeSo(ComboBoxEx comboBox)
-        {
-            comboBox.Items.Add("1");
-            comboBox.Items.Add("2");
-            comboBox.SelectedItem = "1";
-        }
+        //public void hienThiComboBoxHeSo(ComboBoxEx comboBox)
+        //{
+        //    comboBox.Items.Add("1");
+        //    comboBox.Items.Add("2");
+        //    comboBox.SelectedItem = "1";
+        //}
 
-        public void themMonHoc(string maMH, string tenMH,string soTiet,string heSo)
+        public void themMonHoc(string maMH, string tenMH,string soTiet)
         {
             monHoc_DTO = new clsMONHOC_DTO();
             monHoc_DTO.Mamh = maMH;
             monHoc_DTO.Tenmh = tenMH;
             monHoc_DTO.Sotiet = soTiet;
-            monHoc_DTO.Hesomh = heSo;
             monHoc_DAO.themMonHoc(monHoc_DTO);
         }
 
-        public void suaMonHoc(string maMH, string tenMH, string soTiet, string heSo)
+        public void suaMonHoc(string maMH, string tenMH, string soTiet)
         {
             monHoc_DTO = new clsMONHOC_DTO();
             monHoc_DTO.Mamh = maMH;
             monHoc_DTO.Tenmh = tenMH;
             monHoc_DTO.Sotiet = soTiet;
-            monHoc_DTO.Hesomh = heSo;
             monHoc_DAO.suaMonHoc(monHoc_DTO);
         }
 
@@ -100,7 +98,7 @@ namespace QLHS.BUS
             dr["MAMH"] = monHoc_DTO.Mamh;
             dr["TENMH"] = monHoc_DTO.Tenmh;
             dr["SOTIET"] = monHoc_DTO.Sotiet;
-            dr["HESOMH"] = monHoc_DTO.Hesomh;
+            //dr["HESOMH"] = monHoc_DTO.Hesomh;
            
             return dr;
         }
@@ -121,7 +119,7 @@ namespace QLHS.BUS
                     {
                         row1["TENMH"] = monHoc_DTO.Tenmh;
                         row1["SOTIET"]= monHoc_DTO.Sotiet;
-                        row1["HESOMH"] = monHoc_DTO.Hesomh;
+                        //row1["HESOMH"] = monHoc_DTO.Hesomh;
                     }
                 }
             }
@@ -145,11 +143,11 @@ namespace QLHS.BUS
             row.Delete();
         }
 
-        public int heSoMonHoc(string maMH)
-        {
-            monHoc_DTO = new clsMONHOC_DTO();
-            monHoc_DTO.Mamh = maMH;
-            return monHoc_DAO.heSoMonHoc(monHoc_DTO);
-        }
+        //public int heSoMonHoc(string maMH)
+        //{
+        //    monHoc_DTO = new clsMONHOC_DTO();
+        //    monHoc_DTO.Mamh = maMH;
+        //    return monHoc_DAO.heSoMonHoc(monHoc_DTO);
+        //}
     }
 }

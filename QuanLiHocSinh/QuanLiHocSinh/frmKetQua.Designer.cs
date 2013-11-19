@@ -369,31 +369,31 @@
             // 
             // MH01
             // 
-            this.MH01.HeaderText = "Văn";
+            this.MH01.HeaderText = "Toán";
             this.MH01.Name = "MH01";
             this.MH01.Width = 55;
             // 
             // MH02
             // 
-            this.MH02.HeaderText = "Toán";
+            this.MH02.HeaderText = "Vật lý";
             this.MH02.Name = "MH02";
             this.MH02.Width = 55;
             // 
             // MH03
             // 
-            this.MH03.HeaderText = "Vật lý";
+            this.MH03.HeaderText = "Hóa học";
             this.MH03.Name = "MH03";
             this.MH03.Width = 55;
             // 
             // MH04
             // 
-            this.MH04.HeaderText = "Hóa học";
+            this.MH04.HeaderText = "Sinh học";
             this.MH04.Name = "MH04";
             this.MH04.Width = 55;
             // 
             // MH05
             // 
-            this.MH05.HeaderText = "Sinh học";
+            this.MH05.HeaderText = "Văn";
             this.MH05.Name = "MH05";
             this.MH05.Width = 55;
             // 
