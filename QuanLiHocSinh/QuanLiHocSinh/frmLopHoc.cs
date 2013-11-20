@@ -23,7 +23,6 @@ namespace QuanLiHocSinh
         private clsQUYDINH_BUS quyDinh_BUS;
         private Boolean flagInsert;
         private Boolean flagUpdate;
-        private Boolean flagDelete;
         private int viTri;
         private int Tong;
 
@@ -46,7 +45,7 @@ namespace QuanLiHocSinh
             //load dữ liệu vào comboBox khối
             khoi_BUS.hienThiComboBox(cboKhoi);
             //load dữ liệu vào comboBox giáo viên chủ nhiệm
-            lop_BUS.cbogiaoVienChuNhiem(cboGiaoVien);
+            lop_BUS.cboGiaoVienChuNhiem(cboGiaoVien);
             //load dữ liệu vào comboBox Ban học
             lop_BUS.hienThiComboBoxBan(cboBan);
            
@@ -56,7 +55,7 @@ namespace QuanLiHocSinh
             khoi_BUS.HienThiDataGridViewComboBoxColumn(MAKHOI1);
             //load danh sách lớp vào datagrid lớp
 
-            lop_BUS.tailaiDataGrid(grdLop, lop_BUS.danhSachLop());
+            lop_BUS.taiLaiDataGrid(grdLop, lop_BUS.danhSachLop());
             datagridMakeUp(grdLop);
         }
 
@@ -82,7 +81,6 @@ namespace QuanLiHocSinh
         private void btnXoa_Click(object sender, EventArgs e)
         {
             anHienButton(false);
-            flagDelete = true;
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -130,7 +128,7 @@ namespace QuanLiHocSinh
                         try
                         {
                             lop_BUS.themLopHoc(lop_DTO);
-                            lop_BUS.tailaiDataGrid(grdLop, lop_BUS.danhSachLop());//tải lại danh sách sau khi thêm
+                            lop_BUS.taiLaiDataGrid(grdLop, lop_BUS.danhSachLop());//tải lại danh sách sau khi thêm
                             
                             MessageBox.Show("Thêm lớp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             flagInsert = false;
@@ -172,7 +170,7 @@ namespace QuanLiHocSinh
                             {
                                 lop_BUS.suaLop(lop_DTO);
                                 flagUpdate = false;
-                                lop_BUS.tailaiDataGrid(grdLop, lop_BUS.danhSachLop());//Load lại danh sách sau khi sửa
+                                lop_BUS.taiLaiDataGrid(grdLop, lop_BUS.danhSachLop());//Load lại danh sách sau khi sửa
                                 MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             }
@@ -196,8 +194,7 @@ namespace QuanLiHocSinh
                             lop_DTO.Malop = txtMaLop.Text;
                             lop_DTO.Manh = cboNamHoc.SelectedValue.ToString();
                             lop_BUS.xoaLop(lop_DTO);
-                            flagDelete = false;
-                            lop_BUS.tailaiDataGrid(grdLop, lop_BUS.danhSachLop());//Load lại danh sách sau khi xóa
+                            lop_BUS.taiLaiDataGrid(grdLop, lop_BUS.danhSachLop());//Load lại danh sách sau khi xóa
                             MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
@@ -366,7 +363,6 @@ namespace QuanLiHocSinh
         private void btnDelete_Click(object sender, EventArgs e)
         {
             anHienButton(false);
-            flagDelete = true;
             
         }
 

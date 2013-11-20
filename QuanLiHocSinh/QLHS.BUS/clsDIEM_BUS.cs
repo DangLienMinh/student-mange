@@ -23,7 +23,6 @@ namespace QLHS.BUS
         clsHOCSINH_DTO hocSinh_DTO;
         clsLOP_DTO lop_DTO;
         DataTable tblDiem;
-        DataTable tblLop;
         private DataRow dr;
 
         public clsDIEM_BUS() 
@@ -113,7 +112,6 @@ namespace QLHS.BUS
                 diem_DTO.Tenhs = hocSinh_BUS.tenHocSinh(diem_DTO.Mahs);
                 diem_DTO.Malop = lop_BUS.danhSachLop(diem_DTO.Mahs, diem_DTO.Manh);
             }
-           
             tblDiem = diem_DAO.thongTinDiemTheoHS(diem_DTO);
            return  tblDiem;
         }

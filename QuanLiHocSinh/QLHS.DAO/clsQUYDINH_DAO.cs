@@ -31,35 +31,35 @@ namespace QLHS.DAO
             return table;
         }
 
-        public void suaTruongHoc(clsQUYDINH_DTO quyDinh)
+        public void suaTruongHoc(clsQUYDINH_DTO quyDinh_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaTruongHoc", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@TENTRUONG", SqlDbType.NVarChar).Value = quyDinh.TenTruong;
-            command.Parameters.Add("@DIACHI", SqlDbType.NVarChar).Value = quyDinh.DiaChi;
-            command.Parameters.Add("@DIENTHOAI", SqlDbType.NVarChar).Value = quyDinh.DienThoai;
+            command.Parameters.Add("@TENTRUONG", SqlDbType.NVarChar).Value = quyDinh_DTO.TenTruong;
+            command.Parameters.Add("@DIACHI", SqlDbType.NVarChar).Value = quyDinh_DTO.DiaChi;
+            command.Parameters.Add("@DIENTHOAI", SqlDbType.NVarChar).Value = quyDinh_DTO.DienThoai;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public void suaSiSo(clsQUYDINH_DTO quyDinh)
+        public void suaSiSo(clsQUYDINH_DTO quyDinh_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaSiSo", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@SISOTT", SqlDbType.NVarChar).Value = quyDinh.SiSoTT;
-            command.Parameters.Add("@SISOTD", SqlDbType.NVarChar).Value = quyDinh.SiSoTD;
+            command.Parameters.Add("@SISOTT", SqlDbType.NVarChar).Value = quyDinh_DTO.SiSoTT;
+            command.Parameters.Add("@SISOTD", SqlDbType.NVarChar).Value = quyDinh_DTO.SiSoTD;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public void suaTuoi(clsQUYDINH_DTO quyDinh)
+        public void suaTuoi(clsQUYDINH_DTO quyDinh_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaTuoi", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@TUOITT", SqlDbType.NVarChar).Value = quyDinh.TuoiTT;
-            command.Parameters.Add("@TUOITD", SqlDbType.NVarChar).Value = quyDinh.TuoiTD;
+            command.Parameters.Add("@TUOITT", SqlDbType.NVarChar).Value = quyDinh_DTO.TuoiTT;
+            command.Parameters.Add("@TUOITD", SqlDbType.NVarChar).Value = quyDinh_DTO.TuoiTD;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();

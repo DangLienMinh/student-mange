@@ -90,51 +90,51 @@ namespace QLHS.DAO
         //    return table;
         //}
 
-        public void themNguoiDung(clsNGUOIDUNG_DTO nguoidung)
+        public void themNguoiDung(clsNGUOIDUNG_DTO nguoiDung_DTO)
         {
             SqlCommand command = new SqlCommand("SP_ThemNguoiDung", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAND", SqlDbType.Char).Value = nguoidung.Mand;
-            command.Parameters.Add("@TENND", SqlDbType.NVarChar).Value = nguoidung.Tennd;
-            command.Parameters.Add("@MALND", SqlDbType.VarChar).Value = nguoidung.Malnd;
-            command.Parameters.Add("@TENDN", SqlDbType.VarChar).Value = nguoidung.Tendn;
-            command.Parameters.Add("@MATKHAU", SqlDbType.VarChar).Value = nguoidung.Matkhau;
+            command.Parameters.Add("@MAND", SqlDbType.Char).Value = nguoiDung_DTO.Mand;
+            command.Parameters.Add("@TENND", SqlDbType.NVarChar).Value = nguoiDung_DTO.Tennd;
+            command.Parameters.Add("@MALND", SqlDbType.VarChar).Value = nguoiDung_DTO.Malnd;
+            command.Parameters.Add("@TENDN", SqlDbType.VarChar).Value = nguoiDung_DTO.Tendn;
+            command.Parameters.Add("@MATKHAU", SqlDbType.VarChar).Value = nguoiDung_DTO.Matkhau;
             
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public void suaNguoiDung(clsNGUOIDUNG_DTO nguoidung)
+        public void suaNguoiDung(clsNGUOIDUNG_DTO nguoiDung_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaNguoiDung", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAND", SqlDbType.Char).Value = nguoidung.Mand;
-            command.Parameters.Add("@TENND", SqlDbType.NVarChar).Value = nguoidung.Tennd;
-            command.Parameters.Add("@MALND", SqlDbType.VarChar).Value = nguoidung.Malnd;
-            command.Parameters.Add("@TENDN", SqlDbType.VarChar).Value = nguoidung.Tendn;
-            command.Parameters.Add("@MATKHAU", SqlDbType.VarChar).Value = nguoidung.Matkhau;
+            command.Parameters.Add("@MAND", SqlDbType.Char).Value = nguoiDung_DTO.Mand;
+            command.Parameters.Add("@TENND", SqlDbType.NVarChar).Value = nguoiDung_DTO.Tennd;
+            command.Parameters.Add("@MALND", SqlDbType.VarChar).Value = nguoiDung_DTO.Malnd;
+            command.Parameters.Add("@TENDN", SqlDbType.VarChar).Value = nguoiDung_DTO.Tendn;
+            command.Parameters.Add("@MATKHAU", SqlDbType.VarChar).Value = nguoiDung_DTO.Matkhau;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public void suaMatKhau(clsNGUOIDUNG_DTO nguoidung)
+        public void suaMatKhau(clsNGUOIDUNG_DTO nguoiDung_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaMatKhau", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@TENDN", SqlDbType.VarChar).Value = nguoidung.Tendn;
-            command.Parameters.Add("@MATKHAU", SqlDbType.VarChar).Value = nguoidung.Matkhau;
+            command.Parameters.Add("@TENDN", SqlDbType.VarChar).Value = nguoiDung_DTO.Tendn;
+            command.Parameters.Add("@MATKHAU", SqlDbType.VarChar).Value = nguoiDung_DTO.Matkhau;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public void xoaNguoiDung(clsNGUOIDUNG_DTO nguoidung)
+        public void xoaNguoiDung(clsNGUOIDUNG_DTO nguoiDung_DTO)
         {
             SqlCommand command = new SqlCommand("SP_XoaNguoiDung", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAND", SqlDbType.Char).Value = nguoidung.Mand;
+            command.Parameters.Add("@MAND", SqlDbType.Char).Value = nguoiDung_DTO.Mand;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();

@@ -30,12 +30,12 @@ namespace QLHS.DAO
             return table;
         }
 
-        public DataTable danhSachKhoiTheoMaKhoi(clsKHOI_DTO khoi)
+        public DataTable danhSachKhoiTheoMaKhoi(clsKHOI_DTO khoi_DTO)
         {
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_HienThiKhoi", con);
-            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = khoi.Makhoi;
+            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = khoi_DTO.Makhoi;
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);

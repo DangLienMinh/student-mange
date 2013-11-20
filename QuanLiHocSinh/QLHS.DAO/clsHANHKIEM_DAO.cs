@@ -16,51 +16,51 @@ namespace QLHS.DAO
             connection = new clsConnectDatabase();
             con = connection.KetNoi();
         }
-        public void ThemHanhKiem(clsHANHKIEM_DTO hanhkiem)
+        public void ThemHanhKiem(clsHANHKIEM_DTO hanhKiem_DTO)
         {
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThemHanhKiem", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MALHK", SqlDbType.VarChar).Value = hanhkiem.Malhk;
-            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hanhkiem.Mahs;
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hanhkiem.Manh;
-            command.Parameters.Add("@MAHK", SqlDbType.VarChar).Value = hanhkiem.Mahk;
+            command.Parameters.Add("@MALHK", SqlDbType.VarChar).Value = hanhKiem_DTO.Malhk;
+            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hanhKiem_DTO.Mahs;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hanhKiem_DTO.Manh;
+            command.Parameters.Add("@MAHK", SqlDbType.VarChar).Value = hanhKiem_DTO.Mahk;
             command.ExecuteNonQuery();
             con.Close();
         }
-        public void suaHanhKiem(clsHANHKIEM_DTO hanhkiem)
+        public void suaHanhKiem(clsHANHKIEM_DTO hanhKiem_DTO)
         {
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_SuaHanhKiem", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MALHK", SqlDbType.VarChar).Value = hanhkiem.Malhk;
-            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hanhkiem.Mahs;
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hanhkiem.Manh;
-            command.Parameters.Add("@MAHK", SqlDbType.VarChar).Value = hanhkiem.Mahk;
+            command.Parameters.Add("@MALHK", SqlDbType.VarChar).Value = hanhKiem_DTO.Malhk;
+            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hanhKiem_DTO.Mahs;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hanhKiem_DTO.Manh;
+            command.Parameters.Add("@MAHK", SqlDbType.VarChar).Value = hanhKiem_DTO.Mahk;
             command.ExecuteNonQuery();
             con.Close();
         }
-        public void xoaHanhKiem(clsHANHKIEM_DTO hanhkiem)
+        public void xoaHanhKiem(clsHANHKIEM_DTO hanhKiem_DTO)
         {
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_XoaHanhKiem", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hanhkiem.Mahs;
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hanhkiem.Manh;
-            command.Parameters.Add("@MAHK", SqlDbType.VarChar).Value = hanhkiem.Mahk;
+            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hanhKiem_DTO.Mahs;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hanhKiem_DTO.Manh;
+            command.Parameters.Add("@MAHK", SqlDbType.VarChar).Value = hanhKiem_DTO.Mahk;
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public DataTable danhsachHanhKiem(string manh, string malop, string mahk)
+        public DataTable danhsachHanhKiem(string maNH, string maLop, string maHK)
         {
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_DanhSachHanhKiem", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = manh;
-            command.Parameters.Add("@MAHK", SqlDbType.VarChar).Value = mahk;
-            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = malop;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = maNH;
+            command.Parameters.Add("@MAHK", SqlDbType.VarChar).Value = maHK;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = maLop;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);
             con.Close();

@@ -44,25 +44,25 @@ namespace QLHS.DAO
             return table;
         }
 
-        public int siSoLop(clsLOP_DTO lop)
+        public int siSoLop(clsLOP_DTO lop_DTO)
         {
             int result = -1;
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThongTinSiSoLop", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop.Malop;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop_DTO.Malop;
             result=int.Parse(command.ExecuteScalar().ToString());
             con.Close();
             return result;
 
         }
 
-        public DataTable danhSachLopTheoNamHoc(clsLOP_DTO lop)
+        public DataTable danhSachLopTheoNamHoc(clsLOP_DTO lop_DTO)
         {
             connection.kiemTraKetNoi(con);
             DataTable table = new DataTable();
             SqlCommand command = new SqlCommand("SP_ThongTinLopNamHoc", con);
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = lop.Manh;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = lop_DTO.Manh;
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);
@@ -70,13 +70,13 @@ namespace QLHS.DAO
             return table;
         }
 
-        public DataTable danhSachLopTheoNamHocKhoi(clsLOP_DTO lop)
+        public DataTable danhSachLopTheoNamHocKhoi(clsLOP_DTO lop_DTO)
         {
             connection.kiemTraKetNoi(con);
             DataTable table = new DataTable();
             SqlCommand command = new SqlCommand("SP_DanhSachLopMAKHOIMANH", con);
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = lop.Manh;
-            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = lop.Makhoi;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = lop_DTO.Manh;
+            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = lop_DTO.Makhoi;
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);
@@ -118,80 +118,80 @@ namespace QLHS.DAO
             return table;
         }
 
-        public void themLop(clsLOP_DTO lop)
+        public void themLop(clsLOP_DTO lop_DTO)
         {
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThemLop", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = lop.Makhoi;
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = lop.Manh;
-            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop.Malop;
-            command.Parameters.Add("@TENLOP", SqlDbType.NVarChar).Value = lop.Tenlop;
-            command.Parameters.Add("@SISO", SqlDbType.VarChar).Value = lop.Siso;
-            command.Parameters.Add("@MAGV", SqlDbType.Char).Value = lop.Magv;
-            command.Parameters.Add("@MABAN", SqlDbType.VarChar).Value = lop.Maban;
+            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = lop_DTO.Makhoi;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = lop_DTO.Manh;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop_DTO.Malop;
+            command.Parameters.Add("@TENLOP", SqlDbType.NVarChar).Value = lop_DTO.Tenlop;
+            command.Parameters.Add("@SISO", SqlDbType.VarChar).Value = lop_DTO.Siso;
+            command.Parameters.Add("@MAGV", SqlDbType.Char).Value = lop_DTO.Magv;
+            command.Parameters.Add("@MABAN", SqlDbType.VarChar).Value = lop_DTO.Maban;
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public void suaLop(clsLOP_DTO lop)
+        public void suaLop(clsLOP_DTO lop_DTO)
         {
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_SuaLop", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = lop.Makhoi;
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = lop.Manh;
-            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop.Malop;
-            command.Parameters.Add("@TENLOP", SqlDbType.NVarChar).Value = lop.Tenlop;
-            command.Parameters.Add("@SISO", SqlDbType.VarChar).Value = lop.Siso;
-            command.Parameters.Add("@MAGV", SqlDbType.Char).Value = lop.Magv;
-            command.Parameters.Add("@MABAN", SqlDbType.VarChar).Value = lop.Maban;
+            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = lop_DTO.Makhoi;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = lop_DTO.Manh;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop_DTO.Malop;
+            command.Parameters.Add("@TENLOP", SqlDbType.NVarChar).Value = lop_DTO.Tenlop;
+            command.Parameters.Add("@SISO", SqlDbType.VarChar).Value = lop_DTO.Siso;
+            command.Parameters.Add("@MAGV", SqlDbType.Char).Value = lop_DTO.Magv;
+            command.Parameters.Add("@MABAN", SqlDbType.VarChar).Value = lop_DTO.Maban;
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public void xoaLop(clsLOP_DTO lop)
+        public void xoaLop(clsLOP_DTO lop_DTO)
         {
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_XoaLop", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop.Malop;
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = lop.Manh;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop_DTO.Malop;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = lop_DTO.Manh;
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public DataTable timLopMaLop(string tukhoa)
+        public DataTable timLopMaLop(string tuKhoa)
         {
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_TimLopMaLop", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = tukhoa;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = tuKhoa;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);
             return table;
         }
-        public DataTable danhsachLopMAKHOI(string Makhoi,string Manh)
+        public DataTable danhsachLopMAKHOI(string maKhoi,string maNH)
         {
             DataTable table = new DataTable();
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_DanhSachLopMAKHOIMANH", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = Makhoi;
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = Manh;
+            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = maKhoi;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = maNH;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);
             con.Close();
             return table;
         }
 
-        public string phanBan(clsLOP_DTO lop)
+        public string phanBan(clsLOP_DTO lop_DTO)
         {
             string temp = "";
             DataTable table = new DataTable();
             SqlCommand command = new SqlCommand("SP_ThongTinPhanBanTheoLop", con);
-            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop.Malop;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop_DTO.Malop;
             command.CommandType = CommandType.StoredProcedure;
             connection.kiemTraKetNoi(con);
             if (command.ExecuteScalar().ToString() != "")

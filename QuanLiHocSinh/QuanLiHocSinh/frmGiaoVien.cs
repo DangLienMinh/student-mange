@@ -139,7 +139,7 @@ namespace QuanLiHocSinh
                 }
 
                 string txtGioiTinh = "";
-                if (cboGioiTinh.SelectedItem == "Nam")
+                if ((string)cboGioiTinh.SelectedItem == "Nam")
                 {
                     txtGioiTinh = "0";
                 }
@@ -180,7 +180,7 @@ namespace QuanLiHocSinh
             if (grdGiaoVien.SelectedRows.Count >= 1 && txtMaGV.Text != "")
             {
                 string txtGioiTinh = "";
-                if (cboGioiTinh.SelectedItem == "Nam")
+                if ((string)cboGioiTinh.SelectedItem == "Nam")
                 {
                     txtGioiTinh = "0";
                 }

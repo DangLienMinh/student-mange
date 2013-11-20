@@ -36,6 +36,7 @@ namespace QuanLiHocSinh
         private frmHanhKiem m_FrmHanhKiem = null;
         private frmDangNhap m_FrmLogin = null;
         private frmKetQua m_FrmKQ = null;
+        private frmAbout m_FrmAbout = null;
 
         public frmMain()
         {
@@ -648,6 +649,19 @@ namespace QuanLiHocSinh
         private void ribbonControl1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnNhom_Click(object sender, EventArgs e)
+        {
+            if (m_FrmAbout == null || m_FrmAbout.IsDisposed)
+            {
+
+                m_FrmAbout = new frmAbout();
+                m_FrmAbout.Show();
+
+            }
+            else
+                m_FrmAbout.Activate();
         }
 
     }
