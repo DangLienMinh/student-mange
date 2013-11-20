@@ -44,6 +44,9 @@
             this.btnRefesh = new DevComponents.DotNetBar.ButtonItem();
             this.btnClose = new DevComponents.DotNetBar.ButtonItem();
             this.grdMonHoc = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.MAMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SOTIET = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bnaMonHoc = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
             this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
             this.bindingNavigatorMoveFirstItem = new DevComponents.DotNetBar.ButtonItem();
@@ -62,9 +65,6 @@
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
-            this.MAMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SOTIET = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contextMenuBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdMonHoc)).BeginInit();
@@ -235,7 +235,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdMonHoc.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdMonHoc.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -255,6 +255,24 @@
             this.grdMonHoc.TabIndex = 21;
             this.grdMonHoc.TabStop = false;
             this.grdMonHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdMonHoc_CellClick);
+            // 
+            // MAMH
+            // 
+            this.MAMH.DataPropertyName = "MAMH";
+            this.MAMH.HeaderText = "Mã môn học";
+            this.MAMH.Name = "MAMH";
+            // 
+            // TENMH
+            // 
+            this.TENMH.DataPropertyName = "TENMH";
+            this.TENMH.HeaderText = "Tên môn học";
+            this.TENMH.Name = "TENMH";
+            // 
+            // SOTIET
+            // 
+            this.SOTIET.DataPropertyName = "SOTIET";
+            this.SOTIET.HeaderText = "Số tiết";
+            this.SOTIET.Name = "SOTIET";
             // 
             // bnaMonHoc
             // 
@@ -379,7 +397,7 @@
             this.txtSoTiet.Location = new System.Drawing.Point(10, 130);
             this.txtSoTiet.MaxLength = 3;
             this.txtSoTiet.Name = "txtSoTiet";
-            this.txtSoTiet.Size = new System.Drawing.Size(58, 20);
+            this.txtSoTiet.Size = new System.Drawing.Size(76, 20);
             this.txtSoTiet.TabIndex = 4;
             this.txtSoTiet.Enter += new System.EventHandler(this.txt_Enter);
             this.txtSoTiet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoTiet_KeyPress);
@@ -406,10 +424,10 @@
             // 
             this.txtMaMH.Border.Class = "TextBoxBorder";
             this.txtMaMH.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtMaMH.Enabled = false;
             this.txtMaMH.Location = new System.Drawing.Point(11, 35);
             this.txtMaMH.MaxLength = 10;
             this.txtMaMH.Name = "txtMaMH";
-            this.txtMaMH.ReadOnly = true;
             this.txtMaMH.Size = new System.Drawing.Size(137, 20);
             this.txtMaMH.TabIndex = 1;
             this.txtMaMH.Enter += new System.EventHandler(this.txt_Enter);
@@ -495,24 +513,6 @@
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
             this.navigationPane1.TitlePanel.Text = "Nhập liệu thông tin";
-            // 
-            // MAMH
-            // 
-            this.MAMH.DataPropertyName = "MAMH";
-            this.MAMH.HeaderText = "Mã môn học";
-            this.MAMH.Name = "MAMH";
-            // 
-            // TENMH
-            // 
-            this.TENMH.DataPropertyName = "TENMH";
-            this.TENMH.HeaderText = "Tên môn học";
-            this.TENMH.Name = "TENMH";
-            // 
-            // SOTIET
-            // 
-            this.SOTIET.DataPropertyName = "SOTIET";
-            this.SOTIET.HeaderText = "Số tiết";
-            this.SOTIET.Name = "SOTIET";
             // 
             // frmMonHoc
             // 

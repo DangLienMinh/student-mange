@@ -210,6 +210,7 @@ namespace QuanLiHocSinh
                     fs.Close();
                 }
             }
+            anHienButton(true);
 
         }
 

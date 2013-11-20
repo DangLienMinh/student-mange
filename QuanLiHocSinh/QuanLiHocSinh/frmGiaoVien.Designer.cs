@@ -434,10 +434,10 @@
             // 
             this.txtMaGV.Border.Class = "TextBoxBorder";
             this.txtMaGV.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtMaGV.Enabled = false;
             this.txtMaGV.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtMaGV.Location = new System.Drawing.Point(11, 25);
             this.txtMaGV.Name = "txtMaGV";
-            this.txtMaGV.ReadOnly = true;
             this.txtMaGV.Size = new System.Drawing.Size(155, 20);
             this.txtMaGV.TabIndex = 0;
             this.txtMaGV.Enter += new System.EventHandler(this.txt_Enter);

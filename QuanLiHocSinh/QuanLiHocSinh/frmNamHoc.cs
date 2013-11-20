@@ -76,6 +76,7 @@ namespace QuanLiHocSinh
         {
             //tạo mã năm học
             txtMaNH.Text = "NH" + DateTime.Now.ToString("yy") + DateTime.Now.AddYears(1).ToString("yy");
+            txtMaNH.Enabled = true;
             txtTenNH.Focus();
             FlagEnable();
             flag = 1;
@@ -86,6 +87,7 @@ namespace QuanLiHocSinh
         {
             flag = 3;
             FlagEnable();
+            txtMaNH.Enabled = false;
             txtTenNH.Focus();
         }
 
@@ -170,6 +172,7 @@ namespace QuanLiHocSinh
         private void grdNamHoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             controlValue();
+            FlagDisable();
         }
 
         private void txt_Enter(object sender, EventArgs e)

@@ -84,14 +84,12 @@ namespace QuanLiHocSinh
         {
             flag = 2;
             FlagEnable();
-            txtMaMH.Enabled = false;
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
             flag = 3;
             FlagEnable();
-            txtMaMH.Enabled = false;
             txtTenMH.Focus();
         }
 
@@ -100,15 +98,12 @@ namespace QuanLiHocSinh
             if (flag == 1) insert();
             if (flag == 2) delete();
             if (flag == 3) update();
-            //sapXep();
-            txtMaMH.Enabled = true;
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
             FlagDisable();
             flag = 0;
-            txtMaMH.Enabled = true;
         }
 
         private void resetAll()
@@ -221,49 +216,10 @@ namespace QuanLiHocSinh
             }
         }
 
-        //private void btnDau_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdMonHoc.DataSource].Position;
-        //    this.BindingContext[grdMonHoc.DataSource].Position = 0;
-        //    sapXep();
-        //    btnTruoc.Enabled = false;
-        //    btnDau.Enabled = false;
-        //    btnCuoi.Enabled = true;
-        //    btnSau.Enabled = true;
-        //}
-
-        //private void btnTruoc_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdMonHoc.DataSource].Position;
-        //    btnCuoi.Enabled = true;
-        //    btnSau.Enabled = true;
-        //    this.BindingContext[grdMonHoc.DataSource].Position = viTri - 1;
-        //    sapXep();
-        //}
-
-        //private void btnSau_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdMonHoc.DataSource].Position;
-        //    btnDau.Enabled = true;
-        //    btnTruoc.Enabled = true;
-        //    this.BindingContext[grdMonHoc.DataSource].Position = viTri + 1;
-        //    sapXep();
-        //}
-
-        //private void btnCuoi_Click(object sender, EventArgs e)
-        //{
-        //    viTri = this.BindingContext[grdMonHoc.DataSource].Position;
-        //    this.BindingContext[grdMonHoc.DataSource].Position = this.BindingContext[grdMonHoc.DataSource].Count - 1;
-        //    sapXep();
-        //    btnCuoi.Enabled = false;
-        //    btnSau.Enabled = false;
-        //    btnTruoc.Enabled = true;
-        //    btnDau.Enabled = true;
-        //}
-
         private void grdMonHoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            controlValue();  
+            controlValue();
+            FlagDisable();
         }
 
         private void txtSoTiet_KeyPress(object sender, KeyPressEventArgs e)

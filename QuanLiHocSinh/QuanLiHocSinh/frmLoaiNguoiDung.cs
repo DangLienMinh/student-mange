@@ -251,14 +251,12 @@ namespace QuanLiHocSinh
 
         private void controlValue()
         {
-            if (grdLoaiND.CurrentRow.Cells["MALND"].Value!=null)
+            if (grdLoaiND.CurrentRow!=null)
             {
                 txtMaLND.Text = grdLoaiND.CurrentRow.Cells["MALND"].Value.ToString();
                 txtTenLND.Text = grdLoaiND.CurrentRow.Cells["TENLND"].Value.ToString();
             }
            
         }
-
-
     }
 }

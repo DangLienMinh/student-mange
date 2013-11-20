@@ -226,7 +226,8 @@ namespace QuanLiHocSinh
 
         private void grdMonHoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            controlValue();   
+            controlValue();
+            FlagDisable();
         }
 
         private void txt_Enter(object sender, EventArgs e)

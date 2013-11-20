@@ -334,6 +334,7 @@ namespace QuanLiHocSinh
         private void grdDiemRieng_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             controlValue();
+            FlagDisable();
         }
 
         private void frmDiem_KeyDown(object sender, KeyEventArgs e)
