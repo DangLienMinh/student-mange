@@ -23,7 +23,6 @@ namespace QuanLiHocSinh
         private clsHOCSINH_DTO hocSinh_DTO;
         private clsKHOI_BUS khoi_BUS;
         private Boolean flagInsert;
-        private Boolean flagUpdate;
         private Boolean flagDelete;
         private Boolean flagChonAnh;
         private string linkGoc;
@@ -40,7 +39,6 @@ namespace QuanLiHocSinh
             khoi_BUS = new clsKHOI_BUS();
             grdHocSinh.DataSource = new DataTable();
             flagInsert = false;
-            flagUpdate = false;
             flagDelete = false;
             flagChonAnh = false; 
             this.KeyPreview = true;
@@ -55,7 +53,7 @@ namespace QuanLiHocSinh
             
             txtMaHS.Text = hocSinh_BUS.taoMaHocSinh();
             //load danh sách học sinh vào datagrid học sinh
-            hocSinh_BUS.tailaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh());
+            hocSinh_BUS.taiLaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh());
             dtiNgaySinh.Value = DateTime.Now;
             dtiNgayNhapHoc.Value = DateTime.Now;
             datagridMakeUp(grdHocSinh);
@@ -121,9 +119,7 @@ namespace QuanLiHocSinh
         private void btnSua_Click(object sender, EventArgs e)
         {
             txtTenHS.Focus();
-            anHienButton(false);
-            flagUpdate = true;
-        }
+            anHienButton(false);        }
 
         private void btnDongy_Click(object sender, EventArgs e)
         {
@@ -144,6 +140,8 @@ namespace QuanLiHocSinh
                 }
             }
             hienThiDuLieu();
+
+            btnThem.Focus();
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -287,10 +285,11 @@ namespace QuanLiHocSinh
                     File.Copy(linkGoc, hocSinh_DTO.Hinhanhhs);
                     hocSinh_BUS.themHocSinh(hocSinh_DTO);
                     resetALL();
-                    hocSinh_BUS.tailaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh());//tải lại danh sách sau khi thêm
+                    hocSinh_BUS.taiLaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh());//tải lại danh sách sau khi thêm
                     flagChonAnh = false;
                     flagInsert = false;
                     MessageBox.Show("Đã thêm học sinh thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnThem.Focus();
                 }
                 catch (Exception ex)
                 {
@@ -309,7 +308,7 @@ namespace QuanLiHocSinh
                 {
                     hocSinh_BUS.xoaHocSinh(hocSinh_DTO);
                     File.Delete(grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString());
-                    hocSinh_BUS.tailaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh());//tải lại danh sách sau khi xóa
+                    hocSinh_BUS.taiLaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh());//tải lại danh sách sau khi xóa
                     flagDelete = false;
                     resetALL();
                     MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -359,16 +358,14 @@ namespace QuanLiHocSinh
                         hocSinh_DTO.Hinhanhhs = grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString();
                     }
                     hocSinh_BUS.suaHocSinh(hocSinh_DTO);
-                    flagUpdate = false;
                     resetALL();
 
-                    hocSinh_BUS.tailaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh());//tải lại danh sách sau khi thêm
+                    hocSinh_BUS.taiLaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh());//tải lại danh sách sau khi thêm
                     MessageBox.Show("Đã sửa học sinh thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    flagUpdate = false;
                 }
             }
         }

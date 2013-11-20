@@ -30,46 +30,46 @@ namespace QLHS.DAO
             return table;
         }
 
-        public void themLoaiDiem(clsLOAIDIEM_DTO loaiDiem)
+        public void themLoaiDiem(clsLOAIDIEM_DTO loaiDiem_DTO)
         {
             SqlCommand command = new SqlCommand("SP_ThemLoaiDiem", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MALD", SqlDbType.VarChar).Value = loaiDiem.Mald;
-            command.Parameters.Add("@TENLD", SqlDbType.NVarChar).Value = loaiDiem.Tenld;
-            command.Parameters.Add("@HESOLD", SqlDbType.Char).Value = loaiDiem.Hesold;
+            command.Parameters.Add("@MALD", SqlDbType.VarChar).Value = loaiDiem_DTO.Mald;
+            command.Parameters.Add("@TENLD", SqlDbType.NVarChar).Value = loaiDiem_DTO.Tenld;
+            command.Parameters.Add("@HESOLD", SqlDbType.Char).Value = loaiDiem_DTO.Hesold;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public void suaLoaiDiem(clsLOAIDIEM_DTO loaiDiem)
+        public void suaLoaiDiem(clsLOAIDIEM_DTO loaiDiem_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaLoaiDiem", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MALD", SqlDbType.VarChar).Value = loaiDiem.Mald;
-            command.Parameters.Add("@TENLD", SqlDbType.NVarChar).Value = loaiDiem.Tenld;
-            command.Parameters.Add("@HESOLD", SqlDbType.Char).Value = loaiDiem.Hesold;
+            command.Parameters.Add("@MALD", SqlDbType.VarChar).Value = loaiDiem_DTO.Mald;
+            command.Parameters.Add("@TENLD", SqlDbType.NVarChar).Value = loaiDiem_DTO.Tenld;
+            command.Parameters.Add("@HESOLD", SqlDbType.Char).Value = loaiDiem_DTO.Hesold;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public void xoaLoaiDiem(clsLOAIDIEM_DTO loaiDiem)
+        public void xoaLoaiDiem(clsLOAIDIEM_DTO loaiDiem_DTO)
         {
             SqlCommand command = new SqlCommand("SP_XoaLoaiDiem", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MALD", SqlDbType.VarChar).Value = loaiDiem.Mald;
+            command.Parameters.Add("@MALD", SqlDbType.VarChar).Value = loaiDiem_DTO.Mald;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public int heSoLoaiDiem(clsLOAIDIEM_DTO loaiDiem)
+        public int heSoLoaiDiem(clsLOAIDIEM_DTO loaiDiem_DTO)
         {
             int temp = -1;
             SqlCommand command = new SqlCommand("SP_HeSoLoaiDiem", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MALD", SqlDbType.VarChar).Value = loaiDiem.Mald;
+            command.Parameters.Add("@MALD", SqlDbType.VarChar).Value = loaiDiem_DTO.Mald;
             connection.kiemTraKetNoi(con);
             if (command.ExecuteScalar().ToString() != "")
             {

@@ -41,7 +41,7 @@ namespace QuanLiHocSinh
             monHoc_BUS.HienThiDataGridViewComboBoxColumn(MAMH1);
             loaiDiem_BUS.HienThiDataGridViewComboBoxColumn(MALD1);
             namHoc_BUS.HienThiDataGridViewComboBoxColumn(MANH1);
-            lop_BUS.HienThiDataGridViewComboBoxColumn(MALOP1);
+            lop_BUS.hienThiDataGridViewComboBoxColumn(MALOP1);
             hocKy_BUS.HienThiDataGridViewComboBoxColumn(MAHK1);
             this.KeyPreview = true;
             datagridMakeUp(grdDiemRieng);

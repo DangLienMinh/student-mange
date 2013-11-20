@@ -13,63 +13,64 @@ namespace QLHS.BUS
 {
     public class clsGIANGDAY_BUS
     {
-        private clsGIANGDAY_DAO giangday_dao;
-        private clsGIAOVIEN_DAO giaovien_dao;
-        private clsLOP_DAO lop_dao;
-        private clsNAMHOC_DAO namhoc_dao;
-        private clsMONHOC_DAO monhoc_dao;
+        private clsGIANGDAY_DAO giangDay_DAO;
+        private clsGIAOVIEN_DAO giaoVien_DAO;
+        private clsLOP_DAO lop_DAO;
+        private clsNAMHOC_DAO namHoc_DAO;
+        private clsMONHOC_DAO monHoc_DAO;
 
         public clsGIANGDAY_BUS()
         {
-            giangday_dao=new clsGIANGDAY_DAO();
-            giaovien_dao = new clsGIAOVIEN_DAO();
-            lop_dao = new clsLOP_DAO();
-            namhoc_dao = new clsNAMHOC_DAO();
-            monhoc_dao = new clsMONHOC_DAO();
+            giangDay_DAO=new clsGIANGDAY_DAO();
+            giaoVien_DAO = new clsGIAOVIEN_DAO();
+            lop_DAO = new clsLOP_DAO();
+            namHoc_DAO = new clsNAMHOC_DAO();
+            monHoc_DAO = new clsMONHOC_DAO();
         }
-        public void hienthiLop(ComboBoxEx cboLop)
+
+        public void hienThiLop(ComboBoxEx cboLop)
         {
-            cboLop.DataSource = lop_dao.danhSachLop();
+            cboLop.DataSource = lop_DAO.danhSachLop();
             cboLop.DisplayMember = "TENLOP";
             cboLop.ValueMember = "MALOP";
         }
-        public void hienthiNamhoc(ComboBoxEx cboNamhoc)
+        public void hienThiNamHoc(ComboBoxEx cboNamhoc)
         {
-            cboNamhoc.DataSource = namhoc_dao.danhSachNamHoc();
+            cboNamhoc.DataSource = namHoc_DAO.danhSachNamHoc();
             cboNamhoc.DisplayMember = "TENNH";
             cboNamhoc.ValueMember = "MANH";
         }
-        public void hienthiGiaovien(ComboBoxEx cboGiaovien)
+        public void hienThiGiaoVien(ComboBoxEx cboGiaovien)
         {
-            cboGiaovien.DataSource = giaovien_dao.danhSachGiaoVien();
+            cboGiaovien.DataSource = giaoVien_DAO.danhSachGiaoVien();
             cboGiaovien.DisplayMember = "TENGV";
             cboGiaovien.ValueMember = "MAGV";
         }
-        public void hienthiMonhoc(ComboBoxEx cboMonhoc)
+        public void hienThiMonHoc(ComboBoxEx cboMonhoc)
         {
-            cboMonhoc.DataSource = monhoc_dao.danhSachMonhoc();
+            cboMonhoc.DataSource = monHoc_DAO.danhSachMonhoc();
             cboMonhoc.DisplayMember = "TENMH";
             cboMonhoc.ValueMember = "MAMH";
         }
-        public void themGiangday(clsGIANGDAY_DTO giangday)
+        public void themGiangDay(clsGIANGDAY_DTO giangday)
         {
-            giangday_dao.themPhanCong(giangday);
+            giangDay_DAO.themPhanCong(giangday);
         }
-        public DataTable danhsachPhanCong()
+        public DataTable danhSachPhanCong()
         {
-            return giangday_dao.danhsachPhancong();
+            return giangDay_DAO.danhsachPhancong();
         }
         public void suaPhanCong(clsGIANGDAY_DTO giangdaymoi, clsGIANGDAY_DTO giangdaycu)
         {
-            giangday_dao.suaPhanCong(giangdaymoi, giangdaycu);
+            giangDay_DAO.suaPhanCong(giangdaymoi, giangdaycu);
         }
         public void xoaPhanCong(clsGIANGDAY_DTO giangday)
         {
-            giangday_dao.xoaPhanCong(giangday);
+            giangDay_DAO.xoaPhanCong(giangday);
         }
         public DataTable timPhanCong(clsGIAOVIEN_DTO giaovien, clsLOP_DTO lop)
         {
-            return giangday_dao.timPhanCong(giaovien, lop);
+            return giangDay_DAO.timPhanCong(giaovien, lop);
         }
     }
 }

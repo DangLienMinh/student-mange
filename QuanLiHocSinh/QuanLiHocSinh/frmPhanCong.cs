@@ -21,7 +21,6 @@ namespace QuanLiHocSinh
         private frmMonHoc m_frmMonhoc;
         private clsGIANGDAY_BUS giangday_bus;
         private Boolean flagInsert;
-        private Boolean flagUpdate;
         private Boolean flagDelete;
         private clsGIANGDAY_DTO giangday_dto;
         private clsLOP_DTO lop_dto;
@@ -45,7 +44,6 @@ namespace QuanLiHocSinh
             lop_dto = new clsLOP_DTO();
             giaovien_dto = new clsGIAOVIEN_DTO();
             flagInsert = false;
-            flagUpdate = false;
             flagDelete = false;
             m_frmGiaovien = null;
             m_frmLophoc = null;
@@ -56,17 +54,17 @@ namespace QuanLiHocSinh
 
         private void frmPhanCong_Load(object sender, EventArgs e)
         {
-            giangday_bus.hienthiLop(cboLop);
-            giangday_bus.hienthiNamhoc(cboNamHoc);
-            giangday_bus.hienthiGiaovien(cboGiaoVien);
-            giangday_bus.hienthiMonhoc(cboMonHoc);
+            giangday_bus.hienThiLop(cboLop);
+            giangday_bus.hienThiNamHoc(cboNamHoc);
+            giangday_bus.hienThiGiaoVien(cboGiaoVien);
+            giangday_bus.hienThiMonHoc(cboMonHoc);
 
             //hiện tên thay vì hiện mã trong datagrid
             monHoc_BUS.HienThiDataGridViewComboBoxColumn(MAMH);
-            lop_BUS.HienThiDataGridViewComboBoxColumn(MALOP);
+            lop_BUS.hienThiDataGridViewComboBoxColumn(MALOP);
             giaoVien_BUS.HienThiDataGridViewComboBoxColumn(MAGV);
             namHoc_BUS.HienThiDataGridViewComboBoxColumn(MANH);
-            grdPhanCong.DataSource = giangday_bus.danhsachPhanCong();
+            grdPhanCong.DataSource = giangday_bus.danhSachPhanCong();
             datagridMakeUp(grdPhanCong);
         }
 
@@ -94,7 +92,6 @@ namespace QuanLiHocSinh
         private void btnSua_Click(object sender, EventArgs e)
         {
             anHienButton(false);
-            flagUpdate = true;
         }
 
         private void btnDongY_Click(object sender, EventArgs e)
@@ -104,7 +101,7 @@ namespace QuanLiHocSinh
             {
                 Insert();
                 huyboDulieu();
-                grdPhanCong.DataSource = giangday_bus.danhsachPhanCong();
+                grdPhanCong.DataSource = giangday_bus.danhSachPhanCong();
             }
             else
             {
@@ -112,13 +109,13 @@ namespace QuanLiHocSinh
                 {
                     Delete();
                     huyboDulieu();
-                    grdPhanCong.DataSource = giangday_bus.danhsachPhanCong();
+                    grdPhanCong.DataSource = giangday_bus.danhSachPhanCong();
                 }
                 else//Ngược lại thì gọi đến hàm Delete
                 {
-                    Update();
+                    update();
                     huyboDulieu();
-                    grdPhanCong.DataSource = giangday_bus.danhsachPhanCong();
+                    grdPhanCong.DataSource = giangday_bus.danhSachPhanCong();
                 }
             }
         }
@@ -129,7 +126,6 @@ namespace QuanLiHocSinh
             huyboDulieu();
             flagDelete = false;
             flagInsert = false;
-            flagUpdate = false;
         }
         public void Insert()
         {
@@ -158,7 +154,7 @@ namespace QuanLiHocSinh
             {
                 try
                 {
-                    giangday_bus.themGiangday(giangday_dto);
+                    giangday_bus.themGiangDay(giangday_dto);
                     MessageBox.Show("Thêm Phân công giảng dạy thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     flagInsert = false;//gán lại flagInsert để đảm bảo thực hiện thêm sửa xóa nhiều lần liên tục sẽ không gây ra lỗi
                 }
@@ -169,7 +165,7 @@ namespace QuanLiHocSinh
                 }
             }
         }
-        public void Update()
+        public void update()
         {
             int khoa = 0;
             clsGIANGDAY_DTO tam=new clsGIANGDAY_DTO();
@@ -197,7 +193,6 @@ namespace QuanLiHocSinh
                 if (khoa == 1)
                 {
                     MessageBox.Show("Lỗi ! Phân công đã tồn tại trong cơ sở dữ liệu ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    flagUpdate = false;
                 }
                 else
                 {
@@ -205,12 +200,10 @@ namespace QuanLiHocSinh
                     {
                         giangday_bus.suaPhanCong(giangday_dto, tam);
                         MessageBox.Show("Sửa Phân công giảng dạy thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        flagUpdate = false;//gán lại flagUpdate để đảm bảo thực hiện thêm sửa xóa nhiều lần liên tục sẽ không gây ra lỗi
                     }
                     catch (Exception e)
                     {
                         MessageBox.Show("Lỗi ! Sửa không thành công " + e.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        flagUpdate = false;//gán lại flagUpdate để đảm bảo thực hiện thêm sửa xóa nhiều lần liên tục sẽ không gây ra lỗi
                     }
                 }
             }
@@ -269,10 +262,6 @@ namespace QuanLiHocSinh
             giangday_dto.Magv = "";
         }
 
-        private void grdPhanCong_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void grdPhanCong_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -280,6 +269,7 @@ namespace QuanLiHocSinh
             cboLop.SelectedValue = grdPhanCong.CurrentRow.Cells["MALOP"].Value.ToString();
             cboMonHoc.SelectedValue = grdPhanCong.CurrentRow.Cells["MAMH"].Value.ToString();
             cboNamHoc.SelectedValue = grdPhanCong.CurrentRow.Cells["MANH"].Value.ToString();
+            anHienButton(true);
         }
         private void Hienthidulieu()
         {

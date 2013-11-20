@@ -50,12 +50,12 @@ namespace QLHS.DAO
             return temp;
         }
 
-        public DataTable timGVMaGV(clsGIAOVIEN_DTO giaovien)
+        public DataTable timGVMaGV(clsGIAOVIEN_DTO giaoVien_DTO)
         {
             DataTable table = new DataTable();
             SqlCommand command = new SqlCommand("SP_TimGiaoVienMaGV", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAGV", SqlDbType.Char).Value = giaovien.Magv;
+            command.Parameters.Add("@MAGV", SqlDbType.Char).Value = giaoVien_DTO.Magv;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             connection.kiemTraKetNoi(con);
             adapter.Fill(table);
@@ -63,12 +63,12 @@ namespace QLHS.DAO
             return table;
         }
 
-        public DataTable timGVTenGV(clsGIAOVIEN_DTO giaovien)
+        public DataTable timGVTenGV(clsGIAOVIEN_DTO giaoVien_DTO)
         {
             DataTable table = new DataTable();
             SqlCommand command = new SqlCommand("SP_TimGiaoVienTenGV", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@TENGV", SqlDbType.NVarChar).Value = giaovien.Tengv;
+            command.Parameters.Add("@TENGV", SqlDbType.NVarChar).Value = giaoVien_DTO.Tengv;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             connection.kiemTraKetNoi(con);
             adapter.Fill(table);
@@ -76,43 +76,43 @@ namespace QLHS.DAO
             return table;
         }
 
-        public void themGiaoVien(clsGIAOVIEN_DTO giaovien)
+        public void themGiaoVien(clsGIAOVIEN_DTO giaoVien_DTO)
         {
             SqlCommand command = new SqlCommand("SP_ThemGiaoVien", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAGV", SqlDbType.Char).Value = giaovien.Magv;
-            command.Parameters.Add("@TENGV", SqlDbType.NVarChar).Value = giaovien.Tengv;
-            command.Parameters.Add("@NGSINHGV", SqlDbType.SmallDateTime).Value = giaovien.Ngsinhgv.ToString("yyyy-MM-dd");
-            command.Parameters.Add("@GIOITINHGV", SqlDbType.Char).Value = giaovien.Gioitinhgv;
-            command.Parameters.Add("@DIACHIGV", SqlDbType.NVarChar).Value = giaovien.Diachigv;
-            command.Parameters.Add("@DIENTHOAIGV", SqlDbType.NVarChar).Value = giaovien.Dienthoaigv;
-            command.Parameters.Add("@HINHANHGV", SqlDbType.NVarChar).Value = giaovien.Hinhanhgv;
+            command.Parameters.Add("@MAGV", SqlDbType.Char).Value = giaoVien_DTO.Magv;
+            command.Parameters.Add("@TENGV", SqlDbType.NVarChar).Value = giaoVien_DTO.Tengv;
+            command.Parameters.Add("@NGSINHGV", SqlDbType.SmallDateTime).Value = giaoVien_DTO.Ngsinhgv.ToString("yyyy-MM-dd");
+            command.Parameters.Add("@GIOITINHGV", SqlDbType.Char).Value = giaoVien_DTO.Gioitinhgv;
+            command.Parameters.Add("@DIACHIGV", SqlDbType.NVarChar).Value = giaoVien_DTO.Diachigv;
+            command.Parameters.Add("@DIENTHOAIGV", SqlDbType.NVarChar).Value = giaoVien_DTO.Dienthoaigv;
+            command.Parameters.Add("@HINHANHGV", SqlDbType.NVarChar).Value = giaoVien_DTO.Hinhanhgv;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public void suaGiaoVien(clsGIAOVIEN_DTO giaovien)
+        public void suaGiaoVien(clsGIAOVIEN_DTO giaoVien_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaGiaoVien", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAGV", SqlDbType.Char).Value = giaovien.Magv;
-            command.Parameters.Add("@TENGV", SqlDbType.NVarChar).Value = giaovien.Tengv;
-            command.Parameters.Add("@NGSINHGV", SqlDbType.SmallDateTime).Value = giaovien.Ngsinhgv.ToString("yyyy-MM-dd");
-            command.Parameters.Add("@GIOITINHGV", SqlDbType.Char).Value = giaovien.Gioitinhgv;
-            command.Parameters.Add("@DIACHIGV", SqlDbType.NVarChar).Value = giaovien.Diachigv;
-            command.Parameters.Add("@DIENTHOAIGV", SqlDbType.NVarChar).Value = giaovien.Dienthoaigv;
-            command.Parameters.Add("@HINHANHGV", SqlDbType.NVarChar).Value = giaovien.Hinhanhgv;
+            command.Parameters.Add("@MAGV", SqlDbType.Char).Value = giaoVien_DTO.Magv;
+            command.Parameters.Add("@TENGV", SqlDbType.NVarChar).Value = giaoVien_DTO.Tengv;
+            command.Parameters.Add("@NGSINHGV", SqlDbType.SmallDateTime).Value = giaoVien_DTO.Ngsinhgv.ToString("yyyy-MM-dd");
+            command.Parameters.Add("@GIOITINHGV", SqlDbType.Char).Value = giaoVien_DTO.Gioitinhgv;
+            command.Parameters.Add("@DIACHIGV", SqlDbType.NVarChar).Value = giaoVien_DTO.Diachigv;
+            command.Parameters.Add("@DIENTHOAIGV", SqlDbType.NVarChar).Value = giaoVien_DTO.Dienthoaigv;
+            command.Parameters.Add("@HINHANHGV", SqlDbType.NVarChar).Value = giaoVien_DTO.Hinhanhgv;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public void xoaGiaoVien(clsGIAOVIEN_DTO giaovien)
+        public void xoaGiaoVien(clsGIAOVIEN_DTO giaoVien_DTO)
         {
             SqlCommand command = new SqlCommand("SP_XoaGiaoVien", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAGV", SqlDbType.Char).Value = giaovien.Magv;
+            command.Parameters.Add("@MAGV", SqlDbType.Char).Value = giaoVien_DTO.Magv;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();

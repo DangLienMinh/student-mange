@@ -111,9 +111,9 @@ namespace QLHS.BUS
             }
             return maHS;
         }
-        public void tailaiDataGrid(DataGridViewX grdHocSinh, DataTable dsHocsinh)
+        public void taiLaiDataGrid(DataGridViewX grdHocSinh, DataTable dsHocSinh)
         {
-            grdHocSinh.DataSource = dsHocsinh;
+            grdHocSinh.DataSource = dsHocSinh;
             if (grdHocSinh.Rows.Count > 0)
             {
                 foreach (DataGridViewRow row in grdHocSinh.Rows)

@@ -27,7 +27,7 @@ namespace QLHS.BUS
             giaoVien_DAO = new clsGIAOVIEN_DAO();
         }
 
-        public void cbogiaoVienChuNhiem(ComboBoxEx comboBox)
+        public void cboGiaoVienChuNhiem(ComboBoxEx comboBox)
         {
             comboBox.DataSource = giaoVien_DAO.danhSachGiaoVien();
             comboBox.DisplayMember = "TENGV";
@@ -42,7 +42,7 @@ namespace QLHS.BUS
  
         }
 
-        public void HienThiDataGridViewComboBoxColumn(DataGridViewComboBoxColumn cboColumn)
+        public void hienThiDataGridViewComboBoxColumn(DataGridViewComboBoxColumn cboColumn)
         {
             cboColumn.DataSource = lop_DAO.danhSachLop();
             cboColumn.DisplayMember = "TENLOP";
@@ -73,49 +73,6 @@ namespace QLHS.BUS
                 result = "L"+year.Substring(year.Length-2)+temp.ToString();
             }
             return result;
-            //string malop;
-            //string makhoitao = "LH0000";
-            //int maMax = 0;
-            //int soDong=lop_DAO.danhsachLop().Rows.Count;
-            //if (soDong == 0)
-            //{
-            //    malop = makhoitao;
-            //}
-            //else
-            //{
-            //    for (int i = 0; i < lop_DAO.danhsachLop().Rows.Count; i++)
-            //    {
-            //        string tam = lop_DAO.danhsachLop().Rows[i]["MALOP"].ToString();
-            //        string tam1 = tam.Substring(2, 4);
-            //        int tam2 = int.Parse(tam1);
-            //        if (tam2 > maMax)
-            //            maMax = tam2;
-            //    }
-            //    maMax++;
-            //    if (maMax < 10)
-            //    {
-            //        malop = "LH000" + maMax.ToString();
-            //    }
-            //    else
-            //    {
-            //        if (maMax < 100)
-            //        {
-            //            malop = "LH00" + maMax.ToString();
-            //        }
-            //        else
-            //        {
-            //            if (maMax < 1000)
-            //            {
-            //                malop = "LH0" + maMax.ToString();
-            //            }
-            //            else
-            //            {
-            //                malop = "LH" + maMax.ToString();
-            //            }
-            //        }
-            //    }
-            //}
-            //return malop;
         }
 
         public void themLopHoc(clsLOP_DTO lop)
@@ -152,7 +109,7 @@ namespace QLHS.BUS
             lop_DAO.xoaLop(lop);
         }
 
-        public void tailaiDataGrid(DataGridViewX grdLop, DataTable dsLop)
+        public void taiLaiDataGrid(DataGridViewX grdLop, DataTable dsLop)
         {
             grdLop.DataSource = dsLop;
             if (grdLop.Rows.Count > 0)

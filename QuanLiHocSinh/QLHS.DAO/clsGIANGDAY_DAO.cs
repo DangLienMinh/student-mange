@@ -26,15 +26,15 @@ namespace QLHS.DAO
             con.Close();
             return table;
         }
-        public void themPhanCong(clsGIANGDAY_DTO giangday)
+        public void themPhanCong(clsGIANGDAY_DTO giangDay_DTO)
         {
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThemGiangDay", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAMH", SqlDbType.VarChar,10).Value = giangday.Mamh;
-            command.Parameters.Add("@MANH", SqlDbType.VarChar,6).Value = giangday.Manh;
-            command.Parameters.Add("@MAGV", SqlDbType.Char,5).Value = giangday.Magv;
-            command.Parameters.Add("@MALOP", SqlDbType.VarChar,10).Value = giangday.Malop;
+            command.Parameters.Add("@MAMH", SqlDbType.VarChar,10).Value = giangDay_DTO.Mamh;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar,6).Value = giangDay_DTO.Manh;
+            command.Parameters.Add("@MAGV", SqlDbType.Char,5).Value = giangDay_DTO.Magv;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar,10).Value = giangDay_DTO.Malop;
             command.ExecuteNonQuery();
             con.Close();
         }
@@ -55,25 +55,25 @@ namespace QLHS.DAO
             con.Close();
             
         }
-        public void xoaPhanCong(clsGIANGDAY_DTO giangday)
+        public void xoaPhanCong(clsGIANGDAY_DTO giangDay_DTO)
         {
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_XoaGiangDay", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAMH", SqlDbType.VarChar, 10).Value = giangday.Mamh;
-            command.Parameters.Add("@MANH", SqlDbType.VarChar, 6).Value = giangday.Manh;
-            command.Parameters.Add("@MAGV", SqlDbType.Char, 5).Value = giangday.Magv;
-            command.Parameters.Add("@MALOP", SqlDbType.VarChar, 10).Value = giangday.Malop;
+            command.Parameters.Add("@MAMH", SqlDbType.VarChar, 10).Value = giangDay_DTO.Mamh;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar, 6).Value = giangDay_DTO.Manh;
+            command.Parameters.Add("@MAGV", SqlDbType.Char, 5).Value = giangDay_DTO.Magv;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar, 10).Value = giangDay_DTO.Malop;
             command.ExecuteNonQuery();
             con.Close();
         }
-        public DataTable timPhanCong(clsGIAOVIEN_DTO giaovien, clsLOP_DTO lop)
+        public DataTable timPhanCong(clsGIAOVIEN_DTO giaoVien_DTO, clsLOP_DTO lop_DTO)
         {
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_TimGiangDay", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@TENGV", SqlDbType.NVarChar).Value = giaovien.Tengv;
-            command.Parameters.Add("@TENLOP", SqlDbType.NVarChar).Value = lop.Tenlop;
+            command.Parameters.Add("@TENGV", SqlDbType.NVarChar).Value = giaoVien_DTO.Tengv;
+            command.Parameters.Add("@TENLOP", SqlDbType.NVarChar).Value = lop_DTO.Tenlop;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);

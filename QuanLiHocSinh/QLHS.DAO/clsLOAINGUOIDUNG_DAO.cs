@@ -31,23 +31,23 @@ namespace QLHS.DAO
         }
       
 
-        public void themLoaiNguoiDung(clsLOAINGUOIDUNG_DTO loaiNguoiDung)
+        public void themLoaiNguoiDung(clsLOAINGUOIDUNG_DTO loaiNguoiDung_DTO)
         {
             SqlCommand command = new SqlCommand("SP_ThemLoaiNguoiDung", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MALND", SqlDbType.VarChar).Value = loaiNguoiDung.Malnd;
-            command.Parameters.Add("@TENLND", SqlDbType.NVarChar).Value = loaiNguoiDung.Tenlnd;
+            command.Parameters.Add("@MALND", SqlDbType.VarChar).Value = loaiNguoiDung_DTO.Malnd;
+            command.Parameters.Add("@TENLND", SqlDbType.NVarChar).Value = loaiNguoiDung_DTO.Tenlnd;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public void suaLoaiNguoiDung(clsLOAINGUOIDUNG_DTO loaiNguoiDung)
+        public void suaLoaiNguoiDung(clsLOAINGUOIDUNG_DTO loaiNguoiDung_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaLoaiNguoiDung", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MALND", SqlDbType.VarChar).Value = loaiNguoiDung.Malnd;
-            command.Parameters.Add("@TENLND", SqlDbType.NVarChar).Value = loaiNguoiDung.Tenlnd;
+            command.Parameters.Add("@MALND", SqlDbType.VarChar).Value = loaiNguoiDung_DTO.Malnd;
+            command.Parameters.Add("@TENLND", SqlDbType.NVarChar).Value = loaiNguoiDung_DTO.Tenlnd;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();

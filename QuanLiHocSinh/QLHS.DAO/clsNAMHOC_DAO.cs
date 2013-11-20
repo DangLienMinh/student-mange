@@ -30,23 +30,23 @@ namespace QLHS.DAO
             return table;
         }
 
-        public void themNamHoc(clsNAMHOC_DTO namHoc)
+        public void themNamHoc(clsNAMHOC_DTO namHoc_DTO)
         {
             SqlCommand command = new SqlCommand("SP_ThemNamHoc", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = namHoc.Manh;
-            command.Parameters.Add("@TENNH", SqlDbType.NVarChar).Value = namHoc.Tenh;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = namHoc_DTO.Manh;
+            command.Parameters.Add("@TENNH", SqlDbType.NVarChar).Value = namHoc_DTO.Tenh;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public void suaNamHoc(clsNAMHOC_DTO namHoc)
+        public void suaNamHoc(clsNAMHOC_DTO namHoc_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaNamHoc", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = namHoc.Manh;
-            command.Parameters.Add("@TENNH", SqlDbType.NVarChar).Value = namHoc.Tenh;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = namHoc_DTO.Manh;
+            command.Parameters.Add("@TENNH", SqlDbType.NVarChar).Value = namHoc_DTO.Tenh;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();

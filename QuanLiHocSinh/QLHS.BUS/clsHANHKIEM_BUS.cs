@@ -11,43 +11,43 @@ namespace QLHS.BUS
 {
     public class clsHANHKIEM_BUS
     {
-        private clsHOCKY_DAO hocky;
-        private clsNAMHOC_DAO namhoc;
-        private clsKHOI_DAO khoi_dao;
-        private clsLOP_DAO lop;
-        private clsLOAIHANHKIEM_DAO loaihk;
-        private clsHOCSINH_DAO hocsinh;
-        private clsHANHKIEM_DAO hanhkiem_dao;
+        private clsHOCKY_DAO hocKy_DAO;
+        private clsNAMHOC_DAO namHoc_DAO;
+        private clsKHOI_DAO khoi_DAO;
+        private clsLOP_DAO lop_DAO;
+        private clsLOAIHANHKIEM_DAO loaiHanhKiem_DAO;
+        private clsHOCSINH_DAO hocSinh_DAO;
+        private clsHANHKIEM_DAO hanhKiem_DAO;
         private clsHANHKIEM_DTO hanhKiem_DTO;
 
         public clsHANHKIEM_BUS()
         {
-            hocky = new clsHOCKY_DAO();
-            namhoc = new clsNAMHOC_DAO();
-            khoi_dao = new clsKHOI_DAO();
-            lop = new clsLOP_DAO();
-            loaihk = new clsLOAIHANHKIEM_DAO();
-            hocsinh = new clsHOCSINH_DAO();
-            hanhkiem_dao = new clsHANHKIEM_DAO();
+            hocKy_DAO = new clsHOCKY_DAO();
+            namHoc_DAO = new clsNAMHOC_DAO();
+            khoi_DAO = new clsKHOI_DAO();
+            lop_DAO = new clsLOP_DAO();
+            loaiHanhKiem_DAO = new clsLOAIHANHKIEM_DAO();
+            hocSinh_DAO = new clsHOCSINH_DAO();
+            hanhKiem_DAO = new clsHANHKIEM_DAO();
         }
-        public void hienThicboHK(ComboBoxEx comboBox)
+        public void hienThiCboHK(ComboBoxEx comboBox)
         {
-            comboBox.DataSource = hocky.danhSachHocKy();
+            comboBox.DataSource = hocKy_DAO.danhSachHocKy();
             comboBox.DisplayMember = "TENHK";
             comboBox.ValueMember = "MAHK";
             comboBox.SelectedValue = "HK1";
         }
-        public void hienthicboNamHoc(ComboBoxEx comboBox)
+        public void hienThiCboNamHoc(ComboBoxEx comboBox)
         {
-            comboBox.DataSource = namhoc.danhSachNamHoc();
+            comboBox.DataSource = namHoc_DAO.danhSachNamHoc();
             comboBox.DisplayMember = "TENNH";
             comboBox.ValueMember = "MANH";
         }
-        public void hienthiLophoc(AdvTree trKhoi,ComboBoxEx cboNamhoc)
+        public void hienThiLopHoc(AdvTree treKhoi,ComboBoxEx cboNamhoc)
         {
             DataTable dsKhoi = new DataTable();
             DataTable dsLop = new DataTable();
-            dsKhoi = khoi_dao.danhSachKhoi();
+            dsKhoi = khoi_DAO.danhSachKhoi();
             for (int i = 0; i < dsKhoi.Rows.Count; i++)
             {
                 if (dsKhoi.Rows[i]["MAKHOI"].ToString() != "")
@@ -55,11 +55,10 @@ namespace QLHS.BUS
                     Node k = new Node();
                     k.Text = dsKhoi.Rows[i]["TENKHOI"].ToString();
                     k.Name = dsKhoi.Rows[i]["MAKHOI"].ToString();
-                    trKhoi.Nodes.Add(k);
-                    //TreeNode k2 = new TreeNode();
+                    treKhoi.Nodes.Add(k);
                     
-                    string Makhoi=dsKhoi.Rows[i]["MAKHOI"].ToString();
-                    dsLop = lop.danhsachLopMAKHOI(Makhoi,cboNamhoc.SelectedValue.ToString());
+                    string makhoi=dsKhoi.Rows[i]["MAKHOI"].ToString();
+                    dsLop = lop_DAO.danhsachLopMAKHOI(makhoi,cboNamhoc.SelectedValue.ToString());
                     for (int j = 0; j < dsLop.Rows.Count; j++)
                     {
                         if (dsLop.Rows[j]["MALOP"].ToString() != "")
@@ -67,75 +66,75 @@ namespace QLHS.BUS
                             Node k1 = new Node();
                             k1.Text = dsLop.Rows[j]["TENLOP"].ToString();
                             k1.Name = dsLop.Rows[j]["MALOP"].ToString();
-                            trKhoi.Nodes[i].Nodes.Add(k1);
+                            treKhoi.Nodes[i].Nodes.Add(k1);
                         }
                     }
                 }
             }
         }
-        public void hienthiCboLoaiHK(DataGridViewComboBoxColumn clnHanhkiem)//ComboboxColumnHanhKiem
+        public void hienThiCboLoaiHK(DataGridViewComboBoxColumn clnHanhKiem)//ComboboxColumnHanhKiem
         {
-            clnHanhkiem.DataSource = loaihk.danhsachLoaiHK();
-            clnHanhkiem.DisplayMember = "TENLHK";
-            clnHanhkiem.ValueMember = "MALHK";
-            clnHanhkiem.DataPropertyName = "MALHK";
+            clnHanhKiem.DataSource = loaiHanhKiem_DAO.danhsachLoaiHK();
+            clnHanhKiem.DisplayMember = "TENLHK";
+            clnHanhKiem.ValueMember = "MALHK";
+            clnHanhKiem.DataPropertyName = "MALHK";
         }
-        public void hienthiCboClnNamHoc(DataGridViewComboBoxColumn clnNamHoc)
+        public void hienThiCboClnNamHoc(DataGridViewComboBoxColumn clnNamHoc)
         {
-            clnNamHoc.DataSource = namhoc.danhSachNamHoc();
+            clnNamHoc.DataSource = namHoc_DAO.danhSachNamHoc();
             clnNamHoc.DisplayMember = "TENNH";
             clnNamHoc.ValueMember = "MANH";
             clnNamHoc.DataPropertyName = "MANH";
         }
-        public void hienthiCboClnHocKy(DataGridViewComboBoxColumn clnHocKy)
+        public void hienThiCboClnHocKy(DataGridViewComboBoxColumn clnHocKy)
         {
-            clnHocKy.DataSource = hocky.danhSachHocKy();
+            clnHocKy.DataSource = hocKy_DAO.danhSachHocKy();
             clnHocKy.DisplayMember = "TENHK";
             clnHocKy.ValueMember = "MAHK";
             clnHocKy.DataPropertyName = "MAHK";
         }
-        public void hienthiCboLopHoc(clsLOP_DTO lop_dto,ComboBoxEx cboLop)
+        public void hienThiCboLopHoc(clsLOP_DTO lop_dto,ComboBoxEx cboLop)
         {
-            cboLop.DataSource = lop.danhSachLopTheoNamHoc(lop_dto);
+            cboLop.DataSource = lop_DAO.danhSachLopTheoNamHoc(lop_dto);
             cboLop.DisplayMember = "TENLOP";
             cboLop.ValueMember = "MALOP";
         }
-        public void hienthiCboHanhKiem(ComboBoxEx cbohanhKiem)
+        public void hienThiCboHanhKiem(ComboBoxEx cboHanhKiem)
         {
-            cbohanhKiem.DataSource = loaihk.danhsachLoaiHK();
-            cbohanhKiem.DisplayMember = "TENLHK";
-            cbohanhKiem.ValueMember = "MALHK";
+            cboHanhKiem.DataSource = loaiHanhKiem_DAO.danhsachLoaiHK();
+            cboHanhKiem.DisplayMember = "TENLHK";
+            cboHanhKiem.ValueMember = "MALHK";
         }
 
         
 
-        public void hienthiCboHocSinhTatCa(string malop,string manh,string mahk,ComboBoxEx cboHocsinh)
+        public void hienThiCboHocSinhTatCa(string maLop,string maNH,string maHK,ComboBoxEx cboHocsinh)
         {
-            cboHocsinh.DataSource = hocsinh.danhsachHocSinhMALOPMANHMAHKTatCa(malop, manh, mahk);
+            cboHocsinh.DataSource = hocSinh_DAO.danhSachHocSinhMALOPMANHMAHKTatCa(maLop, maNH, maHK);
             cboHocsinh.DisplayMember = "TENHS";
             cboHocsinh.ValueMember = "MAHS";
         }
 
-        public DataTable danhsachHocsinhMALOPMANHMAHKChuaNhap(string malop, string manh, string mahk)
+        public DataTable danhSachHocSinhMALOPMANHMAHKChuaNhap(string maLop, string maNH, string maHK)
         {
-            return hocsinh.danhsachHocSinhMALOPMANHMAHKChuaNhap(malop, manh, mahk);
+            return hocSinh_DAO.danhSachHocSinhMALOPMANHMAHKChuaNhap(maLop, maNH, maHK);
         }
-        public void themHanhKiem(clsHANHKIEM_DTO hanhkiem)
+        public void themHanhKiem(clsHANHKIEM_DTO hanhKiem)
         {
-            hanhkiem_dao.ThemHanhKiem(hanhkiem);
+            hanhKiem_DAO.ThemHanhKiem(hanhKiem);
         }
-        public void suaHanhKiem(clsHANHKIEM_DTO hanhkiem)
+        public void suaHanhKiem(clsHANHKIEM_DTO hanhKiem)
         {
-            hanhkiem_dao.suaHanhKiem(hanhkiem);
+            hanhKiem_DAO.suaHanhKiem(hanhKiem);
         }
-        public void xoaHanhKiem(clsHANHKIEM_DTO hanhkiem)
+        public void xoaHanhKiem(clsHANHKIEM_DTO hanhKiem)
         {
-            hanhkiem_dao.xoaHanhKiem(hanhkiem);
+            hanhKiem_DAO.xoaHanhKiem(hanhKiem);
         }
         
-        public DataTable danhsachHanhKiem(string manh, string malop, string mahk)
+        public DataTable danhSachHanhKiem(string maNH, string maLop, string maHK)
         {
-            return hanhkiem_dao.danhsachHanhKiem(manh, malop, mahk);
+            return hanhKiem_DAO.danhsachHanhKiem(maNH, maLop, maHK);
         }
 
         //FORM KET QUA
@@ -167,7 +166,7 @@ namespace QLHS.BUS
             hanhKiem_DTO.Mahk = maHK;
             hanhKiem_DTO.Manh = maNH;
             hanhKiem_DTO.Mahs = maHS;
-            temp = hanhkiem_dao.hanhKiemTheoHocKiNamHoc(hanhKiem_DTO);
+            temp = hanhKiem_DAO.hanhKiemTheoHocKiNamHoc(hanhKiem_DTO);
             if (temp.Rows.Count > 1)
             {
                 foreach (DataRow row in temp.Rows)

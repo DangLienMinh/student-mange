@@ -50,35 +50,35 @@ namespace QLHS.DAO
             return temp;
         }
 
-        public void themMonHoc(clsMONHOC_DTO monhoc)
+        public void themMonHoc(clsMONHOC_DTO monHoc_DTO)
         {
             SqlCommand command = new SqlCommand("SP_ThemMonHoc", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAMH", SqlDbType.VarChar).Value = monhoc.Mamh;
-            command.Parameters.Add("@TENMH", SqlDbType.NVarChar).Value = monhoc.Tenmh;
-            command.Parameters.Add("@SOTIET", SqlDbType.Char).Value = monhoc.Sotiet;
+            command.Parameters.Add("@MAMH", SqlDbType.VarChar).Value = monHoc_DTO.Mamh;
+            command.Parameters.Add("@TENMH", SqlDbType.NVarChar).Value = monHoc_DTO.Tenmh;
+            command.Parameters.Add("@SOTIET", SqlDbType.Char).Value = monHoc_DTO.Sotiet;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public void suaMonHoc(clsMONHOC_DTO monhoc)
+        public void suaMonHoc(clsMONHOC_DTO monHoc_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaMonHoc", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAMH", SqlDbType.VarChar).Value = monhoc.Mamh;
-            command.Parameters.Add("@TENMH", SqlDbType.NVarChar).Value = monhoc.Tenmh;
-            command.Parameters.Add("@SOTIET", SqlDbType.Char).Value = monhoc.Sotiet;
+            command.Parameters.Add("@MAMH", SqlDbType.VarChar).Value = monHoc_DTO.Mamh;
+            command.Parameters.Add("@TENMH", SqlDbType.NVarChar).Value = monHoc_DTO.Tenmh;
+            command.Parameters.Add("@SOTIET", SqlDbType.Char).Value = monHoc_DTO.Sotiet;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public void xoaMonHoc(clsMONHOC_DTO monhoc)
+        public void xoaMonHoc(clsMONHOC_DTO monHoc_DTO)
         {
             SqlCommand command = new SqlCommand("SP_XoaMonHoc", con);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAMH", SqlDbType.VarChar).Value = monhoc.Mamh;
+            command.Parameters.Add("@MAMH", SqlDbType.VarChar).Value = monHoc_DTO.Mamh;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
