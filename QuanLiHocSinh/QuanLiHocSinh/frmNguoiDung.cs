@@ -89,14 +89,12 @@ namespace QuanLiHocSinh
         {
             flag = 2;
             FlagEnable();
-            txtMaND.Enabled = false;
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
             flag = 3;
             FlagEnable();
-            txtMaND.Enabled = false;
             txtTenND.Focus();
         }
 
@@ -105,15 +103,12 @@ namespace QuanLiHocSinh
             if (flag == 1) insert();
             if (flag == 2) delete();
             if (flag == 3) update();
-            txtMaND.Enabled = true;
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
             FlagDisable();
-            flag = 0;
-            txtMaND.Enabled = true;
-        
+            flag = 0;  
         }
 
         private void resetAll()
@@ -222,6 +217,7 @@ namespace QuanLiHocSinh
         private void grdNguoiDung_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             controlValue();
+            FlagDisable();
         }
 
         private void txt_Enter(object sender, EventArgs e)

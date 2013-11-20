@@ -275,6 +275,7 @@ namespace QuanLiHocSinh
             cboKhoi.SelectedValue = grdLop.CurrentRow.Cells["MAKHOI1"].Value.ToString();
             cboNamHoc.SelectedValue = grdLop.CurrentRow.Cells["MANH1"].Value.ToString();
             cboBan.SelectedItem = grdLop.CurrentRow.Cells["BAN1"].Value.ToString();
+            anHienButton(true);
         }
         public void hienThiDuLieu()
         {

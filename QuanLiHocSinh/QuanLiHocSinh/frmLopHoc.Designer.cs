@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLopHoc));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.btnSua = new DevComponents.DotNetBar.ButtonX();
@@ -67,11 +67,6 @@
             this.btnDelete = new DevComponents.DotNetBar.ButtonItem();
             this.btnClose = new DevComponents.DotNetBar.ButtonItem();
             this.grdLop = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.btnCuoi = new DevComponents.DotNetBar.ButtonX();
-            this.btnSau = new DevComponents.DotNetBar.ButtonX();
-            this.btnTruoc = new DevComponents.DotNetBar.ButtonX();
-            this.btnDau = new DevComponents.DotNetBar.ButtonX();
-            this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.MALOP1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENLOP1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAKHOI1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -79,6 +74,11 @@
             this.SISO1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAGV1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.BAN1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCuoi = new DevComponents.DotNetBar.ButtonX();
+            this.btnSau = new DevComponents.DotNetBar.ButtonX();
+            this.btnTruoc = new DevComponents.DotNetBar.ButtonX();
+            this.btnDau = new DevComponents.DotNetBar.ButtonX();
+            this.txtHienTai = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.navigationPane1.SuspendLayout();
             this.navigationPanePanel2.SuspendLayout();
             this.navigationPanePanel1.SuspendLayout();
@@ -379,9 +379,9 @@
             // 
             this.txtMaLop.Border.Class = "TextBoxBorder";
             this.txtMaLop.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtMaLop.Enabled = false;
             this.txtMaLop.Location = new System.Drawing.Point(11, 35);
             this.txtMaLop.Name = "txtMaLop";
-            this.txtMaLop.ReadOnly = true;
             this.txtMaLop.Size = new System.Drawing.Size(155, 20);
             this.txtMaLop.TabIndex = 1;
             this.txtMaLop.TabStop = false;
@@ -578,14 +578,14 @@
             // 
             this.grdLop.AllowUserToDeleteRows = false;
             this.grdLop.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdLop.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdLop.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.grdLop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdLop.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MALOP1,
@@ -596,31 +596,73 @@
             this.MAGV1,
             this.BAN1});
             this.contextMenuBar2.SetContextMenuEx(this.grdLop, this.btnMenu);
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdLop.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdLop.DefaultCellStyle = dataGridViewCellStyle5;
             this.grdLop.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grdLop.EnableHeadersVisualStyles = false;
             this.grdLop.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grdLop.Location = new System.Drawing.Point(0, 42);
             this.grdLop.Name = "grdLop";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdLop.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdLop.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.grdLop.Size = new System.Drawing.Size(1168, 475);
             this.grdLop.TabIndex = 9;
             this.grdLop.TabStop = false;
             this.grdLop.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdLop_CellClick);
+            // 
+            // MALOP1
+            // 
+            this.MALOP1.DataPropertyName = "MALOP";
+            this.MALOP1.HeaderText = "Mã lớp học";
+            this.MALOP1.Name = "MALOP1";
+            // 
+            // TENLOP1
+            // 
+            this.TENLOP1.DataPropertyName = "TENLOP";
+            this.TENLOP1.HeaderText = "Tên lớp học";
+            this.TENLOP1.Name = "TENLOP1";
+            // 
+            // MAKHOI1
+            // 
+            this.MAKHOI1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MAKHOI1.HeaderText = "Khối lớp";
+            this.MAKHOI1.Name = "MAKHOI1";
+            // 
+            // MANH1
+            // 
+            this.MANH1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MANH1.HeaderText = "Năm học ";
+            this.MANH1.Name = "MANH1";
+            // 
+            // SISO1
+            // 
+            this.SISO1.DataPropertyName = "SISO";
+            this.SISO1.HeaderText = "Sỉ số";
+            this.SISO1.Name = "SISO1";
+            // 
+            // MAGV1
+            // 
+            this.MAGV1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MAGV1.HeaderText = "Giáo viên chủ nhiệm";
+            this.MAGV1.Name = "MAGV1";
+            // 
+            // BAN1
+            // 
+            this.BAN1.DataPropertyName = "MABAN";
+            this.BAN1.HeaderText = "Ban";
+            this.BAN1.Name = "BAN1";
             // 
             // btnCuoi
             // 
@@ -688,48 +730,6 @@
             this.txtHienTai.Size = new System.Drawing.Size(69, 20);
             this.txtHienTai.TabIndex = 4;
             this.txtHienTai.TabStop = false;
-            // 
-            // MALOP1
-            // 
-            this.MALOP1.DataPropertyName = "MALOP";
-            this.MALOP1.HeaderText = "Mã lớp học";
-            this.MALOP1.Name = "MALOP1";
-            // 
-            // TENLOP1
-            // 
-            this.TENLOP1.DataPropertyName = "TENLOP";
-            this.TENLOP1.HeaderText = "Tên lớp học";
-            this.TENLOP1.Name = "TENLOP1";
-            // 
-            // MAKHOI1
-            // 
-            this.MAKHOI1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MAKHOI1.HeaderText = "Khối lớp";
-            this.MAKHOI1.Name = "MAKHOI1";
-            // 
-            // MANH1
-            // 
-            this.MANH1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MANH1.HeaderText = "Năm học ";
-            this.MANH1.Name = "MANH1";
-            // 
-            // SISO1
-            // 
-            this.SISO1.DataPropertyName = "SISO";
-            this.SISO1.HeaderText = "Sỉ số";
-            this.SISO1.Name = "SISO1";
-            // 
-            // MAGV1
-            // 
-            this.MAGV1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MAGV1.HeaderText = "Giáo viên chủ nhiệm";
-            this.MAGV1.Name = "MAGV1";
-            // 
-            // BAN1
-            // 
-            this.BAN1.DataPropertyName = "MABAN";
-            this.BAN1.HeaderText = "Ban";
-            this.BAN1.Name = "BAN1";
             // 
             // frmLopHoc
             // 

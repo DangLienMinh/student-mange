@@ -229,19 +229,18 @@ namespace QuanLiHocSinh
             if (flag == 1) insert();
             if (flag == 2) delete();
             if (flag == 3) update();
-            txtMaGV.Enabled = true;
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
             FlagDisable();
             flag = 0;
-            txtMaGV.Enabled = true;
         }
 
         private void grdGiaoVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             controlValue();
+            FlagDisable();
         }
 
         private void delete() 
@@ -274,7 +273,6 @@ namespace QuanLiHocSinh
         {
             flag = 2;
             FlagEnable();
-            txtMaGV.Enabled = false;
         }
 
         private void resetAll()
@@ -291,7 +289,6 @@ namespace QuanLiHocSinh
         {
             flag = 3;
             FlagEnable();
-            txtMaGV.Enabled = false;
             txtTenGV.Focus();
         }
 
