@@ -8,6 +8,7 @@ using DevComponents.Editors.DateTimeAdv;
 using DevComponents.AdvTree;
 using System.Windows.Forms;
 using System.Data;
+using System.Drawing;
 
 namespace QLHS.BUS
 {
@@ -281,12 +282,22 @@ namespace QLHS.BUS
                         if (i < 10)
                         {
                             maMH = row.Cells["MH0" + i.ToString()].OwningColumn.Name;
-                            row.Cells["MH0" + i.ToString()].Value = Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3, 1);
+                            double diem= Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3, 1);
+                            if (diem<5)
+                            {
+                                row.Cells["MH0" + i.ToString()].Style.BackColor = Color.Red;
+                            }
+                            row.Cells["MH0" + i.ToString()].Value =diem;
                         }
                         else
                         {
                             maMH = row.Cells["MH" + i.ToString()].OwningColumn.Name;
-                            row.Cells["MH" + i.ToString()].Value = Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3, 1);
+                             double diem= Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3, 1);
+                             if (diem<5)
+                            {
+                                row.Cells["MH" + i.ToString()].Style.BackColor = Color.Red;
+                            }
+                             row.Cells["MH" + i.ToString()].Value = diem;
                         }
                     }
                     double tong = 0;
@@ -403,73 +414,22 @@ namespace QLHS.BUS
                     if (tong == 0 || soCot == 0)
                     {
                         row.Cells["CN"].Value = 0;
+                        row.Cells["CN"].Style.BackColor = Color.Red;
                     }
                     else
+                    {
+                        
+                        if ( Math.Round((tong / soCot), 1)<5)
+                        {
+                            row.Cells["CN"].Style.BackColor = Color.Red;
+                        }
                         row.Cells["CN"].Value = Math.Round((tong / soCot), 1);
+                       
+                    }
 
                 }
             }
-        }
-
-        //public void ketQuaDiemHK(ComboBoxEx cboMaNH, string maBan,DataGridViewX grdDiem)
-        //{
-        //    string namHoc = cboMaNH.SelectedValue.ToString();
-        //    string maMH;
-
-        //    foreach (DataGridViewRow row in grdDiem.Rows)
-        //    {
-        //        if (row.Cells["MAHS"].Value != null)
-        //        {
-        //            string maHS = row.Cells["MAHS"].Value.ToString();
-        //            for (int i = 1; i <= 12; i++)
-        //            {
-        //                if (i < 10)
-        //                {
-        //                    maMH = row.Cells["MH0" + i.ToString()].OwningColumn.Name;
-        //                    row.Cells["MH0" + i.ToString()].Value = Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3, 1);
-        //                }
-        //                else
-        //                {
-        //                    maMH = row.Cells["MH" + i.ToString()].OwningColumn.Name;
-        //                    row.Cells["MH" + i.ToString()].Value = Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3, 1);
-        //                }
-        //            }
-        //            double tong = 0;
-        //            int soCot = 0;
-
-        //            for (int i = 1; i <= 12; i++)
-        //            {
-        //                double diem = 0;
-        //                if (i < 10)
-        //                {
-        //                    diem = double.Parse(row.Cells["MH0" + i.ToString()].Value.ToString());
-        //                    if (diem > 0)
-        //                    {
-        //                        tong += (diem * monHoc_BUS.heSoMonHoc(row.Cells["MH0" + i.ToString()].OwningColumn.Name));
-        //                        soCot += monHoc_BUS.heSoMonHoc(row.Cells["MH0" + i.ToString()].OwningColumn.Name);
-        //                    }
-        //                }
-        //                else
-        //                {
-        //                    diem = double.Parse(row.Cells["MH" + i.ToString()].Value.ToString());
-        //                    if (diem > 0)
-        //                    {
-        //                        tong += (diem * monHoc_BUS.heSoMonHoc(row.Cells["MH" + i.ToString()].OwningColumn.Name));
-        //                        soCot += monHoc_BUS.heSoMonHoc(row.Cells["MH" + i.ToString()].OwningColumn.Name);
-        //                    }
-        //                }
-        //            }
-        //            if (tong == 0 || soCot == 0)
-        //            {
-        //                row.Cells["CN"].Value = 0;
-        //            }
-        //            else
-        //                row.Cells["CN"].Value = Math.Round((tong / soCot), 1);
-
-        //        }
-        //    }
-        //}
-
+        }      
 
         //load danh sách học sinh theo mã năm học vào tree view
         public string layPhanBan(ComboBoxEx comboBox, AdvTree tree)

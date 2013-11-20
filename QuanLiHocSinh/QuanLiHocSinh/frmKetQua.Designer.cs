@@ -32,9 +32,25 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKetQua));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKetQua));
             this.grdKQ = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.MAHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH01 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH02 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH03 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH04 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH05 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH06 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH07 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH08 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH09 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HANHKIEM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bnaKQ = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
             this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
             this.bindingNavigatorMoveFirstItem = new DevComponents.DotNetBar.ButtonItem();
@@ -53,22 +69,6 @@
             this.btnDanhSach = new DevComponents.DotNetBar.ButtonX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.btnItemNhapLop = new DevComponents.DotNetBar.ButtonItem();
-            this.MAHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH01 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH02 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH03 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH04 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH05 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH06 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH07 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH08 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH09 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HANHKIEM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdKQ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bnaKQ)).BeginInit();
             this.navigationPane1.SuspendLayout();
@@ -127,6 +127,104 @@
             this.grdKQ.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.grdKQ.Size = new System.Drawing.Size(1133, 513);
             this.grdKQ.TabIndex = 28;
+            // 
+            // MAHS
+            // 
+            this.MAHS.DataPropertyName = "MAHS";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.MAHS.DefaultCellStyle = dataGridViewCellStyle2;
+            this.MAHS.HeaderText = "Mã học sinh";
+            this.MAHS.Name = "MAHS";
+            this.MAHS.ReadOnly = true;
+            // 
+            // TENHS
+            // 
+            this.TENHS.DataPropertyName = "TENHS";
+            this.TENHS.HeaderText = "Tên học sinh";
+            this.TENHS.Name = "TENHS";
+            // 
+            // MH01
+            // 
+            this.MH01.HeaderText = "Toán";
+            this.MH01.Name = "MH01";
+            this.MH01.Width = 55;
+            // 
+            // MH02
+            // 
+            this.MH02.HeaderText = "Vật lý";
+            this.MH02.Name = "MH02";
+            this.MH02.Width = 55;
+            // 
+            // MH03
+            // 
+            this.MH03.HeaderText = "Hóa học";
+            this.MH03.Name = "MH03";
+            this.MH03.Width = 55;
+            // 
+            // MH04
+            // 
+            this.MH04.HeaderText = "Sinh học";
+            this.MH04.Name = "MH04";
+            this.MH04.Width = 55;
+            // 
+            // MH05
+            // 
+            this.MH05.HeaderText = "Văn";
+            this.MH05.Name = "MH05";
+            this.MH05.Width = 55;
+            // 
+            // MH06
+            // 
+            this.MH06.HeaderText = "Anh văn";
+            this.MH06.Name = "MH06";
+            this.MH06.Width = 55;
+            // 
+            // MH07
+            // 
+            this.MH07.HeaderText = "Lịch sử";
+            this.MH07.Name = "MH07";
+            this.MH07.Width = 55;
+            // 
+            // MH08
+            // 
+            this.MH08.HeaderText = "Địa lý";
+            this.MH08.Name = "MH08";
+            this.MH08.Width = 55;
+            // 
+            // MH09
+            // 
+            this.MH09.HeaderText = "GDCD";
+            this.MH09.Name = "MH09";
+            this.MH09.Width = 55;
+            // 
+            // MH10
+            // 
+            this.MH10.HeaderText = "Thể dục";
+            this.MH10.Name = "MH10";
+            this.MH10.Width = 55;
+            // 
+            // MH11
+            // 
+            this.MH11.HeaderText = "Công nghệ";
+            this.MH11.Name = "MH11";
+            this.MH11.Width = 55;
+            // 
+            // MH12
+            // 
+            this.MH12.HeaderText = "Tin học";
+            this.MH12.Name = "MH12";
+            this.MH12.Width = 55;
+            // 
+            // CN
+            // 
+            this.CN.HeaderText = "CN";
+            this.CN.Name = "CN";
+            this.CN.Width = 55;
+            // 
+            // HANHKIEM
+            // 
+            this.HANHKIEM.HeaderText = "Hạnh kiểm";
+            this.HANHKIEM.Name = "HANHKIEM";
             // 
             // bnaKQ
             // 
@@ -201,6 +299,7 @@
             this.btnRefresh.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Text = "buttonItem1";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // navigationPane1
             // 
@@ -351,104 +450,6 @@
             this.btnItemNhapLop.Name = "btnItemNhapLop";
             this.btnItemNhapLop.OptionGroup = "navBar";
             this.btnItemNhapLop.Text = "Chọn thông tin";
-            // 
-            // MAHS
-            // 
-            this.MAHS.DataPropertyName = "MAHS";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.MAHS.DefaultCellStyle = dataGridViewCellStyle2;
-            this.MAHS.HeaderText = "Mã học sinh";
-            this.MAHS.Name = "MAHS";
-            this.MAHS.ReadOnly = true;
-            // 
-            // TENHS
-            // 
-            this.TENHS.DataPropertyName = "TENHS";
-            this.TENHS.HeaderText = "Tên học sinh";
-            this.TENHS.Name = "TENHS";
-            // 
-            // MH01
-            // 
-            this.MH01.HeaderText = "Toán";
-            this.MH01.Name = "MH01";
-            this.MH01.Width = 55;
-            // 
-            // MH02
-            // 
-            this.MH02.HeaderText = "Vật lý";
-            this.MH02.Name = "MH02";
-            this.MH02.Width = 55;
-            // 
-            // MH03
-            // 
-            this.MH03.HeaderText = "Hóa học";
-            this.MH03.Name = "MH03";
-            this.MH03.Width = 55;
-            // 
-            // MH04
-            // 
-            this.MH04.HeaderText = "Sinh học";
-            this.MH04.Name = "MH04";
-            this.MH04.Width = 55;
-            // 
-            // MH05
-            // 
-            this.MH05.HeaderText = "Văn";
-            this.MH05.Name = "MH05";
-            this.MH05.Width = 55;
-            // 
-            // MH06
-            // 
-            this.MH06.HeaderText = "Anh văn";
-            this.MH06.Name = "MH06";
-            this.MH06.Width = 55;
-            // 
-            // MH07
-            // 
-            this.MH07.HeaderText = "Lịch sử";
-            this.MH07.Name = "MH07";
-            this.MH07.Width = 55;
-            // 
-            // MH08
-            // 
-            this.MH08.HeaderText = "Địa lý";
-            this.MH08.Name = "MH08";
-            this.MH08.Width = 55;
-            // 
-            // MH09
-            // 
-            this.MH09.HeaderText = "GDCD";
-            this.MH09.Name = "MH09";
-            this.MH09.Width = 55;
-            // 
-            // MH10
-            // 
-            this.MH10.HeaderText = "Thể dục";
-            this.MH10.Name = "MH10";
-            this.MH10.Width = 55;
-            // 
-            // MH11
-            // 
-            this.MH11.HeaderText = "Công nghệ";
-            this.MH11.Name = "MH11";
-            this.MH11.Width = 55;
-            // 
-            // MH12
-            // 
-            this.MH12.HeaderText = "Tin học";
-            this.MH12.Name = "MH12";
-            this.MH12.Width = 55;
-            // 
-            // CN
-            // 
-            this.CN.HeaderText = "CN";
-            this.CN.Name = "CN";
-            this.CN.Width = 55;
-            // 
-            // HANHKIEM
-            // 
-            this.HANHKIEM.HeaderText = "Hạnh kiểm";
-            this.HANHKIEM.Name = "HANHKIEM";
             // 
             // frmKetQua
             // 

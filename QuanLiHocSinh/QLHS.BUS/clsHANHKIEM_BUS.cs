@@ -174,8 +174,6 @@ namespace QLHS.BUS
                 {
                     result = row[0].ToString();
                 }
-                
-                
             }
             return result;
         }
