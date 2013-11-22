@@ -63,7 +63,6 @@ namespace QuanLiHocSinh
                     {
                         cbo = grdHanhKiemChung.Columns["MALHK"];
                     }
-                   
                     hanhkiem_dto.Manh = cboNamHoc.SelectedValue.ToString();
                     hanhkiem_dto.Mahk = cboHocKy.SelectedValue.ToString();
                 }
@@ -78,7 +77,7 @@ namespace QuanLiHocSinh
         {
             if ((MessageBox.Show("Bạn có chắc chắn muốn lưu lại", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
             {
-                
+                int dem = 0;
                 foreach (DataGridViewRow row in grdHanhKiemChung.Rows)
                 {
                     if (row.Cells["MAHS"].Value != null)
@@ -88,8 +87,12 @@ namespace QuanLiHocSinh
                         {
                             hanhkiem_dto.Malhk = row.Cells["MALHK"].Value.ToString();
                             hanhkiem_dto.Mahs = row.Cells["MAHS"].Value.ToString();
-                            hanhkiem_bus.themHanhKiem(hanhkiem_dto);
-               
+                            int test = hanhkiem_bus.TimHanhKiemHS(hanhkiem_dto).Rows.Count;
+                            if (hanhkiem_bus.TimHanhKiemHS(hanhkiem_dto).Rows.Count == 0)
+                            {
+                                hanhkiem_bus.themHanhKiem(hanhkiem_dto);
+                                dem++;
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -97,7 +100,7 @@ namespace QuanLiHocSinh
                         }
                     }
                 }
-                MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 MessageBox.Show("Lưu thành công hạnh kiểm cho "+dem.ToString()+" Học sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -110,11 +113,34 @@ namespace QuanLiHocSinh
         {
             btnLuulai.Enabled = false;
             grdHanhKiemChung.DataSource = hanhkiem_bus.danhSachHanhKiem(cboNamHoc.SelectedValue.ToString(), treKhoi.SelectedNode.Name.ToString(), cboHocKy.SelectedValue.ToString());
-            
         }
         private void btnCapnhat_Click(object sender, EventArgs e)
         {
-            btnLuulai.Enabled = true;  
+            btnLuulai.Enabled = true;
+            if ((MessageBox.Show("Bạn có chắc chắn muốn Cập nhật", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
+            {
+                int dem = 0;
+                foreach (DataGridViewRow row in grdHanhKiemChung.Rows)
+                {
+                    if (row.Cells["MAHS"].Value != null)
+                    {
+
+                        try
+                        {
+                            hanhkiem_dto.Malhk = row.Cells["MALHK"].Value.ToString();
+                            hanhkiem_dto.Mahs = row.Cells["MAHS"].Value.ToString();
+                            hanhkiem_bus.suaHanhKiem(hanhkiem_dto);
+                            dem++;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                MessageBox.Show("Cập nhật thành công hạnh kiểm cho " + dem.ToString() + " Học sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                grdHanhKiemChung.DataSource = hanhkiem_bus.danhSachHanhKiem(cboNamHoc.SelectedValue.ToString(), treKhoi.SelectedNode.Name.ToString(), cboHocKy.SelectedValue.ToString());
+            }
         }
 
         private void cboNamHoc1_SelectedValueChanged(object sender, EventArgs e)
@@ -179,22 +205,9 @@ namespace QuanLiHocSinh
             hanhkiem_dto.Mahk = cboHocKy1.SelectedValue.ToString();
             hanhkiem_dto.Manh = cboNamHoc1.SelectedValue.ToString();
             //hanhkiem_dto.Malop = cboLop1.SelectedValue.ToString();
-            int khoa = 0;
-            foreach (DataGridViewRow row in grdHanhKiemRieng.Rows)
-            {
-                if (row.Cells["MAHS1"].Value != null)
-                {
-                    if (string.Compare(hanhkiem_dto.Mahs, row.Cells["MAHS1"].Value.ToString()) == 0 && string.Compare(hanhkiem_dto.Manh, row.Cells["MANH1"].Value.ToString()) == 0 && string.Compare(hanhkiem_dto.Mahk, row.Cells["MAHK1"].Value.ToString()) == 0)
-                    {
-                        khoa = 1;
-                        break;
-                    }
-                }
-            }
-            if (khoa == 1)
+            if (hanhkiem_bus.TimHanhKiemHS(hanhkiem_dto).Rows.Count>=1)
             {
                 MessageBox.Show("Lỗi !Hạnh hiểm đã tồn tại trong database", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
             else
             {
