@@ -14,6 +14,7 @@ namespace QuanLiHocSinh
 {
     public partial class frmNamHoc : DevComponents.DotNetBar.Office2007Form
     {
+        private frmThongSo m_FrmLND=null;
         private clsNAMHOC_BUS namHoc_BUS;
         private int flag = 0;
         private BindingSource bs;
@@ -206,6 +207,17 @@ namespace QuanLiHocSinh
                 txtTenNH.Text = grdNamHoc.CurrentRow.Cells["TENNH"].Value.ToString();
             }
            
+        }
+
+        private void btnQuyDinh_Click(object sender, EventArgs e)
+        {
+            if (m_FrmLND == null || m_FrmLND.IsDisposed)
+            {
+                m_FrmLND = new frmThongSo();
+                m_FrmLND.Show();
+            }
+            else
+                m_FrmLND.Activate();
         }
     }
 }

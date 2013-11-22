@@ -323,6 +323,8 @@
     <Content Include="resources\ismages copy.png" />
     <None Include="resources\learning-prv.png" />
     <None Include="resources\Luulai.ico" />
+    <None Include="resources\line_right.png" />
+    <None Include="resources\line_horizal.png" />
     <Content Include="resources\notus-icon.png" />
     <None Include="resources\phuchoi.png" />
     <Content Include="resources\picture1_02.gif" />
@@ -348,6 +350,7 @@
     <None Include="resources\Truoc.ico" />
     <None Include="resources\Timkiem.ico" />
     <Content Include="resources\Untitled-d.png" />
+    <None Include="resources\white.jpg" />
     <Content Include="resources\win7.png" />
     <Content Include="resources\win8.png" />
     <Content Include="resources\winBlack.png" />
