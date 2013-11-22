@@ -66,7 +66,20 @@ namespace QLHS.DAO
             con.Close();
             return table;
         }
-
+        public DataTable TimHanhKiemHS(clsHANHKIEM_DTO hanhkiem)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_TimHanhKiem_MAHS_MANH_MAHK", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hanhkiem.Mahs;
+            command.Parameters.Add("@MAHK", SqlDbType.VarChar).Value = hanhkiem.Mahk;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = hanhkiem.Manh;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
         //form kết quả
         public DataTable hanhKiemTheoHocKiNamHoc(clsHANHKIEM_DTO hanhKiem_DTO)
         {
