@@ -12,6 +12,8 @@ namespace QuanLiHocSinh
 {
     public partial class frmHanhKiem : DevComponents.DotNetBar.Office2007Form
     {
+        private BindingSource bsChung;
+        private BindingSource bsRieng;
         private clsHOCSINH_BUS hocSinh_BUS;
         private clsHANHKIEM_DTO hanhkiem_dto;
         private clsHOCKY_DTO hocky_dto;
@@ -52,8 +54,8 @@ namespace QuanLiHocSinh
             {
                 try
                 {
-                   
-                    grdHanhKiemChung.DataSource = hanhkiem_bus.danhSachHocSinhMALOPMANHMAHKChuaNhap(treKhoi.SelectedNode.Name.ToString(), cboNamHoc.SelectedValue.ToString(), cboHocKy.SelectedValue.ToString());
+                    bidingSourceHKChung(hanhkiem_bus.danhSachHocSinhMALOPMANHMAHKChuaNhap(treKhoi.SelectedNode.Name.ToString(), cboNamHoc.SelectedValue.ToString(), cboHocKy.SelectedValue.ToString()));
+                    //grdHanhKiemChung.DataSource = hanhkiem_bus.danhSachHocSinhMALOPMANHMAHKChuaNhap(treKhoi.SelectedNode.Name.ToString(), cboNamHoc.SelectedValue.ToString(), cboHocKy.SelectedValue.ToString());
                     if (grdHanhKiemChung.Columns.Count==4)
                     {
                         grdHanhKiemChung.Columns.Insert(grdHanhKiemChung.Columns.Count,cbo);
@@ -111,9 +113,29 @@ namespace QuanLiHocSinh
 
         private void btnDanhSach_Click(object sender, EventArgs e)
         {
-            btnLuulai.Enabled = false;
-            grdHanhKiemChung.DataSource = hanhkiem_bus.danhSachHanhKiem(cboNamHoc.SelectedValue.ToString(), treKhoi.SelectedNode.Name.ToString(), cboHocKy.SelectedValue.ToString());
+            if (treKhoi.SelectedNode == null || treKhoi.SelectedNode.Parent == null)
+            {
+                MessageBox.Show("Bạn phải chon một lớp");
+            }
+            else
+            {
+                btnLuulai.Enabled = false;
+                //grdHanhKiemChung.DataSource = hanhkiem_bus.danhSachHanhKiem(cboNamHoc.SelectedValue.ToString(), treKhoi.SelectedNode.Name.ToString(), cboHocKy.SelectedValue.ToString());
+                bidingSourceHKChung(hanhkiem_bus.danhSachHanhKiem(cboNamHoc.SelectedValue.ToString(), treKhoi.SelectedNode.Name.ToString(), cboHocKy.SelectedValue.ToString()));
+            }
+           
         }
+
+        //hàm bidingSourceHKChung đặt binding source=datatable sao đó cho nó dính vào datagrid
+        private void bidingSourceHKChung(DataTable table)
+        {
+            //binding source
+            bsChung = new BindingSource();
+            bsChung.DataSource = table;
+            grdHanhKiemChung.DataSource = bsChung;
+            bnaHanhKiemChung.BindingSource = bsChung;
+        }
+
         private void btnCapnhat_Click(object sender, EventArgs e)
         {
             btnLuulai.Enabled = true;
@@ -307,13 +329,18 @@ namespace QuanLiHocSinh
 
         private void cboLop1_SelectedIndexChanged(object sender, EventArgs e)
         {
-             hanhkiem_bus.hienThiCboLoaiHK(MALHK1);
+            hanhkiem_bus.hienThiCboLoaiHK(MALHK1);
             hanhkiem_bus.hienThiCboClnHocKy(MAHK1);
             hanhkiem_bus.hienThiCboClnNamHoc(MANH1);
             string mahk = cboHocKy1.SelectedValue.ToString();
             hanhkiem_bus.hienThiCboHocSinhTatCa(cboLop1.SelectedValue.ToString(), cboNamHoc1.SelectedValue.ToString(), mahk, cboHocSinh1);
-            grdHanhKiemRieng.DataSource = hanhkiem_bus.danhSachHanhKiem(cboNamHoc1.SelectedValue.ToString(), cboLop1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString());
+             //grdHanhKiemRieng.DataSource = hanhkiem_bus.danhSachHanhKiem(cboNamHoc1.SelectedValue.ToString(), cboLop1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString());
 
+            //binding source
+             bsRieng = new BindingSource();
+             bsRieng.DataSource = hanhkiem_bus.danhSachHanhKiem(cboNamHoc1.SelectedValue.ToString(), cboLop1.SelectedValue.ToString(), cboHocKy1.SelectedValue.ToString());
+             grdHanhKiemRieng.DataSource = bsRieng;
+             bnaHanhKiemRieng.BindingSource = bsRieng;
         }
 
         private void grdHanhKiemRieng_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -15,6 +15,7 @@ namespace QuanLiHocSinh
 {
     public partial class frmLopHoc : DevComponents.DotNetBar.Office2007Form
     {
+        private BindingSource bs;
         private clsLOP_BUS lop_BUS;
         private clsKHOI_BUS khoi_BUS;
         private clsNAMHOC_BUS namHoc_BUS;
@@ -23,8 +24,6 @@ namespace QuanLiHocSinh
         private clsQUYDINH_BUS quyDinh_BUS;
         private Boolean flagInsert;
         private Boolean flagUpdate;
-        private int viTri;
-        private int Tong;
 
         public frmLopHoc()
         {
@@ -36,6 +35,17 @@ namespace QuanLiHocSinh
             giaoVien_BUS = new clsGIAOVIEN_BUS();
             quyDinh_BUS = new clsQUYDINH_BUS();
             this.KeyPreview = true;
+        }
+
+        //hàm bindingData đặt binding source=lop_BUS.danhSachLop() sao đó cho nó dính vào datagrid
+        private void bindingData()
+        {
+            //biding navigator
+            bs = new BindingSource();
+            bs.DataSource = lop_BUS.danhSachLop();
+            grdLop.DataSource = bs;
+            lop_BUS.taiLaiDataGrid(grdLop);
+            bnaLop.BindingSource = bs;
         }
 
         private void frmLopHoc_Load(object sender, EventArgs e)
@@ -53,9 +63,10 @@ namespace QuanLiHocSinh
             namHoc_BUS.HienThiDataGridViewComboBoxColumn(MANH1);
             giaoVien_BUS.HienThiDataGridViewComboBoxColumn(MAGV1);
             khoi_BUS.HienThiDataGridViewComboBoxColumn(MAKHOI1);
-            //load danh sách lớp vào datagrid lớp
 
-            lop_BUS.taiLaiDataGrid(grdLop, lop_BUS.danhSachLop());
+            //load danh sách lớp vào datagrid lớp
+            bindingData();
+
             datagridMakeUp(grdLop);
         }
 
@@ -128,8 +139,8 @@ namespace QuanLiHocSinh
                         try
                         {
                             lop_BUS.themLopHoc(lop_DTO);
-                            lop_BUS.taiLaiDataGrid(grdLop, lop_BUS.danhSachLop());//tải lại danh sách sau khi thêm
-                            
+                            //lop_BUS.taiLaiDataGrid(grdLop, lop_BUS.danhSachLop());//tải lại danh sách sau khi thêm
+                            bindingData();
                             MessageBox.Show("Thêm lớp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             flagInsert = false;
                         }
@@ -170,7 +181,8 @@ namespace QuanLiHocSinh
                             {
                                 lop_BUS.suaLop(lop_DTO);
                                 flagUpdate = false;
-                                lop_BUS.taiLaiDataGrid(grdLop, lop_BUS.danhSachLop());//Load lại danh sách sau khi sửa
+                                //lop_BUS.taiLaiDataGrid(grdLop, lop_BUS.danhSachLop());//Load lại danh sách sau khi sửa
+                                bindingData();
                                 MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             }
@@ -194,7 +206,8 @@ namespace QuanLiHocSinh
                             lop_DTO.Malop = txtMaLop.Text;
                             lop_DTO.Manh = cboNamHoc.SelectedValue.ToString();
                             lop_BUS.xoaLop(lop_DTO);
-                            lop_BUS.taiLaiDataGrid(grdLop, lop_BUS.danhSachLop());//Load lại danh sách sau khi xóa
+                            //lop_BUS.taiLaiDataGrid(grdLop, lop_BUS.danhSachLop());//Load lại danh sách sau khi xóa
+                            bindingData();
                             MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
@@ -274,58 +287,58 @@ namespace QuanLiHocSinh
             cboBan.SelectedItem = grdLop.CurrentRow.Cells["BAN1"].Value.ToString();
             anHienButton(true);
         }
-        public void hienThiDuLieu()
-        {
-            viTri = this.BindingContext[grdLop.DataSource].Position;
-            Tong = this.BindingContext[grdLop.DataSource].Count;
-            if (viTri != -1)
-            {
-                txtHienTai.Text = (viTri+1).ToString() + "/" + Tong.ToString();
-                txtMaLop.Text = grdLop.Rows[viTri].Cells["MALOP1"].Value.ToString();
-                txtTenLop.Text = grdLop.Rows[viTri].Cells["TENLOP1"].Value.ToString();
-                txtSiSo.Text = grdLop.Rows[viTri].Cells["SISO1"].Value.ToString();
-                cboGiaoVien.SelectedValue = grdLop.Rows[viTri].Cells["MAGV1"].Value.ToString();
-                cboKhoi.SelectedValue = grdLop.Rows[viTri].Cells["MAKHOI1"].Value.ToString();
-                cboNamHoc.SelectedValue = grdLop.Rows[viTri].Cells["MANH1"].Value.ToString();
-                cboBan.SelectedItem = grdLop.CurrentRow.Cells["BAN1"].Value.ToString();
-            }
-        }
+        //public void hienThiDuLieu()
+        //{
+        //    viTri = this.BindingContext[grdLop.DataSource].Position;
+        //    Tong = this.BindingContext[grdLop.DataSource].Count;
+        //    if (viTri != -1)
+        //    {
+        //        txtHienTai.Text = (viTri+1).ToString() + "/" + Tong.ToString();
+        //        txtMaLop.Text = grdLop.Rows[viTri].Cells["MALOP1"].Value.ToString();
+        //        txtTenLop.Text = grdLop.Rows[viTri].Cells["TENLOP1"].Value.ToString();
+        //        txtSiSo.Text = grdLop.Rows[viTri].Cells["SISO1"].Value.ToString();
+        //        cboGiaoVien.SelectedValue = grdLop.Rows[viTri].Cells["MAGV1"].Value.ToString();
+        //        cboKhoi.SelectedValue = grdLop.Rows[viTri].Cells["MAKHOI1"].Value.ToString();
+        //        cboNamHoc.SelectedValue = grdLop.Rows[viTri].Cells["MANH1"].Value.ToString();
+        //        cboBan.SelectedItem = grdLop.CurrentRow.Cells["BAN1"].Value.ToString();
+        //    }
+        //}
 
-        private void btnDau_Click(object sender, EventArgs e)
-        {
-            this.BindingContext[grdLop.DataSource].Position = 0;
-            hienThiDuLieu();
-            btnDau.Enabled = false;
-            btnTruoc.Enabled = false;
-            btnCuoi.Enabled = true;
-            btnSau.Enabled = true;
-        }
+        //private void btnDau_Click(object sender, EventArgs e)
+        //{
+        //    this.BindingContext[grdLop.DataSource].Position = 0;
+        //    hienThiDuLieu();
+        //    btnDau.Enabled = false;
+        //    btnTruoc.Enabled = false;
+        //    btnCuoi.Enabled = true;
+        //    btnSau.Enabled = true;
+        //}
 
-        private void btnTruoc_Click(object sender, EventArgs e)
-        {
-            this.BindingContext[grdLop.DataSource].Position = viTri - 1;
-            hienThiDuLieu();
-            btnSau.Enabled = true;
-            btnCuoi.Enabled = true;
-        }
+        //private void btnTruoc_Click(object sender, EventArgs e)
+        //{
+        //    this.BindingContext[grdLop.DataSource].Position = viTri - 1;
+        //    hienThiDuLieu();
+        //    btnSau.Enabled = true;
+        //    btnCuoi.Enabled = true;
+        //}
 
-        private void btnCuoi_Click(object sender, EventArgs e)
-        {
-            this.BindingContext[grdLop.DataSource].Position = this.BindingContext[grdLop.DataSource].Count - 1;
-            hienThiDuLieu();
-            btnDau.Enabled = true;
-            btnTruoc.Enabled = true;
-            btnCuoi.Enabled = false;
-            btnSau.Enabled = false;
-        }
+        //private void btnCuoi_Click(object sender, EventArgs e)
+        //{
+        //    this.BindingContext[grdLop.DataSource].Position = this.BindingContext[grdLop.DataSource].Count - 1;
+        //    hienThiDuLieu();
+        //    btnDau.Enabled = true;
+        //    btnTruoc.Enabled = true;
+        //    btnCuoi.Enabled = false;
+        //    btnSau.Enabled = false;
+        //}
 
-        private void btnSau_Click(object sender, EventArgs e)
-        {
-            this.BindingContext[grdLop.DataSource].Position = viTri + 1;
-            hienThiDuLieu();
-            btnDau.Enabled = true;
-            btnTruoc.Enabled = true;
-        }
+        //private void btnSau_Click(object sender, EventArgs e)
+        //{
+        //    this.BindingContext[grdLop.DataSource].Position = viTri + 1;
+        //    hienThiDuLieu();
+        //    btnDau.Enabled = true;
+        //    btnTruoc.Enabled = true;
+        //}
 
         private void txt_Enter(object sender, EventArgs e)
         {

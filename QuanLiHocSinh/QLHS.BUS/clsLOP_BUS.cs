@@ -85,10 +85,7 @@ namespace QLHS.BUS
             lop_DAO.suaLop(lop);
         }
 
-        public DataTable danhSachLop()
-        {
-            return lop_DAO.danhSachLop();
-        }
+       
 
         public string danhSachLop(string maHS,string maNH)
         {
@@ -109,9 +106,15 @@ namespace QLHS.BUS
             lop_DAO.xoaLop(lop);
         }
 
-        public void taiLaiDataGrid(DataGridViewX grdLop, DataTable dsLop)
+        public DataTable danhSachLop()
         {
-            grdLop.DataSource = dsLop;
+            DataTable table= lop_DAO.danhSachLop();
+            return table;
+        }
+
+        
+        public void taiLaiDataGrid(DataGridViewX grdLop)
+        {
             if (grdLop.Rows.Count > 0)
             {
                 foreach (DataGridViewRow row in grdLop.Rows)
@@ -134,6 +137,32 @@ namespace QLHS.BUS
                 }
             }
         }
+
+        //public void taiLaiDataGrid(DataGridViewX grdLop, DataTable dsLop)
+        //{
+        //    grdLop.DataSource = dsLop;
+        //    if (grdLop.Rows.Count > 0)
+        //    {
+        //        foreach (DataGridViewRow row in grdLop.Rows)
+        //        {
+        //            if (row.Cells["MALOP1"].Value != null)
+        //            {
+        //                if (row.Cells["BAN1"].Value.ToString() == "KHTN")
+        //                {
+        //                    row.Cells["BAN1"].Value = "Khoa học tự nhiên";
+        //                }
+        //                else if (row.Cells["BAN1"].Value.ToString() == "CB")
+        //                {
+        //                    row.Cells["BAN1"].Value = "Cơ bản";
+        //                }
+        //                else
+        //                {
+        //                    row.Cells["BAN1"].Value = "Khoa học xã hội và Nhân văn";
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
 
         //chỉ chọn lớp 10 của năm học đó
         public void cboLop10(ComboBoxEx comboBox, string nam)
