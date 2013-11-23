@@ -46,7 +46,7 @@
             this.MANH = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.MAHK = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.MALHK = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.bindingNavigatorEx1 = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
+            this.bnaHanhKiemChung = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
             this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
             this.bindingNavigatorMoveFirstItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorMovePreviousItem = new DevComponents.DotNetBar.ButtonItem();
@@ -96,7 +96,7 @@
             this.tabControl1 = new DevComponents.DotNetBar.TabControl();
             this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.bindingNavigatorEx2 = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
+            this.bnaHanhKiemRieng = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
             this.labelItem1 = new DevComponents.DotNetBar.LabelItem();
             this.buttonItem4 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem5 = new DevComponents.DotNetBar.ButtonItem();
@@ -111,7 +111,7 @@
             this.tabControlPanel1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdHanhKiemChung)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorEx1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bnaHanhKiemChung)).BeginInit();
             this.navigationPane1.SuspendLayout();
             this.navigationPanePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treKhoi)).BeginInit();
@@ -121,7 +121,7 @@
             this.tabControl1.SuspendLayout();
             this.tabControlPanel2.SuspendLayout();
             this.groupPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorEx2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bnaHanhKiemRieng)).BeginInit();
             this.navigationPane2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -156,7 +156,7 @@
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel1.Controls.Add(this.grdHanhKiemChung);
-            this.groupPanel1.Controls.Add(this.bindingNavigatorEx1);
+            this.groupPanel1.Controls.Add(this.bnaHanhKiemChung);
             this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupPanel1.Location = new System.Drawing.Point(230, 1);
             this.groupPanel1.Name = "groupPanel1";
@@ -214,7 +214,7 @@
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdHanhKiemChung.DefaultCellStyle = dataGridViewCellStyle3;
             this.grdHanhKiemChung.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -273,15 +273,15 @@
             this.MALHK.HeaderText = "Hạnh Kiểm";
             this.MALHK.Name = "MALHK";
             // 
-            // bindingNavigatorEx1
+            // bnaHanhKiemChung
             // 
-            this.bindingNavigatorEx1.AntiAlias = true;
-            this.bindingNavigatorEx1.CountLabel = this.bindingNavigatorCountItem;
-            this.bindingNavigatorEx1.CountLabelFormat = "of {0}";
-            this.bindingNavigatorEx1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bindingNavigatorEx1.DockSide = DevComponents.DotNetBar.eDockSide.Document;
-            this.bindingNavigatorEx1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorEx1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.bnaHanhKiemChung.AntiAlias = true;
+            this.bnaHanhKiemChung.CountLabel = this.bindingNavigatorCountItem;
+            this.bnaHanhKiemChung.CountLabelFormat = "of {0}";
+            this.bnaHanhKiemChung.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bnaHanhKiemChung.DockSide = DevComponents.DotNetBar.eDockSide.Document;
+            this.bnaHanhKiemChung.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bnaHanhKiemChung.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorPositionItem,
@@ -291,19 +291,19 @@
             this.buttonItem2,
             this.buttonItem3,
             this.buttonItem1});
-            this.bindingNavigatorEx1.Location = new System.Drawing.Point(0, 0);
-            this.bindingNavigatorEx1.MoveFirstButton = this.bindingNavigatorMoveFirstItem;
-            this.bindingNavigatorEx1.MoveLastButton = this.bindingNavigatorMoveLastItem;
-            this.bindingNavigatorEx1.MoveNextButton = this.bindingNavigatorMoveNextItem;
-            this.bindingNavigatorEx1.MovePreviousButton = this.bindingNavigatorMovePreviousItem;
-            this.bindingNavigatorEx1.Name = "bindingNavigatorEx1";
-            this.bindingNavigatorEx1.PositionTextBox = this.bindingNavigatorPositionItem;
-            this.bindingNavigatorEx1.Size = new System.Drawing.Size(1034, 25);
-            this.bindingNavigatorEx1.Stretch = true;
-            this.bindingNavigatorEx1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.bindingNavigatorEx1.TabIndex = 26;
-            this.bindingNavigatorEx1.TabStop = false;
-            this.bindingNavigatorEx1.Text = "bindingNavigatorEx1";
+            this.bnaHanhKiemChung.Location = new System.Drawing.Point(0, 0);
+            this.bnaHanhKiemChung.MoveFirstButton = this.bindingNavigatorMoveFirstItem;
+            this.bnaHanhKiemChung.MoveLastButton = this.bindingNavigatorMoveLastItem;
+            this.bnaHanhKiemChung.MoveNextButton = this.bindingNavigatorMoveNextItem;
+            this.bnaHanhKiemChung.MovePreviousButton = this.bindingNavigatorMovePreviousItem;
+            this.bnaHanhKiemChung.Name = "bnaHanhKiemChung";
+            this.bnaHanhKiemChung.PositionTextBox = this.bindingNavigatorPositionItem;
+            this.bnaHanhKiemChung.Size = new System.Drawing.Size(1034, 25);
+            this.bnaHanhKiemChung.Stretch = true;
+            this.bnaHanhKiemChung.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.bnaHanhKiemChung.TabIndex = 26;
+            this.bnaHanhKiemChung.TabStop = false;
+            this.bnaHanhKiemChung.Text = "bindingNavigatorEx1";
             // 
             // bindingNavigatorCountItem
             // 
@@ -834,7 +834,7 @@
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdHanhKiemRieng.DefaultCellStyle = dataGridViewCellStyle6;
             this.grdHanhKiemRieng.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -892,8 +892,8 @@
             // 
             this.tabControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
             this.tabControl1.CanReorderTabs = true;
-            this.tabControl1.Controls.Add(this.tabControlPanel1);
             this.tabControl1.Controls.Add(this.tabControlPanel2);
+            this.tabControl1.Controls.Add(this.tabControlPanel1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -930,7 +930,7 @@
             this.groupPanel2.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel2.Controls.Add(this.grdHanhKiemRieng);
-            this.groupPanel2.Controls.Add(this.bindingNavigatorEx2);
+            this.groupPanel2.Controls.Add(this.bnaHanhKiemRieng);
             this.groupPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupPanel2.Location = new System.Drawing.Point(247, 1);
             this.groupPanel2.Name = "groupPanel2";
@@ -966,15 +966,15 @@
             this.groupPanel2.TabIndex = 3;
             this.groupPanel2.Text = "DANH SÁCH HẠNH KIỂM";
             // 
-            // bindingNavigatorEx2
+            // bnaHanhKiemRieng
             // 
-            this.bindingNavigatorEx2.AntiAlias = true;
-            this.bindingNavigatorEx2.CountLabel = this.labelItem1;
-            this.bindingNavigatorEx2.CountLabelFormat = "of {0}";
-            this.bindingNavigatorEx2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bindingNavigatorEx2.DockSide = DevComponents.DotNetBar.eDockSide.Document;
-            this.bindingNavigatorEx2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorEx2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.bnaHanhKiemRieng.AntiAlias = true;
+            this.bnaHanhKiemRieng.CountLabel = this.labelItem1;
+            this.bnaHanhKiemRieng.CountLabelFormat = "of {0}";
+            this.bnaHanhKiemRieng.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bnaHanhKiemRieng.DockSide = DevComponents.DotNetBar.eDockSide.Document;
+            this.bnaHanhKiemRieng.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bnaHanhKiemRieng.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.buttonItem4,
             this.buttonItem5,
             this.textBoxItem1,
@@ -984,19 +984,19 @@
             this.buttonItem8,
             this.buttonItem9,
             this.buttonItem10});
-            this.bindingNavigatorEx2.Location = new System.Drawing.Point(0, 0);
-            this.bindingNavigatorEx2.MoveFirstButton = this.buttonItem4;
-            this.bindingNavigatorEx2.MoveLastButton = this.buttonItem7;
-            this.bindingNavigatorEx2.MoveNextButton = this.buttonItem6;
-            this.bindingNavigatorEx2.MovePreviousButton = this.buttonItem5;
-            this.bindingNavigatorEx2.Name = "bindingNavigatorEx2";
-            this.bindingNavigatorEx2.PositionTextBox = this.textBoxItem1;
-            this.bindingNavigatorEx2.Size = new System.Drawing.Size(1017, 25);
-            this.bindingNavigatorEx2.Stretch = true;
-            this.bindingNavigatorEx2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.bindingNavigatorEx2.TabIndex = 27;
-            this.bindingNavigatorEx2.TabStop = false;
-            this.bindingNavigatorEx2.Text = "bindingNavigatorEx2";
+            this.bnaHanhKiemRieng.Location = new System.Drawing.Point(0, 0);
+            this.bnaHanhKiemRieng.MoveFirstButton = this.buttonItem4;
+            this.bnaHanhKiemRieng.MoveLastButton = this.buttonItem7;
+            this.bnaHanhKiemRieng.MoveNextButton = this.buttonItem6;
+            this.bnaHanhKiemRieng.MovePreviousButton = this.buttonItem5;
+            this.bnaHanhKiemRieng.Name = "bnaHanhKiemRieng";
+            this.bnaHanhKiemRieng.PositionTextBox = this.textBoxItem1;
+            this.bnaHanhKiemRieng.Size = new System.Drawing.Size(1017, 25);
+            this.bnaHanhKiemRieng.Stretch = true;
+            this.bnaHanhKiemRieng.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.bnaHanhKiemRieng.TabIndex = 27;
+            this.bnaHanhKiemRieng.TabStop = false;
+            this.bnaHanhKiemRieng.Text = "bindingNavigatorEx2";
             // 
             // labelItem1
             // 
@@ -1110,7 +1110,7 @@
             this.tabControlPanel1.ResumeLayout(false);
             this.groupPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdHanhKiemChung)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorEx1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bnaHanhKiemChung)).EndInit();
             this.navigationPane1.ResumeLayout(false);
             this.navigationPanePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treKhoi)).EndInit();
@@ -1120,7 +1120,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabControlPanel2.ResumeLayout(false);
             this.groupPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorEx2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bnaHanhKiemRieng)).EndInit();
             this.navigationPane2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1131,7 +1131,7 @@
         private DevComponents.DotNetBar.TabItem btnItemLop;
         private DevComponents.DotNetBar.TabControlPanel tabControlPanel1;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
-        private DevComponents.DotNetBar.Controls.BindingNavigatorEx bindingNavigatorEx1;
+        private DevComponents.DotNetBar.Controls.BindingNavigatorEx bnaHanhKiemChung;
         private DevComponents.DotNetBar.LabelItem bindingNavigatorCountItem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveFirstItem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMovePreviousItem;
@@ -1184,7 +1184,7 @@
         private DevComponents.DotNetBar.ButtonItem buttonItem2;
         private DevComponents.DotNetBar.ButtonItem buttonItem3;
         private DevComponents.DotNetBar.ButtonItem buttonItem1;
-        private DevComponents.DotNetBar.Controls.BindingNavigatorEx bindingNavigatorEx2;
+        private DevComponents.DotNetBar.Controls.BindingNavigatorEx bnaHanhKiemRieng;
         private DevComponents.DotNetBar.LabelItem labelItem1;
         private DevComponents.DotNetBar.ButtonItem buttonItem4;
         private DevComponents.DotNetBar.ButtonItem buttonItem5;

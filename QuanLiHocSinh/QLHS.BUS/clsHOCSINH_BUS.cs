@@ -34,11 +34,7 @@ namespace QLHS.BUS
         }
 
        
-        public DataTable danhSachHocSinh()
-        {
-            DataTable table = hocSinh_DAO.danhSachHocSinh();
-            return table;
-        }
+       
         
         public void themHocSinh(clsHOCSINH_DTO hs)
         {
@@ -111,27 +107,51 @@ namespace QLHS.BUS
             }
             return maHS;
         }
-        public void taiLaiDataGrid(DataGridViewX grdHocSinh, DataTable dsHocSinh)
+
+        public DataTable danhSachHocSinh()
         {
-            grdHocSinh.DataSource = dsHocSinh;
-            if (grdHocSinh.Rows.Count > 0)
+            DataTable table = hocSinh_DAO.danhSachHocSinh();
+            if (table.Rows.Count > 0)
             {
-                foreach (DataGridViewRow row in grdHocSinh.Rows)
+                foreach (DataRow row in table.Rows)
                 {
-                    if (row.Cells["MAHS"].Value != null)
+                    if (row["MAHS"] != null)
                     {
-                        if (row.Cells["GIOITINHHS"].Value.ToString() == "0")
+                        if (row["GIOITINHHS"].ToString() == "0")
                         {
-                            row.Cells["GIOITINHHS"].Value = "Nữ";
+                            row["GIOITINHHS"]= "Nữ";
                         }
                         else
                         {
-                            row.Cells["GIOITINHHS"].Value = "Nam";
+                            row["GIOITINHHS"] = "Nam";
                         }
                     }
                 }
             }
+            return table;
         }
+
+        //public void taiLaiDataGrid(DataGridViewX grdHocSinh, DataTable dsHocSinh)
+        //{
+        //    grdHocSinh.DataSource = dsHocSinh;
+        //    if (grdHocSinh.Rows.Count > 0)
+        //    {
+        //        foreach (DataGridViewRow row in grdHocSinh.Rows)
+        //        {
+        //            if (row.Cells["MAHS"].Value != null)
+        //            {
+        //                if (row.Cells["GIOITINHHS"].Value.ToString() == "0")
+        //                {
+        //                    row.Cells["GIOITINHHS"].Value = "Nữ";
+        //                }
+        //                else
+        //                {
+        //                    row.Cells["GIOITINHHS"].Value = "Nam";
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
 
 
 

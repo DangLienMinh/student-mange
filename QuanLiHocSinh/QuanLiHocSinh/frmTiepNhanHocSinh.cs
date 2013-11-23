@@ -16,6 +16,7 @@ namespace QuanLiHocSinh
 {
     public partial class frmTiepNhanHocSinh : DevComponents.DotNetBar.Office2007Form
     {
+        private BindingSource bs;
         private frmLopHoc m_FrmLop = null;
         private clsLOP_BUS lop_BUS;
         private clsHOCSINH_BUS hocSinh_BUS;
@@ -26,8 +27,8 @@ namespace QuanLiHocSinh
         private Boolean flagDelete;
         private Boolean flagChonAnh;
         private string linkGoc;
-        private int vitri;
-        private int Tong;
+        //private int vitri;
+        //private int Tong;
 
         public frmTiepNhanHocSinh()
         {
@@ -44,6 +45,15 @@ namespace QuanLiHocSinh
             this.KeyPreview = true;
         }
 
+        //hàm bindingData đặt binding source=hocSinh_BUS.danhSachHocSinh() sao đó cho nó dính vào datagrid
+        private void bindingData()
+        {
+            //biding navigator
+            bs = new BindingSource();
+            bs.DataSource = hocSinh_BUS.danhSachHocSinh();
+            grdHocSinh.DataSource = bs;
+            bnaHocSinh.BindingSource = bs;
+        }
 
         private void frmHocSinh_Load(object sender, EventArgs e)
         {
@@ -53,7 +63,8 @@ namespace QuanLiHocSinh
             
             txtMaHS.Text = hocSinh_BUS.taoMaHocSinh();
             //load danh sách học sinh vào datagrid học sinh
-            hocSinh_BUS.taiLaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh());
+            bindingData();
+
             dtiNgaySinh.Value = DateTime.Now;
             dtiNgayNhapHoc.Value = DateTime.Now;
             datagridMakeUp(grdHocSinh);
@@ -139,7 +150,7 @@ namespace QuanLiHocSinh
                     update();
                 }
             }
-            hienThiDuLieu();
+           // hienThiDuLieu();
 
             btnThem.Focus();
         }
@@ -150,45 +161,45 @@ namespace QuanLiHocSinh
             resetALL();
         }
 
-        private void btnDau_Click(object sender, EventArgs e)
-        {
-            vitri = this.BindingContext[grdHocSinh.DataSource].Position;
-            this.BindingContext[grdHocSinh.DataSource].Position = 0;
-            hienThiDuLieu();
-            btnTruoc.Enabled = false;
-            btnDau.Enabled = false;
-            btnCuoi.Enabled = true;
-            btnSau.Enabled = true;
-        }
+        //private void btnDau_Click(object sender, EventArgs e)
+        //{
+        //    vitri = this.BindingContext[grdHocSinh.DataSource].Position;
+        //    this.BindingContext[grdHocSinh.DataSource].Position = 0;
+        //    hienThiDuLieu();
+        //    btnTruoc.Enabled = false;
+        //    btnDau.Enabled = false;
+        //    btnCuoi.Enabled = true;
+        //    btnSau.Enabled = true;
+        //}
 
-        private void btnTruoc_Click(object sender, EventArgs e)
-        {
-            vitri = this.BindingContext[grdHocSinh.DataSource].Position;
-            btnCuoi.Enabled = true;
-            btnSau.Enabled = true;
-            this.BindingContext[grdHocSinh.DataSource].Position = vitri - 1;
-            hienThiDuLieu();
-        }
+        //private void btnTruoc_Click(object sender, EventArgs e)
+        //{
+        //    vitri = this.BindingContext[grdHocSinh.DataSource].Position;
+        //    btnCuoi.Enabled = true;
+        //    btnSau.Enabled = true;
+        //    this.BindingContext[grdHocSinh.DataSource].Position = vitri - 1;
+        //    hienThiDuLieu();
+        //}
 
-        private void btnSau_Click(object sender, EventArgs e)
-        {
-            vitri = this.BindingContext[grdHocSinh.DataSource].Position;
-            btnDau.Enabled = true;
-            btnTruoc.Enabled = true;
-            this.BindingContext[grdHocSinh.DataSource].Position = vitri + 1;
-            hienThiDuLieu();
-        }
+        //private void btnSau_Click(object sender, EventArgs e)
+        //{
+        //    vitri = this.BindingContext[grdHocSinh.DataSource].Position;
+        //    btnDau.Enabled = true;
+        //    btnTruoc.Enabled = true;
+        //    this.BindingContext[grdHocSinh.DataSource].Position = vitri + 1;
+        //    hienThiDuLieu();
+        //}
 
-        private void btnCuoi_Click(object sender, EventArgs e)
-        {
-            vitri = this.BindingContext[grdHocSinh.DataSource].Position;
-            this.BindingContext[grdHocSinh.DataSource].Position = this.BindingContext[grdHocSinh.DataSource].Count - 1;
-            hienThiDuLieu();
-            btnCuoi.Enabled = false;
-            btnSau.Enabled = false;
-            btnTruoc.Enabled = true;
-            btnDau.Enabled = true;
-        }
+        //private void btnCuoi_Click(object sender, EventArgs e)
+        //{
+        //    vitri = this.BindingContext[grdHocSinh.DataSource].Position;
+        //    this.BindingContext[grdHocSinh.DataSource].Position = this.BindingContext[grdHocSinh.DataSource].Count - 1;
+        //    hienThiDuLieu();
+        //    btnCuoi.Enabled = false;
+        //    btnSau.Enabled = false;
+        //    btnTruoc.Enabled = true;
+        //    btnDau.Enabled = true;
+        //}
         private void grdHocSinh_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (grdHocSinh.Rows.Count > 1)
@@ -285,7 +296,8 @@ namespace QuanLiHocSinh
                     File.Copy(linkGoc, hocSinh_DTO.Hinhanhhs);
                     hocSinh_BUS.themHocSinh(hocSinh_DTO);
                     resetALL();
-                    hocSinh_BUS.taiLaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh());//tải lại danh sách sau khi thêm
+                    bindingData();
+                    //hocSinh_BUS.taiLaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh());//tải lại danh sách sau khi thêm
                     flagChonAnh = false;
                     flagInsert = false;
                     MessageBox.Show("Đã thêm học sinh thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -308,7 +320,8 @@ namespace QuanLiHocSinh
                 {
                     hocSinh_BUS.xoaHocSinh(hocSinh_DTO);
                     File.Delete(grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString());
-                    hocSinh_BUS.taiLaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh());//tải lại danh sách sau khi xóa
+                    bindingData();
+                    //hocSinh_BUS.taiLaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh());//tải lại danh sách sau khi xóa
                     flagDelete = false;
                     resetALL();
                     MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -359,8 +372,8 @@ namespace QuanLiHocSinh
                     }
                     hocSinh_BUS.suaHocSinh(hocSinh_DTO);
                     resetALL();
-
-                    hocSinh_BUS.taiLaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh());//tải lại danh sách sau khi thêm
+                    bindingData();
+                   // hocSinh_BUS.taiLaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh());//tải lại danh sách sau khi thêm
                     MessageBox.Show("Đã sửa học sinh thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
@@ -370,28 +383,28 @@ namespace QuanLiHocSinh
             }
         }
 
-        public void hienThiDuLieu()
-        {
-            //int Tong;
-            //int vitri;
-            vitri = this.BindingContext[grdHocSinh.DataSource].Position;
-            Tong = this.BindingContext[grdHocSinh.DataSource].Count;
-            if (vitri != -1)
-            {
-                txtHienTai.Text = (vitri + 1).ToString() + "/" + Tong.ToString();
-                txtMaHS.Text = grdHocSinh.Rows[vitri].Cells["MAHS"].Value.ToString();
-                txtTenHS.Text = grdHocSinh.Rows[vitri].Cells["TENHS"].Value.ToString();
-                txtDantoc.Text = grdHocSinh.Rows[vitri].Cells["DANTOC"].Value.ToString();
-                txtDienThoai.Text = grdHocSinh.Rows[vitri].Cells["DIENTHOAIHS"].Value.ToString();
-                txtDiaChi.Text = grdHocSinh.Rows[vitri].Cells["DIACHIHS"].Value.ToString();
-                cboGioiTinh.SelectedItem = grdHocSinh.Rows[vitri].Cells["GIOITINHHS"].Value.ToString();
-                dtiNgaySinh.Text = grdHocSinh.Rows[vitri].Cells["NGSINHHS"].Value.ToString();
-                dtiNgayNhapHoc.Text = grdHocSinh.Rows[vitri].Cells["NGNHAPHOC"].Value.ToString();
-                FileStream fs = new FileStream(grdHocSinh.Rows[vitri].Cells["HINHANHHS"].Value.ToString(), FileMode.Open, FileAccess.Read);
-                picHocSinh.Image = Image.FromStream(fs);
-                fs.Close();
-            }
-        }
+        //public void hienThiDuLieu()
+        //{
+        //    //int Tong;
+        //    //int vitri;
+        //    vitri = this.BindingContext[grdHocSinh.DataSource].Position;
+        //    Tong = this.BindingContext[grdHocSinh.DataSource].Count;
+        //    if (vitri != -1)
+        //    {
+        //        txtHienTai.Text = (vitri + 1).ToString() + "/" + Tong.ToString();
+        //        txtMaHS.Text = grdHocSinh.Rows[vitri].Cells["MAHS"].Value.ToString();
+        //        txtTenHS.Text = grdHocSinh.Rows[vitri].Cells["TENHS"].Value.ToString();
+        //        txtDantoc.Text = grdHocSinh.Rows[vitri].Cells["DANTOC"].Value.ToString();
+        //        txtDienThoai.Text = grdHocSinh.Rows[vitri].Cells["DIENTHOAIHS"].Value.ToString();
+        //        txtDiaChi.Text = grdHocSinh.Rows[vitri].Cells["DIACHIHS"].Value.ToString();
+        //        cboGioiTinh.SelectedItem = grdHocSinh.Rows[vitri].Cells["GIOITINHHS"].Value.ToString();
+        //        dtiNgaySinh.Text = grdHocSinh.Rows[vitri].Cells["NGSINHHS"].Value.ToString();
+        //        dtiNgayNhapHoc.Text = grdHocSinh.Rows[vitri].Cells["NGNHAPHOC"].Value.ToString();
+        //        FileStream fs = new FileStream(grdHocSinh.Rows[vitri].Cells["HINHANHHS"].Value.ToString(), FileMode.Open, FileAccess.Read);
+        //        picHocSinh.Image = Image.FromStream(fs);
+        //        fs.Close();
+        //    }
+        //}
 
         private void txtDienThoai_KeyPress(object sender, KeyPressEventArgs e)
         {
