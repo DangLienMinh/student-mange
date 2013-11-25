@@ -61,8 +61,6 @@ namespace QuanLiHocSinh
 
         private void loadDuLieu()
         {
-
-
             //.biding navigator
             bs = new BindingSource();
             bs.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
