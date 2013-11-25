@@ -281,7 +281,12 @@ namespace QLHS.BUS
                         {
                             maMH = row.Cells["MH0" + i.ToString()].OwningColumn.Name;
                             double diem= Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3, 1);
-                            if (diem<5)
+                            if (diem<5&&diem>0)
+                            {
+                                
+                                row.Cells["MH0" + i.ToString()].Style.BackColor = Color.Yellow;
+                            }
+                            if (diem == 0)
                             {
                                 row.Cells["MH0" + i.ToString()].Style.BackColor = Color.Red;
                             }

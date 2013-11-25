@@ -172,11 +172,11 @@ namespace QLHS.BUS
             hanhKiem_DTO.Manh = maNH;
             hanhKiem_DTO.Mahs = maHS;
             temp = hanhKiem_DAO.hanhKiemTheoHocKiNamHoc(hanhKiem_DTO);
-            if (temp.Rows.Count > 1)
+            if (temp.Rows.Count >= 1)
             {
                 foreach (DataRow row in temp.Rows)
                 {
-                    result = row[0].ToString();
+                    result = row[1].ToString();
                 }
             }
             return result;

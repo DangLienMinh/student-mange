@@ -277,7 +277,9 @@
       <Name>QLHS.DTO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="report\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\hinhAnh\291929_1807153957996_1814367503_1239956_1873060402_n.jpg" />
     <Content Include="bin\Debug\hinhAnh\302791_467170176658820_645667305_n.jpg" />

@@ -21,5 +21,13 @@ namespace QuanLiHocSinh
         {
 
         }
+
+        private void btnInDSLop_Click(object sender, EventArgs e)
+        {
+            if (cboNamHocDSLop.SelectedValue!=null)
+            {
+                
+            }
+        }
     }
 }
