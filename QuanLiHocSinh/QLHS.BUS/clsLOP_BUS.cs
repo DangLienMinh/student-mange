@@ -138,6 +138,11 @@ namespace QLHS.BUS
             }
         }
 
+        public DataSet reportDanhSachLop()
+        {
+            return lop_DAO.reportDanhSachLop();
+        }
+
         //public void taiLaiDataGrid(DataGridViewX grdLop, DataTable dsLop)
         //{
         //    grdLop.DataSource = dsLop;
