@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace QuanLiHocSinh
 {
     public partial class frmBaoCaoMain : DevComponents.DotNetBar.Office2007Form
@@ -26,7 +27,8 @@ namespace QuanLiHocSinh
         {
             if (cboNamHocDSLop.SelectedValue!=null)
             {
-                
+                frmHiemThiReport hien = new frmHiemThiReport();
+                hien.Show();
             }
         }
     }
