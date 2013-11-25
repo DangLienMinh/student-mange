@@ -77,6 +77,8 @@ namespace QuanLiHocSinh
 
         private void btnLuulai_Click(object sender, EventArgs e)
         {
+            btnLuulai.Enabled = false;
+            btnCapnhat.Enabled = true;
             if ((MessageBox.Show("Bạn có chắc chắn muốn lưu lại", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
             {
                 int dem = 0;
@@ -120,6 +122,7 @@ namespace QuanLiHocSinh
             else
             {
                 btnLuulai.Enabled = false;
+                btnCapnhat.Enabled = true;
                 //grdHanhKiemChung.DataSource = hanhkiem_bus.danhSachHanhKiem(cboNamHoc.SelectedValue.ToString(), treKhoi.SelectedNode.Name.ToString(), cboHocKy.SelectedValue.ToString());
                 bidingSourceHKChung(hanhkiem_bus.danhSachHanhKiem(cboNamHoc.SelectedValue.ToString(), treKhoi.SelectedNode.Name.ToString(), cboHocKy.SelectedValue.ToString()));
             }
@@ -139,6 +142,7 @@ namespace QuanLiHocSinh
         private void btnCapnhat_Click(object sender, EventArgs e)
         {
             btnLuulai.Enabled = true;
+            btnCapnhat.Enabled = false;
             if ((MessageBox.Show("Bạn có chắc chắn muốn Cập nhật", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
             {
                 int dem = 0;
@@ -161,8 +165,17 @@ namespace QuanLiHocSinh
                     }
                 }
                 MessageBox.Show("Cập nhật thành công hạnh kiểm cho " + dem.ToString() + " Học sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                grdHanhKiemChung.DataSource = hanhkiem_bus.danhSachHanhKiem(cboNamHoc.SelectedValue.ToString(), treKhoi.SelectedNode.Name.ToString(), cboHocKy.SelectedValue.ToString());
-            }
+                bidingSourceHKChung(hanhkiem_bus.danhSachHocSinhMALOPMANHMAHKChuaNhap(treKhoi.SelectedNode.Name.ToString(), cboNamHoc.SelectedValue.ToString(), cboHocKy.SelectedValue.ToString()));
+                if (grdHanhKiemChung.Columns.Count == 4)
+                {
+                    grdHanhKiemChung.Columns.Insert(grdHanhKiemChung.Columns.Count, cbo);
+                    hanhkiem_bus.hienThiCboLoaiHK(MALHK);//Hien thi TenHanKiem Len Cobobox trong gridview cho nguoi dung chon
+                }
+                else
+                {
+                    cbo = grdHanhKiemChung.Columns["MALHK"];
+                }
+            } 
         }
 
         private void cboNamHoc1_SelectedValueChanged(object sender, EventArgs e)
