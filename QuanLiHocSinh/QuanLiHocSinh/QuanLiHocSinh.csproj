@@ -334,6 +334,7 @@
     <None Include="resources\3485271.png" />
     <None Include="resources\37.png" />
     <None Include="resources\add.png" />
+    <None Include="resources\backGround.png" />
     <Content Include="resources\books copy.png" />
     <Content Include="resources\cal-ico copy.png" />
     <Content Include="resources\Calendar-icon.png" />
