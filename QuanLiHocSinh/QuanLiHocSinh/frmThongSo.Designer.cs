@@ -36,6 +36,12 @@
             this.labelX04 = new DevComponents.DotNetBar.LabelX();
             this.txtTuoiTT = new DevComponents.Editors.IntegerInput();
             this.tabControlPanelDoTuoi = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
+            this.txtSiSoTD = new DevComponents.Editors.IntegerInput();
+            this.labelX02 = new DevComponents.DotNetBar.LabelX();
+            this.txtSiSoTT = new DevComponents.Editors.IntegerInput();
+            this.labelX01 = new DevComponents.DotNetBar.LabelX();
+            this.tabControlPanelSiSo = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel3 = new DevComponents.DotNetBar.TabControlPanel();
             this.txtDiaChi = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtTenTruong = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -44,12 +50,6 @@
             this.txtDienThoai = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.tabControlPanelTruong = new DevComponents.DotNetBar.TabItem(this.components);
-            this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
-            this.txtSiSoTD = new DevComponents.Editors.IntegerInput();
-            this.labelX02 = new DevComponents.DotNetBar.LabelX();
-            this.txtSiSoTT = new DevComponents.Editors.IntegerInput();
-            this.labelX01 = new DevComponents.DotNetBar.LabelX();
-            this.tabControlPanelSiSo = new DevComponents.DotNetBar.TabItem(this.components);
             this.btnDongY = new DevComponents.DotNetBar.ButtonX();
             this.btnHuy = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
@@ -57,10 +57,10 @@
             this.tabControlPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuoiTD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuoiTT)).BeginInit();
-            this.tabControlPanel3.SuspendLayout();
             this.tabControlPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSiSoTD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSiSoTT)).BeginInit();
+            this.tabControlPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -168,6 +168,91 @@
             this.tabControlPanelDoTuoi.Name = "tabControlPanelDoTuoi";
             this.tabControlPanelDoTuoi.Text = "Độ tuổi";
             // 
+            // tabControlPanel2
+            // 
+            this.tabControlPanel2.Controls.Add(this.txtSiSoTD);
+            this.tabControlPanel2.Controls.Add(this.labelX02);
+            this.tabControlPanel2.Controls.Add(this.txtSiSoTT);
+            this.tabControlPanel2.Controls.Add(this.labelX01);
+            this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel2.Location = new System.Drawing.Point(0, 26);
+            this.tabControlPanel2.Name = "tabControlPanel2";
+            this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel2.Size = new System.Drawing.Size(352, 150);
+            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
+            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
+            this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+            this.tabControlPanel2.Style.GradientAngle = 90;
+            this.tabControlPanel2.TabIndex = 2;
+            this.tabControlPanel2.TabItem = this.tabControlPanelSiSo;
+            // 
+            // txtSiSoTD
+            // 
+            // 
+            // 
+            // 
+            this.txtSiSoTD.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.txtSiSoTD.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSiSoTD.Location = new System.Drawing.Point(179, 64);
+            this.txtSiSoTD.MaxValue = 100;
+            this.txtSiSoTD.MinValue = 10;
+            this.txtSiSoTD.Name = "txtSiSoTD";
+            this.txtSiSoTD.ShowUpDown = true;
+            this.txtSiSoTD.Size = new System.Drawing.Size(120, 20);
+            this.txtSiSoTD.TabIndex = 6;
+            this.txtSiSoTD.Value = 10;
+            // 
+            // labelX02
+            // 
+            this.labelX02.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX02.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX02.Location = new System.Drawing.Point(19, 64);
+            this.labelX02.Name = "labelX02";
+            this.labelX02.Size = new System.Drawing.Size(143, 20);
+            this.labelX02.TabIndex = 3;
+            this.labelX02.Text = "Sỉ số tối đa trong một lớp:";
+            // 
+            // txtSiSoTT
+            // 
+            // 
+            // 
+            // 
+            this.txtSiSoTT.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.txtSiSoTT.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSiSoTT.Location = new System.Drawing.Point(179, 25);
+            this.txtSiSoTT.MaxValue = 100;
+            this.txtSiSoTT.MinValue = 10;
+            this.txtSiSoTT.Name = "txtSiSoTT";
+            this.txtSiSoTT.ShowUpDown = true;
+            this.txtSiSoTT.Size = new System.Drawing.Size(120, 20);
+            this.txtSiSoTT.TabIndex = 5;
+            this.txtSiSoTT.Value = 10;
+            // 
+            // labelX01
+            // 
+            this.labelX01.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX01.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX01.Location = new System.Drawing.Point(19, 25);
+            this.labelX01.Name = "labelX01";
+            this.labelX01.Size = new System.Drawing.Size(143, 20);
+            this.labelX01.TabIndex = 4;
+            this.labelX01.Text = "Sỉ số tối thiểu trong một lớp:";
+            // 
+            // tabControlPanelSiSo
+            // 
+            this.tabControlPanelSiSo.AttachedControl = this.tabControlPanel2;
+            this.tabControlPanelSiSo.Name = "tabControlPanelSiSo";
+            this.tabControlPanelSiSo.Text = "Sỉ số";
+            // 
             // tabControlPanel3
             // 
             this.tabControlPanel3.Controls.Add(this.txtDiaChi);
@@ -272,91 +357,6 @@
             this.tabControlPanelTruong.Name = "tabControlPanelTruong";
             this.tabControlPanelTruong.Text = "Thông tin Trường";
             // 
-            // tabControlPanel2
-            // 
-            this.tabControlPanel2.Controls.Add(this.txtSiSoTD);
-            this.tabControlPanel2.Controls.Add(this.labelX02);
-            this.tabControlPanel2.Controls.Add(this.txtSiSoTT);
-            this.tabControlPanel2.Controls.Add(this.labelX01);
-            this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel2.Location = new System.Drawing.Point(0, 26);
-            this.tabControlPanel2.Name = "tabControlPanel2";
-            this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel2.Size = new System.Drawing.Size(352, 150);
-            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
-            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
-            this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabControlPanel2.Style.GradientAngle = 90;
-            this.tabControlPanel2.TabIndex = 2;
-            this.tabControlPanel2.TabItem = this.tabControlPanelSiSo;
-            // 
-            // txtSiSoTD
-            // 
-            // 
-            // 
-            // 
-            this.txtSiSoTD.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.txtSiSoTD.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSiSoTD.Location = new System.Drawing.Point(179, 64);
-            this.txtSiSoTD.MaxValue = 100;
-            this.txtSiSoTD.MinValue = 10;
-            this.txtSiSoTD.Name = "txtSiSoTD";
-            this.txtSiSoTD.ShowUpDown = true;
-            this.txtSiSoTD.Size = new System.Drawing.Size(120, 20);
-            this.txtSiSoTD.TabIndex = 6;
-            this.txtSiSoTD.Value = 10;
-            // 
-            // labelX02
-            // 
-            this.labelX02.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX02.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX02.Location = new System.Drawing.Point(19, 64);
-            this.labelX02.Name = "labelX02";
-            this.labelX02.Size = new System.Drawing.Size(143, 20);
-            this.labelX02.TabIndex = 3;
-            this.labelX02.Text = "Sỉ số tối đa trong một lớp:";
-            // 
-            // txtSiSoTT
-            // 
-            // 
-            // 
-            // 
-            this.txtSiSoTT.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.txtSiSoTT.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSiSoTT.Location = new System.Drawing.Point(179, 25);
-            this.txtSiSoTT.MaxValue = 100;
-            this.txtSiSoTT.MinValue = 10;
-            this.txtSiSoTT.Name = "txtSiSoTT";
-            this.txtSiSoTT.ShowUpDown = true;
-            this.txtSiSoTT.Size = new System.Drawing.Size(120, 20);
-            this.txtSiSoTT.TabIndex = 5;
-            this.txtSiSoTT.Value = 10;
-            // 
-            // labelX01
-            // 
-            this.labelX01.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX01.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX01.Location = new System.Drawing.Point(19, 25);
-            this.labelX01.Name = "labelX01";
-            this.labelX01.Size = new System.Drawing.Size(143, 20);
-            this.labelX01.TabIndex = 4;
-            this.labelX01.Text = "Sỉ số tối thiểu trong một lớp:";
-            // 
-            // tabControlPanelSiSo
-            // 
-            this.tabControlPanelSiSo.AttachedControl = this.tabControlPanel2;
-            this.tabControlPanelSiSo.Name = "tabControlPanelSiSo";
-            this.tabControlPanelSiSo.Text = "Sỉ số";
-            // 
             // btnDongY
             // 
             this.btnDongY.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -393,9 +393,10 @@
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnDongY);
+            this.DoubleBuffered = true;
             this.Name = "frmThongSo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "THÔNG SỐ";
+            this.Text = "QUY ĐỊNH";
             this.Load += new System.EventHandler(this.frmThongSo_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmThongSo_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).EndInit();
@@ -403,10 +404,10 @@
             this.tabControlPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtTuoiTD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuoiTT)).EndInit();
-            this.tabControlPanel3.ResumeLayout(false);
             this.tabControlPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtSiSoTD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSiSoTT)).EndInit();
+            this.tabControlPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

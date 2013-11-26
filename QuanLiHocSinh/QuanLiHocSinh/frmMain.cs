@@ -237,8 +237,8 @@ namespace QuanLiHocSinh
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            //macDinh();
-            //dangNhap();
+            macDinh();
+            dangNhap();
             // Create the list of frequently used commands for the QAT Customize menu
             ribbonControl1.QatFrequentCommands.Add(btnDangNhap);
             ribbonControl1.QatFrequentCommands.Add(btnDangXuat);
