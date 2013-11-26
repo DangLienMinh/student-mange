@@ -59,7 +59,7 @@
             this.gPanelDoiMK.Controls.Add(this.txtMkMoi);
             this.gPanelDoiMK.Controls.Add(this.txtMkCu);
             this.gPanelDoiMK.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gPanelDoiMK.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gPanelDoiMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.gPanelDoiMK.Location = new System.Drawing.Point(0, 0);
             this.gPanelDoiMK.Name = "gPanelDoiMK";
             this.gPanelDoiMK.Size = new System.Drawing.Size(414, 223);
@@ -98,11 +98,11 @@
             // 
             this.btnHuy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
-            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnHuy.Image = global::QuanLiHocSinh.Properties.Resources.Huybo;
-            this.btnHuy.Location = new System.Drawing.Point(223, 143);
+            this.btnHuy.Location = new System.Drawing.Point(218, 143);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(85, 30);
+            this.btnHuy.Size = new System.Drawing.Size(95, 30);
             this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.btnHuy.TabIndex = 5;
             this.btnHuy.Text = "Hủy";
@@ -112,11 +112,11 @@
             // 
             this.btnDongY.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDongY.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
-            this.btnDongY.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDongY.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnDongY.Image = global::QuanLiHocSinh.Properties.Resources.Dongy;
-            this.btnDongY.Location = new System.Drawing.Point(114, 143);
+            this.btnDongY.Location = new System.Drawing.Point(97, 143);
             this.btnDongY.Name = "btnDongY";
-            this.btnDongY.Size = new System.Drawing.Size(85, 30);
+            this.btnDongY.Size = new System.Drawing.Size(95, 30);
             this.btnDongY.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.btnDongY.TabIndex = 4;
             this.btnDongY.Text = "Đồng ý";
@@ -162,7 +162,7 @@
             // 
             // 
             this.lblReNewPass.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblReNewPass.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReNewPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.lblReNewPass.Location = new System.Drawing.Point(8, 95);
             this.lblReNewPass.Name = "lblReNewPass";
             this.lblReNewPass.Size = new System.Drawing.Size(155, 23);
@@ -176,7 +176,7 @@
             // 
             // 
             this.lblNewPass.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblNewPass.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.lblNewPass.Location = new System.Drawing.Point(8, 55);
             this.lblNewPass.Name = "lblNewPass";
             this.lblNewPass.Size = new System.Drawing.Size(155, 23);
@@ -190,7 +190,7 @@
             // 
             // 
             this.lblOldPass.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblOldPass.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOldPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.lblOldPass.Location = new System.Drawing.Point(8, 15);
             this.lblOldPass.Name = "lblOldPass";
             this.lblOldPass.Size = new System.Drawing.Size(155, 23);
@@ -212,7 +212,7 @@
             this.txtMkNhapLai.MaxLength = 30;
             this.txtMkNhapLai.Name = "txtMkNhapLai";
             this.txtMkNhapLai.PasswordChar = '●';
-            this.txtMkNhapLai.Size = new System.Drawing.Size(160, 23);
+            this.txtMkNhapLai.Size = new System.Drawing.Size(160, 24);
             this.txtMkNhapLai.TabIndex = 3;
             this.txtMkNhapLai.WatermarkText = "Xác nhận mật khẩu mới";
             this.txtMkNhapLai.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMkNhapLai_KeyDown);
@@ -232,7 +232,7 @@
             this.txtMkMoi.MaxLength = 30;
             this.txtMkMoi.Name = "txtMkMoi";
             this.txtMkMoi.PasswordChar = '●';
-            this.txtMkMoi.Size = new System.Drawing.Size(160, 23);
+            this.txtMkMoi.Size = new System.Drawing.Size(160, 24);
             this.txtMkMoi.TabIndex = 2;
             this.txtMkMoi.WatermarkText = "Mật khẩu mới";
             // 
@@ -251,7 +251,7 @@
             this.txtMkCu.MaxLength = 30;
             this.txtMkCu.Name = "txtMkCu";
             this.txtMkCu.PasswordChar = '●';
-            this.txtMkCu.Size = new System.Drawing.Size(160, 23);
+            this.txtMkCu.Size = new System.Drawing.Size(160, 24);
             this.txtMkCu.TabIndex = 1;
             this.txtMkCu.WatermarkText = "Mật khẩu cũ";
             // 
