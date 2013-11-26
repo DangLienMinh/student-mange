@@ -47,7 +47,7 @@
             this.pictureBox1.Image = global::QuanLiHocSinh.Properties.Resources.learning_prv;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(170, 260);
+            this.pictureBox1.Size = new System.Drawing.Size(170, 279);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -63,9 +63,10 @@
             this.groupPanel1.Controls.Add(this.labelX2);
             this.groupPanel1.Controls.Add(this.labelX1);
             this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.groupPanel1.Location = new System.Drawing.Point(170, 0);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(260, 260);
+            this.groupPanel1.Size = new System.Drawing.Size(299, 279);
             // 
             // 
             // 
@@ -106,7 +107,7 @@
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX5.Location = new System.Drawing.Point(4, 129);
             this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(249, 101);
+            this.labelX5.Size = new System.Drawing.Size(286, 116);
             this.labelX5.TabIndex = 1;
             this.labelX5.Text = resources.GetString("labelX5.Text");
             this.labelX5.WordWrap = true;
@@ -120,7 +121,7 @@
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX4.Location = new System.Drawing.Point(8, 100);
             this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(152, 23);
+            this.labelX4.Size = new System.Drawing.Size(204, 23);
             this.labelX4.TabIndex = 0;
             this.labelX4.Text = "2/ Thiều Anh Nhất - 11520268";
             // 
@@ -133,7 +134,7 @@
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Location = new System.Drawing.Point(8, 71);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(152, 23);
+            this.labelX3.Size = new System.Drawing.Size(220, 23);
             this.labelX3.TabIndex = 0;
             this.labelX3.Text = "1/ Đặng Liên Minh - 11520232";
             // 
@@ -159,7 +160,7 @@
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Location = new System.Drawing.Point(8, 13);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(75, 23);
+            this.labelX1.Size = new System.Drawing.Size(127, 23);
             this.labelX1.TabIndex = 0;
             this.labelX1.Text = "Phiên bản 1.0";
             // 
@@ -168,7 +169,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
-            this.ClientSize = new System.Drawing.Size(430, 260);
+            this.ClientSize = new System.Drawing.Size(469, 279);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
