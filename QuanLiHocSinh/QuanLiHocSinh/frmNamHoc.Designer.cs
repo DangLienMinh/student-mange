@@ -53,6 +53,7 @@
             this.btnChange = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnAccept = new DevComponents.DotNetBar.ButtonX();
+            this.btnQuyDinh = new DevComponents.DotNetBar.ButtonX();
             this.btnAdd = new DevComponents.DotNetBar.ButtonX();
             this.txtTenNH = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
@@ -61,7 +62,6 @@
             this.btnItemNhapNH = new DevComponents.DotNetBar.ButtonItem();
             this.btnItemNamHoc = new DevComponents.DotNetBar.TabItem(this.components);
             this.btnItemNhapHK = new DevComponents.DotNetBar.TabItem(this.components);
-            this.btnQuyDinh = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabControlPanel1.SuspendLayout();
@@ -355,10 +355,12 @@
             // 
             this.btnChange.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnChange.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChange.Image = global::QuanLiHocSinh.Properties.Resources.Sua;
             this.btnChange.Location = new System.Drawing.Point(96, 148);
             this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(68, 23);
-            this.btnChange.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnChange.Size = new System.Drawing.Size(75, 30);
+            this.btnChange.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.btnChange.TabIndex = 3;
             this.btnChange.Text = "Sửa";
             this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
@@ -367,10 +369,12 @@
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Image = global::QuanLiHocSinh.Properties.Resources.Huybo;
             this.btnCancel.Location = new System.Drawing.Point(96, 182);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(68, 23);
-            this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnCancel.Size = new System.Drawing.Size(75, 30);
+            this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -379,22 +383,39 @@
             // 
             this.btnAccept.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnAccept.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccept.Image = global::QuanLiHocSinh.Properties.Resources.Dongy;
             this.btnAccept.Location = new System.Drawing.Point(16, 182);
             this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(68, 23);
-            this.btnAccept.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnAccept.Size = new System.Drawing.Size(75, 30);
+            this.btnAccept.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.btnAccept.TabIndex = 4;
             this.btnAccept.Text = "Đồng ý";
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            // 
+            // btnQuyDinh
+            // 
+            this.btnQuyDinh.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnQuyDinh.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnQuyDinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuyDinh.Location = new System.Drawing.Point(18, 109);
+            this.btnQuyDinh.Name = "btnQuyDinh";
+            this.btnQuyDinh.Size = new System.Drawing.Size(153, 33);
+            this.btnQuyDinh.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
+            this.btnQuyDinh.TabIndex = 2;
+            this.btnQuyDinh.Text = "Quy định năm học";
+            this.btnQuyDinh.Click += new System.EventHandler(this.btnQuyDinh_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnAdd.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Image = global::QuanLiHocSinh.Properties.Resources.Them;
             this.btnAdd.Location = new System.Drawing.Point(16, 148);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(68, 23);
-            this.btnAdd.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnAdd.Size = new System.Drawing.Size(75, 30);
+            this.btnAdd.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -404,11 +425,15 @@
             // 
             // 
             // 
+            this.txtTenNH.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtTenNH.Border.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtTenNH.Border.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtTenNH.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtTenNH.Border.Class = "TextBoxBorder";
             this.txtTenNH.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtTenNH.Location = new System.Drawing.Point(18, 74);
             this.txtTenNH.Name = "txtTenNH";
-            this.txtTenNH.Size = new System.Drawing.Size(137, 20);
+            this.txtTenNH.Size = new System.Drawing.Size(153, 20);
             this.txtTenNH.TabIndex = 1;
             this.txtTenNH.Enter += new System.EventHandler(this.txt_Enter);
             this.txtTenNH.Leave += new System.EventHandler(this.txt_Leave);
@@ -430,11 +455,15 @@
             // 
             // 
             // 
+            this.txtMaNH.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtMaNH.Border.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtMaNH.Border.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtMaNH.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtMaNH.Border.Class = "TextBoxBorder";
             this.txtMaNH.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtMaNH.Location = new System.Drawing.Point(18, 28);
             this.txtMaNH.Name = "txtMaNH";
-            this.txtMaNH.Size = new System.Drawing.Size(137, 20);
+            this.txtMaNH.Size = new System.Drawing.Size(153, 20);
             this.txtMaNH.TabIndex = 30;
             this.txtMaNH.TabStop = false;
             // 
@@ -470,25 +499,12 @@
             this.btnItemNhapHK.Name = "btnItemNhapHK";
             this.btnItemNhapHK.Text = "Học kỳ";
             // 
-            // btnQuyDinh
-            // 
-            this.btnQuyDinh.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnQuyDinh.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnQuyDinh.Location = new System.Drawing.Point(35, 110);
-            this.btnQuyDinh.Name = "btnQuyDinh";
-            this.btnQuyDinh.Size = new System.Drawing.Size(107, 23);
-            this.btnQuyDinh.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnQuyDinh.TabIndex = 2;
-            this.btnQuyDinh.Text = "Quy định năm học";
-            this.btnQuyDinh.Click += new System.EventHandler(this.btnQuyDinh_Click);
-            // 
             // frmNamHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 538);
             this.Controls.Add(this.tabControl1);
-            this.DoubleBuffered = true;
             this.Name = "frmNamHoc";
             this.Text = "QUẢN LÝ NĂM HỌC ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

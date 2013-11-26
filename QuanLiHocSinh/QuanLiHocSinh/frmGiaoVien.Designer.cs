@@ -170,15 +170,18 @@
             this.navigationPanePanel2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.navigationPanePanel2.Style.GradientAngle = 90;
             this.navigationPanePanel2.TabIndex = 3;
+            this.navigationPanePanel2.Click += new System.EventHandler(this.navigationPanePanel2_Click);
             // 
             // btnHuy
             // 
             this.btnHuy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Image = global::QuanLiHocSinh.Properties.Resources.Huybo;
             this.btnHuy.Location = new System.Drawing.Point(149, 295);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(73, 23);
-            this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnHuy.Size = new System.Drawing.Size(75, 30);
+            this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.btnHuy.TabIndex = 11;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
@@ -187,10 +190,12 @@
             // 
             this.btnDongY.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDongY.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnDongY.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDongY.Image = global::QuanLiHocSinh.Properties.Resources.Dongy;
             this.btnDongY.Location = new System.Drawing.Point(67, 295);
             this.btnDongY.Name = "btnDongY";
-            this.btnDongY.Size = new System.Drawing.Size(72, 23);
-            this.btnDongY.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnDongY.Size = new System.Drawing.Size(75, 30);
+            this.btnDongY.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.btnDongY.TabIndex = 10;
             this.btnDongY.Text = "Đồng ý";
             this.btnDongY.Click += new System.EventHandler(this.btnDongY_Click);
@@ -235,6 +240,10 @@
             // 
             // 
             // 
+            this.dtiNgaySinh.BackgroundStyle.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.dtiNgaySinh.BackgroundStyle.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.dtiNgaySinh.BackgroundStyle.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.dtiNgaySinh.BackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.dtiNgaySinh.BackgroundStyle.Class = "DateTimeInputBackground";
             this.dtiNgaySinh.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.dtiNgaySinh.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
@@ -290,17 +299,19 @@
             this.cboGioiTinh.Location = new System.Drawing.Point(107, 167);
             this.cboGioiTinh.Name = "cboGioiTinh";
             this.cboGioiTinh.Size = new System.Drawing.Size(59, 20);
-            this.cboGioiTinh.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cboGioiTinh.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.cboGioiTinh.TabIndex = 4;
             // 
             // btnSua
             // 
             this.btnSua.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnSua.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSua.Location = new System.Drawing.Point(198, 257);
+            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSua.Image = global::QuanLiHocSinh.Properties.Resources.Sua;
+            this.btnSua.Location = new System.Drawing.Point(176, 257);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(75, 23);
-            this.btnSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnSua.Size = new System.Drawing.Size(75, 30);
+            this.btnSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.btnSua.TabIndex = 9;
             this.btnSua.Text = "Sửa";
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
@@ -309,10 +320,12 @@
             // 
             this.btnXoa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnXoa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnXoa.Location = new System.Drawing.Point(107, 257);
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.Image = global::QuanLiHocSinh.Properties.Resources.Xoa;
+            this.btnXoa.Location = new System.Drawing.Point(95, 257);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(73, 23);
-            this.btnXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnXoa.Size = new System.Drawing.Size(75, 30);
+            this.btnXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.btnXoa.TabIndex = 8;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
@@ -321,10 +334,12 @@
             // 
             this.btnThem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnThem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Image = global::QuanLiHocSinh.Properties.Resources.Them;
             this.btnThem.Location = new System.Drawing.Point(14, 257);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(72, 23);
-            this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnThem.Size = new System.Drawing.Size(75, 30);
+            this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.btnThem.TabIndex = 7;
             this.btnThem.Text = "Thêm";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
@@ -383,6 +398,10 @@
             // 
             // 
             // 
+            this.txtDienThoai.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtDienThoai.Border.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtDienThoai.Border.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtDienThoai.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtDienThoai.Border.Class = "TextBoxBorder";
             this.txtDienThoai.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtDienThoai.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -400,6 +419,10 @@
             // 
             // 
             // 
+            this.txtDiaChi.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtDiaChi.Border.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtDiaChi.Border.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtDiaChi.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtDiaChi.Border.Class = "TextBoxBorder";
             this.txtDiaChi.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtDiaChi.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -416,6 +439,10 @@
             // 
             // 
             // 
+            this.txtTenGV.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtTenGV.Border.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtTenGV.Border.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtTenGV.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtTenGV.Border.Class = "TextBoxBorder";
             this.txtTenGV.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtTenGV.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -432,6 +459,10 @@
             // 
             // 
             // 
+            this.txtMaGV.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtMaGV.Border.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtMaGV.Border.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtMaGV.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtMaGV.Border.Class = "TextBoxBorder";
             this.txtMaGV.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtMaGV.Enabled = false;
@@ -853,7 +884,6 @@
             this.ClientSize = new System.Drawing.Size(1362, 538);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.navigationPane1);
-            this.DoubleBuffered = true;
             this.Name = "frmGiaoVien";
             this.Text = "QUẢN LÝ GIÁO VIÊN";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
