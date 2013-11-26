@@ -286,5 +286,10 @@ namespace QuanLiHocSinh
             }
             
         }
+
+        private void txtMaND_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -97,11 +97,13 @@
             // btnHuy
             // 
             this.btnHuy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Image = global::QuanLiHocSinh.Properties.Resources.Huybo;
             this.btnHuy.Location = new System.Drawing.Point(223, 143);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnHuy.Size = new System.Drawing.Size(85, 30);
+            this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.btnHuy.TabIndex = 4;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
@@ -109,11 +111,13 @@
             // btnDongY
             // 
             this.btnDongY.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnDongY.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnDongY.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
+            this.btnDongY.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDongY.Image = global::QuanLiHocSinh.Properties.Resources.Dongy;
             this.btnDongY.Location = new System.Drawing.Point(114, 143);
             this.btnDongY.Name = "btnDongY";
-            this.btnDongY.Size = new System.Drawing.Size(75, 23);
-            this.btnDongY.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnDongY.Size = new System.Drawing.Size(85, 30);
+            this.btnDongY.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.btnDongY.TabIndex = 4;
             this.btnDongY.Text = "Đồng ý";
             this.btnDongY.Click += new System.EventHandler(this.btnDongY_Click);
@@ -198,6 +202,10 @@
             // 
             // 
             // 
+            this.txtMkNhapLai.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtMkNhapLai.Border.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtMkNhapLai.Border.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtMkNhapLai.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtMkNhapLai.Border.Class = "TextBoxBorder";
             this.txtMkNhapLai.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtMkNhapLai.Location = new System.Drawing.Point(169, 95);
@@ -214,6 +222,10 @@
             // 
             // 
             // 
+            this.txtMkMoi.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtMkMoi.Border.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtMkMoi.Border.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtMkMoi.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtMkMoi.Border.Class = "TextBoxBorder";
             this.txtMkMoi.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtMkMoi.Location = new System.Drawing.Point(169, 55);
@@ -229,6 +241,10 @@
             // 
             // 
             // 
+            this.txtMkCu.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtMkCu.Border.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtMkCu.Border.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Double;
+            this.txtMkCu.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtMkCu.Border.Class = "TextBoxBorder";
             this.txtMkCu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtMkCu.Location = new System.Drawing.Point(169, 15);
@@ -245,7 +261,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(414, 223);
             this.Controls.Add(this.gPanelDoiMK);
-            this.DoubleBuffered = true;
             this.Name = "frmMatKhau";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ĐỔI MẬT KHẨU";
