@@ -58,7 +58,7 @@
             this.gPanelDangNhap.Controls.Add(this.txtMatKhau);
             this.gPanelDangNhap.Controls.Add(this.txtTenDN);
             this.gPanelDangNhap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gPanelDangNhap.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gPanelDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.gPanelDangNhap.Location = new System.Drawing.Point(0, 40);
             this.gPanelDangNhap.Name = "gPanelDangNhap";
             this.gPanelDangNhap.Size = new System.Drawing.Size(358, 155);
@@ -136,7 +136,7 @@
             this.btnHuyBo.BackColor = System.Drawing.SystemColors.Control;
             this.btnHuyBo.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
             this.btnHuyBo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnHuyBo.Location = new System.Drawing.Point(204, 95);
+            this.btnHuyBo.Location = new System.Drawing.Point(199, 95);
             this.btnHuyBo.Name = "btnHuyBo";
             this.btnHuyBo.Size = new System.Drawing.Size(75, 23);
             this.btnHuyBo.TabIndex = 4;
@@ -149,7 +149,7 @@
             this.btnDangNhap.BackColor = System.Drawing.SystemColors.Control;
             this.btnDangNhap.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
             this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnDangNhap.Location = new System.Drawing.Point(104, 95);
+            this.btnDangNhap.Location = new System.Drawing.Point(99, 95);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(75, 23);
             this.btnDangNhap.TabIndex = 3;
@@ -163,10 +163,10 @@
             // 
             // 
             this.lblPassword.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblPassword.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.lblPassword.Location = new System.Drawing.Point(61, 55);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(102, 23);
+            this.lblPassword.Size = new System.Drawing.Size(115, 23);
             this.lblPassword.TabIndex = 0;
             this.lblPassword.Text = "Mật khẩu:";
             this.lblPassword.TextAlignment = System.Drawing.StringAlignment.Far;
@@ -178,10 +178,10 @@
             // 
             // 
             this.lblUsername.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblUsername.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.lblUsername.Location = new System.Drawing.Point(61, 15);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(102, 23);
+            this.lblUsername.Size = new System.Drawing.Size(118, 23);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Tên đăng nhập:";
             this.lblUsername.TextAlignment = System.Drawing.StringAlignment.Far;
@@ -193,11 +193,11 @@
             // 
             this.txtMatKhau.Border.Class = "TextBoxBorder";
             this.txtMatKhau.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtMatKhau.Location = new System.Drawing.Point(169, 55);
+            this.txtMatKhau.Location = new System.Drawing.Point(182, 55);
             this.txtMatKhau.MaxLength = 30;
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '●';
-            this.txtMatKhau.Size = new System.Drawing.Size(160, 23);
+            this.txtMatKhau.Size = new System.Drawing.Size(160, 24);
             this.txtMatKhau.TabIndex = 2;
             this.txtMatKhau.WatermarkText = "Mật khẩu";
             this.txtMatKhau.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMatKhau_KeyDown);
@@ -211,10 +211,10 @@
             // 
             this.txtTenDN.Border.Class = "TextBoxBorder";
             this.txtTenDN.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtTenDN.Location = new System.Drawing.Point(169, 15);
+            this.txtTenDN.Location = new System.Drawing.Point(182, 15);
             this.txtTenDN.MaxLength = 30;
             this.txtTenDN.Name = "txtTenDN";
-            this.txtTenDN.Size = new System.Drawing.Size(160, 23);
+            this.txtTenDN.Size = new System.Drawing.Size(160, 24);
             this.txtTenDN.TabIndex = 1;
             this.txtTenDN.WatermarkText = "Tên đăng nhập";
             // 

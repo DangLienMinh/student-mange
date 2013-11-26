@@ -111,9 +111,9 @@
             // 
             this.btnHuy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnHuy.Image = global::QuanLiHocSinh.Properties.Resources.Huybo;
-            this.btnHuy.Location = new System.Drawing.Point(149, 234);
+            this.btnHuy.Location = new System.Drawing.Point(149, 259);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 30);
             this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -124,9 +124,9 @@
             // 
             this.btnTim.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnTim.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTim.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnTim.Image = global::QuanLiHocSinh.Properties.Resources.Timkiem;
-            this.btnTim.Location = new System.Drawing.Point(57, 234);
+            this.btnTim.Location = new System.Drawing.Point(57, 259);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 30);
             this.btnTim.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -152,10 +152,11 @@
             this.navigationPanePanel2.Controls.Add(this.btnHuy);
             this.navigationPanePanel2.Controls.Add(this.btnTim);
             this.navigationPanePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel2.Location = new System.Drawing.Point(1, 25);
+            this.navigationPanePanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.navigationPanePanel2.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel2.Name = "navigationPanePanel2";
             this.navigationPanePanel2.ParentItem = this.btnItemTimCB;
-            this.navigationPanePanel2.Size = new System.Drawing.Size(292, 410);
+            this.navigationPanePanel2.Size = new System.Drawing.Size(292, 536);
             this.navigationPanePanel2.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel2.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -176,9 +177,9 @@
             this.txtDanToc.Border.Class = "TextBoxBorder";
             this.txtDanToc.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtDanToc.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtDanToc.Location = new System.Drawing.Point(147, 137);
+            this.txtDanToc.Location = new System.Drawing.Point(147, 155);
             this.txtDanToc.Name = "txtDanToc";
-            this.txtDanToc.Size = new System.Drawing.Size(112, 20);
+            this.txtDanToc.Size = new System.Drawing.Size(112, 24);
             this.txtDanToc.TabIndex = 31;
             // 
             // txtTenHS
@@ -194,9 +195,9 @@
             this.txtTenHS.Border.Class = "TextBoxBorder";
             this.txtTenHS.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtTenHS.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtTenHS.Location = new System.Drawing.Point(147, 88);
+            this.txtTenHS.Location = new System.Drawing.Point(147, 100);
             this.txtTenHS.Name = "txtTenHS";
-            this.txtTenHS.Size = new System.Drawing.Size(112, 20);
+            this.txtTenHS.Size = new System.Drawing.Size(112, 24);
             this.txtTenHS.TabIndex = 31;
             // 
             // txtMaHS
@@ -212,9 +213,9 @@
             this.txtMaHS.Border.Class = "TextBoxBorder";
             this.txtMaHS.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtMaHS.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtMaHS.Location = new System.Drawing.Point(147, 39);
+            this.txtMaHS.Location = new System.Drawing.Point(147, 46);
             this.txtMaHS.Name = "txtMaHS";
-            this.txtMaHS.Size = new System.Drawing.Size(112, 20);
+            this.txtMaHS.Size = new System.Drawing.Size(112, 24);
             this.txtMaHS.TabIndex = 31;
             // 
             // dtiNgNhapHoc
@@ -234,7 +235,7 @@
             this.dtiNgNhapHoc.FieldNavigation = DevComponents.Editors.eInputFieldNavigation.None;
             this.dtiNgNhapHoc.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
             this.dtiNgNhapHoc.IsPopupCalendarOpen = false;
-            this.dtiNgNhapHoc.Location = new System.Drawing.Point(147, 185);
+            this.dtiNgNhapHoc.Location = new System.Drawing.Point(158, 215);
             // 
             // 
             // 
@@ -268,7 +269,7 @@
             this.dtiNgNhapHoc.MonthCalendar.TodayButtonVisible = true;
             this.dtiNgNhapHoc.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
             this.dtiNgNhapHoc.Name = "dtiNgNhapHoc";
-            this.dtiNgNhapHoc.Size = new System.Drawing.Size(112, 20);
+            this.dtiNgNhapHoc.Size = new System.Drawing.Size(129, 24);
             this.dtiNgNhapHoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.dtiNgNhapHoc.TabIndex = 30;
             // 
@@ -278,9 +279,9 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(52, 182);
+            this.labelX5.Location = new System.Drawing.Point(52, 212);
             this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(87, 23);
+            this.labelX5.Size = new System.Drawing.Size(115, 23);
             this.labelX5.TabIndex = 29;
             this.labelX5.Text = "Ngày nhập học:";
             // 
@@ -290,7 +291,7 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(52, 134);
+            this.labelX3.Location = new System.Drawing.Point(52, 152);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(75, 23);
             this.labelX3.TabIndex = 29;
@@ -302,9 +303,9 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(52, 85);
+            this.labelX1.Location = new System.Drawing.Point(52, 97);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(75, 23);
+            this.labelX1.Size = new System.Drawing.Size(103, 23);
             this.labelX1.TabIndex = 29;
             this.labelX1.Text = "Tên học sinh:";
             // 
@@ -314,20 +315,20 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(52, 36);
+            this.labelX2.Location = new System.Drawing.Point(52, 43);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(75, 23);
+            this.labelX2.Size = new System.Drawing.Size(89, 23);
             this.labelX2.TabIndex = 29;
             this.labelX2.Text = "Mã học sinh:";
             // 
             // optNgNhapHoc
             // 
             this.optNgNhapHoc.AutoSize = true;
-            this.optNgNhapHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.optNgNhapHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.optNgNhapHoc.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.optNgNhapHoc.Location = new System.Drawing.Point(27, 166);
+            this.optNgNhapHoc.Location = new System.Drawing.Point(27, 184);
             this.optNgNhapHoc.Name = "optNgNhapHoc";
-            this.optNgNhapHoc.Size = new System.Drawing.Size(140, 17);
+            this.optNgNhapHoc.Size = new System.Drawing.Size(184, 22);
             this.optNgNhapHoc.TabIndex = 18;
             this.optNgNhapHoc.TabStop = true;
             this.optNgNhapHoc.Text = "Tìm theo ngày nhập học";
@@ -337,11 +338,11 @@
             // optDanToc
             // 
             this.optDanToc.AutoSize = true;
-            this.optDanToc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.optDanToc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.optDanToc.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.optDanToc.Location = new System.Drawing.Point(27, 117);
+            this.optDanToc.Location = new System.Drawing.Point(27, 130);
             this.optDanToc.Name = "optDanToc";
-            this.optDanToc.Size = new System.Drawing.Size(105, 17);
+            this.optDanToc.Size = new System.Drawing.Size(137, 22);
             this.optDanToc.TabIndex = 18;
             this.optDanToc.TabStop = true;
             this.optDanToc.Text = "Tìm theo dân tộc";
@@ -351,11 +352,11 @@
             // optTenHS
             // 
             this.optTenHS.AutoSize = true;
-            this.optTenHS.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.optTenHS.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.optTenHS.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.optTenHS.Location = new System.Drawing.Point(27, 68);
+            this.optTenHS.Location = new System.Drawing.Point(27, 75);
             this.optTenHS.Name = "optTenHS";
-            this.optTenHS.Size = new System.Drawing.Size(127, 17);
+            this.optTenHS.Size = new System.Drawing.Size(168, 22);
             this.optTenHS.TabIndex = 18;
             this.optTenHS.TabStop = true;
             this.optTenHS.Text = "Tìm theo tên học sinh";
@@ -365,11 +366,11 @@
             // optMaHS
             // 
             this.optMaHS.AutoSize = true;
-            this.optMaHS.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.optMaHS.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.optMaHS.ForeColor = System.Drawing.Color.MediumSlateBlue;
             this.optMaHS.Location = new System.Drawing.Point(27, 19);
             this.optMaHS.Name = "optMaHS";
-            this.optMaHS.Size = new System.Drawing.Size(126, 17);
+            this.optMaHS.Size = new System.Drawing.Size(169, 22);
             this.optMaHS.TabIndex = 18;
             this.optMaHS.TabStop = true;
             this.optMaHS.Text = "Tìm theo mã học sinh";
@@ -379,7 +380,6 @@
             // btnItemTimCB
             // 
             this.btnItemTimCB.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemTimCB.Checked = true;
             this.btnItemTimCB.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTimCB.Image")));
             this.btnItemTimCB.Name = "btnItemTimCB";
             this.btnItemTimCB.OptionGroup = "navBar";
@@ -621,10 +621,11 @@
             this.navigationPanePanel1.Controls.Add(this.btnHuy1);
             this.navigationPanePanel1.Controls.Add(this.btnTim1);
             this.navigationPanePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
+            this.navigationPanePanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.navigationPanePanel1.Location = new System.Drawing.Point(1, 25);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemTimNC;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(292, 536);
+            this.navigationPanePanel1.Size = new System.Drawing.Size(292, 410);
             this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -635,9 +636,9 @@
             // optOr
             // 
             this.optOr.AutoSize = true;
-            this.optOr.Location = new System.Drawing.Point(208, 251);
+            this.optOr.Location = new System.Drawing.Point(210, 274);
             this.optOr.Name = "optOr";
-            this.optOr.Size = new System.Drawing.Size(41, 17);
+            this.optOr.Size = new System.Drawing.Size(49, 22);
             this.optOr.TabIndex = 0;
             this.optOr.TabStop = true;
             this.optOr.Text = "OR";
@@ -646,9 +647,9 @@
             // optAnd
             // 
             this.optAnd.AutoSize = true;
-            this.optAnd.Location = new System.Drawing.Point(146, 251);
+            this.optAnd.Location = new System.Drawing.Point(148, 274);
             this.optAnd.Name = "optAnd";
-            this.optAnd.Size = new System.Drawing.Size(48, 17);
+            this.optAnd.Size = new System.Drawing.Size(57, 22);
             this.optAnd.TabIndex = 0;
             this.optAnd.TabStop = true;
             this.optAnd.Text = "AND";
@@ -657,7 +658,7 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.optNgNhapHoc1);
-            this.panel4.Location = new System.Drawing.Point(15, 165);
+            this.panel4.Location = new System.Drawing.Point(15, 182);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(199, 22);
             this.panel4.TabIndex = 50;
@@ -665,11 +666,11 @@
             // optNgNhapHoc1
             // 
             this.optNgNhapHoc1.AutoSize = true;
-            this.optNgNhapHoc1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.optNgNhapHoc1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.optNgNhapHoc1.ForeColor = System.Drawing.Color.MediumSlateBlue;
             this.optNgNhapHoc1.Location = new System.Drawing.Point(12, 2);
             this.optNgNhapHoc1.Name = "optNgNhapHoc1";
-            this.optNgNhapHoc1.Size = new System.Drawing.Size(140, 17);
+            this.optNgNhapHoc1.Size = new System.Drawing.Size(184, 22);
             this.optNgNhapHoc1.TabIndex = 34;
             this.optNgNhapHoc1.TabStop = true;
             this.optNgNhapHoc1.Text = "Tìm theo ngày nhập học";
@@ -679,7 +680,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.optDanToc1);
-            this.panel3.Location = new System.Drawing.Point(15, 113);
+            this.panel3.Location = new System.Drawing.Point(15, 123);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(166, 26);
             this.panel3.TabIndex = 49;
@@ -687,11 +688,11 @@
             // optDanToc1
             // 
             this.optDanToc1.AutoSize = true;
-            this.optDanToc1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.optDanToc1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.optDanToc1.ForeColor = System.Drawing.Color.MediumSlateBlue;
             this.optDanToc1.Location = new System.Drawing.Point(14, 6);
             this.optDanToc1.Name = "optDanToc1";
-            this.optDanToc1.Size = new System.Drawing.Size(105, 17);
+            this.optDanToc1.Size = new System.Drawing.Size(137, 22);
             this.optDanToc1.TabIndex = 35;
             this.optDanToc1.TabStop = true;
             this.optDanToc1.Text = "Tìm theo dân tộc";
@@ -701,7 +702,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.optTenHS1);
-            this.panel2.Location = new System.Drawing.Point(15, 64);
+            this.panel2.Location = new System.Drawing.Point(15, 70);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(187, 23);
             this.panel2.TabIndex = 48;
@@ -709,11 +710,11 @@
             // optTenHS1
             // 
             this.optTenHS1.AutoSize = true;
-            this.optTenHS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.optTenHS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.optTenHS1.ForeColor = System.Drawing.Color.MediumSlateBlue;
             this.optTenHS1.Location = new System.Drawing.Point(14, 3);
             this.optTenHS1.Name = "optTenHS1";
-            this.optTenHS1.Size = new System.Drawing.Size(127, 17);
+            this.optTenHS1.Size = new System.Drawing.Size(168, 22);
             this.optTenHS1.TabIndex = 36;
             this.optTenHS1.TabStop = true;
             this.optTenHS1.Text = "Tìm theo tên học sinh";
@@ -725,17 +726,17 @@
             this.panel1.Controls.Add(this.optMaHS1);
             this.panel1.Location = new System.Drawing.Point(15, 18);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(156, 23);
+            this.panel1.Size = new System.Drawing.Size(196, 24);
             this.panel1.TabIndex = 47;
             // 
             // optMaHS1
             // 
             this.optMaHS1.AutoSize = true;
-            this.optMaHS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.optMaHS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.optMaHS1.ForeColor = System.Drawing.Color.MediumSlateBlue;
             this.optMaHS1.Location = new System.Drawing.Point(14, 3);
             this.optMaHS1.Name = "optMaHS1";
-            this.optMaHS1.Size = new System.Drawing.Size(126, 17);
+            this.optMaHS1.Size = new System.Drawing.Size(169, 22);
             this.optMaHS1.TabIndex = 37;
             this.optMaHS1.TabStop = true;
             this.optMaHS1.Text = "Tìm theo mã học sinh";
@@ -751,9 +752,9 @@
             this.txtDanToc1.Border.Class = "TextBoxBorder";
             this.txtDanToc1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtDanToc1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtDanToc1.Location = new System.Drawing.Point(147, 139);
+            this.txtDanToc1.Location = new System.Drawing.Point(147, 153);
             this.txtDanToc1.Name = "txtDanToc1";
-            this.txtDanToc1.Size = new System.Drawing.Size(112, 20);
+            this.txtDanToc1.Size = new System.Drawing.Size(112, 24);
             this.txtDanToc1.TabIndex = 43;
             // 
             // txtTenHS1
@@ -765,9 +766,9 @@
             this.txtTenHS1.Border.Class = "TextBoxBorder";
             this.txtTenHS1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtTenHS1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtTenHS1.Location = new System.Drawing.Point(147, 90);
+            this.txtTenHS1.Location = new System.Drawing.Point(147, 97);
             this.txtTenHS1.Name = "txtTenHS1";
-            this.txtTenHS1.Size = new System.Drawing.Size(112, 20);
+            this.txtTenHS1.Size = new System.Drawing.Size(112, 24);
             this.txtTenHS1.TabIndex = 44;
             // 
             // txtMaHS1
@@ -779,9 +780,9 @@
             this.txtMaHS1.Border.Class = "TextBoxBorder";
             this.txtMaHS1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtMaHS1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtMaHS1.Location = new System.Drawing.Point(147, 41);
+            this.txtMaHS1.Location = new System.Drawing.Point(147, 44);
             this.txtMaHS1.Name = "txtMaHS1";
-            this.txtMaHS1.Size = new System.Drawing.Size(112, 20);
+            this.txtMaHS1.Size = new System.Drawing.Size(112, 24);
             this.txtMaHS1.TabIndex = 45;
             // 
             // dtiNgNhapHoc1
@@ -796,7 +797,7 @@
             this.dtiNgNhapHoc1.CustomFormat = "dd/MM/yyyy";
             this.dtiNgNhapHoc1.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
             this.dtiNgNhapHoc1.IsPopupCalendarOpen = false;
-            this.dtiNgNhapHoc1.Location = new System.Drawing.Point(147, 187);
+            this.dtiNgNhapHoc1.Location = new System.Drawing.Point(147, 210);
             // 
             // 
             // 
@@ -830,7 +831,7 @@
             this.dtiNgNhapHoc1.MonthCalendar.TodayButtonVisible = true;
             this.dtiNgNhapHoc1.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
             this.dtiNgNhapHoc1.Name = "dtiNgNhapHoc1";
-            this.dtiNgNhapHoc1.Size = new System.Drawing.Size(112, 20);
+            this.dtiNgNhapHoc1.Size = new System.Drawing.Size(112, 24);
             this.dtiNgNhapHoc1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.dtiNgNhapHoc1.TabIndex = 42;
             // 
@@ -840,9 +841,9 @@
             // 
             // 
             this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(52, 248);
+            this.labelX9.Location = new System.Drawing.Point(27, 274);
             this.labelX9.Name = "labelX9";
-            this.labelX9.Size = new System.Drawing.Size(87, 23);
+            this.labelX9.Size = new System.Drawing.Size(112, 23);
             this.labelX9.TabIndex = 38;
             this.labelX9.Text = "Điều kiện tìm:";
             // 
@@ -852,9 +853,9 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(52, 184);
+            this.labelX4.Location = new System.Drawing.Point(40, 210);
             this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(87, 23);
+            this.labelX4.Size = new System.Drawing.Size(115, 23);
             this.labelX4.TabIndex = 38;
             this.labelX4.Text = "Ngày nhập học:";
             // 
@@ -864,9 +865,9 @@
             // 
             // 
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(52, 136);
+            this.labelX6.Location = new System.Drawing.Point(40, 153);
             this.labelX6.Name = "labelX6";
-            this.labelX6.Size = new System.Drawing.Size(75, 23);
+            this.labelX6.Size = new System.Drawing.Size(87, 23);
             this.labelX6.TabIndex = 39;
             this.labelX6.Text = "Dân tộc:";
             // 
@@ -876,9 +877,9 @@
             // 
             // 
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(52, 87);
+            this.labelX7.Location = new System.Drawing.Point(40, 97);
             this.labelX7.Name = "labelX7";
-            this.labelX7.Size = new System.Drawing.Size(75, 23);
+            this.labelX7.Size = new System.Drawing.Size(101, 23);
             this.labelX7.TabIndex = 40;
             this.labelX7.Text = "Tên học sinh:";
             // 
@@ -888,9 +889,9 @@
             // 
             // 
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(52, 38);
+            this.labelX8.Location = new System.Drawing.Point(40, 44);
             this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(75, 23);
+            this.labelX8.Size = new System.Drawing.Size(87, 23);
             this.labelX8.TabIndex = 41;
             this.labelX8.Text = "Mã học sinh:";
             // 
@@ -898,7 +899,8 @@
             // 
             this.btnHuy1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnHuy1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnHuy1.Location = new System.Drawing.Point(158, 293);
+            this.btnHuy1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnHuy1.Location = new System.Drawing.Point(155, 313);
             this.btnHuy1.Name = "btnHuy1";
             this.btnHuy1.Size = new System.Drawing.Size(73, 23);
             this.btnHuy1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -909,7 +911,8 @@
             // 
             this.btnTim1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnTim1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTim1.Location = new System.Drawing.Point(66, 293);
+            this.btnTim1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnTim1.Location = new System.Drawing.Point(63, 313);
             this.btnTim1.Name = "btnTim1";
             this.btnTim1.Size = new System.Drawing.Size(72, 23);
             this.btnTim1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -920,6 +923,7 @@
             // btnItemTimNC
             // 
             this.btnItemTimNC.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemTimNC.Checked = true;
             this.btnItemTimNC.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTimNC.Image")));
             this.btnItemTimNC.Name = "btnItemTimNC";
             this.btnItemTimNC.OptionGroup = "navBar";
@@ -928,8 +932,8 @@
             // navigationPane1
             // 
             this.navigationPane1.CanCollapse = true;
-            this.navigationPane1.Controls.Add(this.navigationPanePanel2);
             this.navigationPane1.Controls.Add(this.navigationPanePanel1);
+            this.navigationPane1.Controls.Add(this.navigationPanePanel2);
             this.navigationPane1.Dock = System.Windows.Forms.DockStyle.Left;
             this.navigationPane1.ItemPaddingBottom = 2;
             this.navigationPane1.ItemPaddingTop = 2;
@@ -961,7 +965,7 @@
             this.navigationPane1.TitlePanel.Style.GradientAngle = 90;
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
-            this.navigationPane1.TitlePanel.Text = "Tìm kiếm căn bản";
+            this.navigationPane1.TitlePanel.Text = "Tìm kiếm nâng cao";
             // 
             // frmTimHocSinh
             // 
