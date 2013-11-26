@@ -104,7 +104,7 @@
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(85, 30);
             this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
-            this.btnHuy.TabIndex = 4;
+            this.btnHuy.TabIndex = 5;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -261,6 +261,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(414, 223);
             this.Controls.Add(this.gPanelDoiMK);
+            this.DoubleBuffered = true;
             this.Name = "frmMatKhau";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ĐỔI MẬT KHẨU";

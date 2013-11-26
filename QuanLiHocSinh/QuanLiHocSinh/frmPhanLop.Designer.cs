@@ -42,10 +42,6 @@
             this.cboNamHocCu1 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX12 = new DevComponents.DotNetBar.LabelX();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnThoat1 = new DevComponents.DotNetBar.ButtonX();
-            this.btnLuu1 = new DevComponents.DotNetBar.ButtonX();
-            this.btnXoa1 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.lstLopMoi1 = new DevComponents.DotNetBar.Controls.ListViewEx();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -90,6 +86,10 @@
             this.cboNamHocMoi = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.tabItem2 = new DevComponents.DotNetBar.TabItem(this.components);
+            this.btnThoat1 = new DevComponents.DotNetBar.ButtonX();
+            this.btnLuu1 = new DevComponents.DotNetBar.ButtonX();
+            this.btnXoa1 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabControlPanel1.SuspendLayout();
@@ -302,54 +302,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(70, 510);
             this.panel1.TabIndex = 3;
-            // 
-            // btnThoat1
-            // 
-            this.btnThoat1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnThoat1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnThoat1.Location = new System.Drawing.Point(13, 217);
-            this.btnThoat1.Name = "btnThoat1";
-            this.btnThoat1.Size = new System.Drawing.Size(43, 47);
-            this.btnThoat1.TabIndex = 3;
-            this.btnThoat1.Text = "Thoát";
-            this.btnThoat1.Tooltip = "Đóng bảng phân lớp";
-            this.btnThoat1.Click += new System.EventHandler(this.btnThoat1_Click);
-            // 
-            // btnLuu1
-            // 
-            this.btnLuu1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnLuu1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnLuu1.Location = new System.Drawing.Point(13, 153);
-            this.btnLuu1.Name = "btnLuu1";
-            this.btnLuu1.Size = new System.Drawing.Size(43, 46);
-            this.btnLuu1.TabIndex = 3;
-            this.btnLuu1.Text = "Lưu";
-            this.btnLuu1.Tooltip = "Lưu bảng phân lớp";
-            this.btnLuu1.Click += new System.EventHandler(this.btnLuu1_Click);
-            // 
-            // btnXoa1
-            // 
-            this.btnXoa1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnXoa1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnXoa1.Location = new System.Drawing.Point(13, 88);
-            this.btnXoa1.Name = "btnXoa1";
-            this.btnXoa1.Size = new System.Drawing.Size(43, 46);
-            this.btnXoa1.TabIndex = 2;
-            this.btnXoa1.Text = "Hủy";
-            this.btnXoa1.Tooltip = "Xóa học sinh khỏi lớp mới";
-            this.btnXoa1.Click += new System.EventHandler(this.btnXoa1_Click);
-            // 
-            // buttonX2
-            // 
-            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX2.Location = new System.Drawing.Point(13, 28);
-            this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(43, 37);
-            this.buttonX2.TabIndex = 1;
-            this.buttonX2.Text = "Chuyển";
-            this.buttonX2.Tooltip = "Chuyển lớp";
-            this.buttonX2.Click += new System.EventHandler(this.btnChuyen1);
             // 
             // lstLopMoi1
             // 
@@ -747,11 +699,11 @@
             // 
             this.btnThoat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnThoat.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnThoat.Image = global::QuanLiHocSinh.Properties.Resources.closephanlop;
             this.btnThoat.Location = new System.Drawing.Point(12, 217);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(43, 47);
             this.btnThoat.TabIndex = 3;
-            this.btnThoat.Text = "Thoát";
             this.btnThoat.Tooltip = "Đóng bảng phân lớp";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
@@ -759,11 +711,11 @@
             // 
             this.btnLuu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnLuu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnLuu.Image = global::QuanLiHocSinh.Properties.Resources.luuchuyenlop;
             this.btnLuu.Location = new System.Drawing.Point(12, 153);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(43, 46);
             this.btnLuu.TabIndex = 3;
-            this.btnLuu.Text = "Lưu";
             this.btnLuu.Tooltip = "Lưu bảng phân lớp";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
@@ -771,11 +723,11 @@
             // 
             this.btnXoa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnXoa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnXoa.Image = global::QuanLiHocSinh.Properties.Resources.xoachuyenlop;
             this.btnXoa.Location = new System.Drawing.Point(12, 88);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(43, 46);
             this.btnXoa.TabIndex = 2;
-            this.btnXoa.Text = "Hủy";
             this.btnXoa.Tooltip = "Xóa học sinh khỏi lớp mới";
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
@@ -783,11 +735,11 @@
             // 
             this.btnChuyen.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnChuyen.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnChuyen.Image = global::QuanLiHocSinh.Properties.Resources.chuyenlop;
             this.btnChuyen.Location = new System.Drawing.Point(12, 28);
             this.btnChuyen.Name = "btnChuyen";
-            this.btnChuyen.Size = new System.Drawing.Size(43, 37);
+            this.btnChuyen.Size = new System.Drawing.Size(43, 50);
             this.btnChuyen.TabIndex = 1;
-            this.btnChuyen.Text = "Chuyển";
             this.btnChuyen.Tooltip = "Chuyển lớp";
             this.btnChuyen.Click += new System.EventHandler(this.btnChuyen_Click);
             // 
@@ -955,6 +907,54 @@
             this.tabItem2.AttachedControl = this.tabControlPanel2;
             this.tabItem2.Name = "tabItem2";
             this.tabItem2.Text = "Phân lớp học sinh cũ";
+            // 
+            // btnThoat1
+            // 
+            this.btnThoat1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnThoat1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnThoat1.Image = global::QuanLiHocSinh.Properties.Resources.closephanlop;
+            this.btnThoat1.Location = new System.Drawing.Point(13, 217);
+            this.btnThoat1.Name = "btnThoat1";
+            this.btnThoat1.Size = new System.Drawing.Size(43, 47);
+            this.btnThoat1.TabIndex = 3;
+            this.btnThoat1.Tooltip = "Đóng bảng phân lớp";
+            this.btnThoat1.Click += new System.EventHandler(this.btnThoat1_Click);
+            // 
+            // btnLuu1
+            // 
+            this.btnLuu1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnLuu1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnLuu1.Image = global::QuanLiHocSinh.Properties.Resources.luuchuyenlop;
+            this.btnLuu1.Location = new System.Drawing.Point(13, 153);
+            this.btnLuu1.Name = "btnLuu1";
+            this.btnLuu1.Size = new System.Drawing.Size(43, 46);
+            this.btnLuu1.TabIndex = 3;
+            this.btnLuu1.Tooltip = "Lưu bảng phân lớp";
+            this.btnLuu1.Click += new System.EventHandler(this.btnLuu1_Click);
+            // 
+            // btnXoa1
+            // 
+            this.btnXoa1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnXoa1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnXoa1.Image = global::QuanLiHocSinh.Properties.Resources.xoachuyenlop;
+            this.btnXoa1.Location = new System.Drawing.Point(13, 88);
+            this.btnXoa1.Name = "btnXoa1";
+            this.btnXoa1.Size = new System.Drawing.Size(43, 46);
+            this.btnXoa1.TabIndex = 2;
+            this.btnXoa1.Tooltip = "Xóa học sinh khỏi lớp mới";
+            this.btnXoa1.Click += new System.EventHandler(this.btnXoa1_Click);
+            // 
+            // buttonX2
+            // 
+            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX2.Image = global::QuanLiHocSinh.Properties.Resources.chuyenlop;
+            this.buttonX2.Location = new System.Drawing.Point(13, 28);
+            this.buttonX2.Name = "buttonX2";
+            this.buttonX2.Size = new System.Drawing.Size(43, 50);
+            this.buttonX2.TabIndex = 1;
+            this.buttonX2.Tooltip = "Chuyển lớp";
+            this.buttonX2.Click += new System.EventHandler(this.btnChuyen1);
             // 
             // frmPhanLop
             // 

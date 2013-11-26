@@ -51,10 +51,9 @@ namespace QuanLiHocSinh
         private void mainFormStart()
         {
            frmMain main=new frmMain();
-           
-            Application.Run(main);
-            
-            
+           //main.ShowDialog();
+           //main.Show();
+            Application.Run(main); 
         }
 
         //run main Form trong thread moi doc lap voi thread chinh

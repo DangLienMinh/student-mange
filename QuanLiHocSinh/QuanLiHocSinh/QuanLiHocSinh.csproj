@@ -327,6 +327,7 @@
       <DependentUpon>QuanLyHocSinh1.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="resources\xoachuyenlop.png" />
     <None Include="resources\Xoa.ico" />
     <None Include="resources\39.png" />
     <None Include="resources\348527.png" />
@@ -339,10 +340,12 @@
     <Content Include="resources\cal-ico copy.png" />
     <Content Include="resources\Calendar-icon.png" />
     <None Include="resources\Chonanh.ico" />
+    <None Include="resources\chuyenlop.png" />
     <Content Include="resources\class.png" />
     <Content Include="resources\classroom.jpg" />
     <Content Include="resources\classroom_icon.png" />
     <Content Include="resources\class_room_icon.jpg" />
+    <None Include="resources\closephanlop.png" />
     <Content Include="resources\DangXuat.png" />
     <None Include="resources\danhsach.ico" />
     <None Include="resources\delete.png" />
@@ -362,6 +365,7 @@
     <None Include="resources\Luulai.ico" />
     <None Include="resources\line_right.png" />
     <None Include="resources\line_horizal.png" />
+    <None Include="resources\luuchuyenlop.png" />
     <Content Include="resources\notus-icon.png" />
     <None Include="resources\phuchoi.png" />
     <Content Include="resources\picture1_02.gif" />
@@ -371,6 +375,7 @@
     <None Include="resources\saoluu.png" />
     <None Include="resources\save.png" />
     <None Include="resources\refresh.png" />
+    <None Include="resources\report1.png" />
     <Content Include="resources\school.png" />
     <Content Include="resources\Search-Male-User.png" />
     <Content Include="resources\Search.png" />

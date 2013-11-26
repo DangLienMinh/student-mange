@@ -163,6 +163,16 @@ namespace QuanLiHocSinh.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap chuyenlop {
+            get {
+                object obj = ResourceManager.GetObject("chuyenlop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap classroom {
             get {
                 object obj = ResourceManager.GetObject("classroom", resourceCulture);
@@ -176,6 +186,16 @@ namespace QuanLiHocSinh.Properties {
         internal static System.Drawing.Bitmap classroom_icon {
             get {
                 object obj = ResourceManager.GetObject("classroom_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap closephanlop {
+            get {
+                object obj = ResourceManager.GetObject("closephanlop", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,6 +333,16 @@ namespace QuanLiHocSinh.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap luuchuyenlop {
+            get {
+                object obj = ResourceManager.GetObject("luuchuyenlop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Luulai {
             get {
                 object obj = ResourceManager.GetObject("Luulai", resourceCulture);
@@ -346,6 +376,16 @@ namespace QuanLiHocSinh.Properties {
         internal static System.Drawing.Bitmap refresh {
             get {
                 object obj = ResourceManager.GetObject("refresh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap report1 {
+            get {
+                object obj = ResourceManager.GetObject("report1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -606,6 +646,16 @@ namespace QuanLiHocSinh.Properties {
         internal static System.Drawing.Bitmap Xoa {
             get {
                 object obj = ResourceManager.GetObject("Xoa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap xoachuyenlop {
+            get {
+                object obj = ResourceManager.GetObject("xoachuyenlop", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
