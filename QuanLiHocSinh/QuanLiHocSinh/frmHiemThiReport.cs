@@ -15,6 +15,7 @@ namespace QuanLiHocSinh
     public partial class frmHiemThiReport : DevComponents.DotNetBar.Office2007Form
     {
         private clsLOP_BUS lop_BUS;
+        private clsGIAOVIEN_BUS giaoVien_BUS;
         string query = "";
         private string rptName;
       
@@ -24,14 +25,24 @@ namespace QuanLiHocSinh
             this.query = query;
             InitializeComponent();
             lop_BUS = new clsLOP_BUS();
+            giaoVien_BUS = new clsGIAOVIEN_BUS();
             this.rptName = rptName;
             this.query = query;
+        }
+
+        public frmHiemThiReport(string rptName)
+        {
+            InitializeComponent();
+            lop_BUS = new clsLOP_BUS();
+            giaoVien_BUS = new clsGIAOVIEN_BUS();
+            this.rptName = rptName;
         }
 
         public frmHiemThiReport()
         {
             InitializeComponent();
-            lop_BUS = new clsLOP_BUS();
+            //lop_BUS = new clsLOP_BUS();
+            //giaoVien_BUS = new clsGIAOVIEN_BUS();
         }
 
         private void frmHiemThiReport_Load(object sender, EventArgs e)
@@ -49,6 +60,16 @@ namespace QuanLiHocSinh
                             document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSLop.rpt");
                             document.SetDataSource(ds.Tables["Lop"].Select(query).CopyToDataTable());
  
+                        }
+                        break;
+                    case "frmDSGiaoVien":
+                        {
+                            DataSet ds = giaoVien_BUS.reportDanhSachGiaoVien();
+                            ds.WriteXmlSchema(Application.StartupPath + @"\DSGiaoVien.xsd");
+
+                            document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSGiaoVien.rpt");
+                            document.SetDataSource(ds.Tables["GiaoVien"].Select(query).CopyToDataTable());
+
                         }
                         break;
                     default:

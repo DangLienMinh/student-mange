@@ -18,6 +18,18 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
+        public DataSet reportDanhSachGiaoVien()
+        {
+            connection.kiemTraKetNoi(con);
+            DataSet ds = new DataSet();
+            SqlCommand command = new SqlCommand("SP_ReportDSGiaoVien", con);
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(ds, "GiaoVien");
+            con.Close();
+            return ds;
+        }
+
         public DataTable danhSachGiaoVien()
         {
             DataTable table = new DataTable();

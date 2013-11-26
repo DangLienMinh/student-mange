@@ -33,5 +33,11 @@ namespace QuanLiHocSinh
                 hien.Show();
             }
         }
+
+        private void btnInDSGiaoVien_Click(object sender, EventArgs e)
+        {
+            frmHiemThiReport hien = new frmHiemThiReport("frmDSGiaoVien");
+            hien.Show();
+        }
     }
 }
