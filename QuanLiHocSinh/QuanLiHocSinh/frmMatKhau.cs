@@ -34,5 +34,7 @@ namespace QuanLiHocSinh
                 this.DialogResult = DialogResult.OK;
             }
         }
+
+
     }
 }
