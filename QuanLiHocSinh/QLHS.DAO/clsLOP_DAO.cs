@@ -18,6 +18,18 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
+        public DataSet reportDanhSachLop()
+        {
+            connection.kiemTraKetNoi(con);
+            DataSet ds = new DataSet();
+            SqlCommand command = new SqlCommand("SP_ReportDSLop", con);
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(ds, "Lop");
+            con.Close();
+            return ds;
+        }
+
         public DataTable danhSachLop()
         {
             connection.kiemTraKetNoi(con);
@@ -30,17 +42,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        public DataSet reportDanhSachLop()
-        {
-            connection.kiemTraKetNoi(con);
-            DataSet ds = new DataSet();
-            SqlCommand command = new SqlCommand("SP_ReportDSLop", con);
-            command.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            adapter.Fill(ds,"Lop");
-            con.Close();
-            return ds;
-        }
+        
 
         public DataTable danhSachLop(string maHS,string maNH)
         {

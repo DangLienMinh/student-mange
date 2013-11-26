@@ -27,6 +27,11 @@ namespace QLHS.BUS
             giaoVien_DAO = new clsGIAOVIEN_DAO();
         }
 
+        public DataSet reportDanhSachLop()
+        {
+            return lop_DAO.reportDanhSachLop();
+        }
+
         public void cboGiaoVienChuNhiem(ComboBoxEx comboBox)
         {
             comboBox.DataSource = giaoVien_DAO.danhSachGiaoVien();
@@ -138,10 +143,7 @@ namespace QLHS.BUS
             }
         }
 
-        public DataSet reportDanhSachLop()
-        {
-            return lop_DAO.reportDanhSachLop();
-        }
+       
 
         //public void taiLaiDataGrid(DataGridViewX grdLop, DataTable dsLop)
         //{

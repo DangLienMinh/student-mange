@@ -23,6 +23,11 @@ namespace QLHS.BUS
             tblGiaoVien = new DataTable();
         }
 
+        public DataSet reportDanhSachGiaoVien()
+        {
+            return giaoVien_DAO.reportDanhSachGiaoVien();
+        }
+
         public void hienThiComboBox(ComboBoxEx comboBox)
         {
             comboBox.Items.Add("Nam");

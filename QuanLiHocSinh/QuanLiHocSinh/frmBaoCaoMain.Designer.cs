@@ -61,7 +61,7 @@
             this.labelX13 = new DevComponents.DotNetBar.LabelX();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.groupPanel7 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
+            this.btnInDSGiaoVien = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel5 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.btnInDSLop = new DevComponents.DotNetBar.ButtonX();
             this.cboNamHocDSLop = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -721,7 +721,7 @@
             // 
             this.groupPanel7.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel7.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel7.Controls.Add(this.buttonX3);
+            this.groupPanel7.Controls.Add(this.btnInDSGiaoVien);
             this.groupPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupPanel7.Location = new System.Drawing.Point(0, 397);
             this.groupPanel7.Name = "groupPanel7";
@@ -757,16 +757,17 @@
             this.groupPanel7.TabIndex = 1;
             this.groupPanel7.Text = "Danh sách giáo viên";
             // 
-            // buttonX3
+            // btnInDSGiaoVien
             // 
-            this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX3.Location = new System.Drawing.Point(150, 30);
-            this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(75, 23);
-            this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX3.TabIndex = 45;
-            this.buttonX3.Text = "In";
+            this.btnInDSGiaoVien.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnInDSGiaoVien.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnInDSGiaoVien.Location = new System.Drawing.Point(150, 30);
+            this.btnInDSGiaoVien.Name = "btnInDSGiaoVien";
+            this.btnInDSGiaoVien.Size = new System.Drawing.Size(75, 23);
+            this.btnInDSGiaoVien.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnInDSGiaoVien.TabIndex = 45;
+            this.btnInDSGiaoVien.Text = "In";
+            this.btnInDSGiaoVien.Click += new System.EventHandler(this.btnInDSGiaoVien_Click);
             // 
             // groupPanel5
             // 
@@ -1018,7 +1019,7 @@
         private DevComponents.DotNetBar.Controls.ComboBoxEx cboNamHoc;
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel7;
-        private DevComponents.DotNetBar.ButtonX buttonX3;
+        private DevComponents.DotNetBar.ButtonX btnInDSGiaoVien;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel10;
         private DevComponents.DotNetBar.ButtonX buttonX6;
         private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx4;
