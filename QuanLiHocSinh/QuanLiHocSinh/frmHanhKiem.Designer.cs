@@ -214,7 +214,7 @@
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdHanhKiemChung.DefaultCellStyle = dataGridViewCellStyle3;
             this.grdHanhKiemChung.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -410,7 +410,7 @@
             this.navigationPanePanel1.Controls.Add(this.labelX2);
             this.navigationPanePanel1.Controls.Add(this.labelX1);
             this.navigationPanePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.navigationPanePanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.navigationPanePanel1.Location = new System.Drawing.Point(1, 25);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemNhapLop;
@@ -460,7 +460,7 @@
             // 
             this.treKhoi.BackgroundStyle.Class = "TreeBorderKey";
             this.treKhoi.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.treKhoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.treKhoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.treKhoi.Location = new System.Drawing.Point(18, 138);
             this.treKhoi.Name = "treKhoi";
             this.treKhoi.NodesConnector = this.nodeConnector2;
@@ -488,7 +488,7 @@
             // 
             // 
             this.lblchonlop.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblchonlop.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblchonlop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblchonlop.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblchonlop.Location = new System.Drawing.Point(19, 113);
             this.lblchonlop.Name = "lblchonlop";
@@ -502,10 +502,10 @@
             this.cboHocKy.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboHocKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboHocKy.FormattingEnabled = true;
-            this.cboHocKy.ItemHeight = 18;
+            this.cboHocKy.ItemHeight = 15;
             this.cboHocKy.Location = new System.Drawing.Point(18, 83);
             this.cboHocKy.Name = "cboHocKy";
-            this.cboHocKy.Size = new System.Drawing.Size(148, 24);
+            this.cboHocKy.Size = new System.Drawing.Size(148, 21);
             this.cboHocKy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.cboHocKy.TabIndex = 29;
             // 
@@ -515,10 +515,10 @@
             this.cboNamHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboNamHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNamHoc.FormattingEnabled = true;
-            this.cboNamHoc.ItemHeight = 18;
+            this.cboNamHoc.ItemHeight = 15;
             this.cboNamHoc.Location = new System.Drawing.Point(18, 29);
             this.cboNamHoc.Name = "cboNamHoc";
-            this.cboNamHoc.Size = new System.Drawing.Size(148, 24);
+            this.cboNamHoc.Size = new System.Drawing.Size(148, 21);
             this.cboNamHoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.cboNamHoc.TabIndex = 29;
             this.cboNamHoc.SelectedValueChanged += new System.EventHandler(this.cboNamHoc_SelectedValueChanged);
@@ -589,7 +589,7 @@
             this.navigationPanePanel3.Controls.Add(this.labelX3);
             this.navigationPanePanel3.Controls.Add(this.labelX4);
             this.navigationPanePanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.navigationPanePanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.navigationPanePanel3.Location = new System.Drawing.Point(1, 25);
             this.navigationPanePanel3.Name = "navigationPanePanel3";
             this.navigationPanePanel3.ParentItem = this.btnItemNhapHS;
@@ -607,10 +607,10 @@
             this.cboHanhKiem1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboHanhKiem1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboHanhKiem1.FormattingEnabled = true;
-            this.cboHanhKiem1.ItemHeight = 18;
+            this.cboHanhKiem1.ItemHeight = 15;
             this.cboHanhKiem1.Location = new System.Drawing.Point(15, 239);
             this.cboHanhKiem1.Name = "cboHanhKiem1";
-            this.cboHanhKiem1.Size = new System.Drawing.Size(174, 24);
+            this.cboHanhKiem1.Size = new System.Drawing.Size(174, 21);
             this.cboHanhKiem1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.cboHanhKiem1.TabIndex = 3;
             // 
@@ -620,10 +620,10 @@
             this.cboHocSinh1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboHocSinh1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboHocSinh1.FormattingEnabled = true;
-            this.cboHocSinh1.ItemHeight = 18;
+            this.cboHocSinh1.ItemHeight = 15;
             this.cboHocSinh1.Location = new System.Drawing.Point(15, 187);
             this.cboHocSinh1.Name = "cboHocSinh1";
-            this.cboHocSinh1.Size = new System.Drawing.Size(174, 24);
+            this.cboHocSinh1.Size = new System.Drawing.Size(174, 21);
             this.cboHocSinh1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.cboHocSinh1.TabIndex = 3;
             // 
@@ -633,10 +633,10 @@
             this.cboNamHoc1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboNamHoc1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNamHoc1.FormattingEnabled = true;
-            this.cboNamHoc1.ItemHeight = 18;
+            this.cboNamHoc1.ItemHeight = 15;
             this.cboNamHoc1.Location = new System.Drawing.Point(15, 28);
             this.cboNamHoc1.Name = "cboNamHoc1";
-            this.cboNamHoc1.Size = new System.Drawing.Size(174, 24);
+            this.cboNamHoc1.Size = new System.Drawing.Size(174, 21);
             this.cboNamHoc1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.cboNamHoc1.TabIndex = 3;
             this.cboNamHoc1.SelectedValueChanged += new System.EventHandler(this.cboNamHoc1_SelectedValueChanged);
@@ -647,10 +647,10 @@
             this.cboHocKy1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboHocKy1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboHocKy1.FormattingEnabled = true;
-            this.cboHocKy1.ItemHeight = 18;
+            this.cboHocKy1.ItemHeight = 15;
             this.cboHocKy1.Location = new System.Drawing.Point(15, 81);
             this.cboHocKy1.Name = "cboHocKy1";
-            this.cboHocKy1.Size = new System.Drawing.Size(174, 24);
+            this.cboHocKy1.Size = new System.Drawing.Size(174, 21);
             this.cboHocKy1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.cboHocKy1.TabIndex = 3;
             // 
@@ -660,10 +660,10 @@
             this.cboLop1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboLop1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLop1.FormattingEnabled = true;
-            this.cboLop1.ItemHeight = 18;
+            this.cboLop1.ItemHeight = 15;
             this.cboLop1.Location = new System.Drawing.Point(15, 135);
             this.cboLop1.Name = "cboLop1";
-            this.cboLop1.Size = new System.Drawing.Size(174, 24);
+            this.cboLop1.Size = new System.Drawing.Size(174, 21);
             this.cboLop1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.cboLop1.TabIndex = 3;
             this.cboLop1.SelectedIndexChanged += new System.EventHandler(this.cboLop1_SelectedIndexChanged);
@@ -841,7 +841,7 @@
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdHanhKiemRieng.DefaultCellStyle = dataGridViewCellStyle6;
             this.grdHanhKiemRieng.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -899,8 +899,8 @@
             // 
             this.tabControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
             this.tabControl1.CanReorderTabs = true;
-            this.tabControl1.Controls.Add(this.tabControlPanel2);
             this.tabControl1.Controls.Add(this.tabControlPanel1);
+            this.tabControl1.Controls.Add(this.tabControlPanel2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";

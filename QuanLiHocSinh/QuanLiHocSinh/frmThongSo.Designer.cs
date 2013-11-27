@@ -68,8 +68,8 @@
             this.tabControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
             this.tabControl1.CanReorderTabs = true;
             this.tabControl1.Controls.Add(this.tabControlPanel3);
-            this.tabControl1.Controls.Add(this.tabControlPanel2);
             this.tabControl1.Controls.Add(this.tabControlPanel1);
+            this.tabControl1.Controls.Add(this.tabControlPanel2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -92,7 +92,7 @@
             this.tabControlPanel3.Controls.Add(this.txtDienThoai);
             this.tabControlPanel3.Controls.Add(this.labelX1);
             this.tabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.tabControlPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.tabControlPanel3.Location = new System.Drawing.Point(0, 26);
             this.tabControlPanel3.Name = "tabControlPanel3";
             this.tabControlPanel3.Padding = new System.Windows.Forms.Padding(1);
@@ -114,9 +114,9 @@
             // 
             this.txtDiaChi.Border.Class = "TextBoxBorder";
             this.txtDiaChi.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtDiaChi.Location = new System.Drawing.Point(110, 53);
+            this.txtDiaChi.Location = new System.Drawing.Point(111, 59);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(210, 24);
+            this.txtDiaChi.Size = new System.Drawing.Size(210, 21);
             this.txtDiaChi.TabIndex = 10;
             // 
             // txtTenTruong
@@ -126,9 +126,9 @@
             // 
             this.txtTenTruong.Border.Class = "TextBoxBorder";
             this.txtTenTruong.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtTenTruong.Location = new System.Drawing.Point(110, 13);
+            this.txtTenTruong.Location = new System.Drawing.Point(111, 19);
             this.txtTenTruong.Name = "txtTenTruong";
-            this.txtTenTruong.Size = new System.Drawing.Size(210, 24);
+            this.txtTenTruong.Size = new System.Drawing.Size(210, 21);
             this.txtTenTruong.TabIndex = 9;
             // 
             // labelX07
@@ -138,9 +138,9 @@
             // 
             // 
             this.labelX07.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX07.Location = new System.Drawing.Point(11, 53);
+            this.labelX07.Location = new System.Drawing.Point(32, 59);
             this.labelX07.Name = "labelX07";
-            this.labelX07.Size = new System.Drawing.Size(93, 20);
+            this.labelX07.Size = new System.Drawing.Size(73, 20);
             this.labelX07.TabIndex = 7;
             this.labelX07.Text = "Địa chỉ:";
             // 
@@ -151,9 +151,9 @@
             // 
             // 
             this.labelX06.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX06.Location = new System.Drawing.Point(11, 13);
+            this.labelX06.Location = new System.Drawing.Point(32, 19);
             this.labelX06.Name = "labelX06";
-            this.labelX06.Size = new System.Drawing.Size(93, 20);
+            this.labelX06.Size = new System.Drawing.Size(73, 20);
             this.labelX06.TabIndex = 8;
             this.labelX06.Text = "Tên trường:";
             // 
@@ -164,10 +164,11 @@
             // 
             this.txtDienThoai.Border.Class = "TextBoxBorder";
             this.txtDienThoai.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtDienThoai.Location = new System.Drawing.Point(110, 90);
+            this.txtDienThoai.Location = new System.Drawing.Point(111, 96);
             this.txtDienThoai.Name = "txtDienThoai";
-            this.txtDienThoai.Size = new System.Drawing.Size(127, 24);
+            this.txtDienThoai.Size = new System.Drawing.Size(127, 21);
             this.txtDienThoai.TabIndex = 6;
+            this.txtDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDienThoai_KeyPress);
             // 
             // labelX1
             // 
@@ -176,9 +177,9 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(11, 89);
+            this.labelX1.Location = new System.Drawing.Point(32, 95);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(93, 20);
+            this.labelX1.Size = new System.Drawing.Size(73, 20);
             this.labelX1.TabIndex = 3;
             this.labelX1.Text = "Điện thoại:";
             // 
@@ -195,7 +196,7 @@
             this.tabControlPanel2.Controls.Add(this.txtSiSoTT);
             this.tabControlPanel2.Controls.Add(this.labelX01);
             this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.tabControlPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.tabControlPanel2.Location = new System.Drawing.Point(0, 26);
             this.tabControlPanel2.Name = "tabControlPanel2";
             this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
@@ -222,7 +223,7 @@
             this.txtSiSoTD.MinValue = 10;
             this.txtSiSoTD.Name = "txtSiSoTD";
             this.txtSiSoTD.ShowUpDown = true;
-            this.txtSiSoTD.Size = new System.Drawing.Size(120, 24);
+            this.txtSiSoTD.Size = new System.Drawing.Size(120, 21);
             this.txtSiSoTD.TabIndex = 6;
             this.txtSiSoTD.Value = 10;
             // 
@@ -233,9 +234,9 @@
             // 
             // 
             this.labelX02.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX02.Location = new System.Drawing.Point(11, 64);
+            this.labelX02.Location = new System.Drawing.Point(31, 64);
             this.labelX02.Name = "labelX02";
-            this.labelX02.Size = new System.Drawing.Size(186, 20);
+            this.labelX02.Size = new System.Drawing.Size(155, 20);
             this.labelX02.TabIndex = 3;
             this.labelX02.Text = "Sỉ số tối đa trong một lớp:";
             // 
@@ -251,7 +252,7 @@
             this.txtSiSoTT.MinValue = 10;
             this.txtSiSoTT.Name = "txtSiSoTT";
             this.txtSiSoTT.ShowUpDown = true;
-            this.txtSiSoTT.Size = new System.Drawing.Size(120, 24);
+            this.txtSiSoTT.Size = new System.Drawing.Size(120, 21);
             this.txtSiSoTT.TabIndex = 5;
             this.txtSiSoTT.Value = 10;
             // 
@@ -262,9 +263,9 @@
             // 
             // 
             this.labelX01.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX01.Location = new System.Drawing.Point(11, 25);
+            this.labelX01.Location = new System.Drawing.Point(31, 25);
             this.labelX01.Name = "labelX01";
-            this.labelX01.Size = new System.Drawing.Size(186, 20);
+            this.labelX01.Size = new System.Drawing.Size(155, 20);
             this.labelX01.TabIndex = 4;
             this.labelX01.Text = "Sỉ số tối thiểu trong một lớp:";
             // 
@@ -281,7 +282,7 @@
             this.tabControlPanel1.Controls.Add(this.labelX04);
             this.tabControlPanel1.Controls.Add(this.txtTuoiTT);
             this.tabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.tabControlPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.tabControlPanel1.Location = new System.Drawing.Point(0, 26);
             this.tabControlPanel1.Name = "tabControlPanel1";
             this.tabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
@@ -303,12 +304,12 @@
             // 
             this.txtTuoiTD.BackgroundStyle.Class = "DateTimeInputBackground";
             this.txtTuoiTD.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtTuoiTD.Location = new System.Drawing.Point(212, 64);
+            this.txtTuoiTD.Location = new System.Drawing.Point(197, 62);
             this.txtTuoiTD.MaxValue = 40;
             this.txtTuoiTD.MinValue = 10;
             this.txtTuoiTD.Name = "txtTuoiTD";
             this.txtTuoiTD.ShowUpDown = true;
-            this.txtTuoiTD.Size = new System.Drawing.Size(120, 24);
+            this.txtTuoiTD.Size = new System.Drawing.Size(120, 21);
             this.txtTuoiTD.TabIndex = 6;
             this.txtTuoiTD.Value = 10;
             // 
@@ -319,9 +320,9 @@
             // 
             // 
             this.labelX03.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX03.Location = new System.Drawing.Point(4, 24);
+            this.labelX03.Location = new System.Drawing.Point(21, 22);
             this.labelX03.Name = "labelX03";
-            this.labelX03.Size = new System.Drawing.Size(202, 20);
+            this.labelX03.Size = new System.Drawing.Size(170, 20);
             this.labelX03.TabIndex = 4;
             this.labelX03.Text = "Độ tuổi tối thiểu của học sinh:";
             // 
@@ -332,9 +333,9 @@
             // 
             // 
             this.labelX04.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX04.Location = new System.Drawing.Point(4, 64);
+            this.labelX04.Location = new System.Drawing.Point(21, 62);
             this.labelX04.Name = "labelX04";
-            this.labelX04.Size = new System.Drawing.Size(185, 20);
+            this.labelX04.Size = new System.Drawing.Size(176, 20);
             this.labelX04.TabIndex = 3;
             this.labelX04.Text = "Độ tuổi tối đa của học sinh:";
             // 
@@ -345,12 +346,12 @@
             // 
             this.txtTuoiTT.BackgroundStyle.Class = "DateTimeInputBackground";
             this.txtTuoiTT.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtTuoiTT.Location = new System.Drawing.Point(212, 24);
+            this.txtTuoiTT.Location = new System.Drawing.Point(197, 22);
             this.txtTuoiTT.MaxValue = 40;
             this.txtTuoiTT.MinValue = 10;
             this.txtTuoiTT.Name = "txtTuoiTT";
             this.txtTuoiTT.ShowUpDown = true;
-            this.txtTuoiTT.Size = new System.Drawing.Size(120, 24);
+            this.txtTuoiTT.Size = new System.Drawing.Size(120, 21);
             this.txtTuoiTT.TabIndex = 5;
             this.txtTuoiTT.Value = 10;
             // 

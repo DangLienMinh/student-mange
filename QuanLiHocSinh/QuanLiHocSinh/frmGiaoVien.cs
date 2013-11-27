@@ -64,25 +64,25 @@ namespace QuanLiHocSinh
         {
             bindingData(giaoVien_BUS.hienThiDanhSach());
             controlValue();
-            if (grdGiaoVien.Rows.Count>1)
-            {
-                foreach (DataGridViewRow row in grdGiaoVien.Rows)
-                {
-                    if (row.Cells["MAGV"].Value!=null)
-                    {
-                        char x = char.Parse(row.Cells["GIOITINHGV"].Value.ToString());
-                        if (x == '0')
-                        {
-                            row.Cells["GIOITINHGV"].Value = "Nam";
-                        }
-                        else
-                        {
-                            row.Cells["GIOITINHGV"].Value = "Nữ";
-                        }
-                    }
+            //if (grdGiaoVien.Rows.Count>1)
+            //{
+            //    foreach (DataGridViewRow row in grdGiaoVien.Rows)
+            //    {
+            //        if (row.Cells["MAGV"].Value!=null)
+            //        {
+            //            char x = char.Parse(row.Cells["GIOITINHGV"].Value.ToString());
+            //            if (x == '0')
+            //            {
+            //                row.Cells["GIOITINHGV"].Value = "Nam";
+            //            }
+            //            else
+            //            {
+            //                row.Cells["GIOITINHGV"].Value = "Nữ";
+            //            }
+            //        }
                     
-                }
-            }
+            //    }
+            //}
             //load dữ liệu vào comboBox giới tính
             giaoVien_BUS.hienThiComboBox(cboGioiTinh);
             FlagDisable();
@@ -192,9 +192,10 @@ namespace QuanLiHocSinh
                 if (open.FileName != "")
                 {
                     string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
-                    File.Copy(open.FileName, linkimage);
+                    
                     if (string.Compare(grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString(), linkimage) != 0)
                     {
+                        File.Copy(open.FileName, linkimage);
                         giaoVien_BUS.suaGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, linkimage);
 
                         // sử dụng filestream để có thể xóa hình ảnh mafkhoong bị thằng picturebox chiếm giữ
@@ -364,6 +365,25 @@ namespace QuanLiHocSinh
             bs.DataSource = table; 
             grdGiaoVien.DataSource = bs;
             bnaGiaoVien.BindingSource = bs;
+            if (grdGiaoVien.Rows.Count > 1)
+            {
+                foreach (DataGridViewRow row in grdGiaoVien.Rows)
+                {
+                    if (row.Cells["MAGV"].Value != null)
+                    {
+                        char x = char.Parse(row.Cells["GIOITINHGV"].Value.ToString());
+                        if (x == '0')
+                        {
+                            row.Cells["GIOITINHGV"].Value = "Nam";
+                        }
+                        else
+                        {
+                            row.Cells["GIOITINHGV"].Value = "Nữ";
+                        }
+                    }
+
+                }
+            }
         }
 
         private void move_Click(object sender, EventArgs e)

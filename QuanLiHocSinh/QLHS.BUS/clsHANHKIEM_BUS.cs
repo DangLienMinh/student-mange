@@ -157,8 +157,10 @@ namespace QLHS.BUS
                     string hanhKiemHK1 = hanhKiemTheoHocKiNamHoc(maHS, "HK1", namHoc);
                     string hanhKiemHK2 = hanhKiemTheoHocKiNamHoc(maHS, "HK2", namHoc);
                     ketQua = hanhKiemHK2;
+                    
                 }
                 row.Cells["HANHKIEM"].Value = ketQua;
+                ketQua = "";
             }
             
         }

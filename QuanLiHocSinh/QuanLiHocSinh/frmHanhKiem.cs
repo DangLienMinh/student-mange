@@ -8,6 +8,9 @@ using System.Text;
 using System.Windows.Forms;
 using QLHS.DTO;
 using QLHS.BUS;
+using DevComponents.DotNetBar.Controls;
+using DevComponents.Editors.DateTimeAdv;
+
 namespace QuanLiHocSinh
 {
     public partial class frmHanhKiem : DevComponents.DotNetBar.Office2007Form
@@ -47,7 +50,21 @@ namespace QuanLiHocSinh
             hanhkiem_bus.hienThiCboLoaiHK(MALHK);//Hien thi TenHanKiem Len Cobobox trong gridview cho nguoi dung chon
             hanhkiem_bus.hienThiCboClnNamHoc(MANH);//Hien thi Ten Nam Hoc Thay vi MANH TREN COMBOX BOX
             hanhkiem_bus.hienThiCboClnHocKy(MAHK);//Hien thi Ten HK thay vi hien thi MAHK ten combobox
+            datagridMakeUp(grdHanhKiemChung);
+            datagridMakeUp(grdHanhKiemRieng);
         }
+
+        //Trang trí datagrid như nền, canh chỉnh các hàng, ...
+        private void datagridMakeUp(DataGridViewX temp)
+        {
+            temp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
+            temp.AutoResizeRows();
+            temp.AllowUserToResizeColumns = true;
+            temp.DefaultCellStyle.WrapMode = DataGridViewTriState.NotSet;
+            temp.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            temp.ReadOnly = true;
+        }
+
         private void treKhoi_NodeClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
         {
             if (treKhoi.SelectedNode.Name.Substring(0, 1).ToString().Trim() == "L")//Kiểm tra xem node vừa click có phải là node lớp không,nếu phải thì thực thi dòng lệnh bên trong

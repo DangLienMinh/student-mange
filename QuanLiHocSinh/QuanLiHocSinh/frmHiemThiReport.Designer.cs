@@ -50,7 +50,7 @@
             this.Controls.Add(this.rptView);
             this.DoubleBuffered = true;
             this.Name = "frmHiemThiReport";
-            this.Text = "frmHiemThiReport";
+            this.Text = "HIỂN THỊ BÁO CÁO";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmHiemThiReport_Load);
             this.ResumeLayout(false);

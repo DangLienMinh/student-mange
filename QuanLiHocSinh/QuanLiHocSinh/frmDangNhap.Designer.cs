@@ -58,7 +58,7 @@
             this.gPanelDangNhap.Controls.Add(this.txtMatKhau);
             this.gPanelDangNhap.Controls.Add(this.txtTenDN);
             this.gPanelDangNhap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gPanelDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.gPanelDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.gPanelDangNhap.Location = new System.Drawing.Point(0, 40);
             this.gPanelDangNhap.Name = "gPanelDangNhap";
             this.gPanelDangNhap.Size = new System.Drawing.Size(358, 155);
@@ -135,10 +135,11 @@
             this.btnHuyBo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnHuyBo.BackColor = System.Drawing.SystemColors.Control;
             this.btnHuyBo.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
-            this.btnHuyBo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnHuyBo.Location = new System.Drawing.Point(199, 95);
+            this.btnHuyBo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnHuyBo.Image = global::QuanLiHocSinh.Properties.Resources.Huybo;
+            this.btnHuyBo.Location = new System.Drawing.Point(194, 89);
             this.btnHuyBo.Name = "btnHuyBo";
-            this.btnHuyBo.Size = new System.Drawing.Size(75, 23);
+            this.btnHuyBo.Size = new System.Drawing.Size(101, 35);
             this.btnHuyBo.TabIndex = 4;
             this.btnHuyBo.Text = "Hủy bỏ";
             this.btnHuyBo.Click += new System.EventHandler(this.btnHuyBo_Click);
@@ -148,10 +149,11 @@
             this.btnDangNhap.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDangNhap.BackColor = System.Drawing.SystemColors.Control;
             this.btnDangNhap.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
-            this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnDangNhap.Location = new System.Drawing.Point(99, 95);
+            this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnDangNhap.Image = global::QuanLiHocSinh.Properties.Resources.Dongy;
+            this.btnDangNhap.Location = new System.Drawing.Point(69, 89);
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(75, 23);
+            this.btnDangNhap.Size = new System.Drawing.Size(109, 35);
             this.btnDangNhap.TabIndex = 3;
             this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
@@ -197,7 +199,7 @@
             this.txtMatKhau.MaxLength = 30;
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '●';
-            this.txtMatKhau.Size = new System.Drawing.Size(160, 24);
+            this.txtMatKhau.Size = new System.Drawing.Size(160, 21);
             this.txtMatKhau.TabIndex = 2;
             this.txtMatKhau.WatermarkText = "Mật khẩu";
             this.txtMatKhau.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMatKhau_KeyDown);
@@ -214,7 +216,7 @@
             this.txtTenDN.Location = new System.Drawing.Point(182, 15);
             this.txtTenDN.MaxLength = 30;
             this.txtTenDN.Name = "txtTenDN";
-            this.txtTenDN.Size = new System.Drawing.Size(160, 24);
+            this.txtTenDN.Size = new System.Drawing.Size(160, 21);
             this.txtTenDN.TabIndex = 1;
             this.txtTenDN.WatermarkText = "Tên đăng nhập";
             // 
