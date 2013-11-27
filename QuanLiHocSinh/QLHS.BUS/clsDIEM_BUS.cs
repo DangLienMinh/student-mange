@@ -288,7 +288,7 @@ namespace QLHS.BUS
                             }
                             if (diem == 0)
                             {
-                                row.Cells["MH0" + i.ToString()].Style.BackColor = Color.Red;
+                                row.Cells["MH0" + i.ToString()].Style.BackColor = Color.Yellow;
                             }
                             row.Cells["MH0" + i.ToString()].Value =diem;
                         }
@@ -298,7 +298,7 @@ namespace QLHS.BUS
                              double diem= Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3, 1);
                              if (diem<5)
                             {
-                                row.Cells["MH" + i.ToString()].Style.BackColor = Color.Red;
+                                row.Cells["MH" + i.ToString()].Style.BackColor = Color.Yellow;
                             }
                              row.Cells["MH" + i.ToString()].Value = diem;
                         }

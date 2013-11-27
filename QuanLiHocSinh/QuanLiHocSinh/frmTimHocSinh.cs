@@ -284,7 +284,7 @@ namespace QuanLiHocSinh
             temp.AutoResizeRows();
             temp.AllowUserToResizeColumns = true;
             temp.DefaultCellStyle.WrapMode = DataGridViewTriState.NotSet;
-            temp.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+           // temp.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             temp.ReadOnly = true;
         }
 
@@ -315,9 +315,15 @@ namespace QuanLiHocSinh
                         {
                             row.Cells["GIOITINHHS"].Value = "Nữ";
                         }
+                        Image image = Image.FromFile(row.Cells["HINHANHHS"].Value.ToString());
+                        row.Cells["pic"].Value = image;
+                        
+                        //row.Cells["pic"].Value = img;
                     }
+                   
 
                 }
+                
             }
         }
 
@@ -342,5 +348,8 @@ namespace QuanLiHocSinh
             ((TextBox)sender).BackColor = SystemColors.Control;
             
         }
+
+       
+
     }
 }

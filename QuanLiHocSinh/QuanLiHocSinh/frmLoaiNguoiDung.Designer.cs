@@ -115,7 +115,7 @@
             this.navigationPanePanel2.Controls.Add(this.btnDongY);
             this.navigationPanePanel2.Controls.Add(this.btnThem);
             this.navigationPanePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.navigationPanePanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.navigationPanePanel2.Location = new System.Drawing.Point(1, 25);
             this.navigationPanePanel2.Name = "navigationPanePanel2";
             this.navigationPanePanel2.ParentItem = this.btnItemNhap;
@@ -140,7 +140,7 @@
             this.txtTenLND.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtTenLND.Location = new System.Drawing.Point(11, 89);
             this.txtTenLND.Name = "txtTenLND";
-            this.txtTenLND.Size = new System.Drawing.Size(170, 24);
+            this.txtTenLND.Size = new System.Drawing.Size(170, 21);
             this.txtTenLND.TabIndex = 2;
             this.txtTenLND.Enter += new System.EventHandler(this.txt_Enter);
             this.txtTenLND.Leave += new System.EventHandler(this.txt_Leave);
@@ -158,7 +158,7 @@
             this.txtMaLND.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtMaLND.Location = new System.Drawing.Point(11, 35);
             this.txtMaLND.Name = "txtMaLND";
-            this.txtMaLND.Size = new System.Drawing.Size(170, 24);
+            this.txtMaLND.Size = new System.Drawing.Size(170, 21);
             this.txtMaLND.TabIndex = 1;
             this.txtMaLND.Enter += new System.EventHandler(this.txt_Enter);
             this.txtMaLND.Leave += new System.EventHandler(this.txt_Leave);
@@ -327,7 +327,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdLoaiND.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdLoaiND.Dock = System.Windows.Forms.DockStyle.Fill;

@@ -97,8 +97,8 @@
             // navigationPane1
             // 
             this.navigationPane1.CanCollapse = true;
-            this.navigationPane1.Controls.Add(this.navigationPanePanel1);
             this.navigationPane1.Controls.Add(this.navigationPanePanel2);
+            this.navigationPane1.Controls.Add(this.navigationPanePanel1);
             this.navigationPane1.Dock = System.Windows.Forms.DockStyle.Left;
             this.navigationPane1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.navigationPane1.ItemPaddingBottom = 2;
@@ -131,7 +131,7 @@
             this.navigationPane1.TitlePanel.Style.GradientAngle = 90;
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
-            this.navigationPane1.TitlePanel.Text = "Tìm kiếm thông tin";
+            this.navigationPane1.TitlePanel.Text = "Nhập liệu thông tin";
             // 
             // navigationPanePanel2
             // 
@@ -156,10 +156,11 @@
             this.navigationPanePanel2.Controls.Add(this.txtMaLop);
             this.navigationPanePanel2.Controls.Add(this.labelX1);
             this.navigationPanePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel2.Location = new System.Drawing.Point(1, 1);
+            this.navigationPanePanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.navigationPanePanel2.Location = new System.Drawing.Point(1, 25);
             this.navigationPanePanel2.Name = "navigationPanePanel2";
             this.navigationPanePanel2.ParentItem = this.btnItemNhap;
-            this.navigationPanePanel2.Size = new System.Drawing.Size(246, 555);
+            this.navigationPanePanel2.Size = new System.Drawing.Size(246, 429);
             this.navigationPanePanel2.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel2.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -173,7 +174,7 @@
             this.btnSua.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnSua.Image = global::QuanLiHocSinh.Properties.Resources.Sua;
-            this.btnSua.Location = new System.Drawing.Point(166, 337);
+            this.btnSua.Location = new System.Drawing.Point(166, 321);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 30);
             this.btnSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -187,7 +188,7 @@
             this.btnXoa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnXoa.Image = global::QuanLiHocSinh.Properties.Resources.Xoa;
-            this.btnXoa.Location = new System.Drawing.Point(85, 338);
+            this.btnXoa.Location = new System.Drawing.Point(85, 322);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 30);
             this.btnXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -201,7 +202,7 @@
             this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnHuy.Image = global::QuanLiHocSinh.Properties.Resources.Huybo;
-            this.btnHuy.Location = new System.Drawing.Point(126, 378);
+            this.btnHuy.Location = new System.Drawing.Point(126, 362);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(90, 30);
             this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -215,7 +216,7 @@
             this.btnDongY.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnDongY.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnDongY.Image = global::QuanLiHocSinh.Properties.Resources.Dongy;
-            this.btnDongY.Location = new System.Drawing.Point(30, 378);
+            this.btnDongY.Location = new System.Drawing.Point(30, 362);
             this.btnDongY.Name = "btnDongY";
             this.btnDongY.Size = new System.Drawing.Size(90, 30);
             this.btnDongY.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -229,7 +230,7 @@
             this.btnThem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnThem.Image = global::QuanLiHocSinh.Properties.Resources.Them;
-            this.btnThem.Location = new System.Drawing.Point(4, 338);
+            this.btnThem.Location = new System.Drawing.Point(4, 322);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 30);
             this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -242,11 +243,12 @@
             this.cboBan.DisplayMember = "Text";
             this.cboBan.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboBan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cboBan.FormattingEnabled = true;
-            this.cboBan.ItemHeight = 18;
-            this.cboBan.Location = new System.Drawing.Point(11, 301);
+            this.cboBan.ItemHeight = 15;
+            this.cboBan.Location = new System.Drawing.Point(11, 285);
             this.cboBan.Name = "cboBan";
-            this.cboBan.Size = new System.Drawing.Size(211, 24);
+            this.cboBan.Size = new System.Drawing.Size(211, 21);
             this.cboBan.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.cboBan.TabIndex = 5;
             // 
@@ -255,11 +257,12 @@
             this.cboGiaoVien.DisplayMember = "Text";
             this.cboGiaoVien.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboGiaoVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGiaoVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cboGiaoVien.FormattingEnabled = true;
-            this.cboGiaoVien.ItemHeight = 18;
-            this.cboGiaoVien.Location = new System.Drawing.Point(11, 247);
+            this.cboGiaoVien.ItemHeight = 15;
+            this.cboGiaoVien.Location = new System.Drawing.Point(11, 233);
             this.cboGiaoVien.Name = "cboGiaoVien";
-            this.cboGiaoVien.Size = new System.Drawing.Size(211, 24);
+            this.cboGiaoVien.Size = new System.Drawing.Size(211, 21);
             this.cboGiaoVien.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.cboGiaoVien.TabIndex = 5;
             // 
@@ -268,11 +271,12 @@
             this.cboNamHoc.DisplayMember = "Text";
             this.cboNamHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboNamHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNamHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cboNamHoc.FormattingEnabled = true;
-            this.cboNamHoc.ItemHeight = 18;
-            this.cboNamHoc.Location = new System.Drawing.Point(11, 193);
+            this.cboNamHoc.ItemHeight = 15;
+            this.cboNamHoc.Location = new System.Drawing.Point(11, 181);
             this.cboNamHoc.Name = "cboNamHoc";
-            this.cboNamHoc.Size = new System.Drawing.Size(211, 24);
+            this.cboNamHoc.Size = new System.Drawing.Size(211, 21);
             this.cboNamHoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.cboNamHoc.TabIndex = 4;
             // 
@@ -281,11 +285,12 @@
             this.cboKhoi.DisplayMember = "Text";
             this.cboKhoi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboKhoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboKhoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cboKhoi.FormattingEnabled = true;
-            this.cboKhoi.ItemHeight = 18;
-            this.cboKhoi.Location = new System.Drawing.Point(11, 140);
+            this.cboKhoi.ItemHeight = 15;
+            this.cboKhoi.Location = new System.Drawing.Point(11, 130);
             this.cboKhoi.Name = "cboKhoi";
-            this.cboKhoi.Size = new System.Drawing.Size(96, 24);
+            this.cboKhoi.Size = new System.Drawing.Size(96, 21);
             this.cboKhoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.cboKhoi.TabIndex = 2;
             // 
@@ -295,8 +300,8 @@
             // 
             // 
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.labelX8.Location = new System.Drawing.Point(11, 277);
+            this.labelX8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelX8.Location = new System.Drawing.Point(11, 261);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(124, 23);
             this.labelX8.TabIndex = 0;
@@ -313,9 +318,10 @@
             this.txtTenLop.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtTenLop.Border.Class = "TextBoxBorder";
             this.txtTenLop.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtTenLop.Location = new System.Drawing.Point(11, 88);
+            this.txtTenLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtTenLop.Location = new System.Drawing.Point(11, 80);
             this.txtTenLop.Name = "txtTenLop";
-            this.txtTenLop.Size = new System.Drawing.Size(211, 24);
+            this.txtTenLop.Size = new System.Drawing.Size(211, 21);
             this.txtTenLop.TabIndex = 1;
             this.txtTenLop.Enter += new System.EventHandler(this.txt_Enter);
             this.txtTenLop.Leave += new System.EventHandler(this.txt_Leave);
@@ -326,8 +332,8 @@
             // 
             // 
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.labelX6.Location = new System.Drawing.Point(11, 223);
+            this.labelX6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelX6.Location = new System.Drawing.Point(11, 209);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(155, 23);
             this.labelX6.TabIndex = 0;
@@ -344,9 +350,10 @@
             this.txtSiSo.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtSiSo.Border.Class = "TextBoxBorder";
             this.txtSiSo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSiSo.Location = new System.Drawing.Point(126, 140);
+            this.txtSiSo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtSiSo.Location = new System.Drawing.Point(126, 130);
             this.txtSiSo.Name = "txtSiSo";
-            this.txtSiSo.Size = new System.Drawing.Size(96, 24);
+            this.txtSiSo.Size = new System.Drawing.Size(96, 21);
             this.txtSiSo.TabIndex = 3;
             this.txtSiSo.Enter += new System.EventHandler(this.txt_Enter);
             this.txtSiSo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSiSo_KeyPress);
@@ -358,8 +365,8 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.labelX4.Location = new System.Drawing.Point(11, 169);
+            this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelX4.Location = new System.Drawing.Point(11, 157);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(75, 23);
             this.labelX4.TabIndex = 0;
@@ -371,8 +378,8 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.labelX5.Location = new System.Drawing.Point(126, 117);
+            this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelX5.Location = new System.Drawing.Point(126, 107);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(96, 23);
             this.labelX5.TabIndex = 0;
@@ -384,8 +391,8 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.labelX2.Location = new System.Drawing.Point(11, 65);
+            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelX2.Location = new System.Drawing.Point(11, 57);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(75, 23);
             this.labelX2.TabIndex = 0;
@@ -397,8 +404,8 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.labelX3.Location = new System.Drawing.Point(11, 118);
+            this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelX3.Location = new System.Drawing.Point(11, 108);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(75, 23);
             this.labelX3.TabIndex = 0;
@@ -416,9 +423,10 @@
             this.txtMaLop.Border.Class = "TextBoxBorder";
             this.txtMaLop.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtMaLop.Enabled = false;
-            this.txtMaLop.Location = new System.Drawing.Point(11, 35);
+            this.txtMaLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtMaLop.Location = new System.Drawing.Point(11, 29);
             this.txtMaLop.Name = "txtMaLop";
-            this.txtMaLop.Size = new System.Drawing.Size(211, 24);
+            this.txtMaLop.Size = new System.Drawing.Size(211, 21);
             this.txtMaLop.TabIndex = 1;
             this.txtMaLop.TabStop = false;
             // 
@@ -428,8 +436,8 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.labelX1.Location = new System.Drawing.Point(11, 11);
+            this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelX1.Location = new System.Drawing.Point(11, 5);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(75, 23);
             this.labelX1.TabIndex = 0;
@@ -438,6 +446,7 @@
             // btnItemNhap
             // 
             this.btnItemNhap.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemNhap.Checked = true;
             this.btnItemNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhap.Image")));
             this.btnItemNhap.Name = "btnItemNhap";
             this.btnItemNhap.OptionGroup = "navBar";
@@ -450,10 +459,11 @@
             this.navigationPanePanel1.Controls.Add(this.labelX7);
             this.navigationPanePanel1.Controls.Add(this.btnTim);
             this.navigationPanePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel1.Location = new System.Drawing.Point(1, 25);
+            this.navigationPanePanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(246, 429);
+            this.navigationPanePanel1.Size = new System.Drawing.Size(246, 453);
             this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -474,7 +484,7 @@
             this.txtTim.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtTim.Location = new System.Drawing.Point(11, 34);
             this.txtTim.Name = "txtTim";
-            this.txtTim.Size = new System.Drawing.Size(155, 24);
+            this.txtTim.Size = new System.Drawing.Size(155, 21);
             this.txtTim.TabIndex = 3;
             // 
             // labelX7
@@ -506,7 +516,6 @@
             // btnItemTim
             // 
             this.btnItemTim.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemTim.Checked = true;
             this.btnItemTim.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTim.Image")));
             this.btnItemTim.Name = "btnItemTim";
             this.btnItemTim.OptionGroup = "navBar";
@@ -640,7 +649,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdLop.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdLop.Dock = System.Windows.Forms.DockStyle.Fill;

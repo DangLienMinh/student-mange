@@ -109,7 +109,7 @@
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdKQ.DefaultCellStyle = dataGridViewCellStyle7;
             this.grdKQ.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -345,7 +345,7 @@
             this.navigationPanePanel1.Controls.Add(this.btnDanhSach);
             this.navigationPanePanel1.Controls.Add(this.labelX2);
             this.navigationPanePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.navigationPanePanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.navigationPanePanel1.Location = new System.Drawing.Point(1, 25);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemNhapLop;
@@ -367,7 +367,7 @@
             // 
             this.treLop.BackgroundStyle.Class = "TreeBorderKey";
             this.treLop.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.treLop.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.treLop.Location = new System.Drawing.Point(17, 84);
             this.treLop.Name = "treLop";
             this.treLop.NodesConnector = this.nodeConnector2;
@@ -395,7 +395,7 @@
             // 
             // 
             this.lblchonlop.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblchonlop.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblchonlop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblchonlop.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblchonlop.Location = new System.Drawing.Point(19, 59);
             this.lblchonlop.Name = "lblchonlop";
@@ -409,10 +409,10 @@
             this.cboNamHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboNamHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNamHoc.FormattingEnabled = true;
-            this.cboNamHoc.ItemHeight = 18;
+            this.cboNamHoc.ItemHeight = 15;
             this.cboNamHoc.Location = new System.Drawing.Point(18, 28);
             this.cboNamHoc.Name = "cboNamHoc";
-            this.cboNamHoc.Size = new System.Drawing.Size(148, 24);
+            this.cboNamHoc.Size = new System.Drawing.Size(148, 21);
             this.cboNamHoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.cboNamHoc.TabIndex = 29;
             this.cboNamHoc.SelectedValueChanged += new System.EventHandler(this.cboNamHoc_SelectedValueChanged);
@@ -423,7 +423,7 @@
             this.btnDanhSach.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnDanhSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnDanhSach.Image = ((System.Drawing.Image)(resources.GetObject("btnDanhSach.Image")));
-            this.btnDanhSach.Location = new System.Drawing.Point(37, 331);
+            this.btnDanhSach.Location = new System.Drawing.Point(37, 322);
             this.btnDanhSach.Name = "btnDanhSach";
             this.btnDanhSach.Size = new System.Drawing.Size(159, 35);
             this.btnDanhSach.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;

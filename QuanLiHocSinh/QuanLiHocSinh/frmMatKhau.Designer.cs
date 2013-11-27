@@ -59,7 +59,7 @@
             this.gPanelDoiMK.Controls.Add(this.txtMkMoi);
             this.gPanelDoiMK.Controls.Add(this.txtMkCu);
             this.gPanelDoiMK.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gPanelDoiMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.gPanelDoiMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.gPanelDoiMK.Location = new System.Drawing.Point(0, 0);
             this.gPanelDoiMK.Name = "gPanelDoiMK";
             this.gPanelDoiMK.Size = new System.Drawing.Size(414, 223);
@@ -100,7 +100,7 @@
             this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
             this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnHuy.Image = global::QuanLiHocSinh.Properties.Resources.Huybo;
-            this.btnHuy.Location = new System.Drawing.Point(218, 143);
+            this.btnHuy.Location = new System.Drawing.Point(213, 143);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(95, 30);
             this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -114,7 +114,7 @@
             this.btnDongY.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
             this.btnDongY.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnDongY.Image = global::QuanLiHocSinh.Properties.Resources.Dongy;
-            this.btnDongY.Location = new System.Drawing.Point(97, 143);
+            this.btnDongY.Location = new System.Drawing.Point(92, 143);
             this.btnDongY.Name = "btnDongY";
             this.btnDongY.Size = new System.Drawing.Size(95, 30);
             this.btnDongY.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -128,7 +128,7 @@
             this.lblNewPassError.BackColor = System.Drawing.Color.Transparent;
             this.lblNewPassError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNewPassError.ForeColor = System.Drawing.Color.Red;
-            this.lblNewPassError.Location = new System.Drawing.Point(167, 80);
+            this.lblNewPassError.Location = new System.Drawing.Point(196, 80);
             this.lblNewPassError.Name = "lblNewPassError";
             this.lblNewPassError.Size = new System.Drawing.Size(0, 13);
             this.lblNewPassError.TabIndex = 0;
@@ -139,7 +139,7 @@
             this.lblOldPassError.BackColor = System.Drawing.Color.Transparent;
             this.lblOldPassError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOldPassError.ForeColor = System.Drawing.Color.Red;
-            this.lblOldPassError.Location = new System.Drawing.Point(167, 40);
+            this.lblOldPassError.Location = new System.Drawing.Point(196, 40);
             this.lblOldPassError.Name = "lblOldPassError";
             this.lblOldPassError.Size = new System.Drawing.Size(0, 13);
             this.lblOldPassError.TabIndex = 0;
@@ -150,7 +150,7 @@
             this.lblReNPassError.BackColor = System.Drawing.Color.Transparent;
             this.lblReNPassError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReNPassError.ForeColor = System.Drawing.Color.Red;
-            this.lblReNPassError.Location = new System.Drawing.Point(167, 120);
+            this.lblReNPassError.Location = new System.Drawing.Point(196, 120);
             this.lblReNPassError.Name = "lblReNPassError";
             this.lblReNPassError.Size = new System.Drawing.Size(0, 13);
             this.lblReNPassError.TabIndex = 0;
@@ -163,7 +163,7 @@
             // 
             this.lblReNewPass.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblReNewPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lblReNewPass.Location = new System.Drawing.Point(8, 95);
+            this.lblReNewPass.Location = new System.Drawing.Point(37, 95);
             this.lblReNewPass.Name = "lblReNewPass";
             this.lblReNewPass.Size = new System.Drawing.Size(155, 23);
             this.lblReNewPass.TabIndex = 0;
@@ -177,7 +177,7 @@
             // 
             this.lblNewPass.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblNewPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lblNewPass.Location = new System.Drawing.Point(8, 55);
+            this.lblNewPass.Location = new System.Drawing.Point(37, 55);
             this.lblNewPass.Name = "lblNewPass";
             this.lblNewPass.Size = new System.Drawing.Size(155, 23);
             this.lblNewPass.TabIndex = 0;
@@ -191,7 +191,7 @@
             // 
             this.lblOldPass.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblOldPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lblOldPass.Location = new System.Drawing.Point(8, 15);
+            this.lblOldPass.Location = new System.Drawing.Point(37, 15);
             this.lblOldPass.Name = "lblOldPass";
             this.lblOldPass.Size = new System.Drawing.Size(155, 23);
             this.lblOldPass.TabIndex = 0;
@@ -208,11 +208,11 @@
             this.txtMkNhapLai.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtMkNhapLai.Border.Class = "TextBoxBorder";
             this.txtMkNhapLai.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtMkNhapLai.Location = new System.Drawing.Point(169, 95);
+            this.txtMkNhapLai.Location = new System.Drawing.Point(198, 95);
             this.txtMkNhapLai.MaxLength = 30;
             this.txtMkNhapLai.Name = "txtMkNhapLai";
             this.txtMkNhapLai.PasswordChar = '●';
-            this.txtMkNhapLai.Size = new System.Drawing.Size(160, 24);
+            this.txtMkNhapLai.Size = new System.Drawing.Size(160, 21);
             this.txtMkNhapLai.TabIndex = 3;
             this.txtMkNhapLai.WatermarkText = "Xác nhận mật khẩu mới";
             this.txtMkNhapLai.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMkNhapLai_KeyDown);
@@ -228,11 +228,11 @@
             this.txtMkMoi.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtMkMoi.Border.Class = "TextBoxBorder";
             this.txtMkMoi.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtMkMoi.Location = new System.Drawing.Point(169, 55);
+            this.txtMkMoi.Location = new System.Drawing.Point(198, 55);
             this.txtMkMoi.MaxLength = 30;
             this.txtMkMoi.Name = "txtMkMoi";
             this.txtMkMoi.PasswordChar = '●';
-            this.txtMkMoi.Size = new System.Drawing.Size(160, 24);
+            this.txtMkMoi.Size = new System.Drawing.Size(160, 21);
             this.txtMkMoi.TabIndex = 2;
             this.txtMkMoi.WatermarkText = "Mật khẩu mới";
             // 
@@ -247,11 +247,11 @@
             this.txtMkCu.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtMkCu.Border.Class = "TextBoxBorder";
             this.txtMkCu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtMkCu.Location = new System.Drawing.Point(169, 15);
+            this.txtMkCu.Location = new System.Drawing.Point(198, 15);
             this.txtMkCu.MaxLength = 30;
             this.txtMkCu.Name = "txtMkCu";
             this.txtMkCu.PasswordChar = '●';
-            this.txtMkCu.Size = new System.Drawing.Size(160, 24);
+            this.txtMkCu.Size = new System.Drawing.Size(160, 21);
             this.txtMkCu.TabIndex = 1;
             this.txtMkCu.WatermarkText = "Mật khẩu cũ";
             // 

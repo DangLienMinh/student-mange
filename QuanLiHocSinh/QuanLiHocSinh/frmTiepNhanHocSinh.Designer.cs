@@ -231,7 +231,7 @@
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdHocSinh.DefaultCellStyle = dataGridViewCellStyle4;
             this.grdHocSinh.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -483,6 +483,7 @@
             this.navigationPanePanel2.Controls.Add(this.txtMaHS);
             this.navigationPanePanel2.Controls.Add(this.labelX14);
             this.navigationPanePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navigationPanePanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.navigationPanePanel2.Location = new System.Drawing.Point(1, 25);
             this.navigationPanePanel2.Name = "navigationPanePanel2";
             this.navigationPanePanel2.ParentItem = this.btnItemNhap;
@@ -500,7 +501,7 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(11, 322);
+            this.labelX5.Location = new System.Drawing.Point(11, 307);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(108, 23);
             this.labelX5.TabIndex = 35;
@@ -517,9 +518,9 @@
             this.txtDienThoai.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtDienThoai.Border.Class = "TextBoxBorder";
             this.txtDienThoai.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtDienThoai.Location = new System.Drawing.Point(11, 347);
+            this.txtDienThoai.Location = new System.Drawing.Point(11, 330);
             this.txtDienThoai.Name = "txtDienThoai";
-            this.txtDienThoai.Size = new System.Drawing.Size(160, 24);
+            this.txtDienThoai.Size = new System.Drawing.Size(160, 21);
             this.txtDienThoai.TabIndex = 7;
             this.txtDienThoai.Enter += new System.EventHandler(this.txt_Enter);
             this.txtDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDienThoai_KeyPress_1);
@@ -531,7 +532,7 @@
             // 
             // 
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(105, 159);
+            this.labelX8.Location = new System.Drawing.Point(105, 151);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(66, 23);
             this.labelX8.TabIndex = 33;
@@ -543,10 +544,10 @@
             this.cboGioiTinh.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboGioiTinh.FormattingEnabled = true;
-            this.cboGioiTinh.ItemHeight = 18;
-            this.cboGioiTinh.Location = new System.Drawing.Point(104, 182);
+            this.cboGioiTinh.ItemHeight = 15;
+            this.cboGioiTinh.Location = new System.Drawing.Point(104, 174);
             this.cboGioiTinh.Name = "cboGioiTinh";
-            this.cboGioiTinh.Size = new System.Drawing.Size(67, 24);
+            this.cboGioiTinh.Size = new System.Drawing.Size(67, 21);
             this.cboGioiTinh.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
             this.cboGioiTinh.TabIndex = 4;
             // 
@@ -561,9 +562,9 @@
             this.txtDantoc.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtDantoc.Border.Class = "TextBoxBorder";
             this.txtDantoc.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtDantoc.Location = new System.Drawing.Point(12, 182);
+            this.txtDantoc.Location = new System.Drawing.Point(12, 174);
             this.txtDantoc.Name = "txtDantoc";
-            this.txtDantoc.Size = new System.Drawing.Size(85, 24);
+            this.txtDantoc.Size = new System.Drawing.Size(85, 21);
             this.txtDantoc.TabIndex = 3;
             this.txtDantoc.Enter += new System.EventHandler(this.txt_Enter);
             this.txtDantoc.Leave += new System.EventHandler(this.txt_Leave);
@@ -574,7 +575,7 @@
             this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnHuy.Image = global::QuanLiHocSinh.Properties.Resources.Huybo;
-            this.btnHuy.Location = new System.Drawing.Point(151, 430);
+            this.btnHuy.Location = new System.Drawing.Point(151, 406);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(92, 35);
             this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -588,7 +589,7 @@
             this.btnDongy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnDongy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnDongy.Image = global::QuanLiHocSinh.Properties.Resources.Dongy;
-            this.btnDongy.Location = new System.Drawing.Point(44, 430);
+            this.btnDongy.Location = new System.Drawing.Point(44, 406);
             this.btnDongy.Name = "btnDongy";
             this.btnDongy.Size = new System.Drawing.Size(92, 35);
             this.btnDongy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -635,7 +636,7 @@
             this.dtiNgayNhapHoc.CustomFormat = "dd/MM/yyyy";
             this.dtiNgayNhapHoc.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
             this.dtiNgayNhapHoc.IsPopupCalendarOpen = false;
-            this.dtiNgayNhapHoc.Location = new System.Drawing.Point(11, 292);
+            this.dtiNgayNhapHoc.Location = new System.Drawing.Point(11, 278);
             // 
             // 
             // 
@@ -669,7 +670,7 @@
             this.dtiNgayNhapHoc.MonthCalendar.TodayButtonVisible = true;
             this.dtiNgayNhapHoc.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
             this.dtiNgayNhapHoc.Name = "dtiNgayNhapHoc";
-            this.dtiNgayNhapHoc.Size = new System.Drawing.Size(163, 24);
+            this.dtiNgayNhapHoc.Size = new System.Drawing.Size(163, 21);
             this.dtiNgayNhapHoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.dtiNgayNhapHoc.TabIndex = 6;
             // 
@@ -688,7 +689,7 @@
             this.dtiNgaySinh.ButtonDropDown.Visible = true;
             this.dtiNgaySinh.CustomFormat = "dd/MM/yyyy";
             this.dtiNgaySinh.IsPopupCalendarOpen = false;
-            this.dtiNgaySinh.Location = new System.Drawing.Point(12, 129);
+            this.dtiNgaySinh.Location = new System.Drawing.Point(12, 124);
             // 
             // 
             // 
@@ -722,7 +723,7 @@
             this.dtiNgaySinh.MonthCalendar.TodayButtonVisible = true;
             this.dtiNgaySinh.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
             this.dtiNgaySinh.Name = "dtiNgaySinh";
-            this.dtiNgaySinh.Size = new System.Drawing.Size(162, 24);
+            this.dtiNgaySinh.Size = new System.Drawing.Size(162, 21);
             this.dtiNgaySinh.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.dtiNgaySinh.TabIndex = 2;
             // 
@@ -732,7 +733,7 @@
             this.btnSua.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnSua.Image = global::QuanLiHocSinh.Properties.Resources.Sua;
-            this.btnSua.Location = new System.Drawing.Point(196, 387);
+            this.btnSua.Location = new System.Drawing.Point(196, 363);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(85, 35);
             this.btnSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -746,7 +747,7 @@
             this.btnXoa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnXoa.Image = global::QuanLiHocSinh.Properties.Resources.Xoa;
-            this.btnXoa.Location = new System.Drawing.Point(104, 387);
+            this.btnXoa.Location = new System.Drawing.Point(104, 363);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(85, 35);
             this.btnXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -761,7 +762,7 @@
             this.btnThem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnThem.Image = global::QuanLiHocSinh.Properties.Resources.Them;
-            this.btnThem.Location = new System.Drawing.Point(12, 387);
+            this.btnThem.Location = new System.Drawing.Point(12, 363);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(85, 35);
             this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -775,7 +776,7 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(11, 212);
+            this.labelX2.Location = new System.Drawing.Point(11, 201);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(124, 23);
             this.labelX2.TabIndex = 14;
@@ -787,7 +788,7 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(11, 54);
+            this.labelX3.Location = new System.Drawing.Point(11, 51);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(75, 23);
             this.labelX3.TabIndex = 17;
@@ -799,7 +800,7 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(11, 267);
+            this.labelX1.Location = new System.Drawing.Point(11, 253);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(124, 23);
             this.labelX1.TabIndex = 15;
@@ -811,7 +812,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(11, 159);
+            this.labelX4.Location = new System.Drawing.Point(11, 151);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(75, 23);
             this.labelX4.TabIndex = 16;
@@ -823,7 +824,7 @@
             // 
             // 
             this.labelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX13.Location = new System.Drawing.Point(11, 106);
+            this.labelX13.Location = new System.Drawing.Point(11, 101);
             this.labelX13.Name = "labelX13";
             this.labelX13.Size = new System.Drawing.Size(75, 23);
             this.labelX13.TabIndex = 15;
@@ -840,9 +841,9 @@
             this.txtDiaChi.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtDiaChi.Border.Class = "TextBoxBorder";
             this.txtDiaChi.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtDiaChi.Location = new System.Drawing.Point(12, 237);
+            this.txtDiaChi.Location = new System.Drawing.Point(12, 226);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(163, 24);
+            this.txtDiaChi.Size = new System.Drawing.Size(163, 21);
             this.txtDiaChi.TabIndex = 5;
             this.txtDiaChi.Enter += new System.EventHandler(this.txt_Enter);
             this.txtDiaChi.Leave += new System.EventHandler(this.txt_Leave);
@@ -858,9 +859,9 @@
             this.txtTenHS.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtTenHS.Border.Class = "TextBoxBorder";
             this.txtTenHS.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtTenHS.Location = new System.Drawing.Point(11, 77);
+            this.txtTenHS.Location = new System.Drawing.Point(11, 74);
             this.txtTenHS.Name = "txtTenHS";
-            this.txtTenHS.Size = new System.Drawing.Size(163, 24);
+            this.txtTenHS.Size = new System.Drawing.Size(163, 21);
             this.txtTenHS.TabIndex = 1;
             this.txtTenHS.Enter += new System.EventHandler(this.txt_Enter);
             this.txtTenHS.Leave += new System.EventHandler(this.txt_Leave);
@@ -879,7 +880,7 @@
             this.txtMaHS.Enabled = false;
             this.txtMaHS.Location = new System.Drawing.Point(11, 25);
             this.txtMaHS.Name = "txtMaHS";
-            this.txtMaHS.Size = new System.Drawing.Size(163, 24);
+            this.txtMaHS.Size = new System.Drawing.Size(163, 21);
             this.txtMaHS.TabIndex = 19;
             this.txtMaHS.TabStop = false;
             // 
