@@ -88,11 +88,6 @@
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.btnItemNhapHS = new DevComponents.DotNetBar.ButtonItem();
             this.grdHanhKiemRieng = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.MAHS1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENHS1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAHK1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.MANH1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.MALHK1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tabControl1 = new DevComponents.DotNetBar.TabControl();
             this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
@@ -108,6 +103,11 @@
             this.buttonItem10 = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPane2 = new DevComponents.DotNetBar.NavigationPane();
             this.btnItemHS = new DevComponents.DotNetBar.TabItem(this.components);
+            this.MAHS1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENHS1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAHK1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.MANH1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.MALHK1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tabControlPanel1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdHanhKiemChung)).BeginInit();
@@ -214,7 +214,7 @@
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdHanhKiemChung.DefaultCellStyle = dataGridViewCellStyle3;
             this.grdHanhKiemChung.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -821,7 +821,7 @@
             // grdHanhKiemRieng
             // 
             this.grdHanhKiemRieng.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -841,7 +841,7 @@
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdHanhKiemRieng.DefaultCellStyle = dataGridViewCellStyle6;
             this.grdHanhKiemRieng.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -862,45 +862,12 @@
             this.grdHanhKiemRieng.TabStop = false;
             this.grdHanhKiemRieng.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdHanhKiemRieng_CellClick);
             // 
-            // MAHS1
-            // 
-            this.MAHS1.DataPropertyName = "MAHS";
-            this.MAHS1.HeaderText = "Mã học sinh";
-            this.MAHS1.Name = "MAHS1";
-            // 
-            // TENHS1
-            // 
-            this.TENHS1.DataPropertyName = "TENHS";
-            this.TENHS1.HeaderText = "Tên học sinh";
-            this.TENHS1.Name = "TENHS1";
-            // 
-            // MAHK1
-            // 
-            this.MAHK1.DataPropertyName = "MAHK";
-            this.MAHK1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MAHK1.HeaderText = "Học kỳ";
-            this.MAHK1.Name = "MAHK1";
-            // 
-            // MANH1
-            // 
-            this.MANH1.DataPropertyName = "MANH";
-            this.MANH1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MANH1.HeaderText = "Năm học";
-            this.MANH1.Name = "MANH1";
-            // 
-            // MALHK1
-            // 
-            this.MALHK1.DataPropertyName = "MALHK";
-            this.MALHK1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MALHK1.HeaderText = "Hạnh kiểm";
-            this.MALHK1.Name = "MALHK1";
-            // 
             // tabControl1
             // 
             this.tabControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
             this.tabControl1.CanReorderTabs = true;
-            this.tabControl1.Controls.Add(this.tabControlPanel1);
             this.tabControl1.Controls.Add(this.tabControlPanel2);
+            this.tabControl1.Controls.Add(this.tabControlPanel1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -1103,6 +1070,40 @@
             this.btnItemHS.Name = "btnItemHS";
             this.btnItemHS.Text = "Nhập hạnh kiểm theo học sinh";
             // 
+            // MAHS1
+            // 
+            this.MAHS1.DataPropertyName = "MAHS";
+            this.MAHS1.HeaderText = "Mã học sinh";
+            this.MAHS1.Name = "MAHS1";
+            // 
+            // TENHS1
+            // 
+            this.TENHS1.DataPropertyName = "TENHS";
+            this.TENHS1.HeaderText = "Tên học sinh";
+            this.TENHS1.Name = "TENHS1";
+            // 
+            // MAHK1
+            // 
+            this.MAHK1.DataPropertyName = "MAHK";
+            this.MAHK1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MAHK1.HeaderText = "Học kỳ";
+            this.MAHK1.Name = "MAHK1";
+            // 
+            // MANH1
+            // 
+            this.MANH1.DataPropertyName = "MANH";
+            this.MANH1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MANH1.HeaderText = "Năm học";
+            this.MANH1.Name = "MANH1";
+            this.MANH1.Width = 140;
+            // 
+            // MALHK1
+            // 
+            this.MALHK1.DataPropertyName = "MALHK";
+            this.MALHK1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MALHK1.HeaderText = "Hạnh kiểm";
+            this.MALHK1.Name = "MALHK1";
+            // 
             // frmHanhKiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1183,11 +1184,6 @@
         private DevComponents.DotNetBar.LabelX labelX6;
         private DevComponents.DotNetBar.ButtonX btnCapnhat;
         private DevComponents.DotNetBar.ButtonX btnLuulai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MAHS1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TENHS1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn MAHK1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn MANH1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn MALHK1;
         private DevComponents.DotNetBar.ButtonItem buttonItem2;
         private DevComponents.DotNetBar.ButtonItem buttonItem3;
         private DevComponents.DotNetBar.ButtonItem buttonItem1;
@@ -1206,5 +1202,10 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn MANH;
         private System.Windows.Forms.DataGridViewComboBoxColumn MAHK;
         private System.Windows.Forms.DataGridViewComboBoxColumn MALHK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAHS1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TENHS1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MAHK1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MANH1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MALHK1;
     }
 }
