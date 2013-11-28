@@ -237,8 +237,8 @@ namespace QuanLiHocSinh
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            macDinh();
-            dangNhap();
+            //macDinh();
+            //dangNhap();
             // Create the list of frequently used commands for the QAT Customize menu
             ribbonControl1.QatFrequentCommands.Add(btnDangNhap);
             ribbonControl1.QatFrequentCommands.Add(btnDangXuat);
@@ -337,9 +337,9 @@ namespace QuanLiHocSinh
             if (backupDialog.ShowDialog() == DialogResult.OK)
             {
                
-                string connectionStr = @"Data Source=DANGLIENMINH\SQLEXPRESS;Initial Catalog=QuanLyHocSinh2;Integrated Security=True";
+                string connectionStr = @"Data Source=DANGLIENMINH\SQLEXPRESS;Initial Catalog=QuanLyHocSinh3;Integrated Security=True";
                 connection = new SqlConnection(connectionStr);
-                SqlCommand cmd = new System.Data.SqlClient.SqlCommand("BACKUP DATABASE " + "QuanLyHocSinh2" + " TO DISK = '" + backupDialog.FileName.ToString() + "'", connection);
+                SqlCommand cmd = new System.Data.SqlClient.SqlCommand("BACKUP DATABASE " + "QuanLyHocSinh3" + " TO DISK = '" + backupDialog.FileName.ToString() + "'", connection);
                 connection.Open();
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -355,10 +355,12 @@ namespace QuanLiHocSinh
             if (restoreDialog.ShowDialog() == DialogResult.OK)
             {
                 
-                string connectionStr = @"Data Source=DANGLIENMINH\SQLEXPRESS;Initial Catalog=QuanLyHocSinh2;Integrated Security=True";
+                string connectionStr = @"Data Source=DANGLIENMINH\SQLEXPRESS;Initial Catalog=QuanLyHocSinh3;Integrated Security=True";
                 connection = new SqlConnection(connectionStr);
-                SqlCommand cmd = new System.Data.SqlClient.SqlCommand("USE master RESTORE DATABASE " + "QuanLyHocSinh2" + " FROM DISK = '" + restoreDialog.FileName.ToString() + "'", connection);
+                SqlCommand cmd = new System.Data.SqlClient.SqlCommand("alter database  QuanLyHocSinh3 set offline with rollback immediate alter database QuanLyHocSinh3 set online "+
+                "USE master RESTORE DATABASE " + "QuanLyHocSinh3" + " FROM DISK = '" + restoreDialog.FileName.ToString() + "'WITH REPLACE", connection);
                 connection.Open();
+                connection.ChangeDatabase("master");
                 cmd.ExecuteNonQuery();
                 connection.Close();
                 MessageBox.Show("Phục hồi dữ liệu thành công!", "RESTORE COMPLETED", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -62,7 +62,7 @@ namespace QuanLiHocSinh
             temp.AllowUserToResizeColumns = true;
             temp.DefaultCellStyle.WrapMode = DataGridViewTriState.NotSet;
             temp.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            temp.ReadOnly = true;
+            
         }
 
         private void treKhoi_NodeClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
