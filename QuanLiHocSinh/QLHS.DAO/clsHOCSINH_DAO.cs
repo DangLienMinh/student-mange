@@ -120,13 +120,13 @@ namespace QLHS.DAO
             con.Close();
             return table;
         }
-//--DANH SACH HOC SINH THEO LON,NAM HOC,HOC KY
-//CREATE CREATE PROC SP_DanhSachHocSinh_LOP_NAMHOC_HOCKY
-//@MALOP VARCHAR(10),@MANH VARCHAR(6),@MAHK VARCHAR(10)
-//AS
-//    BEGIN
-//        SELECT HOCSINH.MAHS,TENHS,NAMHOC.MANH,MAHK FROM HOCSINH,HOCLOP,NAMHOC,HOCKY WHERE HOCSINH.MAHS=HOCLOP.MAHS AND HOCLOP.MANH=NAMHOC.MANH AND HOCKY.MANH=NAMHOC.MANH AND MALOP=@MALOP AND NAMHOC.MANH=@MANH AND MAHK=@MAHK
-//    END
+        //--DANH SACH HOC SINH THEO LON,NAM HOC,HOC KY
+        //CREATE CREATE PROC SP_DanhSachHocSinh_LOP_NAMHOC_HOCKY
+        //@MALOP VARCHAR(10),@MANH VARCHAR(6),@MAHK VARCHAR(10)
+        //AS
+        //    BEGIN
+        //        SELECT HOCSINH.MAHS,TENHS,NAMHOC.MANH,MAHK FROM HOCSINH,HOCLOP,NAMHOC,HOCKY WHERE HOCSINH.MAHS=HOCLOP.MAHS AND HOCLOP.MANH=NAMHOC.MANH AND HOCKY.MANH=NAMHOC.MANH AND MALOP=@MALOP AND NAMHOC.MANH=@MANH AND MAHK=@MAHK
+        //    END
 
 
 
@@ -205,7 +205,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        public void themPhanLop(clsHOCSINH_DTO hocsinh,clsNAMHOC_DTO namHoc_DTO,clsLOP_DTO lop_DTO)
+        public void themPhanLop(clsHOCSINH_DTO hocsinh, clsNAMHOC_DTO namHoc_DTO, clsLOP_DTO lop_DTO)
         {
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThemPhanLop", con);
@@ -281,7 +281,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        public  DataTable timHocSinhNangCao(clsHOCSINH_DTO hocSinh_DTO,string dieuKien)
+        public DataTable timHocSinhNangCao(clsHOCSINH_DTO hocSinh_DTO, string dieuKien)
         {
             SqlDataAdapter da;
             DataTable dt = new DataTable();
@@ -298,12 +298,12 @@ namespace QLHS.DAO
                 {
                     Temp += dieuKien + " DANTOC=" + "N'" + hocSinh_DTO.Dantoc + "' ";
                 }
-                if (hocSinh_DTO.Ngnhaphoc.GetHashCode()!=0)
+                if (hocSinh_DTO.Ngnhaphoc.GetHashCode() != 0)
                 {
                     Temp += dieuKien + " NGNHAPHOC=" + "'" + hocSinh_DTO.Ngnhaphoc + "' ";
                 }
             }
-           else if (hocSinh_DTO.Tenhs != "")
+            else if (hocSinh_DTO.Tenhs != "")
             {
                 Temp = " WHERE TENHS=" + "N'" + hocSinh_DTO.Tenhs + "' ";
                 if (hocSinh_DTO.Mahs != "")
@@ -314,7 +314,7 @@ namespace QLHS.DAO
                 {
                     Temp += dieuKien + " DANTOC=" + "N'" + hocSinh_DTO.Dantoc + "' ";
                 }
-                if (hocSinh_DTO.Ngnhaphoc.GetHashCode()!=0)
+                if (hocSinh_DTO.Ngnhaphoc.GetHashCode() != 0)
                 {
                     Temp += dieuKien + " NGNHAPHOC=" + "'" + hocSinh_DTO.Ngnhaphoc + "' ";
                 }
@@ -330,7 +330,7 @@ namespace QLHS.DAO
                 {
                     Temp += dieuKien + " TENHS=" + "N'" + hocSinh_DTO.Tenhs + "' ";
                 }
-                if (hocSinh_DTO.Ngnhaphoc.GetHashCode()!=0)
+                if (hocSinh_DTO.Ngnhaphoc.GetHashCode() != 0)
                 {
                     Temp += dieuKien + " NGNHAPHOC=" + "'" + hocSinh_DTO.Ngnhaphoc + "' ";
                 }
@@ -346,20 +346,20 @@ namespace QLHS.DAO
                 {
                     Temp += dieuKien + " TENHS=" + "N'" + hocSinh_DTO.Tenhs + "' ";
                 }
-               if (hocSinh_DTO.Dantoc != "")
+                if (hocSinh_DTO.Dantoc != "")
                 {
                     Temp += dieuKien + " DANTOC=" + "N'" + hocSinh_DTO.Dantoc + "' ";
                 }
             }
-	
-                STRCMD = @"SELECT * FROM HOCSINH" + Temp;
-                connection.kiemTraKetNoi(con);
-                SqlCommand sqlcmd = new SqlCommand(STRCMD,con);
-                da = new SqlDataAdapter(sqlcmd);
-                da.Fill(dt);
-                con.Close();
-                return dt;
-            }
+
+            STRCMD = @"SELECT * FROM HOCSINH" + Temp;
+            connection.kiemTraKetNoi(con);
+            SqlCommand sqlcmd = new SqlCommand(STRCMD, con);
+            da = new SqlDataAdapter(sqlcmd);
+            da.Fill(dt);
+            con.Close();
+            return dt;
+        }
         /*////////////////////////////////////////////////////////////////THONG KE////////////////////////////////////////////////////////////////////*/
         //THONG KE DANH SACH HOC SINH
         //public DataTable danhSachHocSinh()
@@ -373,7 +373,21 @@ namespace QLHS.DAO
         //    con.Close();
         //    return table;
         //}
+
+        //TAO THE HOC SINH
+        public DataSet reportTheHS(string maLop)
+        {
+            DataSet ds = new DataSet();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_ReportTheHocSinh", con);
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = maLop;
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(ds,"TheHocSinh");
+            con.Close();
+            return ds;
         }
+    }
 
 
    

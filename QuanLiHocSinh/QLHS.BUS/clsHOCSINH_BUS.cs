@@ -195,6 +195,24 @@ namespace QLHS.BUS
             return hocSinh_DAO.danhSachHocSinhTheoLop(hocSinh_DTO);
         }
 
+        //load ma lop dua vao ten lop
+        public string layMaLop(ComboBoxEx comboBox, AdvTree tree)
+        {
+            string temp = "";
+           
+            lop_DTO = new clsLOP_DTO();
+            lop_DTO.Manh = comboBox.SelectedValue.ToString();
+            tblLop = lop_DAO.danhSachLopTheoNamHoc(lop_DTO);
+            foreach (DataRow row in tblLop.Rows)
+            {
+                if (row["TENLOP"].ToString() == tree.SelectedNode.ToString())
+                {
+                    temp = row["MALOP"].ToString();
+                }
+            }
+            return temp;
+        }
+
         //load danh sách mahs ,ten học sinh theo manh malop 
         public DataTable danhSachMaHSTheoLop(ComboBoxEx cboMaNH, AdvTree tree)
         {
@@ -377,6 +395,11 @@ namespace QLHS.BUS
         public DataTable timHocSinhNangCao(clsHOCSINH_DTO hs,RadioButton dieuKien)
         {
             return hocSinh_DAO.timHocSinhNangCao(hs, dieuKien.Text);
+        }
+
+        public DataSet reportTheHocSinh(string maLop)
+        {
+            return hocSinh_DAO.reportTheHS(maLop);
         }
 
     }     

@@ -16,6 +16,7 @@ namespace QuanLiHocSinh
     {
         private clsLOP_BUS lop_BUS;
         private clsGIAOVIEN_BUS giaoVien_BUS;
+        private clsHOCSINH_BUS hocSinh_BUS;
         string query = "";
         private string rptName;
       
@@ -26,6 +27,7 @@ namespace QuanLiHocSinh
             InitializeComponent();
             lop_BUS = new clsLOP_BUS();
             giaoVien_BUS = new clsGIAOVIEN_BUS();
+            hocSinh_BUS = new clsHOCSINH_BUS();
             this.rptName = rptName;
             this.query = query;
         }
@@ -35,6 +37,7 @@ namespace QuanLiHocSinh
             InitializeComponent();
             lop_BUS = new clsLOP_BUS();
             giaoVien_BUS = new clsGIAOVIEN_BUS();
+            hocSinh_BUS = new clsHOCSINH_BUS();
             this.rptName = rptName;
         }
 
@@ -70,6 +73,15 @@ namespace QuanLiHocSinh
                             document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSGiaoVien.rpt");
                             document.SetDataSource(ds.Tables["GiaoVien"].Select(query).CopyToDataTable());
 
+                        }
+                        break;
+                    case "frmTheHocSinh":
+                        {
+                            DataSet ds = hocSinh_BUS.reportTheHocSinh(query);
+                            ds.WriteXmlSchema(Application.StartupPath + @"\TheHocSinh.xsd");
+
+                            document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\TheHocSinh.rpt");
+                            document.SetDataSource(ds.Tables["TheHocSinh"]);
                         }
                         break;
                     default:
