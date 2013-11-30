@@ -16,8 +16,20 @@ namespace QuanLiHocSinh
         private clsLOP_BUS lop_BUS;
         private clsHOCSINH_BUS hocSinh_BUS;
         private clsHANHKIEM_BUS hanhkiem_BUS;
+        private string tenND;
+
         public frmBaoCaoMain()
         {
+            InitializeComponent();
+            namHoc_BUS = new clsNAMHOC_BUS();
+            lop_BUS = new clsLOP_BUS();
+            hocSinh_BUS = new clsHOCSINH_BUS();
+            hanhkiem_BUS = new clsHANHKIEM_BUS();
+        }
+
+        public frmBaoCaoMain(string TenND)
+        {
+            this.tenND = TenND;
             InitializeComponent();
             namHoc_BUS = new clsNAMHOC_BUS();
             lop_BUS = new clsLOP_BUS();
@@ -36,14 +48,14 @@ namespace QuanLiHocSinh
         {
             if (cboNamHocDSLop.SelectedValue!=null)
             {
-                frmHiemThiReport hien = new frmHiemThiReport("MANH='" + cboNamHocDSLop.SelectedValue+"'","frmDSLop");
+                frmHiemThiReport hien = new frmHiemThiReport("MANH='" + cboNamHocDSLop.SelectedValue+"'","frmDSLop",tenND);
                 hien.Show();
             }
         }
 
         private void btnInDSGiaoVien_Click(object sender, EventArgs e)
         {
-            frmHiemThiReport hien = new frmHiemThiReport("frmDSGiaoVien");
+            frmHiemThiReport hien = new frmHiemThiReport("frmDSGiaoVien",tenND);
             hien.Show();
         }
 
@@ -54,7 +66,7 @@ namespace QuanLiHocSinh
             }
             else
             {
-                frmHiemThiReport hien = new frmHiemThiReport(hocSinh_BUS.layMaLop(cboNamHocTheHS,treLopTheHS), "frmTheHocSinh");
+                frmHiemThiReport hien = new frmHiemThiReport(hocSinh_BUS.layMaLop(cboNamHocTheHS, treLopTheHS), "frmTheHocSinh", tenND);
                 hien.Show();
             }
         }
@@ -75,7 +87,7 @@ namespace QuanLiHocSinh
             }
             else
             {
-                frmHiemThiReport hien = new frmHiemThiReport(hocSinh_BUS.layMaLop(cboNamHocTheHS, treLopTheHS), "frmTheHocSinh");
+                frmHiemThiReport hien = new frmHiemThiReport(hocSinh_BUS.layMaLop(cboNamHocTheHS, treLopTheHS), "frmTheHocSinh", tenND);
                 hien.Show();
             }
         }
@@ -97,7 +109,7 @@ namespace QuanLiHocSinh
             {
                 if (treLop.SelectedNode.Name.ToString().Substring(0, 1).ToString() == "L")
                 {
-                    frmHiemThiReport hien = new frmHiemThiReport(cboNamHoc.SelectedValue.ToString(), treLop.SelectedNode.Name.ToString(), "frmDSHocSinh");
+                    frmHiemThiReport hien = new frmHiemThiReport(cboNamHoc.SelectedValue.ToString(), treLop.SelectedNode.Name.ToString(), "frmDSHocSinh", tenND);
                     hien.Show();
                 }
             }
