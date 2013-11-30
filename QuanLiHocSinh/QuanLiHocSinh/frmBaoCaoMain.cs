@@ -49,9 +49,8 @@ namespace QuanLiHocSinh
 
         private void btnInTheHS_Click(object sender, EventArgs e)
         {
-            if (treLopTheHS.SelectedNode == null || treLopTheHS.SelectedNode.Parent == null)
+            if (treLopTheHS.SelectedNode.Parent == null)
             {
-                MessageBox.Show("Bạn phải chon một lớp");
             }
             else
             {
@@ -66,6 +65,18 @@ namespace QuanLiHocSinh
             if (cboNamHocTheHS.SelectedValue!=null)
             {
                 lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHocTheHS.SelectedValue.ToString(), treLopTheHS);
+            }
+        }
+
+        private void treLopTheHS_NodeDoubleClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
+        {
+            if (treLopTheHS.SelectedNode.Parent == null)
+            {
+            }
+            else
+            {
+                frmHiemThiReport hien = new frmHiemThiReport(hocSinh_BUS.layMaLop(cboNamHocTheHS, treLopTheHS), "frmTheHocSinh");
+                hien.Show();
             }
         }
 
@@ -91,5 +102,22 @@ namespace QuanLiHocSinh
                 }
             }
         }
+
+        private void treLop_NodeDoubleClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
+        {
+            if (treLop.SelectedNode.Parent == null)
+            {
+            }
+            else
+            {
+                frmHiemThiReport hien = new frmHiemThiReport(cboNamHoc.SelectedValue.ToString(), treLop.SelectedNode.Name.ToString(), "frmDSHocSinh");
+                hien.Show();
+            }
+           
+        }
+
+
+
+       
     }
 }
