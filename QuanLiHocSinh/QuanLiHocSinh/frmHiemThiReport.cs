@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+
 using QLHS.BUS;
 using System.IO;
 namespace QuanLiHocSinh
@@ -19,11 +21,11 @@ namespace QuanLiHocSinh
         private clsHOCSINH_BUS hocSinh_BUS;
         string query = "";
         private string rptName;
-        private string malop;
-        private string manh;
-      
+        private string maLop;
+        private string maNH;
+        private string tenND;
 
-        public frmHiemThiReport(string query,string rptName)
+        public frmHiemThiReport(string query,string rptName,string tenND)
         {
             this.query = query;
             InitializeComponent();
@@ -32,23 +34,27 @@ namespace QuanLiHocSinh
             hocSinh_BUS = new clsHOCSINH_BUS();
             this.rptName = rptName;
             this.query = query;
+            this.tenND = tenND;
         }
 
-        public frmHiemThiReport(string rptName)
+        public frmHiemThiReport(string rptName,string tenND)
         {
             InitializeComponent();
             lop_BUS = new clsLOP_BUS();
             giaoVien_BUS = new clsGIAOVIEN_BUS();
             hocSinh_BUS = new clsHOCSINH_BUS();
             this.rptName = rptName;
+            this.tenND = tenND;
         }
-        public frmHiemThiReport(string manh,string malop,string rptName)
+
+        public frmHiemThiReport(string manh,string malop,string rptName,string tenND)
         {
             InitializeComponent();
-            this.malop = malop;
-            this.manh = manh;
+            this.maLop = malop;
+            this.maNH = manh;
             hocSinh_BUS = new clsHOCSINH_BUS();
             this.rptName = rptName;
+            this.tenND = tenND;
         }
         public frmHiemThiReport()
         {
@@ -71,6 +77,25 @@ namespace QuanLiHocSinh
 
                             document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSLop.rpt");
                             document.SetDataSource(ds.Tables["Lop"].Select(query).CopyToDataTable());
+                            //document.SetParameterValue("NguoiLap1", "your parameter value");
+                            TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap1"];
+                            text.Text = tenND;
+                            //ParameterFieldDefinitions crParameterFieldDefinitions;
+                            //ParameterFieldDefinition crParameterFieldDefinition;
+                            //ParameterValues crParameterValues = new ParameterValues();
+                            //ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
+
+                            //crParameterDiscreteValue.Value = tenND;
+                            //crParameterFieldDefinitions = document.DataDefinition.ParameterFields;
+                            //crParameterFieldDefinition = crParameterFieldDefinitions["NguoiLap"];
+                            //crParameterValues = crParameterFieldDefinition.CurrentValues;
+
+                            //crParameterValues.Clear();
+                            //crParameterValues.Add(crParameterDiscreteValue);
+                            //crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
+
+                            //rptView.ReportSource = document;
+                            //rptView.Refresh(); 
  
                         }
                         break;
@@ -81,7 +106,8 @@ namespace QuanLiHocSinh
 
                             document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSGiaoVien.rpt");
                             document.SetDataSource(ds.Tables["GiaoVien"].Select(query).CopyToDataTable());
-
+                            TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap"];
+                            text.Text = tenND;
                         }
                         break;
                     case "frmTheHocSinh":
@@ -95,7 +121,7 @@ namespace QuanLiHocSinh
                         break;
                     case "frmDSHocSinh":
                         {
-                            DataSet ds= hocSinh_BUS.danhSachHocSinh_NH_LOP(manh,malop);
+                            DataSet ds= hocSinh_BUS.danhSachHocSinh_NH_LOP(maNH,maLop);
                             ds.WriteXmlSchema(Application.StartupPath + @"\DanhSachHocSinh.xsd");
                             document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSHS_Lop.rpt");
                             document.SetDataSource(ds.Tables["DanhSachHocSinh"]);

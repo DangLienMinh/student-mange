@@ -677,7 +677,7 @@ namespace QuanLiHocSinh
         {
             if (m_FrmBaoCao == null || m_FrmBaoCao.IsDisposed)
             {
-                m_FrmBaoCao = new frmBaoCaoMain();
+                m_FrmBaoCao = new frmBaoCaoMain(nguoiDung_DTO.Tennd);
                 m_FrmBaoCao.FormBorderStyle = FormBorderStyle.None;
                 m_FrmBaoCao.MdiParent = frmMain.ActiveForm;
                 m_FrmBaoCao.Show();
