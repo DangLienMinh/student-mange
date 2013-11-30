@@ -19,6 +19,8 @@ namespace QuanLiHocSinh
         private clsHOCSINH_BUS hocSinh_BUS;
         string query = "";
         private string rptName;
+        private string malop;
+        private string manh;
       
 
         public frmHiemThiReport(string query,string rptName)
@@ -40,7 +42,14 @@ namespace QuanLiHocSinh
             hocSinh_BUS = new clsHOCSINH_BUS();
             this.rptName = rptName;
         }
-
+        public frmHiemThiReport(string manh,string malop,string rptName)
+        {
+            InitializeComponent();
+            this.malop = malop;
+            this.manh = manh;
+            hocSinh_BUS = new clsHOCSINH_BUS();
+            this.rptName = rptName;
+        }
         public frmHiemThiReport()
         {
             InitializeComponent();
@@ -82,6 +91,14 @@ namespace QuanLiHocSinh
 
                             document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\TheHocSinh.rpt");
                             document.SetDataSource(ds.Tables["TheHocSinh"]);
+                        }
+                        break;
+                    case "frmDSHocSinh":
+                        {
+                            DataSet ds= hocSinh_BUS.danhSachHocSinh_NH_LOP(manh,malop);
+                            ds.WriteXmlSchema(Application.StartupPath + @"\DanhSachHocSinh.xsd");
+                            document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSHS_Lop.rpt");
+                            document.SetDataSource(ds.Tables["DanhSachHocSinh"]);
                         }
                         break;
                     default:

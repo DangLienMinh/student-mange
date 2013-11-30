@@ -38,6 +38,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BAOCAO_DAO.cs" />
     <Compile Include="clsHANHKIEM_DAO.cs" />
     <Compile Include="clsConnectDatabase.cs" />
     <Compile Include="clsDIEM_DAO.cs" />

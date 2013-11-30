@@ -15,19 +15,21 @@ namespace QuanLiHocSinh
         private clsNAMHOC_BUS namHoc_BUS;
         private clsLOP_BUS lop_BUS;
         private clsHOCSINH_BUS hocSinh_BUS;
- 
+        private clsHANHKIEM_BUS hanhkiem_BUS;
         public frmBaoCaoMain()
         {
             InitializeComponent();
             namHoc_BUS = new clsNAMHOC_BUS();
             lop_BUS = new clsLOP_BUS();
             hocSinh_BUS = new clsHOCSINH_BUS();
+            hanhkiem_BUS = new clsHANHKIEM_BUS();
         }
 
         private void frmBaoCaoMain_Load(object sender, EventArgs e)
         {
             namHoc_BUS.hienThiComboBox(cboNamHocDSLop);
-            namHoc_BUS.hienThiComboBox(cboNamHocTheHS); 
+            namHoc_BUS.hienThiComboBox(cboNamHocTheHS);
+            namHoc_BUS.hienThiComboBox(cboNamHoc);
         }
 
         private void btnInDSLop_Click(object sender, EventArgs e)
@@ -64,6 +66,29 @@ namespace QuanLiHocSinh
             if (cboNamHocTheHS.SelectedValue!=null)
             {
                 lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHocTheHS.SelectedValue.ToString(), treLopTheHS);
+            }
+        }
+
+        private void cboNamHoc_SelectedValueChanged(object sender, EventArgs e)
+        {
+            treLop.Nodes.Clear();
+            hanhkiem_BUS.hienThiLopHoc(treLop, cboNamHoc);
+        }
+
+        private void cboNamHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDshocsinh_Click(object sender, EventArgs e)
+        {
+            if (cboNamHoc.SelectedValue != null)
+            {
+                if (treLop.SelectedNode.Name.ToString().Substring(0, 1).ToString() == "L")
+                {
+                    frmHiemThiReport hien = new frmHiemThiReport(cboNamHoc.SelectedValue.ToString(), treLop.SelectedNode.Name.ToString(), "frmDSHocSinh");
+                    hien.Show();
+                }
             }
         }
     }
