@@ -130,7 +130,29 @@ namespace QLHS.BUS
             }
             return table;
         }
+        public DataSet danhSachHocSinh_NH_LOP(string manh, string malop)
+        {
+            DataSet ds = hocSinh_DAO.danhSachHocSinh_NH_LOP(manh, malop);
+            if (hocSinh_DAO.danhSachHocSinh_NH_LOP(manh, malop).Tables["DanhSachHocSinh"].Rows.Count > 0)
+            {
+                foreach (DataRow row in hocSinh_DAO.danhSachHocSinh_NH_LOP(manh, malop).Tables["DanhSachHocSinh"].Rows)
+                {
+                    if (row["MAHS"] != null)
+                    {
+                        if (row["GIOITINHHS"].ToString() == "0")
+                        {
+                            row["GIOITINHHS"] = "Nữ";
+                        }
+                        else
+                        {
+                            row["GIOITINHHS"] = "Nam";
+                        }
+                    }
+                }
 
+            }
+            return ds;
+        }
         //public void taiLaiDataGrid(DataGridViewX grdHocSinh, DataTable dsHocSinh)
         //{
         //    grdHocSinh.DataSource = dsHocSinh;

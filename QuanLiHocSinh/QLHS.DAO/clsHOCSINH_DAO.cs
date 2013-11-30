@@ -105,7 +105,7 @@ namespace QLHS.DAO
             con.Close();
             return table;
         }
-
+        
         public DataTable danhSachHocSinhMALOPMANHMAHKChuaNhap(string maLop, string maNH, string maHK)
         {
             DataTable table = new DataTable();
@@ -119,6 +119,20 @@ namespace QLHS.DAO
             adapter.Fill(table);
             con.Close();
             return table;
+        }
+        //Danh sách học sinh theo lớp và năm học
+        public DataSet danhSachHocSinh_NH_LOP(string MaNh, string Malop)
+        {
+            DataSet ds = new DataSet();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_DanhSachHocSinh_NH_LOP", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = MaNh;
+            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = Malop;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(ds, "DanhSachHocSinh");
+            con.Close();
+            return ds;
         }
         //--DANH SACH HOC SINH THEO LON,NAM HOC,HOC KY
         //CREATE CREATE PROC SP_DanhSachHocSinh_LOP_NAMHOC_HOCKY
