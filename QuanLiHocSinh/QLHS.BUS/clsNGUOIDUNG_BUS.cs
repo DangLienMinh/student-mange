@@ -170,6 +170,7 @@ namespace QLHS.BUS
                 nguoiDung_DTO.Tendn = nguoiDung.Rows[0]["TenND"].ToString();
                 nguoiDung_DTO.Malnd = nguoiDung.Rows[0]["MALND"].ToString();
                 nguoiDung_DTO.Tennd = nguoiDung.Rows[0]["TENND"].ToString();
+                nguoiDung_DTO.Mand = nguoiDung.Rows[0]["MAND"].ToString();
                 return 2;
             }
         }

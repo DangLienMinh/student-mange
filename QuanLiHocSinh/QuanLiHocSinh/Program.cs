@@ -15,7 +15,7 @@ namespace QuanLiHocSinh
         {  
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmScreen());
+            Application.Run(new frmMain());
         }
     }
 }

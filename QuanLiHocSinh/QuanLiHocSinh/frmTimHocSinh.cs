@@ -291,6 +291,13 @@ namespace QuanLiHocSinh
         private void frmTimHocSinh_Load(object sender, EventArgs e)
         {
             optAnd.Select();
+
+            hocSinh_BUS.autoComplete(txtMaHS, "MAHS");
+            hocSinh_BUS.autoComplete(txtMaHS1, "MAHS");
+            hocSinh_BUS.autoComplete(txtTenHS, "TENHS");
+            hocSinh_BUS.autoComplete(txtTenHS1, "TENHS");
+            hocSinh_BUS.autoComplete(txtDanToc, "DANTOC");
+            hocSinh_BUS.autoComplete(txtDanToc1, "DANTOC");
         }
 
         private void bindingData(DataTable table)
@@ -348,6 +355,8 @@ namespace QuanLiHocSinh
             ((TextBox)sender).BackColor = SystemColors.Control;
             
         }
+
+        
 
        
 

@@ -97,6 +97,21 @@
             this.btnLuu = new DevComponents.DotNetBar.ButtonItem();
             this.btnDong = new DevComponents.DotNetBar.ButtonItem();
             this.grdDiemChung = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.MAHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.a1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.a2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.b1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.b2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.b3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.b4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.b5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.d1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panelEx4 = new DevComponents.DotNetBar.PanelEx();
             this.panelEx8 = new DevComponents.DotNetBar.PanelEx();
@@ -143,21 +158,6 @@
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.btnItemNhapLop = new DevComponents.DotNetBar.ButtonItem();
             this.btnItemLop = new DevComponents.DotNetBar.TabItem(this.components);
-            this.MAHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.a1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.a2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.b1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.b2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.b3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.b4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.b5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.d1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdDiemRieng)).BeginInit();
             this.navigationPanePanel3.SuspendLayout();
             this.tabControlPanel2.SuspendLayout();
@@ -207,7 +207,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdDiemRieng.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdDiemRieng.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -841,7 +841,7 @@
             dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdDiemChung.DefaultCellStyle = dataGridViewCellStyle19;
             this.grdDiemChung.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -859,6 +859,152 @@
             this.grdDiemChung.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.grdDiemChung.Size = new System.Drawing.Size(1164, 405);
             this.grdDiemChung.TabIndex = 16;
+            // 
+            // MAHS
+            // 
+            this.MAHS.DataPropertyName = "MAHS";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.MAHS.DefaultCellStyle = dataGridViewCellStyle5;
+            this.MAHS.HeaderText = "Mã học sinh";
+            this.MAHS.Name = "MAHS";
+            this.MAHS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TENHS
+            // 
+            this.TENHS.DataPropertyName = "TENHS";
+            this.TENHS.HeaderText = "Họ tên học sinh";
+            this.TENHS.Name = "TENHS";
+            this.TENHS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.TENHS.Width = 140;
+            // 
+            // a1
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.a1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.a1.HeaderText = "1";
+            this.a1.MaxInputLength = 3;
+            this.a1.Name = "a1";
+            this.a1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.a1.Width = 55;
+            // 
+            // a2
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.a2.DefaultCellStyle = dataGridViewCellStyle7;
+            this.a2.HeaderText = "2";
+            this.a2.MaxInputLength = 3;
+            this.a2.Name = "a2";
+            this.a2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.a2.Width = 55;
+            // 
+            // b1
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.b1.DefaultCellStyle = dataGridViewCellStyle8;
+            this.b1.HeaderText = "1";
+            this.b1.MaxInputLength = 3;
+            this.b1.Name = "b1";
+            this.b1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.b1.Width = 55;
+            // 
+            // b2
+            // 
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.b2.DefaultCellStyle = dataGridViewCellStyle9;
+            this.b2.HeaderText = "2";
+            this.b2.MaxInputLength = 3;
+            this.b2.Name = "b2";
+            this.b2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.b2.Width = 55;
+            // 
+            // b3
+            // 
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.b3.DefaultCellStyle = dataGridViewCellStyle10;
+            this.b3.HeaderText = "3";
+            this.b3.MaxInputLength = 3;
+            this.b3.Name = "b3";
+            this.b3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.b3.Width = 55;
+            // 
+            // b4
+            // 
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.b4.DefaultCellStyle = dataGridViewCellStyle11;
+            this.b4.HeaderText = "4";
+            this.b4.MaxInputLength = 3;
+            this.b4.Name = "b4";
+            this.b4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.b4.Width = 55;
+            // 
+            // b5
+            // 
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.b5.DefaultCellStyle = dataGridViewCellStyle12;
+            this.b5.HeaderText = "5";
+            this.b5.MaxInputLength = 3;
+            this.b5.Name = "b5";
+            this.b5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.b5.Width = 55;
+            // 
+            // c1
+            // 
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.c1.DefaultCellStyle = dataGridViewCellStyle13;
+            this.c1.HeaderText = "1";
+            this.c1.MaxInputLength = 3;
+            this.c1.Name = "c1";
+            this.c1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.c1.Width = 55;
+            // 
+            // c2
+            // 
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.c2.DefaultCellStyle = dataGridViewCellStyle14;
+            this.c2.HeaderText = "2";
+            this.c2.MaxInputLength = 3;
+            this.c2.Name = "c2";
+            this.c2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.c2.Width = 55;
+            // 
+            // c3
+            // 
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.c3.DefaultCellStyle = dataGridViewCellStyle15;
+            this.c3.HeaderText = "3";
+            this.c3.MaxInputLength = 3;
+            this.c3.Name = "c3";
+            this.c3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.c3.Width = 55;
+            // 
+            // c4
+            // 
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.c4.DefaultCellStyle = dataGridViewCellStyle16;
+            this.c4.HeaderText = "4";
+            this.c4.MaxInputLength = 3;
+            this.c4.Name = "c4";
+            this.c4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.c4.Width = 55;
+            // 
+            // c5
+            // 
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.c5.DefaultCellStyle = dataGridViewCellStyle17;
+            this.c5.HeaderText = "5";
+            this.c5.MaxInputLength = 3;
+            this.c5.Name = "c5";
+            this.c5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.c5.Width = 55;
+            // 
+            // d1
+            // 
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.d1.DefaultCellStyle = dataGridViewCellStyle18;
+            this.d1.HeaderText = "Thi cuối kì";
+            this.d1.MaxInputLength = 3;
+            this.d1.Name = "d1";
+            this.d1.Width = 230;
             // 
             // panelEx1
             // 
@@ -1525,152 +1671,6 @@
             this.btnItemLop.AttachedControl = this.tabControlPanel1;
             this.btnItemLop.Name = "btnItemLop";
             this.btnItemLop.Text = "Nhập điểm theo Lớp";
-            // 
-            // MAHS
-            // 
-            this.MAHS.DataPropertyName = "MAHS";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.MAHS.DefaultCellStyle = dataGridViewCellStyle5;
-            this.MAHS.HeaderText = "Mã học sinh";
-            this.MAHS.Name = "MAHS";
-            this.MAHS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // TENHS
-            // 
-            this.TENHS.DataPropertyName = "TENHS";
-            this.TENHS.HeaderText = "Họ tên học sinh";
-            this.TENHS.Name = "TENHS";
-            this.TENHS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.TENHS.Width = 140;
-            // 
-            // a1
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.a1.DefaultCellStyle = dataGridViewCellStyle6;
-            this.a1.HeaderText = "1";
-            this.a1.MaxInputLength = 3;
-            this.a1.Name = "a1";
-            this.a1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.a1.Width = 55;
-            // 
-            // a2
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.a2.DefaultCellStyle = dataGridViewCellStyle7;
-            this.a2.HeaderText = "2";
-            this.a2.MaxInputLength = 3;
-            this.a2.Name = "a2";
-            this.a2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.a2.Width = 55;
-            // 
-            // b1
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.b1.DefaultCellStyle = dataGridViewCellStyle8;
-            this.b1.HeaderText = "1";
-            this.b1.MaxInputLength = 3;
-            this.b1.Name = "b1";
-            this.b1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.b1.Width = 55;
-            // 
-            // b2
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.b2.DefaultCellStyle = dataGridViewCellStyle9;
-            this.b2.HeaderText = "2";
-            this.b2.MaxInputLength = 3;
-            this.b2.Name = "b2";
-            this.b2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.b2.Width = 55;
-            // 
-            // b3
-            // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.b3.DefaultCellStyle = dataGridViewCellStyle10;
-            this.b3.HeaderText = "3";
-            this.b3.MaxInputLength = 3;
-            this.b3.Name = "b3";
-            this.b3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.b3.Width = 55;
-            // 
-            // b4
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.b4.DefaultCellStyle = dataGridViewCellStyle11;
-            this.b4.HeaderText = "4";
-            this.b4.MaxInputLength = 3;
-            this.b4.Name = "b4";
-            this.b4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.b4.Width = 55;
-            // 
-            // b5
-            // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.b5.DefaultCellStyle = dataGridViewCellStyle12;
-            this.b5.HeaderText = "5";
-            this.b5.MaxInputLength = 3;
-            this.b5.Name = "b5";
-            this.b5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.b5.Width = 55;
-            // 
-            // c1
-            // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.c1.DefaultCellStyle = dataGridViewCellStyle13;
-            this.c1.HeaderText = "1";
-            this.c1.MaxInputLength = 3;
-            this.c1.Name = "c1";
-            this.c1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.c1.Width = 55;
-            // 
-            // c2
-            // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.c2.DefaultCellStyle = dataGridViewCellStyle14;
-            this.c2.HeaderText = "2";
-            this.c2.MaxInputLength = 3;
-            this.c2.Name = "c2";
-            this.c2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.c2.Width = 55;
-            // 
-            // c3
-            // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.c3.DefaultCellStyle = dataGridViewCellStyle15;
-            this.c3.HeaderText = "3";
-            this.c3.MaxInputLength = 3;
-            this.c3.Name = "c3";
-            this.c3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.c3.Width = 55;
-            // 
-            // c4
-            // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.c4.DefaultCellStyle = dataGridViewCellStyle16;
-            this.c4.HeaderText = "4";
-            this.c4.MaxInputLength = 3;
-            this.c4.Name = "c4";
-            this.c4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.c4.Width = 55;
-            // 
-            // c5
-            // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.c5.DefaultCellStyle = dataGridViewCellStyle17;
-            this.c5.HeaderText = "5";
-            this.c5.MaxInputLength = 3;
-            this.c5.Name = "c5";
-            this.c5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.c5.Width = 55;
-            // 
-            // d1
-            // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.d1.DefaultCellStyle = dataGridViewCellStyle18;
-            this.d1.HeaderText = "Thi cuối kì";
-            this.d1.MaxInputLength = 3;
-            this.d1.Name = "d1";
-            this.d1.Width = 230;
             // 
             // frmDiem
             // 
