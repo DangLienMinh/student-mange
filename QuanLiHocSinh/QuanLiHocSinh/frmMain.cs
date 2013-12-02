@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
@@ -38,6 +38,7 @@ namespace QuanLiHocSinh
         private frmDangNhap m_FrmLogin = null;
         private frmKetQua m_FrmKQ = null;
         private frmAbout m_FrmAbout = null;
+        private frmNhatKy m_FrmNhatKy = null;
 
         public frmMain()
         {
@@ -237,8 +238,8 @@ namespace QuanLiHocSinh
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            //macDinh();
-            //dangNhap();
+            macDinh();
+            dangNhap();
             // Create the list of frequently used commands for the QAT Customize menu
             ribbonControl1.QatFrequentCommands.Add(btnDangNhap);
             ribbonControl1.QatFrequentCommands.Add(btnDangXuat);
@@ -376,7 +377,7 @@ namespace QuanLiHocSinh
             {
                 m_FrmLogin = new frmDangNhap();
             }
-       
+
             if (m_FrmLogin.ShowDialog() == DialogResult.OK)
             {
                 if (m_FrmLogin.txtTenDN.Text == "")
@@ -393,7 +394,7 @@ namespace QuanLiHocSinh
                     goto Cont;
                 }
 
-                int ketQua = nguoiDung_BUS.DangNhap(m_FrmLogin.txtTenDN.Text, m_FrmLogin.txtMatKhau.Text,nguoiDung_DTO);
+                int ketQua = nguoiDung_BUS.DangNhap(m_FrmLogin.txtTenDN.Text, m_FrmLogin.txtMatKhau.Text, nguoiDung_DTO);
 
                 switch (ketQua)
                 {
@@ -406,14 +407,20 @@ namespace QuanLiHocSinh
                         m_FrmLogin.lblPassError.Text = "Mật khẩu không hợp lệ!";
                         goto Cont;
                     case 2:
-                        lblName.Text += " "+ nguoiDung_DTO.Tennd;
+                        lblName.Text += " " + nguoiDung_DTO.Tennd;
                         phanQuyen(nguoiDung_DTO.Malnd);
-                        
+                        using (StreamWriter writer = new StreamWriter(Application.StartupPath + @"\log.txt", true))
+                        {
+                            writer.WriteLine(nguoiDung_DTO.Mand+","+nguoiDung_DTO.Malnd+","+nguoiDung_DTO.Tennd + "," + DateTime.Now.ToString());
+                        }
                         break;
                 }
             }
             else
+            {
+               
                 return;
+            }
         }
 
         private void doiMatKhau() 
@@ -496,6 +503,7 @@ namespace QuanLiHocSinh
 
             //False
             btnDangXuat.Enabled = false;
+            btnNhatKy.Enabled = false;
             btnMatKhau.Enabled = false;
             btnNguoiDung.Enabled = false;
             btnSaoLuu.Enabled = false;
@@ -526,6 +534,7 @@ namespace QuanLiHocSinh
 
             //True
             btnDangXuat.Enabled = true;
+            btnNhatKy.Enabled = true;
             btnMatKhau.Enabled = true;
             btnNguoiDung.Enabled = true;
             btnSaoLuu.Enabled = true;
@@ -565,6 +574,7 @@ namespace QuanLiHocSinh
             btnThongKe.Enabled = true;
             //False
             btnDangNhap.Enabled = false;
+            btnNhatKy.Enabled = false;
             btnSaoLuu.Enabled = false;
             btnPhucHoi.Enabled = false;
             btnKhaiBao.Enabled = false;
@@ -608,6 +618,7 @@ namespace QuanLiHocSinh
             btnNguoiDung.Enabled = false;
             btnSaoLuu.Enabled = false;
             btnPhucHoi.Enabled = false;
+            btnNhatKy.Enabled = false;
            
         }
 
@@ -685,6 +696,21 @@ namespace QuanLiHocSinh
             else
             {
                 m_FrmBaoCao.Activate();
+            }
+        }
+
+        private void btnNhatKy_Click(object sender, EventArgs e)
+        {
+            if (m_FrmNhatKy == null || m_FrmNhatKy.IsDisposed)
+            {
+                m_FrmNhatKy = new frmNhatKy();
+                m_FrmNhatKy.FormBorderStyle = FormBorderStyle.None;
+                m_FrmNhatKy.MdiParent = frmMain.ActiveForm;
+                m_FrmNhatKy.Show();
+            }
+            else
+            {
+                m_FrmNhatKy.Activate();
             }
         }
 

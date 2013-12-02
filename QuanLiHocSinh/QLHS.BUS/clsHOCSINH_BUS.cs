@@ -419,6 +419,49 @@ namespace QLHS.BUS
             return hocSinh_DAO.timHocSinhNangCao(hs, dieuKien.Text);
         }
 
+        public void autoComplete(TextBoxX textBox,string name)
+        {
+            AutoCompleteStringCollection namesCollection = new AutoCompleteStringCollection();
+            switch (name)
+            {
+                case "MAHS":
+                    {
+                        foreach (DataRow row in danhSachHocSinh().Rows)
+                        {
+                            namesCollection.Add(row["MAHS"].ToString());
+                        }
+                        textBox.AutoCompleteMode = AutoCompleteMode.Append;
+                    }
+                    break;
+                case "TENHS":
+                    {
+                        foreach (DataRow row in danhSachHocSinh().Rows)
+                        {
+                            namesCollection.Add(row["TENHS"].ToString());
+                        }
+                        textBox.AutoCompleteMode = AutoCompleteMode.Suggest;
+                    }
+                    break;
+                case "DANTOC":
+                    {
+                        foreach (DataRow row in danhSachHocSinh().Rows)
+                        {
+                            namesCollection.Add(row["DANTOC"].ToString());
+                        }
+                        textBox.AutoCompleteMode = AutoCompleteMode.Suggest;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            
+           
+            textBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            textBox.AutoCompleteCustomSource = namesCollection;
+            
+ 
+        }
+
         public DataSet reportTheHocSinh(string maLop)
         {
             return hocSinh_DAO.reportTheHS(maLop);

@@ -113,6 +113,12 @@
     <Compile Include="frmMatKhau.Designer.cs">
       <DependentUpon>frmMatKhau.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNhatKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNhatKy.Designer.cs">
+      <DependentUpon>frmNhatKy.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPhanCong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMatKhau.resx">
       <DependentUpon>frmMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNhatKy.resx">
+      <DependentUpon>frmNhatKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPhanCong.resx">
       <DependentUpon>frmPhanCong.cs</DependentUpon>
@@ -386,6 +395,7 @@
     <None Include="resources\line_right.png" />
     <None Include="resources\line_horizal.png" />
     <None Include="resources\luuchuyenlop.png" />
+    <None Include="resources\log.png" />
     <Content Include="resources\notus-icon.png" />
     <None Include="resources\phuchoi.png" />
     <Content Include="resources\picture1_02.gif" />
@@ -396,6 +406,7 @@
     <None Include="resources\save.png" />
     <None Include="resources\refresh.png" />
     <None Include="resources\report1.png" />
+    <None Include="resources\recycle.png" />
     <Content Include="resources\school.png" />
     <Content Include="resources\Search-Male-User.png" />
     <Content Include="resources\Search.png" />
