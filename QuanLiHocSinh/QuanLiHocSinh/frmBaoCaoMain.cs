@@ -42,6 +42,7 @@ namespace QuanLiHocSinh
             namHoc_BUS.hienThiComboBox(cboNamHocDSLop);
             namHoc_BUS.hienThiComboBox(cboNamHocTheHS);
             namHoc_BUS.hienThiComboBox(cboNamHoc);
+            btnDshocsinh.Enabled = false;
         }
 
         private void btnInDSLop_Click(object sender, EventArgs e)
@@ -105,14 +106,22 @@ namespace QuanLiHocSinh
 
         private void btnDshocsinh_Click(object sender, EventArgs e)
         {
-            if (cboNamHoc.SelectedValue != null)
-            {
-                if (treLop.SelectedNode.Name.ToString().Substring(0, 1).ToString() == "L")
+                if (cboNamHoc.SelectedValue != null)
                 {
-                    frmHiemThiReport hien = new frmHiemThiReport(cboNamHoc.SelectedValue.ToString(), treLop.SelectedNode.Name.ToString(), "frmDSHocSinh", tenND);
-                    hien.Show();
+                    if (treLop.SelectedNode.Name.ToString().Substring(0, 1).ToString() == "L")
+                    {
+                        frmHiemThiReport hien = new frmHiemThiReport(cboNamHoc.SelectedValue.ToString(), treLop.SelectedNode.Name.ToString(), "frmDSHocSinh", tenND);
+                        hien.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Chưa chọn lớp học", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-            }
+                else
+                {
+                    MessageBox.Show("Chưa chọn năm học", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
         }
 
         private void treLop_NodeDoubleClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
@@ -126,6 +135,11 @@ namespace QuanLiHocSinh
                 hien.Show();
             }
            
+        }
+
+        private void treLop_NodeClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
+        {
+           btnDshocsinh.Enabled = true;
         }
 
 
