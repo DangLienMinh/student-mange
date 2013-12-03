@@ -58,15 +58,18 @@ namespace QLHS.BUS
                     treKhoi.Nodes.Add(k);
                     
                     string makhoi=dsKhoi.Rows[i]["MAKHOI"].ToString();
-                    dsLop = lop_DAO.danhsachLopMAKHOI(makhoi,cboNamhoc.SelectedValue.ToString());
-                    for (int j = 0; j < dsLop.Rows.Count; j++)
+                    if (cboNamhoc.SelectedValue!=null)
                     {
-                        if (dsLop.Rows[j]["MALOP"].ToString() != "")
+                        dsLop = lop_DAO.danhsachLopMAKHOI(makhoi, cboNamhoc.SelectedValue.ToString());
+                        for (int j = 0; j < dsLop.Rows.Count; j++)
                         {
-                            Node k1 = new Node();
-                            k1.Text = dsLop.Rows[j]["TENLOP"].ToString();
-                            k1.Name = dsLop.Rows[j]["MALOP"].ToString();
-                            treKhoi.Nodes[i].Nodes.Add(k1);
+                            if (dsLop.Rows[j]["MALOP"].ToString() != "")
+                            {
+                                Node k1 = new Node();
+                                k1.Text = dsLop.Rows[j]["TENLOP"].ToString();
+                                k1.Name = dsLop.Rows[j]["MALOP"].ToString();
+                                treKhoi.Nodes[i].Nodes.Add(k1);
+                            }
                         }
                     }
                 }

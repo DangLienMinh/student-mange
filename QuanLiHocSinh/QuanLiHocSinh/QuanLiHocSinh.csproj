@@ -205,7 +205,7 @@
       <DependentUpon>DSGiaoVien.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="report\DSHS_Lop.cs">
+    <Compile Include="Database\DSHS_Lop.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSHS_Lop.rpt</DependentUpon>
@@ -309,7 +309,7 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>DSGiaoVien.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="report\DSHS_Lop.rpt">
+    <EmbeddedResource Include="Database\DSHS_Lop.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>DSHS_Lop.cs</LastGenOutput>
     </EmbeddedResource>

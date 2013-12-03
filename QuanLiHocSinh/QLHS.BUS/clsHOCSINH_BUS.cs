@@ -133,9 +133,9 @@ namespace QLHS.BUS
         public DataSet danhSachHocSinh_NH_LOP(string manh, string malop)
         {
             DataSet ds = hocSinh_DAO.danhSachHocSinh_NH_LOP(manh, malop);
-            if (hocSinh_DAO.danhSachHocSinh_NH_LOP(manh, malop).Tables["DanhSachHocSinh"].Rows.Count > 0)
+            if (ds.Tables["DanhSachHocSinh"].Rows.Count > 0)
             {
-                foreach (DataRow row in hocSinh_DAO.danhSachHocSinh_NH_LOP(manh, malop).Tables["DanhSachHocSinh"].Rows)
+                foreach (DataRow row in ds.Tables["DanhSachHocSinh"].Rows)
                 {
                     if (row["MAHS"] != null)
                     {
@@ -146,6 +146,21 @@ namespace QLHS.BUS
                         else
                         {
                             row["GIOITINHHS"] = "Nam";
+                        }
+                        if (row["MABAN"].ToString() == "KHTN")
+                        {
+                            row["MABAN"] = "Khoa học tự nhiên";
+                        }
+                        else
+                        {
+                            if (row["MABAN"].ToString() == "KHXHNV")
+                            {
+                                row["MABAN"] = "Khoa học xã hội-Nhân văn";
+                            }
+                            else
+                            {
+                                row["MABAN"] = "Cơ bản";
+                            }
                         }
                     }
                 }

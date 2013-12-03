@@ -197,8 +197,11 @@ namespace QuanLiHocSinh
 
         private void cboNamHoc1_SelectedValueChanged(object sender, EventArgs e)
         {
-            lop_dto.Manh = cboNamHoc1.SelectedValue.ToString();
-            hanhkiem_bus.hienThiCboLopHoc(lop_dto, cboLop1);
+            if (cboNamHoc1.SelectedValue != null)
+            {
+                lop_dto.Manh = cboNamHoc1.SelectedValue.ToString();
+                hanhkiem_bus.hienThiCboLopHoc(lop_dto, cboLop1);
+            }
         }
 
         private void cboNamHoc_SelectedValueChanged(object sender, EventArgs e)
