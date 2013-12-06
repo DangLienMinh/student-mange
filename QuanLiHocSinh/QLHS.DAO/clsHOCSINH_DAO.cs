@@ -219,13 +219,14 @@ namespace QLHS.DAO
             return table;
         }
 
-        public void themPhanLop(clsHOCSINH_DTO hocsinh, clsNAMHOC_DTO namHoc_DTO, clsLOP_DTO lop_DTO)
+        public void themPhanLop(clsHOCSINH_DTO hocsinh, clsNAMHOC_DTO namHoc_DTO, clsLOP_DTO lop_DTO,DateTime thoiGianHieuLuc)
         {
             connection.kiemTraKetNoi(con);
             SqlCommand command = new SqlCommand("SP_ThemPhanLop", con);
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = namHoc_DTO.Manh;
             command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hocsinh.Mahs;
             command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = lop_DTO.Malop;
+            command.Parameters.Add("@THOIGIANHIEULUC", SqlDbType.SmallDateTime).Value = thoiGianHieuLuc;
             command.CommandType = CommandType.StoredProcedure;
             command.ExecuteNonQuery();
             con.Close();

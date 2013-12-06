@@ -178,9 +178,12 @@ namespace QLHS.BUS
             diem_DTO.Mahk = cboMaHK.SelectedValue.ToString();
             diem_DTO.Manh = cboMaNH.SelectedValue.ToString();
             diem_DTO.Mamh = cboMaMH.SelectedValue.ToString();
+            
 
             foreach (DataGridViewRow row in grdDiem.Rows)
             {
+                float tongDiem = 0;
+                int soCot = 0;
                 if (row.Cells["MAHS"].Value != null)
                 {
                     diem_DTO.Mald = "LD01";
@@ -190,11 +193,15 @@ namespace QLHS.BUS
                     {
                         diem_DTO.Diemso=row.Cells["a1"].Value.ToString();
                         diem_DAO.themDiemTheoHS(diem_DTO);
+                        tongDiem += float.Parse(diem_DTO.Diemso);
+                        ++soCot;
                     }
                     if (row.Cells["a2"].Value != null)
                     {
                         diem_DTO.Diemso = row.Cells["a2"].Value.ToString();
                         diem_DAO.themDiemTheoHS(diem_DTO);
+                        tongDiem += float.Parse(diem_DTO.Diemso);
+                        ++soCot;
                     }
 
                     diem_DTO.Mald = "LD02";
@@ -206,6 +213,8 @@ namespace QLHS.BUS
                         {
                             diem_DTO.Diemso = row.Cells["b" + i.ToString()].Value.ToString();
                             diem_DAO.themDiemTheoHS(diem_DTO);
+                            tongDiem += float.Parse(diem_DTO.Diemso);
+                            ++soCot;
                         }
                     }
 
@@ -218,6 +227,8 @@ namespace QLHS.BUS
                         {
                             diem_DTO.Diemso = row.Cells["c" + i.ToString()].Value.ToString();
                             diem_DAO.themDiemTheoHS(diem_DTO);
+                            tongDiem += float.Parse(diem_DTO.Diemso)*2;
+                            soCot+=2;
                         }
                     }
 
@@ -228,8 +239,21 @@ namespace QLHS.BUS
                     {
                         diem_DTO.Diemso = row.Cells["d1"].Value.ToString();
                         diem_DAO.themDiemTheoHS(diem_DTO);
+                        tongDiem += float.Parse(diem_DTO.Diemso) * 3;
+                        soCot += 3;
                     }
+                    if (soCot!=0)
+                    {
+                        diem_DTO.Mald = "LD05";
+                        diem_DTO.Mahs = row.Cells["MAHS"].Value.ToString();
+                        diem_DAO.xoaDiemTheoMaLD(diem_DTO);
+                        diem_DTO.Diemso = Math.Round((tongDiem / soCot), 1).ToString();
+                        diem_DAO.themDiemTheoHS(diem_DTO);
+                    }
+                    
                 }
+               
+
             }
         }
 
