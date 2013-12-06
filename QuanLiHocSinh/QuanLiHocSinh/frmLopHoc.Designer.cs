@@ -29,12 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLopHoc));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLopHoc));
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
+            this.btnSua = new DevComponents.DotNetBar.ButtonX();
+            this.btnXoa = new DevComponents.DotNetBar.ButtonX();
+            this.btnHuy = new DevComponents.DotNetBar.ButtonX();
+            this.btnDongY = new DevComponents.DotNetBar.ButtonX();
+            this.btnThem = new DevComponents.DotNetBar.ButtonX();
             this.cboBan = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.cboGiaoVien = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.cboNamHoc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -49,42 +54,37 @@
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.txtMaLop = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPanePanel1 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.txtTim = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
+            this.btnTim = new DevComponents.DotNetBar.ButtonX();
+            this.btnItemTim = new DevComponents.DotNetBar.ButtonItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.contextMenuBar2 = new DevComponents.DotNetBar.ContextMenuBar();
             this.btnMenu = new DevComponents.DotNetBar.ButtonItem();
+            this.btnAdd = new DevComponents.DotNetBar.ButtonItem();
+            this.btnRefesh = new DevComponents.DotNetBar.ButtonItem();
+            this.btnDelete = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClose = new DevComponents.DotNetBar.ButtonItem();
             this.grdLop = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.bnaLop = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
+            this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
+            this.bindingNavigatorMoveFirstItem = new DevComponents.DotNetBar.ButtonItem();
+            this.bindingNavigatorMovePreviousItem = new DevComponents.DotNetBar.ButtonItem();
+            this.bindingNavigatorPositionItem = new DevComponents.DotNetBar.TextBoxItem();
+            this.bindingNavigatorMoveNextItem = new DevComponents.DotNetBar.ButtonItem();
+            this.bindingNavigatorMoveLastItem = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem8 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem9 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.MALOP1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENLOP1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAKHOI1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.MANH1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.SISO1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAGV1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.BAN1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bnaLop = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
-            this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
-            this.bindingNavigatorPositionItem = new DevComponents.DotNetBar.TextBoxItem();
-            this.btnAdd = new DevComponents.DotNetBar.ButtonItem();
-            this.btnRefesh = new DevComponents.DotNetBar.ButtonItem();
-            this.btnDelete = new DevComponents.DotNetBar.ButtonItem();
-            this.btnClose = new DevComponents.DotNetBar.ButtonItem();
-            this.bindingNavigatorMoveFirstItem = new DevComponents.DotNetBar.ButtonItem();
-            this.bindingNavigatorMovePreviousItem = new DevComponents.DotNetBar.ButtonItem();
-            this.bindingNavigatorMoveNextItem = new DevComponents.DotNetBar.ButtonItem();
-            this.bindingNavigatorMoveLastItem = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem8 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem9 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
-            this.btnSua = new DevComponents.DotNetBar.ButtonX();
-            this.btnXoa = new DevComponents.DotNetBar.ButtonX();
-            this.btnHuy = new DevComponents.DotNetBar.ButtonX();
-            this.btnDongY = new DevComponents.DotNetBar.ButtonX();
-            this.btnThem = new DevComponents.DotNetBar.ButtonX();
-            this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
-            this.btnTim = new DevComponents.DotNetBar.ButtonX();
-            this.btnItemTim = new DevComponents.DotNetBar.ButtonItem();
+            this.MABAN1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.navigationPane1.SuspendLayout();
             this.navigationPanePanel2.SuspendLayout();
             this.navigationPanePanel1.SuspendLayout();
@@ -167,6 +167,76 @@
             this.navigationPanePanel2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.navigationPanePanel2.Style.GradientAngle = 90;
             this.navigationPanePanel2.TabIndex = 3;
+            // 
+            // btnSua
+            // 
+            this.btnSua.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnSua.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnSua.Image = global::QuanLiHocSinh.Properties.Resources.Sua;
+            this.btnSua.Location = new System.Drawing.Point(166, 321);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(75, 30);
+            this.btnSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
+            this.btnSua.TabIndex = 8;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnXoa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnXoa.Image = global::QuanLiHocSinh.Properties.Resources.Xoa;
+            this.btnXoa.Location = new System.Drawing.Point(85, 322);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(75, 30);
+            this.btnXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
+            this.btnXoa.TabIndex = 7;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnHuy
+            // 
+            this.btnHuy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnHuy.Image = global::QuanLiHocSinh.Properties.Resources.Huybo;
+            this.btnHuy.Location = new System.Drawing.Point(126, 362);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(90, 30);
+            this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
+            this.btnHuy.TabIndex = 10;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
+            // btnDongY
+            // 
+            this.btnDongY.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnDongY.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnDongY.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnDongY.Image = global::QuanLiHocSinh.Properties.Resources.Dongy;
+            this.btnDongY.Location = new System.Drawing.Point(30, 362);
+            this.btnDongY.Name = "btnDongY";
+            this.btnDongY.Size = new System.Drawing.Size(90, 30);
+            this.btnDongY.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
+            this.btnDongY.TabIndex = 9;
+            this.btnDongY.Text = "Đồng ý";
+            this.btnDongY.Click += new System.EventHandler(this.btnDongY_Click);
+            // 
+            // btnThem
+            // 
+            this.btnThem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnThem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnThem.Image = global::QuanLiHocSinh.Properties.Resources.Them;
+            this.btnThem.Location = new System.Drawing.Point(4, 322);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(75, 30);
+            this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
+            this.btnThem.TabIndex = 6;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // cboBan
             // 
@@ -373,6 +443,15 @@
             this.labelX1.TabIndex = 0;
             this.labelX1.Text = "Mã lớp:";
             // 
+            // btnItemNhap
+            // 
+            this.btnItemNhap.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemNhap.Checked = true;
+            this.btnItemNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhap.Image")));
+            this.btnItemNhap.Name = "btnItemNhap";
+            this.btnItemNhap.OptionGroup = "navBar";
+            this.btnItemNhap.Text = "Nhập liệu thông tin";
+            // 
             // navigationPanePanel1
             // 
             this.navigationPanePanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
@@ -419,6 +498,28 @@
             this.labelX7.Size = new System.Drawing.Size(189, 23);
             this.labelX7.TabIndex = 2;
             this.labelX7.Text = "Nhập thông tin tìm kiếm";
+            // 
+            // btnTim
+            // 
+            this.btnTim.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnTim.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnTim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnTim.Image = global::QuanLiHocSinh.Properties.Resources.Timkiem;
+            this.btnTim.Location = new System.Drawing.Point(45, 70);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(133, 28);
+            this.btnTim.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
+            this.btnTim.TabIndex = 8;
+            this.btnTim.Text = "Tìm kiếm";
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
+            // 
+            // btnItemTim
+            // 
+            this.btnItemTim.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemTim.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTim.Image")));
+            this.btnItemTim.Name = "btnItemTim";
+            this.btnItemTim.OptionGroup = "navBar";
+            this.btnItemTim.Text = "Tìm kiếm thông tin";
             // 
             // groupPanel1
             // 
@@ -489,6 +590,38 @@
             this.btnClose});
             this.btnMenu.Text = "Menu";
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Image = global::QuanLiHocSinh.Properties.Resources.add;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Ins);
+            this.btnAdd.Text = "Thêm mới";
+            this.btnAdd.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // btnRefesh
+            // 
+            this.btnRefesh.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
+            this.btnRefesh.Name = "btnRefesh";
+            this.btnRefesh.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.F5);
+            this.btnRefesh.Text = "Làm tươi danh dách";
+            this.btnRefesh.Click += new System.EventHandler(this.frmLopHoc_Load);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = global::QuanLiHocSinh.Properties.Resources.delete;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Del);
+            this.btnDelete.Text = "Xóa dòng được chọn";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Image = global::QuanLiHocSinh.Properties.Resources.exit;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.AltF4);
+            this.btnClose.Text = "Đóng cửa sổ này";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // grdLop
             // 
             this.grdLop.AllowUserToDeleteRows = false;
@@ -509,14 +642,14 @@
             this.MANH1,
             this.SISO1,
             this.MAGV1,
-            this.BAN1});
+            this.MABAN1});
             this.contextMenuBar2.SetContextMenuEx(this.grdLop, this.btnMenu);
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdLop.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdLop.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -536,48 +669,6 @@
             this.grdLop.TabIndex = 9;
             this.grdLop.TabStop = false;
             this.grdLop.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdLop_CellClick);
-            // 
-            // MALOP1
-            // 
-            this.MALOP1.DataPropertyName = "MALOP";
-            this.MALOP1.HeaderText = "Mã lớp học";
-            this.MALOP1.Name = "MALOP1";
-            // 
-            // TENLOP1
-            // 
-            this.TENLOP1.DataPropertyName = "TENLOP";
-            this.TENLOP1.HeaderText = "Tên lớp học";
-            this.TENLOP1.Name = "TENLOP1";
-            // 
-            // MAKHOI1
-            // 
-            this.MAKHOI1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MAKHOI1.HeaderText = "Khối lớp";
-            this.MAKHOI1.Name = "MAKHOI1";
-            // 
-            // MANH1
-            // 
-            this.MANH1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MANH1.HeaderText = "Năm học ";
-            this.MANH1.Name = "MANH1";
-            // 
-            // SISO1
-            // 
-            this.SISO1.DataPropertyName = "SISO";
-            this.SISO1.HeaderText = "Sỉ số";
-            this.SISO1.Name = "SISO1";
-            // 
-            // MAGV1
-            // 
-            this.MAGV1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.MAGV1.HeaderText = "Giáo viên chủ nhiệm";
-            this.MAGV1.Name = "MAGV1";
-            // 
-            // BAN1
-            // 
-            this.BAN1.DataPropertyName = "MABAN";
-            this.BAN1.HeaderText = "Ban";
-            this.BAN1.Name = "BAN1";
             // 
             // bnaLop
             // 
@@ -616,47 +707,6 @@
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
             this.bindingNavigatorCountItem.Text = "of {0}";
             // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.BeginGroup = true;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.TextBoxWidth = 54;
-            this.bindingNavigatorPositionItem.WatermarkColor = System.Drawing.SystemColors.GrayText;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Image = global::QuanLiHocSinh.Properties.Resources.add;
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Ins);
-            this.btnAdd.Text = "Thêm mới";
-            this.btnAdd.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // btnRefesh
-            // 
-            this.btnRefesh.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
-            this.btnRefesh.Name = "btnRefesh";
-            this.btnRefesh.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.F5);
-            this.btnRefesh.Text = "Làm tươi danh dách";
-            this.btnRefesh.Click += new System.EventHandler(this.frmLopHoc_Load);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Image = global::QuanLiHocSinh.Properties.Resources.delete;
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Del);
-            this.btnDelete.Text = "Xóa dòng được chọn";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Image = global::QuanLiHocSinh.Properties.Resources.exit;
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.AltF4);
-            this.btnClose.Text = "Đóng cửa sổ này";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // bindingNavigatorMoveFirstItem
             // 
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
@@ -668,6 +718,15 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem.BeginGroup = true;
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.TextBoxWidth = 54;
+            this.bindingNavigatorPositionItem.WatermarkColor = System.Drawing.SystemColors.GrayText;
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -703,106 +762,49 @@
             this.buttonItem1.Text = "buttonItem1";
             this.buttonItem1.Click += new System.EventHandler(this.frmLopHoc_Load);
             // 
-            // btnSua
+            // MALOP1
             // 
-            this.btnSua.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnSua.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnSua.Image = global::QuanLiHocSinh.Properties.Resources.Sua;
-            this.btnSua.Location = new System.Drawing.Point(166, 321);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(75, 30);
-            this.btnSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
-            this.btnSua.TabIndex = 8;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            this.MALOP1.DataPropertyName = "MALOP";
+            this.MALOP1.HeaderText = "Mã lớp học";
+            this.MALOP1.Name = "MALOP1";
             // 
-            // btnXoa
+            // TENLOP1
             // 
-            this.btnXoa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnXoa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnXoa.Image = global::QuanLiHocSinh.Properties.Resources.Xoa;
-            this.btnXoa.Location = new System.Drawing.Point(85, 322);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 30);
-            this.btnXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
-            this.btnXoa.TabIndex = 7;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            this.TENLOP1.DataPropertyName = "TENLOP";
+            this.TENLOP1.HeaderText = "Tên lớp học";
+            this.TENLOP1.Name = "TENLOP1";
             // 
-            // btnHuy
+            // MAKHOI1
             // 
-            this.btnHuy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnHuy.Image = global::QuanLiHocSinh.Properties.Resources.Huybo;
-            this.btnHuy.Location = new System.Drawing.Point(126, 362);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(90, 30);
-            this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
-            this.btnHuy.TabIndex = 10;
-            this.btnHuy.Text = "Hủy";
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            this.MAKHOI1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MAKHOI1.HeaderText = "Khối lớp";
+            this.MAKHOI1.Name = "MAKHOI1";
             // 
-            // btnDongY
+            // MANH1
             // 
-            this.btnDongY.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnDongY.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDongY.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnDongY.Image = global::QuanLiHocSinh.Properties.Resources.Dongy;
-            this.btnDongY.Location = new System.Drawing.Point(30, 362);
-            this.btnDongY.Name = "btnDongY";
-            this.btnDongY.Size = new System.Drawing.Size(90, 30);
-            this.btnDongY.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
-            this.btnDongY.TabIndex = 9;
-            this.btnDongY.Text = "Đồng ý";
-            this.btnDongY.Click += new System.EventHandler(this.btnDongY_Click);
+            this.MANH1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MANH1.HeaderText = "Năm học ";
+            this.MANH1.Name = "MANH1";
             // 
-            // btnThem
+            // SISO1
             // 
-            this.btnThem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnThem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnThem.Image = global::QuanLiHocSinh.Properties.Resources.Them;
-            this.btnThem.Location = new System.Drawing.Point(4, 322);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(75, 30);
-            this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
-            this.btnThem.TabIndex = 6;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            this.SISO1.DataPropertyName = "SISO";
+            this.SISO1.HeaderText = "Sỉ số";
+            this.SISO1.Name = "SISO1";
             // 
-            // btnItemNhap
+            // MAGV1
             // 
-            this.btnItemNhap.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemNhap.Checked = true;
-            this.btnItemNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhap.Image")));
-            this.btnItemNhap.Name = "btnItemNhap";
-            this.btnItemNhap.OptionGroup = "navBar";
-            this.btnItemNhap.Text = "Nhập liệu thông tin";
+            this.MAGV1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MAGV1.HeaderText = "Giáo viên chủ nhiệm";
+            this.MAGV1.Name = "MAGV1";
             // 
-            // btnTim
+            // MABAN1
             // 
-            this.btnTim.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnTim.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnTim.Image = global::QuanLiHocSinh.Properties.Resources.Timkiem;
-            this.btnTim.Location = new System.Drawing.Point(45, 70);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(133, 28);
-            this.btnTim.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
-            this.btnTim.TabIndex = 8;
-            this.btnTim.Text = "Tìm kiếm";
-            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
-            // 
-            // btnItemTim
-            // 
-            this.btnItemTim.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemTim.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTim.Image")));
-            this.btnItemTim.Name = "btnItemTim";
-            this.btnItemTim.OptionGroup = "navBar";
-            this.btnItemTim.Text = "Tìm kiếm thông tin";
+            this.MABAN1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.MABAN1.HeaderText = "Ban";
+            this.MABAN1.Name = "MABAN1";
+            this.MABAN1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.MABAN1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // frmLopHoc
             // 
@@ -865,13 +867,6 @@
         private DevComponents.DotNetBar.ButtonItem btnClose;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cboBan;
         private DevComponents.DotNetBar.LabelX labelX8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MALOP1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TENLOP1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn MAKHOI1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn MANH1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SISO1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn MAGV1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BAN1;
         private DevComponents.DotNetBar.Controls.BindingNavigatorEx bnaLop;
         private DevComponents.DotNetBar.LabelItem bindingNavigatorCountItem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveFirstItem;
@@ -882,6 +877,13 @@
         private DevComponents.DotNetBar.ButtonItem buttonItem8;
         private DevComponents.DotNetBar.ButtonItem buttonItem9;
         private DevComponents.DotNetBar.ButtonItem buttonItem1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MALOP1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TENLOP1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MAKHOI1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MANH1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SISO1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MAGV1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MABAN1;
         
     }
 }

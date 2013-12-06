@@ -44,7 +44,7 @@ namespace QuanLiHocSinh
             bs = new BindingSource();
             bs.DataSource = lop_BUS.danhSachLop();
             grdLop.DataSource = bs;
-            lop_BUS.taiLaiDataGrid(grdLop);
+            //lop_BUS.taiLaiDataGrid(grdLop);
             bnaLop.BindingSource = bs;
         }
 
@@ -57,13 +57,15 @@ namespace QuanLiHocSinh
             //load dữ liệu vào comboBox giáo viên chủ nhiệm
             lop_BUS.cboGiaoVienChuNhiem(cboGiaoVien);
             //load dữ liệu vào comboBox Ban học
-            lop_BUS.hienThiComboBoxBan(cboBan);
-           
+            //lop_BUS.hienThiComboBoxBan(cboBan);
+            //load dữ liệu vào comboBox Ban
+            lop_BUS.cboBan(cboBan);
+
             //Hiển thị theo tên cho datagrid column ví dụ MAGV sẽ lấy tên hiển thị
             namHoc_BUS.HienThiDataGridViewComboBoxColumn(MANH1);
             giaoVien_BUS.HienThiDataGridViewComboBoxColumn(MAGV1);
             khoi_BUS.HienThiDataGridViewComboBoxColumn(MAKHOI1);
-
+            lop_BUS.hienThiDataGridViewComboBoxColumnBan(MABAN1);
             //load danh sách lớp vào datagrid lớp
             bindingData();
 
@@ -114,18 +116,19 @@ namespace QuanLiHocSinh
                     lop_DTO.Manh = cboNamHoc.SelectedValue.ToString();
                     lop_DTO.Magv = cboGiaoVien.SelectedValue.ToString();
                     lop_DTO.Siso = txtSiSo.Text;
-                    if (cboBan.SelectedItem.ToString() == "Cơ bản")
-                    {
-                        lop_DTO.Maban = "CB";
-                    }
-                    else if (cboBan.SelectedItem.ToString() == "Khoa học tự nhiên")
-                    {
-                        lop_DTO.Maban = "KHTN";
-                    }
-                    else
-                    {
-                        lop_DTO.Maban = "KHXHNV";
-                    }
+                    lop_DTO.Maban = cboBan.SelectedValue.ToString();
+                    //if (cboBan.SelectedItem.ToString() == "Cơ bản")
+                    //{
+                    //    lop_DTO.Maban = "CB";
+                    //}
+                    //else if (cboBan.SelectedItem.ToString() == "Khoa học tự nhiên")
+                    //{
+                    //    lop_DTO.Maban = "KHTN";
+                    //}
+                    //else
+                    //{
+                    //    lop_DTO.Maban = "KHXHNV";
+                    //}
                     if (int.Parse(lop_DTO.Siso)>quyDinh_BUS.siSoToiDa())
                     {
                         MessageBox.Show("Sỉ số nhập vào không được vượt quá sỉ sổ tối đa"+quyDinh_BUS.siSoToiDa().ToString());
@@ -165,18 +168,7 @@ namespace QuanLiHocSinh
                             lop_DTO.Manh = cboNamHoc.SelectedValue.ToString();
                             lop_DTO.Magv = cboGiaoVien.SelectedValue.ToString();
                             lop_DTO.Siso = txtSiSo.Text;
-                            if (cboBan.SelectedItem.ToString() == "Cơ bản")
-                            {
-                                lop_DTO.Maban = "CB";
-                            }
-                            else if (cboBan.SelectedItem.ToString() == "Khoa học tự nhiên")
-                            {
-                                lop_DTO.Maban = "KHTN";
-                            }
-                            else
-                            {
-                                lop_DTO.Maban = "KHXHNV";
-                            }
+                            lop_DTO.Maban = cboBan.SelectedValue.ToString();
                             try
                             {
                                 lop_BUS.suaLop(lop_DTO);
@@ -284,7 +276,7 @@ namespace QuanLiHocSinh
             cboGiaoVien.SelectedValue = grdLop.CurrentRow.Cells["MAGV1"].Value.ToString();
             cboKhoi.SelectedValue = grdLop.CurrentRow.Cells["MAKHOI1"].Value.ToString();
             cboNamHoc.SelectedValue = grdLop.CurrentRow.Cells["MANH1"].Value.ToString();
-            cboBan.SelectedItem = grdLop.CurrentRow.Cells["BAN1"].Value.ToString();
+            cboBan.SelectedValue = grdLop.CurrentRow.Cells["MABAN1"].Value.ToString();
             anHienButton(true);
         }
         //public void hienThiDuLieu()

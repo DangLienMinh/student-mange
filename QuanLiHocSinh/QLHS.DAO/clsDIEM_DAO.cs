@@ -51,7 +51,7 @@ namespace QLHS.DAO
             command.Parameters.Add("@MALD", SqlDbType.VarChar, 15).Value = diem_DTO.Mald;
             command.Parameters.Add("@MAMH", SqlDbType.VarChar, 10).Value = diem_DTO.Mamh;
             command.Parameters.Add("@MAHS", SqlDbType.VarChar, 8).Value = diem_DTO.Mahs;
-            command.Parameters.Add("@DIEMSO", SqlDbType.Char, 2).Value = diem_DTO.Diemso;
+            command.Parameters.Add("@DIEMSO", SqlDbType.VarChar, 4).Value = diem_DTO.Diemso;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();   
             con.Close();
@@ -112,7 +112,7 @@ namespace QLHS.DAO
             SqlCommand command = new SqlCommand("SP_SuaDiemTheoHS", con);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@STT", SqlDbType.Int).Value = diem_DTO.Stt;
-            command.Parameters.Add("@DIEMSO", SqlDbType.Char, 2).Value = diem_DTO.Diemso;
+            command.Parameters.Add("@DIEMSO", SqlDbType.VarChar, 4).Value = diem_DTO.Diemso;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();

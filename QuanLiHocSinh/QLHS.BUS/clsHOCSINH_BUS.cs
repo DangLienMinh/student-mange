@@ -343,11 +343,13 @@ namespace QLHS.BUS
 
             lop_DTO.Malop = comboLop.SelectedValue.ToString();
             namHoc_DTO.Manh = comboNamHoc.SelectedValue.ToString();
+            DateTime thoiGianHieuLuc=DateTime.Now;
             foreach (ListViewItem item in lstHocSinh.Items)
             {
                 hocSinh_DTO = new clsHOCSINH_DTO();
                 hocSinh_DTO.Mahs = item.SubItems[1].Text.ToString();
-                hocSinh_DAO.themPhanLop(hocSinh_DTO,namHoc_DTO,lop_DTO);
+
+                hocSinh_DAO.themPhanLop(hocSinh_DTO, namHoc_DTO, lop_DTO, thoiGianHieuLuc);
             }
         }
 
@@ -358,13 +360,16 @@ namespace QLHS.BUS
 
             lop_DTO.Malop = comboLop.SelectedValue.ToString();
             namHoc_DTO.Manh = comboNamHoc.SelectedValue.ToString();
+            DateTime thoiGianHieuLuc = DateTime.Now;
             foreach (ListViewItem item in lstHocSinh.Items)
             {
                 hocSinh_DTO = new clsHOCSINH_DTO();
                 hocSinh_DTO.Mahs = item.SubItems[1].Text.ToString();
+                //hocSinh_DTO.Thoigianhieuluc = ;
+                
                 try
                 {
-                    hocSinh_DAO.themPhanLop(hocSinh_DTO, namHoc_DTO, lop_DTO);
+                    hocSinh_DAO.themPhanLop(hocSinh_DTO, namHoc_DTO, lop_DTO,thoiGianHieuLuc);
                 }
                 catch (Exception)
                 {

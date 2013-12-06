@@ -39,6 +39,13 @@ namespace QLHS.BUS
             comboBox.ValueMember = "MAGV";
         }
 
+        public void cboBan(ComboBoxEx comboBox)
+        {
+            comboBox.DataSource = lop_DAO.danhSachBan();
+            comboBox.DisplayMember = "TENBAN";
+            comboBox.ValueMember = "MABAN";
+        }
+
         public int siSoLop(ComboBoxEx cboMaLop)
         {
             lop_DTO=new clsLOP_DTO();
@@ -55,13 +62,21 @@ namespace QLHS.BUS
             cboColumn.DataPropertyName = "MALOP";
         }
 
-        public void hienThiComboBoxBan(ComboBoxEx comboBox)
+        public void hienThiDataGridViewComboBoxColumnBan(DataGridViewComboBoxColumn cboColumn)
         {
-            comboBox.Items.Add("Khoa học tự nhiên");
-            comboBox.Items.Add("Khoa học xã hội và Nhân văn");
-            comboBox.Items.Add("Cơ bản");
-            comboBox.SelectedItem = "Khoa học tự nhiên";
+            cboColumn.DataSource = lop_DAO.danhSachBan();
+            cboColumn.DisplayMember = "TENBAN";
+            cboColumn.ValueMember = "MABAN";
+            cboColumn.DataPropertyName = "MABAN";
         }
+
+        //public void hienThiComboBoxBan(ComboBoxEx comboBox)
+        //{
+        //    comboBox.Items.Add("Khoa học tự nhiên");
+        //    comboBox.Items.Add("Khoa học xã hội và Nhân văn");
+        //    comboBox.Items.Add("Cơ bản");
+        //    comboBox.SelectedItem = "Khoa học tự nhiên";
+        //}
 
         //tạo mã lớp dựa vào năm hiện hành 
         public string taoMaLop()
@@ -118,30 +133,30 @@ namespace QLHS.BUS
         }
 
         
-        public void taiLaiDataGrid(DataGridViewX grdLop)
-        {
-            if (grdLop.Rows.Count > 0)
-            {
-                foreach (DataGridViewRow row in grdLop.Rows)
-                {
-                    if (row.Cells["MALOP1"].Value != null)
-                    {
-                        if (row.Cells["BAN1"].Value.ToString() == "KHTN")
-                        {
-                            row.Cells["BAN1"].Value = "Khoa học tự nhiên";
-                        }
-                        else if (row.Cells["BAN1"].Value.ToString() == "CB")
-                        {
-                            row.Cells["BAN1"].Value = "Cơ bản";
-                        }
-                        else
-                        {
-                            row.Cells["BAN1"].Value = "Khoa học xã hội và Nhân văn";
-                        }
-                    }
-                }
-            }
-        }
+        //public void taiLaiDataGrid(DataGridViewX grdLop)
+        //{
+        //    if (grdLop.Rows.Count > 0)
+        //    {
+        //        foreach (DataGridViewRow row in grdLop.Rows)
+        //        {
+        //            if (row.Cells["MALOP1"].Value != null)
+        //            {
+        //                if (row.Cells["BAN1"].Value.ToString() == "KHTN")
+        //                {
+        //                    row.Cells["BAN1"].Value = "Khoa học tự nhiên";
+        //                }
+        //                else if (row.Cells["BAN1"].Value.ToString() == "CB")
+        //                {
+        //                    row.Cells["BAN1"].Value = "Cơ bản";
+        //                }
+        //                else
+        //                {
+        //                    row.Cells["BAN1"].Value = "Khoa học xã hội và Nhân văn";
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
 
        
 
