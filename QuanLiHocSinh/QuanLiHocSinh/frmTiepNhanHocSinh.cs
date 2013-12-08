@@ -384,29 +384,6 @@ namespace QuanLiHocSinh
             }
         }
 
-        //public void hienThiDuLieu()
-        //{
-        //    //int Tong;
-        //    //int vitri;
-        //    vitri = this.BindingContext[grdHocSinh.DataSource].Position;
-        //    Tong = this.BindingContext[grdHocSinh.DataSource].Count;
-        //    if (vitri != -1)
-        //    {
-        //        txtHienTai.Text = (vitri + 1).ToString() + "/" + Tong.ToString();
-        //        txtMaHS.Text = grdHocSinh.Rows[vitri].Cells["MAHS"].Value.ToString();
-        //        txtTenHS.Text = grdHocSinh.Rows[vitri].Cells["TENHS"].Value.ToString();
-        //        txtDantoc.Text = grdHocSinh.Rows[vitri].Cells["DANTOC"].Value.ToString();
-        //        txtDienThoai.Text = grdHocSinh.Rows[vitri].Cells["DIENTHOAIHS"].Value.ToString();
-        //        txtDiaChi.Text = grdHocSinh.Rows[vitri].Cells["DIACHIHS"].Value.ToString();
-        //        cboGioiTinh.SelectedItem = grdHocSinh.Rows[vitri].Cells["GIOITINHHS"].Value.ToString();
-        //        dtiNgaySinh.Text = grdHocSinh.Rows[vitri].Cells["NGSINHHS"].Value.ToString();
-        //        dtiNgayNhapHoc.Text = grdHocSinh.Rows[vitri].Cells["NGNHAPHOC"].Value.ToString();
-        //        FileStream fs = new FileStream(grdHocSinh.Rows[vitri].Cells["HINHANHHS"].Value.ToString(), FileMode.Open, FileAccess.Read);
-        //        picHocSinh.Image = Image.FromStream(fs);
-        //        fs.Close();
-        //    }
-        //}
-
         private void txtDienThoai_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
@@ -473,6 +450,28 @@ namespace QuanLiHocSinh
                 e.Handled = true;
                 MessageBox.Show("Chỉ nhập số,không nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void move_Click(object sender, EventArgs e)
+        {
+            if (grdHocSinh.Rows.Count > 1)
+            {
+                cboGioiTinh.SelectedItem = grdHocSinh.CurrentRow.Cells["GIOITINHHS"].Value.ToString();
+                txtMaHS.Text = grdHocSinh.CurrentRow.Cells["MAHS"].Value.ToString();
+                txtTenHS.Text = grdHocSinh.CurrentRow.Cells["TENHS"].Value.ToString();
+                txtDiaChi.Text = grdHocSinh.CurrentRow.Cells["DIACHIHS"].Value.ToString();
+                txtDantoc.Text = grdHocSinh.CurrentRow.Cells["DANTOC"].Value.ToString();
+                txtDienThoai.Text = grdHocSinh.CurrentRow.Cells["DIENTHOAIHS"].Value.ToString();
+                dtiNgaySinh.Text = grdHocSinh.CurrentRow.Cells["NGSINHHS"].Value.ToString();
+                dtiNgayNhapHoc.Text = grdHocSinh.CurrentRow.Cells["NGNHAPHOC"].Value.ToString();
+                if (grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString() != "")
+                {
+                    FileStream fs = new FileStream(grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString(), FileMode.Open, FileAccess.Read);
+                    picHocSinh.Image = Image.FromStream(fs);
+                    fs.Close();
+                }
+            }
+            anHienButton(true);
         }
 
     }
