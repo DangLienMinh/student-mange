@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLopHoc));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.btnSua = new DevComponents.DotNetBar.ButtonX();
@@ -68,6 +68,13 @@
             this.btnDelete = new DevComponents.DotNetBar.ButtonItem();
             this.btnClose = new DevComponents.DotNetBar.ButtonItem();
             this.grdLop = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.MALOP1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENLOP1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAKHOI1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.MANH1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.SISO1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAGV1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.MABAN1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.bnaLop = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
             this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
             this.bindingNavigatorMoveFirstItem = new DevComponents.DotNetBar.ButtonItem();
@@ -78,13 +85,6 @@
             this.buttonItem8 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem9 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
-            this.MALOP1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENLOP1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAKHOI1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.MANH1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.SISO1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAGV1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.MABAN1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.navigationPane1.SuspendLayout();
             this.navigationPanePanel2.SuspendLayout();
             this.navigationPanePanel1.SuspendLayout();
@@ -626,14 +626,14 @@
             // 
             this.grdLop.AllowUserToDeleteRows = false;
             this.grdLop.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdLop.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdLop.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.grdLop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdLop.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MALOP1,
@@ -644,123 +644,31 @@
             this.MAGV1,
             this.MABAN1});
             this.contextMenuBar2.SetContextMenuEx(this.grdLop, this.btnMenu);
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdLop.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdLop.DefaultCellStyle = dataGridViewCellStyle5;
             this.grdLop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdLop.EnableHeadersVisualStyles = false;
             this.grdLop.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grdLop.Location = new System.Drawing.Point(0, 25);
             this.grdLop.Name = "grdLop";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdLop.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdLop.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.grdLop.Size = new System.Drawing.Size(1108, 511);
             this.grdLop.TabIndex = 9;
             this.grdLop.TabStop = false;
             this.grdLop.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdLop_CellClick);
-            // 
-            // bnaLop
-            // 
-            this.bnaLop.AntiAlias = true;
-            this.bnaLop.CountLabel = this.bindingNavigatorCountItem;
-            this.bnaLop.CountLabelFormat = "of {0}";
-            this.bnaLop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bnaLop.DockSide = DevComponents.DotNetBar.eDockSide.Document;
-            this.bnaLop.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bnaLop.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.buttonItem8,
-            this.buttonItem9,
-            this.buttonItem1});
-            this.bnaLop.Location = new System.Drawing.Point(0, 0);
-            this.bnaLop.MoveFirstButton = this.bindingNavigatorMoveFirstItem;
-            this.bnaLop.MoveLastButton = this.bindingNavigatorMoveLastItem;
-            this.bnaLop.MoveNextButton = this.bindingNavigatorMoveNextItem;
-            this.bnaLop.MovePreviousButton = this.bindingNavigatorMovePreviousItem;
-            this.bnaLop.Name = "bnaLop";
-            this.bnaLop.PositionTextBox = this.bindingNavigatorPositionItem;
-            this.bnaLop.Size = new System.Drawing.Size(1108, 25);
-            this.bnaLop.Stretch = true;
-            this.bnaLop.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.bnaLop.TabIndex = 25;
-            this.bnaLop.TabStop = false;
-            this.bnaLop.Text = "bindingNavigatorEx1";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.BeginGroup = true;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.TextBoxWidth = 54;
-            this.bindingNavigatorPositionItem.WatermarkColor = System.Drawing.SystemColors.GrayText;
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.BeginGroup = true;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // buttonItem8
-            // 
-            this.buttonItem8.Image = global::QuanLiHocSinh.Properties.Resources.add;
-            this.buttonItem8.Name = "buttonItem8";
-            this.buttonItem8.Text = "buttonItem2";
-            this.buttonItem8.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // buttonItem9
-            // 
-            this.buttonItem9.Image = global::QuanLiHocSinh.Properties.Resources.delete;
-            this.buttonItem9.Name = "buttonItem9";
-            this.buttonItem9.Text = "buttonItem3";
-            this.buttonItem9.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // buttonItem1
-            // 
-            this.buttonItem1.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
-            this.buttonItem1.Name = "buttonItem1";
-            this.buttonItem1.Text = "buttonItem1";
-            this.buttonItem1.Click += new System.EventHandler(this.frmLopHoc_Load);
             // 
             // MALOP1
             // 
@@ -805,6 +713,102 @@
             this.MABAN1.Name = "MABAN1";
             this.MABAN1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.MABAN1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // bnaLop
+            // 
+            this.bnaLop.AntiAlias = true;
+            this.bnaLop.CountLabel = this.bindingNavigatorCountItem;
+            this.bnaLop.CountLabelFormat = "of {0}";
+            this.bnaLop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bnaLop.DockSide = DevComponents.DotNetBar.eDockSide.Document;
+            this.bnaLop.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bnaLop.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.buttonItem8,
+            this.buttonItem9,
+            this.buttonItem1});
+            this.bnaLop.Location = new System.Drawing.Point(0, 0);
+            this.bnaLop.MoveFirstButton = this.bindingNavigatorMoveFirstItem;
+            this.bnaLop.MoveLastButton = this.bindingNavigatorMoveLastItem;
+            this.bnaLop.MoveNextButton = this.bindingNavigatorMoveNextItem;
+            this.bnaLop.MovePreviousButton = this.bindingNavigatorMovePreviousItem;
+            this.bnaLop.Name = "bnaLop";
+            this.bnaLop.PositionTextBox = this.bindingNavigatorPositionItem;
+            this.bnaLop.Size = new System.Drawing.Size(1108, 25);
+            this.bnaLop.Stretch = true;
+            this.bnaLop.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.bnaLop.TabIndex = 25;
+            this.bnaLop.TabStop = false;
+            this.bnaLop.Text = "bindingNavigatorEx1";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            this.bindingNavigatorMoveFirstItem.Click += new System.EventHandler(this.move_Click);
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            this.bindingNavigatorMovePreviousItem.Click += new System.EventHandler(this.move_Click);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem.BeginGroup = true;
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.TextBoxWidth = 54;
+            this.bindingNavigatorPositionItem.WatermarkColor = System.Drawing.SystemColors.GrayText;
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.BeginGroup = true;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            this.bindingNavigatorMoveNextItem.Click += new System.EventHandler(this.move_Click);
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.Text = "Move last";
+            this.bindingNavigatorMoveLastItem.Click += new System.EventHandler(this.move_Click);
+            // 
+            // buttonItem8
+            // 
+            this.buttonItem8.Image = global::QuanLiHocSinh.Properties.Resources.add;
+            this.buttonItem8.Name = "buttonItem8";
+            this.buttonItem8.Text = "buttonItem2";
+            this.buttonItem8.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // buttonItem9
+            // 
+            this.buttonItem9.Image = global::QuanLiHocSinh.Properties.Resources.delete;
+            this.buttonItem9.Name = "buttonItem9";
+            this.buttonItem9.Text = "buttonItem3";
+            this.buttonItem9.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // buttonItem1
+            // 
+            this.buttonItem1.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
+            this.buttonItem1.Name = "buttonItem1";
+            this.buttonItem1.Text = "buttonItem1";
+            this.buttonItem1.Click += new System.EventHandler(this.frmLopHoc_Load);
             // 
             // frmLopHoc
             // 
