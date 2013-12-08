@@ -96,6 +96,7 @@ namespace QuanLiHocSinh
                 hocSinh_DTO.Hinhanhhs = linkimage;
             }
         }
+
         public void anHienButton(Boolean b)
         {
             btnThem.Enabled = b;

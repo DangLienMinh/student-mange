@@ -166,7 +166,7 @@ namespace QuanLiHocSinh
 
                 foreach (ListViewItem item in lstLopMoi.Items)
                 {
-                    if (item.SubItems[0].Text == oldItem.SubItems[0].Text)
+                    if (item.SubItems[1].Text == oldItem.SubItems[1].Text)
                     {
                         MessageBox.Show("Học sinh " + item.SubItems[1].Text + " hiện đang học trong lớp " + cboLopMoi.Text, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         state = true;

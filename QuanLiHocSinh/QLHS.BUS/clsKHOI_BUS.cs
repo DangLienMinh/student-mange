@@ -57,5 +57,18 @@ namespace QLHS.BUS
             }
             
         }
+
+        public void hienThiComboBoxChuyenLop(ComboBoxEx cboKhoiCu, ComboBoxEx cboKhoiMoi)
+        {
+            khoi_DTO = new clsKHOI_DTO();
+            if (cboKhoiCu.SelectedValue != null)
+            {
+                khoi_DTO.Makhoi = cboKhoiCu.SelectedValue.ToString();
+                cboKhoiMoi.DataSource = khoi_DAO.danhSachKhoiChuyenLop(khoi_DTO);
+                cboKhoiMoi.DisplayMember = "TENKHOI";
+                cboKhoiMoi.ValueMember = "MAKHOI";
+            }
+
+        }
     }
 }
