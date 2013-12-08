@@ -257,6 +257,19 @@ namespace QLHS.DAO
             return table;
         }
 
+        public DataTable timHocSinhChuyenLop(clsHOCSINH_DTO hocSinh_DTO)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_TimHocSinhChuyenLop", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = hocSinh_DTO.Mahs;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
         public DataTable timHocSinhTenHS(clsHOCSINH_DTO hocSinh_DTO)
         {
             DataTable table = new DataTable();

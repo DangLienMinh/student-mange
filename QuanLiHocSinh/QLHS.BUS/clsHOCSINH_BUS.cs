@@ -33,9 +33,6 @@ namespace QLHS.BUS
             tbHocSinh = new DataTable();
         }
 
-       
-       
-        
         public void themHocSinh(clsHOCSINH_DTO hs)
         {
             hocSinh_DAO.themHocSinh(hs);
@@ -312,8 +309,6 @@ namespace QLHS.BUS
                 item.SubItems.Add(row["TENHS"].ToString());
 
                 list.Items.Add(item);
-
-               
             }
         }
 
@@ -417,6 +412,31 @@ namespace QLHS.BUS
             clsHOCSINH_DTO hs = new clsHOCSINH_DTO();
             hs.Mahs = maHS.Text;
             return hocSinh_DAO.timHocSinhMaHS(hs);
+        }
+
+        public void timHocSinhChuyenLop(TextBoxX maHS, ComboBoxEx cboNamHoc, ComboBoxEx cboLop, ListViewEx lstHocSinh)
+        {
+            
+            DataTable temp;
+            clsHOCSINH_DTO hs = new clsHOCSINH_DTO();
+            hs.Mahs = maHS.Text;
+            temp = hocSinh_DAO.timHocSinhChuyenLop(hs);
+            int i = 0;
+            
+            foreach (DataRow row in temp.Rows)
+            {
+                cboNamHoc.SelectedValue = row["MANH"];
+                cboLop.SelectedValue = row["MALOP"];
+                ++i;
+                ListViewItem item = new ListViewItem();
+                item.Text = i.ToString();
+                item.SubItems.Add(row["MAHS"].ToString());
+                item.SubItems.Add(row["TENHS"].ToString());
+
+                lstHocSinh.Items.Clear();
+                lstHocSinh.Items.Add(item);
+            }
+
         }
 
         public DataTable timHocSinhTenHS(TextBoxX tenHS)
