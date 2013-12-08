@@ -237,6 +237,7 @@
             this.txtTim.Name = "txtTim";
             this.txtTim.Size = new System.Drawing.Size(128, 20);
             this.txtTim.TabIndex = 4;
+            this.txtTim.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTim_KeyDown);
             // 
             // cboLopCu
             // 
@@ -307,11 +308,11 @@
             // 
             // 
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(399, 42);
+            this.labelX7.Location = new System.Drawing.Point(415, 43);
             this.labelX7.Name = "labelX7";
-            this.labelX7.Size = new System.Drawing.Size(121, 20);
+            this.labelX7.Size = new System.Drawing.Size(89, 20);
             this.labelX7.TabIndex = 0;
-            this.labelX7.Text = "Mã hoặc tên học sinh:";
+            this.labelX7.Text = "Tên học sinh:";
             // 
             // labelX1
             // 

@@ -80,12 +80,12 @@ namespace QuanLiHocSinh
             if (MessageBox.Show("Bạn có muốn xóa học sinh này khỏi lớp không?", "DELETE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 ////xóa các item được chọn khỏi csdl
-                //for (int i = 0; i < lstLopMoi.SelectedItems.Count; i++)
-                //{
-                //    string maHS = lstLopMoi.SelectedItems[i].SubItems[1].Text;
-                //    hocSinh_BUS.xoaPhanLop(cboNamHocMoi, cboLopMoi, maHS);
-                //}
-                ////cờ kiểm tra list item có được xóa
+                for (int i = 0; i < lstLopMoi.SelectedItems.Count; i++)
+                {
+                    string maHS = lstLopMoi.SelectedItems[i].SubItems[1].Text;
+                    hocSinh_BUS.xoaPhanLop(cboNamHocMoi, cboLopMoi, maHS);
+                }
+                //cờ kiểm tra list item có được xóa
                 //flag1 = 1;
                 //xóa các list items được chọn
                 IEnumerator ie = lstLopMoi.SelectedItems.GetEnumerator();
@@ -189,6 +189,14 @@ namespace QuanLiHocSinh
             if (cboNamHocMoi.SelectedValue != null && cboLopMoi.SelectedValue != null)
             {
                 hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocMoi, cboLopMoi, lstLopMoi);
+            }
+        }
+
+        private void txtTim_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                hocSinh_BUS.timHocSinhChuyenLop(txtTim, cboNamHocCu, cboLopCu, lstLopCu);                
             }
         }
     }
