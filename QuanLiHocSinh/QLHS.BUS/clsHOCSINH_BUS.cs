@@ -348,8 +348,14 @@ namespace QLHS.BUS
             {
                 hocSinh_DTO = new clsHOCSINH_DTO();
                 hocSinh_DTO.Mahs = item.SubItems[1].Text.ToString();
-
-                hocSinh_DAO.themPhanLop(hocSinh_DTO, namHoc_DTO, lop_DTO, thoiGianHieuLuc);
+                try
+                {
+                    hocSinh_DAO.themPhanLop(hocSinh_DTO, namHoc_DTO, lop_DTO, thoiGianHieuLuc);
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
             }
         }
 

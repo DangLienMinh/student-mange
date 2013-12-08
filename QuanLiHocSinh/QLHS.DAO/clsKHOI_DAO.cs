@@ -43,6 +43,19 @@ namespace QLHS.DAO
             return table;
         }
 
+        public DataTable danhSachKhoiChuyenLop(clsKHOI_DTO khoi_DTO)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_HienThiKhoiChuyenLop", con);
+            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = khoi_DTO.Makhoi;
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
         public DataTable danhSachKhoi10()
         {
             DataTable table = new DataTable();

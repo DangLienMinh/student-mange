@@ -41,6 +41,7 @@ namespace QLHS.BUS
             }
             return value;
         }
+
         public int siSoToiDa()
         {
             int value = -1;
@@ -60,6 +61,7 @@ namespace QLHS.BUS
             return value;
         }
 
+       
 
         public void hienThiDanhSach(IntegerInput txtTuoiTT,
                             IntegerInput txtTuoiTD,
@@ -117,6 +119,42 @@ namespace QLHS.BUS
             quyDinh_DTO.TuoiTT = txtTuoiTT.Value.ToString();
             quyDinh_DTO.TuoiTD = txtTuoiTD.Value.ToString();
             quyDinh_DAO.suaTuoi(quyDinh_DTO);
+        }
+
+        public int tuoiToiThieu()
+        {
+            int value = -1;
+            tblQuyDinh = quyDinh_DAO.thongTinQuyDinh();
+            for (int i = 0; i < tblQuyDinh.Rows.Count; i++)
+            {
+                switch (i)
+                {
+                    case 2: value = int.Parse(tblQuyDinh.Rows[i][0].ToString());
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            return value;
+        }
+
+        public int tuoiToiDa()
+        {
+            int value = -1;
+            tblQuyDinh = quyDinh_DAO.thongTinQuyDinh();
+            for (int i = 0; i < tblQuyDinh.Rows.Count; i++)
+            {
+                switch (i)
+                {
+                    case 3: value = int.Parse(tblQuyDinh.Rows[i][0].ToString());
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            return value;
         }
     }
 }
