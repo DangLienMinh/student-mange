@@ -31,6 +31,7 @@
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.lstLopCu = new DevComponents.DotNetBar.Controls.ListViewEx();
+            this.STT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colMaHSCu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHoTenCu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cboLopMoi = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -38,17 +39,20 @@
             this.cboKhoiLopMoi = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.panelConTren = new System.Windows.Forms.Panel();
             this.groupPanelLopCu = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.txtTim = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.cboLopCu = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.cboKhoiLopCu = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.cboNamHocCu = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
+            this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.groupPanelLopMoi = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.cboNamHocMoi = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.colHoTenMoi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colMaHSMoi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lstLopMoi = new DevComponents.DotNetBar.Controls.ListViewEx();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnThoat = new DevComponents.DotNetBar.ButtonX();
             this.btnLuu = new DevComponents.DotNetBar.ButtonX();
             this.btnXoa = new DevComponents.DotNetBar.ButtonX();
@@ -56,10 +60,6 @@
             this.panelConPhai = new System.Windows.Forms.Panel();
             this.panelChaTrai = new System.Windows.Forms.Panel();
             this.splitContainerPhanLop = new System.Windows.Forms.SplitContainer();
-            this.STT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.labelX7 = new DevComponents.DotNetBar.LabelX();
-            this.txtTim = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.panelConTren.SuspendLayout();
             this.groupPanelLopCu.SuspendLayout();
             this.groupPanelLopMoi.SuspendLayout();
@@ -117,6 +117,10 @@
             this.lstLopCu.TabIndex = 2;
             this.lstLopCu.UseCompatibleStateImageBehavior = false;
             this.lstLopCu.View = System.Windows.Forms.View.Details;
+            // 
+            // STT
+            // 
+            this.STT.Text = "STT";
             // 
             // colMaHSCu
             // 
@@ -222,6 +226,18 @@
             this.groupPanelLopCu.TabIndex = 1;
             this.groupPanelLopCu.Text = "Thông tin lớp cũ";
             // 
+            // txtTim
+            // 
+            // 
+            // 
+            // 
+            this.txtTim.Border.Class = "TextBoxBorder";
+            this.txtTim.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtTim.Location = new System.Drawing.Point(510, 43);
+            this.txtTim.Name = "txtTim";
+            this.txtTim.Size = new System.Drawing.Size(128, 20);
+            this.txtTim.TabIndex = 4;
+            // 
             // cboLopCu
             // 
             this.cboLopCu.DisplayMember = "Text";
@@ -283,6 +299,19 @@
             this.labelX2.Size = new System.Drawing.Size(57, 23);
             this.labelX2.TabIndex = 0;
             this.labelX2.Text = "Khối lớp:";
+            // 
+            // labelX7
+            // 
+            this.labelX7.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX7.Location = new System.Drawing.Point(399, 42);
+            this.labelX7.Name = "labelX7";
+            this.labelX7.Size = new System.Drawing.Size(121, 20);
+            this.labelX7.TabIndex = 0;
+            this.labelX7.Text = "Mã hoặc tên học sinh:";
             // 
             // labelX1
             // 
@@ -386,6 +415,10 @@
             this.lstLopMoi.UseCompatibleStateImageBehavior = false;
             this.lstLopMoi.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "STT";
+            // 
             // btnThoat
             // 
             this.btnThoat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -475,39 +508,6 @@
             this.splitContainerPhanLop.SplitterDistance = 735;
             this.splitContainerPhanLop.TabIndex = 1;
             // 
-            // STT
-            // 
-            this.STT.Text = "STT";
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "STT";
-            // 
-            // labelX7
-            // 
-            this.labelX7.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(399, 42);
-            this.labelX7.Name = "labelX7";
-            this.labelX7.Size = new System.Drawing.Size(121, 20);
-            this.labelX7.TabIndex = 0;
-            this.labelX7.Text = "Mã hoặc tên học sinh:";
-            // 
-            // txtTim
-            // 
-            // 
-            // 
-            // 
-            this.txtTim.Border.Class = "TextBoxBorder";
-            this.txtTim.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtTim.Location = new System.Drawing.Point(510, 43);
-            this.txtTim.Name = "txtTim";
-            this.txtTim.Size = new System.Drawing.Size(128, 20);
-            this.txtTim.TabIndex = 4;
-            // 
             // frmChuyenLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -517,6 +517,7 @@
             this.DoubleBuffered = true;
             this.Name = "frmChuyenLop";
             this.Text = "CHUYỂN LỚP";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmChuyenLop_Load);
             this.panelConTren.ResumeLayout(false);
             this.groupPanelLopCu.ResumeLayout(false);

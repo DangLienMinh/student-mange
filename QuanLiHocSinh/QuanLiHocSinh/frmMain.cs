@@ -33,6 +33,7 @@ namespace QuanLiHocSinh
         private frmHocSinhTheoLop m_FrmTimLop = null;
         private frmTimHocSinh m_FrmTimHocSinh = null;
         private frmMatKhau m_FrmMatKhau = null;
+        private frmChuyenLop m_FrmChuyenLop = null;
         private frmDiem m_FrmDiem = null;
         private frmHanhKiem m_FrmHanhKiem = null;
         private frmDangNhap m_FrmLogin = null;
@@ -711,6 +712,21 @@ namespace QuanLiHocSinh
             else
             {
                 m_FrmNhatKy.Activate();
+            }
+        }
+
+        private void btnChuyenLop_Click(object sender, EventArgs e)
+        {
+            if (m_FrmChuyenLop == null || m_FrmChuyenLop.IsDisposed)
+            {
+                m_FrmChuyenLop = new frmChuyenLop();
+                m_FrmChuyenLop.FormBorderStyle = FormBorderStyle.None;
+                m_FrmChuyenLop.MdiParent = frmMain.ActiveForm;
+                m_FrmChuyenLop.Show();
+            }
+            else
+            {
+                m_FrmChuyenLop.Activate();
             }
         }
 
