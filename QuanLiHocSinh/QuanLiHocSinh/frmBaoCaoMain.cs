@@ -16,6 +16,7 @@ namespace QuanLiHocSinh
         private clsLOP_BUS lop_BUS;
         private clsHOCSINH_BUS hocSinh_BUS;
         private clsHANHKIEM_BUS hanhkiem_BUS;
+        private clsHOCKY_BUS hocKy_BUS;
         private string tenND;
 
         public frmBaoCaoMain()
@@ -25,6 +26,7 @@ namespace QuanLiHocSinh
             lop_BUS = new clsLOP_BUS();
             hocSinh_BUS = new clsHOCSINH_BUS();
             hanhkiem_BUS = new clsHANHKIEM_BUS();
+            hocKy_BUS = new clsHOCKY_BUS();
         }
 
         public frmBaoCaoMain(string TenND)
@@ -35,6 +37,8 @@ namespace QuanLiHocSinh
             lop_BUS = new clsLOP_BUS();
             hocSinh_BUS = new clsHOCSINH_BUS();
             hanhkiem_BUS = new clsHANHKIEM_BUS();
+            hocKy_BUS = new clsHOCKY_BUS();
+            
         }
 
         private void frmBaoCaoMain_Load(object sender, EventArgs e)
@@ -42,6 +46,8 @@ namespace QuanLiHocSinh
             namHoc_BUS.hienThiComboBox(cboNamHocDSLop);
             namHoc_BUS.hienThiComboBox(cboNamHocTheHS);
             namHoc_BUS.hienThiComboBox(cboNamHoc);
+            namHoc_BUS.hienThiComboBox(cboNamHocHSG);
+            hocKy_BUS.hienThiComboBox(cboHocKyHSG);
             btnDshocsinh.Enabled = false;
         }
 
@@ -134,7 +140,6 @@ namespace QuanLiHocSinh
                 frmHiemThiReport hien = new frmHiemThiReport(cboNamHoc.SelectedValue.ToString(), treLop.SelectedNode.Name.ToString(), "frmDSHocSinh");
                 hien.Show();
             }
-           
         }
 
         private void treLop_NodeClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
@@ -142,8 +147,25 @@ namespace QuanLiHocSinh
            btnDshocsinh.Enabled = true;
         }
 
+        private void cboNamHocHSG_SelectedValueChanged(object sender, EventArgs e)
+        {
+            treHSG.Nodes.Clear();
+            if (cboNamHocHSG.SelectedValue != null)
+            {
+                lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHocHSG.SelectedValue.ToString(), treHSG);
+            }
+        }
 
-
-       
+        private void btnInHSG_Click(object sender, EventArgs e)
+        {
+            if (treHSG.SelectedNode.Parent == null)
+            {
+            }
+            else
+            {
+                //frmHiemThiReport hien = new frmHiemThiReport(hocSinh_BUS.layMaLop(cboNamHocTheHS, treLopTheHS), "frmTheHocSinh", tenND);
+                //hien.Show();
+            }
+        }
     }
 }
