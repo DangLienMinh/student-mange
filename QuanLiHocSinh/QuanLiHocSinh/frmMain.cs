@@ -239,8 +239,8 @@ namespace QuanLiHocSinh
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            macDinh();
-            dangNhap();
+            //macDinh();
+            //dangNhap();
             // Create the list of frequently used commands for the QAT Customize menu
             ribbonControl1.QatFrequentCommands.Add(btnDangNhap);
             ribbonControl1.QatFrequentCommands.Add(btnDangXuat);
@@ -278,7 +278,7 @@ namespace QuanLiHocSinh
             m_FrmLogin.txtMatKhau.Text = "";
             m_FrmLogin.lblUserError.Text = "";
             m_FrmLogin.lblPassError.Text = "";
-            
+
             dangNhap();
         }
 
@@ -412,14 +412,14 @@ namespace QuanLiHocSinh
                         phanQuyen(nguoiDung_DTO.Malnd);
                         using (StreamWriter writer = new StreamWriter(Application.StartupPath + @"\log.txt", true))
                         {
-                            writer.WriteLine(nguoiDung_DTO.Mand+","+nguoiDung_DTO.Malnd+","+nguoiDung_DTO.Tennd + "," + DateTime.Now.ToString());
+                            writer.WriteLine(nguoiDung_DTO.Mand + "," + nguoiDung_DTO.Malnd + "," + nguoiDung_DTO.Tennd + "," + DateTime.Now.ToString());
                         }
                         break;
                 }
             }
             else
             {
-               
+
                 return;
             }
         }

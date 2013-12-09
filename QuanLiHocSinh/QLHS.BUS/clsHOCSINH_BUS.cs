@@ -144,21 +144,6 @@ namespace QLHS.BUS
                         {
                             row["GIOITINHHS"] = "Nam";
                         }
-                        if (row["MABAN"].ToString() == "KHTN")
-                        {
-                            row["MABAN"] = "Khoa học tự nhiên";
-                        }
-                        else
-                        {
-                            if (row["MABAN"].ToString() == "KHXHNV")
-                            {
-                                row["MABAN"] = "Khoa học xã hội-Nhân văn";
-                            }
-                            else
-                            {
-                                row["MABAN"] = "Cơ bản";
-                            }
-                        }
                     }
                 }
 
