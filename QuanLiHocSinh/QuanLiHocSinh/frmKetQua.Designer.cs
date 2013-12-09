@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKetQua));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -49,7 +48,25 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKetQua));
             this.grdKQ = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.MAHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH01 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH02 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH03 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH04 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH05 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH06 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH07 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH08 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH09 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MH13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HANHKIEM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bnaKQ = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
             this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
             this.bindingNavigatorMoveFirstItem = new DevComponents.DotNetBar.ButtonItem();
@@ -68,23 +85,6 @@
             this.btnDanhSach = new DevComponents.DotNetBar.ButtonX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.btnItemNhapLop = new DevComponents.DotNetBar.ButtonItem();
-            this.MAHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH01 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH02 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH03 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH04 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH05 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH06 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH07 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH08 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH09 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MH13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HANHKIEM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdKQ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bnaKQ)).BeginInit();
             this.navigationPane1.SuspendLayout();
@@ -126,7 +126,7 @@
             dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdKQ.DefaultCellStyle = dataGridViewCellStyle18;
             this.grdKQ.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -144,6 +144,156 @@
             this.grdKQ.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.grdKQ.Size = new System.Drawing.Size(1133, 513);
             this.grdKQ.TabIndex = 28;
+            // 
+            // MAHS
+            // 
+            this.MAHS.DataPropertyName = "MAHS";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.MAHS.DefaultCellStyle = dataGridViewCellStyle2;
+            this.MAHS.HeaderText = "Mã học sinh";
+            this.MAHS.Name = "MAHS";
+            this.MAHS.ReadOnly = true;
+            this.MAHS.Width = 90;
+            // 
+            // TENHS
+            // 
+            this.TENHS.DataPropertyName = "TENHS";
+            this.TENHS.HeaderText = "Tên học sinh";
+            this.TENHS.Name = "TENHS";
+            // 
+            // MH01
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MH01.DefaultCellStyle = dataGridViewCellStyle3;
+            this.MH01.HeaderText = "Toán";
+            this.MH01.Name = "MH01";
+            this.MH01.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MH01.Width = 45;
+            // 
+            // MH02
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MH02.DefaultCellStyle = dataGridViewCellStyle4;
+            this.MH02.HeaderText = "Vật lý";
+            this.MH02.Name = "MH02";
+            this.MH02.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MH02.Width = 50;
+            // 
+            // MH03
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MH03.DefaultCellStyle = dataGridViewCellStyle5;
+            this.MH03.HeaderText = "Hóa học";
+            this.MH03.Name = "MH03";
+            this.MH03.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MH03.Width = 55;
+            // 
+            // MH04
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MH04.DefaultCellStyle = dataGridViewCellStyle6;
+            this.MH04.HeaderText = "Sinh học";
+            this.MH04.Name = "MH04";
+            this.MH04.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MH04.Width = 55;
+            // 
+            // MH05
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MH05.DefaultCellStyle = dataGridViewCellStyle7;
+            this.MH05.HeaderText = "Văn học";
+            this.MH05.Name = "MH05";
+            this.MH05.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MH05.Width = 55;
+            // 
+            // MH06
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MH06.DefaultCellStyle = dataGridViewCellStyle8;
+            this.MH06.HeaderText = "Anh văn";
+            this.MH06.Name = "MH06";
+            this.MH06.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MH06.Width = 55;
+            // 
+            // MH07
+            // 
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MH07.DefaultCellStyle = dataGridViewCellStyle9;
+            this.MH07.HeaderText = "Lịch sử";
+            this.MH07.Name = "MH07";
+            this.MH07.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MH07.Width = 55;
+            // 
+            // MH08
+            // 
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MH08.DefaultCellStyle = dataGridViewCellStyle10;
+            this.MH08.HeaderText = "Địa lý";
+            this.MH08.Name = "MH08";
+            this.MH08.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MH08.Width = 48;
+            // 
+            // MH09
+            // 
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MH09.DefaultCellStyle = dataGridViewCellStyle11;
+            this.MH09.HeaderText = "GDCD";
+            this.MH09.Name = "MH09";
+            this.MH09.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MH09.Width = 55;
+            // 
+            // MH10
+            // 
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MH10.DefaultCellStyle = dataGridViewCellStyle12;
+            this.MH10.HeaderText = "Thể dục";
+            this.MH10.Name = "MH10";
+            this.MH10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MH10.Width = 55;
+            // 
+            // MH11
+            // 
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MH11.DefaultCellStyle = dataGridViewCellStyle13;
+            this.MH11.HeaderText = "Công nghệ";
+            this.MH11.Name = "MH11";
+            this.MH11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MH11.Width = 65;
+            // 
+            // MH12
+            // 
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MH12.DefaultCellStyle = dataGridViewCellStyle14;
+            this.MH12.HeaderText = "Tin học";
+            this.MH12.Name = "MH12";
+            this.MH12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MH12.Width = 50;
+            // 
+            // MH13
+            // 
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MH13.DefaultCellStyle = dataGridViewCellStyle15;
+            this.MH13.HeaderText = "GDQP";
+            this.MH13.Name = "MH13";
+            this.MH13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MH13.Width = 50;
+            // 
+            // CN
+            // 
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.CN.DefaultCellStyle = dataGridViewCellStyle16;
+            this.CN.HeaderText = "Trung bình CN";
+            this.CN.Name = "CN";
+            this.CN.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.CN.Width = 85;
+            // 
+            // HANHKIEM
+            // 
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.HANHKIEM.DefaultCellStyle = dataGridViewCellStyle17;
+            this.HANHKIEM.HeaderText = "Hạnh kiểm";
+            this.HANHKIEM.Name = "HANHKIEM";
+            this.HANHKIEM.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // bnaKQ
             // 
@@ -371,156 +521,6 @@
             this.btnItemNhapLop.OptionGroup = "navBar";
             this.btnItemNhapLop.Text = "Chọn thông tin";
             // 
-            // MAHS
-            // 
-            this.MAHS.DataPropertyName = "MAHS";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.MAHS.DefaultCellStyle = dataGridViewCellStyle2;
-            this.MAHS.HeaderText = "Mã học sinh";
-            this.MAHS.Name = "MAHS";
-            this.MAHS.ReadOnly = true;
-            this.MAHS.Width = 90;
-            // 
-            // TENHS
-            // 
-            this.TENHS.DataPropertyName = "TENHS";
-            this.TENHS.HeaderText = "Tên học sinh";
-            this.TENHS.Name = "TENHS";
-            // 
-            // MH01
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MH01.DefaultCellStyle = dataGridViewCellStyle3;
-            this.MH01.HeaderText = "Toán";
-            this.MH01.Name = "MH01";
-            this.MH01.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.MH01.Width = 45;
-            // 
-            // MH02
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MH02.DefaultCellStyle = dataGridViewCellStyle4;
-            this.MH02.HeaderText = "Vật lý";
-            this.MH02.Name = "MH02";
-            this.MH02.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.MH02.Width = 50;
-            // 
-            // MH03
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MH03.DefaultCellStyle = dataGridViewCellStyle5;
-            this.MH03.HeaderText = "Hóa học";
-            this.MH03.Name = "MH03";
-            this.MH03.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.MH03.Width = 55;
-            // 
-            // MH04
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MH04.DefaultCellStyle = dataGridViewCellStyle6;
-            this.MH04.HeaderText = "Sinh học";
-            this.MH04.Name = "MH04";
-            this.MH04.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.MH04.Width = 55;
-            // 
-            // MH05
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MH05.DefaultCellStyle = dataGridViewCellStyle7;
-            this.MH05.HeaderText = "Văn học";
-            this.MH05.Name = "MH05";
-            this.MH05.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.MH05.Width = 55;
-            // 
-            // MH06
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MH06.DefaultCellStyle = dataGridViewCellStyle8;
-            this.MH06.HeaderText = "Anh văn";
-            this.MH06.Name = "MH06";
-            this.MH06.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.MH06.Width = 55;
-            // 
-            // MH07
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MH07.DefaultCellStyle = dataGridViewCellStyle9;
-            this.MH07.HeaderText = "Lịch sử";
-            this.MH07.Name = "MH07";
-            this.MH07.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.MH07.Width = 55;
-            // 
-            // MH08
-            // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MH08.DefaultCellStyle = dataGridViewCellStyle10;
-            this.MH08.HeaderText = "Địa lý";
-            this.MH08.Name = "MH08";
-            this.MH08.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.MH08.Width = 48;
-            // 
-            // MH09
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MH09.DefaultCellStyle = dataGridViewCellStyle11;
-            this.MH09.HeaderText = "GDCD";
-            this.MH09.Name = "MH09";
-            this.MH09.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.MH09.Width = 55;
-            // 
-            // MH10
-            // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MH10.DefaultCellStyle = dataGridViewCellStyle12;
-            this.MH10.HeaderText = "Thể dục";
-            this.MH10.Name = "MH10";
-            this.MH10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.MH10.Width = 55;
-            // 
-            // MH11
-            // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MH11.DefaultCellStyle = dataGridViewCellStyle13;
-            this.MH11.HeaderText = "Công nghệ";
-            this.MH11.Name = "MH11";
-            this.MH11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.MH11.Width = 65;
-            // 
-            // MH12
-            // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MH12.DefaultCellStyle = dataGridViewCellStyle14;
-            this.MH12.HeaderText = "Tin học";
-            this.MH12.Name = "MH12";
-            this.MH12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.MH12.Width = 50;
-            // 
-            // MH13
-            // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MH13.DefaultCellStyle = dataGridViewCellStyle15;
-            this.MH13.HeaderText = "GDQP";
-            this.MH13.Name = "MH13";
-            this.MH13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.MH13.Width = 50;
-            // 
-            // CN
-            // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.CN.DefaultCellStyle = dataGridViewCellStyle16;
-            this.CN.HeaderText = "Trung bình CN";
-            this.CN.Name = "CN";
-            this.CN.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.CN.Width = 85;
-            // 
-            // HANHKIEM
-            // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.HANHKIEM.DefaultCellStyle = dataGridViewCellStyle17;
-            this.HANHKIEM.HeaderText = "Hạnh kiểm";
-            this.HANHKIEM.Name = "HANHKIEM";
-            this.HANHKIEM.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // frmKetQua
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -529,7 +529,6 @@
             this.Controls.Add(this.grdKQ);
             this.Controls.Add(this.bnaKQ);
             this.Controls.Add(this.navigationPane1);
-            this.DoubleBuffered = true;
             this.Name = "frmKetQua";
             this.Text = "KẾT QUẢ HỌC LỰC";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

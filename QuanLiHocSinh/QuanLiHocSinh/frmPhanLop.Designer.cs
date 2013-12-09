@@ -39,6 +39,9 @@
             this.colHoTenCu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelConTren = new System.Windows.Forms.Panel();
             this.groupPanelLopCu = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.cboLopCu = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cboKhoiLopCu = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cboNamHocCu = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
@@ -74,7 +77,7 @@
             this.btnThoat1 = new DevComponents.DotNetBar.ButtonX();
             this.btnLuu1 = new DevComponents.DotNetBar.ButtonX();
             this.btnXoa1 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
+            this.btnChuyenLop = new DevComponents.DotNetBar.ButtonX();
             this.lstLopMoi1 = new DevComponents.DotNetBar.Controls.ListViewEx();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -87,9 +90,6 @@
             this.cboNamHocMoi1 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.tabItem1 = new DevComponents.DotNetBar.TabItem(this.components);
-            this.cboNamHocCu = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.cboKhoiLopCu = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.cboLopCu = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabControlPanel2.SuspendLayout();
@@ -118,8 +118,8 @@
             // 
             this.tabControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
             this.tabControl1.CanReorderTabs = true;
-            this.tabControl1.Controls.Add(this.tabControlPanel2);
             this.tabControl1.Controls.Add(this.tabControlPanel1);
+            this.tabControl1.Controls.Add(this.tabControlPanel2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -268,6 +268,45 @@
             this.groupPanelLopCu.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanelLopCu.TabIndex = 1;
             this.groupPanelLopCu.Text = "Thông tin lớp cũ";
+            // 
+            // cboLopCu
+            // 
+            this.cboLopCu.DisplayMember = "Text";
+            this.cboLopCu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboLopCu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLopCu.FormattingEnabled = true;
+            this.cboLopCu.ItemHeight = 15;
+            this.cboLopCu.Location = new System.Drawing.Point(128, 70);
+            this.cboLopCu.Name = "cboLopCu";
+            this.cboLopCu.Size = new System.Drawing.Size(121, 21);
+            this.cboLopCu.TabIndex = 3;
+            this.cboLopCu.SelectedValueChanged += new System.EventHandler(this.cboLopCu_SelectedValueChanged);
+            // 
+            // cboKhoiLopCu
+            // 
+            this.cboKhoiLopCu.DisplayMember = "Text";
+            this.cboKhoiLopCu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboKhoiLopCu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboKhoiLopCu.FormattingEnabled = true;
+            this.cboKhoiLopCu.ItemHeight = 15;
+            this.cboKhoiLopCu.Location = new System.Drawing.Point(128, 40);
+            this.cboKhoiLopCu.Name = "cboKhoiLopCu";
+            this.cboKhoiLopCu.Size = new System.Drawing.Size(121, 21);
+            this.cboKhoiLopCu.TabIndex = 2;
+            this.cboKhoiLopCu.SelectedValueChanged += new System.EventHandler(this.cboKhoiLopCu_SelectedValueChanged);
+            // 
+            // cboNamHocCu
+            // 
+            this.cboNamHocCu.DisplayMember = "Text";
+            this.cboNamHocCu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboNamHocCu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNamHocCu.FormattingEnabled = true;
+            this.cboNamHocCu.ItemHeight = 15;
+            this.cboNamHocCu.Location = new System.Drawing.Point(128, 10);
+            this.cboNamHocCu.Name = "cboNamHocCu";
+            this.cboNamHocCu.Size = new System.Drawing.Size(169, 21);
+            this.cboNamHocCu.TabIndex = 1;
+            this.cboNamHocCu.SelectedValueChanged += new System.EventHandler(this.cboNamHocCu_SelectedValueChanged);
             // 
             // labelX3
             // 
@@ -697,7 +736,7 @@
             this.panel1.Controls.Add(this.btnThoat1);
             this.panel1.Controls.Add(this.btnLuu1);
             this.panel1.Controls.Add(this.btnXoa1);
-            this.panel1.Controls.Add(this.buttonX2);
+            this.panel1.Controls.Add(this.btnChuyenLop);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(664, 0);
             this.panel1.Name = "panel1";
@@ -740,17 +779,17 @@
             this.btnXoa1.Tooltip = "Xóa học sinh khỏi lớp mới";
             this.btnXoa1.Click += new System.EventHandler(this.btnXoa1_Click);
             // 
-            // buttonX2
+            // btnChuyenLop
             // 
-            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX2.Image = global::QuanLiHocSinh.Properties.Resources.chuyenlop;
-            this.buttonX2.Location = new System.Drawing.Point(13, 28);
-            this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(43, 50);
-            this.buttonX2.TabIndex = 1;
-            this.buttonX2.Tooltip = "Chuyển lớp";
-            this.buttonX2.Click += new System.EventHandler(this.btnChuyen1);
+            this.btnChuyenLop.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnChuyenLop.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnChuyenLop.Image = global::QuanLiHocSinh.Properties.Resources.chuyenlop;
+            this.btnChuyenLop.Location = new System.Drawing.Point(13, 28);
+            this.btnChuyenLop.Name = "btnChuyenLop";
+            this.btnChuyenLop.Size = new System.Drawing.Size(43, 50);
+            this.btnChuyenLop.TabIndex = 1;
+            this.btnChuyenLop.Tooltip = "Chuyển lớp";
+            this.btnChuyenLop.Click += new System.EventHandler(this.btnChuyen1);
             // 
             // lstLopMoi1
             // 
@@ -917,52 +956,12 @@
             this.tabItem1.Name = "tabItem1";
             this.tabItem1.Text = "Phân lớp học sinh vừa được tiếp nhận";
             // 
-            // cboNamHocCu
-            // 
-            this.cboNamHocCu.DisplayMember = "Text";
-            this.cboNamHocCu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboNamHocCu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboNamHocCu.FormattingEnabled = true;
-            this.cboNamHocCu.ItemHeight = 15;
-            this.cboNamHocCu.Location = new System.Drawing.Point(128, 10);
-            this.cboNamHocCu.Name = "cboNamHocCu";
-            this.cboNamHocCu.Size = new System.Drawing.Size(169, 21);
-            this.cboNamHocCu.TabIndex = 1;
-            this.cboNamHocCu.SelectedValueChanged += new System.EventHandler(this.cboNamHocCu_SelectedValueChanged);
-            // 
-            // cboKhoiLopCu
-            // 
-            this.cboKhoiLopCu.DisplayMember = "Text";
-            this.cboKhoiLopCu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboKhoiLopCu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboKhoiLopCu.FormattingEnabled = true;
-            this.cboKhoiLopCu.ItemHeight = 15;
-            this.cboKhoiLopCu.Location = new System.Drawing.Point(128, 40);
-            this.cboKhoiLopCu.Name = "cboKhoiLopCu";
-            this.cboKhoiLopCu.Size = new System.Drawing.Size(121, 21);
-            this.cboKhoiLopCu.TabIndex = 2;
-            this.cboKhoiLopCu.SelectedValueChanged += new System.EventHandler(this.cboKhoiLopCu_SelectedValueChanged);
-            // 
-            // cboLopCu
-            // 
-            this.cboLopCu.DisplayMember = "Text";
-            this.cboLopCu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboLopCu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLopCu.FormattingEnabled = true;
-            this.cboLopCu.ItemHeight = 15;
-            this.cboLopCu.Location = new System.Drawing.Point(128, 70);
-            this.cboLopCu.Name = "cboLopCu";
-            this.cboLopCu.Size = new System.Drawing.Size(121, 21);
-            this.cboLopCu.TabIndex = 3;
-            this.cboLopCu.SelectedValueChanged += new System.EventHandler(this.cboLopCu_SelectedValueChanged);
-            // 
             // frmPhanLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 538);
             this.Controls.Add(this.tabControl1);
-            this.DoubleBuffered = true;
             this.Name = "frmPhanLop";
             this.Text = "PHÂN LỚP HỌC SINH";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1039,7 +1038,7 @@
         private DevComponents.DotNetBar.ButtonX btnThoat1;
         private DevComponents.DotNetBar.ButtonX btnLuu1;
         private DevComponents.DotNetBar.ButtonX btnXoa1;
-        private DevComponents.DotNetBar.ButtonX buttonX2;
+        private DevComponents.DotNetBar.ButtonX btnChuyenLop;
         private DevComponents.DotNetBar.Controls.ListViewEx lstLopMoi1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader1;
