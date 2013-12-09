@@ -28,7 +28,8 @@ namespace QuanLiHocSinh
         private frmNguoiDung m_FrmNguoiDung = null;
         private frmPhanLop m_FrmPhanLop = null;
         private frmThongSo m_FrmQuyDinh = null;
-        private frmBaoCaoMain m_FrmBaoCao = null;
+        private frmBaoCaoChung m_FrmBaoCaoChung = null;
+        private frmBaoCaoHocTap m_FrmBaoCaoHocTap = null;
         private frmPhanCong m_FrmPhanCong = null;
         private frmHocSinhTheoLop m_FrmTimLop = null;
         private frmTimHocSinh m_FrmTimHocSinh = null;
@@ -239,8 +240,8 @@ namespace QuanLiHocSinh
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            //macDinh();
-            //dangNhap();
+            macDinh();
+            dangNhap();
             // Create the list of frequently used commands for the QAT Customize menu
             ribbonControl1.QatFrequentCommands.Add(btnDangNhap);
             ribbonControl1.QatFrequentCommands.Add(btnDangXuat);
@@ -524,7 +525,7 @@ namespace QuanLiHocSinh
             btnTimLop.Enabled = false;
             btnThamSo.Enabled = false;
             btnKQ.Enabled = false;
-            btnThongKe.Enabled = false;
+            btnBaoCaoHocTap.Enabled = false;
             rbGiaoDien.Enabled = false;
         }
 
@@ -555,7 +556,7 @@ namespace QuanLiHocSinh
             btnTimLop.Enabled = true;
             btnThamSo.Enabled = true;
             btnKQ.Enabled = true;
-            btnThongKe.Enabled = true;
+            btnBaoCaoHocTap.Enabled = true;
 
             rbGiaoDien.Enabled = true;
         }
@@ -572,7 +573,7 @@ namespace QuanLiHocSinh
             btnTimLop.Enabled = true;
             btnTimHocSinh.Enabled = true;
             rbGiaoDien.Enabled = true;
-            btnThongKe.Enabled = true;
+            btnBaoCaoHocTap.Enabled = true;
             //False
             btnDangNhap.Enabled = false;
             btnNhatKy.Enabled = false;
@@ -613,7 +614,7 @@ namespace QuanLiHocSinh
             btnPhanCong.Enabled = true;
             btnThamSo.Enabled = true;
             btnKQ.Enabled = true;
-            btnThongKe.Enabled = true;
+            btnBaoCaoHocTap.Enabled = true;
             //False
             btnDangNhap.Enabled = false;
             btnNguoiDung.Enabled = false;
@@ -687,16 +688,16 @@ namespace QuanLiHocSinh
 
         private void btnThongKe_Click(object sender, EventArgs e)
         {
-            if (m_FrmBaoCao == null || m_FrmBaoCao.IsDisposed)
+            if (m_FrmBaoCaoChung == null || m_FrmBaoCaoChung.IsDisposed)
             {
-                m_FrmBaoCao = new frmBaoCaoMain(nguoiDung_DTO.Tennd);
-                m_FrmBaoCao.FormBorderStyle = FormBorderStyle.None;
-                m_FrmBaoCao.MdiParent = frmMain.ActiveForm;
-                m_FrmBaoCao.Show();
+                m_FrmBaoCaoChung = new frmBaoCaoChung(nguoiDung_DTO.Tennd);
+                m_FrmBaoCaoChung.FormBorderStyle = FormBorderStyle.None;
+                m_FrmBaoCaoChung.MdiParent = frmMain.ActiveForm;
+                m_FrmBaoCaoChung.Show();
             }
             else
             {
-                m_FrmBaoCao.Activate();
+                m_FrmBaoCaoChung.Activate();
             }
         }
 
@@ -727,6 +728,21 @@ namespace QuanLiHocSinh
             else
             {
                 m_FrmChuyenLop.Activate();
+            }
+        }
+
+        private void btnBaoCaoHocTap_Click(object sender, EventArgs e)
+        {
+            if (m_FrmBaoCaoHocTap == null || m_FrmChuyenLop.IsDisposed)
+            {
+                m_FrmBaoCaoHocTap = new frmBaoCaoHocTap();
+                m_FrmBaoCaoHocTap.FormBorderStyle = FormBorderStyle.None;
+                m_FrmBaoCaoHocTap.MdiParent = frmMain.ActiveForm;
+                m_FrmBaoCaoHocTap.Show();
+            }
+            else
+            {
+                m_FrmBaoCaoHocTap.Activate();
             }
         }
 
