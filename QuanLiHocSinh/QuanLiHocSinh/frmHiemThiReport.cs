@@ -47,15 +47,16 @@ namespace QuanLiHocSinh
             this.tenND = tenND;
         }
 
-        public frmHiemThiReport(string manh,string malop,string rptName,string tenND)
-        {
-            InitializeComponent();
-            this.maLop = malop;
-            this.maNH = manh;
-            hocSinh_BUS = new clsHOCSINH_BUS();
-            this.rptName = rptName;
-            this.tenND = tenND;
-        }
+        //public frmHiemThiReport(string manh,string malop,string rptName,string tenND)
+        //{
+        //    InitializeComponent();
+        //    this.maLop = malop;
+        //    this.maNH = manh;
+        //    hocSinh_BUS = new clsHOCSINH_BUS();
+        //    this.rptName = rptName;
+        //    this.tenND = tenND;
+        //}
+
         public frmHiemThiReport()
         {
             InitializeComponent();
@@ -70,63 +71,63 @@ namespace QuanLiHocSinh
             {
                 switch (rptName)
                 {
-                    case "frmDSLop":
-                        {
-                            DataSet ds = lop_BUS.reportDanhSachLop();
-                            ds.WriteXmlSchema(Application.StartupPath + @"\DSLop.xsd");
+                    //case "frmDSLop":
+                    //    {
+                    //        DataSet ds = lop_BUS.reportDanhSachLop();
+                    //        ds.WriteXmlSchema(Application.StartupPath + @"\DSLop.xsd");
 
-                            document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSLop.rpt");
-                            document.SetDataSource(ds.Tables["Lop"].Select(query).CopyToDataTable());
-                            //document.SetParameterValue("NguoiLap1", "your parameter value");
-                            TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap1"];
-                            text.Text = tenND;
-                            //ParameterFieldDefinitions crParameterFieldDefinitions;
-                            //ParameterFieldDefinition crParameterFieldDefinition;
-                            //ParameterValues crParameterValues = new ParameterValues();
-                            //ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
+                    //        document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSLop.rpt");
+                    //        document.SetDataSource(ds.Tables["Lop"].Select(query).CopyToDataTable());
+                    //        //document.SetParameterValue("NguoiLap1", "your parameter value");
+                    //        TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap1"];
+                    //        text.Text = tenND;
+                    //        //ParameterFieldDefinitions crParameterFieldDefinitions;
+                    //        //ParameterFieldDefinition crParameterFieldDefinition;
+                    //        //ParameterValues crParameterValues = new ParameterValues();
+                    //        //ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
 
-                            //crParameterDiscreteValue.Value = tenND;
-                            //crParameterFieldDefinitions = document.DataDefinition.ParameterFields;
-                            //crParameterFieldDefinition = crParameterFieldDefinitions["NguoiLap"];
-                            //crParameterValues = crParameterFieldDefinition.CurrentValues;
+                    //        //crParameterDiscreteValue.Value = tenND;
+                    //        //crParameterFieldDefinitions = document.DataDefinition.ParameterFields;
+                    //        //crParameterFieldDefinition = crParameterFieldDefinitions["NguoiLap"];
+                    //        //crParameterValues = crParameterFieldDefinition.CurrentValues;
 
-                            //crParameterValues.Clear();
-                            //crParameterValues.Add(crParameterDiscreteValue);
-                            //crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
+                    //        //crParameterValues.Clear();
+                    //        //crParameterValues.Add(crParameterDiscreteValue);
+                    //        //crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
 
-                            //rptView.ReportSource = document;
-                            //rptView.Refresh(); 
+                    //        //rptView.ReportSource = document;
+                    //        //rptView.Refresh(); 
  
-                        }
-                        break;
-                    case "frmDSGiaoVien":
-                        {
-                            DataSet ds = giaoVien_BUS.reportDanhSachGiaoVien();
-                            ds.WriteXmlSchema(Application.StartupPath + @"\DSGiaoVien.xsd");
+                    //    }
+                    //    break;
+                    //case "frmDSGiaoVien":
+                    //    {
+                    //        DataSet ds = giaoVien_BUS.reportDanhSachGiaoVien();
+                    //        ds.WriteXmlSchema(Application.StartupPath + @"\DSGiaoVien.xsd");
 
-                            document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSGiaoVien.rpt");
-                            document.SetDataSource(ds.Tables["GiaoVien"].Select(query).CopyToDataTable());
-                            TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap"];
-                            text.Text = tenND;
-                        }
-                        break;
-                    case "frmTheHocSinh":
-                        {
-                            DataSet ds = hocSinh_BUS.reportTheHocSinh(query);
-                            ds.WriteXmlSchema(Application.StartupPath + @"\TheHocSinh.xsd");
+                    //        document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSGiaoVien.rpt");
+                    //        document.SetDataSource(ds.Tables["GiaoVien"].Select(query).CopyToDataTable());
+                    //        TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap"];
+                    //        text.Text = tenND;
+                    //    }
+                    //    break;
+                    //case "frmTheHocSinh":
+                    //    {
+                    //        DataSet ds = hocSinh_BUS.reportTheHocSinh(query);
+                    //        ds.WriteXmlSchema(Application.StartupPath + @"\TheHocSinh.xsd");
 
-                            document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\TheHocSinh.rpt");
-                            document.SetDataSource(ds.Tables["TheHocSinh"]);
-                        }
-                        break;
-                    case "frmDSHocSinh":
-                        {
-                            DataSet ds= hocSinh_BUS.danhSachHocSinh_NH_LOP(maNH,maLop);
-                            ds.WriteXmlSchema(Application.StartupPath + @"\DanhSachHocSinh.xsd");
-                            document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSHS_Lop.rpt");
-                            document.SetDataSource(ds.Tables["DanhSachHocSinh"]);
-                        }
-                        break;
+                    //        document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\TheHocSinh.rpt");
+                    //        document.SetDataSource(ds.Tables["TheHocSinh"]);
+                    //    }
+                    //    break;
+                    //case "frmDSHocSinh":
+                    //    {
+                    //        DataSet ds= hocSinh_BUS.danhSachHocSinh_NH_LOP(maNH,maLop);
+                    //        ds.WriteXmlSchema(Application.StartupPath + @"\DanhSachHocSinh.xsd");
+                    //        document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSHS_Lop.rpt");
+                    //        document.SetDataSource(ds.Tables["DanhSachHocSinh"]);
+                    //    }
+                    //    break;
                     default:
                         break;
                 }

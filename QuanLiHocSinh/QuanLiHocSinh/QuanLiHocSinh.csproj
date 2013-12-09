@@ -59,11 +59,17 @@
     <Compile Include="frmAbout.Designer.cs">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBaoCaoMain.cs">
+    <Compile Include="frmBaoCaoChung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBaoCaoMain.Designer.cs">
-      <DependentUpon>frmBaoCaoMain.cs</DependentUpon>
+    <Compile Include="frmBaoCaoChung.Designer.cs">
+      <DependentUpon>frmBaoCaoChung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBaoCaoHocTap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBaoCaoHocTap.Designer.cs">
+      <DependentUpon>frmBaoCaoHocTap.cs</DependentUpon>
     </Compile>
     <Compile Include="frmChuyenLop.cs">
       <SubType>Form</SubType>
@@ -232,8 +238,11 @@
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBaoCaoMain.resx">
-      <DependentUpon>frmBaoCaoMain.cs</DependentUpon>
+    <EmbeddedResource Include="frmBaoCaoChung.resx">
+      <DependentUpon>frmBaoCaoChung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBaoCaoHocTap.resx">
+      <DependentUpon>frmBaoCaoHocTap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChuyenLop.resx">
       <DependentUpon>frmChuyenLop.cs</DependentUpon>
@@ -374,6 +383,7 @@
     <None Include="resources\37.png" />
     <None Include="resources\add.png" />
     <None Include="resources\backGround.png" />
+    <None Include="resources\baoCaoDiem.jpg" />
     <Content Include="resources\books copy.png" />
     <Content Include="resources\cal-ico copy.png" />
     <Content Include="resources\Calendar-icon.png" />
@@ -387,6 +397,7 @@
     <Content Include="resources\DangXuat.png" />
     <None Include="resources\danhsach.ico" />
     <None Include="resources\delete.png" />
+    <None Include="resources\diemBC.png" />
     <Content Include="resources\DoiMatKhau.png" />
     <None Include="resources\Dongy.ico" />
     <Content Include="resources\education-edutainment-2.png" />
