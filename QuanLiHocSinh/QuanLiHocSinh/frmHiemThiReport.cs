@@ -21,8 +21,7 @@ namespace QuanLiHocSinh
         private clsHOCSINH_BUS hocSinh_BUS;
         string query = "";
         private string rptName;
-        private string maLop;
-        private string maNH;
+
         private string tenND;
         private DataSet ds;
 
