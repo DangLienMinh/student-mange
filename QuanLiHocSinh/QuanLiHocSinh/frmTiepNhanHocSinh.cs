@@ -239,6 +239,7 @@ namespace QuanLiHocSinh
         public int kiemTraDulieu()
         {
             int dem = 0;
+            int tuoi = int.Parse(dtiNgayNhapHoc.Text.Substring(6, 4)) - int.Parse(dtiNgaySinh.Text.Substring(6, 4));
             if (picHocSinh.Image == null)
             {
                 MessageBox.Show("Chưa Chọn hình ảnh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -268,6 +269,11 @@ namespace QuanLiHocSinh
             {
                 MessageBox.Show("Chưa Chọn hình ảnh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dem++;
+            }
+            if (tuoi < hocSinh_BUS.TuoiToiThieu() || tuoi > hocSinh_BUS.TuoiToiDa())
+            {
+                dem++;
+                MessageBox.Show("Độ tuổi không phù hợp với quy định", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return dem;
         }
@@ -472,6 +478,11 @@ namespace QuanLiHocSinh
                 }
             }
             anHienButton(true);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show( hocSinh_BUS.TuoiToiDa().ToString());
         }
 
     }

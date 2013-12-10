@@ -127,6 +127,26 @@ namespace QLHS.BUS
             }
             return table;
         }
+        public int TuoiToiDa()
+        {
+           int tuoitoida = 0;
+           DataTable table= hocSinh_DAO.TuoiToiDa();
+           if (table.Rows.Count > 0)
+           {
+               tuoitoida = int.Parse(table.Rows[0]["GIATRI"].ToString());
+           }
+           return tuoitoida;
+        }
+        public int TuoiToiThieu()
+        {
+            int tuoitoithieu = 0;
+            DataTable table = hocSinh_DAO.TuoiToiThieu();
+            if (table.Rows.Count > 0)
+            {
+                tuoitoithieu = int.Parse(table.Rows[0]["GIATRI"].ToString());
+            }
+            return tuoitoithieu;
+        }
         public DataSet danhSachHocSinh_NH_LOP(string manh, string malop)
         {
             DataSet ds = hocSinh_DAO.danhSachHocSinh_NH_LOP(manh, malop);
@@ -150,6 +170,7 @@ namespace QLHS.BUS
             }
             return ds;
         }
+
         //public void taiLaiDataGrid(DataGridViewX grdHocSinh, DataTable dsHocSinh)
         //{
         //    grdHocSinh.DataSource = dsHocSinh;

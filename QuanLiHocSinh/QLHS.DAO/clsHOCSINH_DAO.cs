@@ -134,6 +134,28 @@ namespace QLHS.DAO
             con.Close();
             return ds;
         }
+        public DataTable TuoiToiDa()
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_TuoiToiDa", con);
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+        public DataTable TuoiToiThieu()
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_TuoiToiThieu", con);
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
         //--DANH SACH HOC SINH THEO LON,NAM HOC,HOC KY
         //CREATE CREATE PROC SP_DanhSachHocSinh_LOP_NAMHOC_HOCKY
         //@MALOP VARCHAR(10),@MANH VARCHAR(6),@MAHK VARCHAR(10)
