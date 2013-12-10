@@ -24,6 +24,7 @@ namespace QuanLiHocSinh
         private string maLop;
         private string maNH;
         private string tenND;
+        private DataSet ds;
 
         public frmHiemThiReport(string query,string rptName,string tenND)
         {
@@ -47,7 +48,17 @@ namespace QuanLiHocSinh
             this.tenND = tenND;
         }
 
-        //public frmHiemThiReport(string manh,string malop,string rptName,string tenND)
+        public frmHiemThiReport(string rptName,DataSet ds)
+        {
+            InitializeComponent();
+            lop_BUS = new clsLOP_BUS();
+            giaoVien_BUS = new clsGIAOVIEN_BUS();
+            hocSinh_BUS = new clsHOCSINH_BUS();
+            this.rptName = rptName;
+            this.ds = ds;
+        }
+
+        //public frmHiemThiReport(string manh, string malop, string rptName, string tenND)
         //{
         //    InitializeComponent();
         //    this.maLop = malop;
@@ -100,17 +111,16 @@ namespace QuanLiHocSinh
  
                     //    }
                     //    break;
-                    //case "frmDSGiaoVien":
-                    //    {
-                    //        DataSet ds = giaoVien_BUS.reportDanhSachGiaoVien();
-                    //        ds.WriteXmlSchema(Application.StartupPath + @"\DSGiaoVien.xsd");
+                    case "HSG":
+                        {
+                            ds.WriteXmlSchema(Application.StartupPath + @"\HSG.xsd");
 
-                    //        document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSGiaoVien.rpt");
-                    //        document.SetDataSource(ds.Tables["GiaoVien"].Select(query).CopyToDataTable());
-                    //        TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap"];
-                    //        text.Text = tenND;
-                    //    }
-                    //    break;
+                            document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\HSG.rpt");
+                            document.SetDataSource(ds.Tables[0]);
+                            //TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap"];
+                            //text.Text = tenND;
+                        }
+                        break;
                     //case "frmTheHocSinh":
                     //    {
                     //        DataSet ds = hocSinh_BUS.reportTheHocSinh(query);

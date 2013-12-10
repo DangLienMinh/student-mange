@@ -331,7 +331,7 @@ namespace QLHS.BUS
                     int soCot = 0;
                     switch (maBan)
                     {
-                        case "KHTN":
+                        case "B02":
                             {
                                 for (int i = 1; i <= 12; i++)
                                 {
@@ -366,7 +366,7 @@ namespace QLHS.BUS
  
                             }
                             break;
-                        case "KHXHNV":
+                        case "B03":
                             {
                                 for (int i = 1; i <= 12; i++)
                                 {
@@ -400,7 +400,7 @@ namespace QLHS.BUS
                                 }
                             }
                             break;
-                        case "CB":
+                        case "B01":
                             {
                                 for (int i = 1; i <= 12; i++)
                                 {
