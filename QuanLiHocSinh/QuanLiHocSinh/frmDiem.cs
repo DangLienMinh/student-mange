@@ -424,6 +424,33 @@ namespace QuanLiHocSinh
                 MessageBox.Show("Chỉ nhập số,không nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void cboHocKy_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (treLop.SelectedNode != null)
+            {
+                //.biding navigator
+                bsChung = new BindingSource();
+                bsChung.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
+                grdDiemChung.DataSource = bsChung;
+                bnaDiem.BindingSource = bsChung;
+                diem_BUS.thongTinDiemTheoMaLD(cboNamHoc, cboHocKy, cboMonHoc, grdDiemChung);
+            }
+            
+        }
+
+        private void cboMonHoc_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (treLop.SelectedNode != null )
+            {
+                //.biding navigator
+                bsChung = new BindingSource();
+                bsChung.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
+                grdDiemChung.DataSource = bsChung;
+                bnaDiem.BindingSource = bsChung;
+                diem_BUS.thongTinDiemTheoMaLD(cboNamHoc, cboHocKy, cboMonHoc, grdDiemChung);
+            }
+        }
     }
 }
 

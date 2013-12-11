@@ -35,5 +35,14 @@ namespace QLHS.DTO
             get { return malop; }
             set { malop = value; }
         }
+
+        private string makhoi;
+
+        public string Makhoi
+        {
+            get { return makhoi; }
+            set { makhoi = value; }
+        }
+
     }
 }

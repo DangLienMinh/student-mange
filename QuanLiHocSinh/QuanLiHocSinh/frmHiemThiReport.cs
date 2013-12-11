@@ -47,7 +47,7 @@ namespace QuanLiHocSinh
             this.tenND = tenND;
         }
 
-        public frmHiemThiReport(string rptName,DataSet ds)
+        public frmHiemThiReport(string rptName, DataSet ds, string tenND)
         {
             InitializeComponent();
             lop_BUS = new clsLOP_BUS();
@@ -55,6 +55,7 @@ namespace QuanLiHocSinh
             hocSinh_BUS = new clsHOCSINH_BUS();
             this.rptName = rptName;
             this.ds = ds;
+            this.tenND = tenND;
         }
 
         //public frmHiemThiReport(string manh, string malop, string rptName, string tenND)
@@ -116,19 +117,20 @@ namespace QuanLiHocSinh
 
                             document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\HSG.rpt");
                             document.SetDataSource(ds.Tables[0]);
-                            //TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap"];
-                            //text.Text = tenND;
+                            TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap"];
+                            text.Text = tenND;
                         }
                         break;
-                    //case "frmTheHocSinh":
-                    //    {
-                    //        DataSet ds = hocSinh_BUS.reportTheHocSinh(query);
-                    //        ds.WriteXmlSchema(Application.StartupPath + @"\TheHocSinh.xsd");
+                    case "LuuBan":
+                        {
+                            ds.WriteXmlSchema(Application.StartupPath + @"\LuuBan.xsd");
 
-                    //        document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\TheHocSinh.rpt");
-                    //        document.SetDataSource(ds.Tables["TheHocSinh"]);
-                    //    }
-                    //    break;
+                            document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\LuuBan.rpt");
+                            document.SetDataSource(ds.Tables[0]);
+                            TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap"];
+                            text.Text = tenND;
+                        }
+                        break;
                     //case "frmDSHocSinh":
                     //    {
                     //        DataSet ds= hocSinh_BUS.danhSachHocSinh_NH_LOP(maNH,maLop);
@@ -140,8 +142,6 @@ namespace QuanLiHocSinh
                     default:
                         break;
                 }
-                
-               
                 rptView.ReportSource = document;
                 rptView.RefreshReport();
 

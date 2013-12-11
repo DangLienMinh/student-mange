@@ -30,6 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBaoCaoChung));
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
+            this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
+            this.treLopTheHS = new DevComponents.AdvTree.AdvTree();
+            this.nodeConnector3 = new DevComponents.AdvTree.NodeConnector();
+            this.elementStyle3 = new DevComponents.DotNetBar.ElementStyle();
+            this.labelX9 = new DevComponents.DotNetBar.LabelX();
+            this.btnInTheHS = new DevComponents.DotNetBar.ButtonX();
+            this.cboNamHocTheHS = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX4 = new DevComponents.DotNetBar.LabelX();
+            this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPanePanel3 = new DevComponents.DotNetBar.NavigationPanePanel();
             this.btnDshocsinh = new DevComponents.DotNetBar.ButtonX();
             this.treLop = new DevComponents.AdvTree.AdvTree();
@@ -47,32 +56,23 @@
             this.cboNamHocDSLop = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.btnItemTim = new DevComponents.DotNetBar.ButtonItem();
-            this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
-            this.treLopTheHS = new DevComponents.AdvTree.AdvTree();
-            this.nodeConnector3 = new DevComponents.AdvTree.NodeConnector();
-            this.elementStyle3 = new DevComponents.DotNetBar.ElementStyle();
-            this.labelX9 = new DevComponents.DotNetBar.LabelX();
-            this.btnInTheHS = new DevComponents.DotNetBar.ButtonX();
-            this.cboNamHocTheHS = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.labelX4 = new DevComponents.DotNetBar.LabelX();
-            this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.rptView = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.navigationPane1.SuspendLayout();
+            this.navigationPanePanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.treLopTheHS)).BeginInit();
             this.navigationPanePanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treLop)).BeginInit();
             this.navigationPanePanel1.SuspendLayout();
             this.groupPanel2.SuspendLayout();
             this.groupPanel1.SuspendLayout();
-            this.navigationPanePanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.treLopTheHS)).BeginInit();
             this.SuspendLayout();
             // 
             // navigationPane1
             // 
             this.navigationPane1.CanCollapse = true;
-            this.navigationPane1.Controls.Add(this.navigationPanePanel2);
-            this.navigationPane1.Controls.Add(this.navigationPanePanel3);
             this.navigationPane1.Controls.Add(this.navigationPanePanel1);
+            this.navigationPane1.Controls.Add(this.navigationPanePanel3);
+            this.navigationPane1.Controls.Add(this.navigationPanePanel2);
             this.navigationPane1.Dock = System.Windows.Forms.DockStyle.Left;
             this.navigationPane1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.navigationPane1.ItemPaddingBottom = 2;
@@ -106,7 +106,120 @@
             this.navigationPane1.TitlePanel.Style.GradientAngle = 90;
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
-            this.navigationPane1.TitlePanel.Text = "In thẻ học sinh";
+            this.navigationPane1.TitlePanel.Text = "In danh sách lớp, giáo viên";
+            // 
+            // navigationPanePanel2
+            // 
+            this.navigationPanePanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.navigationPanePanel2.Controls.Add(this.treLopTheHS);
+            this.navigationPanePanel2.Controls.Add(this.labelX9);
+            this.navigationPanePanel2.Controls.Add(this.btnInTheHS);
+            this.navigationPanePanel2.Controls.Add(this.cboNamHocTheHS);
+            this.navigationPanePanel2.Controls.Add(this.labelX4);
+            this.navigationPanePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navigationPanePanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.navigationPanePanel2.Location = new System.Drawing.Point(1, 1);
+            this.navigationPanePanel2.Name = "navigationPanePanel2";
+            this.navigationPanePanel2.ParentItem = this.btnItemNhap;
+            this.navigationPanePanel2.Size = new System.Drawing.Size(246, 534);
+            this.navigationPanePanel2.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.navigationPanePanel2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.navigationPanePanel2.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.navigationPanePanel2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.navigationPanePanel2.Style.GradientAngle = 90;
+            this.navigationPanePanel2.TabIndex = 3;
+            // 
+            // treLopTheHS
+            // 
+            this.treLopTheHS.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
+            this.treLopTheHS.AllowDrop = true;
+            this.treLopTheHS.BackColor = System.Drawing.SystemColors.Window;
+            // 
+            // 
+            // 
+            this.treLopTheHS.BackgroundStyle.Class = "TreeBorderKey";
+            this.treLopTheHS.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.treLopTheHS.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treLopTheHS.Location = new System.Drawing.Point(20, 117);
+            this.treLopTheHS.Name = "treLopTheHS";
+            this.treLopTheHS.NodesConnector = this.nodeConnector3;
+            this.treLopTheHS.NodeStyle = this.elementStyle3;
+            this.treLopTheHS.PathSeparator = ";";
+            this.treLopTheHS.Size = new System.Drawing.Size(166, 135);
+            this.treLopTheHS.Styles.Add(this.elementStyle3);
+            this.treLopTheHS.TabIndex = 52;
+            this.treLopTheHS.Text = "advTree2";
+            this.treLopTheHS.NodeDoubleClick += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.treLopTheHS_NodeDoubleClick);
+            // 
+            // nodeConnector3
+            // 
+            this.nodeConnector3.LineColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // elementStyle3
+            // 
+            this.elementStyle3.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.elementStyle3.Name = "elementStyle3";
+            this.elementStyle3.TextColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // labelX9
+            // 
+            // 
+            // 
+            // 
+            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.labelX9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelX9.Location = new System.Drawing.Point(22, 88);
+            this.labelX9.Name = "labelX9";
+            this.labelX9.Size = new System.Drawing.Size(75, 23);
+            this.labelX9.TabIndex = 51;
+            this.labelX9.Text = "Chọn lớp:";
+            // 
+            // btnInTheHS
+            // 
+            this.btnInTheHS.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnInTheHS.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnInTheHS.Location = new System.Drawing.Point(69, 271);
+            this.btnInTheHS.Name = "btnInTheHS";
+            this.btnInTheHS.Size = new System.Drawing.Size(75, 23);
+            this.btnInTheHS.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnInTheHS.TabIndex = 50;
+            this.btnInTheHS.Text = "In";
+            this.btnInTheHS.Click += new System.EventHandler(this.btnInTheHS_Click);
+            // 
+            // cboNamHocTheHS
+            // 
+            this.cboNamHocTheHS.DisplayMember = "Text";
+            this.cboNamHocTheHS.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboNamHocTheHS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNamHocTheHS.FormattingEnabled = true;
+            this.cboNamHocTheHS.ItemHeight = 15;
+            this.cboNamHocTheHS.Location = new System.Drawing.Point(22, 46);
+            this.cboNamHocTheHS.Name = "cboNamHocTheHS";
+            this.cboNamHocTheHS.Size = new System.Drawing.Size(148, 21);
+            this.cboNamHocTheHS.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cboNamHocTheHS.TabIndex = 49;
+            this.cboNamHocTheHS.SelectedValueChanged += new System.EventHandler(this.cboNamHocTheHS_SelectedValueChanged);
+            // 
+            // labelX4
+            // 
+            // 
+            // 
+            // 
+            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX4.Location = new System.Drawing.Point(22, 21);
+            this.labelX4.Name = "labelX4";
+            this.labelX4.Size = new System.Drawing.Size(103, 23);
+            this.labelX4.TabIndex = 48;
+            this.labelX4.Text = "Chọn năm học:";
+            // 
+            // btnItemNhap
+            // 
+            this.btnItemNhap.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhap.Image")));
+            this.btnItemNhap.Name = "btnItemNhap";
+            this.btnItemNhap.OptionGroup = "navBar";
+            this.btnItemNhap.Text = "In thẻ học sinh";
             // 
             // navigationPanePanel3
             // 
@@ -120,7 +233,7 @@
             this.navigationPanePanel3.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel3.Name = "navigationPanePanel3";
             this.navigationPanePanel3.ParentItem = this.buttonItem1;
-            this.navigationPanePanel3.Size = new System.Drawing.Size(246, 534);
+            this.navigationPanePanel3.Size = new System.Drawing.Size(246, 397);
             this.navigationPanePanel3.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel3.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -228,10 +341,10 @@
             this.navigationPanePanel1.Controls.Add(this.groupPanel1);
             this.navigationPanePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationPanePanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
+            this.navigationPanePanel1.Location = new System.Drawing.Point(1, 25);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(246, 534);
+            this.navigationPanePanel1.Size = new System.Drawing.Size(246, 373);
             this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -373,124 +486,11 @@
             // btnItemTim
             // 
             this.btnItemTim.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnItemTim.Checked = true;
             this.btnItemTim.Image = ((System.Drawing.Image)(resources.GetObject("btnItemTim.Image")));
             this.btnItemTim.Name = "btnItemTim";
             this.btnItemTim.OptionGroup = "navBar";
             this.btnItemTim.Text = "In danh sách lớp, giáo viên";
-            // 
-            // navigationPanePanel2
-            // 
-            this.navigationPanePanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.navigationPanePanel2.Controls.Add(this.treLopTheHS);
-            this.navigationPanePanel2.Controls.Add(this.labelX9);
-            this.navigationPanePanel2.Controls.Add(this.btnInTheHS);
-            this.navigationPanePanel2.Controls.Add(this.cboNamHocTheHS);
-            this.navigationPanePanel2.Controls.Add(this.labelX4);
-            this.navigationPanePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.navigationPanePanel2.Location = new System.Drawing.Point(1, 25);
-            this.navigationPanePanel2.Name = "navigationPanePanel2";
-            this.navigationPanePanel2.ParentItem = this.btnItemNhap;
-            this.navigationPanePanel2.Size = new System.Drawing.Size(246, 373);
-            this.navigationPanePanel2.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.navigationPanePanel2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.navigationPanePanel2.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.navigationPanePanel2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.navigationPanePanel2.Style.GradientAngle = 90;
-            this.navigationPanePanel2.TabIndex = 3;
-            // 
-            // treLopTheHS
-            // 
-            this.treLopTheHS.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
-            this.treLopTheHS.AllowDrop = true;
-            this.treLopTheHS.BackColor = System.Drawing.SystemColors.Window;
-            // 
-            // 
-            // 
-            this.treLopTheHS.BackgroundStyle.Class = "TreeBorderKey";
-            this.treLopTheHS.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.treLopTheHS.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treLopTheHS.Location = new System.Drawing.Point(20, 117);
-            this.treLopTheHS.Name = "treLopTheHS";
-            this.treLopTheHS.NodesConnector = this.nodeConnector3;
-            this.treLopTheHS.NodeStyle = this.elementStyle3;
-            this.treLopTheHS.PathSeparator = ";";
-            this.treLopTheHS.Size = new System.Drawing.Size(166, 135);
-            this.treLopTheHS.Styles.Add(this.elementStyle3);
-            this.treLopTheHS.TabIndex = 52;
-            this.treLopTheHS.Text = "advTree2";
-            this.treLopTheHS.NodeDoubleClick += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.treLopTheHS_NodeDoubleClick);
-            // 
-            // nodeConnector3
-            // 
-            this.nodeConnector3.LineColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // elementStyle3
-            // 
-            this.elementStyle3.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.elementStyle3.Name = "elementStyle3";
-            this.elementStyle3.TextColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // labelX9
-            // 
-            // 
-            // 
-            // 
-            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.labelX9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelX9.Location = new System.Drawing.Point(22, 88);
-            this.labelX9.Name = "labelX9";
-            this.labelX9.Size = new System.Drawing.Size(75, 23);
-            this.labelX9.TabIndex = 51;
-            this.labelX9.Text = "Chọn lớp:";
-            // 
-            // btnInTheHS
-            // 
-            this.btnInTheHS.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnInTheHS.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnInTheHS.Location = new System.Drawing.Point(69, 271);
-            this.btnInTheHS.Name = "btnInTheHS";
-            this.btnInTheHS.Size = new System.Drawing.Size(75, 23);
-            this.btnInTheHS.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnInTheHS.TabIndex = 50;
-            this.btnInTheHS.Text = "In";
-            this.btnInTheHS.Click += new System.EventHandler(this.btnInTheHS_Click);
-            // 
-            // cboNamHocTheHS
-            // 
-            this.cboNamHocTheHS.DisplayMember = "Text";
-            this.cboNamHocTheHS.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboNamHocTheHS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboNamHocTheHS.FormattingEnabled = true;
-            this.cboNamHocTheHS.ItemHeight = 15;
-            this.cboNamHocTheHS.Location = new System.Drawing.Point(22, 46);
-            this.cboNamHocTheHS.Name = "cboNamHocTheHS";
-            this.cboNamHocTheHS.Size = new System.Drawing.Size(148, 21);
-            this.cboNamHocTheHS.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cboNamHocTheHS.TabIndex = 49;
-            this.cboNamHocTheHS.SelectedValueChanged += new System.EventHandler(this.cboNamHocTheHS_SelectedValueChanged);
-            // 
-            // labelX4
-            // 
-            // 
-            // 
-            // 
-            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(22, 21);
-            this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(103, 23);
-            this.labelX4.TabIndex = 48;
-            this.labelX4.Text = "Chọn năm học:";
-            // 
-            // btnItemNhap
-            // 
-            this.btnItemNhap.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnItemNhap.Checked = true;
-            this.btnItemNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnItemNhap.Image")));
-            this.btnItemNhap.Name = "btnItemNhap";
-            this.btnItemNhap.OptionGroup = "navBar";
-            this.btnItemNhap.Text = "In thẻ học sinh";
             // 
             // rptView
             // 
@@ -516,13 +516,13 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmBaoCaoChung_Load);
             this.navigationPane1.ResumeLayout(false);
+            this.navigationPanePanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.treLopTheHS)).EndInit();
             this.navigationPanePanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treLop)).EndInit();
             this.navigationPanePanel1.ResumeLayout(false);
             this.groupPanel2.ResumeLayout(false);
             this.groupPanel1.ResumeLayout(false);
-            this.navigationPanePanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.treLopTheHS)).EndInit();
             this.ResumeLayout(false);
 
         }

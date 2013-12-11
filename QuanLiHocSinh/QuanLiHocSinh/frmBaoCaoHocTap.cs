@@ -20,6 +20,8 @@ namespace QuanLiHocSinh
         private clsHANHKIEM_BUS hanhkiem_BUS;
         private clsBAOCAO_BUS baoCao_BUS;
         private clsHOCKY_BUS hocKy_BUS;
+        private clsKHOI_BUS khoi_BUS;
+
         private string tenND;
 
         public frmBaoCaoHocTap()
@@ -31,6 +33,7 @@ namespace QuanLiHocSinh
             hanhkiem_BUS = new clsHANHKIEM_BUS();
             hocKy_BUS = new clsHOCKY_BUS();
             baoCao_BUS = new clsBAOCAO_BUS();
+            khoi_BUS = new clsKHOI_BUS();
         }
 
         public frmBaoCaoHocTap(string TenND)
@@ -43,12 +46,15 @@ namespace QuanLiHocSinh
             hanhkiem_BUS = new clsHANHKIEM_BUS();
             hocKy_BUS = new clsHOCKY_BUS();
             baoCao_BUS = new clsBAOCAO_BUS();
+            khoi_BUS = new clsKHOI_BUS();
         }
 
         private void frmBaoCaoHocTap_Load(object sender, EventArgs e)
         {
             namHoc_BUS.hienThiComboBox(cboNamHocHSG);
             hocKy_BUS.hienThiComboBox(cboHocKyHSG);
+            namHoc_BUS.hienThiComboBox(cboNamHocLuuBan);
+            khoi_BUS.hienThiComboBox(cboKhoiLuuBan);
         }
 
         private void cboNamHocHSG_SelectedValueChanged(object sender, EventArgs e)
@@ -69,7 +75,7 @@ namespace QuanLiHocSinh
             else
             {
                 DataSet ds = baoCao_BUS.layThongTinKQTheoHocKy(cboNamHocHSG, cboHocKyHSG, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
-                frmHiemThiReport show = new frmHiemThiReport("HSG",ds);
+                frmHiemThiReport show = new frmHiemThiReport("HSG", ds, tenND);
                 show.Show();
                 //ReportDocument document = new ReportDocument();
                 //DataSet ds = baoCao_BUS.layThongTinKQTheoHocKy(cboNamHocHSG, cboHocKy, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
@@ -80,6 +86,16 @@ namespace QuanLiHocSinh
                 //rptView.ReportSource = document;
                 //rptView.RefreshReport();
  
+            }
+        }
+
+        private void btnInLuuBan_Click(object sender, EventArgs e)
+        {
+            if (cboNamHocLuuBan.SelectedValue!=null&&cboKhoiLuuBan.SelectedValue!=null)
+            {
+                DataSet ds = baoCao_BUS.layThongTinLuuBanTheoNamHoc(cboNamHocHSG,cboKhoiLuuBan);
+                frmHiemThiReport show = new frmHiemThiReport("LuuBan", ds, tenND);
+                show.Show();
             }
         }
     }
