@@ -16,7 +16,7 @@ namespace QLHS.BUS
         private clsBAOCAO_DAO baoCao_DAO;
         private clsHOCSINH_DAO hocSinh_DAO;
         private clsHOCSINH_DTO hocSinh_DTO;
-        private clsHANHKIEM_DTO hanhKiem_DTO;
+        private clsBAOCAO_DTO baoCao_DTO;
         private clsLOP_BUS lop_BUS;
 
         public clsBAOCAO_BUS()
@@ -24,7 +24,7 @@ namespace QLHS.BUS
             baoCao_DAO = new clsBAOCAO_DAO();
             hocSinh_DAO = new clsHOCSINH_DAO();
             hocSinh_DTO = new clsHOCSINH_DTO();
-            hanhKiem_DTO = new clsHANHKIEM_DTO();
+            baoCao_DTO = new clsBAOCAO_DTO();
             lop_BUS = new clsLOP_BUS();
         }
 
@@ -32,23 +32,38 @@ namespace QLHS.BUS
         {
             DataTable tableTemp = new DataTable();
             DataSet ds = new DataSet();
-            hanhKiem_DTO = new clsHANHKIEM_DTO();
-            hanhKiem_DTO.Manh = namHoc.SelectedValue.ToString();
-            hanhKiem_DTO.Mahk = hocKy.SelectedValue.ToString();
-            hanhKiem_DTO.Malop = maLop;
-            tableTemp = baoCao_DAO.HSGTheoHocKy(hanhKiem_DTO);
-            tableTemp=tinhTrungBinhHSG(tableTemp, lop_BUS.layPhanBan(hanhKiem_DTO.Malop));
-            //foreach (DataRow row in tableTemp.Rows)
-            //{
-                
-            //}
-            //if (tableTemp.Rows[0]["HocLuc"]=="Giỏi")
-            //{
-            //    ds.Tables.Add(tableTemp);
-            //}
+            baoCao_DTO = new clsBAOCAO_DTO();
+            baoCao_DTO.Manh = namHoc.SelectedValue.ToString();
+            baoCao_DTO.Mahk = hocKy.SelectedValue.ToString();
+            baoCao_DTO.Malop = maLop;
+            tableTemp = baoCao_DAO.HSGTheoHocKy(baoCao_DTO);
+            tableTemp=tinhTrungBinhHSG(tableTemp, lop_BUS.layPhanBan(baoCao_DTO.Malop));
             ds.Tables.Add(tableTemp);
             return ds;
         }
+
+        public DataSet layThongTinLuuBanTheoNamHoc(ComboBoxEx namHoc, ComboBoxEx khoi)
+        {
+            DataTable tableNH = new DataTable();
+            DataTable tableHK1 = new DataTable();
+            DataTable tableHK2 = new DataTable();
+            DataSet ds = new DataSet();
+            baoCao_DTO = new clsBAOCAO_DTO();
+            baoCao_DTO.Manh = namHoc.SelectedValue.ToString();
+            baoCao_DTO.Makhoi = khoi.SelectedValue.ToString();
+            baoCao_DTO.Mahk = "HK1";      
+            tableHK1 = baoCao_DAO.HSLuuBanTheoHK(baoCao_DTO);
+            baoCao_DTO.Mahk = "HK2";   
+            tableHK2 = baoCao_DAO.HSLuuBanTheoHK(baoCao_DTO);
+            tableHK1 = tinhTrungBinhLuuBanHK(tableHK1);
+            tableHK2 = tinhTrungBinhLuuBanHK(tableHK2);
+            tableNH = tinhTrungBinhLuuBanNH(tableHK1, tableHK2);
+            tableNH = tinhTrungBinhLuuBanHK(tableNH);
+            ds.Tables.Add(tableNH);
+            return ds;
+        }
+
+      
 
         private DataTable tinhTrungBinhHSG(DataTable trungBinhHk, string maBan)
         {
@@ -213,231 +228,234 @@ namespace QLHS.BUS
             return trungBinhHk;
         }
 
+        private DataTable tinhTrungBinhLuuBanHK(DataTable trungBinhHk)
+        {
+            //kiểm tra 2 môn toán văn trên 3.5 và không môn nào dưới 2
+            int flag = 0;
+            //đếm số cột điểm lớn hơn hoặc bằng 2
+            int count = 0;
+            if (trungBinhHk.Columns["HocLuc"] == null && trungBinhHk.Columns["TBMon"] == null)
+            {
+                trungBinhHk.Columns.Add("TBMon");
+                trungBinhHk.Columns.Add("HocLuc");
+            }
+            
+            foreach (DataRow row in trungBinhHk.Rows)
+            {
+                double tong = 0;
+                int soCot = 0;
+                switch (row["MABAN"].ToString())
+                {
+                    case "B02":
+                        {
+                            for (int i = 5; i <= 16; i++)
+                            {
+                                double diem = 0;
+                                if (row[i].ToString() != "")
+                                {
+                                    diem = double.Parse(row[i].ToString());
+                                }
 
-        //private DataTable tinhTrungBinhHSG(DataTable trungBinhHk,string maBan)
-        //{
-        //    //kiểm tra 2 môn toán văn trên 8.0 và không môn nào dưới 6.5
-        //    int flag = 0;
-        //    //đếm số cột điểm lớn hơn 6.5
-        //    int count=0;
-        //    trungBinhHk.Columns.Add("TBMon");
-        //    trungBinhHk.Columns.Add("HocLuc");
-        //    foreach (DataRow row in trungBinhHk.Rows)
-        //    {
-        //        double tong = 0;
-        //        int soCot = 0;
-        //        switch (maBan)
-        //        {
-        //            case "B02":
-        //                {
-        //                    for (int i = 3; i <= 14; i++)
-        //                    {
-        //                        double diem = 0;
-        //                        if (row[i]!=null)
-        //                        {
-        //                            diem = double.Parse(row[i].ToString());
-        //                        }
-                                
-        //                        if (diem > 0)
-        //                        {
-        //                            if (i >= 3 && i <= 6)
-        //                            {
-        //                                tong += (diem * 2);
-        //                                soCot += 2;
-        //                                //toán trên 8
-        //                                if (i==3)
-        //                                {
-        //                                    if (diem >= 8)
-        //                                    {
-        //                                        flag = 1;
-        //                                    }
-        //                                    else if (diem >= 6.5 && diem < 8)
-        //                                    {
-        //                                        flag = 1;
-        //                                    }
-        //                                    else if (diem >= 5 && diem < 6.5)
-        //                                    {
-        //                                        flag = 3;
-        //                                    }
-        //                                    else if (diem >= 3.5 && diem < 5)
-        //                                    {
-        //                                        flag = 4;
-        //                                    }
-        //                                    else flag = 5;
-        //                                }
-        //                            }
-        //                            else
-        //                            {
-        //                                tong += diem;
-        //                                soCot += 1;
-        //                            }
-        //                        }                              
-        //                    }
-                            
-        //                }
-        //                break;
-        //            case "B03":
-        //                {
-        //                    for (int i = 3; i <= 14; i++)
-        //                    {
-        //                        double diem = 0;
+                                if (diem > 0)
+                                {
+                                    if (i >= 5 && i <= 8)
+                                    {
+                                        tong += (diem * 2);
+                                        soCot += 2;
+                                        //toán trên 3.5
+                                        if (i == 5)
+                                        {
+                                            if (diem >=3.5&&diem<5)
+                                            {
+                                                //loại tủng bình
+                                                flag = 1;
+                                            }
+                                            else if (diem <3.5)
+                                            {
+                                                //loại yếu
+                                                flag = 2;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        tong += diem;
+                                        soCot += 1;
+                                    }
+                                }
+                            }
 
-        //                        if (row[i] != null)
-        //                        {
-        //                            diem = double.Parse(row[i].ToString());
-        //                        }
-        //                        if (diem > 0)
-        //                        {
-        //                            if (i >= 7 && i <= 10)
-        //                            {
-        //                                tong += (diem * 2);
-        //                                soCot += 2;
-        //                                //toán trên 8
-        //                                if (i == 7)
-        //                                {
-        //                                    if (diem >= 8)
-        //                                    {
-        //                                        flag = 1;
-        //                                    }
-        //                                    else if (diem >= 6.5 && diem < 8)
-        //                                    {
-        //                                        flag = 1;
-        //                                    }
-        //                                    else if (diem >= 5 && diem < 6.5)
-        //                                    {
-        //                                        flag = 3;
-        //                                    }
-        //                                    else if (diem >= 3.5 && diem < 5)
-        //                                    {
-        //                                        flag = 4;
-        //                                    }
-        //                                    else flag = 5;
-        //                                }
-        //                            }
-        //                            else
-        //                            {
-        //                                tong += diem;
-        //                                soCot += 1;
-        //                            }
+                        }
+                        break;
+                    case "B03":
+                        {
+                            for (int i = 5; i <= 16; i++)
+                            {
+                                double diem = 0;
 
-        //                        }
+                                if (row[i].ToString() != "")
+                                {
+                                    diem = double.Parse(row[i].ToString());
+                                }
+                                if (diem > 0)
+                                {
+                                    if (i >= 9 && i <= 12)
+                                    {
+                                        tong += (diem * 2);
+                                        soCot += 2;
+                                        //văn trên 3.5
+                                        if (i == 9)
+                                        {
+                                            if (diem >= 3.5 && diem < 5)
+                                            {
+                                                //loại tủng bình
+                                                flag = 1;
+                                            }
+                                            else if (diem < 3.5)
+                                            {
+                                                //loại yếu
+                                                flag = 2;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        tong += diem;
+                                        soCot += 1;
+                                    }
+                                }
+                            }
 
-        //                    }
+                        }
+                        break;
+                    case "B01":
+                        {
+                            double max = 0;
+                            for (int i = 5; i <= 16; i++)
+                            {
+                                double diem = 0;
 
-        //                }
-        //                break;
-        //            case "B01":
-        //                {
-        //                    double max=0;
-        //                    for (int i = 3; i <= 14; i++)
-        //                    {
-        //                        double diem = 0;
+                                if (row[i].ToString() != "")
+                                {
+                                    diem = double.Parse(row[i].ToString());
+                                }
+                                if (diem > 0)
+                                {
+                                    if (i == 5 || i == 9)
+                                    {
+                                        tong += (diem * 2);
+                                        soCot += 2;
+                                        if (i == 5)
+                                        {
+                                            max = diem;
+                                        }
+                                        if (i == 9)
+                                        {
+                                            if (diem > max)
+                                            {
+                                                max = diem;
+                                            }
+                                            if (max >= 3.5 && max < 5)
+                                            {
+                                                //loại tủng bình
+                                                flag = 1;
+                                            }
+                                            else if (max < 3.5)
+                                            {
+                                                //loại yếu
+                                                flag = 2;
+                                            }
+                                        }
+                                    }
 
-        //                        if (row[i] != null)
-        //                        {
-        //                            diem = double.Parse(row[i].ToString());
-        //                        }
-        //                        if (diem > 0)
-        //                        {
-        //                            if (i == 7 || i == 3)
-        //                            {
-        //                                tong += (diem * 2);
-        //                                soCot += 2;
-        //                                if (i==3)
-        //                                {
-        //                                    max = diem;
-        //                                }
-        //                                if (i==7)
-        //                                {
-        //                                    if (diem>max)
-        //                                    {
-        //                                        max = diem;
-        //                                    }
-        //                                    if (max >= 8)
-        //                                    {
-        //                                        flag = 1;
-        //                                    }
-        //                                    else if (max >= 6.5 && max < 8)
-        //                                    {
-        //                                        flag = 1;
-        //                                    }
-        //                                    else if (max >= 5 && max < 6.5)
-        //                                    {
-        //                                        flag = 3;
-        //                                    }
-        //                                    else if (max >= 3.5 && max < 5)
-        //                                    {
-        //                                        flag = 4;
-        //                                    }
-        //                                    else flag = 5;
-        //                                }
-        //                            }
+                                    else
+                                    {
+                                        tong += diem;
+                                        soCot += 1;
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                double diemTB = Math.Round((tong / soCot), 1);
+                row["TBMon"] = diemTB;
+                for (int j= 5; j <= 16; j++)
+                {
+                    double diem = 0;
+                    if (row[j].ToString() != "")
+                    {
+                        diem = double.Parse(row[j].ToString());
+                    }
+                    if (diem >=2)
+                    {
+                        ++count;
+                    }
 
+                }
 
-        //                            else
-        //                            {
-        //                                tong += diem;
-        //                                soCot += 1;
-        //                            }
+                if (flag == 1 && diemTB >= 3.5 && count == 12)
+                {
+                    row["HocLuc"] = "Yếu";
+                }
+                else if (flag == 2)
+                {
+                    row["HocLuc"] = "Kém";
+                }
+                else
+                {
+                    row["HocLuc"] = "KhongBiet";
+                }
+            }
+            return trungBinhHk;
+        }
 
-        //                        }
-        //                    }
-        //                }
-        //                break;
-        //            default:
-        //                break;
-        //        }
-        //        double diemTB= Math.Round((tong / soCot), 1);
-        //        row["TBMon"] = diemTB;
-        //        for (int j = 3; j <= 14; j++)
-        //        {
-        //            double diem = 0;
-        //            if (row[j] != null)
-        //            {
-        //                diem = double.Parse(row[j].ToString());
-        //            }
-        //            if (flag == 1 && diem >= 6.5)
-        //            {
-        //                ++count;
-        //            }
-        //            else if (flag == 2 && diem >= 5)
-        //            {
-        //                ++count;
-        //            }
-        //            else if (flag == 3 && diem >= 3.5)
-        //            {
-        //                ++count;
-        //            }
-        //            else if (flag == 4 && diem >= 2)
-        //            {
-        //                ++count;
-        //            }
+        private DataTable tinhTrungBinhLuuBanNH(DataTable HK1, DataTable HK2)
+        {
+            DataTable result = new DataTable();
+            result = HK1.Clone();
+            if (HK1.Rows.Count>0&&HK2.Rows.Count>0)
+            {
+                foreach (DataRow row in HK1.Rows)
+                {
+                    foreach (DataRow row1 in HK2.Rows)
+                    {
+                        if (row1["MAHS"].ToString() == row["MAHS"].ToString())
+                        {
+                            DataRow dong = result.NewRow();
+                            dong["TENNH"] = row1["TENNH"];
+                            dong["TENHS"] = row1["TENHS"];
+                            dong["TENLOP"] = row1["TENLOP"];
+                            dong["TENLHK"] = row1["TENLHK"];
+                            dong["MABAN"] = row1["MABAN"];
+                            dong["MAHS"] = row1["MAHS"];
+                            for (int j = 5; j < 18; j++)
+                            {
+                                dong[j] = tinhDiem(row[j].ToString(), row1[j].ToString());
+                            }
+                            result.Rows.Add(dong);
+                            break;
+                        }
+                        
+                    }
+                }
+            
+            }
+            return result;
+        }
 
-        //        }
-
-        //        if (flag == 1 && diemTB>=8&&count==12&&(row["TENLHK"]=="Tốt"))
-        //        {
-        //            row["HocLuc"] = "Giỏi";
-        //        }
-        //        else if (flag == 2 && diemTB>=6.5&&count==12&&(row["TENLHK"]=="Khá"||row["TENLHK"]=="Tốt"))
-        //        {
-        //            row["HocLuc"] = "Khá";
-        //        }
-        //        else if (flag == 3 && diemTB >= 5 && count == 12 && (row["TENLHK"] == "Yếu" ))
-        //        {
-        //            row["HocLuc"] = "Trung Bình";
-        //        }
-        //        else if (flag == 4 && diemTB >= 3.5 && count == 12)
-        //        {
-        //            row["HocLuc"] = "Yếu";
-        //        }
-        //        else
-        //        {
-        //            row["HocLuc"] = "Kém";
-        //        }
-        //    }
-        //    return trungBinhHk;
-        //}
+        private double tinhDiem(string cot1, string cot2)
+        {
+            double result=0;
+            if (cot1 != ""&&cot2!="")
+            {
+                result = Math.Round(((double.Parse(cot1) + double.Parse(cot2)*2)/3),1);
+            }
+            return result;
+        }
+    
     }
 }
 

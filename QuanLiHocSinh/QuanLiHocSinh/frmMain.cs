@@ -733,9 +733,9 @@ namespace QuanLiHocSinh
 
         private void btnBaoCaoHocTap_Click(object sender, EventArgs e)
         {
-            if (m_FrmBaoCaoHocTap == null || m_FrmChuyenLop.IsDisposed)
+            if (m_FrmBaoCaoHocTap == null || m_FrmBaoCaoHocTap.IsDisposed)
             {
-                m_FrmBaoCaoHocTap = new frmBaoCaoHocTap();
+                m_FrmBaoCaoHocTap = new frmBaoCaoHocTap(nguoiDung_DTO.Tennd);
                 m_FrmBaoCaoHocTap.FormBorderStyle = FormBorderStyle.None;
                 m_FrmBaoCaoHocTap.MdiParent = frmMain.ActiveForm;
                 m_FrmBaoCaoHocTap.Show();
