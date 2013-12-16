@@ -17,7 +17,9 @@ namespace QLHS.BUS
         private clsHOCSINH_DAO hocSinh_DAO;
         private clsHOCSINH_DTO hocSinh_DTO;
         private clsBAOCAO_DTO baoCao_DTO;
+        private clsDIEM_DTO diem_DTO;
         private clsLOP_BUS lop_BUS;
+        private clsDIEM_DAO diem_DAO;
 
         public clsBAOCAO_BUS()
         {
@@ -26,6 +28,7 @@ namespace QLHS.BUS
             hocSinh_DTO = new clsHOCSINH_DTO();
             baoCao_DTO = new clsBAOCAO_DTO();
             lop_BUS = new clsLOP_BUS();
+            diem_DAO = new clsDIEM_DAO();
         }
 
         public DataSet layThongTinKQTheoHocKy(ComboBoxEx namHoc, ComboBoxEx hocKy, string maLop)
@@ -454,6 +457,79 @@ namespace QLHS.BUS
                 result = Math.Round(((double.Parse(cot1) + double.Parse(cot2)*2)/3),1);
             }
             return result;
+        }
+
+        public DataSet baoCaoDiemTheoMonHoc(ComboBoxEx cboMaNH, ComboBoxEx cboMaHK, ComboBoxEx cboMaMH, string maLop)
+        {
+          
+            baoCao_DTO = new clsBAOCAO_DTO();
+            diem_DTO = new clsDIEM_DTO();
+            hocSinh_DTO = new clsHOCSINH_DTO();
+            baoCao_DTO.Mahk = cboMaHK.SelectedValue.ToString();
+            baoCao_DTO.Manh = cboMaNH.SelectedValue.ToString();
+            baoCao_DTO.Mamh = cboMaMH.SelectedValue.ToString();
+            baoCao_DTO.Malop = maLop;
+
+            diem_DTO.Mahk = cboMaHK.SelectedValue.ToString();
+            diem_DTO.Manh = cboMaNH.SelectedValue.ToString();
+            diem_DTO.Mamh = cboMaMH.SelectedValue.ToString();
+            DataSet ds = new DataSet();
+            DataTable result = baoCao_DAO.DiemTheoMonHoc(baoCao_DTO);
+            DataTable tblDiem = new DataTable();
+            foreach (DataRow row in result.Rows)
+            {
+                if (row["MAHS"] != null)
+                {
+                    int i = 1;
+                    diem_DTO.Mald = "LD01";
+                    diem_DTO.Mahs = row["MAHS"].ToString();
+                    tblDiem = diem_DAO.thongTinDiemTheoMaLD(diem_DTO);
+                    foreach (DataRow item in tblDiem.Rows)
+                    {
+                        row["LD01" + i.ToString()] = item[0].ToString();
+                        ++i;
+                    }
+
+                    i = 1;
+                    diem_DTO.Mald = "LD02";
+                    diem_DTO.Mahs = row["MAHS"].ToString();
+                    tblDiem = diem_DAO.thongTinDiemTheoMaLD(diem_DTO);
+                    foreach (DataRow item in tblDiem.Rows)
+                    {
+                        row["LD02" + i.ToString()] = item[0].ToString();
+                        ++i;
+                    }
+
+                    i = 1;
+                    diem_DTO.Mald = "LD03";
+                    diem_DTO.Mahs = row["MAHS"].ToString();
+                    tblDiem = diem_DAO.thongTinDiemTheoMaLD(diem_DTO);
+                    foreach (DataRow item in tblDiem.Rows)
+                    {
+                        row["LD03" + i.ToString()] = item[0].ToString();
+                        ++i;
+                    }
+
+                    diem_DTO.Mald = "LD04";
+                    diem_DTO.Mahs = row["MAHS"].ToString();
+                    tblDiem = diem_DAO.thongTinDiemTheoMaLD(diem_DTO);
+                    foreach (DataRow item in tblDiem.Rows)
+                    {
+                        row["LD041"] = item[0].ToString();
+                    }
+
+                    diem_DTO.Mald = "LD05";
+                    diem_DTO.Mahs = row["MAHS"].ToString();
+                    tblDiem = diem_DAO.thongTinDiemTheoMaLD(diem_DTO);
+                    foreach (DataRow item in tblDiem.Rows)
+                    {
+                        row["LD051"] = item[0].ToString();
+                    }
+
+                }
+            }
+            ds.Tables.Add(result);
+            return ds;
         }
     
     }

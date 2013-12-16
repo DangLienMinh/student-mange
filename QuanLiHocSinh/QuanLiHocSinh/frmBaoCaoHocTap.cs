@@ -21,6 +21,7 @@ namespace QuanLiHocSinh
         private clsBAOCAO_BUS baoCao_BUS;
         private clsHOCKY_BUS hocKy_BUS;
         private clsKHOI_BUS khoi_BUS;
+        private clsMONHOC_BUS monHoc_BUS;
 
         private string tenND;
 
@@ -34,6 +35,7 @@ namespace QuanLiHocSinh
             hocKy_BUS = new clsHOCKY_BUS();
             baoCao_BUS = new clsBAOCAO_BUS();
             khoi_BUS = new clsKHOI_BUS();
+            monHoc_BUS = new clsMONHOC_BUS();
         }
 
         public frmBaoCaoHocTap(string TenND)
@@ -47,6 +49,7 @@ namespace QuanLiHocSinh
             hocKy_BUS = new clsHOCKY_BUS();
             baoCao_BUS = new clsBAOCAO_BUS();
             khoi_BUS = new clsKHOI_BUS();
+            monHoc_BUS = new clsMONHOC_BUS();
         }
 
         private void frmBaoCaoHocTap_Load(object sender, EventArgs e)
@@ -55,6 +58,11 @@ namespace QuanLiHocSinh
             hocKy_BUS.hienThiComboBox(cboHocKyHSG);
             namHoc_BUS.hienThiComboBox(cboNamHocLuuBan);
             khoi_BUS.hienThiComboBox(cboKhoiLuuBan);
+
+            monHoc_BUS.hienThiComboBox(cboMonHocMH);
+            namHoc_BUS.hienThiComboBox(cboNamHocMH);
+            hocKy_BUS.hienThiComboBox(cboHocKyMH);
+            
         }
 
         private void cboNamHocHSG_SelectedValueChanged(object sender, EventArgs e)
@@ -96,6 +104,29 @@ namespace QuanLiHocSinh
                 DataSet ds = baoCao_BUS.layThongTinLuuBanTheoNamHoc(cboNamHocHSG,cboKhoiLuuBan);
                 frmHiemThiReport show = new frmHiemThiReport("LuuBan", ds, tenND);
                 show.Show();
+            }
+        }
+
+        private void btnInMH_Click(object sender, EventArgs e)
+        {
+            if (treLopMH.SelectedNode == null || treLopMH.SelectedNode.Parent == null)
+            {
+                MessageBox.Show("Phải chọn một lớp");
+            }
+            else
+            {
+                DataSet ds = baoCao_BUS.baoCaoDiemTheoMonHoc(cboNamHocMH, cboHocKyMH,cboMonHocMH, lop_BUS.layMaLopTrenTree(cboNamHocMH, treLopMH));
+                frmHiemThiReport show = new frmHiemThiReport("DiemTheoMonHoc", ds, tenND);
+                show.Show();
+            }
+        }
+
+        private void cboNamHocMH_SelectedValueChanged(object sender, EventArgs e)
+        {
+            treLopMH.Nodes.Clear();
+            if (cboNamHocMH.SelectedValue != null)
+            {
+                lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHocMH.SelectedValue.ToString(), treLopMH);
             }
         }
     }
