@@ -170,6 +170,7 @@ namespace QLHS.BUS
             }
         }
 
+
         public void xoaDiemTheoMaLD(ComboBoxEx cboMaNH, ComboBoxEx cboMaHK, ComboBoxEx cboMaMH, DataGridViewX grdDiem)
         {
             tblDiem = new DataTable();

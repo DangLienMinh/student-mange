@@ -131,6 +131,16 @@ namespace QuanLiHocSinh
                             text.Text = tenND;
                         }
                         break;
+                    case "DiemTheoMonHoc":
+                        {
+                            ds.WriteXmlSchema(Application.StartupPath + @"\DiemTheoMonHoc.xsd");
+
+                            document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DiemTheoMonHoc.rpt");
+                            document.SetDataSource(ds.Tables[0]);
+                            //TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap"];
+                            //text.Text = tenND;
+                        }
+                        break;
                     //case "frmDSHocSinh":
                     //    {
                     //        DataSet ds= hocSinh_BUS.danhSachHocSinh_NH_LOP(maNH,maLop);
