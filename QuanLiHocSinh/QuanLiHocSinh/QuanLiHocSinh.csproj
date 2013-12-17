@@ -215,6 +215,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DiemTheoMonHoc.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="report\DSGiaoVien.cs">
       <AutoGen>True</AutoGen>

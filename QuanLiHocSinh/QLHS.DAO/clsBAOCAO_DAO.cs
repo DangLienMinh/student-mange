@@ -52,7 +52,7 @@ namespace QLHS.DAO
          {
              connection.kiemTraKetNoi(con);
              DataTable table = new DataTable();
-             SqlCommand command = new SqlCommand("SP_TEST", con);
+             SqlCommand command = new SqlCommand("SP_DIEMTHEOMONHOC", con);
              command.Parameters.Add("@MANH", SqlDbType.VarChar, 6).Value = baoCao_DTO.Manh;
              command.Parameters.Add("@MAHK", SqlDbType.VarChar, 10).Value = baoCao_DTO.Mahk;
              command.Parameters.Add("@MALOP", SqlDbType.VarChar, 15).Value = baoCao_DTO.Malop;
