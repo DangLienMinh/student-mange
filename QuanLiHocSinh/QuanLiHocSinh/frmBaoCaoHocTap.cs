@@ -129,5 +129,19 @@ namespace QuanLiHocSinh
                 lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHocMH.SelectedValue.ToString(), treLopMH);
             }
         }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            //if (treLopMH.SelectedNode == null || treLopMH.SelectedNode.Parent == null)
+            //{
+            //    MessageBox.Show("Phải chọn một lớp");
+            //}
+            //else
+            //{
+                //DataSet ds = baoCao_BUS.baoCaoDiemTheoMonHoc(cboNamHocMH, cboHocKyMH, cboMonHocMH, lop_BUS.layMaLopTrenTree(cboNamHocMH, treLopMH));
+                frmHiemThiReport show = new frmHiemThiReport();
+                show.Show();
+            //}
+        }
     }
 }

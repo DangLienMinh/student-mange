@@ -150,6 +150,14 @@ namespace QuanLiHocSinh
                     //    }
                     //    break;
                     default:
+                        {
+                            //ds.WriteXmlSchema(Application.StartupPath + @"\DiemTheoMonHoc.xsd");
+
+                            document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\rptHocBa.rpt");
+                            //document.SetDataSource(ds.Tables[0]);
+                            //TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap"];
+                            //text.Text = tenND;
+                        }
                         break;
                 }
                 rptView.ReportSource = document;

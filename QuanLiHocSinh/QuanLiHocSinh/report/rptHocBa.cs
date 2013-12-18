@@ -16,14 +16,14 @@ namespace QuanLiHocSinh.report {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class theHocSinh : ReportClass {
+    public class rptHocBa : ReportClass {
         
-        public theHocSinh() {
+        public rptHocBa() {
         }
         
         public override string ResourceName {
             get {
-                return "theHocSinh.rpt";
+                return "rptHocBa.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace QuanLiHocSinh.report {
         
         public override string FullResourceName {
             get {
-                return "QuanLiHocSinh.report.theHocSinh.rpt";
+                return "QuanLiHocSinh.report.rptHocBa.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace QuanLiHocSinh.report {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedtheHocSinh : Component, ICachedReport {
+    public class CachedrptHocBa : Component, ICachedReport {
         
-        public CachedtheHocSinh() {
+        public CachedrptHocBa() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace QuanLiHocSinh.report {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            theHocSinh rpt = new theHocSinh();
+            rptHocBa rpt = new rptHocBa();
             rpt.Site = this.Site;
             return rpt;
         }
