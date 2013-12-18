@@ -217,6 +217,12 @@
       <DependentUpon>BangDiemHocSinh.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="report\DiemTheoMonHoc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiemTheoMonHoc.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="report\DSGiaoVien.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -246,6 +252,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LuuBan.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="report\rptHocBa1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptHocBa.rpt</DependentUpon>
     </Compile>
     <Compile Include="report\theHocSinh.cs">
       <AutoGen>True</AutoGen>
@@ -351,6 +362,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BangDiemHocSinh.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="report\DiemTheoMonHoc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DiemTheoMonHoc.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="report\DSGiaoVien.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>DSGiaoVien.cs</LastGenOutput>
@@ -370,6 +385,10 @@
     <EmbeddedResource Include="report\LuuBan.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>LuuBan.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report\rptHocBa.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptHocBa1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="report\theHocSinh.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
