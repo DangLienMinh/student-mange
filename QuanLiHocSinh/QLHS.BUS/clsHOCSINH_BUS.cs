@@ -170,7 +170,13 @@ namespace QLHS.BUS
             }
             return ds;
         }
+        public void HienThicbodsHocSinh(ComboBoxEx cboHocSinh,string manh,string malop)
+        {
+            cboHocSinh.DataSource = hocSinh_DAO.danhSachHocSinh_NH_LOP(manh,malop).Tables["DanhSachHocSinh"];
+            cboHocSinh.DisplayMember = "TENHS";
+            cboHocSinh.ValueMember = "MAHS";
 
+        }
         //public void taiLaiDataGrid(DataGridViewX grdHocSinh, DataTable dsHocSinh)
         //{
         //    grdHocSinh.DataSource = dsHocSinh;

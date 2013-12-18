@@ -47,6 +47,20 @@ namespace QLHS.DAO
              con.Close();
              return table;
          }
+         public DataSet BangDiemHocSinh(string manh, string malop, string mahs)
+         {
+             connection.kiemTraKetNoi(con);
+             DataSet bangdiem = new DataSet();
+             SqlCommand command = new SqlCommand("SP_BANGDIEMHOCSINH", con);
+             command.Parameters.Add("@MANH", SqlDbType.VarChar, 6).Value = manh;
+             command.Parameters.Add("@MALOP", SqlDbType.VarChar, 10).Value = malop;
+             command.Parameters.Add("@MAHS", SqlDbType.VarChar, 15).Value = mahs;
+             command.CommandType = CommandType.StoredProcedure;
+             SqlDataAdapter adapter = new SqlDataAdapter(command);
+             adapter.Fill(bangdiem,"BangDiemHocSinh");
+             con.Close();
+             return bangdiem;
+         }
 
          public DataTable DiemTheoMonHoc(clsBAOCAO_DTO baoCao_DTO)
          {

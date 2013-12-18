@@ -30,7 +30,107 @@ namespace QLHS.BUS
             lop_BUS = new clsLOP_BUS();
             diem_DAO = new clsDIEM_DAO();
         }
+        public DataSet bangDiemHocSinh(string manh, string malop, string mahs)
+        {
+            decimal TongdiemHK1 = 0;
+            decimal TongdiemHK2 = 0;
+            decimal TongdiemCN = 0;
+            decimal DiemTBHK1 = 0;
+            decimal DiemTBHK2 = 0;
+            decimal DiemTBCN = 0;
+            DataSet ds = baoCao_DAO.BangDiemHocSinh(manh, malop, mahs);
+            if (ds.Tables["BangDiemHocSinh"].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables["BangDiemHocSinh"].Rows.Count; i++)
+                {
+                    if (ds.Tables["BangDiemHocSinh"].Rows[i]["MAHS"] != null)
+                    {
+                        if (ds.Tables["BangDiemHocSinh"].Rows[i]["MABAN"].ToString() == "B01")
+                        {
+                            if (ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Toán" || ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Văn")
+                            {
+                                TongdiemHK1 = TongdiemHK1 + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 1"].ToString()));
+                                TongdiemHK2 = TongdiemHK2 + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 2"].ToString()));
+                                TongdiemCN = TongdiemCN + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["CANAM"].ToString()));
+                            }
+                            else
+                            {
+                                TongdiemHK1 = decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 1"].ToString());
+                                TongdiemHK2 = decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 2"].ToString());
+                                TongdiemCN = decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["CANAM"].ToString());
+                            }
+                        }
+                        else
+                        {
+                            if (ds.Tables["BangDiemHocSinh"].Rows[i]["MABAN"].ToString() == "B02")
+                            {
+                                if (ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Toán" || ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Lý" || ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Hóa" || ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Sinh")
+                                {
+                                    TongdiemHK1 = TongdiemHK1 + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 1"].ToString()));
+                                    TongdiemHK2 = TongdiemHK2 + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 2"].ToString()));
+                                    TongdiemCN = TongdiemCN + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["CANAM"].ToString()));
+                                }
+                                else
+                                {
+                                    TongdiemHK1 = TongdiemHK1 + (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 1"].ToString()));
+                                    TongdiemHK2 = TongdiemHK2 + (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 2"].ToString()));
+                                    TongdiemCN = TongdiemCN + (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["CANAM"].ToString()));
+                                }
+                            }
+                            else
+                            {
+                                if (ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Văn" || ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Sử" || ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Địa" || ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Anh")
+                                {
+                                    TongdiemHK1 = TongdiemHK1 + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 1"].ToString()));
+                                    TongdiemHK2 = TongdiemHK2 + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 2"].ToString()));
+                                    TongdiemCN = TongdiemCN + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["CANAM"].ToString()));
+                                }
+                                else
+                                {
+                                    TongdiemHK1 = TongdiemHK1 + (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 1"].ToString()));
+                                    TongdiemHK2 = TongdiemHK2 + (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 2"].ToString()));
+                                    TongdiemCN = TongdiemCN + (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["CANAM"].ToString()));
+                                }
+                            }
+                        }
+                    }
+                    if (ds.Tables["BangDiemHocSinh"].Rows[i]["GIOITINHHS"].ToString() == "1")
+                    {
+                        ds.Tables["BangDiemHocSinh"].Rows[i]["GIOITINHHS"] = "Nam";
+                    }
+                    else
+                    {
+                        ds.Tables["BangDiemHocSinh"].Rows[i]["GIOITINHHS"] = "Nữ";
+                    }
 
+                }
+                if (ds.Tables["BangDiemHocSinh"].Rows[0]["MABAN"].ToString() == "B01")
+                {
+                    DiemTBHK1 = Math.Round((TongdiemHK1 / 15), 1);
+                    DiemTBHK2 = Math.Round((TongdiemHK2 / 15), 1);
+                    DiemTBCN = Math.Round((TongdiemCN / 15), 1);
+                }
+                else
+                {
+                    DiemTBHK1 = Math.Round((TongdiemHK1 / 17), 1);
+                    DiemTBHK2 = Math.Round((TongdiemHK2 / 17), 1);
+                    DiemTBCN = Math.Round((TongdiemCN / 17), 1);
+                }
+                DataColumn DIEMTBHK1 = new DataColumn("DIEMTBHK1",typeof(decimal));
+                DataColumn DIEMTBHK2 = new DataColumn("DIEMTBHK2", typeof(decimal));
+                DataColumn DIEMTBNAM = new DataColumn("DIEMTBNAM", typeof(decimal));
+                ds.Tables["BangDiemHocSinh"].Columns.Add(DIEMTBHK1);
+                ds.Tables["BangDiemHocSinh"].Columns.Add(DIEMTBHK2);
+                ds.Tables["BangDiemHocSinh"].Columns.Add(DIEMTBNAM);
+                foreach (DataRow row in ds.Tables["BangDiemHocSinh"].Rows)
+                {
+                    row["DIEMTBHK1"]=DiemTBHK1;
+                    row["DIEMTBHK2"]=DiemTBHK2;
+                    row["DIEMTBNAM"]=DiemTBCN;
+                }
+            }
+            return ds;
+        }
         public DataSet layThongTinKQTheoHocKy(ComboBoxEx namHoc, ComboBoxEx hocKy, string maLop)
         {
             DataTable tableTemp = new DataTable();
