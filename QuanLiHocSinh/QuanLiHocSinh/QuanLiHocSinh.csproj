@@ -247,6 +247,12 @@
       <DependentUpon>LuuBan.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="report\rptHocBa.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptHocBa.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="report\theHocSinh.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -364,6 +370,10 @@
     <EmbeddedResource Include="report\LuuBan.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>LuuBan.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report\rptHocBa.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptHocBa.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="report\theHocSinh.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
