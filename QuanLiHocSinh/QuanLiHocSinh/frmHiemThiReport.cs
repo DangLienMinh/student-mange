@@ -58,6 +58,12 @@ namespace QuanLiHocSinh
             this.tenND = tenND;
         }
 
+        public frmHiemThiReport(string rptName, DataSet ds)
+        {
+            InitializeComponent();
+            this.rptName = rptName;
+            this.ds = ds;
+        }
         //public frmHiemThiReport(string manh, string malop, string rptName, string tenND)
         //{
         //    InitializeComponent();
@@ -139,6 +145,13 @@ namespace QuanLiHocSinh
                             document.SetDataSource(ds.Tables[0]);
                             //TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap"];
                             //text.Text = tenND;
+                        }
+                        break;
+                    case "frmBangDiem":
+                        {
+                            ds.WriteXmlSchema(Application.StartupPath + @"\BangDiemHocSinh.xsd");
+                            document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\BangDiemHocSinh.rpt");
+                            document.SetDataSource(ds.Tables["BangDiemHocSinh"]);
                         }
                         break;
                     //case "frmDSHocSinh":

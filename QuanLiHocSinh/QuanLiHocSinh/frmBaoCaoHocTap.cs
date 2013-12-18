@@ -22,7 +22,6 @@ namespace QuanLiHocSinh
         private clsHOCKY_BUS hocKy_BUS;
         private clsKHOI_BUS khoi_BUS;
         private clsMONHOC_BUS monHoc_BUS;
-
         private string tenND;
 
         public frmBaoCaoHocTap()
@@ -55,6 +54,7 @@ namespace QuanLiHocSinh
         private void frmBaoCaoHocTap_Load(object sender, EventArgs e)
         {
             namHoc_BUS.hienThiComboBox(cboNamHocHSG);
+            namHoc_BUS.hienThiComboBox(cboNamhocBangDiem);
             hocKy_BUS.hienThiComboBox(cboHocKyHSG);
             namHoc_BUS.hienThiComboBox(cboNamHocLuuBan);
             khoi_BUS.hienThiComboBox(cboKhoiLuuBan);
@@ -142,6 +142,36 @@ namespace QuanLiHocSinh
                 frmHiemThiReport show = new frmHiemThiReport();
                 show.Show();
             //}
+        }
+
+        private void cboNamhocBangDiem_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cboNamhocBangDiem.SelectedValue != null)
+            {
+                treLopBangDiem.Nodes.Clear();
+                hanhkiem_BUS.hienThiLopHoc(treLopBangDiem, cboNamhocBangDiem);
+            }
+        }
+
+        private void treLopBangDiem_NodeClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
+        {
+            if (treLopBangDiem.SelectedNode.Name.Substring(0, 1) == "L" && cboNamhocBangDiem.SelectedValue != null)
+            {
+                hocSinh_BUS.HienThicbodsHocSinh(cboHocsinhBangDiem, cboNamhocBangDiem.SelectedValue.ToString(), treLopBangDiem.SelectedNode.Name.ToString());
+            }
+        }
+
+        private void btnInbangdiem_Click(object sender, EventArgs e)
+        {
+            if (cboHocsinhBangDiem.SelectedValue != null)
+            {
+                frmHiemThiReport frmBangDiem = new frmHiemThiReport("frmBangDiem", baoCao_BUS.bangDiemHocSinh(cboNamhocBangDiem.SelectedValue.ToString(), treLopBangDiem.SelectedNode.Name.ToString(), cboHocsinhBangDiem.SelectedValue.ToString()));
+                frmBangDiem.Show();
+            }
+            else
+            {
+                MessageBox.Show("Phải chọn Học sinh cần in bảng điểm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
