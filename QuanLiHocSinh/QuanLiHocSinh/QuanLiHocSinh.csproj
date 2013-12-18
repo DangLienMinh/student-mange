@@ -257,6 +257,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptHocBa.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="report\theHocSinh.cs">
       <AutoGen>True</AutoGen>

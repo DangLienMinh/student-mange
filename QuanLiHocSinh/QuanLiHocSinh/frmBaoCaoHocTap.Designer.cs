@@ -93,6 +93,17 @@
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.comboBoxEx5 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX18 = new DevComponents.DotNetBar.LabelX();
+            this.grpbangdiemhocsinh = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.cboNamhocBangDiem = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cboHocsinhBangDiem = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.treLopBangDiem = new DevComponents.AdvTree.AdvTree();
+            this.node1 = new DevComponents.AdvTree.Node();
+            this.nodeConnector4 = new DevComponents.AdvTree.NodeConnector();
+            this.elementStyle4 = new DevComponents.DotNetBar.ElementStyle();
+            this.labelX19 = new DevComponents.DotNetBar.LabelX();
+            this.labelX20 = new DevComponents.DotNetBar.LabelX();
+            this.labelX21 = new DevComponents.DotNetBar.LabelX();
+            this.btnInbangdiem = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel1.SuspendLayout();
             this.groupPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.advTree1)).BeginInit();
@@ -108,6 +119,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.advTree4)).BeginInit();
             this.groupPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.advTree3)).BeginInit();
+            this.grpbangdiemhocsinh.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.treLopBangDiem)).BeginInit();
             this.SuspendLayout();
             // 
             // groupPanel1
@@ -919,6 +932,7 @@
             // 
             this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel3.Controls.Add(this.grpbangdiemhocsinh);
             this.groupPanel3.Controls.Add(this.groupPanel13);
             this.groupPanel3.Controls.Add(this.groupPanel5);
             this.groupPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -967,7 +981,7 @@
             this.groupPanel13.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupPanel13.Location = new System.Drawing.Point(0, 194);
             this.groupPanel13.Name = "groupPanel13";
-            this.groupPanel13.Size = new System.Drawing.Size(430, 212);
+            this.groupPanel13.Size = new System.Drawing.Size(430, 181);
             // 
             // 
             // 
@@ -1015,7 +1029,7 @@
             this.advTree4.NodesConnector = this.nodeConnector6;
             this.advTree4.NodeStyle = this.elementStyle6;
             this.advTree4.PathSeparator = ";";
-            this.advTree4.Size = new System.Drawing.Size(154, 117);
+            this.advTree4.Size = new System.Drawing.Size(154, 100);
             this.advTree4.Styles.Add(this.elementStyle6);
             this.advTree4.TabIndex = 47;
             this.advTree4.Text = "advTree2";
@@ -1206,6 +1220,162 @@
             this.labelX18.TabIndex = 44;
             this.labelX18.Text = "Chọn năm học:";
             // 
+            // grpbangdiemhocsinh
+            // 
+            this.grpbangdiemhocsinh.CanvasColor = System.Drawing.SystemColors.Control;
+            this.grpbangdiemhocsinh.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.grpbangdiemhocsinh.Controls.Add(this.btnInbangdiem);
+            this.grpbangdiemhocsinh.Controls.Add(this.labelX21);
+            this.grpbangdiemhocsinh.Controls.Add(this.labelX20);
+            this.grpbangdiemhocsinh.Controls.Add(this.labelX19);
+            this.grpbangdiemhocsinh.Controls.Add(this.treLopBangDiem);
+            this.grpbangdiemhocsinh.Controls.Add(this.cboHocsinhBangDiem);
+            this.grpbangdiemhocsinh.Controls.Add(this.cboNamhocBangDiem);
+            this.grpbangdiemhocsinh.Location = new System.Drawing.Point(3, 381);
+            this.grpbangdiemhocsinh.Name = "grpbangdiemhocsinh";
+            this.grpbangdiemhocsinh.Size = new System.Drawing.Size(427, 147);
+            // 
+            // 
+            // 
+            this.grpbangdiemhocsinh.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.grpbangdiemhocsinh.Style.BackColorGradientAngle = 90;
+            this.grpbangdiemhocsinh.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.grpbangdiemhocsinh.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.grpbangdiemhocsinh.Style.BorderBottomWidth = 1;
+            this.grpbangdiemhocsinh.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.grpbangdiemhocsinh.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.grpbangdiemhocsinh.Style.BorderLeftWidth = 1;
+            this.grpbangdiemhocsinh.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.grpbangdiemhocsinh.Style.BorderRightWidth = 1;
+            this.grpbangdiemhocsinh.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.grpbangdiemhocsinh.Style.BorderTopWidth = 1;
+            this.grpbangdiemhocsinh.Style.CornerDiameter = 4;
+            this.grpbangdiemhocsinh.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.grpbangdiemhocsinh.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.grpbangdiemhocsinh.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.grpbangdiemhocsinh.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.grpbangdiemhocsinh.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.grpbangdiemhocsinh.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.grpbangdiemhocsinh.TabIndex = 11;
+            this.grpbangdiemhocsinh.Text = "Bảng điểm học sinh";
+            // 
+            // cboNamhocBangDiem
+            // 
+            this.cboNamhocBangDiem.DisplayMember = "Text";
+            this.cboNamhocBangDiem.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboNamhocBangDiem.FormattingEnabled = true;
+            this.cboNamhocBangDiem.ItemHeight = 14;
+            this.cboNamhocBangDiem.Location = new System.Drawing.Point(21, 38);
+            this.cboNamhocBangDiem.Name = "cboNamhocBangDiem";
+            this.cboNamhocBangDiem.Size = new System.Drawing.Size(178, 20);
+            this.cboNamhocBangDiem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cboNamhocBangDiem.TabIndex = 0;
+            this.cboNamhocBangDiem.SelectedValueChanged += new System.EventHandler(this.cboNamhocBangDiem_SelectedValueChanged);
+            // 
+            // cboHocsinhBangDiem
+            // 
+            this.cboHocsinhBangDiem.DisplayMember = "Text";
+            this.cboHocsinhBangDiem.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboHocsinhBangDiem.FormattingEnabled = true;
+            this.cboHocsinhBangDiem.ItemHeight = 14;
+            this.cboHocsinhBangDiem.Location = new System.Drawing.Point(21, 91);
+            this.cboHocsinhBangDiem.Name = "cboHocsinhBangDiem";
+            this.cboHocsinhBangDiem.Size = new System.Drawing.Size(177, 20);
+            this.cboHocsinhBangDiem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cboHocsinhBangDiem.TabIndex = 1;
+            // 
+            // treLopBangDiem
+            // 
+            this.treLopBangDiem.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
+            this.treLopBangDiem.AllowDrop = true;
+            this.treLopBangDiem.BackColor = System.Drawing.SystemColors.Window;
+            // 
+            // 
+            // 
+            this.treLopBangDiem.BackgroundStyle.Class = "TreeBorderKey";
+            this.treLopBangDiem.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.treLopBangDiem.Location = new System.Drawing.Point(232, 40);
+            this.treLopBangDiem.Name = "treLopBangDiem";
+            this.treLopBangDiem.Nodes.AddRange(new DevComponents.AdvTree.Node[] {
+            this.node1});
+            this.treLopBangDiem.NodesConnector = this.nodeConnector4;
+            this.treLopBangDiem.NodeStyle = this.elementStyle4;
+            this.treLopBangDiem.PathSeparator = ";";
+            this.treLopBangDiem.Size = new System.Drawing.Size(155, 56);
+            this.treLopBangDiem.Styles.Add(this.elementStyle4);
+            this.treLopBangDiem.TabIndex = 2;
+            this.treLopBangDiem.NodeClick += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.treLopBangDiem_NodeClick);
+            // 
+            // node1
+            // 
+            this.node1.Expanded = true;
+            this.node1.Name = "node1";
+            this.node1.Text = "node1";
+            // 
+            // nodeConnector4
+            // 
+            this.nodeConnector4.LineColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // elementStyle4
+            // 
+            this.elementStyle4.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.elementStyle4.Name = "elementStyle4";
+            this.elementStyle4.TextColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // labelX19
+            // 
+            // 
+            // 
+            // 
+            this.labelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX19.Location = new System.Drawing.Point(22, 9);
+            this.labelX19.Name = "labelX19";
+            this.labelX19.Size = new System.Drawing.Size(90, 23);
+            this.labelX19.TabIndex = 3;
+            this.labelX19.Text = "Chọn Năm học :";
+            // 
+            // labelX20
+            // 
+            // 
+            // 
+            // 
+            this.labelX20.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX20.Location = new System.Drawing.Point(21, 62);
+            this.labelX20.Name = "labelX20";
+            this.labelX20.Size = new System.Drawing.Size(91, 23);
+            this.labelX20.TabIndex = 4;
+            this.labelX20.Text = "Chọn học sinh :";
+            // 
+            // labelX21
+            // 
+            // 
+            // 
+            // 
+            this.labelX21.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX21.Location = new System.Drawing.Point(232, 11);
+            this.labelX21.Name = "labelX21";
+            this.labelX21.Size = new System.Drawing.Size(90, 23);
+            this.labelX21.TabIndex = 5;
+            this.labelX21.Text = "Chọn Lớp :";
+            // 
+            // btnInbangdiem
+            // 
+            this.btnInbangdiem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnInbangdiem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnInbangdiem.Location = new System.Drawing.Point(232, 99);
+            this.btnInbangdiem.Name = "btnInbangdiem";
+            this.btnInbangdiem.Size = new System.Drawing.Size(155, 23);
+            this.btnInbangdiem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnInbangdiem.TabIndex = 6;
+            this.btnInbangdiem.Text = "In bảng điểm";
+            this.btnInbangdiem.Click += new System.EventHandler(this.btnInbangdiem_Click);
+            // 
             // frmBaoCaoHocTap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1214,7 +1384,6 @@
             this.Controls.Add(this.groupPanel3);
             this.Controls.Add(this.groupPanel2);
             this.Controls.Add(this.groupPanel1);
-            this.DoubleBuffered = true;
             this.Name = "frmBaoCaoHocTap";
             this.Text = "Báo cáo học tập";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1234,6 +1403,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.advTree4)).EndInit();
             this.groupPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.advTree3)).EndInit();
+            this.grpbangdiemhocsinh.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.treLopBangDiem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1305,6 +1476,17 @@
         private DevComponents.DotNetBar.LabelX labelX18;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cboKhoiLuuBan;
         private DevComponents.DotNetBar.LabelX labelX10;
+        private DevComponents.DotNetBar.Controls.GroupPanel grpbangdiemhocsinh;
+        private DevComponents.DotNetBar.ButtonX btnInbangdiem;
+        private DevComponents.DotNetBar.LabelX labelX21;
+        private DevComponents.DotNetBar.LabelX labelX20;
+        private DevComponents.DotNetBar.LabelX labelX19;
+        private DevComponents.AdvTree.AdvTree treLopBangDiem;
+        private DevComponents.AdvTree.Node node1;
+        private DevComponents.AdvTree.NodeConnector nodeConnector4;
+        private DevComponents.DotNetBar.ElementStyle elementStyle4;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cboHocsinhBangDiem;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cboNamhocBangDiem;
 
     }
 }
