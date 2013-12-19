@@ -138,7 +138,6 @@ namespace QuanLiHocSinh
             //}
             //else
             //{
-                //DataSet ds = baoCao_BUS.baoCaoDiemTheoMonHoc(cboNamHocMH, cboHocKyMH, cboMonHocMH, lop_BUS.layMaLopTrenTree(cboNamHocMH, treLopMH));
                 frmHiemThiReport show = new frmHiemThiReport();
                 show.Show();
             //}

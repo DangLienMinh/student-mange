@@ -30,6 +30,7 @@ namespace QLHS.BUS
             lop_BUS = new clsLOP_BUS();
             diem_DAO = new clsDIEM_DAO();
         }
+
         public DataSet bangDiemHocSinh(string manh, string malop, string mahs)
         {
             decimal TongdiemHK1 = 0;
@@ -131,6 +132,8 @@ namespace QLHS.BUS
             }
             return ds;
         }
+
+        //HSG
         public DataSet layThongTinKQTheoHocKy(ComboBoxEx namHoc, ComboBoxEx hocKy, string maLop)
         {
             DataTable tableTemp = new DataTable();
@@ -165,8 +168,6 @@ namespace QLHS.BUS
             ds.Tables.Add(tableNH);
             return ds;
         }
-
-      
 
         private DataTable tinhTrungBinhHSG(DataTable trungBinhHk, string maBan)
         {
@@ -631,7 +632,8 @@ namespace QLHS.BUS
             ds.Tables.Add(result);
             return ds;
         }
-    
+
+       
     }
 }
 
