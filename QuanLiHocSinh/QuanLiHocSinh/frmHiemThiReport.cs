@@ -154,6 +154,7 @@ namespace QuanLiHocSinh
                             document.SetDataSource(ds.Tables["BangDiemHocSinh"]);
                         }
                         break;
+                   
                     //case "frmDSHocSinh":
                     //    {
                     //        DataSet ds= hocSinh_BUS.danhSachHocSinh_NH_LOP(maNH,maLop);
