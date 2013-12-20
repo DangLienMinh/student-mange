@@ -127,6 +127,16 @@ namespace QuanLiHocSinh
                             text.Text = tenND;
                         }
                         break;
+                    case "TongKetHK":
+                        {
+                            ds.WriteXmlSchema(Application.StartupPath + @"\TongKetHK.xsd");
+
+                            document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\TongKetHK.rpt");
+                            document.SetDataSource(ds.Tables[0]);
+                            //TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap"];
+                            //text.Text = tenND;
+                        }
+                        break;
                     case "LuuBan":
                         {
                             ds.WriteXmlSchema(Application.StartupPath + @"\LuuBan.xsd");
@@ -143,8 +153,8 @@ namespace QuanLiHocSinh
 
                             document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DiemTheoMonHoc.rpt");
                             document.SetDataSource(ds.Tables[0]);
-                            //TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap"];
-                            //text.Text = tenND;
+                            TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap"];
+                            text.Text = tenND;
                         }
                         break;
                     case "frmBangDiem":

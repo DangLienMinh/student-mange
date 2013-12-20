@@ -16,14 +16,14 @@ namespace QuanLiHocSinh.report {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class DSLop : ReportClass {
+    public class TongKetHK : ReportClass {
         
-        public DSLop() {
+        public TongKetHK() {
         }
         
         public override string ResourceName {
             get {
-                return "DSLop.rpt";
+                return "TongKetHK.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace QuanLiHocSinh.report {
         
         public override string FullResourceName {
             get {
-                return "QuanLiHocSinh.report.DSLop.rpt";
+                return "QuanLiHocSinh.report.TongKetHK.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace QuanLiHocSinh.report {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedDSLop : Component, ICachedReport {
+    public class CachedTongKetHK : Component, ICachedReport {
         
-        public CachedDSLop() {
+        public CachedTongKetHK() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace QuanLiHocSinh.report {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            DSLop rpt = new DSLop();
+            TongKetHK rpt = new TongKetHK();
             rpt.Site = this.Site;
             return rpt;
         }
