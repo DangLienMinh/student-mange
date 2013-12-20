@@ -298,6 +298,5 @@ namespace QLHS.BUS
             lop_DTO.Malop = maLop;
              return  lop_DAO.phanBan(lop_DTO);
         }
-
     }
 }

@@ -60,6 +60,10 @@
             this.panelConPhai = new System.Windows.Forms.Panel();
             this.panelChaTrai = new System.Windows.Forms.Panel();
             this.splitContainerPhanLop = new System.Windows.Forms.SplitContainer();
+            this.labelX8 = new DevComponents.DotNetBar.LabelX();
+            this.cboPhanBanCu = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX9 = new DevComponents.DotNetBar.LabelX();
+            this.cboPhanBanMoi = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.panelConTren.SuspendLayout();
             this.groupPanelLopCu.SuspendLayout();
             this.groupPanelLopMoi.SuspendLayout();
@@ -136,6 +140,7 @@
             // 
             this.cboLopMoi.DisplayMember = "Text";
             this.cboLopMoi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboLopMoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLopMoi.FormattingEnabled = true;
             this.cboLopMoi.ItemHeight = 14;
             this.cboLopMoi.Location = new System.Drawing.Point(120, 70);
@@ -161,6 +166,7 @@
             // 
             this.cboKhoiLopMoi.DisplayMember = "Text";
             this.cboKhoiLopMoi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboKhoiLopMoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboKhoiLopMoi.FormattingEnabled = true;
             this.cboKhoiLopMoi.ItemHeight = 14;
             this.cboKhoiLopMoi.Location = new System.Drawing.Point(120, 40);
@@ -183,8 +189,10 @@
             this.groupPanelLopCu.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanelLopCu.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanelLopCu.Controls.Add(this.txtTim);
+            this.groupPanelLopCu.Controls.Add(this.cboPhanBanCu);
             this.groupPanelLopCu.Controls.Add(this.cboLopCu);
             this.groupPanelLopCu.Controls.Add(this.cboKhoiLopCu);
+            this.groupPanelLopCu.Controls.Add(this.labelX8);
             this.groupPanelLopCu.Controls.Add(this.cboNamHocCu);
             this.groupPanelLopCu.Controls.Add(this.labelX3);
             this.groupPanelLopCu.Controls.Add(this.labelX2);
@@ -233,7 +241,7 @@
             // 
             this.txtTim.Border.Class = "TextBoxBorder";
             this.txtTim.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtTim.Location = new System.Drawing.Point(510, 43);
+            this.txtTim.Location = new System.Drawing.Point(523, 3);
             this.txtTim.Name = "txtTim";
             this.txtTim.Size = new System.Drawing.Size(128, 20);
             this.txtTim.TabIndex = 4;
@@ -243,6 +251,7 @@
             // 
             this.cboLopCu.DisplayMember = "Text";
             this.cboLopCu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboLopCu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLopCu.FormattingEnabled = true;
             this.cboLopCu.ItemHeight = 14;
             this.cboLopCu.Location = new System.Drawing.Point(120, 70);
@@ -255,6 +264,7 @@
             // 
             this.cboKhoiLopCu.DisplayMember = "Text";
             this.cboKhoiLopCu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboKhoiLopCu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboKhoiLopCu.FormattingEnabled = true;
             this.cboKhoiLopCu.ItemHeight = 14;
             this.cboKhoiLopCu.Location = new System.Drawing.Point(120, 40);
@@ -267,6 +277,7 @@
             // 
             this.cboNamHocCu.DisplayMember = "Text";
             this.cboNamHocCu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboNamHocCu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNamHocCu.FormattingEnabled = true;
             this.cboNamHocCu.ItemHeight = 14;
             this.cboNamHocCu.Location = new System.Drawing.Point(120, 10);
@@ -308,11 +319,11 @@
             // 
             // 
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(415, 43);
+            this.labelX7.Location = new System.Drawing.Point(457, 3);
             this.labelX7.Name = "labelX7";
-            this.labelX7.Size = new System.Drawing.Size(89, 20);
+            this.labelX7.Size = new System.Drawing.Size(71, 20);
             this.labelX7.TabIndex = 0;
-            this.labelX7.Text = "Tên học sinh:";
+            this.labelX7.Text = "Tìm nhanh:";
             // 
             // labelX1
             // 
@@ -331,9 +342,11 @@
             // 
             this.groupPanelLopMoi.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanelLopMoi.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanelLopMoi.Controls.Add(this.cboPhanBanMoi);
             this.groupPanelLopMoi.Controls.Add(this.cboLopMoi);
             this.groupPanelLopMoi.Controls.Add(this.labelX5);
             this.groupPanelLopMoi.Controls.Add(this.cboKhoiLopMoi);
+            this.groupPanelLopMoi.Controls.Add(this.labelX9);
             this.groupPanelLopMoi.Controls.Add(this.labelX4);
             this.groupPanelLopMoi.Controls.Add(this.cboNamHocMoi);
             this.groupPanelLopMoi.Controls.Add(this.labelX6);
@@ -377,6 +390,7 @@
             // 
             this.cboNamHocMoi.DisplayMember = "Text";
             this.cboNamHocMoi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboNamHocMoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNamHocMoi.FormattingEnabled = true;
             this.cboNamHocMoi.ItemHeight = 14;
             this.cboNamHocMoi.Location = new System.Drawing.Point(120, 10);
@@ -509,6 +523,55 @@
             this.splitContainerPhanLop.SplitterDistance = 735;
             this.splitContainerPhanLop.TabIndex = 1;
             // 
+            // labelX8
+            // 
+            this.labelX8.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX8.Location = new System.Drawing.Point(273, 70);
+            this.labelX8.Name = "labelX8";
+            this.labelX8.Size = new System.Drawing.Size(57, 19);
+            this.labelX8.TabIndex = 0;
+            this.labelX8.Text = "Phân ban:";
+            // 
+            // cboPhanBanCu
+            // 
+            this.cboPhanBanCu.DisplayMember = "Text";
+            this.cboPhanBanCu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboPhanBanCu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPhanBanCu.ItemHeight = 14;
+            this.cboPhanBanCu.Location = new System.Drawing.Point(327, 70);
+            this.cboPhanBanCu.Name = "cboPhanBanCu";
+            this.cboPhanBanCu.Size = new System.Drawing.Size(208, 20);
+            this.cboPhanBanCu.TabIndex = 3;
+            this.cboPhanBanCu.SelectedValueChanged += new System.EventHandler(this.cboLopCu_SelectedValueChanged);
+            // 
+            // labelX9
+            // 
+            this.labelX9.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX9.Location = new System.Drawing.Point(274, 70);
+            this.labelX9.Name = "labelX9";
+            this.labelX9.Size = new System.Drawing.Size(57, 19);
+            this.labelX9.TabIndex = 0;
+            this.labelX9.Text = "Phân ban:";
+            // 
+            // cboPhanBanMoi
+            // 
+            this.cboPhanBanMoi.DisplayMember = "Text";
+            this.cboPhanBanMoi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboPhanBanMoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPhanBanMoi.ItemHeight = 14;
+            this.cboPhanBanMoi.Location = new System.Drawing.Point(337, 70);
+            this.cboPhanBanMoi.Name = "cboPhanBanMoi";
+            this.cboPhanBanMoi.Size = new System.Drawing.Size(208, 20);
+            this.cboPhanBanMoi.TabIndex = 4;
+            // 
             // frmChuyenLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -567,5 +630,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private DevComponents.DotNetBar.Controls.TextBoxX txtTim;
         private DevComponents.DotNetBar.LabelX labelX7;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cboPhanBanCu;
+        private DevComponents.DotNetBar.LabelX labelX8;
+        private DevComponents.DotNetBar.LabelX labelX9;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cboPhanBanMoi;
     }
 }

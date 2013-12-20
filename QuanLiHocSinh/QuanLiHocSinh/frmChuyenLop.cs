@@ -37,8 +37,9 @@ namespace QuanLiHocSinh
         {
             namHoc_BUS.hienThiComboBox(cboNamHocCu);
             namHoc_BUS.hienThiComboBox(cboNamHocMoi);
+            lop_BUS.cboBan(cboPhanBanCu);
+            lop_BUS.cboBan(cboPhanBanMoi);
             khoi_BUS.hienThiComboBox(cboKhoiLopCu);
-            
             khoi_BUS.hienThiComboBoxChuyenLop(cboKhoiLopCu, cboKhoiLopMoi);
         }
 
@@ -103,7 +104,7 @@ namespace QuanLiHocSinh
                 //tải lại list học sinh
                 if (cboNamHocCu.SelectedValue != null)
                 {
-                    hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocCu, cboLopCu, lstLopCu);
+                    hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocCu, cboLopCu, lstLopCu,cboPhanBanCu);
                 }
 
             }
@@ -160,7 +161,7 @@ namespace QuanLiHocSinh
         {
             if (cboNamHocCu.SelectedValue != null && cboLopCu.SelectedValue != null)
             {
-                hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocCu, cboLopCu, lstLopCu);
+                hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocCu, cboLopCu, lstLopCu,cboPhanBanCu);
             }
         }
 
@@ -188,7 +189,7 @@ namespace QuanLiHocSinh
         {
             if (cboNamHocMoi.SelectedValue != null && cboLopMoi.SelectedValue != null)
             {
-                hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocMoi, cboLopMoi, lstLopMoi);
+                hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocMoi, cboLopMoi, lstLopMoi,cboPhanBanMoi);
             }
         }
 

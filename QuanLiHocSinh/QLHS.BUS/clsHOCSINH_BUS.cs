@@ -305,9 +305,11 @@ namespace QLHS.BUS
             
         }
 
-        public void danhSachHocSinhTheoLop(ComboBoxEx cboNamHoc, ComboBoxEx cboLop,ListViewEx list)
+        public void danhSachHocSinhTheoLop(ComboBoxEx cboNamHoc, ComboBoxEx cboLop,ListViewEx list,ComboBoxEx cboPhanBan)
         {
-            list.Items.Clear();   
+            list.Items.Clear();
+            lop_DTO = new clsLOP_DTO();
+            lop_DTO.Malop = cboLop.SelectedValue.ToString();
             hocSinh_DTO.Manh = cboNamHoc.SelectedValue.ToString();
             hocSinh_DTO.Malop = cboLop.SelectedValue.ToString();
             tbHocSinh=hocSinh_DAO.danhSachHocSinhTheoLop(hocSinh_DTO);
@@ -322,6 +324,8 @@ namespace QLHS.BUS
 
                 list.Items.Add(item);
             }
+           
+           cboPhanBan.SelectedValue = lop_DAO.phanBan(lop_DTO);
         }
 
         public void danhSachHocSinhTheoLop(ComboBoxEx comboNamHoc, ComboBoxEx comboLop,ComboBoxEx cboHocSinh)
