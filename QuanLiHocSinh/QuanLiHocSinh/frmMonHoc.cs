@@ -65,6 +65,7 @@ namespace QuanLiHocSinh
             //monHoc_BUS.hienThiComboBoxHeSo(cboHeSo);
             FlagDisable();
             flag = 0;
+            txtTenMH.Enabled = false;
             //sapXep();
             //btnDau.Enabled = false;
             //btnTruoc.Enabled = false;
@@ -72,6 +73,7 @@ namespace QuanLiHocSinh
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            txtTenMH.Enabled = true;
             txtTenMH.Focus();
             FlagEnable();
             flag = 1;
@@ -90,7 +92,8 @@ namespace QuanLiHocSinh
         {
             flag = 3;
             FlagEnable();
-            txtTenMH.Focus();
+            txtTenMH.Enabled = false;
+            txtSoTiet.Focus();
         }
 
         private void btnDongY_Click(object sender, EventArgs e)
@@ -273,11 +276,11 @@ namespace QuanLiHocSinh
         {
             if (grdMonHoc.CurrentRow!=null)
             {
+                txtTenMH.Enabled = false;
                 txtMaMH.Text = grdMonHoc.CurrentRow.Cells["MAMH"].Value.ToString();
                 txtTenMH.Text = grdMonHoc.CurrentRow.Cells["TENMH"].Value.ToString();
-                txtSoTiet.Text = grdMonHoc.CurrentRow.Cells["SOTIET"].Value.ToString();            }  
+                txtSoTiet.Text = grdMonHoc.CurrentRow.Cells["SOTIET"].Value.ToString();
+            }  
         }
-
-
     }
 }

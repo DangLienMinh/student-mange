@@ -20,7 +20,8 @@ namespace QuanLiHocSinh
         private clsKHOI_BUS khoi_BUS;
         private clsNAMHOC_BUS namHoc_BUS;
         private clsHOCSINH_BUS hocSinh_BUS;
-        clsQUYDINH_BUS quyDinh_BUS;
+        private clsQUYDINH_BUS quyDinh_BUS;
+        
         int flag = -1;//kiểm tra bấm hủy hay chuyển 
         int flag1 = -1;//kiểm tra bấm hủy hay chuyển cho học sinh vừa được tiếp nhận
         #endregion
@@ -43,9 +44,14 @@ namespace QuanLiHocSinh
             namHoc_BUS.hienThiComboBox(cboNamHocMoi);
             namHoc_BUS.hienThiComboBox(cboNamHocCu1);
             namHoc_BUS.hienThiComboBox(cboNamHocMoi1);
+            lop_BUS.cboBan(cboPhanBanCu);
+            lop_BUS.cboBan(cboPhanBanMoi);
+            lop_BUS.cboBan(cboPhanBanMoi1);
             khoi_BUS.hienThiComboBox(cboKhoiLopCu);
             khoi_BUS.hienThiComboBoxKhoi10(cboKhoiLopMoi1);
             khoi_BUS.hienThiComboBox(cboKhoiLopCu, cboKhoiLopMoi);
+
+           
         }
         #endregion
 
@@ -97,7 +103,7 @@ namespace QuanLiHocSinh
         {
             if (cboNamHocCu.SelectedValue != null && cboLopCu.SelectedValue != null)
             {
-                hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocCu, cboLopCu, lstLopCu);
+                hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocCu, cboLopCu, lstLopCu,cboPhanBanCu);
 
             }
         }
@@ -106,7 +112,7 @@ namespace QuanLiHocSinh
         {
             if (cboNamHocMoi.SelectedValue != null && cboLopMoi.SelectedValue != null)
             {
-                hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocMoi, cboLopMoi, lstLopMoi);
+                hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocMoi, cboLopMoi, lstLopMoi, cboPhanBanMoi);
             }
         }
         #endregion
@@ -144,7 +150,7 @@ namespace QuanLiHocSinh
         {
             if (cboNamHocMoi1.SelectedValue != null && cboLopMoi1.SelectedValue != null)
             {
-                hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocMoi1, cboLopMoi1, lstLopMoi1);
+                hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocMoi1, cboLopMoi1, lstLopMoi1,cboPhanBanMoi1);
 
             }
         }
@@ -155,53 +161,61 @@ namespace QuanLiHocSinh
         #region Tabpage 1
         private void btnChuyen_Click(object sender, EventArgs e)
         {
-            IEnumerator ie = lstLopCu.SelectedItems.GetEnumerator();
-            while (ie.MoveNext())
+            if (cboPhanBanCu.SelectedValue.ToString()!=cboPhanBanMoi.SelectedValue.ToString())
             {
-                ListViewItem oldItem = (ListViewItem)ie.Current;
-                ListViewItem newItem = new ListViewItem();
-
-                //Trạng thái học sinh đã được chuyển lớp hay chưa?
-                bool state = false;
-
-                foreach (ListViewItem item in lstLopMoi.Items)
-                {
-                    if (item.SubItems[1].Text == oldItem.SubItems[1].Text)
-                    {
-                        MessageBox.Show("Học sinh " + item.SubItems[1].Text + " hiện đang học trong lớp " + cboLopMoi.Text, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        state = true;
-                        goto Cont;
-                    }
-                }
-
-                DataTable dT = new DataTable();
-                if (cboNamHocMoi.SelectedValue != null)
-                {
-                    dT = hocSinh_BUS.danhSachPhanLop(cboNamHocMoi);
-                }
-
-                foreach (DataRow row in dT.Rows)
-                {
-                    if (oldItem.SubItems[0].Text.ToString() == row["MAHS"].ToString())
-                    {
-                        MessageBox.Show("Học sinh " + row["TENHS"].ToString() + " hiện đang học trong lớp " + row["TENLOP"].ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        state = true;
-                        goto Cont;
-                    }
-                }
-
-                newItem.SubItems.Add(oldItem.SubItems[1].Text);
-                newItem.SubItems.Add(oldItem.SubItems[2].Text);
-                newItem.Tag = oldItem.Tag;
-
-                lstLopMoi.Items.Add(newItem);
-                lstLopMoi.Items[lstLopMoi.Items.IndexOf(newItem)].Text = (lstLopMoi1.Items.Count).ToString();
-                lstLopCu.Items.Remove(oldItem);
-
-            Cont:
-                if (state == true)
-                    break;
+                MessageBox.Show("Phân ban lớp mới phải giống phân ban của lớp cũ");
             }
+            else
+            {
+                IEnumerator ie = lstLopCu.SelectedItems.GetEnumerator();
+                while (ie.MoveNext())
+                {
+                    ListViewItem oldItem = (ListViewItem)ie.Current;
+                    ListViewItem newItem = new ListViewItem();
+
+                    //Trạng thái học sinh đã được chuyển lớp hay chưa?
+                    bool state = false;
+
+                    foreach (ListViewItem item in lstLopMoi.Items)
+                    {
+                        if (item.SubItems[1].Text == oldItem.SubItems[1].Text)
+                        {
+                            MessageBox.Show("Học sinh " + item.SubItems[1].Text + " hiện đang học trong lớp " + cboLopMoi.Text, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            state = true;
+                            goto Cont;
+                        }
+                    }
+
+                    DataTable dT = new DataTable();
+                    if (cboNamHocMoi.SelectedValue != null)
+                    {
+                        dT = hocSinh_BUS.danhSachPhanLop(cboNamHocMoi);
+                    }
+
+                    foreach (DataRow row in dT.Rows)
+                    {
+                        if (oldItem.SubItems[1].Text.ToString() == row["MAHS"].ToString())
+                        {
+                            MessageBox.Show("Học sinh " + row["TENHS"].ToString() + " hiện đang học trong lớp " + row["TENLOP"].ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            state = true;
+                            goto Cont;
+                        }
+                    }
+
+                    newItem.SubItems.Add(oldItem.SubItems[1].Text);
+                    newItem.SubItems.Add(oldItem.SubItems[2].Text);
+                    newItem.Tag = oldItem.Tag;
+
+                    lstLopMoi.Items.Add(newItem);
+                    lstLopMoi.Items[lstLopMoi.Items.IndexOf(newItem)].Text = (lstLopMoi1.Items.Count).ToString();
+                    lstLopCu.Items.Remove(oldItem);
+
+                Cont:
+                    if (state == true)
+                        break;
+                }
+            }
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
