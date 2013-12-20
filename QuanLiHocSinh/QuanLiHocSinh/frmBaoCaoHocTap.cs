@@ -62,7 +62,8 @@ namespace QuanLiHocSinh
             monHoc_BUS.hienThiComboBox(cboMonHocMH);
             namHoc_BUS.hienThiComboBox(cboNamHocMH);
             hocKy_BUS.hienThiComboBox(cboHocKyMH);
-            
+            hocKy_BUS.hienThiComboBox(cboHKTongKetHK);
+            namHoc_BUS.hienThiComboBox(cboNHTongKetHK);
         }
 
         private void cboNamHocHSG_SelectedValueChanged(object sender, EventArgs e)
@@ -82,18 +83,9 @@ namespace QuanLiHocSinh
             }
             else
             {
-                DataSet ds = baoCao_BUS.layThongTinKQTheoHocKy(cboNamHocHSG, cboHocKyHSG, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
+                DataSet ds = baoCao_BUS.layThongTinHSGTheoHocKy(cboNamHocHSG, cboHocKyHSG, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
                 frmHiemThiReport show = new frmHiemThiReport("HSG", ds, tenND);
                 show.Show();
-                //ReportDocument document = new ReportDocument();
-                //DataSet ds = baoCao_BUS.layThongTinKQTheoHocKy(cboNamHocHSG, cboHocKy, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
-                //ds.WriteXmlSchema(Application.StartupPath + @"\HSG.xsd");
-
-                //document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\HSG.rpt");
-                //document.SetDataSource(ds.Tables[0]);
-                //rptView.ReportSource = document;
-                //rptView.RefreshReport();
- 
             }
         }
 
@@ -170,6 +162,68 @@ namespace QuanLiHocSinh
             else
             {
                 MessageBox.Show("Phải chọn Học sinh cần in bảng điểm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void cboNHTongKetHK_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cboNHTongKetHK.SelectedValue != null)
+            {
+                treLopTongKetHK.Nodes.Clear();
+                hanhkiem_BUS.hienThiLopHoc(treLopTongKetHK, cboNHTongKetHK);
+            }
+        }
+
+        private void btnInTongKetHK_Click(object sender, EventArgs e)
+        {
+            if (treLopTongKetHK.SelectedNode == null || treLopTongKetHK.SelectedNode.Parent == null)
+            {
+                MessageBox.Show("Phải chọn một lớp");
+            }
+            else
+            {
+                DataSet ds = baoCao_BUS.layThongTinKQTheoHocKy(cboNHTongKetHK, cboHKTongKetHK, lop_BUS.layMaLopTrenTree(cboNHTongKetHK, treLopTongKetHK));
+                frmHiemThiReport show = new frmHiemThiReport("TongKetHK", ds, tenND);
+                show.Show();
+            }
+        }
+
+        private void treLopTongKetHK_NodeDoubleClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
+        {
+            if (treLopTongKetHK.SelectedNode.Parent == null)
+            {
+            }
+            else
+            {
+                DataSet ds = baoCao_BUS.layThongTinKQTheoHocKy(cboNHTongKetHK, cboHKTongKetHK, lop_BUS.layMaLopTrenTree(cboNHTongKetHK, treLopTongKetHK));
+                frmHiemThiReport show = new frmHiemThiReport("TongKetHK", ds, tenND);
+                show.Show();
+            }
+        }
+
+        private void treLopMH_NodeDoubleClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
+        {
+            if (treLopMH.SelectedNode.Parent == null)
+            {
+            }
+            else
+            {
+                DataSet ds = baoCao_BUS.baoCaoDiemTheoMonHoc(cboNamHocMH, cboHocKyMH, cboMonHocMH, lop_BUS.layMaLopTrenTree(cboNamHocMH, treLopMH));
+                frmHiemThiReport show = new frmHiemThiReport("DiemTheoMonHoc", ds, tenND);
+                show.Show();
+            }
+        }
+
+        private void treHSG_NodeDoubleClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
+        {
+            if (treLopMH.SelectedNode.Parent == null)
+            {
+            }
+            else
+            {
+                DataSet ds = baoCao_BUS.layThongTinHSGTheoHocKy(cboNamHocHSG, cboHocKyHSG, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
+                frmHiemThiReport show = new frmHiemThiReport("HSG", ds, tenND);
+                show.Show();
             }
         }
     }

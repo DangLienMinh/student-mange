@@ -265,6 +265,12 @@
       <DependentUpon>theHocSinh.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="report\TongKetHK.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TongKetHK.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Testdulieu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -394,6 +400,10 @@
     <EmbeddedResource Include="report\theHocSinh.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>theHocSinh.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report\TongKetHK.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TongKetHK.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Testdulieu.resx">
       <DependentUpon>Testdulieu.cs</DependentUpon>
