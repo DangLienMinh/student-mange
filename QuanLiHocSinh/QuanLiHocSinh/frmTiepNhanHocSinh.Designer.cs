@@ -29,19 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTiepNhanHocSinh));
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.ctxMenu = new DevComponents.DotNetBar.ContextMenuBar();
             this.btnMenu = new DevComponents.DotNetBar.ButtonItem();
-            this.btnAdd = new DevComponents.DotNetBar.ButtonItem();
-            this.btnRefesh = new DevComponents.DotNetBar.ButtonItem();
-            this.btnDelete = new DevComponents.DotNetBar.ButtonItem();
-            this.btnClose = new DevComponents.DotNetBar.ButtonItem();
             this.grdHocSinh = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.MAHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MANH = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,31 +52,17 @@
             this.HINHANHHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bnaHocSinh = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
             this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
-            this.bindingNavigatorMoveFirstItem = new DevComponents.DotNetBar.ButtonItem();
-            this.bindingNavigatorMovePreviousItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorPositionItem = new DevComponents.DotNetBar.TextBoxItem();
-            this.bindingNavigatorMoveNextItem = new DevComponents.DotNetBar.ButtonItem();
-            this.bindingNavigatorMoveLastItem = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem8 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem9 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.navigationPane1 = new DevComponents.DotNetBar.NavigationPane();
             this.navigationPanePanel2 = new DevComponents.DotNetBar.NavigationPanePanel();
-            this.button1 = new System.Windows.Forms.Button();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.txtDienThoai = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.cboGioiTinh = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtDantoc = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.btnHuy = new DevComponents.DotNetBar.ButtonX();
-            this.btnDongy = new DevComponents.DotNetBar.ButtonX();
             this.btnChonAnh = new DevComponents.DotNetBar.ButtonX();
-            this.picHocSinh = new System.Windows.Forms.PictureBox();
             this.dtiNgaySinh = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.dtiNgayNhapHoc = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
-            this.btnSua = new DevComponents.DotNetBar.ButtonX();
-            this.btnXoa = new DevComponents.DotNetBar.ButtonX();
-            this.btnThem = new DevComponents.DotNetBar.ButtonX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
@@ -90,6 +72,23 @@
             this.txtTenHS = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtMaHS = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
+            this.btnAdd = new DevComponents.DotNetBar.ButtonItem();
+            this.btnRefesh = new DevComponents.DotNetBar.ButtonItem();
+            this.btnDelete = new DevComponents.DotNetBar.ButtonItem();
+            this.btnClose = new DevComponents.DotNetBar.ButtonItem();
+            this.bindingNavigatorMoveFirstItem = new DevComponents.DotNetBar.ButtonItem();
+            this.bindingNavigatorMovePreviousItem = new DevComponents.DotNetBar.ButtonItem();
+            this.bindingNavigatorMoveNextItem = new DevComponents.DotNetBar.ButtonItem();
+            this.bindingNavigatorMoveLastItem = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem8 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem9 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
+            this.btnHuy = new DevComponents.DotNetBar.ButtonX();
+            this.btnDongy = new DevComponents.DotNetBar.ButtonX();
+            this.picHocSinh = new System.Windows.Forms.PictureBox();
+            this.btnSua = new DevComponents.DotNetBar.ButtonX();
+            this.btnXoa = new DevComponents.DotNetBar.ButtonX();
+            this.btnThem = new DevComponents.DotNetBar.ButtonX();
             this.btnItemNhap = new DevComponents.DotNetBar.ButtonItem();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ctxMenu)).BeginInit();
@@ -97,9 +96,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.bnaHocSinh)).BeginInit();
             this.navigationPane1.SuspendLayout();
             this.navigationPanePanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picHocSinh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtiNgaySinh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtiNgayNhapHoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHocSinh)).BeginInit();
             this.SuspendLayout();
             // 
             // groupPanel1
@@ -171,48 +170,16 @@
             this.btnClose});
             this.btnMenu.Text = "Menu";
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Image = global::QuanLiHocSinh.Properties.Resources.add;
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Ins);
-            this.btnAdd.Text = "Thêm mới";
-            this.btnAdd.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // btnRefesh
-            // 
-            this.btnRefesh.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
-            this.btnRefesh.Name = "btnRefesh";
-            this.btnRefesh.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.F5);
-            this.btnRefesh.Text = "Làm tươi danh dách";
-            this.btnRefesh.Click += new System.EventHandler(this.frmHocSinh_Load);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Image = global::QuanLiHocSinh.Properties.Resources.delete;
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Del);
-            this.btnDelete.Text = "Xóa dòng được chọn";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Image = global::QuanLiHocSinh.Properties.Resources.exit;
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.AltF4);
-            this.btnClose.Text = "Đóng cửa sổ này";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // grdHocSinh
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdHocSinh.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdHocSinh.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grdHocSinh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdHocSinh.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MAHS,
@@ -227,27 +194,27 @@
             this.NGNHAPHOC,
             this.HINHANHHS});
             this.ctxMenu.SetContextMenuEx(this.grdHocSinh, this.btnMenu);
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdHocSinh.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdHocSinh.DefaultCellStyle = dataGridViewCellStyle4;
             this.grdHocSinh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdHocSinh.EnableHeadersVisualStyles = false;
             this.grdHocSinh.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grdHocSinh.Location = new System.Drawing.Point(0, 25);
             this.grdHocSinh.Name = "grdHocSinh";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdHocSinh.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdHocSinh.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.grdHocSinh.Size = new System.Drawing.Size(853, 526);
             this.grdHocSinh.TabIndex = 9;
             this.grdHocSinh.TabStop = false;
@@ -282,8 +249,8 @@
             // NGSINHHS
             // 
             this.NGSINHHS.DataPropertyName = "NGSINHHS";
-            dataGridViewCellStyle7.Format = "dd/MM/yyyy";
-            this.NGSINHHS.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
+            this.NGSINHHS.DefaultCellStyle = dataGridViewCellStyle2;
             this.NGSINHHS.HeaderText = "Ngày sinh";
             this.NGSINHHS.Name = "NGSINHHS";
             // 
@@ -314,8 +281,8 @@
             // NGNHAPHOC
             // 
             this.NGNHAPHOC.DataPropertyName = "NGNHAPHOC";
-            dataGridViewCellStyle8.Format = "dd/MM/yyyy";
-            this.NGNHAPHOC.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Format = "dd/MM/yyyy";
+            this.NGNHAPHOC.DefaultCellStyle = dataGridViewCellStyle3;
             this.NGNHAPHOC.HeaderText = "Ngày nhập học";
             this.NGNHAPHOC.Name = "NGNHAPHOC";
             this.NGNHAPHOC.Width = 130;
@@ -364,20 +331,6 @@
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
             this.bindingNavigatorCountItem.Text = "of {0}";
             // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            this.bindingNavigatorMoveFirstItem.Click += new System.EventHandler(this.move_Click);
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            this.bindingNavigatorMovePreviousItem.Click += new System.EventHandler(this.move_Click);
-            // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
@@ -386,42 +339,6 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.TextBoxWidth = 54;
             this.bindingNavigatorPositionItem.WatermarkColor = System.Drawing.SystemColors.GrayText;
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.BeginGroup = true;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            this.bindingNavigatorMoveNextItem.Click += new System.EventHandler(this.move_Click);
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            this.bindingNavigatorMoveLastItem.Click += new System.EventHandler(this.move_Click);
-            // 
-            // buttonItem8
-            // 
-            this.buttonItem8.Image = global::QuanLiHocSinh.Properties.Resources.add;
-            this.buttonItem8.Name = "buttonItem8";
-            this.buttonItem8.Text = "buttonItem2";
-            this.buttonItem8.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // buttonItem9
-            // 
-            this.buttonItem9.Image = global::QuanLiHocSinh.Properties.Resources.delete;
-            this.buttonItem9.Name = "buttonItem9";
-            this.buttonItem9.Text = "buttonItem3";
-            this.buttonItem9.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // buttonItem1
-            // 
-            this.buttonItem1.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
-            this.buttonItem1.Name = "buttonItem1";
-            this.buttonItem1.Text = "buttonItem1";
-            this.buttonItem1.Click += new System.EventHandler(this.frmHocSinh_Load);
             // 
             // navigationPane1
             // 
@@ -464,7 +381,6 @@
             // 
             this.navigationPanePanel2.CanvasColor = System.Drawing.SystemColors.WindowText;
             this.navigationPanePanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.navigationPanePanel2.Controls.Add(this.button1);
             this.navigationPanePanel2.Controls.Add(this.labelX5);
             this.navigationPanePanel2.Controls.Add(this.txtDienThoai);
             this.navigationPanePanel2.Controls.Add(this.labelX8);
@@ -501,23 +417,13 @@
             this.navigationPanePanel2.Style.GradientAngle = 90;
             this.navigationPanePanel2.TabIndex = 3;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(219, 217);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // labelX5
             // 
             // 
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(11, 307);
+            this.labelX5.Location = new System.Drawing.Point(11, 297);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(108, 23);
             this.labelX5.TabIndex = 35;
@@ -534,7 +440,7 @@
             this.txtDienThoai.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtDienThoai.Border.Class = "TextBoxBorder";
             this.txtDienThoai.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtDienThoai.Location = new System.Drawing.Point(11, 330);
+            this.txtDienThoai.Location = new System.Drawing.Point(11, 320);
             this.txtDienThoai.Name = "txtDienThoai";
             this.txtDienThoai.Size = new System.Drawing.Size(160, 21);
             this.txtDienThoai.TabIndex = 7;
@@ -585,34 +491,6 @@
             this.txtDantoc.Enter += new System.EventHandler(this.txt_Enter);
             this.txtDantoc.Leave += new System.EventHandler(this.txt_Leave);
             // 
-            // btnHuy
-            // 
-            this.btnHuy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnHuy.Image = global::QuanLiHocSinh.Properties.Resources.Huybo;
-            this.btnHuy.Location = new System.Drawing.Point(156, 415);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(92, 35);
-            this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
-            this.btnHuy.TabIndex = 16;
-            this.btnHuy.Text = "Hủy";
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
-            // 
-            // btnDongy
-            // 
-            this.btnDongy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnDongy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDongy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnDongy.Image = global::QuanLiHocSinh.Properties.Resources.Dongy;
-            this.btnDongy.Location = new System.Drawing.Point(49, 415);
-            this.btnDongy.Name = "btnDongy";
-            this.btnDongy.Size = new System.Drawing.Size(92, 35);
-            this.btnDongy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
-            this.btnDongy.TabIndex = 15;
-            this.btnDongy.Text = "Đồng ý";
-            this.btnDongy.Click += new System.EventHandler(this.btnDongy_Click);
-            // 
             // btnChonAnh
             // 
             this.btnChonAnh.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -625,16 +503,6 @@
             this.btnChonAnh.Tag = "";
             this.btnChonAnh.Text = "Chọn ảnh ...";
             this.btnChonAnh.Click += new System.EventHandler(this.btnChonAnh_Click);
-            // 
-            // picHocSinh
-            // 
-            this.picHocSinh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picHocSinh.Location = new System.Drawing.Point(196, 8);
-            this.picHocSinh.Name = "picHocSinh";
-            this.picHocSinh.Size = new System.Drawing.Size(100, 110);
-            this.picHocSinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picHocSinh.TabIndex = 29;
-            this.picHocSinh.TabStop = false;
             // 
             // dtiNgaySinh
             // 
@@ -706,7 +574,7 @@
             this.dtiNgayNhapHoc.CustomFormat = "dd/MM/yyyy";
             this.dtiNgayNhapHoc.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
             this.dtiNgayNhapHoc.IsPopupCalendarOpen = false;
-            this.dtiNgayNhapHoc.Location = new System.Drawing.Point(11, 278);
+            this.dtiNgayNhapHoc.Location = new System.Drawing.Point(11, 272);
             // 
             // 
             // 
@@ -744,56 +612,13 @@
             this.dtiNgayNhapHoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.dtiNgayNhapHoc.TabIndex = 6;
             // 
-            // btnSua
-            // 
-            this.btnSua.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnSua.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnSua.Image = global::QuanLiHocSinh.Properties.Resources.Sua;
-            this.btnSua.Location = new System.Drawing.Point(201, 372);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(85, 35);
-            this.btnSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
-            this.btnSua.TabIndex = 14;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnXoa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnXoa.Image = global::QuanLiHocSinh.Properties.Resources.Xoa;
-            this.btnXoa.Location = new System.Drawing.Point(109, 372);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(85, 35);
-            this.btnXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
-            this.btnXoa.TabIndex = 13;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
-            // btnThem
-            // 
-            this.btnThem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnThem.BackColor = System.Drawing.Color.White;
-            this.btnThem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnThem.Image = global::QuanLiHocSinh.Properties.Resources.Them;
-            this.btnThem.Location = new System.Drawing.Point(17, 372);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(85, 35);
-            this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
-            this.btnThem.TabIndex = 12;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
             // labelX2
             // 
             // 
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(11, 201);
+            this.labelX2.Location = new System.Drawing.Point(11, 198);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(124, 23);
             this.labelX2.TabIndex = 14;
@@ -817,7 +642,7 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(11, 253);
+            this.labelX1.Location = new System.Drawing.Point(11, 247);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(124, 23);
             this.labelX1.TabIndex = 15;
@@ -858,7 +683,7 @@
             this.txtDiaChi.Border.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Double;
             this.txtDiaChi.Border.Class = "TextBoxBorder";
             this.txtDiaChi.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtDiaChi.Location = new System.Drawing.Point(12, 226);
+            this.txtDiaChi.Location = new System.Drawing.Point(12, 223);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(163, 21);
             this.txtDiaChi.TabIndex = 5;
@@ -913,6 +738,173 @@
             this.labelX14.TabIndex = 18;
             this.labelX14.Text = "Mã học sinh:";
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Image = global::QuanLiHocSinh.Properties.Resources.add;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Ins);
+            this.btnAdd.Text = "Thêm mới";
+            this.btnAdd.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // btnRefesh
+            // 
+            this.btnRefesh.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
+            this.btnRefesh.Name = "btnRefesh";
+            this.btnRefesh.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.F5);
+            this.btnRefesh.Text = "Làm tươi danh dách";
+            this.btnRefesh.Click += new System.EventHandler(this.frmHocSinh_Load);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = global::QuanLiHocSinh.Properties.Resources.delete;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.Del);
+            this.btnDelete.Text = "Xóa dòng được chọn";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Image = global::QuanLiHocSinh.Properties.Resources.exit;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.AltF4);
+            this.btnClose.Text = "Đóng cửa sổ này";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            this.bindingNavigatorMoveFirstItem.Click += new System.EventHandler(this.move_Click);
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            this.bindingNavigatorMovePreviousItem.Click += new System.EventHandler(this.move_Click);
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.BeginGroup = true;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            this.bindingNavigatorMoveNextItem.Click += new System.EventHandler(this.move_Click);
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.Text = "Move last";
+            this.bindingNavigatorMoveLastItem.Click += new System.EventHandler(this.move_Click);
+            // 
+            // buttonItem8
+            // 
+            this.buttonItem8.Image = global::QuanLiHocSinh.Properties.Resources.add;
+            this.buttonItem8.Name = "buttonItem8";
+            this.buttonItem8.Text = "buttonItem2";
+            this.buttonItem8.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // buttonItem9
+            // 
+            this.buttonItem9.Image = global::QuanLiHocSinh.Properties.Resources.delete;
+            this.buttonItem9.Name = "buttonItem9";
+            this.buttonItem9.Text = "buttonItem3";
+            this.buttonItem9.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // buttonItem1
+            // 
+            this.buttonItem1.Image = global::QuanLiHocSinh.Properties.Resources.refresh;
+            this.buttonItem1.Name = "buttonItem1";
+            this.buttonItem1.Text = "buttonItem1";
+            this.buttonItem1.Click += new System.EventHandler(this.frmHocSinh_Load);
+            // 
+            // btnHuy
+            // 
+            this.btnHuy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnHuy.Image = global::QuanLiHocSinh.Properties.Resources.Huybo;
+            this.btnHuy.Location = new System.Drawing.Point(156, 401);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(92, 35);
+            this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
+            this.btnHuy.TabIndex = 16;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
+            // btnDongy
+            // 
+            this.btnDongy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnDongy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnDongy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnDongy.Image = global::QuanLiHocSinh.Properties.Resources.Dongy;
+            this.btnDongy.Location = new System.Drawing.Point(49, 401);
+            this.btnDongy.Name = "btnDongy";
+            this.btnDongy.Size = new System.Drawing.Size(92, 35);
+            this.btnDongy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
+            this.btnDongy.TabIndex = 15;
+            this.btnDongy.Text = "Đồng ý";
+            this.btnDongy.Click += new System.EventHandler(this.btnDongy_Click);
+            // 
+            // picHocSinh
+            // 
+            this.picHocSinh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHocSinh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picHocSinh.Image = global::QuanLiHocSinh.Properties.Resources.no_image_found;
+            this.picHocSinh.InitialImage = null;
+            this.picHocSinh.Location = new System.Drawing.Point(196, 8);
+            this.picHocSinh.Name = "picHocSinh";
+            this.picHocSinh.Size = new System.Drawing.Size(100, 110);
+            this.picHocSinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picHocSinh.TabIndex = 29;
+            this.picHocSinh.TabStop = false;
+            this.picHocSinh.Click += new System.EventHandler(this.picHocSinh_Click);
+            // 
+            // btnSua
+            // 
+            this.btnSua.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnSua.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnSua.Image = global::QuanLiHocSinh.Properties.Resources.Sua;
+            this.btnSua.Location = new System.Drawing.Point(201, 358);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(85, 35);
+            this.btnSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
+            this.btnSua.TabIndex = 14;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnXoa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnXoa.Image = global::QuanLiHocSinh.Properties.Resources.Xoa;
+            this.btnXoa.Location = new System.Drawing.Point(109, 358);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(85, 35);
+            this.btnXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
+            this.btnXoa.TabIndex = 13;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnThem
+            // 
+            this.btnThem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnThem.BackColor = System.Drawing.Color.White;
+            this.btnThem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnThem.Image = global::QuanLiHocSinh.Properties.Resources.Them;
+            this.btnThem.Location = new System.Drawing.Point(17, 358);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(85, 35);
+            this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
+            this.btnThem.TabIndex = 12;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
             // btnItemNhap
             // 
             this.btnItemNhap.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
@@ -942,9 +934,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.bnaHocSinh)).EndInit();
             this.navigationPane1.ResumeLayout(false);
             this.navigationPanePanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picHocSinh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtiNgaySinh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtiNgayNhapHoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHocSinh)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1005,7 +997,6 @@
         private DevComponents.DotNetBar.ButtonItem buttonItem8;
         private DevComponents.DotNetBar.ButtonItem buttonItem9;
         private DevComponents.DotNetBar.ButtonItem buttonItem1;
-        private System.Windows.Forms.Button button1;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput dtiNgaySinh;
     }
 }

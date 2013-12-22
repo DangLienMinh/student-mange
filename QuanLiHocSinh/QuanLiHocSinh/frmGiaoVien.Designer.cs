@@ -180,7 +180,7 @@
             this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnHuy.Image = global::QuanLiHocSinh.Properties.Resources.Huybo;
-            this.btnHuy.Location = new System.Drawing.Point(149, 330);
+            this.btnHuy.Location = new System.Drawing.Point(149, 327);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(92, 30);
             this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -194,7 +194,7 @@
             this.btnDongY.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnDongY.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnDongY.Image = global::QuanLiHocSinh.Properties.Resources.Dongy;
-            this.btnDongY.Location = new System.Drawing.Point(46, 330);
+            this.btnDongY.Location = new System.Drawing.Point(46, 327);
             this.btnDongY.Name = "btnDongY";
             this.btnDongY.Size = new System.Drawing.Size(92, 30);
             this.btnDongY.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -218,12 +218,14 @@
             // picGiaoVien
             // 
             this.picGiaoVien.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picGiaoVien.Image = global::QuanLiHocSinh.Properties.Resources.no_image_found;
             this.picGiaoVien.Location = new System.Drawing.Point(182, 8);
             this.picGiaoVien.Name = "picGiaoVien";
             this.picGiaoVien.Size = new System.Drawing.Size(100, 110);
             this.picGiaoVien.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picGiaoVien.TabIndex = 29;
             this.picGiaoVien.TabStop = false;
+            this.picGiaoVien.Click += new System.EventHandler(this.picGiaoVien_Click);
             // 
             // labelX1
             // 
@@ -310,7 +312,7 @@
             this.btnSua.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnSua.Image = global::QuanLiHocSinh.Properties.Resources.Sua;
-            this.btnSua.Location = new System.Drawing.Point(189, 288);
+            this.btnSua.Location = new System.Drawing.Point(189, 285);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 30);
             this.btnSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -324,7 +326,7 @@
             this.btnXoa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnXoa.Image = global::QuanLiHocSinh.Properties.Resources.Xoa;
-            this.btnXoa.Location = new System.Drawing.Point(108, 288);
+            this.btnXoa.Location = new System.Drawing.Point(108, 285);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 30);
             this.btnXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -338,7 +340,7 @@
             this.btnThem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnThem.Image = global::QuanLiHocSinh.Properties.Resources.Them;
-            this.btnThem.Location = new System.Drawing.Point(27, 288);
+            this.btnThem.Location = new System.Drawing.Point(27, 285);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 30);
             this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -352,7 +354,7 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(11, 216);
+            this.labelX2.Location = new System.Drawing.Point(11, 212);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(124, 23);
             this.labelX2.TabIndex = 14;
@@ -428,7 +430,7 @@
             this.txtDiaChi.Border.Class = "TextBoxBorder";
             this.txtDiaChi.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtDiaChi.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtDiaChi.Location = new System.Drawing.Point(11, 241);
+            this.txtDiaChi.Location = new System.Drawing.Point(11, 237);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(155, 21);
             this.txtDiaChi.TabIndex = 5;
@@ -510,7 +512,7 @@
             this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(294, 536);
+            this.navigationPanePanel1.Size = new System.Drawing.Size(294, 434);
             this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -723,7 +725,7 @@
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdGiaoVien.DefaultCellStyle = dataGridViewCellStyle7;
             this.grdGiaoVien.Dock = System.Windows.Forms.DockStyle.Fill;

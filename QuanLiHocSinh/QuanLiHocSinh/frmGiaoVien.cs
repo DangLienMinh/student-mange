@@ -101,6 +101,7 @@ namespace QuanLiHocSinh
             resetAll();
             //tạo mã giáo viên
             txtMaGV.Text = "GV" + giaoVien_BUS.hienThiSoNguoi().ToString();
+            picGiaoVien.Image = QuanLiHocSinh.Properties.Resources.no_image_found;
         }
 
         private void btnChonAnh_Click(object sender, EventArgs e)
@@ -424,6 +425,17 @@ namespace QuanLiHocSinh
         private void navigationPanePanel2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void picGiaoVien_Click(object sender, EventArgs e)
+        {
+            open = new OpenFileDialog();
+            DialogResult result = open.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                //load hình ảnh vào pictureBox
+                picGiaoVien.Image = Image.FromFile(open.FileName);
+            }
         }
 
 

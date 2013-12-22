@@ -480,9 +480,20 @@ namespace QuanLiHocSinh
             anHienButton(true);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void picHocSinh_Click(object sender, EventArgs e)
         {
-            MessageBox.Show( hocSinh_BUS.TuoiToiDa().ToString());
+            flagChonAnh = true;
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Chọn hình ảnh";
+            ofd.Filter = "jpg files (*.jpg)|*.jpg|png file (*.png)|*.png|All files (*.*)|*.*";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                picHocSinh.Image = Image.FromFile(ofd.FileName);
+                linkGoc = ofd.FileName;
+                string linkimage;
+                linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + ofd.SafeFileName;
+                hocSinh_DTO.Hinhanhhs = linkimage;
+            }
         }
 
     }

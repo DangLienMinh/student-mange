@@ -505,6 +505,7 @@ namespace QuanLiHocSinh
 
             //False
             btnDangXuat.Enabled = false;
+            btnBaoCaoChung.Enabled = false;
             btnNhatKy.Enabled = false;
             btnMatKhau.Enabled = false;
             btnNguoiDung.Enabled = false;
@@ -557,7 +558,7 @@ namespace QuanLiHocSinh
             btnThamSo.Enabled = true;
             btnKQ.Enabled = true;
             btnBaoCaoHocTap.Enabled = true;
-
+            btnBaoCaoChung.Enabled = true;
             rbGiaoDien.Enabled = true;
         }
 
@@ -573,6 +574,7 @@ namespace QuanLiHocSinh
             btnTimLop.Enabled = true;
             btnTimHocSinh.Enabled = true;
             rbGiaoDien.Enabled = true;
+            
             btnBaoCaoHocTap.Enabled = true;
             //False
             btnDangNhap.Enabled = false;
@@ -584,6 +586,7 @@ namespace QuanLiHocSinh
             btnPhanLop.Enabled = false;
             btnGiaoVien.Enabled = false;
             btnPhanCong.Enabled = false;
+            btnBaoCaoChung.Enabled = false;
             btnLop.Enabled = false;
             btnKhaiBao.Enabled = false;
 
@@ -615,6 +618,7 @@ namespace QuanLiHocSinh
             btnThamSo.Enabled = true;
             btnKQ.Enabled = true;
             btnBaoCaoHocTap.Enabled = true;
+            btnBaoCaoChung.Enabled = true;
             //False
             btnDangNhap.Enabled = false;
             btnNguoiDung.Enabled = false;

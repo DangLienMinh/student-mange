@@ -315,8 +315,6 @@ namespace QuanLiHocSinh
                 bsRieng.DataSource = diem_BUS.thongTinDiemTheoHS(cboNamHoc1, cboHocKy1, cboLoaiDiem1, cboMonHoc1, cboHocSinh1);
                 grdDiemRieng.DataSource = bsRieng;
                 bnaDiemRieng.BindingSource = bsRieng;
-                
-               
             }
         }
 
@@ -449,6 +447,28 @@ namespace QuanLiHocSinh
                 grdDiemChung.DataSource = bsChung;
                 bnaDiem.BindingSource = bsChung;
                 diem_BUS.thongTinDiemTheoMaLD(cboNamHoc, cboHocKy, cboMonHoc, grdDiemChung);
+            }
+        }
+
+        private void cboHocKy1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cboLoaiDiem1.SelectedValue != null && cboHocSinh1.SelectedValue != null && cboMonHoc1.SelectedValue != null && cboLop1.SelectedValue != null && cboNamHoc1.SelectedValue != null)
+            {
+                bsRieng = new BindingSource();
+                bsRieng.DataSource = diem_BUS.thongTinDiemTheoHS(cboNamHoc1, cboHocKy1, cboLoaiDiem1, cboMonHoc1, cboHocSinh1);
+                grdDiemRieng.DataSource = bsRieng;
+                bnaDiemRieng.BindingSource = bsRieng;
+            }
+        }
+
+        private void cboMonHoc1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cboLoaiDiem1.SelectedValue != null && cboHocSinh1.SelectedValue != null && cboHocKy1.SelectedValue != null && cboLop1.SelectedValue != null && cboNamHoc1.SelectedValue != null)
+            {
+                bsRieng = new BindingSource();
+                bsRieng.DataSource = diem_BUS.thongTinDiemTheoHS(cboNamHoc1, cboHocKy1, cboLoaiDiem1, cboMonHoc1, cboHocSinh1);
+                grdDiemRieng.DataSource = bsRieng;
+                bnaDiemRieng.BindingSource = bsRieng;
             }
         }
     }
