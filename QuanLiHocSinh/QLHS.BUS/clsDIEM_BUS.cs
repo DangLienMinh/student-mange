@@ -36,6 +36,7 @@ namespace QLHS.BUS
             tblDiem = new DataTable();
         }
 
+        //thêm điểm cho học sinh
         public void themDiemTheoHS(ComboBoxEx cboMaNH,ComboBoxEx cboMaHK,ComboBoxEx cboMaLD,ComboBoxEx cboMaMH,ComboBoxEx cboMaHS,TextBoxX txtDiem)
         {
             diem_DTO = new clsDIEM_DTO();
@@ -53,6 +54,7 @@ namespace QLHS.BUS
             diem_DAO.themDiemTheoHS(diem_DTO);
         }
 
+        //sửa điểm cho học sinh
         public void suaDiemTheoHS(string STT, TextBoxX txtDiem)
         {
             diem_DTO = new clsDIEM_DTO();
@@ -61,6 +63,7 @@ namespace QLHS.BUS
             diem_DAO.suaDiemTheoHS(diem_DTO);
         }
 
+        //xóa điểm cho học sinh
         public void xoaDiemTheoHS(string STT)
         {
             diem_DTO = new clsDIEM_DTO();
@@ -68,6 +71,7 @@ namespace QLHS.BUS
             diem_DAO.xoaDiemTheoHS(diem_DTO);
         }
 
+        //xóa một dòng trên datagrid
         public void xoaDong(DataGridViewX grdDiemRieng, string STT)
         {
             DataRow row = tblDiem.Select("STT='" + STT + "'")[0];
@@ -75,13 +79,7 @@ namespace QLHS.BUS
             grdDiemRieng.DataSource = tblDiem;
         }
 
-        public void xoaGiaoVien(string STT)
-        {
-            diem_DTO = new clsDIEM_DTO();
-            diem_DTO.Stt = int.Parse(STT);
-            diem_DAO.xoaDiemTheoHS(diem_DTO);
-        }
-
+        //sửa tông tin trên datagrid
         public void suaDataGrid(DataGridViewX grdDiemRieng)
         {
             foreach (DataGridViewRow row1 in grdDiemRieng.Rows)
@@ -96,6 +94,7 @@ namespace QLHS.BUS
             }
         }
 
+        //trả về bảng thông tin điểm theo học sinh
         public DataTable thongTinDiemTheoHS(ComboBoxEx cboMaNH, ComboBoxEx cboMaHK, ComboBoxEx cboMaLD, ComboBoxEx cboMaMH, ComboBoxEx cboMaHS)
         {
             diem_DTO = new clsDIEM_DTO();
@@ -114,6 +113,7 @@ namespace QLHS.BUS
            return  tblDiem;
         }
 
+        //load thông tin điểm theo MALD vào datatagriđ
         public void thongTinDiemTheoMaLD(ComboBoxEx cboMaNH, ComboBoxEx cboMaHK, ComboBoxEx cboMaMH, DataGridViewX grdDiem)
         {
             tblDiem = new DataTable();
@@ -131,6 +131,7 @@ namespace QLHS.BUS
                     diem_DTO.Mald="LD01";
                     diem_DTO.Mahs = row.Cells["MAHS"].Value.ToString();
                     tblDiem = diem_DAO.thongTinDiemTheoMaLD(diem_DTO);
+                    //lưu điểm vào cell trong datagrid
                     foreach (DataRow item in tblDiem.Rows)
                     {
                         row.Cells["a" + i.ToString()].Value=item[0].ToString();
@@ -168,7 +169,7 @@ namespace QLHS.BUS
             }
         }
 
-
+        //xóa điểm đồng thời têm lại điểm trên grid
         public void xoaDiemTheoMaLD(ComboBoxEx cboMaNH, ComboBoxEx cboMaHK, ComboBoxEx cboMaMH, DataGridViewX grdDiem)
         {
             tblDiem = new DataTable();
@@ -253,6 +254,7 @@ namespace QLHS.BUS
             }
         }
 
+        //đếm số điểm theo mald
         public int demDiem(ComboBoxEx cboMaNH,ComboBoxEx cboMaHK,ComboBoxEx cboMaLD,ComboBoxEx cboMaMH,ComboBoxEx cboMaHS)
         {
             diem_DTO = new clsDIEM_DTO();
@@ -264,6 +266,7 @@ namespace QLHS.BUS
             return diem_DAO.demDiem(diem_DTO);
         }
 
+        //trả về datarow diem_DTO
         private DataRow getDatarow()
         {
             dr = tblDiem.NewRow();
@@ -284,6 +287,7 @@ namespace QLHS.BUS
             tblDiem.Rows.Add(getDatarow());
         }
 
+        //tính điểm để load lên form ketQua
         public void ketQuaDiemHK(ComboBoxEx cboMaNH, string maBan, DataGridViewX grdDiem)
         {
             string namHoc = cboMaNH.SelectedValue.ToString();
@@ -294,7 +298,7 @@ namespace QLHS.BUS
                 if (row.Cells["MAHS"].Value != null)
                 {
                     string maHS = row.Cells["MAHS"].Value.ToString();
-
+                    //duyệt qua tất cả các môn học trên grid
                     for (int i = 1; i <= 13; i++)
                     {
                         if (i < 10)
@@ -460,6 +464,7 @@ namespace QLHS.BUS
            return lop_BUS.layPhanBan(maLop);
         }
 
+        //điểm trung bình môn học theo học kỳ LD05
         public double diemTBTheoHocKiMonHoc(string maHS,string maHK,string maMH,string maNH)
         {
             float tongMieng=0,tong15=0, tongThi=0, tong1Tiet=0, tong=0;
@@ -512,7 +517,6 @@ namespace QLHS.BUS
                 tong += (tongMieng * heSoMieng + tong15 * heSo15 + tong1Tiet * heSo1iet + tongThi * heSoThi) / (soCotMieng * heSoMieng + soCot15 * heSo15 + soCot1Tiet * heSo1iet + heSoThi);
             }
            return Math.Round((double)tong,1);
-            //return tong.ToString("n2");
         }
     }
 }

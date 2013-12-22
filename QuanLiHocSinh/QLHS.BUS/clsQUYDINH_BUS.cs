@@ -13,9 +13,8 @@ namespace QLHS.BUS
     public class clsQUYDINH_BUS
     {
         clsQUYDINH_DAO quyDinh_DAO;
-         clsQUYDINH_DTO quyDinh_DTO;
+        clsQUYDINH_DTO quyDinh_DTO;
         DataTable tblQuyDinh;
-        List<string> temp = new List<string>();
 
         public clsQUYDINH_BUS()
         {
@@ -23,12 +22,14 @@ namespace QLHS.BUS
             tblQuyDinh = new DataTable();
         }
 
+        //sửa đổi sỉ số tối thiểu
         public int siSoToiThieu()
         {
             int value = -1;
             tblQuyDinh = quyDinh_DAO.thongTinQuyDinh();
             for (int i = 0; i < tblQuyDinh.Rows.Count; i++)
             {
+                //sỉ số tối thiểu ở dòng 4 tron csdl
                 switch (i)
                 {
 
@@ -42,6 +43,7 @@ namespace QLHS.BUS
             return value;
         }
 
+        //sửa đổi sỉ số tối đa
         public int siSoToiDa()
         {
             int value = -1;
@@ -61,8 +63,7 @@ namespace QLHS.BUS
             return value;
         }
 
-       
-
+        //hiển thị thông tin quy định lên các control
         public void hienThiDanhSach(IntegerInput txtTuoiTT,
                             IntegerInput txtTuoiTD,
                             IntegerInput txtSiSoTT,
@@ -96,6 +97,7 @@ namespace QLHS.BUS
             }
         }
 
+        //sửa thông tin trường
         public void suaThongTinTruong(TextBoxX txtTenTruong,TextBoxX txtDiaChi,TextBoxX txtDienThoai)
         {
             quyDinh_DTO = new clsQUYDINH_DTO();
@@ -105,6 +107,7 @@ namespace QLHS.BUS
             quyDinh_DAO.suaTruongHoc(quyDinh_DTO);
         }
 
+        //sửa thông tin sỉ số
         public void suaThongTinSiSo(IntegerInput txtSiSoTT,IntegerInput txtSiSoTD)
         {
             quyDinh_DTO = new clsQUYDINH_DTO();
@@ -113,48 +116,13 @@ namespace QLHS.BUS
             quyDinh_DAO.suaSiSo(quyDinh_DTO);
         }
 
+        //sửa thông tin tuổi
         public void suaThongTinTuoi(IntegerInput txtTuoiTT, IntegerInput txtTuoiTD)
         {
             quyDinh_DTO = new clsQUYDINH_DTO();
             quyDinh_DTO.TuoiTT = txtTuoiTT.Value.ToString();
             quyDinh_DTO.TuoiTD = txtTuoiTD.Value.ToString();
             quyDinh_DAO.suaTuoi(quyDinh_DTO);
-        }
-
-        public int tuoiToiThieu()
-        {
-            int value = -1;
-            tblQuyDinh = quyDinh_DAO.thongTinQuyDinh();
-            for (int i = 0; i < tblQuyDinh.Rows.Count; i++)
-            {
-                switch (i)
-                {
-                    case 2: value = int.Parse(tblQuyDinh.Rows[i][0].ToString());
-                        break;
-
-                    default:
-                        break;
-                }
-            }
-            return value;
-        }
-
-        public int tuoiToiDa()
-        {
-            int value = -1;
-            tblQuyDinh = quyDinh_DAO.thongTinQuyDinh();
-            for (int i = 0; i < tblQuyDinh.Rows.Count; i++)
-            {
-                switch (i)
-                {
-                    case 3: value = int.Parse(tblQuyDinh.Rows[i][0].ToString());
-                        break;
-
-                    default:
-                        break;
-                }
-            }
-            return value;
         }
     }
 }

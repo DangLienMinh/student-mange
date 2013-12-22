@@ -25,6 +25,7 @@ namespace QLHS.BUS
             tblNguoiDung = new DataTable();
         }
 
+        //hiển thị danh sách loại người dùng lên comboBox
         public void hienThiComboBox(ComboBoxEx comboBox)
         {
             comboBox.DataSource = loaiNguoiDung_DAO.danhSachLoaiNguoiDung();
@@ -32,6 +33,7 @@ namespace QLHS.BUS
             comboBox.ValueMember = "MALND";         
         }
 
+        //hiển thị danh sách ngừoi dùng
         public DataTable hienThiDanhSach()
         {
             tblNguoiDung = nguoiDung_DAO.danhSachNguoiDung();
@@ -58,22 +60,7 @@ namespace QLHS.BUS
             return result;
         }
 
-        //public void timGVMaND(DataGridViewX grdNguoiDung, string maND)
-        //{
-        //    nguoiDung_DTO = new clsNGUOIDUNG_DTO();
-        //    nguoiDung_DTO.Mand = maND;
-        //    tblNguoiDung = nguoiDung_DAO.timGVMaND(nguoiDung_DTO);
-        //    grdNguoiDung.DataSource = tblNguoiDung;
-        //}
-
-        //public void timGVTenND(DataGridViewX grdNguoiDung,string tenGV)
-        //{
-        //    nguoiDung_DTO = new clsNGUOIDUNG_DTO();
-        //    nguoiDung_DTO.Tengv = tenGV;
-        //    tblNguoiDung = nguoiDung_DAO.timGVTenND(nguoiDung_DTO);
-        //    grdNguoiDung.DataSource = tblNguoiDung;
-        //}
-
+        //xóa người dùng
         public void xoaNguoiDung(string maND) 
         {
             nguoiDung_DTO=new clsNGUOIDUNG_DTO();
@@ -81,6 +68,7 @@ namespace QLHS.BUS
             nguoiDung_DAO.xoaNguoiDung(nguoiDung_DTO);        
         }
 
+        //thêm người dùng
         public void themNguoiDung(string maND,string TenND, string MaLND,string TenDN,string MatKhau)
         {
             nguoiDung_DTO = new clsNGUOIDUNG_DTO();
@@ -92,6 +80,7 @@ namespace QLHS.BUS
             nguoiDung_DAO.themNguoiDung(nguoiDung_DTO);
         }
 
+        //sửa người dùng
         public void suaNguoiDung(string maND, string TenND, string MaLND, string TenDN, string MatKhau)
         {
             nguoiDung_DTO = new clsNGUOIDUNG_DTO();
@@ -103,6 +92,7 @@ namespace QLHS.BUS
             nguoiDung_DAO.suaNguoiDung(nguoiDung_DTO);
         }
 
+        //sửa đổi mật khẩu
         public void suaMatKhau(string TenDN, string MatKhau)
         {
             nguoiDung_DTO = new clsNGUOIDUNG_DTO();
@@ -110,8 +100,8 @@ namespace QLHS.BUS
             nguoiDung_DTO.Matkhau = MatKhau;
             nguoiDung_DAO.suaMatKhau(nguoiDung_DTO);
         }
-
         
+        //trả về một datarow gồm đầy đủ các thuộc tính trong nguoiDung_DTO
         private DataRow getDatarow()
         {
             dr = tblNguoiDung.NewRow();
@@ -136,6 +126,7 @@ namespace QLHS.BUS
             row.Delete();
         }
 
+        //sửa thông tin trên table người dùng dựa vào đối tượng nguoiDung_DTO
         public void suaDataGrid()
         {
             foreach (DataRow row1 in tblNguoiDung.Rows)
@@ -153,19 +144,20 @@ namespace QLHS.BUS
             }
         }
 
+        //kiểm tra tên đăng nhập và mật khẩu
         public int DangNhap(string tenDN, string matKhau,clsNGUOIDUNG_DTO nguoiDung_DTO)
         {
-
             DataTable nguoiDung = nguoiDung_DAO.danhSachNguoiDungTheoTENDN(tenDN);
 
             if (nguoiDung.Rows.Count == 0)
                 return 0;
             //lấy mật khẩu hệ thống
             String matKhauHT = nguoiDung.Rows[0]["MATKHAU"].ToString();
-
+            //nếu mật khẩu khác nhau thì trả về 1
             if (matKhauHT != matKhau)
                 return 1;
             else
+                //nếu trùng mật khẩu thì return 2 và trả èề thông tin người dùng
             {
                 nguoiDung_DTO.Tendn = nguoiDung.Rows[0]["TenND"].ToString();
                 nguoiDung_DTO.Malnd = nguoiDung.Rows[0]["MALND"].ToString();

@@ -33,6 +33,25 @@ namespace QLHS.BUS
             hanhKiem_BUS=new clsHANHKIEM_BUS();
         }
 
+        //report danh sách lớp
+        public DataSet reportDanhSachLop()
+        {
+            return baoCao_DAO.reportDanhSachLop();
+        }
+
+        //report danh sác giáo viên
+        public DataSet reportDanhSachGiaoVien()
+        {
+            return baoCao_DAO.reportDanhSachGiaoVien();
+        }
+
+        //report thẻ học sinh
+        public DataSet reportTheHocSinh(string maLop)
+        {
+            return baoCao_DAO.reportTheHS(maLop);
+        }
+
+        //bản điểm học sinh
         public DataSet bangDiemHocSinh(string manh, string malop, string mahs)
         {
             decimal TongdiemHK1 = 0;
@@ -165,6 +184,7 @@ namespace QLHS.BUS
             return ds;
         }
 
+       //thông tin học sinh lưu ban theo năm học
         public DataSet layThongTinLuuBanTheoNamHoc(ComboBoxEx namHoc, ComboBoxEx khoi)
         {
             DataTable tableNH = new DataTable();
@@ -186,6 +206,7 @@ namespace QLHS.BUS
             return ds;
         }
 
+        //tính trung bình kết quả theo học kỳ
         private DataTable tinhTrungBinhTheoHocKi(DataTable trungBinhHk, string maBan)
         {
             //kiểm tra 2 môn toán văn trên 8.0 và không môn nào dưới 6.5
@@ -490,6 +511,7 @@ namespace QLHS.BUS
             return trungBinhHk;
         }
 
+        //tính trung bình học sinh giỏi theo học kỳ
         private DataTable tinhTrungBinhHSG(DataTable trungBinhHk, string maBan)
         {
             //kiểm tra 2 môn toán văn trên 8.0 và không môn nào dưới 6.5
@@ -652,6 +674,7 @@ namespace QLHS.BUS
             return trungBinhHk;
         }
 
+        //tính trung bình lưu ban theo học kỳ
         private DataTable tinhTrungBinhLuuBanHK(DataTable trungBinhHk)
         {
             //kiểm tra 2 môn toán văn trên 3.5 và không môn nào dưới 2
@@ -836,6 +859,7 @@ namespace QLHS.BUS
             return trungBinhHk;
         }
 
+        //tính trung bình lưu ban theo năm học
         private DataTable tinhTrungBinhLuuBanNH(DataTable HK1, DataTable HK2)
         {
             DataTable result = new DataTable();
@@ -864,12 +888,12 @@ namespace QLHS.BUS
                         }
                         
                     }
-                }
-            
+                }         
             }
             return result;
         }
 
+        //tính điểm trung cả năm
         private double tinhDiem(string cot1, string cot2)
         {
             double result=0;
@@ -880,6 +904,7 @@ namespace QLHS.BUS
             return result;
         }
 
+        //báo cáo điểm theo môn học
         public DataSet baoCaoDiemTheoMonHoc(ComboBoxEx cboMaNH, ComboBoxEx cboMaHK, ComboBoxEx cboMaMH, string maLop)
         {
           
@@ -953,6 +978,7 @@ namespace QLHS.BUS
             return ds;
         }
 
+        //học bạ năm
         public DataSet hocBaTheoNamHoc(ComboBoxEx cboMaNH, ComboBoxEx cboMaHS, string maLop)
         {
             DataSet ds = new DataSet();
@@ -992,6 +1018,7 @@ namespace QLHS.BUS
             return ds;
         }
 
+        //tính điểm trên học bạ
         private DataTable diemHocBa(DataTable diemHocBa,clsDIEM_DTO diem_DTO)
         {
            

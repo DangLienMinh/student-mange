@@ -23,12 +23,14 @@ namespace QLHS.BUS
             tblNamHoc = new DataTable();
         }
 
+        //trả về bảng năm jhọc
         public DataTable hienThiDanhSach()
         {
             tblNamHoc = namHoc_DAO.danhSachNamHoc();
             return tblNamHoc;
         }
 
+        //hiển thị comboBox năm học
         public void hienThiComboBox(ComboBoxEx cb)
         {
             cb.DataSource = namHoc_DAO.danhSachNamHoc();
@@ -36,6 +38,7 @@ namespace QLHS.BUS
             cb.ValueMember = "MANH";
         }
 
+        //hiển thị comboBox năm học trên datagrid combobox column
         public void HienThiDataGridViewComboBoxColumn(DataGridViewComboBoxColumn cboColumn)
         {
             cboColumn.DataSource = namHoc_DAO.danhSachNamHoc();
@@ -44,6 +47,7 @@ namespace QLHS.BUS
             cboColumn.DataPropertyName = "MANH";
         }
 
+        //thêm một năm học mới
         public void themNamHoc(string maNH, string tenNH)
         {
             namHoc__DTO = new clsNAMHOC_DTO();
@@ -52,6 +56,7 @@ namespace QLHS.BUS
             namHoc_DAO.themNamHoc(namHoc__DTO);
         }
 
+        //sửa thông tin một năm học
         public void suaNamHoc(string maNH, string tenNH)
         {
             namHoc__DTO = new clsNAMHOC_DTO();
@@ -60,6 +65,7 @@ namespace QLHS.BUS
             namHoc_DAO.suaNamHoc(namHoc__DTO);
         }
 
+        //trả về datarow namHoc_DTO
         private DataRow getDatarow()
         {
             dr = tblNamHoc.NewRow();
@@ -74,6 +80,7 @@ namespace QLHS.BUS
             tblNamHoc.Rows.Add(getDatarow());
         }
 
+        //sửa thông tin năm học trên table năm học dựa vào namHoc_DTO
         public void suaDataGrid()
         {
             foreach (DataRow row1 in tblNamHoc.Rows)

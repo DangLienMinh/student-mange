@@ -18,6 +18,7 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
+        //thông tin loại điểm
         public DataTable danhSachLoaiDiem()
         {
             DataTable table = new DataTable();
@@ -64,6 +65,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
+        //hệ số loại ỉiểm
         public int heSoLoaiDiem(clsLOAIDIEM_DTO loaiDiem_DTO)
         {
             int temp = -1;

@@ -17,10 +17,10 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
+        //đếm số lần xuất hiên của một loại điểm
         public int demDiem(clsDIEM_DTO diem_DTO)
         {
             int temp;
-
             SqlCommand command = new SqlCommand("SP_DemDiem", con);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@MANH", SqlDbType.VarChar, 6).Value = diem_DTO.Manh;
@@ -42,6 +42,7 @@ namespace QLHS.DAO
             return temp;
         }
 
+        //thêm một điểm mới cho học sinh
         public void themDiemTheoHS(clsDIEM_DTO diem_DTO)
         {
             SqlCommand command = new SqlCommand("SP_ThemDiemTheoHS", con);
@@ -57,6 +58,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
+        //lấy thông tin điểm học sinh theo MANH,MAHK,MAMH,MAHS
         public DataTable diemTBTheoHocKiMonHoc(clsDIEM_DTO diem_DTO)
         {
             DataTable table = new DataTable();
@@ -73,6 +75,7 @@ namespace QLHS.DAO
             return table;
         }
 
+        //lấy tất cả thông tin điểm học sinh theo MANH,MAHK,MAMH,MAHS,MALD
         public DataTable thongTinDiemTheoHS(clsDIEM_DTO diem_DTO)
         {
             DataTable table = new DataTable();
@@ -90,6 +93,7 @@ namespace QLHS.DAO
             return table;
         }
 
+        //chỉ lấy điểm số của học sinh theo thông tin input
         public DataTable thongTinDiemTheoMaLD(clsDIEM_DTO diem_DTO)
         {
             DataTable table = new DataTable();
@@ -107,6 +111,7 @@ namespace QLHS.DAO
             return table;
         }
 
+        //sửa điểm số của học sinh
         public void suaDiemTheoHS(clsDIEM_DTO diem_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaDiemTheoHS", con);
@@ -118,6 +123,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
+        //xóa điểm học sinh
         public void xoaDiemTheoHS(clsDIEM_DTO diem_DTO)
         {
             SqlCommand command = new SqlCommand("SP_XoaDiemTheoHS", con);
@@ -128,6 +134,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
+        //xóa tất cả các điểm học sinh theo mã loại điểm
         public void xoaDiemTheoMaLD(clsDIEM_DTO diem_DTO)
         {
             SqlCommand command = new SqlCommand("SP_XoaDiemHSTheoMaLD", con);

@@ -27,11 +27,9 @@ namespace QLHS.BUS
             giaoVien_DAO = new clsGIAOVIEN_DAO();
         }
 
-        public DataSet reportDanhSachLop()
-        {
-            return lop_DAO.reportDanhSachLop();
-        }
+       
 
+        //hiển thị comboBox Giaó viên chủ nhiệm
         public void cboGiaoVienChuNhiem(ComboBoxEx comboBox)
         {
             comboBox.DataSource = giaoVien_DAO.danhSachGiaoVien();
@@ -39,6 +37,7 @@ namespace QLHS.BUS
             comboBox.ValueMember = "MAGV";
         }
 
+       //Hiểm thị thông tin ban lên comboBox
         public void cboBan(ComboBoxEx comboBox)
         {
             comboBox.DataSource = lop_DAO.danhSachBan();
@@ -46,6 +45,7 @@ namespace QLHS.BUS
             comboBox.ValueMember = "MABAN";
         }
 
+        //hiển thị sỉ số lớp theo mã lớp
         public int siSoLop(ComboBoxEx cboMaLop)
         {
             lop_DTO=new clsLOP_DTO();
@@ -54,6 +54,7 @@ namespace QLHS.BUS
  
         }
 
+        //hiển thị comboBox lớp lên datagrid
         public void hienThiDataGridViewComboBoxColumn(DataGridViewComboBoxColumn cboColumn)
         {
             cboColumn.DataSource = lop_DAO.danhSachLop();
@@ -62,6 +63,7 @@ namespace QLHS.BUS
             cboColumn.DataPropertyName = "MALOP";
         }
 
+        //hiển thị comboBox ban lên datagrid
         public void hienThiDataGridViewComboBoxColumnBan(DataGridViewComboBoxColumn cboColumn)
         {
             cboColumn.DataSource = lop_DAO.danhSachBan();
@@ -69,14 +71,6 @@ namespace QLHS.BUS
             cboColumn.ValueMember = "MABAN";
             cboColumn.DataPropertyName = "MABAN";
         }
-
-        //public void hienThiComboBoxBan(ComboBoxEx comboBox)
-        //{
-        //    comboBox.Items.Add("Khoa học tự nhiên");
-        //    comboBox.Items.Add("Khoa học xã hội và Nhân văn");
-        //    comboBox.Items.Add("Cơ bản");
-        //    comboBox.SelectedItem = "Khoa học tự nhiên";
-        //}
 
         //tạo mã lớp dựa vào năm hiện hành 
         public string taoMaLop()
@@ -95,18 +89,25 @@ namespace QLHS.BUS
             return result;
         }
 
+        //thêm một lớp học mới
         public void themLopHoc(clsLOP_DTO lop)
         {
             lop_DAO.themLop(lop);
         }
 
+        //sửa một lớp học
         public void suaLop(clsLOP_DTO lop)
         {
             lop_DAO.suaLop(lop);
         }
 
-       
+        //xóa một lớp học
+        public void xoaLop(clsLOP_DTO lop)
+        {
+            lop_DAO.xoaLop(lop);
+        }
 
+        //danh sách lớp theo mã học sinh và mã năm học
         public string danhSachLop(string maHS,string maNH)
         {
             string text = "";
@@ -121,70 +122,12 @@ namespace QLHS.BUS
             
         }
 
-        public void xoaLop(clsLOP_DTO lop)
-        {
-            lop_DAO.xoaLop(lop);
-        }
-
+        //danh sách lớp học
         public DataTable danhSachLop()
         {
             DataTable table= lop_DAO.danhSachLop();
             return table;
         }
-
-        
-        //public void taiLaiDataGrid(DataGridViewX grdLop)
-        //{
-        //    if (grdLop.Rows.Count > 0)
-        //    {
-        //        foreach (DataGridViewRow row in grdLop.Rows)
-        //        {
-        //            if (row.Cells["MALOP1"].Value != null)
-        //            {
-        //                if (row.Cells["BAN1"].Value.ToString() == "KHTN")
-        //                {
-        //                    row.Cells["BAN1"].Value = "Khoa học tự nhiên";
-        //                }
-        //                else if (row.Cells["BAN1"].Value.ToString() == "CB")
-        //                {
-        //                    row.Cells["BAN1"].Value = "Cơ bản";
-        //                }
-        //                else
-        //                {
-        //                    row.Cells["BAN1"].Value = "Khoa học xã hội và Nhân văn";
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
-
-       
-
-        //public void taiLaiDataGrid(DataGridViewX grdLop, DataTable dsLop)
-        //{
-        //    grdLop.DataSource = dsLop;
-        //    if (grdLop.Rows.Count > 0)
-        //    {
-        //        foreach (DataGridViewRow row in grdLop.Rows)
-        //        {
-        //            if (row.Cells["MALOP1"].Value != null)
-        //            {
-        //                if (row.Cells["BAN1"].Value.ToString() == "KHTN")
-        //                {
-        //                    row.Cells["BAN1"].Value = "Khoa học tự nhiên";
-        //                }
-        //                else if (row.Cells["BAN1"].Value.ToString() == "CB")
-        //                {
-        //                    row.Cells["BAN1"].Value = "Cơ bản";
-        //                }
-        //                else
-        //                {
-        //                    row.Cells["BAN1"].Value = "Khoa học xã hội và Nhân văn";
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
 
         //chỉ chọn lớp 10 của năm học đó
         public void cboLop10(ComboBoxEx comboBox, string nam)
@@ -195,21 +138,6 @@ namespace QLHS.BUS
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         ////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary>
         /// form danh sách học sinh theo lớp
@@ -217,12 +145,15 @@ namespace QLHS.BUS
         /// </summary>
         /// <param name="maNH"></param>
         /// <param name="tree"></param>
+        //HIển thị lớp theo mã năm học
         public void hienThiTreeLopTheoNamHoc(string maNH, AdvTree tree)
         {
             Node temp;
             lop_DTO = new clsLOP_DTO();
             lop_DTO.Manh = maNH;
+            //thông tin lớp theo năm học
             tblLop = lop_DAO.danhSachLopTheoNamHoc(lop_DTO);
+            //tạo ra ba nút
             Node k10 = new Node("Khối 10");
             Node k11 = new Node("Khối 11");
             Node k12 = new Node("Khối 12");
@@ -252,6 +183,7 @@ namespace QLHS.BUS
             tree.Nodes.Add(k12);
         }
 
+        //hiển thị conmboBox lớp theo mã năm học
         public void hienThiCboLopTheoNamHoc(string maNH, ComboBoxEx cboLop)
         {
             lop_DTO = new clsLOP_DTO();
@@ -262,6 +194,7 @@ namespace QLHS.BUS
             cboLop.ValueMember = "MALOP";
         }
 
+        //hiển thị cboLớp theo năm học và khối lớp
         public void hienThiCbLopTheoNamHocKhoi(string maNH, ComboBoxEx comboBoxLop, string maKhoi)
         {
             
@@ -275,9 +208,9 @@ namespace QLHS.BUS
             comboBoxLop.ValueMember = "MALOP";
         }
 
+        //lấy thông tin mã lớp trên treeview
         public string layMaLopTrenTree(ComboBoxEx comboBox, AdvTree tree)
         {
-
             string temp = "";
             lop_DTO = new clsLOP_DTO();
             lop_DTO.Manh = comboBox.SelectedValue.ToString();
@@ -292,6 +225,7 @@ namespace QLHS.BUS
             return temp;
         }
 
+        //lấy ban dựa trên mã lớp
         public string layPhanBan(string maLop)
         {
             lop_DTO = new clsLOP_DTO();
