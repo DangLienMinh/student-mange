@@ -20,6 +20,7 @@ namespace QLHS.BUS
         private clsDIEM_DTO diem_DTO;
         private clsLOP_BUS lop_BUS;
         private clsDIEM_DAO diem_DAO;
+        private clsHANHKIEM_BUS hanhKiem_BUS;
 
         public clsBAOCAO_BUS()
         {
@@ -29,6 +30,7 @@ namespace QLHS.BUS
             baoCao_DTO = new clsBAOCAO_DTO();
             lop_BUS = new clsLOP_BUS();
             diem_DAO = new clsDIEM_DAO();
+            hanhKiem_BUS=new clsHANHKIEM_BUS();
         }
 
         public DataSet bangDiemHocSinh(string manh, string malop, string mahs)
@@ -205,7 +207,7 @@ namespace QLHS.BUS
                 {
                     case "B02":
                         {
-                            for (int i = 6; i <= 17; i++)
+                            for (int i = 6; i <= 18; i++)
                             {
                                 double diem = 0;
                                 if (row[i].ToString() != "")
@@ -256,7 +258,7 @@ namespace QLHS.BUS
                         break;
                     case "B03":
                         {
-                            for (int i = 6; i <= 17; i++)
+                            for (int i = 6; i <= 18; i++)
                             {
                                 double diem = 0;
 
@@ -310,7 +312,7 @@ namespace QLHS.BUS
                     case "B01":
                         {
                             double max = 0;
-                            for (int i = 6; i <= 17; i++)
+                            for (int i = 6; i <= 18; i++)
                             {
                                 double diem = 0;
 
@@ -428,7 +430,7 @@ namespace QLHS.BUS
                 {
                     case 1:
                         {
-                            if (count == 12 && diemTB >= 8)
+                            if (count == 13 && diemTB >= 8)
                             {
                                 row["HocLuc"] = "Giỏi";
                             }
@@ -441,7 +443,7 @@ namespace QLHS.BUS
                         break;
                     case 2:
                         {
-                            if (count == 12 && diemTB >= 6.5)
+                            if (count == 13 && diemTB >= 6.5)
                             {
                                 row["HocLuc"] = "Khá";
                             }
@@ -454,7 +456,7 @@ namespace QLHS.BUS
                         break;
                     case 3:
                         {
-                            if (count == 12 && diemTB >= 5)
+                            if (count == 13 && diemTB >= 5)
                             {
                                 row["HocLuc"] = "TB";
                             }
@@ -467,7 +469,7 @@ namespace QLHS.BUS
                         break;
                     case 4:
                         {
-                            if (count == 12 && diemTB >= 3.5)
+                            if (count == 13 && diemTB >= 3.5)
                             {
                                 row["HocLuc"] = "Yếu";
                             }
@@ -505,7 +507,7 @@ namespace QLHS.BUS
                 {
                     case "B02":
                         {
-                            for (int i = 6; i <= 17; i++)
+                            for (int i = 6; i <= 18; i++)
                             {
                                 double diem = 0;
                                 if (row[i].ToString() != "")
@@ -540,7 +542,7 @@ namespace QLHS.BUS
                         break;
                     case "B03":
                         {
-                            for (int i = 6; i <= 17; i++)
+                            for (int i = 6; i <= 18; i++)
                             {
                                 double diem = 0;
 
@@ -578,7 +580,7 @@ namespace QLHS.BUS
                     case "B01":
                         {
                             double max = 0;
-                            for (int i = 6; i <= 17; i++)
+                            for (int i = 6; i <= 18; i++)
                             {
                                 double diem = 0;
 
@@ -638,7 +640,7 @@ namespace QLHS.BUS
 
                 }
 
-                if (flag == 1 && diemTB >= 8 && count == 12)
+                if (flag == 1 && diemTB >= 8 && count == 13)
                 {
                     row["HocLuc"] = "Giỏi";
                 }
@@ -670,7 +672,7 @@ namespace QLHS.BUS
                 {
                     case "B02":
                         {
-                            for (int i = 5; i <= 16; i++)
+                            for (int i = 5; i <= 17; i++)
                             {
                                 double diem = 0;
                                 if (row[i].ToString() != "")
@@ -711,7 +713,7 @@ namespace QLHS.BUS
                         break;
                     case "B03":
                         {
-                            for (int i = 5; i <= 16; i++)
+                            for (int i = 5; i <= 17; i++)
                             {
                                 double diem = 0;
 
@@ -753,7 +755,7 @@ namespace QLHS.BUS
                     case "B01":
                         {
                             double max = 0;
-                            for (int i = 5; i <= 16; i++)
+                            for (int i = 5; i <= 17; i++)
                             {
                                 double diem = 0;
 
@@ -818,7 +820,7 @@ namespace QLHS.BUS
 
                 }
 
-                if (flag == 1 && diemTB >= 3.5 && count == 12)
+                if (flag == 1 && diemTB >= 3.5 && count == 13)
                 {
                     row["HocLuc"] = "Yếu";
                 }
@@ -951,7 +953,1188 @@ namespace QLHS.BUS
             return ds;
         }
 
-       
+        public DataSet hocBaTheoNamHoc(ComboBoxEx cboMaNH, ComboBoxEx cboMaHS, string maLop)
+        {
+            DataSet ds = new DataSet();
+            DataTable tblDSNamHoc = new DataTable();           
+            
+            tblDSNamHoc = baoCao_DAO.DanhSachCacNamHoc(cboMaHS.SelectedValue.ToString());
+            if (tblDSNamHoc.Rows.Count==3)
+            {
+                DataTable tblTemp = new DataTable();
+                DataTable tblKQ = new DataTable();
+                baoCao_DTO = new clsBAOCAO_DTO();
+                string maHS = "";
+                foreach (DataRow row in tblDSNamHoc.Rows)
+                {
+                    diem_DTO = new clsDIEM_DTO();
+                    if (row["MAHS"].ToString() != "" && row["MANH"].ToString() != "" && row["MALOP"].ToString() != "")
+                    {
+                        diem_DTO.Mahs = row["MAHS"].ToString();
+
+                        diem_DTO.Manh = row["MANH"].ToString();
+
+                        baoCao_DTO.Mahs = row["MAHS"].ToString();
+                        baoCao_DTO.Manh = row["MANH"].ToString();
+                        baoCao_DTO.Malop = row["MALOP"].ToString();
+                        tblTemp = baoCao_DAO.HocBaTheoNamHoc(baoCao_DTO);
+                        diemHocBa(tblTemp, diem_DTO);
+                        ds.Tables.Add(tblTemp);
+                    }
+                    maHS = row["MAHS"].ToString();
+                }
+                hocSinh_DTO=new clsHOCSINH_DTO();
+                hocSinh_DTO.Mahs=maHS;
+                DataTable tblHocSinh=hocSinh_DAO.timHocSinhMaHS(hocSinh_DTO);
+                ds.Tables.Add(tblHocSinh);
+            }
+            
+            return ds;
+        }
+
+        private DataTable diemHocBa(DataTable diemHocBa,clsDIEM_DTO diem_DTO)
+        {
+           
+            foreach (DataRow row in diemHocBa.Rows)
+            {
+                int flag = 0;
+                int flag1 = 0;
+                DataTable tblDiem = new DataTable();
+                switch (row["MABAN"].ToString())
+                {
+                    case "B02":
+                        {
+                            double trungBinhHK1 = 0;
+                            double trungBinhHK2 = 0;
+                            for (int i = 1; i <= 13; i++)
+                            {
+                                double trungBinhMonCN=0;   
+                                for (int j = 1; j < 4; j++)
+                                {
+                                    diem_DTO.Mald = "LD05";
+                                    if (j == 1)
+                                    {
+                                        diem_DTO.Mahk = "HK1";
+                                    }
+                                    else if(j==2)
+                                    {
+                                        diem_DTO.Mahk = "HK2";
+                                    }
+                                    if (i<10)
+                                    {
+                                        
+                                        diem_DTO.Mamh = "MH0" + i.ToString();
+                                        tblDiem = diem_DAO.thongTinDiemTheoMaLD(diem_DTO);
+                                        double diem = double.Parse(tblDiem.Rows[0][0].ToString());
+                                        if (j == 1)
+                                        {
+                                            if (i>=1&&i<=4)
+                                            {
+                                                trungBinhHK1 += diem*2;
+                                                if (i==1)
+                                                {
+                                                    if (diem >= 8)
+                                                    {
+                                                        flag = 1;
+                                                    }
+                                                    else if (diem >= 6.5)
+                                                    {
+                                                        flag = 2;
+                                                    }
+                                                    else if (diem >= 5)
+                                                    {
+                                                        flag = 3;
+                                                    }
+                                                    else if (diem >= 3.5)
+                                                    {
+                                                        flag = 4;
+                                                    }
+                                                    else
+                                                    {
+                                                        flag = 5;
+                                                    }
+                                                }
+                                               
+                                            }
+                                            else
+                                            {
+                                                trungBinhHK1 += diem;
+                                            }
+                                            trungBinhMonCN += diem;
+                                            row["MH0" + i.ToString() + j.ToString()] = diem;
+                                        }
+                                        else if(j==2)
+                                        {
+                                            if (i >= 1 && i <= 4)
+                                            {
+                                                trungBinhHK2 += diem * 2;
+                                                if (i==1)
+                                                {
+                                                    if (diem >= 8)
+                                                    {
+                                                        flag1 = 1;
+                                                    }
+                                                    else if (diem >= 6.5)
+                                                    {
+                                                        flag1 = 2;
+                                                    }
+                                                    else if (diem >= 5)
+                                                    {
+                                                        flag1 = 3;
+                                                    }
+                                                    else if (diem >= 3.5)
+                                                    {
+                                                        flag1 = 4;
+                                                    }
+                                                    else
+                                                    {
+                                                        flag1 = 5;
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                trungBinhHK2 += diem;
+                                            }
+                                            trungBinhMonCN += diem * 2;
+                                            row["MH0" + i.ToString() + j.ToString()] = diem;
+                                        }
+                                        else
+                                        {
+                                            row["MH0" + i.ToString() + j.ToString()] = Math.Round(trungBinhMonCN/3,1);
+                                        } 
+                                    }
+                                    else
+                                    {
+                                        diem_DTO.Mamh = "MH" + i.ToString();
+                                        tblDiem = diem_DAO.thongTinDiemTheoMaLD(diem_DTO);
+                                        double diem = double.Parse(tblDiem.Rows[0][0].ToString());
+                                        if (j == 1)
+                                        {
+                                            trungBinhHK1 += diem;
+                                            trungBinhMonCN += diem;
+                                            row["MH" + i.ToString() + j.ToString()] = diem;
+                                        }
+                                        else if (j == 2)
+                                        {
+                                            trungBinhHK2 += diem;
+                                            trungBinhMonCN += diem * 2;
+                                            row["MH" + i.ToString() + j.ToString()] = diem;
+                                        }
+                                        else
+                                        {
+                                            row["MH" + i.ToString() + j.ToString()] = Math.Round(trungBinhMonCN / 3, 1);
+                                        } 
+                                    }
+                                }
+                            }
+                            row["TB1"] = Math.Round(trungBinhHK1 / 17,1);
+                            row["TB2"] = Math.Round(trungBinhHK2 / 17,1);
+                            row["TB3"] = Math.Round(((trungBinhHK1 / 17) + (trungBinhHK2 / 17) * 2) / 3,1);
+                            row["HK1"] =hanhKiem_BUS.hanhKiemTheoHocKiNamHoc(diem_DTO.Mahs, "HK1", diem_DTO.Manh);
+                            row["HK2"] = hanhKiem_BUS.hanhKiemTheoHocKiNamHoc(diem_DTO.Mahs, "HK2", diem_DTO.Manh);
+                            row["HK3"] = row["HK2"];
+                            int count = 0;
+                            for (int k = 1; k <= 13; k++)
+                            {
+                                double diem = 0;
+                                if (k<10)
+                                    {
+                                        if (row["MH0"+k.ToString()+"1"].ToString() != "")
+                                        {
+                                            diem = double.Parse(row["MH0" + k.ToString() + "1"].ToString());
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (row["MH" + k.ToString() + "1"].ToString() != "")
+                                        {
+                                            diem = double.Parse(row["MH" + k.ToString() + "1"].ToString());
+                                        }
+                                    }
+                                switch (flag)
+                                {
+                                    case 1:
+                                        {
+                                            if (diem >= 6.5)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    case 2:
+                                        {
+                                            if (diem >= 5)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    case 3:
+                                        {
+                                            if (diem >= 3.5)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    case 4:
+                                        {
+                                            if (diem >= 2)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    default:
+                                        break;
+                                }
+
+                            }
+
+                            //kiem tra loai hoc luic
+
+                            switch (flag)
+                            {
+                                case 1:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB1"].ToString()) >= 8)
+                                        {
+                                            row["HL1"] = "Giỏi";
+                                        }
+                                        else
+                                        {
+                                            row["HL1"] = "Khá";
+                                        }
+
+                                    }
+                                    break;
+                                case 2:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB1"].ToString()) >= 6.5)
+                                        {
+                                            row["HL1"] = "Khá";
+                                        }
+                                        else
+                                        {
+                                            row["HL1"] = "TB";
+                                        }
+
+                                    }
+                                    break;
+                                case 3:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB1"].ToString()) >= 5)
+                                        {
+                                            row["HL1"] = "TB";
+                                        }
+                                        else
+                                        {
+                                            row["HL1"] = "Yếu";
+                                        }
+
+                                    }
+                                    break;
+                                case 4:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB1"].ToString()) >= 3.5)
+                                        {
+                                            row["HL1"] = "Yếu";
+                                        }
+                                        else
+                                        {
+                                            row["HL1"] = "Kém";
+                                        }
+
+                                    }
+                                    break;
+                                default:
+                                    row["HL1"] = "Kém";
+                                    break;
+                            }
+                            //HL2
+                            for (int k = 1; k <= 13; k++)
+                            {
+                                double diem = 0;
+                                if (k < 10)
+                                {
+                                    if (row["MH0" + k.ToString() + "2"].ToString() != "")
+                                    {
+                                        diem = double.Parse(row["MH0" + k.ToString() + "1"].ToString());
+                                    }
+                                }
+                                else
+                                {
+                                    if (row["MH" + k.ToString() + "2"].ToString() != "")
+                                    {
+                                        diem = double.Parse(row["MH" + k.ToString() + "1"].ToString());
+                                    }
+                                }
+                                switch (flag1)
+                                {
+                                    case 1:
+                                        {
+                                            if (diem >= 6.5)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    case 2:
+                                        {
+                                            if (diem >= 5)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    case 3:
+                                        {
+                                            if (diem >= 3.5)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    case 4:
+                                        {
+                                            if (diem >= 2)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    default:
+                                        break;
+                                }
+
+                            }
+
+                            //kiem tra loai hoc luic
+
+                            switch (flag1)
+                            {
+                                case 1:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB2"].ToString()) >= 8)
+                                        {
+                                            row["HL2"] = "Giỏi";
+                                        }
+                                        else
+                                        {
+                                            row["HL2"] = "Khá";
+                                        }
+
+                                    }
+                                    break;
+                                case 2:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB2"].ToString()) >= 6.5)
+                                        {
+                                            row["HL2"] = "Khá";
+                                        }
+                                        else
+                                        {
+                                            row["HL2"] = "TB";
+                                        }
+
+                                    }
+                                    break;
+                                case 3:
+                                    {
+                                        if (count == 13&& double.Parse(row["TB2"].ToString()) >= 5)
+                                        {
+                                            row["HL2"] = "TB";
+                                        }
+                                        else
+                                        {
+                                            row["HL2"] = "Yếu";
+                                        }
+
+                                    }
+                                    break;
+                                case 4:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB2"].ToString()) >= 3.5)
+                                        {
+                                            row["HL2"] = "Yếu";
+                                        }
+                                        else
+                                        {
+                                            row["HL2"] = "Kém";
+                                        }
+
+                                    }
+                                    break;
+                                default:
+                                    row["HL2"] = "Kém";
+                                    break;
+                            }
+                            
+                        }
+                        break;
+                    case "B03":
+                        {
+                            double trungBinhHK1 = 0;
+                            double trungBinhHK2 = 0;
+                            for (int i = 1; i <= 13; i++)
+                            {
+                                double trungBinhMonCN = 0;
+                                for (int j = 1; j < 4; j++)
+                                {
+                                    diem_DTO.Mald = "LD05";
+                                    if (j == 1)
+                                    {
+                                        diem_DTO.Mahk = "HK1";
+                                    }
+                                    else if (j == 2)
+                                    {
+                                        diem_DTO.Mahk = "HK2";
+                                    }
+                                    if (i < 10)
+                                    {
+
+                                        diem_DTO.Mamh = "MH0" + i.ToString();
+                                        tblDiem = diem_DAO.thongTinDiemTheoMaLD(diem_DTO);
+                                        double diem = double.Parse(tblDiem.Rows[0][0].ToString());
+                                        if (j == 1)
+                                        {
+                                            if (i >= 5 && i <= 8)
+                                            {
+                                                trungBinhHK1 += diem * 2;
+                                                if (i == 5)
+                                                {
+                                                    if (diem >= 8)
+                                                    {
+                                                        flag = 1;
+                                                    }
+                                                    else if (diem >= 6.5)
+                                                    {
+                                                        flag = 2;
+                                                    }
+                                                    else if (diem >= 5)
+                                                    {
+                                                        flag = 3;
+                                                    }
+                                                    else if (diem >= 3.5)
+                                                    {
+                                                        flag = 4;
+                                                    }
+                                                    else
+                                                    {
+                                                        flag = 5;
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                trungBinhHK1 += diem;
+                                            }
+                                            trungBinhMonCN += diem;
+                                            row["MH0" + i.ToString() + j.ToString()] = diem;
+                                        }
+                                        else if (j == 2)
+                                        {
+                                            if (i >= 5 && i <= 8)
+                                            {
+                                                trungBinhHK2 += diem * 2;
+                                                if (i == 5)
+                                                {
+                                                    if (diem >= 8)
+                                                    {
+                                                        flag1 = 1;
+                                                    }
+                                                    else if (diem >= 6.5)
+                                                    {
+                                                        flag1 = 2;
+                                                    }
+                                                    else if (diem >= 5)
+                                                    {
+                                                        flag1 = 3;
+                                                    }
+                                                    else if (diem >= 3.5)
+                                                    {
+                                                        flag1 = 4;
+                                                    }
+                                                    else
+                                                    {
+                                                        flag1 = 5;
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                trungBinhHK2 += diem;
+                                            }
+                                            trungBinhMonCN += diem * 2;
+                                            row["MH0" + i.ToString() + j.ToString()] = diem;
+                                        }
+                                        else
+                                        {
+                                            row["MH0" + i.ToString() + j.ToString()] = Math.Round(trungBinhMonCN / 3, 1);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        diem_DTO.Mamh = "MH" + i.ToString();
+                                        tblDiem = diem_DAO.thongTinDiemTheoMaLD(diem_DTO);
+                                        double diem = double.Parse(tblDiem.Rows[0][0].ToString());
+                                        if (j == 1)
+                                        {
+                                            trungBinhHK1 += diem;
+                                            trungBinhMonCN += diem;
+                                            row["MH" + i.ToString() + j.ToString()] = diem;
+                                        }
+                                        else if (j == 2)
+                                        {
+                                            trungBinhHK2 += diem;
+                                            trungBinhMonCN += diem * 2;
+                                            row["MH" + i.ToString() + j.ToString()] = diem;
+                                        }
+                                        else
+                                        {
+                                            row["MH" + i.ToString() + j.ToString()] = Math.Round(trungBinhMonCN / 3, 1);
+                                        }
+                                    }
+                                }
+                            }
+                            row["TB1"] = Math.Round(trungBinhHK1 / 17,1);
+                            row["TB2"] = Math.Round(trungBinhHK2 / 17,1);
+                            row["TB3"] = Math.Round(((trungBinhHK1 / 17) + (trungBinhHK2 / 17) * 2) / 3,1);
+                            row["HK1"] = hanhKiem_BUS.hanhKiemTheoHocKiNamHoc(diem_DTO.Mahs, "HK1", diem_DTO.Manh);
+                            row["HK2"] = hanhKiem_BUS.hanhKiemTheoHocKiNamHoc(diem_DTO.Mahs, "HK2", diem_DTO.Manh);
+                            row["HK3"] = row["HK2"];
+                            int count = 0;
+                            for (int k = 1; k <= 13; k++)
+                            {
+                                double diem = 0;
+                                if (k < 10)
+                                {
+                                    if (row["MH0" + k.ToString() + "1"].ToString() != "")
+                                    {
+                                        diem = double.Parse(row["MH0" + k.ToString() + "1"].ToString());
+                                    }
+                                }
+                                else
+                                {
+                                    if (row["MH" + k.ToString() + "1"].ToString() != "")
+                                    {
+                                        diem = double.Parse(row["MH" + k.ToString() + "1"].ToString());
+                                    }
+                                }
+                                switch (flag)
+                                {
+                                    case 1:
+                                        {
+                                            if (diem >= 6.5)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    case 2:
+                                        {
+                                            if (diem >= 5)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    case 3:
+                                        {
+                                            if (diem >= 3.5)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    case 4:
+                                        {
+                                            if (diem >= 2)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    default:
+                                        break;
+                                }
+
+                            }
+
+                            //kiem tra loai hoc luic
+
+                            switch (flag)
+                            {
+                                case 1:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB1"].ToString()) >= 8)
+                                        {
+                                            row["HL1"] = "Giỏi";
+                                        }
+                                        else
+                                        {
+                                            row["HL1"] = "Khá";
+                                        }
+
+                                    }
+                                    break;
+                                case 2:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB1"].ToString()) >= 6.5)
+                                        {
+                                            row["HL1"] = "Khá";
+                                        }
+                                        else
+                                        {
+                                            row["HL1"] = "TB";
+                                        }
+
+                                    }
+                                    break;
+                                case 3:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB1"].ToString()) >= 5)
+                                        {
+                                            row["HL1"] = "TB";
+                                        }
+                                        else
+                                        {
+                                            row["HL1"] = "Yếu";
+                                        }
+
+                                    }
+                                    break;
+                                case 4:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB1"].ToString()) >= 3.5)
+                                        {
+                                            row["HL1"] = "Yếu";
+                                        }
+                                        else
+                                        {
+                                            row["HL1"] = "Kém";
+                                        }
+
+                                    }
+                                    break;
+                                default:
+                                    row["HL1"] = "Kém";
+                                    break;
+                            }
+                            //HL2
+                            for (int k = 1; k <= 13; k++)
+                            {
+                                double diem = 0;
+                                if (k < 10)
+                                {
+                                    if (row["MH0" + k.ToString() + "2"].ToString() != "")
+                                    {
+                                        diem = double.Parse(row["MH0" + k.ToString() + "1"].ToString());
+                                    }
+                                }
+                                else
+                                {
+                                    if (row["MH" + k.ToString() + "2"].ToString() != "")
+                                    {
+                                        diem = double.Parse(row["MH" + k.ToString() + "1"].ToString());
+                                    }
+                                }
+                                switch (flag1)
+                                {
+                                    case 1:
+                                        {
+                                            if (diem >= 6.5)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    case 2:
+                                        {
+                                            if (diem >= 5)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    case 3:
+                                        {
+                                            if (diem >= 3.5)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    case 4:
+                                        {
+                                            if (diem >= 2)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    default:
+                                        break;
+                                }
+
+                            }
+
+                            //kiem tra loai hoc luic
+
+                            switch (flag1)
+                            {
+                                case 1:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB2"].ToString()) >= 8)
+                                        {
+                                            row["HL2"] = "Giỏi";
+                                        }
+                                        else
+                                        {
+                                            row["HL2"] = "Khá";
+                                        }
+
+                                    }
+                                    break;
+                                case 2:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB2"].ToString()) >= 6.5)
+                                        {
+                                            row["HL2"] = "Khá";
+                                        }
+                                        else
+                                        {
+                                            row["HL2"] = "TB";
+                                        }
+
+                                    }
+                                    break;
+                                case 3:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB2"].ToString()) >= 5)
+                                        {
+                                            row["HL2"] = "TB";
+                                        }
+                                        else
+                                        {
+                                            row["HL2"] = "Yếu";
+                                        }
+
+                                    }
+                                    break;
+                                case 4:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB2"].ToString()) >= 3.5)
+                                        {
+                                            row["HL2"] = "Yếu";
+                                        }
+                                        else
+                                        {
+                                            row["HL2"] = "Kém";
+                                        }
+
+                                    }
+                                    break;
+                                default:
+                                    row["HL2"] = "Kém";
+                                    break;
+                            }
+                        }
+                        break;
+                    case "B01":
+                        {
+                            double trungBinhHK1 = 0;
+                            double trungBinhHK2 = 0;
+                            double max = 0;
+                            for (int i = 1; i <= 13; i++)
+                            {
+                                double trungBinhMonCN = 0;
+                                for (int j = 1; j < 4; j++)
+                                {
+                                    diem_DTO.Mald = "LD05";
+                                    if (j == 1)
+                                    {
+                                        diem_DTO.Mahk = "HK1";
+                                    }
+                                    else if (j == 2)
+                                    {
+                                        diem_DTO.Mahk = "HK2";
+                                    }
+                                    if (i < 10)
+                                    {
+
+                                        diem_DTO.Mamh = "MH0" + i.ToString();
+                                        tblDiem = diem_DAO.thongTinDiemTheoMaLD(diem_DTO);
+                                        double diem = double.Parse(tblDiem.Rows[0][0].ToString());
+                                        if (j == 1)
+                                        {
+                                            if (i == 1 || i == 5)
+                                            {
+                                                trungBinhHK1 += diem * 2;
+                                                if (i == 1)
+                                                {
+                                                    max = diem;
+                                                }
+                                                if (i == 5)
+                                                {
+                                                    if (diem > max)
+                                                    {
+                                                        max = diem;
+                                                    }
+
+                                                    if (max >= 8)
+                                                    {
+                                                        flag = 1;
+                                                    }
+                                                    else if (max >= 6.5)
+                                                    {
+                                                        flag = 2;
+                                                    }
+                                                    else if (max >= 5)
+                                                    {
+                                                        flag = 3;
+                                                    }
+                                                    else if (max >= 3.5)
+                                                    {
+                                                        flag = 4;
+                                                    }
+                                                    else
+                                                    {
+                                                        flag = 5;
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                trungBinhHK1 += diem;
+                                            }
+                                            trungBinhMonCN += diem;
+                                            row["MH0" + i.ToString() + j.ToString()] = diem;
+                                        }
+                                        else if (j == 2)
+                                        {
+                                            if (i == 1 || i == 5)
+                                            {
+                                                trungBinhHK2 += diem * 2;
+                                                if (i == 1)
+                                                {
+                                                    max = diem;
+                                                }
+                                                if (i == 5)
+                                                {
+                                                    if (diem > max)
+                                                    {
+                                                        max = diem;
+                                                    }
+
+                                                    if (max >= 8)
+                                                    {
+                                                        flag1 = 1;
+                                                    }
+                                                    else if (max >= 6.5)
+                                                    {
+                                                        flag1 = 2;
+                                                    }
+                                                    else if (max >= 5)
+                                                    {
+                                                        flag1 = 3;
+                                                    }
+                                                    else if (max >= 3.5)
+                                                    {
+                                                        flag1 = 4;
+                                                    }
+                                                    else
+                                                    {
+                                                        flag1 = 5;
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                trungBinhHK2 += diem;
+                                            }
+                                            trungBinhMonCN += diem * 2;
+                                            row["MH0" + i.ToString() + j.ToString()] = diem;
+                                        }
+                                        else
+                                        {
+                                            row["MH0" + i.ToString() + j.ToString()] = Math.Round(trungBinhMonCN / 3, 1);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        diem_DTO.Mamh = "MH" + i.ToString();
+                                        tblDiem = diem_DAO.thongTinDiemTheoMaLD(diem_DTO);
+                                        double diem = double.Parse(tblDiem.Rows[0][0].ToString());
+                                        if (j == 1)
+                                        {
+                                            trungBinhHK1 += diem;
+                                            trungBinhMonCN += diem;
+                                            row["MH" + i.ToString() + j.ToString()] = diem;
+                                        }
+                                        else if (j == 2)
+                                        {
+                                            trungBinhHK2 += diem;
+                                            trungBinhMonCN += diem * 2;
+                                            row["MH" + i.ToString() + j.ToString()] = diem;
+                                        }
+                                        else
+                                        {
+                                            row["MH" + i.ToString() + j.ToString()] = Math.Round(trungBinhMonCN / 3, 1);
+                                        }
+                                    }
+                                }
+                            }
+                            row["TB1"] = Math.Round(trungBinhHK1 / 15,1);
+                            row["TB2"] = Math.Round(trungBinhHK2 / 15,1);
+                            row["TB3"] = Math.Round(((trungBinhHK1 / 15) + (trungBinhHK2 / 15) * 2) / 3,1);
+                            row["HK1"] = hanhKiem_BUS.hanhKiemTheoHocKiNamHoc(diem_DTO.Mahs, "HK1", diem_DTO.Manh);
+                            row["HK2"] = hanhKiem_BUS.hanhKiemTheoHocKiNamHoc(diem_DTO.Mahs, "HK2", diem_DTO.Manh);
+                            row["HK3"] = row["HK2"];
+                            int count = 0;
+                            for (int k = 1; k <= 13; k++)
+                            {
+                                double diem = 0;
+                                if (k < 10)
+                                {
+                                    if (row["MH0" + k.ToString() + "1"].ToString() != "")
+                                    {
+                                        diem = double.Parse(row["MH0" + k.ToString() + "1"].ToString());
+                                    }
+                                }
+                                else
+                                {
+                                    if (row["MH" + k.ToString() + "1"].ToString() != "")
+                                    {
+                                        diem = double.Parse(row["MH" + k.ToString() + "1"].ToString());
+                                    }
+                                }
+                                switch (flag)
+                                {
+                                    case 1:
+                                        {
+                                            if (diem >= 6.5)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    case 2:
+                                        {
+                                            if (diem >= 5)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    case 3:
+                                        {
+                                            if (diem >= 3.5)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    case 4:
+                                        {
+                                            if (diem >= 2)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    default:
+                                        break;
+                                }
+
+                            }
+
+                            //kiem tra loai hoc luic
+
+                            switch (flag)
+                            {
+                                case 1:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB1"].ToString()) >= 8)
+                                        {
+                                            row["HL1"] = "Giỏi";
+                                        }
+                                        else
+                                        {
+                                            row["HL1"] = "Khá";
+                                        }
+
+                                    }
+                                    break;
+                                case 2:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB1"].ToString()) >= 6.5)
+                                        {
+                                            row["HL1"] = "Khá";
+                                        }
+                                        else
+                                        {
+                                            row["HL1"] = "TB";
+                                        }
+
+                                    }
+                                    break;
+                                case 3:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB1"].ToString()) >= 5)
+                                        {
+                                            row["HL1"] = "TB";
+                                        }
+                                        else
+                                        {
+                                            row["HL1"] = "Yếu";
+                                        }
+
+                                    }
+                                    break;
+                                case 4:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB1"].ToString()) >= 3.5)
+                                        {
+                                            row["HL1"] = "Yếu";
+                                        }
+                                        else
+                                        {
+                                            row["HL1"] = "Kém";
+                                        }
+
+                                    }
+                                    break;
+                                default:
+                                    row["HL1"] = "Kém";
+                                    break;
+                            }
+                            //HL2
+                            for (int k = 1; k <= 13; k++)
+                            {
+                                double diem = 0;
+                                if (k < 10)
+                                {
+                                    if (row["MH0" + k.ToString() + "2"].ToString() != "")
+                                    {
+                                        diem = double.Parse(row["MH0" + k.ToString() + "1"].ToString());
+                                    }
+                                }
+                                else
+                                {
+                                    if (row["MH" + k.ToString() + "2"].ToString() != "")
+                                    {
+                                        diem = double.Parse(row["MH" + k.ToString() + "1"].ToString());
+                                    }
+                                }
+                                switch (flag1)
+                                {
+                                    case 1:
+                                        {
+                                            if (diem >= 6.5)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    case 2:
+                                        {
+                                            if (diem >= 5)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    case 3:
+                                        {
+                                            if (diem >= 3.5)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    case 4:
+                                        {
+                                            if (diem >= 2)
+                                            {
+                                                ++count;
+                                            }
+                                        }
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+
+                            //kiem tra loai hoc luic
+
+                            switch (flag1)
+                            {
+                                case 1:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB2"].ToString()) >= 8)
+                                        {
+                                            row["HL2"] = "Giỏi";
+                                        }
+                                        else
+                                        {
+                                            row["HL2"] = "Khá";
+                                        }
+
+                                    }
+                                    break;
+                                case 2:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB2"].ToString()) >= 6.5)
+                                        {
+                                            row["HL2"] = "Khá";
+                                        }
+                                        else
+                                        {
+                                            row["HL2"] = "TB";
+                                        }
+
+                                    }
+                                    break;
+                                case 3:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB2"].ToString()) >= 5)
+                                        {
+                                            row["HL2"] = "TB";
+                                        }
+                                        else
+                                        {
+                                            row["HL2"] = "Yếu";
+                                        }
+
+                                    }
+                                    break;
+                                case 4:
+                                    {
+                                        if (count == 13 && double.Parse(row["TB2"].ToString()) >= 3.5)
+                                        {
+                                            row["HL2"] = "Yếu";
+                                        }
+                                        else
+                                        {
+                                            row["HL2"] = "Kém";
+                                        }
+
+                                    }
+                                    break;
+                                default:
+                                    row["HL2"] = "Kém";
+                                    break;
+                            }
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return diemHocBa;
+        }
     }
 }
 

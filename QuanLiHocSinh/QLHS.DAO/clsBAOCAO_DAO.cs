@@ -78,6 +78,36 @@ namespace QLHS.DAO
              return table;
          }
 
+         public DataTable HocBaTheoNamHoc(clsBAOCAO_DTO baoCao_DTO)
+         {
+             connection.kiemTraKetNoi(con);
+             DataTable table = new DataTable();
+             SqlCommand command = new SqlCommand("SP_HocBaTheoNamHoc", con);
+             command.Parameters.Add("@MANH", SqlDbType.VarChar, 6).Value = baoCao_DTO.Manh;
+             command.Parameters.Add("@MAHS", SqlDbType.VarChar, 10).Value = baoCao_DTO.Mahs;
+             command.Parameters.Add("@MALOP", SqlDbType.VarChar, 10).Value = baoCao_DTO.Malop;
+
+             command.CommandType = CommandType.StoredProcedure;
+             SqlDataAdapter adapter = new SqlDataAdapter(command);
+             adapter.Fill(table);
+             con.Close();
+             return table;
+         }
+
+         public DataTable DanhSachCacNamHoc(string maHS)
+         {
+             connection.kiemTraKetNoi(con);
+             DataTable table = new DataTable();
+             SqlCommand command = new SqlCommand("SP_DanhSachCacNamHoc", con);
+             command.Parameters.Add("@MAHS", SqlDbType.VarChar, 8).Value = maHS;
+           
+             command.CommandType = CommandType.StoredProcedure;
+             SqlDataAdapter adapter = new SqlDataAdapter(command);
+             adapter.Fill(table);
+             con.Close();
+             return table;
+         }
+
          
     }
 }

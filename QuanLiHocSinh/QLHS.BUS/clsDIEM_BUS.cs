@@ -91,10 +91,8 @@ namespace QLHS.BUS
                     if ((int.Parse(row1.Cells["STT"].Value.ToString().Trim()) == diem_DTO.Stt))
                     {
                         row1.Cells["DIEMSO1"].Value = diem_DTO.Diemso;
-                    }
-                    
-                }
-                
+                    }                   
+                }              
             }
         }
 
@@ -250,11 +248,8 @@ namespace QLHS.BUS
                         diem_DAO.xoaDiemTheoMaLD(diem_DTO);
                         diem_DTO.Diemso = Math.Round((tongDiem / soCot), 1).ToString();
                         diem_DAO.themDiemTheoHS(diem_DTO);
-                    }
-                    
-                }
-               
-
+                    }              
+                }              
             }
         }
 
@@ -454,7 +449,6 @@ namespace QLHS.BUS
                         row.Cells["CN"].Value = Math.Round((tong / soCot), 1);
                        
                     }
-
                 }
             }
         }      

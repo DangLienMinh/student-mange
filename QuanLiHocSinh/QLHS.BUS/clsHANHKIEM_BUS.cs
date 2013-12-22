@@ -141,8 +141,7 @@ namespace QLHS.BUS
             return hanhKiem_DAO.danhsachHanhKiem(maNH, maLop, maHK);
         }
         public DataTable TimHanhKiemHS(clsHANHKIEM_DTO hanhkiem)
-        {
-            
+        {          
             return hanhKiem_DAO.TimHanhKiemHS(hanhkiem);
         }
 
