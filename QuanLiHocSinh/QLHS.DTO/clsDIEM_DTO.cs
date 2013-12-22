@@ -34,13 +34,13 @@ namespace QLHS.DTO
             get { return manh; }
             set { manh = value; }
         }
-        private string malop;
+        //private string malop;
 
-        public string Malop
-        {
-            get { return malop; }
-            set { malop = value; }
-        }
+        //public string Malop
+        //{
+        //    get { return malop; }
+        //    set { malop = value; }
+        //}
         private string mahs;
 
         public string Mahs
@@ -72,12 +72,12 @@ namespace QLHS.DTO
             set { diemso = value; }
         }
 
-        private string tenhs;
+        //private string tenhs;
 
-        public string Tenhs
-        {
-            get { return tenhs; }
-            set { tenhs = value; }
-        }
+        //public string Tenhs
+        //{
+        //    get { return tenhs; }
+        //    set { tenhs = value; }
+        //}
     }
 }

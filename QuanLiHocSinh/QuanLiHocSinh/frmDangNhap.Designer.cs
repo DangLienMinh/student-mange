@@ -61,7 +61,7 @@
             this.gPanelDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.gPanelDangNhap.Location = new System.Drawing.Point(0, 40);
             this.gPanelDangNhap.Name = "gPanelDangNhap";
-            this.gPanelDangNhap.Size = new System.Drawing.Size(358, 155);
+            this.gPanelDangNhap.Size = new System.Drawing.Size(358, 170);
             // 
             // 
             // 
@@ -99,7 +99,7 @@
             this.lblPassError.BackColor = System.Drawing.Color.Transparent;
             this.lblPassError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassError.ForeColor = System.Drawing.Color.Red;
-            this.lblPassError.Location = new System.Drawing.Point(167, 80);
+            this.lblPassError.Location = new System.Drawing.Point(167, 81);
             this.lblPassError.Name = "lblPassError";
             this.lblPassError.Size = new System.Drawing.Size(0, 13);
             this.lblPassError.TabIndex = 5;
@@ -137,7 +137,7 @@
             this.btnHuyBo.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
             this.btnHuyBo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnHuyBo.Image = global::QuanLiHocSinh.Properties.Resources.Huybo;
-            this.btnHuyBo.Location = new System.Drawing.Point(194, 89);
+            this.btnHuyBo.Location = new System.Drawing.Point(194, 102);
             this.btnHuyBo.Name = "btnHuyBo";
             this.btnHuyBo.Size = new System.Drawing.Size(101, 35);
             this.btnHuyBo.TabIndex = 4;
@@ -151,7 +151,7 @@
             this.btnDangNhap.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
             this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnDangNhap.Image = global::QuanLiHocSinh.Properties.Resources.Dongy;
-            this.btnDangNhap.Location = new System.Drawing.Point(69, 89);
+            this.btnDangNhap.Location = new System.Drawing.Point(69, 102);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(109, 35);
             this.btnDangNhap.TabIndex = 3;
@@ -249,7 +249,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 195);
+            this.ClientSize = new System.Drawing.Size(358, 210);
             this.Controls.Add(this.gPanelDangNhap);
             this.Controls.Add(this.panelTop);
             this.DoubleBuffered = true;

@@ -36,7 +36,7 @@ namespace QLHS.BUS
             tblDiem = new DataTable();
         }
 
-        //thêm điểm cho học sinh
+        //thêm điểm cho học sinh thêm điểm riêng
         public void themDiemTheoHS(ComboBoxEx cboMaNH,ComboBoxEx cboMaHK,ComboBoxEx cboMaLD,ComboBoxEx cboMaMH,ComboBoxEx cboMaHS,TextBoxX txtDiem)
         {
             diem_DTO = new clsDIEM_DTO();
@@ -46,11 +46,11 @@ namespace QLHS.BUS
             diem_DTO.Mahs = cboMaHS.SelectedValue.ToString();
             diem_DTO.Mald = cboMaLD.SelectedValue.ToString();
             diem_DTO.Diemso = txtDiem.Text;
-            if (diem_DTO.Mahs != "" && diem_DTO.Manh != "")
-            {
-                diem_DTO.Tenhs = hocSinh_BUS.tenHocSinh(diem_DTO.Mahs);
-                diem_DTO.Malop = lop_BUS.danhSachLop(diem_DTO.Mahs, diem_DTO.Manh);
-            }
+            //if (diem_DTO.Mahs != "" && diem_DTO.Manh != "")
+            //{
+            //    diem_DTO.Tenhs = hocSinh_BUS.tenHocSinh(diem_DTO.Mahs);
+            //    diem_DTO.Malop = lop_BUS.danhSachLop(diem_DTO.Mahs, diem_DTO.Manh);
+            //}
             diem_DAO.themDiemTheoHS(diem_DTO);
         }
 
@@ -94,7 +94,7 @@ namespace QLHS.BUS
             }
         }
 
-        //trả về bảng thông tin điểm theo học sinh
+        //trả về bảng thông tin điểm theo học sinh NHẬP ĐIỂM RIÊNG
         public DataTable thongTinDiemTheoHS(ComboBoxEx cboMaNH, ComboBoxEx cboMaHK, ComboBoxEx cboMaLD, ComboBoxEx cboMaMH, ComboBoxEx cboMaHS)
         {
             diem_DTO = new clsDIEM_DTO();
@@ -104,11 +104,11 @@ namespace QLHS.BUS
             diem_DTO.Mamh = cboMaMH.SelectedValue.ToString();
             diem_DTO.Mald = cboMaLD.SelectedValue.ToString();
             diem_DTO.Mahs = cboMaHS.SelectedValue.ToString();
-            if (diem_DTO.Mahs!=""&&diem_DTO.Manh!="")
-            {
-                diem_DTO.Tenhs = hocSinh_BUS.tenHocSinh(diem_DTO.Mahs);
-                diem_DTO.Malop = lop_BUS.danhSachLop(diem_DTO.Mahs, diem_DTO.Manh);
-            }
+            //if (diem_DTO.Mahs!=""&&diem_DTO.Manh!="")
+            //{
+            //    diem_DTO.Tenhs = hocSinh_BUS.tenHocSinh(diem_DTO.Mahs);
+            //    diem_DTO.Malop = lop_BUS.danhSachLop(diem_DTO.Mahs, diem_DTO.Manh);
+            //}
             tblDiem = diem_DAO.thongTinDiemTheoHS(diem_DTO);
            return  tblDiem;
         }
@@ -276,12 +276,12 @@ namespace QLHS.BUS
             dr["MANH"] = diem_DTO.Manh;
             dr["MALD"] = diem_DTO.Mald;
             dr["DIEMSO"] = diem_DTO.Diemso;
-            dr["MALOP"] = diem_DTO.Malop;
-            dr["TENHS"] = diem_DTO.Tenhs;
+            //dr["MALOP"] = diem_DTO.Malop;
+            //dr["TENHS"] = diem_DTO.Tenhs;
             return dr;
         }
 
-        //thêm dòng vừa được thêm vào table giáo viên
+        //thêm dòng vừa được thêm vào table diem
         public void themDong()
         {
             tblDiem.Rows.Add(getDatarow());
@@ -441,14 +441,14 @@ namespace QLHS.BUS
                     if (tong == 0 || soCot == 0)
                     {
                         row.Cells["CN"].Value = 0;
-                        row.Cells["CN"].Style.BackColor = Color.Red;
+                        row.Cells["CN"].Style.BackColor = Color.Yellow;
                     }
                     else
                     {
                         
                         if ( Math.Round((tong / soCot), 1)<5)
                         {
-                            row.Cells["CN"].Style.BackColor = Color.Red;
+                            row.Cells["CN"].Style.BackColor = Color.Yellow;
                         }
                         row.Cells["CN"].Value = Math.Round((tong / soCot), 1);
                        
