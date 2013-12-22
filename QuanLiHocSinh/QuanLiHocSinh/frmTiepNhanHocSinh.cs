@@ -239,7 +239,7 @@ namespace QuanLiHocSinh
         public int kiemTraDulieu()
         {
             int dem = 0;
-            int tuoi = int.Parse(dtiNgayNhapHoc.Text.Substring(6, 4)) - int.Parse(dtiNgaySinh.Text.Substring(6, 4));
+            int tuoi = dtiNgayNhapHoc.Value.Year - dtiNgaySinh.Value.Year;
             if (picHocSinh.Image == null)
             {
                 MessageBox.Show("Chưa Chọn hình ảnh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
