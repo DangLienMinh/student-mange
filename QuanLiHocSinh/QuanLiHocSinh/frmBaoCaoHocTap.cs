@@ -64,6 +64,8 @@ namespace QuanLiHocSinh
             hocKy_BUS.hienThiComboBox(cboHocKyMH);
             hocKy_BUS.hienThiComboBox(cboHKTongKetHK);
             namHoc_BUS.hienThiComboBox(cboNHTongKetHK);
+
+            namHoc_BUS.hienThiComboBox(cboNamHocHocBa);
         }
 
         private void cboNamHocHSG_SelectedValueChanged(object sender, EventArgs e)
@@ -124,15 +126,17 @@ namespace QuanLiHocSinh
 
         private void buttonX1_Click(object sender, EventArgs e)
         {
-            //if (treLopMH.SelectedNode == null || treLopMH.SelectedNode.Parent == null)
-            //{
-            //    MessageBox.Show("Phải chọn một lớp");
-            //}
-            //else
-            //{
-                frmHiemThiReport show = new frmHiemThiReport();
+            DataSet ds = baoCao_BUS.hocBaTheoNamHoc(cboNamHocHocBa, cboHocSinhHocBa, lop_BUS.layMaLopTrenTree(cboNamHocHocBa, treLopHocBa));
+            if (ds.Tables.Count<4)
+            {
+                MessageBox.Show("Học sinh chưa hoàn thành 3 năm học tại trường");
+            }
+            else
+            {
+                frmHiemThiReport show = new frmHiemThiReport("HocBa", ds, tenND);
                 show.Show();
-            //}
+            }
+            
         }
 
         private void cboNamhocBangDiem_SelectedValueChanged(object sender, EventArgs e)
@@ -224,6 +228,29 @@ namespace QuanLiHocSinh
                 DataSet ds = baoCao_BUS.layThongTinHSGTheoHocKy(cboNamHocHSG, cboHocKyHSG, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
                 frmHiemThiReport show = new frmHiemThiReport("HSG", ds, tenND);
                 show.Show();
+            }
+        }
+
+        private void treLopHocBa_NodeClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
+        {
+            if (treLopHocBa.SelectedNode.Parent == null)
+            {
+            }
+            else
+            {
+                if (cboNamHocHocBa.SelectedValue!=null)
+                {
+                    hocSinh_BUS.HienThicbodsHocSinh(cboHocSinhHocBa, cboNamHocHocBa.SelectedValue.ToString(), lop_BUS.layMaLopTrenTree(cboNamHocHocBa, treLopHocBa));
+                }               
+            }
+        }
+
+        private void cboNamHocHocBa_SelectedValueChanged(object sender, EventArgs e)
+        {
+            treLopHocBa.Nodes.Clear();
+            if (cboNamHocHocBa.SelectedValue != null)
+            {
+                lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHocHocBa.SelectedValue.ToString(), treLopHocBa);
             }
         }
     }

@@ -164,6 +164,13 @@ namespace QuanLiHocSinh
                             document.SetDataSource(ds.Tables["BangDiemHocSinh"]);
                         }
                         break;
+                    case "HocBa":
+                        {
+                            ds.WriteXmlSchema(Application.StartupPath + @"\HocBa.xsd");
+                            document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\rptHocBa.rpt");
+                            document.SetDataSource(ds);
+                        }
+                        break;
                    
                     //case "frmDSHocSinh":
                     //    {
