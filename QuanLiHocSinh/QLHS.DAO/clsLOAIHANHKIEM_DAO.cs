@@ -15,6 +15,8 @@ namespace QLHS.DAO
             connection = new clsConnectDatabase();
             con = connection.KetNoi();
         }
+
+        //thông tin loại hạnh kiểm
         public DataTable danhsachLoaiHK()
         {
             DataTable table = new DataTable();

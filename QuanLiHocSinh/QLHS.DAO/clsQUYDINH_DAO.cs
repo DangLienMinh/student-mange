@@ -19,6 +19,7 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
+        //thông tin quy định
         public DataTable thongTinQuyDinh()
         {
             DataTable table = new DataTable();
@@ -31,6 +32,7 @@ namespace QLHS.DAO
             return table;
         }
 
+        //sửa thông tin trường học trong bảng quy định
         public void suaTruongHoc(clsQUYDINH_DTO quyDinh_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaTruongHoc", con);
@@ -43,6 +45,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
+        //sửa thông tin sỉ số tối thiểu hoặc tối đa trong bảng quy định
         public void suaSiSo(clsQUYDINH_DTO quyDinh_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaSiSo", con);
@@ -54,6 +57,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
+        //sửa thông tin tuổi tối thiểu, tuổi tối đa trong bảng quy định
         public void suaTuoi(clsQUYDINH_DTO quyDinh_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaTuoi", con);

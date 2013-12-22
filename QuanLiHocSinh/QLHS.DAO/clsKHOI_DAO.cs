@@ -18,6 +18,7 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
+        //thông tin khối
         public DataTable danhSachKhoi()
         {
             DataTable table=new DataTable();
@@ -30,6 +31,7 @@ namespace QLHS.DAO
             return table;
         }
 
+        //hiển thị danh sách khối theo mã khối được chọn ví dụ nếu chọn khối 10 thì chỉ xuất hiện khối 10 và 11 dùng cho việc phân lớp học sinh
         public DataTable danhSachKhoiTheoMaKhoi(clsKHOI_DTO khoi_DTO)
         {
             DataTable table = new DataTable();
@@ -43,6 +45,7 @@ namespace QLHS.DAO
             return table;
         }
 
+        //hiển thị danh sách khối theo mã khối được chọn ví dụ nếu chọn khối 10 thì chỉ xuất hiện khối 10  dùng cho việc chuyển lớp học sinh
         public DataTable danhSachKhoiChuyenLop(clsKHOI_DTO khoi_DTO)
         {
             DataTable table = new DataTable();
@@ -56,6 +59,7 @@ namespace QLHS.DAO
             return table;
         }
 
+        //hiển thị thông tin khối 10
         public DataTable danhSachKhoi10()
         {
             DataTable table = new DataTable();
@@ -67,6 +71,5 @@ namespace QLHS.DAO
             con.Close();
             return table;
         }
-
     }
 }

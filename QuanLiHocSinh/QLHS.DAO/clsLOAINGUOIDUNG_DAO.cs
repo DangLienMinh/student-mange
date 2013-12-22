@@ -18,6 +18,7 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
+        //danh sách loại người đùng
         public DataTable danhSachLoaiNguoiDung()
         {
             DataTable table = new DataTable();
@@ -29,7 +30,6 @@ namespace QLHS.DAO
             con.Close();
             return table;
         }
-      
 
         public void themLoaiNguoiDung(clsLOAINGUOIDUNG_DTO loaiNguoiDung_DTO)
         {

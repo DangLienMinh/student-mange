@@ -19,6 +19,7 @@ namespace QLHS.BUS
         private clsHOCSINH_DAO hocSinh_DAO;
         private clsHANHKIEM_DAO hanhKiem_DAO;
         private clsHANHKIEM_DTO hanhKiem_DTO;
+        private clsLOP_DTO lop_DTO;
 
         public clsHANHKIEM_BUS()
         {
@@ -29,6 +30,7 @@ namespace QLHS.BUS
             loaiHanhKiem_DAO = new clsLOAIHANHKIEM_DAO();
             hocSinh_DAO = new clsHOCSINH_DAO();
             hanhKiem_DAO = new clsHANHKIEM_DAO();
+            lop_DTO = new clsLOP_DTO();
         }
         public void hienThiCboHK(ComboBoxEx comboBox)
         {
@@ -60,7 +62,9 @@ namespace QLHS.BUS
                     string makhoi=dsKhoi.Rows[i]["MAKHOI"].ToString();
                     if (cboNamhoc.SelectedValue!=null)
                     {
-                        dsLop = lop_DAO.danhsachLopMAKHOI(makhoi, cboNamhoc.SelectedValue.ToString());
+                        lop_DTO.Makhoi = makhoi;
+                        lop_DTO.Manh = cboNamhoc.SelectedValue.ToString();
+                        dsLop = lop_DAO.danhSachLopTheoNamHocKhoi(lop_DTO);
                         for (int j = 0; j < dsLop.Rows.Count; j++)
                         {
                             if (dsLop.Rows[j]["MALOP"].ToString() != "")

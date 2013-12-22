@@ -23,6 +23,7 @@ namespace QLHS.BUS
             tblKhoi = new DataTable();
         }
 
+        //hiển thị comboBox khối 
         public void hienThiComboBox(ComboBoxEx comboBox)
         {
             comboBox.DataSource = khoi_DAO.danhSachKhoi();
@@ -30,6 +31,7 @@ namespace QLHS.BUS
             comboBox.ValueMember = "MAKHOI";
         }
 
+        //hiển thị comboBox khối 10
         public void hienThiComboBoxKhoi10(ComboBoxEx comboBox)
         {
             comboBox.DataSource = khoi_DAO.danhSachKhoi10();
@@ -37,6 +39,7 @@ namespace QLHS.BUS
             comboBox.ValueMember = "MAKHOI";
         }
 
+        //hiển thị comboBox khối lên grid
         public void HienThiDataGridViewComboBoxColumn(DataGridViewComboBoxColumn cboColumn)
         {
             cboColumn.DataSource = khoi_DAO.danhSachKhoi();
@@ -45,6 +48,7 @@ namespace QLHS.BUS
             cboColumn.DataPropertyName = "MAKHOI";
         }
 
+        //hiển thị comboBox khối theo một khối khác dùng cho phân lớp
         public void hienThiComboBox(ComboBoxEx cboKhoiCu,ComboBoxEx cboKhoiMoi)
         {
             khoi_DTO = new clsKHOI_DTO();
@@ -58,6 +62,7 @@ namespace QLHS.BUS
             
         }
 
+        //hiển thị comboBox khối theo một khối khác dùng cho chuyển lớp
         public void hienThiComboBoxChuyenLop(ComboBoxEx cboKhoiCu, ComboBoxEx cboKhoiMoi)
         {
             khoi_DTO = new clsKHOI_DTO();

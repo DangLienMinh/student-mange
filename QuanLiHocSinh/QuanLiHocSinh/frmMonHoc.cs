@@ -99,7 +99,7 @@ namespace QuanLiHocSinh
         private void btnDongY_Click(object sender, EventArgs e)
         {
             if (flag == 1) insert();
-            if (flag == 2) delete();
+            //if (flag == 2) delete();
             if (flag == 3) update();
         }
 
@@ -193,31 +193,31 @@ namespace QuanLiHocSinh
             flag = 0;
         }
 
-        private void delete()
-        {
-            if (grdMonHoc.SelectedRows.Count >= 1 && txtMaMH.Text != "")
-            {
-                    foreach (DataGridViewRow row in grdMonHoc.Rows)
-                    {
-                        if (string.Compare(row.Cells["MAMH"].Value.ToString().Trim(), txtMaMH.Text.Trim()) == 0)
-                        {
-                            monHoc_BUS.xoaMonHoc(txtMaMH.Text);
-                            monHoc_BUS.xoaDong(txtMaMH.Text);
-                            //bindingData();
-                            resetAll();
-                            FlagDisable();
-                            flag = 0;
-                            break;
-                        }
-                    }
-                    MessageBox.Show("Môn học đã được xóa thành công");
-            }
+        //private void delete()
+        //{
+        //    if (grdMonHoc.SelectedRows.Count >= 1 && txtMaMH.Text != "")
+        //    {
+        //            foreach (DataGridViewRow row in grdMonHoc.Rows)
+        //            {
+        //                if (string.Compare(row.Cells["MAMH"].Value.ToString().Trim(), txtMaMH.Text.Trim()) == 0)
+        //                {
+        //                    monHoc_BUS.xoaMonHoc(txtMaMH.Text);
+        //                    monHoc_BUS.xoaDong(txtMaMH.Text);
+        //                    //bindingData();
+        //                    resetAll();
+        //                    FlagDisable();
+        //                    flag = 0;
+        //                    break;
+        //                }
+        //            }
+        //            MessageBox.Show("Môn học đã được xóa thành công");
+        //    }
             
-            else
-            {
-                MessageBox.Show("Bạn phải lựa chọn một hàng để xóa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
+        //    else
+        //    {
+        //        MessageBox.Show("Bạn phải lựa chọn một hàng để xóa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    }
+        //}
 
         private void grdMonHoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -259,13 +259,13 @@ namespace QuanLiHocSinh
             this.Close();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có chắc muốn xóa môn học đã được lựa chọn ", "Xóa môn học", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                delete();
-            }
-        }
+        //private void btnDelete_Click(object sender, EventArgs e)
+        //{
+        //    if (MessageBox.Show("Bạn có chắc muốn xóa môn học đã được lựa chọn ", "Xóa môn học", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+        //    {
+        //        delete();
+        //    }
+        //}
 
         private void move_Click(object sender, EventArgs e)
         {

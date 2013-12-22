@@ -15,22 +15,23 @@ namespace QuanLiHocSinh
     public partial class frmBaoCaoChung : DevComponents.DotNetBar.Office2007Form
     {
         private clsNAMHOC_BUS namHoc_BUS;
-        private clsLOP_BUS lop_BUS;
         private clsHOCSINH_BUS hocSinh_BUS;
         private clsHANHKIEM_BUS hanhkiem_BUS;
         private clsHOCKY_BUS hocKy_BUS;
-        private clsGIAOVIEN_BUS giaoVien_BUS;
+        private clsBAOCAO_BUS baoCao_BUS;
+        private clsLOP_BUS lop_BUS;
+
         private string tenND;
 
         public frmBaoCaoChung()
         {
             InitializeComponent();
             namHoc_BUS = new clsNAMHOC_BUS();
-            lop_BUS = new clsLOP_BUS();
             hocSinh_BUS = new clsHOCSINH_BUS();
             hanhkiem_BUS = new clsHANHKIEM_BUS();
             hocKy_BUS = new clsHOCKY_BUS();
-            giaoVien_BUS = new clsGIAOVIEN_BUS();
+            baoCao_BUS = new clsBAOCAO_BUS();
+            lop_BUS = new clsLOP_BUS();
         }
 
         public frmBaoCaoChung(string TenND)
@@ -38,12 +39,11 @@ namespace QuanLiHocSinh
             this.tenND = TenND;
             InitializeComponent();
             namHoc_BUS = new clsNAMHOC_BUS();
-            lop_BUS = new clsLOP_BUS();
             hocSinh_BUS = new clsHOCSINH_BUS();
             hanhkiem_BUS = new clsHANHKIEM_BUS();
             hocKy_BUS = new clsHOCKY_BUS();
-            giaoVien_BUS = new clsGIAOVIEN_BUS();
-            
+            baoCao_BUS = new clsBAOCAO_BUS();
+            lop_BUS = new clsLOP_BUS();
         }
 
         private void frmBaoCaoChung_Load(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace QuanLiHocSinh
         private void btnInDSGiaoVien_Click(object sender, EventArgs e)
         {
             ReportDocument document = new ReportDocument();
-            DataSet ds = giaoVien_BUS.reportDanhSachGiaoVien();
+            DataSet ds = baoCao_BUS.reportDanhSachGiaoVien();
             ds.WriteXmlSchema(Application.StartupPath + @"\DSGiaoVien.xsd");
 
             document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSGiaoVien.rpt");
@@ -77,7 +77,7 @@ namespace QuanLiHocSinh
             else
             {
                 ReportDocument document = new ReportDocument();
-                DataSet ds = hocSinh_BUS.reportTheHocSinh(hocSinh_BUS.layMaLop(cboNamHocTheHS, treLopTheHS));
+                DataSet ds = baoCao_BUS.reportTheHocSinh(hocSinh_BUS.layMaLop(cboNamHocTheHS, treLopTheHS));
                 ds.WriteXmlSchema(Application.StartupPath + @"\TheHocSinh.xsd");
 
                 document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\TheHocSinh.rpt");
@@ -92,7 +92,7 @@ namespace QuanLiHocSinh
             if (cboNamHocDSLop.SelectedValue != null)
             {
                 ReportDocument document = new ReportDocument();
-                DataSet ds = lop_BUS.reportDanhSachLop();
+                DataSet ds = baoCao_BUS.reportDanhSachLop();
                 ds.WriteXmlSchema(Application.StartupPath + @"\DSLop.xsd");
 
                 document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSLop.rpt");
@@ -185,7 +185,7 @@ namespace QuanLiHocSinh
             else
             {
                 ReportDocument document = new ReportDocument();
-                DataSet ds = hocSinh_BUS.reportTheHocSinh(hocSinh_BUS.layMaLop(cboNamHocTheHS, treLopTheHS));
+                DataSet ds = baoCao_BUS.reportTheHocSinh(hocSinh_BUS.layMaLop(cboNamHocTheHS, treLopTheHS));
                 ds.WriteXmlSchema(Application.StartupPath + @"\TheHocSinh.xsd");
 
                 document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\TheHocSinh.rpt");

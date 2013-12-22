@@ -18,6 +18,7 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
+        //thông tin năm học
         public DataTable danhSachNamHoc()
         {
             DataTable table = new DataTable();
@@ -30,6 +31,7 @@ namespace QLHS.DAO
             return table;
         }
 
+        //thêm một năm học mới
         public void themNamHoc(clsNAMHOC_DTO namHoc_DTO)
         {
             SqlCommand command = new SqlCommand("SP_ThemNamHoc", con);
@@ -41,6 +43,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
+        //sửa một năm học
         public void suaNamHoc(clsNAMHOC_DTO namHoc_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaNamHoc", con);

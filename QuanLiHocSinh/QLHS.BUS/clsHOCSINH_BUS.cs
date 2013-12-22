@@ -33,11 +33,13 @@ namespace QLHS.BUS
             tbHocSinh = new DataTable();
         }
 
+        //thêm một học sinh mới
         public void themHocSinh(clsHOCSINH_DTO hs)
         {
             hocSinh_DAO.themHocSinh(hs);
         }
 
+        //trả về tên học sinh dựa trên mã học sinh
         public string tenHocSinh(string maHS)
         {
             DataTable table=new DataTable();
@@ -49,22 +51,26 @@ namespace QLHS.BUS
             else return "";
         }
 
+        //sửa một học sinh
         public void suaHocSinh(clsHOCSINH_DTO hs)
         {
             hocSinh_DAO.suaHocSinh(hs);
         }
 
+        //xóa một học sinh
         public void xoaHocSinh(clsHOCSINH_DTO hs)
         {
             hocSinh_DAO.xoaHocSinh(hs);
         }
 
+        //hiển thị comboBox giới tính
         public void cboGioiTinh(ComboBoxEx comboBox)
         {
             comboBox.Items.Add("Nam");
             comboBox.Items.Add("Nữ");
             comboBox.SelectedItem = "Nam";
         }
+
        //tạo mã học sinh
         public string taoMaHocSinh()
         {
@@ -105,6 +111,7 @@ namespace QLHS.BUS
             return maHS;
         }
 
+        //danh sách học sinh
         public DataTable danhSachHocSinh()
         {
             DataTable table = hocSinh_DAO.danhSachHocSinh();
@@ -127,6 +134,8 @@ namespace QLHS.BUS
             }
             return table;
         }
+
+        //thông tin tuổi tối đa
         public int TuoiToiDa()
         {
            int tuoitoida = 0;
@@ -137,6 +146,8 @@ namespace QLHS.BUS
            }
            return tuoitoida;
         }
+
+        //thông tin tuổi tối thiểu
         public int TuoiToiThieu()
         {
             int tuoitoithieu = 0;
@@ -147,6 +158,8 @@ namespace QLHS.BUS
             }
             return tuoitoithieu;
         }
+
+        //danh sách học sinh theo năm học và lớp
         public DataSet danhSachHocSinh_NH_LOP(string manh, string malop)
         {
             DataSet ds = hocSinh_DAO.danhSachHocSinh_NH_LOP(manh, malop);
@@ -170,6 +183,8 @@ namespace QLHS.BUS
             }
             return ds;
         }
+
+        //hiển thị cboHocSinh theo mã năm học và mã lớp
         public void HienThicbodsHocSinh(ComboBoxEx cboHocSinh,string manh,string malop)
         {
             cboHocSinh.DataSource = hocSinh_DAO.danhSachHocSinh_NH_LOP(manh,malop).Tables["DanhSachHocSinh"];
@@ -177,44 +192,7 @@ namespace QLHS.BUS
             cboHocSinh.ValueMember = "MAHS";
 
         }
-        //public void taiLaiDataGrid(DataGridViewX grdHocSinh, DataTable dsHocSinh)
-        //{
-        //    grdHocSinh.DataSource = dsHocSinh;
-        //    if (grdHocSinh.Rows.Count > 0)
-        //    {
-        //        foreach (DataGridViewRow row in grdHocSinh.Rows)
-        //        {
-        //            if (row.Cells["MAHS"].Value != null)
-        //            {
-        //                if (row.Cells["GIOITINHHS"].Value.ToString() == "0")
-        //                {
-        //                    row.Cells["GIOITINHHS"].Value = "Nữ";
-        //                }
-        //                else
-        //                {
-        //                    row.Cells["GIOITINHHS"].Value = "Nam";
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+       
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary>
@@ -305,6 +283,7 @@ namespace QLHS.BUS
             
         }
 
+        //load danh sách học sinh vào list
         public void danhSachHocSinhTheoLop(ComboBoxEx cboNamHoc, ComboBoxEx cboLop,ListViewEx list,ComboBoxEx cboPhanBan)
         {
             list.Items.Clear();
@@ -328,6 +307,7 @@ namespace QLHS.BUS
            cboPhanBan.SelectedValue = lop_DAO.phanBan(lop_DTO);
         }
 
+        //load thông tin học sinh vào comBoBox theo năm học và lớp
         public void danhSachHocSinhTheoLop(ComboBoxEx comboNamHoc, ComboBoxEx comboLop,ComboBoxEx cboHocSinh)
         {
             hocSinh_DTO.Manh = comboNamHoc.SelectedValue.ToString();
@@ -338,6 +318,7 @@ namespace QLHS.BUS
             cboHocSinh.ValueMember = "MAHS";
         }
 
+        //danh sách phân lớp của học sinh theo năm học
         public DataTable danhSachPhanLop(ComboBoxEx comboNamHoc)
         {
             hocSinh_DTO.Manh = comboNamHoc.SelectedValue.ToString();
@@ -345,8 +326,7 @@ namespace QLHS.BUS
             return tbHocSinh;
         }
 
-
-
+        //thêm phân lớp
         public void themPhanLop(ComboBoxEx comboNamHoc, ComboBoxEx comboLop,ListViewEx lstHocSinh)
         {
             lop_DTO = new clsLOP_DTO();
@@ -370,6 +350,7 @@ namespace QLHS.BUS
             }
         }
 
+        //phân lớp cho học sinh vừa mới được tiếp nhận
         public void phanLopHocSinhLop10(ComboBoxEx comboNamHoc, ComboBoxEx comboLop, ListViewEx lstHocSinh)
         {
             lop_DTO = new clsLOP_DTO();
@@ -396,21 +377,7 @@ namespace QLHS.BUS
             }
         }
 
-        //public void xoaPhanLop(ComboBoxEx comboNamHoc, ComboBoxEx comboLop, ListViewEx lstHocSinh)
-        //{
-        //    lop_DTO = new clsLOP_DTO();
-        //    namHoc_DTO = new clsNAMHOC_DTO();
-
-        //    lop_DTO.Malop = comboLop.SelectedValue.ToString();
-        //    namHoc_DTO.Manh = comboNamHoc.SelectedValue.ToString();
-        //    foreach (ListViewItem item in lstHocSinh.Items)
-        //    {
-        //        hocSinh_DTO = new clsHOCSINH_DTO();
-        //        hocSinh_DTO.Mahs = item.SubItems[1].Text.ToString();
-        //        hocSinh_DAO.xoaPhanLop(hocSinh_DTO, namHoc_DTO, lop_DTO);
-        //    }
-        //}
-
+        //xóa phân lớp dựa vào mã học sinh
         public void xoaPhanLop(ComboBoxEx comboNamHoc, ComboBoxEx comboLop,string maHS)
         {
             lop_DTO = new clsLOP_DTO();
@@ -423,6 +390,7 @@ namespace QLHS.BUS
             hocSinh_DAO.xoaPhanLop(hocSinh_DTO, namHoc_DTO, lop_DTO);
         }
 
+        //tìm học sinh theo mã học sinh
         public DataTable timHocSinhMaHS(TextBoxX maHS)
         {
             clsHOCSINH_DTO hs = new clsHOCSINH_DTO();
@@ -430,6 +398,7 @@ namespace QLHS.BUS
             return hocSinh_DAO.timHocSinhMaHS(hs);
         }
 
+        //tìm học sinh chuyển lớp//////////////////////////////////////////////////////////////////////////
         public void timHocSinhChuyenLop(TextBoxX maHS, ComboBoxEx cboNamHoc, ComboBoxEx cboLop, ListViewEx lstHocSinh)
         {
             
@@ -455,6 +424,7 @@ namespace QLHS.BUS
 
         }
 
+        //tìm học sinh theo tên học sinh
         public DataTable timHocSinhTenHS(TextBoxX tenHS)
         {
             clsHOCSINH_DTO hs = new clsHOCSINH_DTO();
@@ -462,6 +432,7 @@ namespace QLHS.BUS
            return hocSinh_DAO.timHocSinhTenHS(hs); ;
         }
 
+        //tìm học sinh theo dân tộc
         public DataTable timHocSinhDanToc(TextBoxX danToc)
         {
             clsHOCSINH_DTO hs = new clsHOCSINH_DTO();
@@ -469,6 +440,7 @@ namespace QLHS.BUS
             return  hocSinh_DAO.timHocSinhDanToc(hs);
         }
 
+        //tìm học sinh theo ngày nhập học
         public DataTable timHocSinhNgNhapHoc(DateTimeInput ngNhapHoc)
         {
             clsHOCSINH_DTO hs = new clsHOCSINH_DTO();
@@ -476,11 +448,13 @@ namespace QLHS.BUS
             return hocSinh_DAO.timHocSinhNgNhapHoc(hs);
         }
 
+        //tìm học sinh nâng cao
         public DataTable timHocSinhNangCao(clsHOCSINH_DTO hs,RadioButton dieuKien)
         {
             return hocSinh_DAO.timHocSinhNangCao(hs, dieuKien.Text);
         }
 
+        //gợi ý thông tin người dùng nhập vào ô textbox
         public void autoComplete(TextBoxX textBox,string name)
         {
             AutoCompleteStringCollection namesCollection = new AutoCompleteStringCollection();
@@ -516,18 +490,12 @@ namespace QLHS.BUS
                 default:
                     break;
             }
-            
-           
+                     
             textBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
             textBox.AutoCompleteCustomSource = namesCollection;
-            
- 
         }
 
-        public DataSet reportTheHocSinh(string maLop)
-        {
-            return hocSinh_DAO.reportTheHS(maLop);
-        }
+        
 
     }     
 }

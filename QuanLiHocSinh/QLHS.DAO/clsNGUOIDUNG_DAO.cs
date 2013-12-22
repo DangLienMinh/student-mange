@@ -18,6 +18,7 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
+        //danh sách ngừoi dùng hiện có
         public DataTable danhSachNguoiDung()
         {
             DataTable table = new DataTable();
@@ -30,6 +31,7 @@ namespace QLHS.DAO
             return table;
         }
 
+        //thông tin người dùng theo tên đăng nhập
         public DataTable danhSachNguoiDungTheoTENDN(string tenDN)
         {
             DataTable table = new DataTable();
@@ -43,6 +45,7 @@ namespace QLHS.DAO
             return table;
         }
 
+        //lấy mã người dùng gần nhất để làm cơ sở tạo mã tự động
         public int soNguoiDung()
         {
             int temp = -1;
@@ -64,32 +67,7 @@ namespace QLHS.DAO
            
         }
 
-        //public DataTable timGVMaGV(clsNGUOIDUNG_DTO nguoidung)
-        //{
-        //    DataTable table = new DataTable();
-        //    SqlCommand command = new SqlCommand("SP_TimNguoiDungMaGV", con);
-        //    command.CommandType = CommandType.StoredProcedure;
-        //    command.Parameters.Add("@MAGV", SqlDbType.Char).Value = nguoidung.Magv;
-        //    SqlDataAdapter adapter = new SqlDataAdapter(command);
-        //    connection.kiemTraKetNoi(con);
-        //    adapter.Fill(table);
-        //    con.Close();
-        //    return table;
-        //}
-
-        //public DataTable timGVTenGV(clsNGUOIDUNG_DTO nguoidung)
-        //{
-        //    DataTable table = new DataTable();
-        //    SqlCommand command = new SqlCommand("SP_TimNguoiDungTenGV", con);
-        //    command.CommandType = CommandType.StoredProcedure;
-        //    command.Parameters.Add("@TENGV", SqlDbType.NVarChar).Value = nguoidung.Tengv;
-        //    SqlDataAdapter adapter = new SqlDataAdapter(command);
-        //    connection.kiemTraKetNoi(con);
-        //    adapter.Fill(table);
-        //    con.Close();
-        //    return table;
-        //}
-
+        //thêm một người dùng mới
         public void themNguoiDung(clsNGUOIDUNG_DTO nguoiDung_DTO)
         {
             SqlCommand command = new SqlCommand("SP_ThemNguoiDung", con);
@@ -105,6 +83,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
+        //sửa thông tin một người dùng
         public void suaNguoiDung(clsNGUOIDUNG_DTO nguoiDung_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaNguoiDung", con);
@@ -119,6 +98,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
+        //sửa mật khâu
         public void suaMatKhau(clsNGUOIDUNG_DTO nguoiDung_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaMatKhau", con);
@@ -130,6 +110,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
+        //xóa một người dùng
         public void xoaNguoiDung(clsNGUOIDUNG_DTO nguoiDung_DTO)
         {
             SqlCommand command = new SqlCommand("SP_XoaNguoiDung", con);

@@ -18,6 +18,7 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
+        //thông tin các môn học
         public DataTable danhSachMonhoc()
         {
             connection.kiemTraKetNoi(con);
@@ -30,6 +31,7 @@ namespace QLHS.DAO
             return table;
         }
 
+        //lấy thông tin để tao mã môn tự động
         public int soMonHoc()
         {
             int temp = -1;
@@ -50,6 +52,7 @@ namespace QLHS.DAO
             return temp;
         }
 
+        //thêm một môn học mới
         public void themMonHoc(clsMONHOC_DTO monHoc_DTO)
         {
             SqlCommand command = new SqlCommand("SP_ThemMonHoc", con);
@@ -62,6 +65,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
+        //sửa một môn học
         public void suaMonHoc(clsMONHOC_DTO monHoc_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaMonHoc", con);
@@ -73,35 +77,5 @@ namespace QLHS.DAO
             command.ExecuteNonQuery();
             con.Close();
         }
-
-        public void xoaMonHoc(clsMONHOC_DTO monHoc_DTO)
-        {
-            SqlCommand command = new SqlCommand("SP_XoaMonHoc", con);
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MAMH", SqlDbType.VarChar).Value = monHoc_DTO.Mamh;
-            connection.kiemTraKetNoi(con);
-            command.ExecuteNonQuery();
-            con.Close();
-        }
-
-        //public int heSoMonHoc(clsMONHOC_DTO monHoc)
-        //{
-        //    int temp = -1;
-        //    SqlCommand command = new SqlCommand("SP_HeSoMonHoc", con);
-        //    command.CommandType = CommandType.StoredProcedure;
-        //    command.Parameters.Add("@MAMH", SqlDbType.VarChar).Value = monHoc.Mamh;
-        //    connection.kiemTraKetNoi(con);
-        //    if (command.ExecuteScalar()!= null)
-        //    {
-        //        temp = int.Parse(command.ExecuteScalar().ToString());
-        //    }
-        //    else
-        //    {
-        //        temp = 0;
-        //    }
-
-        //    con.Close();
-        //    return temp;
-        //}
     }
 }

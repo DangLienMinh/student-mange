@@ -29,7 +29,7 @@ namespace QLHS.BUS
             return tblMonHoc;
         }
 
-        //tạo mã môn học 
+        //tạo mã môn học tự động
         public string hienThiSoMon()
         {
             string result;
@@ -45,6 +45,7 @@ namespace QLHS.BUS
             return result;
         }
 
+        //hiển thị môn học trên datagrid comboBox column
         public void HienThiDataGridViewComboBoxColumn(DataGridViewComboBoxColumn cboColumn)
         {
             cboColumn.DataSource = monHoc_DAO.danhSachMonhoc();
@@ -53,6 +54,7 @@ namespace QLHS.BUS
             cboColumn.DataPropertyName = "MAMH";
         }
 
+        //hiển thị môn học trên comboBox
         public void hienThiComboBox(ComboBoxEx comboBox)
         {
             comboBox.DataSource = monHoc_DAO.danhSachMonhoc();
@@ -60,13 +62,7 @@ namespace QLHS.BUS
             comboBox.ValueMember = "MAMH";
         }
 
-        //public void hienThiComboBoxHeSo(ComboBoxEx comboBox)
-        //{
-        //    comboBox.Items.Add("1");
-        //    comboBox.Items.Add("2");
-        //    comboBox.SelectedItem = "1";
-        //}
-
+        //thêm một môn học mới
         public void themMonHoc(string maMH, string tenMH,string soTiet)
         {
             monHoc_DTO = new clsMONHOC_DTO();
@@ -76,6 +72,7 @@ namespace QLHS.BUS
             monHoc_DAO.themMonHoc(monHoc_DTO);
         }
 
+        //sửa một môn học
         public void suaMonHoc(string maMH, string tenMH, string soTiet)
         {
             monHoc_DTO = new clsMONHOC_DTO();
@@ -85,21 +82,13 @@ namespace QLHS.BUS
             monHoc_DAO.suaMonHoc(monHoc_DTO);
         }
 
-        public void xoaMonHoc(string maMH)
-        {
-            monHoc_DTO = new clsMONHOC_DTO();
-            monHoc_DTO.Mamh = maMH;
-            monHoc_DAO.xoaMonHoc(monHoc_DTO);
-        }
-
+        //trả về một dòng của đối tượng môn học
         private DataRow getDatarow()
         {
             dr = tblMonHoc.NewRow();
             dr["MAMH"] = monHoc_DTO.Mamh;
             dr["TENMH"] = monHoc_DTO.Tenmh;
             dr["SOTIET"] = monHoc_DTO.Sotiet;
-            //dr["HESOMH"] = monHoc_DTO.Hesomh;
-           
             return dr;
         }
 
@@ -109,6 +98,7 @@ namespace QLHS.BUS
             tblMonHoc.Rows.Add(getDatarow());
         }
 
+        //sửa thông tin trên datatable và dựa vào monHoc_DTO
         public void suaDataGrid()
         {
             foreach (DataRow row1 in tblMonHoc.Rows)
@@ -119,35 +109,16 @@ namespace QLHS.BUS
                     {
                         row1["TENMH"] = monHoc_DTO.Tenmh;
                         row1["SOTIET"]= monHoc_DTO.Sotiet;
-                        //row1["HESOMH"] = monHoc_DTO.Hesomh;
                     }
                 }
             }
-            //foreach (DataGridViewRow row1 in grdMonHoc.Rows)
-            //{
-            //    if (row1.Cells["MAMH"].Value != null)
-            //    {
-            //        if (string.Compare(row1.Cells["MAMH"].Value.ToString().Trim(), monHoc_DTO.Mamh.Trim()) == 0)
-            //        {
-            //            row1.Cells["TENMH"].Value = monHoc_DTO.Tenmh;
-            //            row1.Cells["SOTIET"].Value = monHoc_DTO.Sotiet;
-            //            row1.Cells["HESOMH"].Value = monHoc_DTO.Hesomh;
-            //        }
-            //    }
-            //}
         }
 
+        //xóa một dòng trên datatable monHoc dựa vào MAMH
         public void xoaDong(string maMH)
         {
             DataRow row = tblMonHoc.Select("MAMH='" + maMH + "'")[0];
             row.Delete();
         }
-
-        //public int heSoMonHoc(string maMH)
-        //{
-        //    monHoc_DTO = new clsMONHOC_DTO();
-        //    monHoc_DTO.Mamh = maMH;
-        //    return monHoc_DAO.heSoMonHoc(monHoc_DTO);
-        //}
     }
 }

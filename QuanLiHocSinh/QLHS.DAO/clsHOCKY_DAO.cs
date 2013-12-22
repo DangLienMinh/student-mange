@@ -17,6 +17,8 @@ namespace QLHS.DAO
             connection = new clsConnectDatabase();
             con = connection.KetNoi();
         }
+
+        //thông tin học kỳ
         public DataTable danhSachHocKy()
         {
             connection.kiemTraKetNoi(con);

@@ -18,6 +18,7 @@ namespace QLHS.BUS
             hocKy_DAO=new clsHOCKY_DAO();
         }
 
+        //hiển thị comboBox học kỳ
         public void hienThiComboBox(ComboBoxEx comboBox)
         {
             comboBox.DataSource = hocKy_DAO.danhSachHocKy();
@@ -25,6 +26,7 @@ namespace QLHS.BUS
             comboBox.ValueMember = "MAHK";
         }
 
+        //hiển thị comboBox học kỳ trên grid
         public void HienThiDataGridViewComboBoxColumn(DataGridViewComboBoxColumn cboColumn)
         {
             cboColumn.DataSource = hocKy_DAO.danhSachHocKy();
@@ -32,12 +34,5 @@ namespace QLHS.BUS
             cboColumn.ValueMember = "MAHK";
             cboColumn.DataPropertyName = "MAHK";
         }
-        //public void hienThiComboBox(ComboBoxEx comboBox)
-        //{
-        //    comboBox.Items.Add("Học kỳ 1");
-        //    comboBox.Items.Add("Học kỳ 2");
-        //    comboBox.SelectedItem = "Học kỳ 1";
-        //}
-
     }
 }
