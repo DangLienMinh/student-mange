@@ -205,8 +205,7 @@ namespace QuanLiHocSinh
             {
                 txtMaNH.Text = grdNamHoc.CurrentRow.Cells["MANH"].Value.ToString();
                 txtTenNH.Text = grdNamHoc.CurrentRow.Cells["TENNH"].Value.ToString();
-            }
-           
+            }   
         }
 
         private void btnQuyDinh_Click(object sender, EventArgs e)

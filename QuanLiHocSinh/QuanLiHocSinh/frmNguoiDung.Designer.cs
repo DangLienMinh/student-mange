@@ -160,7 +160,6 @@
             this.txtMaND.Name = "txtMaND";
             this.txtMaND.Size = new System.Drawing.Size(170, 21);
             this.txtMaND.TabIndex = 1;
-            this.txtMaND.TextChanged += new System.EventHandler(this.txtMaND_TextChanged);
             this.txtMaND.Enter += new System.EventHandler(this.txt_Enter);
             this.txtMaND.Leave += new System.EventHandler(this.txt_Leave);
             // 

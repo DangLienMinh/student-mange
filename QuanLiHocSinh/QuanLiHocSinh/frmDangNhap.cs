@@ -16,6 +16,7 @@ namespace QuanLiHocSinh
             InitializeComponent();
         }
 
+        //truyền thông tin qua form main thông qua dialog result
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;

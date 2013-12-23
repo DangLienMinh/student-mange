@@ -85,8 +85,7 @@ namespace QuanLiHocSinh
             if (cboNamHoc.SelectedValue!=null)
             {
                 lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHoc.SelectedValue.ToString(), treLop);
-            }
-           
+            }     
         }
 
         private void frmDiem_Load(object sender, EventArgs e)
@@ -341,11 +340,6 @@ namespace QuanLiHocSinh
             {
                 this.Close();
             }
-        }
-
-        private void txtDiem1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
         }
 
         private void btnLuuDiem_Click(object sender, EventArgs e)

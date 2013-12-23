@@ -23,12 +23,16 @@ namespace QuanLiHocSinh
         private int tempChecTenHS;
         private int tempCheckDanToc;
         private int tempCheckNgNhapHoc;
+
+        //binding source dùng cho datagrid
         private BindingSource bs;
         #endregion
 
         #region Click event
+        //tìm cơ bản
         private void btnTim_Click(object sender, EventArgs e)
         {
+            //kiểm tra option nào được check
             if (optMaHS.Checked == false && optTenHS.Checked == false && optDanToc.Checked == false && optNgNhapHoc.Checked == false)
             {
                 MessageBox.Show("Bạn phải lựa chọn ít nhất một cách tìm kiếm !!!");
@@ -93,6 +97,7 @@ namespace QuanLiHocSinh
 
         }
 
+        //tìm nâng cao
         private void btnTim1_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
@@ -324,13 +329,8 @@ namespace QuanLiHocSinh
                         }
                         Image image = Image.FromFile(row.Cells["HINHANHHS"].Value.ToString());
                         row.Cells["pic"].Value = image;
-                        
-                        //row.Cells["pic"].Value = img;
                     }
-                   
-
-                }
-                
+                }                
             }
         }
 
@@ -345,25 +345,42 @@ namespace QuanLiHocSinh
         private void txt_Enter(object sender, EventArgs e)
         {
            ((TextBox)sender).BackColor = Color.Yellow;
-            //((TextBox)sender).Enabled = true;
-            //((TextBox)sender).Focus();
         }
 
         private void txt_Leave(object sender, EventArgs e)
         {
            ((TextBox)sender).Enabled = false;
-            ((TextBox)sender).BackColor = SystemColors.Control;
-            
+            ((TextBox)sender).BackColor = SystemColors.Control;  
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-
+            optDanToc.Checked = false;
+            optMaHS.Checked = false;
+            optNgNhapHoc.Checked = false;
+            optTenHS.Checked = false;
+            txtMaHS.Text = "";
+            txtTenHS.Text = "";
+            txtDanToc.Text = "";
+            txtMaHS.Enabled = false;
+            txtTenHS.Enabled = false;
+            txtDanToc.Enabled = false;
+            dtiNgNhapHoc.Enabled = false;
         }
 
-        
-
-       
-
+        private void btnHuy1_Click(object sender, EventArgs e)
+        {
+            optDanToc1.Checked = false;
+            optMaHS1.Checked = false;
+            optNgNhapHoc1.Checked = false;
+            optTenHS1.Checked = false;
+            txtMaHS1.Text = "";
+            txtTenHS1.Text = "";
+            txtDanToc1.Text = "";
+            txtMaHS1.Enabled = false;
+            txtTenHS1.Enabled = false;
+            txtDanToc1.Enabled = false;
+            dtiNgNhapHoc1.Enabled = false;
+        }
     }
 }

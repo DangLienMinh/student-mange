@@ -33,14 +33,18 @@ namespace QuanLiHocSinh
 
         private void frmNhatKy_Load(object sender, EventArgs e)
         {
+            //tạo một datatable mới
             DataTable table = new DataTable();
             table.Columns.Add("MAND");
             table.Columns.Add("MALND");
             table.Columns.Add("TENND");
             table.Columns.Add("THOIGIAN");
+            //mở file
             foreach (var line in File.ReadAllLines(Application.StartupPath+@"\log.txt"))
             {
+                //tách các dấu phẩy trên từng dòng tin
                 var columns = line.Split(',');
+                //ghi vào table
                 table.Rows.Add(columns[0], columns[1], columns[2], columns[3]);
             }
             bs.DataSource = table;
@@ -50,6 +54,7 @@ namespace QuanLiHocSinh
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            //xóa tất cả thông tin trong log file
             StreamWriter strm = File.CreateText(Application.StartupPath+@"\log.txt");
             strm.Flush();
             strm.Close();

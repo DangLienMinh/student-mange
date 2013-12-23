@@ -87,21 +87,6 @@ namespace QuanLiHocSinh
 
         private void treLop_NodeDoubleClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
         {
-            //if (treLop.SelectedNode == null || treLop.SelectedNode.Parent == null)
-            //{
-            //    MessageBox.Show("Bạn phải chon một lớp");
-            //}
-            //else
-            //{
-            //    //.biding navigator
-            //    bs = new BindingSource();
-            //    bs.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
-            //    grdKQ.DataSource = bs;
-            //    bnaKQ.BindingSource = bs;
-            //   string maLop=lop_BUS.layPhanBan(lop_BUS.layMaLopTrenTree(cboNamHoc,treLop));
-            //   diem_BUS.ketQuaDiemHK(cboNamHoc, maLop, grdKQ);
-            //   hanhKiem_BUS.hanhKiemTheoHocKiNamHoc(cboNamHoc, grdKQ);
-            //}
             if (treLop.SelectedNode.Parent == null)
             {
             }
@@ -111,21 +96,6 @@ namespace QuanLiHocSinh
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            //if (treLop.SelectedNode == null || treLop.SelectedNode.Parent == null)
-            //{
-            //    MessageBox.Show("Bạn phải chon một lớp");
-            //}
-            //else
-            //{
-            //    //.biding navigator
-            //    bs = new BindingSource();
-            //    bs.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
-            //    grdKQ.DataSource = bs;
-            //    bnaKQ.BindingSource = bs;
-            //    string maLop = lop_BUS.layPhanBan(lop_BUS.layMaLopTrenTree(cboNamHoc, treLop));
-            //    diem_BUS.ketQuaDiemHK(cboNamHoc, maLop, grdKQ);
-            //    hanhKiem_BUS.hanhKiemTheoHocKiNamHoc(cboNamHoc, grdKQ);
-            //}
             if (treLop.SelectedNode.Parent == null)
             {
             }

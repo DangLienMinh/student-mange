@@ -47,6 +47,8 @@ namespace QuanLiHocSinh
             InitializeComponent();
             nguoiDung_DTO = new clsNGUOIDUNG_DTO();
             nguoiDung_BUS = new clsNGUOIDUNG_BUS();
+
+            //thông tin cần thiết cho backup dialog
             backupDialog = new SaveFileDialog();
             this.backupDialog.DefaultExt = "*.BAK";
             this.backupDialog.FileName = "QLHocSinhTHPT";
@@ -54,15 +56,16 @@ namespace QuanLiHocSinh
             this.backupDialog.FilterIndex = 2;
             this.backupDialog.Title = "SAO LƯU DỮ LIỆU";
 
+            //thông tin cần thiết cho restore dialog
             restoreDialog = new OpenFileDialog();
             this.restoreDialog.DefaultExt = "*.BAK";
             this.restoreDialog.FileName = "QLHocSinhTHPT.BAK";
             this.restoreDialog.Filter = "Backup files (*.BAK)|*.BAK";
             this.restoreDialog.FilterIndex = 2;
-            this.restoreDialog.Title = "PHỤC HỒI DỮ LIỆU";
-            
+            this.restoreDialog.Title = "PHỤC HỒI DỮ LIỆU";           
         }
 
+        //giao diện
         private void btnThemeBlue_Click(object sender, EventArgs e)
         {
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2007Blue;
@@ -92,6 +95,7 @@ namespace QuanLiHocSinh
         {
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
         }
+
 
         private void btnThongTin_Click(object sender, EventArgs e)
         {
@@ -184,7 +188,6 @@ namespace QuanLiHocSinh
                 m_FrmQuyDinh.Activate();
         }
 
-
         private void btnPhanLop_Click(object sender, EventArgs e)
         {
             if (m_FrmPhanLop == null || m_FrmPhanLop.IsDisposed)
@@ -240,14 +243,16 @@ namespace QuanLiHocSinh
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            //sự kiện khi form được load lên vô hiệu hóa các button và bắt người dùng đăng nhập
             macDinh();
             dangNhap();
-            // Create the list of frequently used commands for the QAT Customize menu
+
+           //thêm các mục thường dùng vào ribbon quickaccess toolbar menu
             ribbonControl1.QatFrequentCommands.Add(btnDangNhap);
             ribbonControl1.QatFrequentCommands.Add(btnDangXuat);
             ribbonControl1.QatFrequentCommands.Add(btnThoat);
 
-            // Load Quick Access Toolbar layout if one is saved from last session...
+            //tải các toolbar mà người dùng thường sử dụng ra ngoài thanh công cụ truy xuất nhanh
             Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\DevComponents\Ribbon");
             if (key != null)
             {
@@ -261,8 +266,7 @@ namespace QuanLiHocSinh
                 {
                     key.Close();
                 }
-            }
-            
+            }           
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -316,6 +320,7 @@ namespace QuanLiHocSinh
                 m_FrmNguoiDung.Activate();
         }
 
+        //lưu thông tincác nút  người dùng thường dùng ở phiên làm việc trước
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             // Save Quick Access Toolbar layout if it has changed...
@@ -335,12 +340,10 @@ namespace QuanLiHocSinh
 
         private void btnSaoLuu_Click(object sender, EventArgs e)
         {
-           
-
             if (backupDialog.ShowDialog() == DialogResult.OK)
             {
                
-                string connectionStr = @"Data Source=DANGLIENMINH\SQLEXPRESS;Initial Catalog=QuanLyHocSinh3;Integrated Security=True";
+                string connectionStr = @"Data Source=DANGLIENMINH\SQLEXPRESS;Initial Catalog=QuanLyHocSinh4;Integrated Security=True";
                 connection = new SqlConnection(connectionStr);
                 SqlCommand cmd = new System.Data.SqlClient.SqlCommand("BACKUP DATABASE " + "QuanLyHocSinh3" + " TO DISK = '" + backupDialog.FileName.ToString() + "'", connection);
                 connection.Open();
@@ -354,13 +357,12 @@ namespace QuanLiHocSinh
 
         private void btnPhucHoi_Click(object sender, EventArgs e)
         {
-
             if (restoreDialog.ShowDialog() == DialogResult.OK)
             {
                 
-                string connectionStr = @"Data Source=DANGLIENMINH\SQLEXPRESS;Initial Catalog=QuanLyHocSinh3;Integrated Security=True";
+                string connectionStr = @"Data Source=DANGLIENMINH\SQLEXPRESS;Initial Catalog=QuanLyHocSinh4;Integrated Security=True";
                 connection = new SqlConnection(connectionStr);
-                SqlCommand cmd = new System.Data.SqlClient.SqlCommand("alter database  QuanLyHocSinh3 set offline with rollback immediate alter database QuanLyHocSinh3 set online "+
+                SqlCommand cmd = new System.Data.SqlClient.SqlCommand("alter database  QuanLyHocSinh4 set offline with rollback immediate alter database QuanLyHocSinh4 set online "+
                 "USE master RESTORE DATABASE " + "QuanLyHocSinh3" + " FROM DISK = '" + restoreDialog.FileName.ToString() + "'WITH REPLACE", connection);
                 connection.Open();
                 connection.ChangeDatabase("master");
@@ -641,7 +643,6 @@ namespace QuanLiHocSinh
                 m_FrmDiem.Activate();
         }
 
-
         private void btnHanhKiem_Click(object sender, EventArgs e)
         {
             if (m_FrmHanhKiem == null || m_FrmHanhKiem.IsDisposed)
@@ -670,11 +671,6 @@ namespace QuanLiHocSinh
             {
                 m_FrmKQ.Activate();
             }
-        }
-
-        private void ribbonControl1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnNhom_Click(object sender, EventArgs e)
@@ -749,6 +745,5 @@ namespace QuanLiHocSinh
                 m_FrmBaoCaoHocTap.Activate();
             }
         }
-
     }
 }

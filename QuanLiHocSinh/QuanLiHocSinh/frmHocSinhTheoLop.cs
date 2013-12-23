@@ -78,7 +78,6 @@ namespace QuanLiHocSinh
                             row.Cells["GIOITINHHS"].Value = "Nữ";
                         }
                     }
-
                 }
             }
         }
@@ -129,7 +128,5 @@ namespace QuanLiHocSinh
                 }
             }
         }
-
-
     }
 }

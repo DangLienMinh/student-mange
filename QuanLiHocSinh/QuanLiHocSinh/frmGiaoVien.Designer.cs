@@ -172,7 +172,6 @@
             this.navigationPanePanel2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.navigationPanePanel2.Style.GradientAngle = 90;
             this.navigationPanePanel2.TabIndex = 3;
-            this.navigationPanePanel2.Click += new System.EventHandler(this.navigationPanePanel2_Click);
             // 
             // btnHuy
             // 
