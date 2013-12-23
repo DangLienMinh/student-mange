@@ -64,25 +64,6 @@ namespace QuanLiHocSinh
         {
             bindingData(giaoVien_BUS.hienThiDanhSach());
             controlValue();
-            //if (grdGiaoVien.Rows.Count>1)
-            //{
-            //    foreach (DataGridViewRow row in grdGiaoVien.Rows)
-            //    {
-            //        if (row.Cells["MAGV"].Value!=null)
-            //        {
-            //            char x = char.Parse(row.Cells["GIOITINHGV"].Value.ToString());
-            //            if (x == '0')
-            //            {
-            //                row.Cells["GIOITINHGV"].Value = "Nam";
-            //            }
-            //            else
-            //            {
-            //                row.Cells["GIOITINHGV"].Value = "Nữ";
-            //            }
-            //        }
-                    
-            //    }
-            //}
             //load dữ liệu vào comboBox giới tính
             giaoVien_BUS.hienThiComboBox(cboGioiTinh);
             FlagDisable();
@@ -262,7 +243,6 @@ namespace QuanLiHocSinh
                         flag = 0;
                         break;
                     }
-
                 }
             }
             else
@@ -312,8 +292,6 @@ namespace QuanLiHocSinh
                     bindingData(giaoVien_BUS.timGVTenGV(txtTim.Text));
                 }
 	        }
-            //sapXep();
-            
         }
 
         private void txtDienThoai_KeyPress(object sender, KeyPressEventArgs e)
@@ -422,11 +400,6 @@ namespace QuanLiHocSinh
            
         }
 
-        private void navigationPanePanel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void picGiaoVien_Click(object sender, EventArgs e)
         {
             open = new OpenFileDialog();
@@ -437,7 +410,5 @@ namespace QuanLiHocSinh
                 picGiaoVien.Image = Image.FromFile(open.FileName);
             }
         }
-
-
     }
 }

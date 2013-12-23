@@ -22,7 +22,7 @@ namespace QuanLiHocSinh
         private clsHOCSINH_BUS hocSinh_BUS;
         private clsQUYDINH_BUS quyDinh_BUS;
         
-        int flag = -1;//kiểm tra bấm hủy hay chuyển 
+        int flag = -1;//kiểm tra bấm hủy hay chuyển cho học sinh cũ
         int flag1 = -1;//kiểm tra bấm hủy hay chuyển cho học sinh vừa được tiếp nhận
         #endregion
 
@@ -49,9 +49,7 @@ namespace QuanLiHocSinh
             lop_BUS.cboBan(cboPhanBanMoi1);
             khoi_BUS.hienThiComboBox(cboKhoiLopCu);
             khoi_BUS.hienThiComboBoxKhoi10(cboKhoiLopMoi1);
-            khoi_BUS.hienThiComboBox(cboKhoiLopCu, cboKhoiLopMoi);
-
-           
+            khoi_BUS.hienThiComboBox(cboKhoiLopCu, cboKhoiLopMoi);  
         }
         #endregion
 
@@ -167,6 +165,7 @@ namespace QuanLiHocSinh
             }
             else
             {
+                //duyệt từng phần tử trong list lớp cũ
                 IEnumerator ie = lstLopCu.SelectedItems.GetEnumerator();
                 while (ie.MoveNext())
                 {
@@ -176,6 +175,7 @@ namespace QuanLiHocSinh
                     //Trạng thái học sinh đã được chuyển lớp hay chưa?
                     bool state = false;
 
+                    //nếu lớp mới có chứa lớp cũ -> học sinh đã học sẵn trong lớp mới rồi
                     foreach (ListViewItem item in lstLopMoi.Items)
                     {
                         if (item.SubItems[1].Text == oldItem.SubItems[1].Text)
@@ -192,6 +192,7 @@ namespace QuanLiHocSinh
                         dT = hocSinh_BUS.danhSachPhanLop(cboNamHocMoi);
                     }
 
+                    //kiểm tra học sinh đã có học lớp khác chung khối trong năm học đó chưa
                     foreach (DataRow row in dT.Rows)
                     {
                         if (oldItem.SubItems[1].Text.ToString() == row["MAHS"].ToString())
@@ -202,6 +203,7 @@ namespace QuanLiHocSinh
                         }
                     }
 
+                    //nếu thõa tất cả điều kiện
                     newItem.SubItems.Add(oldItem.SubItems[1].Text);
                     newItem.SubItems.Add(oldItem.SubItems[2].Text);
                     newItem.Tag = oldItem.Tag;
@@ -214,8 +216,7 @@ namespace QuanLiHocSinh
                     if (state == true)
                         break;
                 }
-            }
-            
+            }           
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -249,7 +250,6 @@ namespace QuanLiHocSinh
                 {
                     lop_BUS.hienThiCbLopTheoNamHocKhoi(cboNamHocCu.SelectedValue.ToString(), cboLopCu, cboKhoiLopCu.SelectedValue.ToString());
                 }
-
             }
         }
 
@@ -280,6 +280,7 @@ namespace QuanLiHocSinh
         #endregion
 
         #region Tabpage 2
+        //chuyển lớp cho học sinh vừa được tiếp nhận
         private void btnChuyen1(object sender, EventArgs e)
         {
             IEnumerator ie = lstHocSinh.SelectedItems.GetEnumerator();
@@ -300,6 +301,7 @@ namespace QuanLiHocSinh
 
         private void btnLuu1_Click(object sender, EventArgs e)
         {
+            //kiểm tra số lượng học sinh
             if (lstLopMoi1.Items.Count > lop_BUS.siSoLop(cboLopMoi1))
             {
                 MessageBox.Show("Số lượng học sinh đã vượt quá sỉ số tối đa của lớp");
@@ -359,7 +361,6 @@ namespace QuanLiHocSinh
                 {
                     hocSinh_BUS.danhSachHocSinhChuaPhanLop(cboNamHocCu1, lstHocSinh);
                 }
-
             }
         }
         #endregion
@@ -372,7 +373,5 @@ namespace QuanLiHocSinh
             }
         }
         #endregion  
-
-
     }
 }

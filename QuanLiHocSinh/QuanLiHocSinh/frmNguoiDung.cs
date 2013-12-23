@@ -274,6 +274,7 @@ namespace QuanLiHocSinh
             controlValue();
         }
 
+        //thay đổi thông tin trên grid
         private void controlValue()
         {
             if (grdNguoiDung.CurrentRow.Cells["MAND"].Value!=null)
@@ -283,13 +284,7 @@ namespace QuanLiHocSinh
                 txtTenDN.Text = grdNguoiDung.CurrentRow.Cells["TENDN"].Value.ToString();
                 txtMatKhau.Text = grdNguoiDung.CurrentRow.Cells["MATKHAU"].Value.ToString();
                 cboLoaiND.SelectedValue = grdNguoiDung.CurrentRow.Cells["MALND"].Value.ToString();
-            }
-            
-        }
-
-        private void txtMaND_TextChanged(object sender, EventArgs e)
-        {
-
+            }           
         }
     }
 }

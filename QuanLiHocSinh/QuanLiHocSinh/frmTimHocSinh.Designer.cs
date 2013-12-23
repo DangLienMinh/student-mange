@@ -935,6 +935,7 @@
             this.btnHuy1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnHuy1.TabIndex = 33;
             this.btnHuy1.Text = "Hủy";
+            this.btnHuy1.Click += new System.EventHandler(this.btnHuy1_Click);
             // 
             // btnTim1
             // 
