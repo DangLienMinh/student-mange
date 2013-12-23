@@ -65,11 +65,11 @@
     <Compile Include="frmBaoCaoChung.Designer.cs">
       <DependentUpon>frmBaoCaoChung.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBaoCaoHocTap.cs">
+    <Compile Include="testReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBaoCaoHocTap.Designer.cs">
-      <DependentUpon>frmBaoCaoHocTap.cs</DependentUpon>
+    <Compile Include="testReport.Designer.cs">
+      <DependentUpon>testReport.cs</DependentUpon>
     </Compile>
     <Compile Include="frmChuyenLop.cs">
       <SubType>Form</SubType>
@@ -271,6 +271,12 @@
       <DependentUpon>TongKetHK.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="frmBaoCaoHocTap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBaoCaoHocTap.Designer.cs">
+      <DependentUpon>frmBaoCaoHocTap.cs</DependentUpon>
+    </Compile>
     <Compile Include="Testdulieu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,8 +290,8 @@
     <EmbeddedResource Include="frmBaoCaoChung.resx">
       <DependentUpon>frmBaoCaoChung.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBaoCaoHocTap.resx">
-      <DependentUpon>frmBaoCaoHocTap.cs</DependentUpon>
+    <EmbeddedResource Include="testReport.resx">
+      <DependentUpon>testReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChuyenLop.resx">
       <DependentUpon>frmChuyenLop.cs</DependentUpon>
@@ -406,6 +412,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>TongKetHK.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmBaoCaoHocTap.resx">
+      <DependentUpon>frmBaoCaoHocTap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Testdulieu.resx">
       <DependentUpon>Testdulieu.cs</DependentUpon>
     </EmbeddedResource>
@@ -499,6 +508,7 @@
     <None Include="resources\refresh.png" />
     <None Include="resources\report1.png" />
     <None Include="resources\recycle.png" />
+    <None Include="resources\Printer-icon1.png" />
     <Content Include="resources\school.png" />
     <Content Include="resources\Search-Male-User.png" />
     <Content Include="resources\Search.png" />

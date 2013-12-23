@@ -52,6 +52,7 @@ namespace QuanLiHocSinh
             namHoc_BUS.hienThiComboBox(cboNamHocTheHS);
             namHoc_BUS.hienThiComboBox(cboNamHoc);
             btnDshocsinh.Enabled = false;
+            namHoc_BUS.hienThiComboBox(cboNamHocHocBa);
         }
 
         private void btnInDSGiaoVien_Click(object sender, EventArgs e)
@@ -201,6 +202,49 @@ namespace QuanLiHocSinh
             if (cboNamHocTheHS.SelectedValue != null)
             {
                 lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHocTheHS.SelectedValue.ToString(), treLopTheHS);
+            }
+        }
+
+        private void cboNamHocHocBa_SelectedValueChanged(object sender, EventArgs e)
+        {
+            treLopHocBa.Nodes.Clear();
+            if (cboNamHocHocBa.SelectedValue != null)
+            {
+                lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHocHocBa.SelectedValue.ToString(), treLopHocBa);
+            }
+        }
+
+        private void treLopHocBa_NodeClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
+        {
+            if (treLopHocBa.SelectedNode.Parent == null)
+            {
+            }
+            else
+            {
+                if (cboNamHocHocBa.SelectedValue != null)
+                {
+                    hocSinh_BUS.HienThicbodsHocSinh(cboHocSinhHocBa, cboNamHocHocBa.SelectedValue.ToString(), lop_BUS.layMaLopTrenTree(cboNamHocHocBa, treLopHocBa));
+                }
+            }
+        }
+
+        private void btnInHocBa_Click(object sender, EventArgs e)
+        {
+            DataSet ds = baoCao_BUS.hocBaTheoNamHoc(cboNamHocHocBa, cboHocSinhHocBa, lop_BUS.layMaLopTrenTree(cboNamHocHocBa, treLopHocBa));
+            if (ds.Tables.Count < 4)
+            {
+                MessageBox.Show("Học sinh chưa hoàn thành 3 năm học tại trường");
+            }
+            else
+            {
+                ReportDocument document = new ReportDocument();
+
+                ds.WriteXmlSchema(Application.StartupPath + @"\HocBa.xsd");
+                document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\rptHocBa.rpt");
+                document.SetDataSource(ds);
+                rptView.ReportSource = document;
+                rptView.RefreshReport();
+
             }
         }
     }

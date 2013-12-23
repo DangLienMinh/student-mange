@@ -12,7 +12,7 @@ using System.IO;
 
 namespace QuanLiHocSinh
 {
-    public partial class frmBaoCaoHocTap : DevComponents.DotNetBar.Office2007Form
+    public partial class testReport : DevComponents.DotNetBar.Office2007Form
     {
         private clsNAMHOC_BUS namHoc_BUS;
         private clsLOP_BUS lop_BUS;
@@ -24,9 +24,9 @@ namespace QuanLiHocSinh
         private clsMONHOC_BUS monHoc_BUS;
         private string tenND;
 
-        public frmBaoCaoHocTap()
+        public testReport()
         {
-            InitializeComponent();
+           InitializeComponent();
             namHoc_BUS = new clsNAMHOC_BUS();
             lop_BUS = new clsLOP_BUS();
             hocSinh_BUS = new clsHOCSINH_BUS();
@@ -37,7 +37,7 @@ namespace QuanLiHocSinh
             monHoc_BUS = new clsMONHOC_BUS();
         }
 
-        public frmBaoCaoHocTap(string TenND)
+        public testReport(string TenND)
         {
             this.tenND = TenND;
             InitializeComponent();
@@ -51,7 +51,7 @@ namespace QuanLiHocSinh
             monHoc_BUS = new clsMONHOC_BUS();
         }
 
-        private void test_Load(object sender, EventArgs e)
+        private void frmBaoCaoHocTap_Load(object sender, EventArgs e)
         {
             namHoc_BUS.hienThiComboBox(cboNamHocHSG);
             namHoc_BUS.hienThiComboBox(cboNamhocBangDiem);
@@ -64,6 +64,8 @@ namespace QuanLiHocSinh
             hocKy_BUS.hienThiComboBox(cboHocKyMH);
             hocKy_BUS.hienThiComboBox(cboHKTongKetHK);
             namHoc_BUS.hienThiComboBox(cboNHTongKetHK);
+
+            namHoc_BUS.hienThiComboBox(cboNamHocHocBa);
         }
 
         private void cboNamHocHSG_SelectedValueChanged(object sender, EventArgs e)
@@ -83,33 +85,19 @@ namespace QuanLiHocSinh
             }
             else
             {
-                ReportDocument document = new ReportDocument();
                 DataSet ds = baoCao_BUS.layThongTinHSGTheoHocKy(cboNamHocHSG, cboHocKyHSG, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
-                ds.WriteXmlSchema(Application.StartupPath + @"\HSG.xsd");
-
-                document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\HSG.rpt");
-                document.SetDataSource(ds.Tables[0]);
-                TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap"];
-                text.Text = tenND;
-                rptView.ReportSource = document;
-                rptView.RefreshReport();
+                frmHiemThiReport show = new frmHiemThiReport("HSG", ds, tenND);
+                show.Show();
             }
         }
 
         private void btnInLuuBan_Click(object sender, EventArgs e)
         {
-            if (cboNamHocLuuBan.SelectedValue != null && cboKhoiLuuBan.SelectedValue != null)
+            if (cboNamHocLuuBan.SelectedValue!=null&&cboKhoiLuuBan.SelectedValue!=null)
             {
-                ReportDocument document = new ReportDocument();
-                DataSet ds = baoCao_BUS.layThongTinLuuBanTheoNamHoc(cboNamHocHSG, cboKhoiLuuBan);
-                ds.WriteXmlSchema(Application.StartupPath + @"\LuuBan.xsd");
-
-                document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\LuuBan.rpt");
-                document.SetDataSource(ds.Tables[0]);
-                TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap"];
-                text.Text = tenND;
-                rptView.ReportSource = document;
-                rptView.RefreshReport();
+                DataSet ds = baoCao_BUS.layThongTinLuuBanTheoNamHoc(cboNamHocHSG,cboKhoiLuuBan);
+                frmHiemThiReport show = new frmHiemThiReport("LuuBan", ds, tenND);
+                show.Show();
             }
         }
 
@@ -121,14 +109,9 @@ namespace QuanLiHocSinh
             }
             else
             {
-                ReportDocument document = new ReportDocument();
-                DataSet ds = baoCao_BUS.baoCaoDiemTheoMonHoc(cboNamHocMH, cboHocKyMH, cboMonHocMH, lop_BUS.layMaLopTrenTree(cboNamHocMH, treLopMH));
-                ds.WriteXmlSchema(Application.StartupPath + @"\DiemTheoMonHoc.xsd");
-
-                document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DiemTheoMonHoc.rpt");
-                document.SetDataSource(ds.Tables[0]);
-                rptView.ReportSource = document;
-                rptView.RefreshReport();
+                DataSet ds = baoCao_BUS.baoCaoDiemTheoMonHoc(cboNamHocMH, cboHocKyMH,cboMonHocMH, lop_BUS.layMaLopTrenTree(cboNamHocMH, treLopMH));
+                frmHiemThiReport show = new frmHiemThiReport("DiemTheoMonHoc", ds, tenND);
+                show.Show();
             }
         }
 
@@ -139,6 +122,21 @@ namespace QuanLiHocSinh
             {
                 lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHocMH.SelectedValue.ToString(), treLopMH);
             }
+        }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            DataSet ds = baoCao_BUS.hocBaTheoNamHoc(cboNamHocHocBa, cboHocSinhHocBa, lop_BUS.layMaLopTrenTree(cboNamHocHocBa, treLopHocBa));
+            if (ds.Tables.Count<4)
+            {
+                MessageBox.Show("Học sinh chưa hoàn thành 3 năm học tại trường");
+            }
+            else
+            {
+                frmHiemThiReport show = new frmHiemThiReport("HocBa", ds, tenND);
+                show.Show();
+            }
+            
         }
 
         private void cboNamhocBangDiem_SelectedValueChanged(object sender, EventArgs e)
@@ -158,29 +156,17 @@ namespace QuanLiHocSinh
             }
         }
 
-        private void btnInBangDiem_Click(object sender, EventArgs e)
+        private void btnInbangdiem_Click(object sender, EventArgs e)
         {
             if (cboHocsinhBangDiem.SelectedValue != null)
             {
-                ReportDocument document = new ReportDocument();
-
-                DataSet ds =baoCao_BUS.bangDiemHocSinh(cboNamhocBangDiem.SelectedValue.ToString(), treLopBangDiem.SelectedNode.Name.ToString(), cboHocsinhBangDiem.SelectedValue.ToString());
-
-                ds.WriteXmlSchema(Application.StartupPath + @"\BangDiemHocSinh.xsd");
-                document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\BangDiemHocSinh.rpt");
-                document.SetDataSource(ds.Tables["BangDiemHocSinh"]);
-                rptView.ReportSource = document;
-                rptView.RefreshReport();
+                frmHiemThiReport frmBangDiem = new frmHiemThiReport("frmBangDiem", baoCao_BUS.bangDiemHocSinh(cboNamhocBangDiem.SelectedValue.ToString(), treLopBangDiem.SelectedNode.Name.ToString(), cboHocsinhBangDiem.SelectedValue.ToString()));
+                frmBangDiem.Show();
             }
             else
             {
                 MessageBox.Show("Phải chọn Học sinh cần in bảng điểm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
-
-        private void cboNHTongKetHK_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-
         }
 
         private void cboNHTongKetHK_SelectedValueChanged(object sender, EventArgs e)
@@ -200,14 +186,9 @@ namespace QuanLiHocSinh
             }
             else
             {
-                ReportDocument document = new ReportDocument();
                 DataSet ds = baoCao_BUS.layThongTinKQTheoHocKy(cboNHTongKetHK, cboHKTongKetHK, lop_BUS.layMaLopTrenTree(cboNHTongKetHK, treLopTongKetHK));
-                ds.WriteXmlSchema(Application.StartupPath + @"\TongKetHK.xsd");
-
-                document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\TongKetHK.rpt");
-                document.SetDataSource(ds.Tables[0]);
-                rptView.ReportSource = document;
-                rptView.RefreshReport();
+                frmHiemThiReport show = new frmHiemThiReport("TongKetHK", ds, tenND);
+                show.Show();
             }
         }
 
@@ -218,14 +199,9 @@ namespace QuanLiHocSinh
             }
             else
             {
-                ReportDocument document = new ReportDocument();
                 DataSet ds = baoCao_BUS.layThongTinKQTheoHocKy(cboNHTongKetHK, cboHKTongKetHK, lop_BUS.layMaLopTrenTree(cboNHTongKetHK, treLopTongKetHK));
-                ds.WriteXmlSchema(Application.StartupPath + @"\TongKetHK.xsd");
-
-                document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\TongKetHK.rpt");
-                document.SetDataSource(ds.Tables[0]);
-                rptView.ReportSource = document;
-                rptView.RefreshReport();
+                frmHiemThiReport show = new frmHiemThiReport("TongKetHK", ds, tenND);
+                show.Show();
             }
         }
 
@@ -236,34 +212,45 @@ namespace QuanLiHocSinh
             }
             else
             {
-                ReportDocument document = new ReportDocument();
                 DataSet ds = baoCao_BUS.baoCaoDiemTheoMonHoc(cboNamHocMH, cboHocKyMH, cboMonHocMH, lop_BUS.layMaLopTrenTree(cboNamHocMH, treLopMH));
-                ds.WriteXmlSchema(Application.StartupPath + @"\DiemTheoMonHoc.xsd");
-
-                document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DiemTheoMonHoc.rpt");
-                document.SetDataSource(ds.Tables[0]);
-                rptView.ReportSource = document;
-                rptView.RefreshReport();
+                frmHiemThiReport show = new frmHiemThiReport("DiemTheoMonHoc", ds, tenND);
+                show.Show();
             }
         }
 
         private void treHSG_NodeDoubleClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
         {
-            if (treHSG.SelectedNode.Parent == null)
+            if (treLopMH.SelectedNode.Parent == null)
             {
             }
             else
             {
-                ReportDocument document = new ReportDocument();
                 DataSet ds = baoCao_BUS.layThongTinHSGTheoHocKy(cboNamHocHSG, cboHocKyHSG, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
-                ds.WriteXmlSchema(Application.StartupPath + @"\HSG.xsd");
+                frmHiemThiReport show = new frmHiemThiReport("HSG", ds, tenND);
+                show.Show();
+            }
+        }
 
-                document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\HSG.rpt");
-                document.SetDataSource(ds.Tables[0]);
-                TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap"];
-                text.Text = tenND;
-                rptView.ReportSource = document;
-                rptView.RefreshReport();
+        private void treLopHocBa_NodeClick(object sender, DevComponents.AdvTree.TreeNodeMouseEventArgs e)
+        {
+            if (treLopHocBa.SelectedNode.Parent == null)
+            {
+            }
+            else
+            {
+                if (cboNamHocHocBa.SelectedValue!=null)
+                {
+                    hocSinh_BUS.HienThicbodsHocSinh(cboHocSinhHocBa, cboNamHocHocBa.SelectedValue.ToString(), lop_BUS.layMaLopTrenTree(cboNamHocHocBa, treLopHocBa));
+                }               
+            }
+        }
+
+        private void cboNamHocHocBa_SelectedValueChanged(object sender, EventArgs e)
+        {
+            treLopHocBa.Nodes.Clear();
+            if (cboNamHocHocBa.SelectedValue != null)
+            {
+                lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHocHocBa.SelectedValue.ToString(), treLopHocBa);
             }
         }
     }

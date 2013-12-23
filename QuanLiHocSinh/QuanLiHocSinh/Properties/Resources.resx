@@ -127,9 +127,6 @@
   <data name="Luulai" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Luulai.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="images copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\images copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Teacher_Female_Dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Teacher_Female_Dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,14 +136,17 @@
   <data name="refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="no_image_found" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\no_image_found.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Untitled-d" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Untitled-d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="student_icon copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\student_icon copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="splash-of-spring-backgrounds-wallpapaers" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\splash-of-spring-backgrounds-wallpapaers.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Chonanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\Chonanh.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\white.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,9 +181,6 @@
   <data name="backGround" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\backGround.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Chonanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\Chonanh.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="learning-prv" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\learning-prv.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -196,14 +193,17 @@
   <data name="danhsach" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\danhsach.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="good-result-md" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\good-result-md.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="luuchuyenlop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\luuchuyenlop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="baoCaoDiem" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\baoCaoDiem.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="good-result-md" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\good-result-md.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="images copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="books copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\books copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -310,10 +310,13 @@
   <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="splash-of-spring-backgrounds-wallpapaers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\splash-of-spring-backgrounds-wallpapaers.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="search_user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\search_user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="no_image_found" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\no_image_found.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Printer-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\Printer-icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
