@@ -423,6 +423,16 @@ namespace QuanLiHocSinh.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Printer_icon {
+            get {
+                object obj = ResourceManager.GetObject("Printer-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap recycle {
             get {
                 object obj = ResourceManager.GetObject("recycle", resourceCulture);
