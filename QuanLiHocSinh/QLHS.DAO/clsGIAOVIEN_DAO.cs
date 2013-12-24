@@ -31,6 +31,19 @@ namespace QLHS.DAO
             return table;
         }
 
+        //danh sách BỘ MÔN
+        public DataTable danhSachBoMon()
+        {
+            DataTable table = new DataTable();
+            SqlCommand command = new SqlCommand("SP_DanhSachBoMon", con);
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            connection.kiemTraKetNoi(con);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
         //lấy thông tin dòng mới nhất thuộc mã giáo viên để tạo mã ví dụ GV001 sẽ lấy 001 
         public int soGiaoVien()
         {
@@ -80,6 +93,20 @@ namespace QLHS.DAO
             return table;
         }
 
+        //tìm giáo viên theo bộ môn
+        public DataTable timGVBoMon(clsGIAOVIEN_DTO giaoVien_DTO)
+        {
+            DataTable table = new DataTable();
+            SqlCommand command = new SqlCommand("SP_TimGiaoVienBM", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MABM", SqlDbType.VarChar).Value = giaoVien_DTO.Mabm;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            connection.kiemTraKetNoi(con);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
         //thêm một giáo viên mới
         public void themGiaoVien(clsGIAOVIEN_DTO giaoVien_DTO)
         {
@@ -92,6 +119,7 @@ namespace QLHS.DAO
             command.Parameters.Add("@DIACHIGV", SqlDbType.NVarChar).Value = giaoVien_DTO.Diachigv;
             command.Parameters.Add("@DIENTHOAIGV", SqlDbType.NVarChar).Value = giaoVien_DTO.Dienthoaigv;
             command.Parameters.Add("@HINHANHGV", SqlDbType.NVarChar).Value = giaoVien_DTO.Hinhanhgv;
+            command.Parameters.Add("@MABM", SqlDbType.NVarChar).Value = giaoVien_DTO.Mabm;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();
@@ -109,6 +137,7 @@ namespace QLHS.DAO
             command.Parameters.Add("@DIACHIGV", SqlDbType.NVarChar).Value = giaoVien_DTO.Diachigv;
             command.Parameters.Add("@DIENTHOAIGV", SqlDbType.NVarChar).Value = giaoVien_DTO.Dienthoaigv;
             command.Parameters.Add("@HINHANHGV", SqlDbType.NVarChar).Value = giaoVien_DTO.Hinhanhgv;
+            command.Parameters.Add("@MABM", SqlDbType.NVarChar).Value = giaoVien_DTO.Mabm;
             connection.kiemTraKetNoi(con);
             command.ExecuteNonQuery();
             con.Close();

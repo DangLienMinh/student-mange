@@ -171,7 +171,7 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(14, 16);
+            this.labelX3.Location = new System.Drawing.Point(12, 2);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(75, 23);
             this.labelX3.TabIndex = 17;
@@ -183,7 +183,7 @@
             // 
             // 
             this.labelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX13.Location = new System.Drawing.Point(14, 69);
+            this.labelX13.Location = new System.Drawing.Point(12, 55);
             this.labelX13.Name = "labelX13";
             this.labelX13.Size = new System.Drawing.Size(75, 23);
             this.labelX13.TabIndex = 15;
@@ -259,7 +259,7 @@
             this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(249, 536);
+            this.navigationPanePanel1.Size = new System.Drawing.Size(249, 434);
             this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -331,7 +331,7 @@
             this.btnSua.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnSua.Image = global::QuanLiHocSinh.Properties.Resources.Sua;
-            this.btnSua.Location = new System.Drawing.Point(165, 267);
+            this.btnSua.Location = new System.Drawing.Point(165, 260);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 30);
             this.btnSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -346,7 +346,7 @@
             this.btnXoa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnXoa.Image = global::QuanLiHocSinh.Properties.Resources.Xoa;
-            this.btnXoa.Location = new System.Drawing.Point(85, 267);
+            this.btnXoa.Location = new System.Drawing.Point(85, 260);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 30);
             this.btnXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -361,7 +361,7 @@
             this.btnHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnHuy.Image = global::QuanLiHocSinh.Properties.Resources.Huybo;
-            this.btnHuy.Location = new System.Drawing.Point(123, 309);
+            this.btnHuy.Location = new System.Drawing.Point(123, 302);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(101, 30);
             this.btnHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -376,7 +376,7 @@
             this.btnDongY.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnDongY.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnDongY.Image = global::QuanLiHocSinh.Properties.Resources.Dongy;
-            this.btnDongY.Location = new System.Drawing.Point(16, 309);
+            this.btnDongY.Location = new System.Drawing.Point(16, 302);
             this.btnDongY.Name = "btnDongY";
             this.btnDongY.Size = new System.Drawing.Size(101, 30);
             this.btnDongY.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -391,7 +391,7 @@
             this.btnThem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnThem.Image = global::QuanLiHocSinh.Properties.Resources.Them;
-            this.btnThem.Location = new System.Drawing.Point(6, 267);
+            this.btnThem.Location = new System.Drawing.Point(6, 260);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 30);
             this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -404,7 +404,7 @@
             this.btnGiaoVien.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnGiaoVien.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnGiaoVien.Image = global::QuanLiHocSinh.Properties.Resources.Them;
-            this.btnGiaoVien.Location = new System.Drawing.Point(206, 201);
+            this.btnGiaoVien.Location = new System.Drawing.Point(204, 187);
             this.btnGiaoVien.Name = "btnGiaoVien";
             this.btnGiaoVien.Size = new System.Drawing.Size(33, 23);
             this.btnGiaoVien.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -417,7 +417,7 @@
             this.btnMonHoc.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnMonHoc.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnMonHoc.Image = global::QuanLiHocSinh.Properties.Resources.Them;
-            this.btnMonHoc.Location = new System.Drawing.Point(206, 147);
+            this.btnMonHoc.Location = new System.Drawing.Point(204, 133);
             this.btnMonHoc.Name = "btnMonHoc";
             this.btnMonHoc.Size = new System.Drawing.Size(33, 23);
             this.btnMonHoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -430,7 +430,7 @@
             this.btnLop.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnLop.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnLop.Image = global::QuanLiHocSinh.Properties.Resources.Them;
-            this.btnLop.Location = new System.Drawing.Point(206, 93);
+            this.btnLop.Location = new System.Drawing.Point(204, 79);
             this.btnLop.Name = "btnLop";
             this.btnLop.Size = new System.Drawing.Size(33, 23);
             this.btnLop.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -443,7 +443,7 @@
             this.btnNamHoc.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnNamHoc.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnNamHoc.Image = global::QuanLiHocSinh.Properties.Resources.Them;
-            this.btnNamHoc.Location = new System.Drawing.Point(206, 39);
+            this.btnNamHoc.Location = new System.Drawing.Point(204, 25);
             this.btnNamHoc.Name = "btnNamHoc";
             this.btnNamHoc.Size = new System.Drawing.Size(33, 23);
             this.btnNamHoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -458,7 +458,7 @@
             this.cboGiaoVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboGiaoVien.FormattingEnabled = true;
             this.cboGiaoVien.ItemHeight = 15;
-            this.cboGiaoVien.Location = new System.Drawing.Point(14, 204);
+            this.cboGiaoVien.Location = new System.Drawing.Point(12, 190);
             this.cboGiaoVien.Name = "cboGiaoVien";
             this.cboGiaoVien.Size = new System.Drawing.Size(174, 21);
             this.cboGiaoVien.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -471,7 +471,7 @@
             this.cboMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMonHoc.FormattingEnabled = true;
             this.cboMonHoc.ItemHeight = 15;
-            this.cboMonHoc.Location = new System.Drawing.Point(14, 149);
+            this.cboMonHoc.Location = new System.Drawing.Point(12, 135);
             this.cboMonHoc.Name = "cboMonHoc";
             this.cboMonHoc.Size = new System.Drawing.Size(174, 21);
             this.cboMonHoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -484,7 +484,7 @@
             this.cboNamHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNamHoc.FormattingEnabled = true;
             this.cboNamHoc.ItemHeight = 15;
-            this.cboNamHoc.Location = new System.Drawing.Point(14, 39);
+            this.cboNamHoc.Location = new System.Drawing.Point(12, 25);
             this.cboNamHoc.Name = "cboNamHoc";
             this.cboNamHoc.Size = new System.Drawing.Size(174, 21);
             this.cboNamHoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -498,7 +498,7 @@
             this.cboLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLop.FormattingEnabled = true;
             this.cboLop.ItemHeight = 15;
-            this.cboLop.Location = new System.Drawing.Point(14, 93);
+            this.cboLop.Location = new System.Drawing.Point(12, 79);
             this.cboLop.Name = "cboLop";
             this.cboLop.Size = new System.Drawing.Size(174, 21);
             this.cboLop.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
@@ -510,7 +510,7 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(14, 179);
+            this.labelX1.Location = new System.Drawing.Point(12, 165);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(155, 23);
             this.labelX1.TabIndex = 16;
@@ -522,7 +522,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(14, 124);
+            this.labelX4.Location = new System.Drawing.Point(12, 110);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(75, 23);
             this.labelX4.TabIndex = 16;

@@ -62,6 +62,14 @@ namespace QLHS.DTO
             get { return hinhanhgv; }
             set { hinhanhgv = value; }
         }
+
+        private string mabm;
+
+        public string Mabm
+        {
+            get { return mabm; }
+            set { mabm = value; }
+        }
         //private string matkhau;
 
         //public string Matkhau

@@ -63,6 +63,9 @@ namespace QuanLiHocSinh
         private void frmGiaoVien_Load(object sender, EventArgs e)
         {
             bindingData(giaoVien_BUS.hienThiDanhSach());
+            giaoVien_BUS.hienThiComboBoxBoMon(cboBoMon);
+            giaoVien_BUS.hienThiComboBoxBoMon(cboBoMon1);
+            giaoVien_BUS.HienThiDataGridViewComboBoxColumnBoMon(MABM);
             controlValue();
             //load dữ liệu vào comboBox giới tính
             giaoVien_BUS.hienThiComboBox(cboGioiTinh);
@@ -140,7 +143,7 @@ namespace QuanLiHocSinh
 
                         //reset all openfiledialog
                         open.Reset();
-                        giaoVien_BUS.themGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, linkimage);
+                        giaoVien_BUS.themGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, linkimage,cboBoMon.SelectedValue.ToString());
                         MessageBox.Show("Bạn đã thêm thành công!");
                         giaoVien_BUS.themDong();
                         FlagDisable();
@@ -178,7 +181,7 @@ namespace QuanLiHocSinh
                     if (string.Compare(grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString(), linkimage) != 0)
                     {
                         File.Copy(open.FileName, linkimage);
-                        giaoVien_BUS.suaGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, linkimage);
+                        giaoVien_BUS.suaGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, linkimage, cboBoMon.SelectedValue.ToString());
 
                         // sử dụng filestream để có thể xóa hình ảnh mafkhoong bị thằng picturebox chiếm giữ
                         FileStream fs = new FileStream(linkimage, FileMode.Open, FileAccess.Read);
@@ -190,7 +193,7 @@ namespace QuanLiHocSinh
                 }
                 else
                 {
-                    giaoVien_BUS.suaGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString());
+                    giaoVien_BUS.suaGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString(), cboBoMon.SelectedValue.ToString());
 
                 }
                 MessageBox.Show("Bạn đã sửa thành công!");
@@ -276,21 +279,31 @@ namespace QuanLiHocSinh
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtTim.Text))
+            if (optMaGV.Checked||optTenGV.Checked)
             {
-                MessageBox.Show("Bạn phải nhập đầy đủ thông tin vào");
-            }
-            else
-	        {
-                if (optMaGV.Checked)
+                if (string.IsNullOrEmpty(txtTim.Text))
                 {
-                    bindingData( giaoVien_BUS.timGVMaGV(txtTim.Text));
-                   
+                    MessageBox.Show("Bạn phải nhập đầy đủ thông tin vào");
                 }
                 else
                 {
-                    bindingData(giaoVien_BUS.timGVTenGV(txtTim.Text));
+                    if (optMaGV.Checked)
+                    {
+                        bindingData(giaoVien_BUS.timGVMaGV(txtTim.Text));                       
+                    }
+                    else 
+                    {
+                        bindingData(giaoVien_BUS.timGVTenGV(txtTim.Text));
+                    }
                 }
+            }
+            else if (optMaGV.Checked==false&&optTenGV.Checked==false&&optBoMon.Checked==false)
+            {
+                MessageBox.Show("Bạn phải chọn một lựa chọn");
+            }
+            else
+	        {
+                bindingData(giaoVien_BUS.timGVBoMon(cboBoMon1.SelectedValue.ToString()));
 	        }
         }
 
@@ -379,7 +392,7 @@ namespace QuanLiHocSinh
                 txtDiaChi.Text = grdGiaoVien.CurrentRow.Cells["DIACHIGV"].Value.ToString();
                 txtDienThoai.Text = grdGiaoVien.CurrentRow.Cells["DIENTHOAIGV"].Value.ToString();
                 cboGioiTinh.SelectedItem = grdGiaoVien.CurrentRow.Cells["GIOITINHGV"].Value.ToString();
-
+                cboBoMon.SelectedValue = grdGiaoVien.CurrentRow.Cells["MABM"].Value.ToString();
                 string ngaySinh = grdGiaoVien.CurrentRow.Cells["NGSINHGV"].Value.ToString();
                 if (ngaySinh != "")
                 {
@@ -409,6 +422,18 @@ namespace QuanLiHocSinh
                 //load hình ảnh vào pictureBox
                 picGiaoVien.Image = Image.FromFile(open.FileName);
             }
+        }
+
+        private void optBoMon_CheckedChanged(object sender, EventArgs e)
+        {
+            cboBoMon1.Visible = true;
+            txtTim.Visible = false;
+        }
+
+        private void optTenGV_CheckedChanged(object sender, EventArgs e)
+        {
+            txtTim.Visible = true;
+            cboBoMon1.Visible = false;
         }
     }
 }

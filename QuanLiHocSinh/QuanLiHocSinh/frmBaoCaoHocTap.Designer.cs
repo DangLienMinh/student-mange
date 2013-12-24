@@ -201,7 +201,7 @@
             this.navigationPanePanel2.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel2.Name = "navigationPanePanel2";
             this.navigationPanePanel2.ParentItem = this.btnItemNhap;
-            this.navigationPanePanel2.Size = new System.Drawing.Size(224, 292);
+            this.navigationPanePanel2.Size = new System.Drawing.Size(224, 534);
             this.navigationPanePanel2.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel2.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -238,7 +238,7 @@
             this.treHSG.NodesConnector = this.nodeConnector1;
             this.treHSG.NodeStyle = this.elementStyle1;
             this.treHSG.PathSeparator = ";";
-            this.treHSG.Size = new System.Drawing.Size(148, 100);
+            this.treHSG.Size = new System.Drawing.Size(148, 130);
             this.treHSG.Styles.Add(this.elementStyle1);
             this.treHSG.TabIndex = 52;
             this.treHSG.NodeDoubleClick += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.treHSG_NodeDoubleClick);
@@ -305,7 +305,7 @@
             this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(224, 292);
+            this.navigationPanePanel1.Size = new System.Drawing.Size(224, 534);
             this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -391,7 +391,7 @@
             this.navigationPanePanel3.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel3.Name = "navigationPanePanel3";
             this.navigationPanePanel3.ParentItem = this.buttonItem1;
-            this.navigationPanePanel3.Size = new System.Drawing.Size(224, 292);
+            this.navigationPanePanel3.Size = new System.Drawing.Size(224, 534);
             this.navigationPanePanel3.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel3.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -414,7 +414,7 @@
             this.navigationPanePanel8.Location = new System.Drawing.Point(0, 0);
             this.navigationPanePanel8.Name = "navigationPanePanel8";
             this.navigationPanePanel8.ParentItem = this.btnItemNhap;
-            this.navigationPanePanel8.Size = new System.Drawing.Size(224, 292);
+            this.navigationPanePanel8.Size = new System.Drawing.Size(224, 534);
             this.navigationPanePanel8.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel8.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel8.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -549,13 +549,13 @@
             // navigationPane1
             // 
             this.navigationPane1.CanCollapse = true;
-            this.navigationPane1.Controls.Add(this.navigationPanePanel5);
-            this.navigationPane1.Controls.Add(this.navigationPanePanel7);
             this.navigationPane1.Controls.Add(this.navigationPanePanel6);
+            this.navigationPane1.Controls.Add(this.navigationPanePanel7);
             this.navigationPane1.Controls.Add(this.navigationPanePanel2);
             this.navigationPane1.Controls.Add(this.navigationPanePanel1);
             this.navigationPane1.Controls.Add(this.navigationPanePanel3);
             this.navigationPane1.Controls.Add(this.navigationPanePanel4);
+            this.navigationPane1.Controls.Add(this.navigationPanePanel5);
             this.navigationPane1.Dock = System.Windows.Forms.DockStyle.Left;
             this.navigationPane1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.navigationPane1.ItemPaddingBottom = 2;
@@ -599,10 +599,10 @@
             this.navigationPanePanel5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.navigationPanePanel5.Controls.Add(this.navigationPanePanel10);
             this.navigationPanePanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel5.Location = new System.Drawing.Point(1, 25);
+            this.navigationPanePanel5.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel5.Name = "navigationPanePanel5";
             this.navigationPanePanel5.ParentItem = this.buttonItem3;
-            this.navigationPanePanel5.Size = new System.Drawing.Size(224, 268);
+            this.navigationPanePanel5.Size = new System.Drawing.Size(224, 534);
             this.navigationPanePanel5.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel5.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel5.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -625,7 +625,7 @@
             this.navigationPanePanel10.Location = new System.Drawing.Point(0, 0);
             this.navigationPanePanel10.Name = "navigationPanePanel10";
             this.navigationPanePanel10.ParentItem = this.btnItemNhap;
-            this.navigationPanePanel10.Size = new System.Drawing.Size(224, 268);
+            this.navigationPanePanel10.Size = new System.Drawing.Size(224, 534);
             this.navigationPanePanel10.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel10.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel10.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -662,7 +662,7 @@
             this.treLopTongKetHK.NodesConnector = this.nodeConnector4;
             this.treLopTongKetHK.NodeStyle = this.elementStyle4;
             this.treLopTongKetHK.PathSeparator = ";";
-            this.treLopTongKetHK.Size = new System.Drawing.Size(148, 111);
+            this.treLopTongKetHK.Size = new System.Drawing.Size(148, 146);
             this.treLopTongKetHK.Styles.Add(this.elementStyle4);
             this.treLopTongKetHK.TabIndex = 52;
             this.treLopTongKetHK.Text = "advTree4";
@@ -753,7 +753,6 @@
             // buttonItem3
             // 
             this.buttonItem3.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.buttonItem3.Checked = true;
             this.buttonItem3.Image = ((System.Drawing.Image)(resources.GetObject("buttonItem3.Image")));
             this.buttonItem3.Name = "buttonItem3";
             this.buttonItem3.OptionGroup = "navBar";
@@ -916,10 +915,10 @@
             this.navigationPanePanel6.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.navigationPanePanel6.Controls.Add(this.navigationPanePanel11);
             this.navigationPanePanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel6.Location = new System.Drawing.Point(1, 1);
+            this.navigationPanePanel6.Location = new System.Drawing.Point(1, 25);
             this.navigationPanePanel6.Name = "navigationPanePanel6";
             this.navigationPanePanel6.ParentItem = this.buttonItem4;
-            this.navigationPanePanel6.Size = new System.Drawing.Size(224, 292);
+            this.navigationPanePanel6.Size = new System.Drawing.Size(224, 268);
             this.navigationPanePanel6.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel6.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel6.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -940,7 +939,7 @@
             this.navigationPanePanel11.Location = new System.Drawing.Point(0, 0);
             this.navigationPanePanel11.Name = "navigationPanePanel11";
             this.navigationPanePanel11.ParentItem = this.btnItemNhap;
-            this.navigationPanePanel11.Size = new System.Drawing.Size(224, 292);
+            this.navigationPanePanel11.Size = new System.Drawing.Size(224, 268);
             this.navigationPanePanel11.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel11.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel11.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -976,7 +975,7 @@
             this.advTree5.NodesConnector = this.nodeConnector5;
             this.advTree5.NodeStyle = this.elementStyle5;
             this.advTree5.PathSeparator = ";";
-            this.advTree5.Size = new System.Drawing.Size(148, 136);
+            this.advTree5.Size = new System.Drawing.Size(148, 173);
             this.advTree5.Styles.Add(this.elementStyle5);
             this.advTree5.TabIndex = 52;
             this.advTree5.Text = "advTree5";
@@ -1039,6 +1038,7 @@
             // buttonItem4
             // 
             this.buttonItem4.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItem4.Checked = true;
             this.buttonItem4.Image = ((System.Drawing.Image)(resources.GetObject("buttonItem4.Image")));
             this.buttonItem4.Name = "buttonItem4";
             this.buttonItem4.OptionGroup = "navBar";
@@ -1052,7 +1052,7 @@
             this.navigationPanePanel4.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel4.Name = "navigationPanePanel4";
             this.navigationPanePanel4.ParentItem = this.buttonItem2;
-            this.navigationPanePanel4.Size = new System.Drawing.Size(224, 292);
+            this.navigationPanePanel4.Size = new System.Drawing.Size(224, 534);
             this.navigationPanePanel4.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel4.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel4.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -1077,7 +1077,7 @@
             this.navigationPanePanel9.Location = new System.Drawing.Point(0, 0);
             this.navigationPanePanel9.Name = "navigationPanePanel9";
             this.navigationPanePanel9.ParentItem = this.btnItemNhap;
-            this.navigationPanePanel9.Size = new System.Drawing.Size(224, 292);
+            this.navigationPanePanel9.Size = new System.Drawing.Size(224, 534);
             this.navigationPanePanel9.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel9.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel9.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
