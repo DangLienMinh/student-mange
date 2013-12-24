@@ -576,7 +576,8 @@ namespace QuanLiHocSinh
             btnTimLop.Enabled = true;
             btnTimHocSinh.Enabled = true;
             rbGiaoDien.Enabled = true;
-            
+            btnBaoCaoChung.Enabled = true;
+            btnKQ.Enabled = true;
             btnBaoCaoHocTap.Enabled = true;
             //False
             btnDangNhap.Enabled = false;
@@ -588,12 +589,8 @@ namespace QuanLiHocSinh
             btnPhanLop.Enabled = false;
             btnGiaoVien.Enabled = false;
             btnPhanCong.Enabled = false;
-            btnBaoCaoChung.Enabled = false;
             btnLop.Enabled = false;
-            btnKhaiBao.Enabled = false;
-
-            
-            
+            btnKhaiBao.Enabled = false;  
         }
 
         public void quyenGiaoVu()
@@ -607,27 +604,26 @@ namespace QuanLiHocSinh
             btnMatKhau.Enabled = true;
             btnLop.Enabled = true;
             btnMonHoc.Enabled = true;
-            btnDiem.Enabled = true;
-            btnHanhKiem.Enabled = true;
+            btnDiem.Enabled = false;
+            btnHanhKiem.Enabled = false;
             btnHocSinh.Enabled = true;
             btnChuyenLop.Enabled = true;
             btnTimHocSinh.Enabled = true;
             btnTimLop.Enabled = true;
             btnPhanLop.Enabled = true;
             rbGiaoDien.Enabled = true;
-            btnGiaoVien.Enabled = true;
-            btnPhanCong.Enabled = true;
-            btnThamSo.Enabled = true;
-            btnKQ.Enabled = true;
-            btnBaoCaoHocTap.Enabled = true;
-            btnBaoCaoChung.Enabled = true;
+            btnGiaoVien.Enabled = false;
+            btnPhanCong.Enabled = false;
+            btnThamSo.Enabled = false;
+            btnKQ.Enabled = false;
+            btnBaoCaoHocTap.Enabled = false;
+            btnBaoCaoChung.Enabled = false;
             //False
             btnDangNhap.Enabled = false;
             btnNguoiDung.Enabled = false;
             btnSaoLuu.Enabled = false;
             btnPhucHoi.Enabled = false;
-            btnNhatKy.Enabled = false;
-           
+            btnNhatKy.Enabled = false;        
         }
 
         private void btnDiem_Click(object sender, EventArgs e)

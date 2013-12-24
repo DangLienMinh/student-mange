@@ -23,6 +23,23 @@ namespace QLHS.BUS
             tblGiaoVien = new DataTable();
         }
 
+        //hiển thị môn học trên comboBox
+        public void hienThiComboBoxBoMon(ComboBoxEx comboBox)
+        {
+            comboBox.DataSource = giaoVien_DAO.danhSachBoMon();
+            comboBox.DisplayMember = "TENBM";
+            comboBox.ValueMember = "MABM";
+        }
+
+        //hiển thị thông tin BỘ MÔN lên comboBox trên grid
+        public void HienThiDataGridViewComboBoxColumnBoMon(DataGridViewComboBoxColumn cboColumn)
+        {
+            cboColumn.DataSource = giaoVien_DAO.danhSachBoMon();
+            cboColumn.DisplayMember = "TENBM";
+            cboColumn.ValueMember = "MABM";
+            cboColumn.DataPropertyName = "MABM";
+        }
+
         //hiển thị comboBox giới tính
         public void hienThiComboBox(ComboBoxEx comboBox)
         {
@@ -85,6 +102,15 @@ namespace QLHS.BUS
             return tblGiaoVien;
         }
 
+        //tìm giáo viên bộ môn
+        public DataTable timGVBoMon(string maBM)
+        {
+            giaoVien_DTO = new clsGIAOVIEN_DTO();
+            giaoVien_DTO.Mabm = maBM;
+            tblGiaoVien = giaoVien_DAO.timGVBoMon(giaoVien_DTO);
+            return tblGiaoVien;
+        }
+
         //xóa giáo viên
         public void xoaGiaoVien(string maGV) 
         {
@@ -94,7 +120,7 @@ namespace QLHS.BUS
         }
 
         //thêm một giáo viên mới
-        public void themGiaoVien(string maGV,string TenGV, DateTimeInput ngaySinh,string DienThoai,string gioiTinh,string diaChi,string HinhAnh)
+        public void themGiaoVien(string maGV,string TenGV, DateTimeInput ngaySinh,string DienThoai,string gioiTinh,string diaChi,string HinhAnh,string maBM)
         {
             giaoVien_DTO = new clsGIAOVIEN_DTO();
             giaoVien_DTO.Magv = maGV;
@@ -104,11 +130,12 @@ namespace QLHS.BUS
             giaoVien_DTO.Hinhanhgv = HinhAnh;
             giaoVien_DTO.Ngsinhgv = ngaySinh.Value;
             giaoVien_DTO.Dienthoaigv = DienThoai;
+            giaoVien_DTO.Mabm = maBM;
             giaoVien_DAO.themGiaoVien(giaoVien_DTO);
         }
 
         //sửa thông tin giáo viên
-        public void suaGiaoVien(string maGV, string TenGV, DateTimeInput ngaySinh, string DienThoai, string gioiTinh, string diaChi, string HinhAnh)
+        public void suaGiaoVien(string maGV, string TenGV, DateTimeInput ngaySinh, string DienThoai, string gioiTinh, string diaChi, string HinhAnh,string maBM)
         {
             giaoVien_DTO = new clsGIAOVIEN_DTO();
             giaoVien_DTO.Magv = maGV;
@@ -118,6 +145,7 @@ namespace QLHS.BUS
             giaoVien_DTO.Hinhanhgv = HinhAnh;
             giaoVien_DTO.Ngsinhgv = ngaySinh.Value;
             giaoVien_DTO.Dienthoaigv = DienThoai;
+            giaoVien_DTO.Mabm = maBM;
             giaoVien_DAO.suaGiaoVien(giaoVien_DTO);
         }
 
@@ -140,6 +168,7 @@ namespace QLHS.BUS
 
             dr["DIENTHOAIGV"] =  giaoVien_DTO.Dienthoaigv;
             dr["HINHANHGV"] = giaoVien_DTO.Hinhanhgv;
+            dr["MABM"] = giaoVien_DTO.Mabm;
             return dr;
         }
 
@@ -179,6 +208,7 @@ namespace QLHS.BUS
 
                         row1["DIENTHOAIGV"] = giaoVien_DTO.Dienthoaigv;
                         row1["HINHANHGV"] = giaoVien_DTO.Hinhanhgv;
+                        row1["MABM"] = giaoVien_DTO.Mabm;
                     }
                 }
             }
