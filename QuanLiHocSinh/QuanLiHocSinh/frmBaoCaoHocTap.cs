@@ -85,7 +85,7 @@ namespace QuanLiHocSinh
             {
                 ReportDocument document = new ReportDocument();
                 DataSet ds = baoCao_BUS.layThongTinHSGTheoHocKy(cboNamHocHSG, cboHocKyHSG, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
-                ds.WriteXmlSchema(Application.StartupPath + @"\HSG.xsd");
+                //ds.WriteXmlSchema(Application.StartupPath + @"\HSG.xsd");
 
                 document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\HSG.rpt");
                 document.SetDataSource(ds.Tables[0]);
@@ -102,7 +102,7 @@ namespace QuanLiHocSinh
             {
                 ReportDocument document = new ReportDocument();
                 DataSet ds = baoCao_BUS.layThongTinLuuBanTheoNamHoc(cboNamHocHSG, cboKhoiLuuBan);
-                ds.WriteXmlSchema(Application.StartupPath + @"\LuuBan.xsd");
+                //ds.WriteXmlSchema(Application.StartupPath + @"\LuuBan.xsd");
 
                 document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\LuuBan.rpt");
                 document.SetDataSource(ds.Tables[0]);
@@ -123,7 +123,7 @@ namespace QuanLiHocSinh
             {
                 ReportDocument document = new ReportDocument();
                 DataSet ds = baoCao_BUS.baoCaoDiemTheoMonHoc(cboNamHocMH, cboHocKyMH, cboMonHocMH, lop_BUS.layMaLopTrenTree(cboNamHocMH, treLopMH));
-                ds.WriteXmlSchema(Application.StartupPath + @"\DiemTheoMonHoc.xsd");
+                //ds.WriteXmlSchema(Application.StartupPath + @"\DiemTheoMonHoc.xsd");
 
                 document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DiemTheoMonHoc.rpt");
                 document.SetDataSource(ds.Tables[0]);
@@ -166,7 +166,7 @@ namespace QuanLiHocSinh
 
                 DataSet ds =baoCao_BUS.bangDiemHocSinh(cboNamhocBangDiem.SelectedValue.ToString(), treLopBangDiem.SelectedNode.Name.ToString(), cboHocsinhBangDiem.SelectedValue.ToString());
 
-                ds.WriteXmlSchema(Application.StartupPath + @"\BangDiemHocSinh.xsd");
+                //ds.WriteXmlSchema(Application.StartupPath + @"\BangDiemHocSinh.xsd");
                 document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\BangDiemHocSinh.rpt");
                 document.SetDataSource(ds.Tables["BangDiemHocSinh"]);
                 rptView.ReportSource = document;
@@ -202,7 +202,7 @@ namespace QuanLiHocSinh
             {
                 ReportDocument document = new ReportDocument();
                 DataSet ds = baoCao_BUS.layThongTinKQTheoHocKy(cboNHTongKetHK, cboHKTongKetHK, lop_BUS.layMaLopTrenTree(cboNHTongKetHK, treLopTongKetHK));
-                ds.WriteXmlSchema(Application.StartupPath + @"\TongKetHK.xsd");
+               /// ds.WriteXmlSchema(Application.StartupPath + @"\TongKetHK.xsd");
 
                 document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\TongKetHK.rpt");
                 document.SetDataSource(ds.Tables[0]);
@@ -220,7 +220,7 @@ namespace QuanLiHocSinh
             {
                 ReportDocument document = new ReportDocument();
                 DataSet ds = baoCao_BUS.layThongTinKQTheoHocKy(cboNHTongKetHK, cboHKTongKetHK, lop_BUS.layMaLopTrenTree(cboNHTongKetHK, treLopTongKetHK));
-                ds.WriteXmlSchema(Application.StartupPath + @"\TongKetHK.xsd");
+                //ds.WriteXmlSchema(Application.StartupPath + @"\TongKetHK.xsd");
 
                 document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\TongKetHK.rpt");
                 document.SetDataSource(ds.Tables[0]);
@@ -238,7 +238,7 @@ namespace QuanLiHocSinh
             {
                 ReportDocument document = new ReportDocument();
                 DataSet ds = baoCao_BUS.baoCaoDiemTheoMonHoc(cboNamHocMH, cboHocKyMH, cboMonHocMH, lop_BUS.layMaLopTrenTree(cboNamHocMH, treLopMH));
-                ds.WriteXmlSchema(Application.StartupPath + @"\DiemTheoMonHoc.xsd");
+                //ds.WriteXmlSchema(Application.StartupPath + @"\DiemTheoMonHoc.xsd");
 
                 document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DiemTheoMonHoc.rpt");
                 document.SetDataSource(ds.Tables[0]);
@@ -256,7 +256,7 @@ namespace QuanLiHocSinh
             {
                 ReportDocument document = new ReportDocument();
                 DataSet ds = baoCao_BUS.layThongTinHSGTheoHocKy(cboNamHocHSG, cboHocKyHSG, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
-                ds.WriteXmlSchema(Application.StartupPath + @"\HSG.xsd");
+               // ds.WriteXmlSchema(Application.StartupPath + @"\HSG.xsd");
 
                 document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\HSG.rpt");
                 document.SetDataSource(ds.Tables[0]);
