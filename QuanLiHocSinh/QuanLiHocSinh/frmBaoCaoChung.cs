@@ -59,7 +59,7 @@ namespace QuanLiHocSinh
         {
             ReportDocument document = new ReportDocument();
             DataSet ds = baoCao_BUS.reportDanhSachGiaoVien();
-            ds.WriteXmlSchema(Application.StartupPath + @"\DSGiaoVien.xsd");
+            //ds.WriteXmlSchema(Application.StartupPath + @"\DSGiaoVien.xsd");
 
             document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSGiaoVien.rpt");
             document.SetDataSource(ds.Tables["GiaoVien"]);
@@ -71,7 +71,7 @@ namespace QuanLiHocSinh
 
         private void btnInTheHS_Click(object sender, EventArgs e)
         {
-            if (treLop.SelectedNode == null || treLop.SelectedNode.Parent == null)
+            if (treLopTheHS.SelectedNode == null || treLopTheHS.SelectedNode.Parent == null)
             {
                 MessageBox.Show("Phải chọn một lớp");
             }
@@ -79,7 +79,7 @@ namespace QuanLiHocSinh
             {
                 ReportDocument document = new ReportDocument();
                 DataSet ds = baoCao_BUS.reportTheHocSinh(hocSinh_BUS.layMaLop(cboNamHocTheHS, treLopTheHS));
-                ds.WriteXmlSchema(Application.StartupPath + @"\TheHocSinh.xsd");
+                ///ds.WriteXmlSchema(Application.StartupPath + @"\TheHocSinh.xsd");
 
                 document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\TheHocSinh.rpt");
                 document.SetDataSource(ds.Tables["TheHocSinh"]);
