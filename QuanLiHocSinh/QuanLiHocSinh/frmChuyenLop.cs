@@ -45,35 +45,43 @@ namespace QuanLiHocSinh
 
         private void btnChuyen_Click(object sender, EventArgs e)
         {
-            IEnumerator ie = lstLopCu.SelectedItems.GetEnumerator();
-            while (ie.MoveNext())
+            if (cboPhanBanCu.SelectedValue.ToString() != cboPhanBanMoi.SelectedValue.ToString())
             {
-                ListViewItem oldItem = (ListViewItem)ie.Current;
-                ListViewItem newItem = new ListViewItem();
-
-                //Trạng thái học sinh đã được chuyển lớp hay chưa?
-                bool state = false;
-
-                foreach (ListViewItem item in lstLopMoi.Items)
-                {
-                    if (item.SubItems[1].Text == oldItem.SubItems[1].Text)
-                    {
-                        MessageBox.Show("Học sinh " + item.SubItems[1].Text + " hiện đang học trong lớp " + cboLopMoi.Text, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        state = true;
-                        goto Cont;
-                    }
-                }
-                newItem.SubItems.Add(oldItem.SubItems[1].Text);
-                newItem.SubItems.Add(oldItem.SubItems[2].Text);
-                newItem.Tag = oldItem.Tag;
-
-                lstLopMoi.Items.Add(newItem);
-                lstLopMoi.Items[lstLopMoi.Items.IndexOf(newItem)].Text = (lstLopMoi.Items.Count).ToString();
-                lstLopCu.Items.Remove(oldItem);
-            Cont:
-                if (state == true)
-                    break;
+                MessageBox.Show("Phân ban lớp mới phải giống phân ban của lớp cũ");
             }
+            else
+            {
+                IEnumerator ie = lstLopCu.SelectedItems.GetEnumerator();
+                while (ie.MoveNext())
+                {
+                    ListViewItem oldItem = (ListViewItem)ie.Current;
+                    ListViewItem newItem = new ListViewItem();
+
+                    //Trạng thái học sinh đã được chuyển lớp hay chưa?
+                    bool state = false;
+
+                    foreach (ListViewItem item in lstLopMoi.Items)
+                    {
+                        if (item.SubItems[1].Text == oldItem.SubItems[1].Text)
+                        {
+                            MessageBox.Show("Học sinh " + item.SubItems[1].Text + " hiện đang học trong lớp " + cboLopMoi.Text, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            state = true;
+                            goto Cont;
+                        }
+                    }
+                    newItem.SubItems.Add(oldItem.SubItems[1].Text);
+                    newItem.SubItems.Add(oldItem.SubItems[2].Text);
+                    newItem.Tag = oldItem.Tag;
+
+                    lstLopMoi.Items.Add(newItem);
+                    lstLopMoi.Items[lstLopMoi.Items.IndexOf(newItem)].Text = (lstLopMoi.Items.Count).ToString();
+                    lstLopCu.Items.Remove(oldItem);
+                Cont:
+                    if (state == true)
+                        break;
+                }
+            }
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
