@@ -40,14 +40,18 @@
             this.panelConTren = new System.Windows.Forms.Panel();
             this.groupPanelLopCu = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.txtTim = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.cboPhanBanCu = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.cboLopCu = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.cboKhoiLopCu = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.cboNamHocCu = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.groupPanelLopMoi = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.cboPhanBanMoi = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.cboNamHocMoi = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.colHoTenMoi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colMaHSMoi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -60,10 +64,6 @@
             this.panelConPhai = new System.Windows.Forms.Panel();
             this.panelChaTrai = new System.Windows.Forms.Panel();
             this.splitContainerPhanLop = new System.Windows.Forms.SplitContainer();
-            this.labelX8 = new DevComponents.DotNetBar.LabelX();
-            this.cboPhanBanCu = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.labelX9 = new DevComponents.DotNetBar.LabelX();
-            this.cboPhanBanMoi = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.panelConTren.SuspendLayout();
             this.groupPanelLopCu.SuspendLayout();
             this.groupPanelLopMoi.SuspendLayout();
@@ -247,6 +247,18 @@
             this.txtTim.TabIndex = 4;
             this.txtTim.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTim_KeyDown);
             // 
+            // cboPhanBanCu
+            // 
+            this.cboPhanBanCu.DisplayMember = "Text";
+            this.cboPhanBanCu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboPhanBanCu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPhanBanCu.ItemHeight = 14;
+            this.cboPhanBanCu.Location = new System.Drawing.Point(327, 70);
+            this.cboPhanBanCu.Name = "cboPhanBanCu";
+            this.cboPhanBanCu.Size = new System.Drawing.Size(208, 20);
+            this.cboPhanBanCu.TabIndex = 3;
+            this.cboPhanBanCu.SelectedValueChanged += new System.EventHandler(this.cboLopCu_SelectedValueChanged);
+            // 
             // cboLopCu
             // 
             this.cboLopCu.DisplayMember = "Text";
@@ -272,6 +284,19 @@
             this.cboKhoiLopCu.Size = new System.Drawing.Size(121, 20);
             this.cboKhoiLopCu.TabIndex = 2;
             this.cboKhoiLopCu.SelectedValueChanged += new System.EventHandler(this.cboKhoiLopCu_SelectedValueChanged);
+            // 
+            // labelX8
+            // 
+            this.labelX8.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX8.Location = new System.Drawing.Point(273, 70);
+            this.labelX8.Name = "labelX8";
+            this.labelX8.Size = new System.Drawing.Size(57, 19);
+            this.labelX8.TabIndex = 0;
+            this.labelX8.Text = "Phân ban:";
             // 
             // cboNamHocCu
             // 
@@ -385,6 +410,31 @@
             this.groupPanelLopMoi.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanelLopMoi.TabIndex = 4;
             this.groupPanelLopMoi.Text = "Thông tin lớp mới";
+            // 
+            // cboPhanBanMoi
+            // 
+            this.cboPhanBanMoi.DisplayMember = "Text";
+            this.cboPhanBanMoi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboPhanBanMoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPhanBanMoi.ItemHeight = 14;
+            this.cboPhanBanMoi.Location = new System.Drawing.Point(337, 70);
+            this.cboPhanBanMoi.Name = "cboPhanBanMoi";
+            this.cboPhanBanMoi.Size = new System.Drawing.Size(208, 20);
+            this.cboPhanBanMoi.TabIndex = 4;
+            this.cboPhanBanMoi.SelectedValueChanged += new System.EventHandler(this.cboLopMoi_SelectedValueChanged);
+            // 
+            // labelX9
+            // 
+            this.labelX9.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX9.Location = new System.Drawing.Point(274, 70);
+            this.labelX9.Name = "labelX9";
+            this.labelX9.Size = new System.Drawing.Size(57, 19);
+            this.labelX9.TabIndex = 0;
+            this.labelX9.Text = "Phân ban:";
             // 
             // cboNamHocMoi
             // 
@@ -522,55 +572,6 @@
             this.splitContainerPhanLop.Size = new System.Drawing.Size(1362, 538);
             this.splitContainerPhanLop.SplitterDistance = 735;
             this.splitContainerPhanLop.TabIndex = 1;
-            // 
-            // labelX8
-            // 
-            this.labelX8.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(273, 70);
-            this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(57, 19);
-            this.labelX8.TabIndex = 0;
-            this.labelX8.Text = "Phân ban:";
-            // 
-            // cboPhanBanCu
-            // 
-            this.cboPhanBanCu.DisplayMember = "Text";
-            this.cboPhanBanCu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboPhanBanCu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPhanBanCu.ItemHeight = 14;
-            this.cboPhanBanCu.Location = new System.Drawing.Point(327, 70);
-            this.cboPhanBanCu.Name = "cboPhanBanCu";
-            this.cboPhanBanCu.Size = new System.Drawing.Size(208, 20);
-            this.cboPhanBanCu.TabIndex = 3;
-            this.cboPhanBanCu.SelectedValueChanged += new System.EventHandler(this.cboLopCu_SelectedValueChanged);
-            // 
-            // labelX9
-            // 
-            this.labelX9.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(274, 70);
-            this.labelX9.Name = "labelX9";
-            this.labelX9.Size = new System.Drawing.Size(57, 19);
-            this.labelX9.TabIndex = 0;
-            this.labelX9.Text = "Phân ban:";
-            // 
-            // cboPhanBanMoi
-            // 
-            this.cboPhanBanMoi.DisplayMember = "Text";
-            this.cboPhanBanMoi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboPhanBanMoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPhanBanMoi.ItemHeight = 14;
-            this.cboPhanBanMoi.Location = new System.Drawing.Point(337, 70);
-            this.cboPhanBanMoi.Name = "cboPhanBanMoi";
-            this.cboPhanBanMoi.Size = new System.Drawing.Size(208, 20);
-            this.cboPhanBanMoi.TabIndex = 4;
             // 
             // frmChuyenLop
             // 

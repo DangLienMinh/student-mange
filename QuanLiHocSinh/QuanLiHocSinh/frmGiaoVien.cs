@@ -138,7 +138,9 @@ namespace QuanLiHocSinh
                     try
                     {
                         //copy hình ảnh từ file source vào thư mục hình ảnh của chương trình
-                        string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
+                       // string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
+                        string fileExtension = open.SafeFileName.Substring(open.SafeFileName.LastIndexOf('.'));
+                        string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + txtMaGV.Text + fileExtension;
                         File.Copy(open.FileName, linkimage);
 
                         //reset all openfiledialog
@@ -176,20 +178,23 @@ namespace QuanLiHocSinh
 
                 if (open.FileName != "")
                 {
-                    string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
-                    
-                    if (string.Compare(grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString(), linkimage) != 0)
-                    {
-                        File.Copy(open.FileName, linkimage);
-                        giaoVien_BUS.suaGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, linkimage, cboBoMon.SelectedValue.ToString());
+                    //string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
+                    string fileExtension = open.SafeFileName.Substring(open.SafeFileName.LastIndexOf('.'));
+                    string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + txtMaGV.Text + "Temp" + fileExtension;
 
-                        // sử dụng filestream để có thể xóa hình ảnh mafkhoong bị thằng picturebox chiếm giữ
-                        FileStream fs = new FileStream(linkimage, FileMode.Open, FileAccess.Read);
-                        picGiaoVien.Image = Image.FromStream(fs);
-                        fs.Close();
+                    File.Copy(open.FileName, linkimage);
+                   // giaoVien_BUS.suaGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, linkimage, cboBoMon.SelectedValue.ToString());
+                    giaoVien_BUS.suaGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString(), cboBoMon.SelectedValue.ToString());
 
-                        File.Delete(grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString());
-                    }
+                    // sử dụng filestream để có thể xóa hình ảnh mà không bị thằng picturebox chiếm giữ
+                    FileStream fs = new FileStream(linkimage, FileMode.Open, FileAccess.Read);
+                    picGiaoVien.Image = Image.FromStream(fs);
+                    fs.Close();
+
+                    string replaceImage = grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString();
+                    File.Delete(grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString());
+                    File.Move(linkimage, replaceImage);
+
                 }
                 else
                 {
