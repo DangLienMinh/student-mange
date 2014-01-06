@@ -766,5 +766,10 @@ namespace QuanLiHocSinh
                 m_FrmBaoCaoHocTap.Activate();
             }
         }
+
+        private void btnHuongDan_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, helpProvider1.HelpNamespace);
+        }
     }
 }
