@@ -45,6 +45,7 @@
     <Compile Include="clsBAOCAO_BUS.cs" />
     <Compile Include="clsHANHKIEM_BUS.cs" />
     <Compile Include="clsHOCKY_BUS.cs" />
+    <Compile Include="clsKhoiTaoCSDL.cs" />
     <Compile Include="clsLOAIHANHKIEM_BUS.cs" />
     <Compile Include="clsLOP_BUS.cs" />
     <Compile Include="clsGIANGDAY_BUS.cs" />
