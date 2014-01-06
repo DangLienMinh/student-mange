@@ -5,16 +5,22 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
+using System.Configuration;
 namespace QLHS.DAO
 {
     public class clsConnectDatabase
     {
-        public SqlConnection KetNoi() {
-        //string connectionStr = @"Data Source=ANHNHAT-PC\SQLEXPRESS;Initial Catalog=QuanLyHocSinh4;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
-        string connectionStr = @"Data Source=DANGLIENMINH\SQLEXPRESS;Initial Catalog=QuanLyHocSinh4;Integrated Security=True";
-            
-                SqlConnection connection = new SqlConnection(connectionStr);
-                return connection;
+        public SqlConnection KetNoi()
+        {
+            //string connectionStr = @"Data Source=ANHNHAT-PC\SQLEXPRESS;Initial Catalog=QuanLyHocSinh4;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
+            //string connectionStr = @"Data Source=DANGLIENMINH\SQLEXPRESS;Initial Catalog=QuanLyHocSinh4;Integrated Security=True";
+            string connectionStr = "";
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["con"];
+            // If found, return the connection string. 
+            if (settings != null)
+                connectionStr = settings.ConnectionString;
+            SqlConnection connection = new SqlConnection(connectionStr);
+            return connection;
         }
         public void kiemTraKetNoi(SqlConnection con)
         {

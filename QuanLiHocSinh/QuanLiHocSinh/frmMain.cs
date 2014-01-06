@@ -41,6 +41,7 @@ namespace QuanLiHocSinh
         private frmKetQua m_FrmKQ = null;
         private frmAbout m_FrmAbout = null;
         private frmNhatKy m_FrmNhatKy = null;
+        private frmConnection m_Connection = null;
 
         public frmMain()
         {
@@ -243,30 +244,54 @@ namespace QuanLiHocSinh
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            //sự kiện khi form được load lên vô hiệu hóa các button và bắt người dùng đăng nhập
-            macDinh();
-            dangNhap();
-
-           //thêm các mục thường dùng vào ribbon quickaccess toolbar menu
-            ribbonControl1.QatFrequentCommands.Add(btnDangNhap);
-            ribbonControl1.QatFrequentCommands.Add(btnDangXuat);
-            ribbonControl1.QatFrequentCommands.Add(btnThoat);
-
-            //tải các toolbar mà người dùng thường sử dụng ra ngoài thanh công cụ truy xuất nhanh
-            Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\DevComponents\Ribbon");
-            if (key != null)
+            if (clsKhoiTaoCSDL.OpenConnection())
             {
-                try
+                //sự kiện khi form được load lên vô hiệu hóa các button và bắt người dùng đăng nhập
+                macDinh();
+                dangNhap();
+
+                //thêm các mục thường dùng vào ribbon quickaccess toolbar menu
+                ribbonControl1.QatFrequentCommands.Add(btnDangNhap);
+                ribbonControl1.QatFrequentCommands.Add(btnDangXuat);
+                ribbonControl1.QatFrequentCommands.Add(btnThoat);
+
+                //tải các toolbar mà người dùng thường sử dụng ra ngoài thanh công cụ truy xuất nhanh
+                Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\DevComponents\Ribbon");
+                if (key != null)
                 {
-                    string layout = key.GetValue("RibbonPadCSLayout", "").ToString();
-                    if (layout != "" && layout != null)
-                        ribbonControl1.QatLayout = layout;
+                    try
+                    {
+                        string layout = key.GetValue("RibbonPadCSLayout", "").ToString();
+                        if (layout != "" && layout != null)
+                            ribbonControl1.QatLayout = layout;
+                    }
+                    finally
+                    {
+                        key.Close();
+                    }
                 }
-                finally
-                {
-                    key.Close();
-                }
-            }           
+            }
+            else
+            {
+                macDinh();
+                ReConnection();
+            }
+        }
+
+        private void ReConnection()
+        {
+            //MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu! Xin vui lòng thiết lập lại kết nối...", "ERROR", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+
+            if (m_Connection == null || m_Connection.IsDisposed)
+                m_Connection = new frmConnection();
+
+            if (m_Connection.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show("Đã thiết lập kết nối cho lần chạy đầu tiên.\nHãy khởi động lại chương trình để thực thi kết nối!", "SUCCESSED", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+                return;
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
