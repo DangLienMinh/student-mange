@@ -32,8 +32,8 @@
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.btnTestConnection = new DevComponents.DotNetBar.ButtonX();
-            this.cmbDatabase = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.cmbAuthentication = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cboDatabase = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cboAuthentication = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.winAuth = new DevComponents.Editors.ComboItem();
             this.sqlServerAuth = new DevComponents.Editors.ComboItem();
             this.txtPassword = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -83,38 +83,38 @@
             // 
             this.btnTestConnection.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnTestConnection.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTestConnection.Location = new System.Drawing.Point(288, 150);
+            this.btnTestConnection.Location = new System.Drawing.Point(313, 156);
             this.btnTestConnection.Name = "btnTestConnection";
-            this.btnTestConnection.Size = new System.Drawing.Size(110, 23);
+            this.btnTestConnection.Size = new System.Drawing.Size(113, 23);
             this.btnTestConnection.TabIndex = 20;
-            this.btnTestConnection.Text = "Test Connection";
+            this.btnTestConnection.Text = "Kiểm tra kiểu kết nối";
             this.btnTestConnection.Click += new System.EventHandler(this.btnTestConnection_Click);
             // 
-            // cmbDatabase
+            // cboDatabase
             // 
-            this.cmbDatabase.DisplayMember = "Text";
-            this.cmbDatabase.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbDatabase.FormattingEnabled = true;
-            this.cmbDatabase.ItemHeight = 14;
-            this.cmbDatabase.Location = new System.Drawing.Point(288, 195);
-            this.cmbDatabase.Name = "cmbDatabase";
-            this.cmbDatabase.Size = new System.Drawing.Size(180, 20);
-            this.cmbDatabase.TabIndex = 21;
+            this.cboDatabase.DisplayMember = "Text";
+            this.cboDatabase.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboDatabase.FormattingEnabled = true;
+            this.cboDatabase.ItemHeight = 14;
+            this.cboDatabase.Location = new System.Drawing.Point(288, 195);
+            this.cboDatabase.Name = "cboDatabase";
+            this.cboDatabase.Size = new System.Drawing.Size(180, 20);
+            this.cboDatabase.TabIndex = 21;
             // 
-            // cmbAuthentication
+            // cboAuthentication
             // 
-            this.cmbAuthentication.DisplayMember = "Text";
-            this.cmbAuthentication.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbAuthentication.FormattingEnabled = true;
-            this.cmbAuthentication.ItemHeight = 14;
-            this.cmbAuthentication.Items.AddRange(new object[] {
+            this.cboAuthentication.DisplayMember = "Text";
+            this.cboAuthentication.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboAuthentication.FormattingEnabled = true;
+            this.cboAuthentication.ItemHeight = 14;
+            this.cboAuthentication.Items.AddRange(new object[] {
             this.winAuth,
             this.sqlServerAuth});
-            this.cmbAuthentication.Location = new System.Drawing.Point(288, 45);
-            this.cmbAuthentication.Name = "cmbAuthentication";
-            this.cmbAuthentication.Size = new System.Drawing.Size(180, 20);
-            this.cmbAuthentication.TabIndex = 17;
-            this.cmbAuthentication.SelectedIndexChanged += new System.EventHandler(this.cmbAuthentication_SelectedIndexChanged);
+            this.cboAuthentication.Location = new System.Drawing.Point(288, 45);
+            this.cboAuthentication.Name = "cboAuthentication";
+            this.cboAuthentication.Size = new System.Drawing.Size(180, 20);
+            this.cboAuthentication.TabIndex = 17;
+            this.cboAuthentication.SelectedIndexChanged += new System.EventHandler(this.cmbAuthentication_SelectedIndexChanged);
             // 
             // winAuth
             // 
@@ -191,7 +191,7 @@
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(88, 20);
             this.labelX4.TabIndex = 11;
-            this.labelX4.Text = "Password:";
+            this.labelX4.Text = "Mật khẩu:";
             // 
             // labelX3
             // 
@@ -205,7 +205,7 @@
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(88, 20);
             this.labelX3.TabIndex = 12;
-            this.labelX3.Text = "Username:";
+            this.labelX3.Text = "Tên đăng nhập:";
             // 
             // labelX2
             // 
@@ -219,7 +219,7 @@
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(88, 20);
             this.labelX2.TabIndex = 13;
-            this.labelX2.Text = "Authentication:";
+            this.labelX2.Text = "Kiểu xác nhận:";
             // 
             // labelX1
             // 
@@ -296,8 +296,8 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnTestConnection);
-            this.Controls.Add(this.cmbDatabase);
-            this.Controls.Add(this.cmbAuthentication);
+            this.Controls.Add(this.cboDatabase);
+            this.Controls.Add(this.cboAuthentication);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.txtServer);
@@ -309,6 +309,7 @@
             this.Controls.Add(this.groupPanelLeft);
             this.DoubleBuffered = true;
             this.Name = "frmConnection";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Khởi tạo kết nối Cơ sở dữ liệu";
             this.Load += new System.EventHandler(this.frmConnection_Load);
             this.groupPanelLeft.ResumeLayout(false);
@@ -322,8 +323,8 @@
         private DevComponents.DotNetBar.ButtonX btnCancel;
         private DevComponents.DotNetBar.ButtonX btnOK;
         private DevComponents.DotNetBar.ButtonX btnTestConnection;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cmbDatabase;
-        public DevComponents.DotNetBar.Controls.ComboBoxEx cmbAuthentication;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cboDatabase;
+        public DevComponents.DotNetBar.Controls.ComboBoxEx cboAuthentication;
         private DevComponents.Editors.ComboItem winAuth;
         private DevComponents.Editors.ComboItem sqlServerAuth;
         private DevComponents.DotNetBar.Controls.TextBoxX txtPassword;

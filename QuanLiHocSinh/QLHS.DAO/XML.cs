@@ -25,14 +25,16 @@ namespace QLHS.DAO
             return xmlR;
         }
 
-        //ghi file cấu hình
+        //ghi file cấu hình theo quyền windows
         public static void XMLWriter(String filename, String servname, String database, String costatus)
         {
+            //nếu chưa tồn tại file thì tạo file config
             if (!File.Exists(filename))
             {
                 File.Create(filename).Close();
                
             }
+            //bắt đầu ghi vào file
             XmlTextWriter xmlW = new XmlTextWriter(filename, null);
             xmlW.Formatting = Formatting.Indented;
 
@@ -76,6 +78,13 @@ namespace QLHS.DAO
         //ghi cấu hình file theo quyền sql
         public static void XMLWriter(String filename, String servname, String username, String password, String database, String costatus)
         {
+            //nếu chưa tồn tại file thì tạo file config
+            if (!File.Exists(filename))
+            {
+                File.Create(filename).Close();
+
+            }
+
             XmlTextWriter xmlW = new XmlTextWriter(filename, null);
             xmlW.Formatting = Formatting.Indented;
 

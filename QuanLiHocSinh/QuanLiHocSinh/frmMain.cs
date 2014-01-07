@@ -288,6 +288,7 @@ namespace QuanLiHocSinh
             if (m_Connection.ShowDialog() == DialogResult.OK)
             {
                 MessageBox.Show("Đã thiết lập kết nối cho lần chạy đầu tiên.\nHãy khởi động lại chương trình để thực thi kết nối!", "SUCCESSED", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clsKhoiTaoCSDL.OpenConnection();
                 this.Close();
             }
             else

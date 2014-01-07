@@ -4,12 +4,11 @@ using QLHS.DTO;
 using QLHS.DAO;
 using System.Text;
 using System.Xml;
+
 namespace QLHS.BUS
 {
     public class clsKhoiTaoCSDL
     {
-        
-
         public clsKhoiTaoCSDL()
         {
         }

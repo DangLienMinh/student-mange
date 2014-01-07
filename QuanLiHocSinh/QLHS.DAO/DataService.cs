@@ -29,16 +29,19 @@ namespace QLHS.DAO
         #region Hàm lấy lệnh connection
         public static void ConnectionString()
         {
+            //đọc file 
             XmlDocument xmlDoc = XML.XMLReader("ConnectString.con");
             XmlElement xmlEle = xmlDoc.DocumentElement;
 
             try
             {
+                //nếu với quyền windows
                 if (xmlEle.SelectSingleNode("costatus").InnerText == "true")
                 {
                     m_ConnectString = "Data Source=" + xmlEle.SelectSingleNode("servname").InnerText + ";Initial Catalog=" + xmlEle.SelectSingleNode("database").InnerText + ";Integrated Security=True;";
                     SaveConnectionString("con", m_ConnectString);
                 }
+                    //ngược lại là quyền sql server
                 else
                 {
                     m_ConnectString = "Data Source=" + xmlEle.SelectSingleNode("servname").InnerText + ";Initial Catalog=" + xmlEle.SelectSingleNode("database").InnerText + ";User Id=" + xmlEle.SelectSingleNode("username").InnerText + ";Password=" + xmlEle.SelectSingleNode("password").InnerText + ";";
@@ -77,11 +80,13 @@ namespace QLHS.DAO
         //Lưu vào file config
         private static void SaveConnectionString(string connectionName, string newValue)
         {
-            // Get the application configuration file.
+            // lấy thông tin file config
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            //lấy thông tin config với tên là con
             ConnectionStringSettings csSetting = config.ConnectionStrings.ConnectionStrings[connectionName];
             if (csSetting == null & !connectionName.Contains(".Properties.Settings."))
             {
+                //bắt đầu ghi vào file
                 string settingName = ".Properties.Settings." + connectionName;
                 foreach (ConnectionStringSettings cs in config.ConnectionStrings.ConnectionStrings)
                 {
@@ -103,7 +108,7 @@ namespace QLHS.DAO
                 csSetting = new ConnectionStringSettings(connectionName, newValue, provideName);
                 config.ConnectionStrings.ConnectionStrings.Add(csSetting);
             }
-            // Save the configuration file.
+            // lưu thông tin file config
             config.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection(connectionName );
         }
