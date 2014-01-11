@@ -61,7 +61,7 @@ namespace QuanLiHocSinh
             DataSet ds = baoCao_BUS.reportDanhSachGiaoVien();
             ds.WriteXmlSchema(Application.StartupPath + @"\DSGiaoVien.xsd");
 
-            document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSGiaoVien.rpt");
+            document.Load((Application.StartupPath.ToString()) + @"\report\DSGiaoVien.rpt");
             document.SetDataSource(ds.Tables["GiaoVien"]);
             TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap"];
             text.Text = tenND;
@@ -81,7 +81,7 @@ namespace QuanLiHocSinh
                 DataSet ds = baoCao_BUS.reportTheHS(hocSinh_BUS.layMaLop(cboNamHocTheHS, treLopTheHS));
                 ds.WriteXmlSchema(Application.StartupPath + @"\TheHocSinh.xsd");
 
-                document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\TheHocSinh.rpt");
+                document.Load((Application.StartupPath.ToString()) + @"\report\TheHocSinh.rpt");
                 document.SetDataSource(ds.Tables["TheHocSinh"]);
                 rptView.ReportSource = document;
                 rptView.RefreshReport();
@@ -96,7 +96,7 @@ namespace QuanLiHocSinh
                 DataSet ds = baoCao_BUS.reportDanhSachLop();
                 ds.WriteXmlSchema(Application.StartupPath + @"\DSLop.xsd");
 
-                document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSLop.rpt");
+                document.Load((Application.StartupPath.ToString()) + @"\report\DSLop.rpt");
                 if (ds.Tables["Lop"].Select("MANH='" + cboNamHocDSLop.SelectedValue+"'").Length!=0)
                 {
                     document.SetDataSource(ds.Tables["Lop"].Select("MANH='" + cboNamHocDSLop.SelectedValue + "'").CopyToDataTable());
@@ -123,7 +123,7 @@ namespace QuanLiHocSinh
                     ReportDocument document = new ReportDocument();
                     DataSet ds = hocSinh_BUS.danhSachHocSinh_NH_LOP(cboNamHoc.SelectedValue.ToString(), treLop.SelectedNode.Name.ToString());
                     ds.WriteXmlSchema(Application.StartupPath + @"\DanhSachHocSinh.xsd");
-                    document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSHS_Lop.rpt");
+                    document.Load((Application.StartupPath.ToString()) + @"\report\DSHS_Lop.rpt");
                     document.SetDataSource(ds.Tables["DanhSachHocSinh"]);
                     rptView.ReportSource = document;
                     rptView.RefreshReport();
@@ -164,7 +164,7 @@ namespace QuanLiHocSinh
                         ReportDocument document = new ReportDocument();
                         DataSet ds = hocSinh_BUS.danhSachHocSinh_NH_LOP(cboNamHoc.SelectedValue.ToString(), treLop.SelectedNode.Name.ToString());
                         ds.WriteXmlSchema(Application.StartupPath + @"\DanhSachHocSinh.xsd");
-                        document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\DSHS_Lop.rpt");
+                        document.Load((Application.StartupPath.ToString()) + @"\report\DSHS_Lop.rpt");
                         document.SetDataSource(ds.Tables["DanhSachHocSinh"]);
                         rptView.ReportSource = document;
                         rptView.RefreshReport();
@@ -197,7 +197,7 @@ namespace QuanLiHocSinh
                 DataSet ds = baoCao_BUS.reportTheHS(hocSinh_BUS.layMaLop(cboNamHocTheHS, treLopTheHS));
                 ds.WriteXmlSchema(Application.StartupPath + @"\TheHocSinh.xsd");
 
-                document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\TheHocSinh.rpt");
+                document.Load((Application.StartupPath.ToString()) + @"\report\TheHocSinh.rpt");
                 document.SetDataSource(ds.Tables["TheHocSinh"]);
                 rptView.ReportSource = document;
                 rptView.RefreshReport();
@@ -248,7 +248,7 @@ namespace QuanLiHocSinh
                 ReportDocument document = new ReportDocument();
 
                 ds.WriteXmlSchema(Application.StartupPath + @"\HocBa.xsd");
-                document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\rptHocBa.rpt");
+                document.Load((Application.StartupPath.ToString()) + @"\report\rptHocBa.rpt");
                 document.SetDataSource(ds);
                 rptView.ReportSource = document;
                 rptView.RefreshReport();
