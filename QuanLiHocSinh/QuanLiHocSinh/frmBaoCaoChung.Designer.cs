@@ -86,10 +86,10 @@
             // navigationPane1
             // 
             this.navigationPane1.CanCollapse = true;
-            this.navigationPane1.Controls.Add(this.navigationPanePanel4);
+            this.navigationPane1.Controls.Add(this.navigationPanePanel3);
             this.navigationPane1.Controls.Add(this.navigationPanePanel2);
             this.navigationPane1.Controls.Add(this.navigationPanePanel1);
-            this.navigationPane1.Controls.Add(this.navigationPanePanel3);
+            this.navigationPane1.Controls.Add(this.navigationPanePanel4);
             this.navigationPane1.Dock = System.Windows.Forms.DockStyle.Left;
             this.navigationPane1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.navigationPane1.ItemPaddingBottom = 2;
@@ -124,17 +124,17 @@
             this.navigationPane1.TitlePanel.Style.GradientAngle = 90;
             this.navigationPane1.TitlePanel.Style.MarginLeft = 4;
             this.navigationPane1.TitlePanel.TabIndex = 0;
-            this.navigationPane1.TitlePanel.Text = "In học bạ";
+            this.navigationPane1.TitlePanel.Text = "In danh sách học sinh theo lớp";
             // 
             // navigationPanePanel4
             // 
             this.navigationPanePanel4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.navigationPanePanel4.Controls.Add(this.navigationPanePanel10);
             this.navigationPanePanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel4.Location = new System.Drawing.Point(1, 25);
+            this.navigationPanePanel4.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel4.Name = "navigationPanePanel4";
             this.navigationPanePanel4.ParentItem = this.buttonItem2;
-            this.navigationPanePanel4.Size = new System.Drawing.Size(246, 338);
+            this.navigationPanePanel4.Size = new System.Drawing.Size(246, 534);
             this.navigationPanePanel4.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel4.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel4.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -157,7 +157,7 @@
             this.navigationPanePanel10.Location = new System.Drawing.Point(0, 0);
             this.navigationPanePanel10.Name = "navigationPanePanel10";
             this.navigationPanePanel10.ParentItem = this.btnItemNhap;
-            this.navigationPanePanel10.Size = new System.Drawing.Size(246, 338);
+            this.navigationPanePanel10.Size = new System.Drawing.Size(246, 534);
             this.navigationPanePanel10.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel10.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel10.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -292,7 +292,6 @@
             // buttonItem2
             // 
             this.buttonItem2.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.buttonItem2.Checked = true;
             this.buttonItem2.Image = ((System.Drawing.Image)(resources.GetObject("buttonItem2.Image")));
             this.buttonItem2.Name = "buttonItem2";
             this.buttonItem2.OptionGroup = "navBar";
@@ -569,10 +568,10 @@
             this.navigationPanePanel3.Controls.Add(this.cboNamHoc);
             this.navigationPanePanel3.Controls.Add(this.labelX2);
             this.navigationPanePanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationPanePanel3.Location = new System.Drawing.Point(1, 1);
+            this.navigationPanePanel3.Location = new System.Drawing.Point(1, 25);
             this.navigationPanePanel3.Name = "navigationPanePanel3";
             this.navigationPanePanel3.ParentItem = this.buttonItem1;
-            this.navigationPanePanel3.Size = new System.Drawing.Size(246, 362);
+            this.navigationPanePanel3.Size = new System.Drawing.Size(246, 338);
             this.navigationPanePanel3.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel3.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -667,6 +666,7 @@
             // buttonItem1
             // 
             this.buttonItem1.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItem1.Checked = true;
             this.buttonItem1.Image = ((System.Drawing.Image)(resources.GetObject("buttonItem1.Image")));
             this.buttonItem1.Name = "buttonItem1";
             this.buttonItem1.OptionGroup = "navBar";

@@ -46,21 +46,21 @@ namespace QLHS.BUS
         }
 
         //report thẻ học sinh
-        public DataSet reportTheHocSinh(string maLop)
+        public DataSet reportTheHS(string maLop)
         {
             return baoCao_DAO.reportTheHS(maLop);
         }
 
-        //bản điểm học sinh
+        //bảng điểm học sinh (Nhất)
         public DataSet bangDiemHocSinh(string manh, string malop, string mahs)
         {
-            decimal TongdiemHK1 = 0;
-            decimal TongdiemHK2 = 0;
-            decimal TongdiemCN = 0;
+            decimal TongDiemHK1 = 0;
+            decimal TongDiemHK2 = 0;
+            decimal TongDiemCN = 0;
             decimal DiemTBHK1 = 0;
             decimal DiemTBHK2 = 0;
             decimal DiemTBCN = 0;
-            DataSet ds = baoCao_DAO.BangDiemHocSinh(manh, malop, mahs);
+            DataSet ds = baoCao_DAO.bangDiemHocSinh(manh, malop, mahs);
             if (ds.Tables["BangDiemHocSinh"].Rows.Count > 0)
             {
                 for (int i = 0; i < ds.Tables["BangDiemHocSinh"].Rows.Count; i++)
@@ -71,15 +71,15 @@ namespace QLHS.BUS
                         {
                             if (ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Toán" || ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Văn")
                             {
-                                TongdiemHK1 = TongdiemHK1 + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 1"].ToString()));
-                                TongdiemHK2 = TongdiemHK2 + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 2"].ToString()));
-                                TongdiemCN = TongdiemCN + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["CANAM"].ToString()));
+                                TongDiemHK1 = TongDiemHK1 + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 1"].ToString()));
+                                TongDiemHK2 = TongDiemHK2 + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 2"].ToString()));
+                                TongDiemCN = TongDiemCN + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["CANAM"].ToString()));
                             }
                             else
                             {
-                                TongdiemHK1 = decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 1"].ToString());
-                                TongdiemHK2 = decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 2"].ToString());
-                                TongdiemCN = decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["CANAM"].ToString());
+                                TongDiemHK1 = decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 1"].ToString());
+                                TongDiemHK2 = decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 2"].ToString());
+                                TongDiemCN = decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["CANAM"].ToString());
                             }
                         }
                         else
@@ -88,30 +88,30 @@ namespace QLHS.BUS
                             {
                                 if (ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Toán" || ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Lý" || ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Hóa" || ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Sinh")
                                 {
-                                    TongdiemHK1 = TongdiemHK1 + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 1"].ToString()));
-                                    TongdiemHK2 = TongdiemHK2 + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 2"].ToString()));
-                                    TongdiemCN = TongdiemCN + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["CANAM"].ToString()));
+                                    TongDiemHK1 = TongDiemHK1 + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 1"].ToString()));
+                                    TongDiemHK2 = TongDiemHK2 + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 2"].ToString()));
+                                    TongDiemCN = TongDiemCN + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["CANAM"].ToString()));
                                 }
                                 else
                                 {
-                                    TongdiemHK1 = TongdiemHK1 + (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 1"].ToString()));
-                                    TongdiemHK2 = TongdiemHK2 + (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 2"].ToString()));
-                                    TongdiemCN = TongdiemCN + (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["CANAM"].ToString()));
+                                    TongDiemHK1 = TongDiemHK1 + (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 1"].ToString()));
+                                    TongDiemHK2 = TongDiemHK2 + (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 2"].ToString()));
+                                    TongDiemCN = TongDiemCN + (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["CANAM"].ToString()));
                                 }
                             }
                             else
                             {
                                 if (ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Văn" || ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Sử" || ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Địa" || ds.Tables["BangDiemHocSinh"].Rows[i]["TENMH"].ToString() == "Anh")
                                 {
-                                    TongdiemHK1 = TongdiemHK1 + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 1"].ToString()));
-                                    TongdiemHK2 = TongdiemHK2 + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 2"].ToString()));
-                                    TongdiemCN = TongdiemCN + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["CANAM"].ToString()));
+                                    TongDiemHK1 = TongDiemHK1 + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 1"].ToString()));
+                                    TongDiemHK2 = TongDiemHK2 + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 2"].ToString()));
+                                    TongDiemCN = TongDiemCN + 2 * (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["CANAM"].ToString()));
                                 }
                                 else
                                 {
-                                    TongdiemHK1 = TongdiemHK1 + (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 1"].ToString()));
-                                    TongdiemHK2 = TongdiemHK2 + (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 2"].ToString()));
-                                    TongdiemCN = TongdiemCN + (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["CANAM"].ToString()));
+                                    TongDiemHK1 = TongDiemHK1 + (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 1"].ToString()));
+                                    TongDiemHK2 = TongDiemHK2 + (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["Học kỳ 2"].ToString()));
+                                    TongDiemCN = TongDiemCN + (decimal.Parse(ds.Tables["BangDiemHocSinh"].Rows[i]["CANAM"].ToString()));
                                 }
                             }
                         }
@@ -128,15 +128,15 @@ namespace QLHS.BUS
                 }
                 if (ds.Tables["BangDiemHocSinh"].Rows[0]["MABAN"].ToString() == "B01")
                 {
-                    DiemTBHK1 = Math.Round((TongdiemHK1 / 15), 1);
-                    DiemTBHK2 = Math.Round((TongdiemHK2 / 15), 1);
-                    DiemTBCN = Math.Round((TongdiemCN / 15), 1);
+                    DiemTBHK1 = Math.Round((TongDiemHK1 / 15), 1);
+                    DiemTBHK2 = Math.Round((TongDiemHK2 / 15), 1);
+                    DiemTBCN = Math.Round((TongDiemCN / 15), 1);
                 }
                 else
                 {
-                    DiemTBHK1 = Math.Round((TongdiemHK1 / 17), 1);
-                    DiemTBHK2 = Math.Round((TongdiemHK2 / 17), 1);
-                    DiemTBCN = Math.Round((TongdiemCN / 17), 1);
+                    DiemTBHK1 = Math.Round((TongDiemHK1 / 17), 1);
+                    DiemTBHK2 = Math.Round((TongDiemHK2 / 17), 1);
+                    DiemTBCN = Math.Round((TongDiemCN / 17), 1);
                 }
                 DataColumn DIEMTBHK1 = new DataColumn("DIEMTBHK1",typeof(decimal));
                 DataColumn DIEMTBHK2 = new DataColumn("DIEMTBHK2", typeof(decimal));
@@ -155,7 +155,7 @@ namespace QLHS.BUS
         }
 
         //HSG
-        public DataSet layThongTinHSGTheoHocKy(ComboBoxEx namHoc, ComboBoxEx hocKy, string maLop)
+        public DataSet HSGTheoHocKy(ComboBoxEx namHoc, ComboBoxEx hocKy, string maLop)
         {
             DataTable tableTemp = new DataTable();
             DataSet ds = new DataSet();

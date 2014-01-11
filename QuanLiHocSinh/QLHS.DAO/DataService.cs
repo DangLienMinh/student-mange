@@ -12,7 +12,7 @@ using System.IO;
 
 namespace QLHS.DAO
 {
-    public partial class DataService : DataTable
+    public partial class DataService :DataTable
     {
         #region Fields
         private static SqlConnection m_Connection;
@@ -31,6 +31,7 @@ namespace QLHS.DAO
         {
             //đọc file 
             XmlDocument xmlDoc = XML.XMLReader("ConnectString.con");
+            //lấy root tag
             XmlElement xmlEle = xmlDoc.DocumentElement;
 
             try

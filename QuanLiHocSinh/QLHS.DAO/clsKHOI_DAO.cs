@@ -18,12 +18,26 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
-        //thông tin khối
+        //thông tin khối SP_ThongTinKhoi 
         public DataTable danhSachKhoi()
         {
             DataTable table=new DataTable();
             connection.kiemTraKetNoi(con);
             SqlCommand command=new SqlCommand("SP_ThongTinKhoi",con);
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            con.Close();
+            return table;
+        }
+
+        //hiển thị danh sách khối theo mã khối được chọn ví dụ nếu chọn khối 10 thì chỉ xuất hiện khối 10  dùng cho việc chuyển lớp học sinh SP_HienThiKhoiChuyenLop
+        public DataTable danhSachKhoiChuyenLop(clsKHOI_DTO khoi_DTO)
+        {
+            DataTable table = new DataTable();
+            connection.kiemTraKetNoi(con);
+            SqlCommand command = new SqlCommand("SP_HienThiKhoiChuyenLop", con);
+            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = khoi_DTO.Makhoi;
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(table);
@@ -45,21 +59,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //hiển thị danh sách khối theo mã khối được chọn ví dụ nếu chọn khối 10 thì chỉ xuất hiện khối 10  dùng cho việc chuyển lớp học sinh
-        public DataTable danhSachKhoiChuyenLop(clsKHOI_DTO khoi_DTO)
-        {
-            DataTable table = new DataTable();
-            connection.kiemTraKetNoi(con);
-            SqlCommand command = new SqlCommand("SP_HienThiKhoiChuyenLop", con);
-            command.Parameters.Add("@MAKHOI", SqlDbType.VarChar).Value = khoi_DTO.Makhoi;
-            command.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            adapter.Fill(table);
-            con.Close();
-            return table;
-        }
-
-        //hiển thị thông tin khối 10
+        //hiển thị thông tin khối 10 SP_HienThiKhoi10
         public DataTable danhSachKhoi10()
         {
             DataTable table = new DataTable();

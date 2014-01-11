@@ -33,7 +33,7 @@ namespace QLHS.BUS
             comboBox.ValueMember = "MALND";         
         }
 
-        //hiển thị danh sách ngừoi dùng
+        //hiển thị danh sách người dùng
         public DataTable hienThiDanhSach()
         {
             tblNguoiDung = nguoiDung_DAO.danhSachNguoiDung();
@@ -157,7 +157,7 @@ namespace QLHS.BUS
             if (matKhauHT != matKhau)
                 return 1;
             else
-                //nếu trùng mật khẩu thì return 2 và trả èề thông tin người dùng
+                //nếu trùng mật khẩu thì return 2 và trả về thông tin người dùng
             {
                 nguoiDung_DTO.Tendn = nguoiDung.Rows[0]["TenND"].ToString();
                 nguoiDung_DTO.Malnd = nguoiDung.Rows[0]["MALND"].ToString();

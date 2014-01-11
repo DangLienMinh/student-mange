@@ -11,13 +11,14 @@ namespace QLHS.DAO
     {
         private SqlConnection con;
         private clsConnectDatabase connection;
+        //mở kết nối trong hàm khời tạo
         public clsDIEM_DAO()
         {
             connection = new clsConnectDatabase();
             con = connection.KetNoi();
         }
 
-        //đếm số lần xuất hiên của một loại điểm
+        //đếm số lần xuất hiên của một loại điểm SP_DemDiem
         public int demDiem(clsDIEM_DTO diem_DTO)
         {
             int temp;
@@ -42,7 +43,7 @@ namespace QLHS.DAO
             return temp;
         }
 
-        //thêm một điểm mới cho học sinh
+        //thêm một điểm mới cho học sinh SP_ThemDiemTheoHS
         public void themDiemTheoHS(clsDIEM_DTO diem_DTO)
         {
             SqlCommand command = new SqlCommand("SP_ThemDiemTheoHS", con);
@@ -58,7 +59,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
-        //lấy thông tin điểm học sinh theo MANH,MAHK,MAMH,MAHS
+        //lấy thông tin điểm học sinh theo MANH, MAHK, MAMH, MAHS SP_DiemTBTheoHocKiMonHoc
         public DataTable diemTBTheoHocKiMonHoc(clsDIEM_DTO diem_DTO)
         {
             DataTable table = new DataTable();
@@ -75,7 +76,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //lấy tất cả thông tin điểm học sinh theo MANH,MAHK,MAMH,MAHS,MALD
+        //lấy tất cả thông tin điểm học sinh theo MANH,MAHK,MAMH,MAHS,MALD SP_ThongTinDiemTheoHS
         public DataTable thongTinDiemTheoHS(clsDIEM_DTO diem_DTO)
         {
             DataTable table = new DataTable();
@@ -93,7 +94,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //chỉ lấy điểm số của học sinh theo thông tin input
+        //chỉ lấy điểm số của học sinh theo thông tin nhập vào SP_ThongTinDiemHSTheoMaLD
         public DataTable thongTinDiemTheoMaLD(clsDIEM_DTO diem_DTO)
         {
             DataTable table = new DataTable();
@@ -111,7 +112,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //sửa điểm số của học sinh
+        //sửa điểm số của học sinh SP_SuaDiemTheoHS
         public void suaDiemTheoHS(clsDIEM_DTO diem_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaDiemTheoHS", con);
@@ -123,7 +124,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
-        //xóa điểm học sinh
+        //xóa điểm học sinh SP_XoaDiemTheoHS
         public void xoaDiemTheoHS(clsDIEM_DTO diem_DTO)
         {
             SqlCommand command = new SqlCommand("SP_XoaDiemTheoHS", con);
@@ -134,7 +135,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
-        //xóa tất cả các điểm học sinh theo mã loại điểm
+        //xóa tất cả các điểm học sinh theo mã loại điểm SP_XoaDiemHSTheoMaLD
         public void xoaDiemTheoMaLD(clsDIEM_DTO diem_DTO)
         {
             SqlCommand command = new SqlCommand("SP_XoaDiemHSTheoMaLD", con);

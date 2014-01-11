@@ -18,7 +18,7 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
-        //danh sách giáo viên
+        //danh sách giáo viên SP_ThongTinGiaoVien
         public DataTable danhSachGiaoVien()
         {
             DataTable table = new DataTable();
@@ -31,7 +31,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //danh sách BỘ MÔN
+        //danh sách BỘ MÔN SP_DanhSachBoMon
         public DataTable danhSachBoMon()
         {
             DataTable table = new DataTable();
@@ -44,7 +44,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //lấy thông tin dòng mới nhất thuộc mã giáo viên để tạo mã ví dụ GV001 sẽ lấy 001 
+        //lấy thông tin dòng mới nhất thuộc mã giáo viên để tạo mã ví dụ GV001 sẽ lấy 001  SP_TimGiaoVienMaGV
         public int soGiaoVien()
         {
             int temp = -1;
@@ -65,7 +65,7 @@ namespace QLHS.DAO
             return temp;
         }
 
-        //tìm giáo viên theo mã giáo viên
+        //tìm giáo viên theo mã giáo viên SP_TimGiaoVienMaGV
         public DataTable timGVMaGV(clsGIAOVIEN_DTO giaoVien_DTO)
         {
             DataTable table = new DataTable();
@@ -79,7 +79,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //tìm giáo viên theo tên giáo viên
+        //tìm giáo viên theo tên giáo viên SP_TimGiaoVienTenGV
         public DataTable timGVTenGV(clsGIAOVIEN_DTO giaoVien_DTO)
         {
             DataTable table = new DataTable();
@@ -93,7 +93,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //tìm giáo viên theo bộ môn
+        //tìm giáo viên theo bộ môn SP_TimGiaoVienBM
         public DataTable timGVBoMon(clsGIAOVIEN_DTO giaoVien_DTO)
         {
             DataTable table = new DataTable();
@@ -107,7 +107,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //thêm một giáo viên mới
+        //thêm một giáo viên mới SP_ThemGiaoVien
         public void themGiaoVien(clsGIAOVIEN_DTO giaoVien_DTO)
         {
             SqlCommand command = new SqlCommand("SP_ThemGiaoVien", con);

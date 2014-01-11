@@ -159,7 +159,7 @@ namespace QLHS.BUS
             return tuoitoithieu;
         }
 
-        //danh sách học sinh theo năm học và lớp
+        // REPORT danh sách học sinh theo năm học và lớp
         public DataSet danhSachHocSinh_NH_LOP(string manh, string malop)
         {
             DataSet ds = hocSinh_DAO.danhSachHocSinh_NH_LOP(manh, malop);
@@ -179,7 +179,6 @@ namespace QLHS.BUS
                         }
                     }
                 }
-
             }
             return ds;
         }

@@ -85,7 +85,7 @@ namespace QuanLiHocSinh
             }
             else
             {
-                DataSet ds = baoCao_BUS.layThongTinHSGTheoHocKy(cboNamHocHSG, cboHocKyHSG, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
+                DataSet ds = baoCao_BUS.HSGTheoHocKy(cboNamHocHSG, cboHocKyHSG, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
                 frmHiemThiReport show = new frmHiemThiReport("HSG", ds, tenND);
                 show.Show();
             }
@@ -225,7 +225,7 @@ namespace QuanLiHocSinh
             }
             else
             {
-                DataSet ds = baoCao_BUS.layThongTinHSGTheoHocKy(cboNamHocHSG, cboHocKyHSG, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
+                DataSet ds = baoCao_BUS.HSGTheoHocKy(cboNamHocHSG, cboHocKyHSG, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
                 frmHiemThiReport show = new frmHiemThiReport("HSG", ds, tenND);
                 show.Show();
             }

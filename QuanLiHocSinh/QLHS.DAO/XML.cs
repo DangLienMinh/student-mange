@@ -9,7 +9,7 @@ namespace QLHS.DAO
 {
     public class XML
     {
-        //đọc file
+        //đọc file XML -> trả về xml document
         public static XmlDocument XMLReader(String filename)
         {
             XmlDocument xmlR = new XmlDocument();
@@ -36,8 +36,9 @@ namespace QLHS.DAO
             }
             //bắt đầu ghi vào file
             XmlTextWriter xmlW = new XmlTextWriter(filename, null);
+            //xuống dòng
             xmlW.Formatting = Formatting.Indented;
-
+            //ghi format xml
             xmlW.WriteStartDocument();
             xmlW.WriteComment("\nKhong duoc thay doi noi dung file nay!\n" +
                                 "Thong so co ban:\n\t" +
@@ -47,10 +48,13 @@ namespace QLHS.DAO
                                 "username: ten dang nhap he thong\n\t" +
                                 "password: mat khau dang nhap he thong\n\t" +
                                 "database: ten co so du lieu\n");
+           
             xmlW.WriteStartElement("config");
 
+            //mở tag
             xmlW.WriteStartElement("costatus");
             xmlW.WriteString(costatus);
+            //đóng tag
             xmlW.WriteEndElement();
 
             xmlW.WriteStartElement("servname");

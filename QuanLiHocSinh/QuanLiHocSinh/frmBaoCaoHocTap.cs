@@ -84,7 +84,7 @@ namespace QuanLiHocSinh
             else
             {
                 ReportDocument document = new ReportDocument();
-                DataSet ds = baoCao_BUS.layThongTinHSGTheoHocKy(cboNamHocHSG, cboHocKyHSG, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
+                DataSet ds = baoCao_BUS.HSGTheoHocKy(cboNamHocHSG, cboHocKyHSG, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
                 //ds.WriteXmlSchema(Application.StartupPath + @"\HSG.xsd");
 
                 document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\HSG.rpt");
@@ -255,7 +255,7 @@ namespace QuanLiHocSinh
             else
             {
                 ReportDocument document = new ReportDocument();
-                DataSet ds = baoCao_BUS.layThongTinHSGTheoHocKy(cboNamHocHSG, cboHocKyHSG, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
+                DataSet ds = baoCao_BUS.HSGTheoHocKy(cboNamHocHSG, cboHocKyHSG, lop_BUS.layMaLopTrenTree(cboNamHocHSG, treHSG));
                // ds.WriteXmlSchema(Application.StartupPath + @"\HSG.xsd");
 
                 document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\HSG.rpt");

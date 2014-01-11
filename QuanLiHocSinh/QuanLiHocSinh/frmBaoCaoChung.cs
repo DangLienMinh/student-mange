@@ -78,7 +78,7 @@ namespace QuanLiHocSinh
             else
             {
                 ReportDocument document = new ReportDocument();
-                DataSet ds = baoCao_BUS.reportTheHocSinh(hocSinh_BUS.layMaLop(cboNamHocTheHS, treLopTheHS));
+                DataSet ds = baoCao_BUS.reportTheHS(hocSinh_BUS.layMaLop(cboNamHocTheHS, treLopTheHS));
                 ///ds.WriteXmlSchema(Application.StartupPath + @"\TheHocSinh.xsd");
 
                 document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\TheHocSinh.rpt");
@@ -194,7 +194,7 @@ namespace QuanLiHocSinh
             else
             {
                 ReportDocument document = new ReportDocument();
-                DataSet ds = baoCao_BUS.reportTheHocSinh(hocSinh_BUS.layMaLop(cboNamHocTheHS, treLopTheHS));
+                DataSet ds = baoCao_BUS.reportTheHS(hocSinh_BUS.layMaLop(cboNamHocTheHS, treLopTheHS));
                 //ds.WriteXmlSchema(Application.StartupPath + @"\TheHocSinh.xsd");
 
                 document.Load(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()) + @"\report\TheHocSinh.rpt");

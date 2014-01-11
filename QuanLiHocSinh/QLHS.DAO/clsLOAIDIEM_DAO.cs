@@ -31,6 +31,7 @@ namespace QLHS.DAO
             return table;
         }
 
+        //thêm loại điểm SP_ThemLoaiDiem
         public void themLoaiDiem(clsLOAIDIEM_DTO loaiDiem_DTO)
         {
             SqlCommand command = new SqlCommand("SP_ThemLoaiDiem", con);
@@ -43,6 +44,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
+        //sửa loại điểm SP_SuaLoaiDiem
         public void suaLoaiDiem(clsLOAIDIEM_DTO loaiDiem_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaLoaiDiem", con);
@@ -55,6 +57,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
+        //xóa loại điểm SP_XoaLoaiDiem
         public void xoaLoaiDiem(clsLOAIDIEM_DTO loaiDiem_DTO)
         {
             SqlCommand command = new SqlCommand("SP_XoaLoaiDiem", con);
@@ -65,7 +68,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
-        //hệ số loại ỉiểm
+        //hệ số loại điểm SP_HeSoLoaiDiem
         public int heSoLoaiDiem(clsLOAIDIEM_DTO loaiDiem_DTO)
         {
             int temp = -1;

@@ -18,7 +18,7 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
-        //danh sách loại người đùng
+        //danh sách loại người đùng SP_ThongTinLoaiNguoiDung
         public DataTable danhSachLoaiNguoiDung()
         {
             DataTable table = new DataTable();

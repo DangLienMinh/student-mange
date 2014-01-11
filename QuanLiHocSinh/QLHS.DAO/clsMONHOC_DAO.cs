@@ -18,7 +18,7 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
-        //thông tin các môn học
+        //thông tin các môn học SP_ThongTinMonHoc
         public DataTable danhSachMonhoc()
         {
             connection.kiemTraKetNoi(con);
@@ -31,7 +31,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //lấy thông tin để tao mã môn tự động
+        //lấy thông tin để tao mã môn tự động SP_ThongTinSoMon
         public int soMonHoc()
         {
             int temp = -1;
@@ -52,7 +52,7 @@ namespace QLHS.DAO
             return temp;
         }
 
-        //thêm một môn học mới
+        //thêm một môn học mới SP_ThemMonHoc
         public void themMonHoc(clsMONHOC_DTO monHoc_DTO)
         {
             SqlCommand command = new SqlCommand("SP_ThemMonHoc", con);
@@ -65,7 +65,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
-        //sửa một môn học
+        //sửa một môn học SP_SuaMonHoc
         public void suaMonHoc(clsMONHOC_DTO monHoc_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaMonHoc", con);
