@@ -13,7 +13,7 @@ namespace QLHS.BUS
     public class clsNAMHOC_BUS
     {
         clsNAMHOC_DAO namHoc_DAO;
-        clsNAMHOC_DTO namHoc__DTO;
+        clsNAMHOC_DTO namHoc_DTO;
         DataTable tblNamHoc;
         private DataRow dr;
 
@@ -23,7 +23,7 @@ namespace QLHS.BUS
             tblNamHoc = new DataTable();
         }
 
-        //trả về bảng năm jhọc
+        //trả về bảng năm học
         public DataTable hienThiDanhSach()
         {
             tblNamHoc = namHoc_DAO.danhSachNamHoc();
@@ -50,27 +50,27 @@ namespace QLHS.BUS
         //thêm một năm học mới
         public void themNamHoc(string maNH, string tenNH)
         {
-            namHoc__DTO = new clsNAMHOC_DTO();
-            namHoc__DTO.Manh = maNH;
-            namHoc__DTO.Tenh = tenNH;
-            namHoc_DAO.themNamHoc(namHoc__DTO);
+            namHoc_DTO = new clsNAMHOC_DTO();
+            namHoc_DTO.Manh = maNH;
+            namHoc_DTO.Tenh = tenNH;
+            namHoc_DAO.themNamHoc(namHoc_DTO);
         }
 
         //sửa thông tin một năm học
         public void suaNamHoc(string maNH, string tenNH)
         {
-            namHoc__DTO = new clsNAMHOC_DTO();
-            namHoc__DTO.Manh = maNH;
-            namHoc__DTO.Tenh = tenNH;
-            namHoc_DAO.suaNamHoc(namHoc__DTO);
+            namHoc_DTO = new clsNAMHOC_DTO();
+            namHoc_DTO.Manh = maNH;
+            namHoc_DTO.Tenh = tenNH;
+            namHoc_DAO.suaNamHoc(namHoc_DTO);
         }
 
         //trả về datarow namHoc_DTO
         private DataRow getDatarow()
         {
             dr = tblNamHoc.NewRow();
-            dr["MANH"] = namHoc__DTO.Manh;
-            dr["TENNH"] = namHoc__DTO.Tenh;
+            dr["MANH"] = namHoc_DTO.Manh;
+            dr["TENNH"] = namHoc_DTO.Tenh;
             return dr;
         }
 
@@ -87,9 +87,9 @@ namespace QLHS.BUS
             {
                 if (row1["MANH"] != null)
                 {
-                    if (string.Compare(row1["MANH"].ToString().Trim(), namHoc__DTO.Manh.Trim()) == 0)
+                    if (string.Compare(row1["MANH"].ToString().Trim(), namHoc_DTO.Manh.Trim()) == 0)
                     {
-                        row1["TENNH"] = namHoc__DTO.Tenh;
+                        row1["TENNH"] = namHoc_DTO.Tenh;
 
                     }
                 }

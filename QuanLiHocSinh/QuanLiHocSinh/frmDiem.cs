@@ -266,10 +266,7 @@ namespace QuanLiHocSinh
         {
             if (grdDiemRieng.SelectedRows.Count >= 1)
             {
-
                 diem_BUS.suaDiemTheoHS(grdDiemRieng.CurrentRow.Cells["STT"].Value.ToString(), txtDiem1);
-
-
                 MessageBox.Show("Bạn đã sửa thành công!");
 
                 //sửa trong datagrid view

@@ -58,8 +58,7 @@ namespace QLHS.BUS
                 cboKhoiMoi.DataSource = khoi_DAO.danhSachKhoiTheoMaKhoi(khoi_DTO);
                 cboKhoiMoi.DisplayMember = "TENKHOI";
                 cboKhoiMoi.ValueMember = "MAKHOI";
-            }
-            
+            }           
         }
 
         //hiển thị comboBox khối theo một khối khác dùng cho chuyển lớp
@@ -73,7 +72,6 @@ namespace QLHS.BUS
                 cboKhoiMoi.DisplayMember = "TENKHOI";
                 cboKhoiMoi.ValueMember = "MAKHOI";
             }
-
         }
     }
 }
