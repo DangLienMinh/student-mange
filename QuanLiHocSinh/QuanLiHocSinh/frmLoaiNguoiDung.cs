@@ -179,7 +179,6 @@ namespace QuanLiHocSinh
             else
             {
                 MessageBox.Show("Bạn phải lựa chọn một hàng để sửa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
             }
             FlagDisable();
             flag = 0;
@@ -202,7 +201,6 @@ namespace QuanLiHocSinh
                         break;
                     }
                 }
-
             }
             else
             {

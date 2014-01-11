@@ -15,6 +15,7 @@ namespace QuanLiHocSinh
     public partial class frmThongSo : DevComponents.DotNetBar.Office2007Form
     {
         private clsQUYDINH_BUS quyDinh_BUS;
+
         public frmThongSo()
         {
             InitializeComponent();
@@ -59,8 +60,7 @@ namespace QuanLiHocSinh
                     quyDinh_BUS.suaThongTinTruong(txtTenTruong,txtDiaChi,txtDienThoai);
                     MessageBox.Show("Cập nhật thành công thông tin trường học!", "COMPLETED", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            }
-            
+            }           
         }
 
         private void btnHuy_Click(object sender, EventArgs e)

@@ -18,6 +18,7 @@ namespace QuanLiHocSinh
         private clsNAMHOC_BUS namHoc_BUS;
         private int flag = 0;
         private BindingSource bs;
+
         public frmNamHoc()
         {
             InitializeComponent();

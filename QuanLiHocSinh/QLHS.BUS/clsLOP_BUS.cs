@@ -191,8 +191,7 @@ namespace QLHS.BUS
 
         //hiển thị cboLớp theo năm học và khối lớp
         public void hienThiCbLopTheoNamHocKhoi(string maNH, ComboBoxEx comboBoxLop, string maKhoi)
-        {
-            
+        {            
             lop_DTO = new clsLOP_DTO();
             lop_DTO.Manh = maNH;
             lop_DTO.Makhoi = maKhoi;

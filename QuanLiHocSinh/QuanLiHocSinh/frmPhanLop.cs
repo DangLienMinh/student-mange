@@ -226,9 +226,9 @@ namespace QuanLiHocSinh
                 //xóa các item được chọn khỏi csdl
                 for (int i = 0; i < lstLopMoi.SelectedItems.Count; i++)
                 {
+                    //lấy sub mã học sinh
                     string maHS = lstLopMoi.SelectedItems[i].SubItems[1].Text;
                     hocSinh_BUS.xoaPhanLop(cboNamHocMoi, cboLopMoi, maHS);
-
                 }
                 //cờ kiểm tra list item có được xóa
                 flag = 1;
@@ -295,7 +295,6 @@ namespace QuanLiHocSinh
                 lstLopMoi1.Items.Add(newItem);
                 lstLopMoi1.Items[lstLopMoi1.Items.IndexOf(newItem)].Text = (lstLopMoi1.Items.Count).ToString();
                 lstHocSinh.Items.Remove(oldItem);
-
             }
         }
 
