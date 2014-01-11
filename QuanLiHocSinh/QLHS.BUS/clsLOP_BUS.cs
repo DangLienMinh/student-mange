@@ -107,20 +107,20 @@ namespace QLHS.BUS
             lop_DAO.xoaLop(lop);
         }
 
-        //danh sách lớp theo mã học sinh và mã năm học
-        public string danhSachLop(string maHS,string maNH)
-        {
-            string text = "";
-            DataTable temp = new DataTable();
-            temp=lop_DAO.danhSachLop(maHS, maNH);
-            if (temp.Rows.Count>0)
-            {
-                return temp.Rows[0][0].ToString();
+        ////danh sách lớp theo mã học sinh và mã năm học
+        //public string danhSachLop(string maHS,string maNH)
+        //{
+        //    string text = "";
+        //    DataTable temp = new DataTable();
+        //    temp=lop_DAO.danhSachLop(maHS, maNH);
+        //    if (temp.Rows.Count>0)
+        //    {
+        //        return temp.Rows[0][0].ToString();
                 
-            }
-            return text;
+        //    }
+        //    return text;
             
-        }
+        //}
 
         //danh sách lớp học
         public DataTable danhSachLop()
@@ -129,13 +129,13 @@ namespace QLHS.BUS
             return table;
         }
 
-        //chỉ chọn lớp 10 của năm học đó
-        public void cboLop10(ComboBoxEx comboBox, string nam)
-        {
-            comboBox.DataSource = lop_DAO.chonLop10(nam);
-            comboBox.DisplayMember = "TENLOP";
-            comboBox.ValueMember = "MALOP";
-        }
+        ////chỉ chọn lớp 10 của năm học đó
+        //public void cboLop10(ComboBoxEx comboBox, string nam)
+        //{
+        //    comboBox.DataSource = lop_DAO.chonLop10(nam);
+        //    comboBox.DisplayMember = "TENLOP";
+        //    comboBox.ValueMember = "MALOP";
+        //}
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////

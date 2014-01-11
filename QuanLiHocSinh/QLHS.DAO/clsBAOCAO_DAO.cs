@@ -18,7 +18,7 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
-        //report học sinh giỏi
+        //report học sinh giỏi SP_HSG
          public DataTable HSGTheoHocKy(clsBAOCAO_DTO baoCao_DTO)
         {
             connection.kiemTraKetNoi(con);
@@ -34,7 +34,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //report học sinh lưu ban
+         //report học sinh lưu ban SP_LuuBan
          public DataTable HSLuuBanTheoHK(clsBAOCAO_DTO baoCao_DTO)
          {
              connection.kiemTraKetNoi(con);
@@ -50,8 +50,8 @@ namespace QLHS.DAO
              return table;
          }
 
-        //report bảng điểm học sinh
-         public DataSet BangDiemHocSinh(string manh, string malop, string mahs)
+         //report bảng điểm học sinh SP_BANGDIEMHOCSINH
+         public DataSet bangDiemHocSinh(string manh, string malop, string mahs)
          {
              connection.kiemTraKetNoi(con);
              DataSet bangdiem = new DataSet();
@@ -66,7 +66,7 @@ namespace QLHS.DAO
              return bangdiem;
          }
 
-        //report điểm theo môn học
+         //report điểm theo môn học SP_DIEMTHEOMONHOC
          public DataTable DiemTheoMonHoc(clsBAOCAO_DTO baoCao_DTO)
          {
              connection.kiemTraKetNoi(con);
@@ -100,14 +100,13 @@ namespace QLHS.DAO
              return table;
          }
 
-        //danh sách các năm học của học sinh
+         //danh sách các năm học của học sinh SP_DanhSachCacNamHoc
          public DataTable DanhSachCacNamHoc(string maHS)
          {
              connection.kiemTraKetNoi(con);
              DataTable table = new DataTable();
              SqlCommand command = new SqlCommand("SP_DanhSachCacNamHoc", con);
              command.Parameters.Add("@MAHS", SqlDbType.VarChar, 8).Value = maHS;
-           
              command.CommandType = CommandType.StoredProcedure;
              SqlDataAdapter adapter = new SqlDataAdapter(command);
              adapter.Fill(table);
@@ -115,7 +114,7 @@ namespace QLHS.DAO
              return table;
          }
 
-         //report danh sách lớp
+         //report danh sách lớp SP_ReportDSLop
          public DataSet reportDanhSachLop()
          {
              connection.kiemTraKetNoi(con);
@@ -128,7 +127,7 @@ namespace QLHS.DAO
              return ds;
          }
 
-         //report danh sách các giáo viên
+         //report danh sách các giáo viên SP_ReportDSGiaoVien
          public DataSet reportDanhSachGiaoVien()
          {
              connection.kiemTraKetNoi(con);
@@ -141,7 +140,7 @@ namespace QLHS.DAO
              return ds;
          }
 
-         //TAO THE HOC SINH
+         //TAO THE HOC SINH SP_ReportTheHocSinh
          public DataSet reportTheHS(string maLop)
          {
              DataSet ds = new DataSet();

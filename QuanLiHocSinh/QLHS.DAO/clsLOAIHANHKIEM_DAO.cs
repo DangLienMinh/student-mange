@@ -16,7 +16,7 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
-        //thông tin loại hạnh kiểm
+        //thông tin loại hạnh kiểm SP_ThongTinLoaiHanhKiem
         public DataTable danhsachLoaiHK()
         {
             DataTable table = new DataTable();

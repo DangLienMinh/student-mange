@@ -17,7 +17,7 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
-        //danh sách học sinh theo combobox mã năm học
+        //danh sách học sinh  SP_ThongTinHocSinh
         public DataTable danhSachHocSinh()
         {
             DataTable table = new DataTable();
@@ -30,7 +30,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //tên học sinh theo mã học sinh
+        //tên học sinh theo mã học sinh SP_TenHocSinhMaHS
         public DataTable tenHocSinh(string maHS)
         {
             DataTable table = new DataTable();
@@ -44,7 +44,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //form đổi thành form tiếp nhận học sinh, vừa vào cho chỉ chọn mã lớp 10 cho học sinh
+        //theem học sinh mới SP_ThemHocSinh
         public void themHocSinh(clsHOCSINH_DTO hocSinh_DTO)
         {
             connection.kiemTraKetNoi(con);
@@ -63,7 +63,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
-        //sửa học sinh
+        //sửa học sinh SP_SuaHocSinh
         public void suaHocSinh(clsHOCSINH_DTO hocSinh_DTO)
         {
             connection.kiemTraKetNoi(con);
@@ -82,7 +82,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
-        //xóa học sinh
+        //xóa học sinh SP_XoaHocSinh
         public void xoaHocSinh(clsHOCSINH_DTO hocSinh_DTO)
         {
             connection.kiemTraKetNoi(con);
@@ -93,7 +93,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
-        //Danh sách học sinh học lớp ,học kỳ của năm học hiện tất cả
+        //Danh sách học sinh học lớp ,học kỳ của năm học hiện tất cả SP_DanhSachHocSinh_LOP_NAMHOC_HOCKY_TATCA
         public DataTable danhSachHocSinhMALOPMANHMAHKTatCa(string maLop, string maNH, string maHK)
         {
             DataTable table = new DataTable();
@@ -109,7 +109,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //Danh sách học sinh học lớp ,học kỳ của năm học mà chưa nhập
+        //Danh sách học sinh học lớp, học kỳ của năm học mà chưa nhập SP_DanhSachHocSinh_LOP_NAMHOC_HOCKY
         public DataTable danhSachHocSinhMALOPMANHMAHKChuaNhap(string maLop, string maNH, string maHK)
         {
             DataTable table = new DataTable();
@@ -125,12 +125,12 @@ namespace QLHS.DAO
             return table;
         }
 
-        //Danh sách học sinh theo lớp và năm học
+        // REPORT Danh sách học sinh theo lớp và năm học SP_DanhSachHocSinh_NH_LOP 
         public DataSet danhSachHocSinh_NH_LOP(string MaNh, string Malop)
         {
             DataSet ds = new DataSet();
             connection.kiemTraKetNoi(con);
-            SqlCommand command = new SqlCommand("SP_DanhSachHocSinh_NH_LOP", con);
+            SqlCommand command = new SqlCommand("SP_ThongTinHocSinhTheoLop", con);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = MaNh;
             command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = Malop;
@@ -140,7 +140,7 @@ namespace QLHS.DAO
             return ds;
         }
 
-        //thông tin tuổi tối đa
+        //thông tin tuổi tối đa SP_TuoiToiDa
         public DataTable TuoiToiDa()
         {
             DataTable table = new DataTable();
@@ -153,7 +153,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //thông tin tuổi tối thiểu
+        //thông tin tuổi tối thiểu SP_TuoiToiThieu
         public DataTable TuoiToiThieu()
         {
             DataTable table = new DataTable();
@@ -176,7 +176,7 @@ namespace QLHS.DAO
         /// <returns></returns>
         /// 
 
-        //danh sách học sinh theo lớp
+        //danh sách học sinh theo lớp, NĂM HỌC SP_ThongTinHocSinhTheoLop
         public DataTable danhSachHocSinhTheoLop(clsHOCSINH_DTO hocSinh_DTO)
         {
             DataTable table = new DataTable();
@@ -191,7 +191,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //danh sách phân lớp học sinh
+        //danh sách phân lớp học sinh SP_ThongTinPhanLop
         public DataTable danhSachPhanLop(clsHOCSINH_DTO hocSinh_DTO)
         {
             DataTable table = new DataTable();
@@ -205,7 +205,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //danh sách mã học sinh theo năm lớp
+        //danh sách mã học sinh, tên học sinh theo năm lớp SP_ThongTinMaHSTheoLop
         public DataTable danhSachMaHSTheoLop(clsLOP_DTO lop_DTO)
         {
             DataTable table = new DataTable();
@@ -220,7 +220,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //danh sách học sinh chưa phân lớp
+        //danh sách học sinh chưa phân lớp SP_ThongTinHocSinhChuaPhanLop
         public DataTable danhSachHocSinhChuaPhanLop(clsHOCSINH_DTO hocSinh_DTO)
         {
             DataTable table = new DataTable();
@@ -234,7 +234,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //thêm phân lớp
+        //thêm phân lớp SP_ThemPhanLop
         public void themPhanLop(clsHOCSINH_DTO hocsinh, clsNAMHOC_DTO namHoc_DTO, clsLOP_DTO lop_DTO,DateTime thoiGianHieuLuc)
         {
             connection.kiemTraKetNoi(con);
@@ -248,7 +248,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
-        //xóa phân lớp
+        //xóa phân lớp SP_XoaPhanLop
         public void xoaPhanLop(clsHOCSINH_DTO hocSinh_DTO, clsNAMHOC_DTO namHoc_DTO, clsLOP_DTO lop_DTO)
         {
             connection.kiemTraKetNoi(con);
@@ -261,7 +261,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
-        //tìm học sinh theo mã học sinh
+        //tìm học sinh theo mã học sinh SP_TimHocSinhMaHS
         public DataTable timHocSinhMaHS(clsHOCSINH_DTO hocSinh_DTO)
         {
             DataTable table = new DataTable();
@@ -275,7 +275,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //tìm học sinh chuyển lớp
+        //tìm học sinh chuyển lớp SP_TimHocSinhChuyenLop
         public DataTable timHocSinhChuyenLop(clsHOCSINH_DTO hocSinh_DTO)
         {
             DataTable table = new DataTable();
@@ -289,7 +289,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //tìm học sinh theo tên học sinh
+        //tìm học sinh theo tên học sinh SP_TimHocSinhTenHS
         public DataTable timHocSinhTenHS(clsHOCSINH_DTO hocSinh_DTO)
         {
             DataTable table = new DataTable();
@@ -303,7 +303,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //tìm học sinh theo dân tộc
+        //tìm học sinh theo dân tộc SP_TimHocSinhDanToc
         public DataTable timHocSinhDanToc(clsHOCSINH_DTO hocSinh_DTO)
         {
             DataTable table = new DataTable();
@@ -317,7 +317,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //tìm học sinh theo ngày nhập học
+        //tìm học sinh theo ngày nhập học SP_TimHocSinhNgNhapHoc
         public DataTable timHocSinhNgNhapHoc(clsHOCSINH_DTO hocSinh_DTO)
         {
             DataTable table = new DataTable();

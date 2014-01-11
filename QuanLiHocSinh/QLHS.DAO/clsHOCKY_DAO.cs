@@ -7,7 +7,6 @@ using System.Data.SqlClient;
 using QLHS.DTO;
 namespace QLHS.DAO
 {
-
     public class clsHOCKY_DAO
     {
         private SqlConnection con;
@@ -18,7 +17,7 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
-        //thông tin học kỳ
+        //thông tin học kỳ SP_ThongTinHocKy
         public DataTable danhSachHocKy()
         {
             connection.kiemTraKetNoi(con);

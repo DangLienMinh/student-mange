@@ -18,7 +18,7 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
-        //danh sách ngừoi dùng hiện có
+        //danh sách người dùng hiện có SP_ThongTinNguoiDung
         public DataTable danhSachNguoiDung()
         {
             DataTable table = new DataTable();
@@ -31,7 +31,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //thông tin người dùng theo tên đăng nhập
+        //thông tin người dùng theo tên đăng nhập  SP_ThongTinNguoiDungTheoTENDN
         public DataTable danhSachNguoiDungTheoTENDN(string tenDN)
         {
             DataTable table = new DataTable();
@@ -45,7 +45,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //lấy mã người dùng gần nhất để làm cơ sở tạo mã tự động
+        //lấy mã người dùng gần nhất để làm cơ sở tạo mã tự động SP_ThongTinSoNguoiDung
         public int soNguoiDung()
         {
             int temp = -1;
@@ -67,7 +67,7 @@ namespace QLHS.DAO
            
         }
 
-        //thêm một người dùng mới
+        //thêm một người dùng mới SP_ThemNguoiDung
         public void themNguoiDung(clsNGUOIDUNG_DTO nguoiDung_DTO)
         {
             SqlCommand command = new SqlCommand("SP_ThemNguoiDung", con);
@@ -83,7 +83,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
-        //sửa thông tin một người dùng
+        //sửa thông tin một người dùng SP_SuaNguoiDung
         public void suaNguoiDung(clsNGUOIDUNG_DTO nguoiDung_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaNguoiDung", con);
@@ -98,7 +98,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
-        //sửa mật khâu
+        //sửa mật khâu SP_SuaMatKhau
         public void suaMatKhau(clsNGUOIDUNG_DTO nguoiDung_DTO)
         {
             SqlCommand command = new SqlCommand("SP_SuaMatKhau", con);
@@ -110,7 +110,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
-        //xóa một người dùng
+        //xóa một người dùng SP_XoaNguoiDung
         public void xoaNguoiDung(clsNGUOIDUNG_DTO nguoiDung_DTO)
         {
             SqlCommand command = new SqlCommand("SP_XoaNguoiDung", con);

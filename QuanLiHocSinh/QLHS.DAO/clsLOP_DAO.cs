@@ -18,7 +18,7 @@ namespace QLHS.DAO
             con = connection.KetNoi();
         }
 
-        //thông tin lớp hiện có trong CSDL
+        //thông tin lớp hiện có trong CSDL SP_ThongTinLop
         public DataTable danhSachLop()
         {
             connection.kiemTraKetNoi(con);
@@ -31,7 +31,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //thông tin phân ban
+        //thông tin phân ban SP_ThongTinBan
         public DataTable danhSachBan()
         {
             connection.kiemTraKetNoi(con);
@@ -45,21 +45,21 @@ namespace QLHS.DAO
         }
 
         //nguy hiểm cần coi lại .................................................................................
-        public DataTable danhSachLop(string maHS,string maNH)
-        {
-            connection.kiemTraKetNoi(con);
-            DataTable table = new DataTable();
-            SqlCommand command = new SqlCommand("SP_ThongTinLopMaHSMaNH", con);
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = maNH;
-            command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = maHS;
-            command.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            adapter.Fill(table);
-            con.Close();
-            return table;
-        }
+        //public DataTable danhSachLop(string maHS,string maNH)
+        //{
+        //    connection.kiemTraKetNoi(con);
+        //    DataTable table = new DataTable();
+        //    SqlCommand command = new SqlCommand("SP_ThongTinLopMaHSMaNH", con);
+        //    command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = maNH;
+        //    command.Parameters.Add("@MAHS", SqlDbType.VarChar).Value = maHS;
+        //    command.CommandType = CommandType.StoredProcedure;
+        //    SqlDataAdapter adapter = new SqlDataAdapter(command);
+        //    adapter.Fill(table);
+        //    con.Close();
+        //    return table;
+        //}
 
-        //thông tin sỉ số của lớp đó
+        //thông tin sỉ số của lớp đó SP_ThongTinSiSoLop
         public int siSoLop(clsLOP_DTO lop_DTO)
         {
             int result = -1;
@@ -73,7 +73,7 @@ namespace QLHS.DAO
 
         }
 
-        //thông tin lớp theo năm học
+        //thông tin lớp theo năm học SP_ThongTinLopNamHoc
         public DataTable danhSachLopTheoNamHoc(clsLOP_DTO lop_DTO)
         {
             connection.kiemTraKetNoi(con);
@@ -87,7 +87,7 @@ namespace QLHS.DAO
             return table;
         }
 
-        //danh sách lớp theo năm học và khối
+        //danh sách lớp theo năm học và khối SP_DanhSachLopMAKHOIMANH
         public DataTable danhSachLopTheoNamHocKhoi(clsLOP_DTO lop_DTO)
         {
             connection.kiemTraKetNoi(con);
@@ -116,8 +116,7 @@ namespace QLHS.DAO
         //    return table;
         //}
 
-        //lấy thông tin malop để tạo mã lớp tự động
-
+        //lấy thông tin malop để tạo mã lớp tự động SP_ThongTinSoLop
         public int soLop(string nam)
         {
             int temp = -1;
@@ -140,20 +139,20 @@ namespace QLHS.DAO
         }
 
         //???? .............................................chọn lớp 10
-        public DataTable chonLop10(string nam)
-        {
-            connection.kiemTraKetNoi(con);
-            DataTable table = new DataTable();
-            SqlCommand command = new SqlCommand("SP_ThongTinLop10", con);
-            command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = nam;
-            command.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            adapter.Fill(table);
-            con.Close();
-            return table;
-        }
+        //public DataTable chonLop10(string nam)
+        //{
+        //    connection.kiemTraKetNoi(con);
+        //    DataTable table = new DataTable();
+        //    SqlCommand command = new SqlCommand("SP_ThongTinLop10", con);
+        //    command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = nam;
+        //    command.CommandType = CommandType.StoredProcedure;
+        //    SqlDataAdapter adapter = new SqlDataAdapter(command);
+        //    adapter.Fill(table);
+        //    con.Close();
+        //    return table;
+        //}
 
-        //thêm một lớp mới
+        //thêm một lớp mới SP_ThemLop
         public void themLop(clsLOP_DTO lop_DTO)
         {
             connection.kiemTraKetNoi(con);
@@ -170,7 +169,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
-        //sửa thông tin một lớp
+        //sửa thông tin một lớp SP_SuaLop
         public void suaLop(clsLOP_DTO lop_DTO)
         {
             connection.kiemTraKetNoi(con);
@@ -187,7 +186,7 @@ namespace QLHS.DAO
             con.Close();
         }
 
-        //xóa thông tin một lớp
+        //xóa thông tin một lớp SP_XoaLop
         public void xoaLop(clsLOP_DTO lop_DTO)
         {
             connection.kiemTraKetNoi(con);
@@ -199,20 +198,20 @@ namespace QLHS.DAO
             con.Close();
         }
 
-        //tìm lớp theo mã lớp
-        public DataTable timLopMaLop(string tuKhoa)
-        {
-            DataTable table = new DataTable();
-            connection.kiemTraKetNoi(con);
-            SqlCommand command = new SqlCommand("SP_TimLopMaLop", con);
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = tuKhoa;
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            adapter.Fill(table);
-            return table;
-        }
-        
-        //thông tin mã ban theo mã lớp
+        ////tìm lớp theo mã lớp
+        //public DataTable timLopMaLop(string tuKhoa)
+        //{
+        //    DataTable table = new DataTable();
+        //    connection.kiemTraKetNoi(con);
+        //    SqlCommand command = new SqlCommand("SP_TimLopMaLop", con);
+        //    command.CommandType = CommandType.StoredProcedure;
+        //    command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = tuKhoa;
+        //    SqlDataAdapter adapter = new SqlDataAdapter(command);
+        //    adapter.Fill(table);
+        //    return table;
+        //}
+
+        //thông tin mã ban theo mã lớp SP_ThongTinPhanBanTheoLop
         public string phanBan(clsLOP_DTO lop_DTO)
         {
             string temp = "";

@@ -32,7 +32,6 @@ namespace QLHS.BUS
                 //sỉ số tối thiểu ở dòng 4 tron csdl
                 switch (i)
                 {
-
                     case 4: value = int.Parse(tblQuyDinh.Rows[i][0].ToString());
                         break;
                    
