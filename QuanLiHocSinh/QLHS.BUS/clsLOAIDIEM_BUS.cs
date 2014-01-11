@@ -91,7 +91,6 @@ namespace QLHS.BUS
             dr["MALD"] = loaiDiem_DTO.Mald;
             dr["TENLD"] = loaiDiem_DTO.Tenld;
             dr["HESOLD"] = loaiDiem_DTO.Hesold;
-           
             return dr;
         }
 

@@ -9,7 +9,6 @@ using DevComponents.Editors.DateTimeAdv;
 using System.Windows.Forms;
 using System.Data;
 
-
 namespace QLHS.BUS
 {
     public class clsLOP_BUS
@@ -26,8 +25,6 @@ namespace QLHS.BUS
             lop_DTO = new clsLOP_DTO();
             giaoVien_DAO = new clsGIAOVIEN_DAO();
         }
-
-       
 
         //hiển thị comboBox Giaó viên chủ nhiệm
         public void cboGiaoVienChuNhiem(ComboBoxEx comboBox)
@@ -51,7 +48,6 @@ namespace QLHS.BUS
             lop_DTO=new clsLOP_DTO();
             lop_DTO.Malop=cboMaLop.SelectedValue.ToString();
             return lop_DAO.siSoLop(lop_DTO);
- 
         }
 
         //hiển thị comboBox lớp lên datagrid
@@ -175,7 +171,6 @@ namespace QLHS.BUS
                     temp = new Node(row["TENLOP"].ToString());
                     k12.Nodes.Add(temp);
                 }
-
             }
 
             tree.Nodes.Add(k10);

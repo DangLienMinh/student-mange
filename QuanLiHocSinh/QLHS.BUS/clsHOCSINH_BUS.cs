@@ -493,8 +493,5 @@ namespace QLHS.BUS
             textBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
             textBox.AutoCompleteCustomSource = namesCollection;
         }
-
-        
-
     }     
 }
