@@ -154,9 +154,6 @@
     <Compile Include="bin\Debug\report\rptHocBa.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="bin\Debug\report\rptHocBa1.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="bin\Debug\report\rptHocBa2.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

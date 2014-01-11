@@ -280,8 +280,6 @@ namespace QuanLiHocSinh
 
         private void ReConnection()
         {
-            //MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu! Xin vui lòng thiết lập lại kết nối...", "ERROR", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-
             if (m_Connection == null || m_Connection.IsDisposed)
                 m_Connection = new frmConnection();
 
