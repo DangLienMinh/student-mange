@@ -22,7 +22,7 @@ namespace QuanLiHocSinh
         private SqlConnection connection;
         private frmLopHoc m_FrmLop = null;
         private frmGiaoVien m_FrmGiaoVien = null;
-        private frmMonHoc m_FrmMonHoc = null;
+        private frmLoaiDiem m_FrmLoaiDiem = null;
         private frmNamHoc m_FrmNamHoc = null;
         private frmTiepNhanHocSinh m_FrmHocSinh = null;
         private frmNguoiDung m_FrmNguoiDung = null;
@@ -126,15 +126,15 @@ namespace QuanLiHocSinh
 
         private void btnMonHoc_Click(object sender, EventArgs e)
         {
-            if (m_FrmMonHoc == null || m_FrmMonHoc.IsDisposed)
+            if (m_FrmLoaiDiem == null || m_FrmLoaiDiem.IsDisposed)
             {
-                m_FrmMonHoc = new frmMonHoc();
-                m_FrmMonHoc.FormBorderStyle = FormBorderStyle.None;
-                m_FrmMonHoc.MdiParent = frmMain.ActiveForm;
-                m_FrmMonHoc.Show();
+                m_FrmLoaiDiem = new frmLoaiDiem();
+                m_FrmLoaiDiem.FormBorderStyle = FormBorderStyle.None;
+                m_FrmLoaiDiem.MdiParent = frmMain.ActiveForm;
+                m_FrmLoaiDiem.Show();
             }
             else
-                m_FrmMonHoc.Activate();
+                m_FrmLoaiDiem.Activate();
         }
 
         private void btnKhaiBao_Click(object sender, EventArgs e)
@@ -541,7 +541,7 @@ namespace QuanLiHocSinh
             btnPhucHoi.Enabled = false;
             btnLop.Enabled = false;
             btnKhaiBao.Enabled = false;
-            btnMonHoc.Enabled = false;
+            btnLoaiDiem.Enabled = false;
             btnDiem.Enabled = false;
             btnHanhKiem.Enabled = false;
             btnHocSinh.Enabled = false;
@@ -572,7 +572,7 @@ namespace QuanLiHocSinh
             btnPhucHoi.Enabled = true;
             btnLop.Enabled = true;
             btnKhaiBao.Enabled = true;
-            btnMonHoc.Enabled = true;
+            btnLoaiDiem.Enabled = true;
             btnDiem.Enabled = true;
             btnHanhKiem.Enabled = true;
             btnHocSinh.Enabled = true;
@@ -596,7 +596,7 @@ namespace QuanLiHocSinh
             btnDangXuat.Enabled = true;
             btnMatKhau.Enabled = true;
             btnThoat.Enabled = true;
-            btnMonHoc.Enabled = true;
+            btnLoaiDiem.Enabled = true;
             btnDiem.Enabled = true;
             btnHanhKiem.Enabled = true;
             btnTimLop.Enabled = true;
@@ -629,7 +629,7 @@ namespace QuanLiHocSinh
             btnDangXuat.Enabled = true;
             btnMatKhau.Enabled = true;
             btnLop.Enabled = true;
-            btnMonHoc.Enabled = true;
+            btnLoaiDiem.Enabled = true;
             btnDiem.Enabled = false;
             btnHanhKiem.Enabled = false;
             btnHocSinh.Enabled = true;

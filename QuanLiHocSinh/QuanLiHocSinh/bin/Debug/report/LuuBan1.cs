@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLiHocSinh.report {
+namespace QuanLiHocSinh.bin.Debug.report {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace QuanLiHocSinh.report {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptHocBa : ReportClass {
+    public class LuuBan : ReportClass {
         
-        public rptHocBa() {
+        public LuuBan() {
         }
         
         public override string ResourceName {
             get {
-                return "rptHocBa.rpt";
+                return "LuuBan.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace QuanLiHocSinh.report {
         
         public override string FullResourceName {
             get {
-                return "QuanLiHocSinh.report.rptHocBa.rpt";
+                return "QuanLiHocSinh.bin.Debug.report.LuuBan.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace QuanLiHocSinh.report {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptHocBa : Component, ICachedReport {
+    public class CachedLuuBan : Component, ICachedReport {
         
-        public CachedrptHocBa() {
+        public CachedLuuBan() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace QuanLiHocSinh.report {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptHocBa rpt = new rptHocBa();
+            LuuBan rpt = new LuuBan();
             rpt.Site = this.Site;
             return rpt;
         }
