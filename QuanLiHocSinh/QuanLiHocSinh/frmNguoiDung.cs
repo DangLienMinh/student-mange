@@ -156,7 +156,6 @@ namespace QuanLiHocSinh
                         nguoiDung_BUS.themDong();
                         FlagDisable();
                         flag = 0;
-
                     }
                     catch (Exception)
                     {
@@ -183,7 +182,6 @@ namespace QuanLiHocSinh
             else
             {
                 MessageBox.Show("Bạn phải lựa chọn một hàng để sửa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
             }
             FlagDisable();
             flag = 0;
@@ -193,7 +191,6 @@ namespace QuanLiHocSinh
         {
             if (grdNguoiDung.SelectedRows.Count >= 1 && txtMaND.Text != "")
             {
-
                 nguoiDung_BUS.xoaNguoiDung(txtMaND.Text);
                 foreach (DataGridViewRow row in grdNguoiDung.Rows)
                 {
@@ -206,7 +203,6 @@ namespace QuanLiHocSinh
                         break;
                     }
                 }
-
             }
             else
             {

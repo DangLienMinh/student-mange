@@ -385,7 +385,6 @@ namespace QLHS.BUS
             hocSinh_DTO.Mahs = maHS;
             lop_DTO.Malop = comboLop.SelectedValue.ToString();
             namHoc_DTO.Manh = comboNamHoc.SelectedValue.ToString();
-        
             hocSinh_DAO.xoaPhanLop(hocSinh_DTO, namHoc_DTO, lop_DTO);
         }
 

@@ -69,8 +69,6 @@ namespace QuanLiHocSinh
             string maLop = lop_BUS.layPhanBan(lop_BUS.layMaLopTrenTree(cboNamHoc, treLop));
             diem_BUS.ketQuaDiemHK(cboNamHoc, maLop, grdKQ);
             hanhKiem_BUS.hanhKiemTheoHocKiNamHoc(cboNamHoc, grdKQ);
-
-
         }
 
         private void btnDanhSach_Click(object sender, EventArgs e)
@@ -102,7 +100,5 @@ namespace QuanLiHocSinh
             else
             loadDuLieu();
         }
-
-
     }
 }

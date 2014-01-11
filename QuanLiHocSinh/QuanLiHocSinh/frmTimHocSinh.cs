@@ -24,11 +24,12 @@ namespace QuanLiHocSinh
         private int tempCheckDanToc;
         private int tempCheckNgNhapHoc;
 
-        //binding source dùng cho datagrid
+        // khai báo binding source dùng cho datagrid
         private BindingSource bs;
         #endregion
 
         #region Click event
+
         //tìm cơ bản
         private void btnTim_Click(object sender, EventArgs e)
         {
@@ -92,9 +93,7 @@ namespace QuanLiHocSinh
                         MessageBox.Show("không tìm thấy");
                     }
                 }
-
             }
-
         }
 
         //tìm nâng cao
@@ -159,14 +158,13 @@ namespace QuanLiHocSinh
                 if (dt.Rows.Count <= 0)
                 {
                     MessageBox.Show("Không tìm thấy");
-
                 }
                 bindingData(dt);
             tt: ;
             }
         }
 
-        //sự kiện click radio button
+        //sự kiện click radio button ???
         private void opt_MouseClick(object sender, MouseEventArgs e)
         {
             RadioButton x = new RadioButton();
@@ -219,7 +217,6 @@ namespace QuanLiHocSinh
                     optNgNhapHoc1.Checked = true;
                 }
             }
-
         }
         #endregion
 
@@ -289,14 +286,12 @@ namespace QuanLiHocSinh
             temp.AutoResizeRows();
             temp.AllowUserToResizeColumns = true;
             temp.DefaultCellStyle.WrapMode = DataGridViewTriState.NotSet;
-           // temp.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             temp.ReadOnly = true;
         }
 
         private void frmTimHocSinh_Load(object sender, EventArgs e)
         {
             optAnd.Select();
-
             hocSinh_BUS.autoComplete(txtMaHS, "MAHS");
             hocSinh_BUS.autoComplete(txtMaHS1, "MAHS");
             hocSinh_BUS.autoComplete(txtTenHS, "TENHS");

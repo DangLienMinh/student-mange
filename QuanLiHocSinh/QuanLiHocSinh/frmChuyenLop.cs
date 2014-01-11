@@ -114,9 +114,7 @@ namespace QuanLiHocSinh
                 {
                     hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocCu, cboLopCu, lstLopCu,cboPhanBanCu);
                 }
-
             }
-
         }
 
         private void btnLuu_Click(object sender, EventArgs e)

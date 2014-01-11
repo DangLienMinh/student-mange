@@ -157,8 +157,7 @@ namespace QuanLiHocSinh
                         MessageBox.Show("Có lỗi trong quá trình chèn dữ liệu, xin thao tác lại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         this.Close();
                     }
-                }
-                
+                }   
             } 
         }
 
@@ -194,7 +193,6 @@ namespace QuanLiHocSinh
                     string replaceImage = grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString();
                     File.Delete(grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString());
                     File.Move(linkimage, replaceImage);
-
                 }
                 else
                 {
@@ -243,7 +241,6 @@ namespace QuanLiHocSinh
                 {
                     if (string.Compare(row.Cells["MAGV"].Value.ToString().Trim(), txtMaGV.Text.Trim()) == 0)
                     {
-
                         File.Delete(row.Cells["HINHANHGV"].Value.ToString());
                         giaoVien_BUS.xoaDong(txtMaGV.Text);
                         resetAll();
@@ -378,7 +375,6 @@ namespace QuanLiHocSinh
                             row.Cells["GIOITINHGV"].Value = "Nữ";
                         }
                     }
-
                 }
             }
         }
@@ -414,8 +410,7 @@ namespace QuanLiHocSinh
                     picGiaoVien.Image = Image.FromStream(fs);
                     fs.Close();
                 }
-            }
-           
+            }   
         }
 
         private void picGiaoVien_Click(object sender, EventArgs e)

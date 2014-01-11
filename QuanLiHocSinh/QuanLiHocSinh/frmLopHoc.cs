@@ -117,18 +117,7 @@ namespace QuanLiHocSinh
                     lop_DTO.Magv = cboGiaoVien.SelectedValue.ToString();
                     lop_DTO.Siso = txtSiSo.Text;
                     lop_DTO.Maban = cboBan.SelectedValue.ToString();
-                    //if (cboBan.SelectedItem.ToString() == "Cơ bản")
-                    //{
-                    //    lop_DTO.Maban = "CB";
-                    //}
-                    //else if (cboBan.SelectedItem.ToString() == "Khoa học tự nhiên")
-                    //{
-                    //    lop_DTO.Maban = "KHTN";
-                    //}
-                    //else
-                    //{
-                    //    lop_DTO.Maban = "KHXHNV";
-                    //}
+
                     if (int.Parse(lop_DTO.Siso)>quyDinh_BUS.siSoToiDa())
                     {
                         MessageBox.Show("Sỉ số nhập vào không được vượt quá sỉ sổ tối đa"+quyDinh_BUS.siSoToiDa().ToString());
@@ -142,7 +131,6 @@ namespace QuanLiHocSinh
                         try
                         {
                             lop_BUS.themLopHoc(lop_DTO);
-                            //lop_BUS.taiLaiDataGrid(grdLop, lop_BUS.danhSachLop());//tải lại danh sách sau khi thêm
                             bindingData();
                             MessageBox.Show("Thêm lớp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             flagInsert = false;
@@ -173,7 +161,6 @@ namespace QuanLiHocSinh
                             {
                                 lop_BUS.suaLop(lop_DTO);
                                 flagUpdate = false;
-                                //lop_BUS.taiLaiDataGrid(grdLop, lop_BUS.danhSachLop());//Load lại danh sách sau khi sửa
                                 bindingData();
                                 MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -198,7 +185,6 @@ namespace QuanLiHocSinh
                             lop_DTO.Malop = txtMaLop.Text;
                             lop_DTO.Manh = cboNamHoc.SelectedValue.ToString();
                             lop_BUS.xoaLop(lop_DTO);
-                            //lop_BUS.taiLaiDataGrid(grdLop, lop_BUS.danhSachLop());//Load lại danh sách sau khi xóa
                             bindingData();
                             MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -213,14 +199,15 @@ namespace QuanLiHocSinh
                     {
                         MessageBox.Show("Lỗi ! Chưa chọn hàng cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }
-               
+                }    
             }
         }
+
         private void btnHuy_Click(object sender, EventArgs e)
         {
             anHienButton(true);
         }
+
         public void anHienButton(Boolean b)
         {
             btnThem.Enabled = b;
@@ -237,6 +224,7 @@ namespace QuanLiHocSinh
                 btnHuy.Enabled = true;
             }
         }
+
         public int kiemTraDuLieu()
         {
             int dem=0;
