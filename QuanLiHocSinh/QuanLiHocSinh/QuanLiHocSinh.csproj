@@ -88,61 +88,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bin\Debug\BangDiemHocSinh.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BangDiemHocSinh.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="bin\Debug\DanhSachHocSinh.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DanhSachHocSinh.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="bin\Debug\DiemTheoMonHoc.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DiemTheoMonHoc.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="bin\Debug\DSGiaoVien.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSGiaoVien.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="bin\Debug\DSLop.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSLop.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="bin\Debug\HocBa.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HocBa.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="bin\Debug\HSG.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HSG.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="bin\Debug\LuuBan.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LuuBan.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="bin\Debug\TEST.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TEST.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="bin\Debug\TheHocSinh.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TheHocSinh.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="bin\Debug\TongKetHK.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TongKetHK.xsd</DependentUpon>
-    </Compile>
     <Compile Include="frmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -493,131 +438,8 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="bin\Debug\BangDiemHocSinh.xsc">
-      <DependentUpon>BangDiemHocSinh.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\BangDiemHocSinh.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BangDiemHocSinh.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bin\Debug\BangDiemHocSinh.xss">
-      <DependentUpon>BangDiemHocSinh.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\DanhSachHocSinh.xsc">
-      <DependentUpon>DanhSachHocSinh.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\DanhSachHocSinh.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DanhSachHocSinh.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bin\Debug\DanhSachHocSinh.xss">
-      <DependentUpon>DanhSachHocSinh.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\DiemTheoMonHoc.xsc">
-      <DependentUpon>DiemTheoMonHoc.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\DiemTheoMonHoc.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DiemTheoMonHoc.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bin\Debug\DiemTheoMonHoc.xss">
-      <DependentUpon>DiemTheoMonHoc.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\DSGiaoVien.xsc">
-      <DependentUpon>DSGiaoVien.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\DSGiaoVien.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSGiaoVien.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bin\Debug\DSGiaoVien.xss">
-      <DependentUpon>DSGiaoVien.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\DSLop.xsc">
-      <DependentUpon>DSLop.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\DSLop.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSLop.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bin\Debug\DSLop.xss">
-      <DependentUpon>DSLop.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\HocBa.xsc">
-      <DependentUpon>HocBa.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\HocBa.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HocBa.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bin\Debug\HocBa.xss">
-      <DependentUpon>HocBa.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\HSG.xsc">
-      <DependentUpon>HSG.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\HSG.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HSG.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bin\Debug\HSG.xss">
-      <DependentUpon>HSG.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\LuuBan.xsc">
-      <DependentUpon>LuuBan.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\LuuBan.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LuuBan.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bin\Debug\LuuBan.xss">
-      <DependentUpon>LuuBan.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\QuanLiHocSinh.exe.Config" />
-    <None Include="bin\Debug\QuanLiHocSinh.vshost.exe.Config" />
-    <None Include="bin\Debug\QuanLiHocSinh.vshost.exe.manifest" />
+    <None Include="bin\Debug\Help.chm" />
     <None Include="bin\Debug\Readme.docx" />
-    <None Include="bin\Debug\TEST.xsc">
-      <DependentUpon>TEST.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\TEST.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TEST.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bin\Debug\TEST.xss">
-      <DependentUpon>TEST.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\TheHocSinh.xsc">
-      <DependentUpon>TheHocSinh.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\TheHocSinh.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TheHocSinh.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bin\Debug\TheHocSinh.xss">
-      <DependentUpon>TheHocSinh.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\TongKetHK.xsc">
-      <DependentUpon>TongKetHK.xsd</DependentUpon>
-    </None>
-    <None Include="bin\Debug\TongKetHK.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TongKetHK.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bin\Debug\TongKetHK.xss">
-      <DependentUpon>TongKetHK.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -704,39 +526,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\Database\QuanLyHocSinh1.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\Debug\Database\QuanLyHocSinh1_log.LDF">
-      <DependentUpon>QuanLyHocSinh1.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\Debug\hinhAnh\291929_1807153957996_1814367503_1239956_1873060402_n.jpg" />
-    <Content Include="bin\Debug\hinhAnh\302791_467170176658820_645667305_n.jpg" />
-    <Content Include="bin\Debug\hinhAnh\374605_310236802340058_105560116141062_1004243_901536547_n.jpg" />
-    <Content Include="bin\Debug\hinhAnh\486978_309198195847369_778786928_n.jpg" />
-    <Content Include="bin\Debug\hinhAnh\GV006.jpg" />
-    <Content Include="bin\Debug\hinhAnh\GV007.jpg" />
-    <Content Include="bin\Debug\hinhAnh\GV008.jpg" />
-    <Content Include="bin\Debug\hinhAnh\GV009.jpg" />
-    <Content Include="bin\Debug\hinhAnh\GV010.jpg" />
-    <Content Include="bin\Debug\hinhAnh\imagesCAILQPGX.jpg" />
-    <Content Include="bin\Debug\hinhAnh\PHUONGTHAO.jpg" />
-    <Content Include="bin\Debug\hinhAnh\tdh.jpg" />
-    <Content Include="bin\Debug\hinhAnh\th.jpg" />
-    <Content Include="bin\Debug\hinhAnh\thanh-tich-khung-4-du-hoc-sinh-my-da-tai-2.jpg" />
-    <Content Include="bin\Debug\hinhAnh\vuongchieuquan.jpg" />
-    <Content Include="bin\Debug\log.txt" />
     <Content Include="bin\Debug\minh32.sql" />
-    <Content Include="bin\Debug\QLHS.BUS.dll" />
-    <Content Include="bin\Debug\QLHS.BUS.pdb" />
-    <Content Include="bin\Debug\QLHS.DAO.dll" />
-    <Content Include="bin\Debug\QLHS.DAO.pdb" />
-    <Content Include="bin\Debug\QLHS.DTO.dll" />
-    <Content Include="bin\Debug\QLHS.DTO.pdb" />
-    <Content Include="bin\Debug\QuanLiHocSinh.exe" />
-    <Content Include="bin\Debug\QuanLiHocSinh.pdb" />
-    <Content Include="bin\Debug\QuanLiHocSinh.vshost.exe" />
     <Content Include="Database\QuanLyHocSinh1.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
