@@ -10,6 +10,7 @@ using System.Threading;
 using System.Data.SqlClient;
 using QLHS.BUS;
 using QLHS.DTO;
+using System.Configuration;
 
 namespace QuanLiHocSinh
 {   
@@ -96,7 +97,6 @@ namespace QuanLiHocSinh
         {
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
         }
-
 
         private void btnThongTin_Click(object sender, EventArgs e)
         {
@@ -242,6 +242,160 @@ namespace QuanLiHocSinh
                 m_FrmTimHocSinh.Activate();
         }
 
+        private void btnDangNhap_Click(object sender, EventArgs e)
+        {
+            if (m_FrmLogin == null || m_FrmLogin.IsDisposed)
+                m_FrmLogin = new frmDangNhap();
+
+            m_FrmLogin.txtTenDN.Text = "";
+            m_FrmLogin.txtMatKhau.Text = "";
+            m_FrmLogin.lblUserError.Text = "";
+            m_FrmLogin.lblPassError.Text = "";
+
+            dangNhap();
+        }
+
+        private void btnMatKhau_Click(object sender, EventArgs e)
+        {
+            if (m_FrmMatKhau == null || m_FrmMatKhau.IsDisposed)
+                m_FrmMatKhau = new frmMatKhau();
+
+            m_FrmMatKhau.txtMkCu.Text = "";
+            m_FrmMatKhau.txtMkMoi.Text = "";
+            m_FrmMatKhau.txtMkNhapLai.Text = "";
+            m_FrmMatKhau.lblOldPassError.Text = "";
+            m_FrmMatKhau.lblNewPassError.Text = "";
+            m_FrmMatKhau.lblReNPassError.Text = "";
+            m_FrmMatKhau.txtMkCu.Focus();
+            doiMatKhau();
+        }
+
+        private void btnNguoiDung_Click(object sender, EventArgs e)
+        {
+            if (m_FrmNguoiDung == null || m_FrmNguoiDung.IsDisposed)
+            {
+                m_FrmNguoiDung = new frmNguoiDung();
+                m_FrmNguoiDung.MdiParent = this;
+                m_FrmNguoiDung.Show();
+            }
+            else
+                m_FrmNguoiDung.Activate();
+        }
+
+        private void btnDiem_Click(object sender, EventArgs e)
+        {
+            if (m_FrmDiem == null || m_FrmDiem.IsDisposed)
+            {
+                m_FrmDiem = new frmDiem();
+                m_FrmDiem.FormBorderStyle = FormBorderStyle.None;
+                m_FrmDiem.MdiParent = frmMain.ActiveForm;
+                m_FrmDiem.Show();
+            }
+            else
+                m_FrmDiem.Activate();
+        }
+
+        private void btnHanhKiem_Click(object sender, EventArgs e)
+        {
+            if (m_FrmHanhKiem == null || m_FrmHanhKiem.IsDisposed)
+            {
+                m_FrmHanhKiem = new frmHanhKiem();
+                m_FrmHanhKiem.FormBorderStyle = FormBorderStyle.None;
+                m_FrmHanhKiem.MdiParent = frmMain.ActiveForm;
+                m_FrmHanhKiem.Show();
+            }
+            else
+            {
+                m_FrmHanhKiem.Activate();
+            }
+        }
+
+        private void btnKQ_Click(object sender, EventArgs e)
+        {
+            if (m_FrmKQ == null || m_FrmKQ.IsDisposed)
+            {
+                m_FrmKQ = new frmKetQua();
+                m_FrmKQ.FormBorderStyle = FormBorderStyle.None;
+                m_FrmKQ.MdiParent = frmMain.ActiveForm;
+                m_FrmKQ.Show();
+            }
+            else
+            {
+                m_FrmKQ.Activate();
+            }
+        }
+
+        private void btnNhom_Click(object sender, EventArgs e)
+        {
+            if (m_FrmAbout == null || m_FrmAbout.IsDisposed)
+            {
+                m_FrmAbout = new frmAbout();
+                m_FrmAbout.Show();
+            }
+            else
+                m_FrmAbout.Activate();
+        }
+
+        private void btnThongKe_Click(object sender, EventArgs e)
+        {
+            if (m_FrmBaoCaoChung == null || m_FrmBaoCaoChung.IsDisposed)
+            {
+                m_FrmBaoCaoChung = new frmBaoCaoChung(nguoiDung_DTO.Tennd);
+                m_FrmBaoCaoChung.FormBorderStyle = FormBorderStyle.None;
+                m_FrmBaoCaoChung.MdiParent = frmMain.ActiveForm;
+                m_FrmBaoCaoChung.Show();
+            }
+            else
+            {
+                m_FrmBaoCaoChung.Activate();
+            }
+        }
+
+        private void btnNhatKy_Click(object sender, EventArgs e)
+        {
+            if (m_FrmNhatKy == null || m_FrmNhatKy.IsDisposed)
+            {
+                m_FrmNhatKy = new frmNhatKy();
+                m_FrmNhatKy.FormBorderStyle = FormBorderStyle.None;
+                m_FrmNhatKy.MdiParent = frmMain.ActiveForm;
+                m_FrmNhatKy.Show();
+            }
+            else
+            {
+                m_FrmNhatKy.Activate();
+            }
+        }
+
+        private void btnChuyenLop_Click(object sender, EventArgs e)
+        {
+            if (m_FrmChuyenLop == null || m_FrmChuyenLop.IsDisposed)
+            {
+                m_FrmChuyenLop = new frmChuyenLop();
+                m_FrmChuyenLop.FormBorderStyle = FormBorderStyle.None;
+                m_FrmChuyenLop.MdiParent = frmMain.ActiveForm;
+                m_FrmChuyenLop.Show();
+            }
+            else
+            {
+                m_FrmChuyenLop.Activate();
+            }
+        }
+
+        private void btnBaoCaoHocTap_Click(object sender, EventArgs e)
+        {
+            if (m_FrmBaoCaoHocTap == null || m_FrmBaoCaoHocTap.IsDisposed)
+            {
+                m_FrmBaoCaoHocTap = new frmBaoCaoHocTap(nguoiDung_DTO.Tennd);
+                m_FrmBaoCaoHocTap.FormBorderStyle = FormBorderStyle.None;
+                m_FrmBaoCaoHocTap.MdiParent = frmMain.ActiveForm;
+                m_FrmBaoCaoHocTap.Show();
+            }
+            else
+            {
+                m_FrmBaoCaoHocTap.Activate();
+            }
+        }
+
         private void frmMain_Load(object sender, EventArgs e)
         {
             if (clsKhoiTaoCSDL.OpenConnection())
@@ -298,56 +452,16 @@ namespace QuanLiHocSinh
             this.Close();
         }
 
-        private void btnDangNhap_Click(object sender, EventArgs e)
-        {
-            if (m_FrmLogin == null || m_FrmLogin.IsDisposed)
-                m_FrmLogin = new frmDangNhap();
-
-            m_FrmLogin.txtTenDN.Text = "";
-            m_FrmLogin.txtMatKhau.Text = "";
-            m_FrmLogin.lblUserError.Text = "";
-            m_FrmLogin.lblPassError.Text = "";
-
-            dangNhap();
-        }
-
         private void btnDangXuat_Click_1(object sender, EventArgs e)
         {
             lblName.Text = "Không có";
             macDinh();
         }
 
-        private void btnMatKhau_Click(object sender, EventArgs e)
-        {
-            if (m_FrmMatKhau == null || m_FrmMatKhau.IsDisposed)
-                m_FrmMatKhau = new frmMatKhau();
-
-            m_FrmMatKhau.txtMkCu.Text = "";
-            m_FrmMatKhau.txtMkMoi.Text = "";
-            m_FrmMatKhau.txtMkNhapLai.Text = "";
-            m_FrmMatKhau.lblOldPassError.Text = "";
-            m_FrmMatKhau.lblNewPassError.Text = "";
-            m_FrmMatKhau.lblReNPassError.Text = "";
-            m_FrmMatKhau.txtMkCu.Focus();
-            doiMatKhau();
-        }
-
-        private void btnNguoiDung_Click(object sender, EventArgs e)
-        {
-            if (m_FrmNguoiDung == null || m_FrmNguoiDung.IsDisposed)
-            {
-                m_FrmNguoiDung = new frmNguoiDung();
-                m_FrmNguoiDung.MdiParent = this;
-                m_FrmNguoiDung.Show();
-            }
-            else
-                m_FrmNguoiDung.Activate();
-        }
-
-        //lưu thông tincác nút  người dùng thường dùng ở phiên làm việc trước
+        //lưu thông tin các nút  người dùng thường dùng ở phiên làm việc trước
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Save Quick Access Toolbar layout if it has changed...
+            // Save Quick Access Toolbar layout if it has changed
             if (ribbonControl1.QatLayoutChanged)
             {
                 Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\DevComponents\Ribbon");
@@ -366,10 +480,10 @@ namespace QuanLiHocSinh
         {
             if (backupDialog.ShowDialog() == DialogResult.OK)
             {
-               
-                string connectionStr = @"Data Source=DANGLIENMINH\SQLEXPRESS;Initial Catalog=QuanLyHocSinh4;Integrated Security=True";
+                clsKhoiTaoCSDL khoiTao=new clsKhoiTaoCSDL();
+                string connectionStr = khoiTao.layKetNoi();
                 connection = new SqlConnection(connectionStr);
-                SqlCommand cmd = new System.Data.SqlClient.SqlCommand("BACKUP DATABASE " + "QuanLyHocSinh3" + " TO DISK = '" + backupDialog.FileName.ToString() + "'", connection);
+                SqlCommand cmd = new System.Data.SqlClient.SqlCommand("BACKUP DATABASE " + "QuanLyHocSinh" + " TO DISK = '" + backupDialog.FileName.ToString() + "'", connection);
                 connection.Open();
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -383,11 +497,11 @@ namespace QuanLiHocSinh
         {
             if (restoreDialog.ShowDialog() == DialogResult.OK)
             {
-                
-                string connectionStr = @"Data Source=DANGLIENMINH\SQLEXPRESS;Initial Catalog=QuanLyHocSinh4;Integrated Security=True";
+                clsKhoiTaoCSDL khoiTao = new clsKhoiTaoCSDL();
+                string connectionStr = khoiTao.layKetNoi();
                 connection = new SqlConnection(connectionStr);
-                SqlCommand cmd = new System.Data.SqlClient.SqlCommand("alter database  QuanLyHocSinh4 set offline with rollback immediate alter database QuanLyHocSinh4 set online "+
-                "USE master RESTORE DATABASE " + "QuanLyHocSinh3" + " FROM DISK = '" + restoreDialog.FileName.ToString() + "'WITH REPLACE", connection);
+                SqlCommand cmd = new System.Data.SqlClient.SqlCommand("alter database  QuanLyHocSinh set offline with rollback immediate alter database QuanLyHocSinh set online "+
+                "USE master RESTORE DATABASE " + "QuanLyHocSinh" + " FROM DISK = '" + restoreDialog.FileName.ToString() + "'WITH REPLACE", connection);
                 connection.Open();
                 connection.ChangeDatabase("master");
                 cmd.ExecuteNonQuery();
@@ -421,7 +535,7 @@ namespace QuanLiHocSinh
                     m_FrmLogin.lblPassError.Text = "Bạn chưa nhập mật khẩu!";
                     goto Cont;
                 }
-
+                
                 int ketQua = nguoiDung_BUS.DangNhap(m_FrmLogin.txtTenDN.Text, m_FrmLogin.txtMatKhau.Text, nguoiDung_DTO);
 
                 switch (ketQua)
@@ -436,7 +550,9 @@ namespace QuanLiHocSinh
                         goto Cont;
                     case 2:
                         lblName.Text += " " + nguoiDung_DTO.Tennd;
+                        //phân quyền theo mã loại người dùng
                         phanQuyen(nguoiDung_DTO.Malnd);
+                        //ghi file log
                         using (StreamWriter writer = new StreamWriter(Application.StartupPath + @"\log.txt", true))
                         {
                             writer.WriteLine(nguoiDung_DTO.Mand + "," + nguoiDung_DTO.Malnd + "," + nguoiDung_DTO.Tennd + "," + DateTime.Now.ToString());
@@ -446,7 +562,6 @@ namespace QuanLiHocSinh
             }
             else
             {
-
                 return;
             }
         }
@@ -522,6 +637,7 @@ namespace QuanLiHocSinh
             }
         }
 
+        //mặc định thì kích hoạt nút đăng nhập, thoát, hướng dẫn
         public void macDinh()
         {
             //True
@@ -556,11 +672,11 @@ namespace QuanLiHocSinh
             rbGiaoDien.Enabled = false;
         }
 
+        //Admin thì kích hoạt tất cả các nút và vô hiệu hóa nút đăng nhập
         public void quyenAdmin()
         {
             //False
             btnDangNhap.Enabled = false;
-
             //True
             btnDangXuat.Enabled = true;
             btnNhatKy.Enabled = true;
@@ -588,6 +704,8 @@ namespace QuanLiHocSinh
             rbGiaoDien.Enabled = true;
         }
 
+        //giáo viên thì vô hiệu hóa các nút đăng nhập, nhật ký, sao lưu, phục hồi
+        //học sinh, phân lớp, giáo viên, phân công, lớp, khai báo
         public void quyenGiaoVien()
         {
             //True
@@ -614,9 +732,9 @@ namespace QuanLiHocSinh
             btnGiaoVien.Enabled = false;
             btnPhanCong.Enabled = false;
             btnLop.Enabled = false;
-            btnKhaiBao.Enabled = false;  
         }
 
+        //giáo vụ thì vô hiệu hóa các nút đăng nhập, nhật ký, sao lưu, phục hồi, người dùng
         public void quyenGiaoVu()
         {
             //True
@@ -649,123 +767,7 @@ namespace QuanLiHocSinh
             btnPhucHoi.Enabled = false;
             btnNhatKy.Enabled = false;        
         }
-
-        private void btnDiem_Click(object sender, EventArgs e)
-        {
-            if (m_FrmDiem == null || m_FrmDiem.IsDisposed)
-            {
-                m_FrmDiem = new frmDiem();
-                m_FrmDiem.FormBorderStyle = FormBorderStyle.None;
-                m_FrmDiem.MdiParent = frmMain.ActiveForm;
-                m_FrmDiem.Show();
-            }
-            else
-                m_FrmDiem.Activate();
-        }
-
-        private void btnHanhKiem_Click(object sender, EventArgs e)
-        {
-            if (m_FrmHanhKiem == null || m_FrmHanhKiem.IsDisposed)
-            {
-                m_FrmHanhKiem = new frmHanhKiem();
-                m_FrmHanhKiem.FormBorderStyle = FormBorderStyle.None;
-                m_FrmHanhKiem.MdiParent = frmMain.ActiveForm;
-                m_FrmHanhKiem.Show();
-            }
-            else
-            {
-                m_FrmHanhKiem.Activate();
-            }
-        }
-
-        private void btnKQ_Click(object sender, EventArgs e)
-        {
-            if (m_FrmKQ == null || m_FrmKQ.IsDisposed)
-            {
-                m_FrmKQ = new frmKetQua();
-                m_FrmKQ.FormBorderStyle = FormBorderStyle.None;
-                m_FrmKQ.MdiParent = frmMain.ActiveForm;
-                m_FrmKQ.Show();
-            }
-            else
-            {
-                m_FrmKQ.Activate();
-            }
-        }
-
-        private void btnNhom_Click(object sender, EventArgs e)
-        {
-            if (m_FrmAbout == null || m_FrmAbout.IsDisposed)
-            {
-
-                m_FrmAbout = new frmAbout();
-                m_FrmAbout.Show();
-
-            }
-            else
-                m_FrmAbout.Activate();
-        }
-
-        private void btnThongKe_Click(object sender, EventArgs e)
-        {
-            if (m_FrmBaoCaoChung == null || m_FrmBaoCaoChung.IsDisposed)
-            {
-                m_FrmBaoCaoChung = new frmBaoCaoChung(nguoiDung_DTO.Tennd);
-                m_FrmBaoCaoChung.FormBorderStyle = FormBorderStyle.None;
-                m_FrmBaoCaoChung.MdiParent = frmMain.ActiveForm;
-                m_FrmBaoCaoChung.Show();
-            }
-            else
-            {
-                m_FrmBaoCaoChung.Activate();
-            }
-        }
-
-        private void btnNhatKy_Click(object sender, EventArgs e)
-        {
-            if (m_FrmNhatKy == null || m_FrmNhatKy.IsDisposed)
-            {
-                m_FrmNhatKy = new frmNhatKy();
-                m_FrmNhatKy.FormBorderStyle = FormBorderStyle.None;
-                m_FrmNhatKy.MdiParent = frmMain.ActiveForm;
-                m_FrmNhatKy.Show();
-            }
-            else
-            {
-                m_FrmNhatKy.Activate();
-            }
-        }
-
-        private void btnChuyenLop_Click(object sender, EventArgs e)
-        {
-            if (m_FrmChuyenLop == null || m_FrmChuyenLop.IsDisposed)
-            {
-                m_FrmChuyenLop = new frmChuyenLop();
-                m_FrmChuyenLop.FormBorderStyle = FormBorderStyle.None;
-                m_FrmChuyenLop.MdiParent = frmMain.ActiveForm;
-                m_FrmChuyenLop.Show();
-            }
-            else
-            {
-                m_FrmChuyenLop.Activate();
-            }
-        }
-
-        private void btnBaoCaoHocTap_Click(object sender, EventArgs e)
-        {
-            if (m_FrmBaoCaoHocTap == null || m_FrmBaoCaoHocTap.IsDisposed)
-            {
-                m_FrmBaoCaoHocTap = new frmBaoCaoHocTap(nguoiDung_DTO.Tennd);
-                m_FrmBaoCaoHocTap.FormBorderStyle = FormBorderStyle.None;
-                m_FrmBaoCaoHocTap.MdiParent = frmMain.ActiveForm;
-                m_FrmBaoCaoHocTap.Show();
-            }
-            else
-            {
-                m_FrmBaoCaoHocTap.Activate();
-            }
-        }
-
+       
         private void btnHuongDan_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, helpProvider1.HelpNamespace);
