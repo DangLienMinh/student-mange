@@ -93,11 +93,11 @@ namespace QuanLiHocSinh
                 linkGoc = ofd.FileName;
                 string linkimage;
                 linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + ofd.SafeFileName;
-                hocSinh_DTO.Hinhanhhs = linkimage;
+                hocSinh_DTO.Hinhanhhs = linkimage;//gán giá trị cho Hinhanhhs sau khi chọn ảnh
             }
         }
 
-        public void anHienButton(Boolean b)
+        public void anHienButton(Boolean b)//Hàm điều khiển button
         {
             btnThem.Enabled = b;
             btnSua.Enabled = b;
@@ -116,7 +116,7 @@ namespace QuanLiHocSinh
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            txtMaHS.Text = hocSinh_BUS.taoMaHocSinh();
+            txtMaHS.Text = hocSinh_BUS.taoMaHocSinh();//Tự động tạo mã học sinh
             txtTenHS.Focus();
             anHienButton(false);
             flagInsert = true;
@@ -203,7 +203,7 @@ namespace QuanLiHocSinh
         //}
         private void grdHocSinh_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (grdHocSinh.Rows.Count > 1)
+            if (grdHocSinh.Rows.Count > 1)//Lấy dữ liệu từ grid lên textBox
             {
                 cboGioiTinh.SelectedItem = grdHocSinh.CurrentRow.Cells["GIOITINHHS"].Value.ToString();
                 txtMaHS.Text = grdHocSinh.CurrentRow.Cells["MAHS"].Value.ToString();
@@ -224,7 +224,7 @@ namespace QuanLiHocSinh
 
         }
 
-        public void resetALL()
+        public void resetALL()//Đưa dữ liệu và giá trị mặc định
         {
             picHocSinh.Image = null;
             txtMaHS.Text = "";
@@ -239,7 +239,7 @@ namespace QuanLiHocSinh
         public int kiemTraDulieu()
         {
             int dem = 0;
-            int tuoi = dtiNgayNhapHoc.Value.Year - dtiNgaySinh.Value.Year;
+            int tuoi = dtiNgayNhapHoc.Value.Year - dtiNgaySinh.Value.Year;//Tính tuổi học sinh
             if (picHocSinh.Image == null)
             {
                 MessageBox.Show("Chưa Chọn hình ảnh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -278,7 +278,7 @@ namespace QuanLiHocSinh
             return dem;
         }
 
-        public void Insert()
+        public void Insert()//Thêm học sinh
         {
             if (kiemTraDulieu() == 0)
             {
@@ -318,7 +318,7 @@ namespace QuanLiHocSinh
             }
         }
 
-        public void Delete()
+        public void Delete()//Xóa học sinh
         {
             hocSinh_DTO.Mahs = txtMaHS.Text;
             if (grdHocSinh.SelectedRows.Count >= 1 && txtMaHS.Text != "")
@@ -346,7 +346,7 @@ namespace QuanLiHocSinh
             }
         }
 
-        public void update()
+        public void update()//Cập nhật thông tin học sinh
         {
             if (kiemTraDulieu() == 0)
             {
@@ -377,7 +377,7 @@ namespace QuanLiHocSinh
                     {
                         hocSinh_DTO.Hinhanhhs = grdHocSinh.CurrentRow.Cells["HINHANHHS"].Value.ToString();
                     }
-                    hocSinh_BUS.suaHocSinh(hocSinh_DTO);
+                    hocSinh_BUS.suaHocSinh(hocSinh_DTO);//gọi đến hàm sửa Học sinh
                     resetALL();
                     bindingData();
                    // hocSinh_BUS.taiLaiDataGrid(grdHocSinh, hocSinh_BUS.danhSachHocSinh());//tải lại danh sách sau khi thêm
@@ -416,7 +416,7 @@ namespace QuanLiHocSinh
 
         private void btnLop_Click(object sender, EventArgs e)
         {
-            if (m_FrmLop == null || m_FrmLop.IsDisposed)
+            if (m_FrmLop == null || m_FrmLop.IsDisposed)//Nếu form lớp chưa được kích hoạt
             {
                 m_FrmLop = new frmLopHoc();
                 m_FrmLop.FormBorderStyle = FormBorderStyle.None;
@@ -424,7 +424,7 @@ namespace QuanLiHocSinh
                 m_FrmLop.Show();
             }
             else
-                m_FrmLop.Activate();
+                m_FrmLop.Activate();//Kích hoạt form Lớp
         }
 
 

@@ -42,7 +42,7 @@ namespace QuanLiHocSinh
 
         private void frmHocSinhTheoLop_Load(object sender, EventArgs e)
         {
-            namHoc_BUS.hienThiComboBox(cboNamHoc);
+            namHoc_BUS.hienThiComboBox(cboNamHoc);//Hiển thị combobox năm học
         }
 
         private void cboNamHoc_SelectedValueChanged(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace QuanLiHocSinh
             treLop.Nodes.Clear();
             if (cboNamHoc.SelectedValue!=null)
             {
-                lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHoc.SelectedValue.ToString(), treLop);
+                lop_BUS.hienThiTreeLopTheoNamHoc(cboNamHoc.SelectedValue.ToString(), treLop);//Hiển thị lớp lên Treview
             }
         }
 

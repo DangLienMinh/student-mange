@@ -151,6 +151,7 @@ namespace QuanLiHocSinh
             {
                 if (row.Cells["MAMH"].Value != null)
                 {
+                    //Kiểm tra phân công đã có chưa
                     if (string.Compare(row.Cells["MAMH"].Value.ToString(), cboMonHoc.SelectedValue.ToString()) == 0 && string.Compare(row.Cells["MAGV"].Value.ToString(), cboGiaoVien.SelectedValue.ToString()) == 0 && string.Compare(row.Cells["MANH"].Value.ToString(), cboNamHoc.SelectedValue.ToString()) == 0 && string.Compare(row.Cells["MALOP"].Value.ToString(), cboLop.SelectedValue.ToString()) == 0)
                     {
                         khoa = 1;
@@ -167,7 +168,7 @@ namespace QuanLiHocSinh
             {
                 try
                 {
-                    giangday_bus.themGiangDay(giangday_dto);
+                    giangday_bus.themGiangDay(giangday_dto);//Thêm phân công
                     MessageBox.Show("Thêm Phân công giảng dạy thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     flagInsert = false;//gán lại flagInsert để đảm bảo thực hiện thêm sửa xóa nhiều lần liên tục sẽ không gây ra lỗi
                 }

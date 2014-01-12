@@ -115,7 +115,7 @@
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdPhanCong.DefaultCellStyle = dataGridViewCellStyle5;
             this.grdPhanCong.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -259,7 +259,7 @@
             this.navigationPanePanel1.Location = new System.Drawing.Point(1, 1);
             this.navigationPanePanel1.Name = "navigationPanePanel1";
             this.navigationPanePanel1.ParentItem = this.btnItemTim;
-            this.navigationPanePanel1.Size = new System.Drawing.Size(249, 434);
+            this.navigationPanePanel1.Size = new System.Drawing.Size(249, 536);
             this.navigationPanePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.navigationPanePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.navigationPanePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
@@ -774,7 +774,6 @@
             this.ClientSize = new System.Drawing.Size(1362, 538);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.navigationPane1);
-            this.DoubleBuffered = true;
             this.Name = "frmPhanCong";
             this.Text = "PHÂN CÔNG GIẢNG DẠY";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

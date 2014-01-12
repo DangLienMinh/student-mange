@@ -226,7 +226,7 @@ namespace QLHS.BUS
                 int soCot = 0;
                 switch (maBan)
                 {
-                    case "B02":
+                    case "B02"://Ban khoa học tự nhiên
                         {
                             for (int i = 6; i <= 18; i++)
                             {
@@ -277,7 +277,7 @@ namespace QLHS.BUS
 
                         }
                         break;
-                    case "B03":
+                    case "B03"://Ban khoa học xã hội
                         {
                             for (int i = 6; i <= 18; i++)
                             {
@@ -330,7 +330,7 @@ namespace QLHS.BUS
 
                         }
                         break;
-                    case "B01":
+                    case "B01"://Ban cơ bản
                         {
                             double max = 0;
                             for (int i = 6; i <= 18; i++)
@@ -445,7 +445,7 @@ namespace QLHS.BUS
 
                 }
 
-                //kiem tra loai hoc luic
+                //kiem tra loai hoc luc
 
                 switch (flag)
                 {
