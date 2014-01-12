@@ -44,8 +44,8 @@ namespace QLHS.DAO
             return table;
         }
 
-        //nguy hiểm cần coi lại .................................................................................
-        //public DataTable danhSachLop(string maHS,string maNH)
+        //lấy thông tin cho việc thêm lớp riêng có đầy đủ data trên datagrid
+        //public DataTable danhSachLop(string maHS, string maNH)
         //{
         //    connection.kiemTraKetNoi(con);
         //    DataTable table = new DataTable();

@@ -54,7 +54,6 @@ namespace QuanLiHocSinh
             btnDongY.Enabled = false;
             btnHuy.Enabled = false;
             btnThem.Enabled = true;
-           // btnXoa.Enabled = true;
             btnSua.Enabled = true;
         }
 
@@ -63,13 +62,16 @@ namespace QuanLiHocSinh
             //load danh sách loại điểm vào datagrid loại điểm
             bindingData();
             controlValue();
-            //load dữ liệu vào comboBox hệ số
-            loaiDiem_BUS.hienThiComboBoxHeSo(cboHeSo);
+            if (cboHeSo.Items.Count>1)
+            {
+            }
+            else
+            {
+                //load dữ liệu vào comboBox hệ số
+                loaiDiem_BUS.hienThiComboBoxHeSo(cboHeSo);
+            }
             FlagDisable();
             flag = 0;
-            //sapXep();
-            //btnDau.Enabled = false;
-            //btnTruoc.Enabled = false;
         }
 
         private void bindingData()
@@ -100,7 +102,6 @@ namespace QuanLiHocSinh
         private void btnDongY_Click(object sender, EventArgs e)
         {
             if (flag == 1) insert();
-            //if (flag == 2) delete();
             if (flag == 3) update();
             txtMaLD.Enabled = true;
         }
@@ -159,7 +160,6 @@ namespace QuanLiHocSinh
                         this.Close();
                     }
                 }
-
             }
         }
 

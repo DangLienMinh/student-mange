@@ -619,7 +619,7 @@ namespace QuanLiHocSinh
                 else
                 {
                     nguoiDung_BUS.suaMatKhau(m_Username, m_NewPassword);
-                    MessageBox.Show("Đổi mật khẩu thành công!", "PASSWORD CHANGED", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Đổi mật khẩu thành công!", "Đổi mật khẩu thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else

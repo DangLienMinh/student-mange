@@ -99,7 +99,6 @@ namespace QuanLiHocSinh
             monHoc_BUS.hienThiComboBox(cboMonHoc);
             monHoc_BUS.hienThiComboBox(cboMonHoc1);
             loaiDiem_BUS.hienThiComboBox(cboLoaiDiem1);
-            tabControl1.SelectedTab = btnItemLop;
 
             FlagDisable();
             flag = 0;
@@ -117,10 +116,6 @@ namespace QuanLiHocSinh
             }
             else
             {
-                bsRieng = new BindingSource();
-                bsRieng.DataSource = diem_BUS.thongTinDiemTheoHS(cboNamHoc1, cboHocKy1, cboLoaiDiem1, cboMonHoc1, cboHocSinh1);
-                grdDiemRieng.DataSource = bsRieng;
-                bnaDiemRieng.BindingSource = bsRieng;
                 count = grdDiemRieng.Rows.Count-1;
                 switch (cboLoaiDiem1.SelectedValue.ToString())
                 {
@@ -164,7 +159,11 @@ namespace QuanLiHocSinh
                 {
                     diem_BUS.themDiemTheoHS(cboNamHoc1, cboHocKy1, cboLoaiDiem1, cboMonHoc1, cboHocSinh1, txtDiem1);
                     MessageBox.Show("Thêm điểm thành công");
-                    diem_BUS.themDong();
+                    bsRieng = new BindingSource();
+                    bsRieng.DataSource = diem_BUS.thongTinDiemTheoHS(cboNamHoc1, cboHocKy1, cboLoaiDiem1, cboMonHoc1, cboHocSinh1);
+                    grdDiemRieng.DataSource = bsRieng;
+                    bnaDiemRieng.BindingSource = bsRieng;
+                    FlagDisable();
                 }
                 else
                 {
