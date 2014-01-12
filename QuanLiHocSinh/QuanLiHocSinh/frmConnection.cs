@@ -145,8 +145,7 @@ namespace QuanLiHocSinh
             else
             {
                 MessageBox.Show("Phải nhập tên server trước khi kiểm tra kết nối");
-            }
-            
+            }           
         }
 
         private void cmbAuthentication_SelectedIndexChanged(object sender, EventArgs e)

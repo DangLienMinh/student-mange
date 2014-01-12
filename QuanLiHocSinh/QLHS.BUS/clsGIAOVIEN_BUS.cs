@@ -64,7 +64,7 @@ namespace QLHS.BUS
             return tblGiaoVien;
         }
 
-        //tạo mã giáo viên
+        //tạo mã giáo viên GV007
         public string hienThiSoNguoi()
         {
             string result;
@@ -111,7 +111,7 @@ namespace QLHS.BUS
             return tblGiaoVien;
         }
 
-        //xóa giáo viên
+        //xóa giáo viênxoaDong
         public void xoaGiaoVien(string maGV) 
         {
             giaoVien_DTO=new clsGIAOVIEN_DTO();
@@ -212,29 +212,6 @@ namespace QLHS.BUS
                     }
                 }
             }
-            //foreach (DataGridViewRow row1 in grdGV.Rows)
-            //{
-            //    if (row1.Cells["MAGV"].Value != null)
-            //    {
-            //        if (string.Compare(row1.Cells["MAGV"].Value.ToString().Trim(), giaoVien_DTO.Magv.Trim()) == 0)
-            //        {
-            //            row1.Cells["TENGV"].Value = giaoVien_DTO.Tengv;
-            //            row1.Cells["NGSINHGV"].Value = giaoVien_DTO.Ngsinhgv;
-            //            row1.Cells["DIACHIGV"].Value = giaoVien_DTO.Diachigv;
-            //            if (string.Compare(giaoVien_DTO.Gioitinhgv, "0") == 0)
-            //            {
-            //                row1.Cells["GIOITINHGV"].Value = "Nam";
-            //            }
-            //            else
-            //            {
-            //                row1.Cells["GIOITINHGV"].Value = "Nữ";
-            //            }
-
-            //            row1.Cells["DIENTHOAIGV"].Value = giaoVien_DTO.Dienthoaigv;
-            //            row1.Cells["HINHANHGV"].Value = giaoVien_DTO.Hinhanhgv;
-            //        }
-            //    }
-            //}
         }
     }
 }

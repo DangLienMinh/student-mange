@@ -49,10 +49,6 @@ namespace QuanLiHocSinh
                     else
                     {
                         bindingData(hocSinh_BUS.timHocSinhMaHS(txtMaHS));
-                        if (grdHocSinh.Rows.Count == 1)
-                        {
-                            MessageBox.Show("không tìm thấy");
-                        }
                     }
                 }
                 else if (optTenHS.Checked == true)
@@ -64,10 +60,6 @@ namespace QuanLiHocSinh
                     else
                     {
                         bindingData(hocSinh_BUS.timHocSinhTenHS(txtTenHS));
-                        if (grdHocSinh.Rows.Count == 1)
-                        {
-                            MessageBox.Show("không tìm thấy");
-                        }
                     }
                 }
                 else if (optDanToc.Checked == true)
@@ -79,19 +71,16 @@ namespace QuanLiHocSinh
                     else
                     {
                         bindingData(hocSinh_BUS.timHocSinhDanToc(txtDanToc));
-                        if (grdHocSinh.Rows.Count == 1)
-                        {
-                            MessageBox.Show("không tìm thấy");
-                        }
                     }
                 }
                 else
                 {
                     bindingData(hocSinh_BUS.timHocSinhNgNhapHoc(dtiNgNhapHoc));
-                    if (grdHocSinh.Rows.Count == 1)
-                    {
-                        MessageBox.Show("không tìm thấy");
-                    }
+                    
+                }
+                if (grdHocSinh.Rows.Count == 1)
+                {
+                    MessageBox.Show("Không tìm thấy");
                 }
             }
         }
@@ -159,6 +148,7 @@ namespace QuanLiHocSinh
                 {
                     MessageBox.Show("Không tìm thấy");
                 }
+                else
                 bindingData(dt);
             tt: ;
             }
@@ -168,9 +158,12 @@ namespace QuanLiHocSinh
         private void opt_MouseClick(object sender, MouseEventArgs e)
         {
             RadioButton x = new RadioButton();
+            //chuyển đối tượng về radio x
             x = (RadioButton)sender;
+
             if (x.Name == "optMaHS1")
             {
+                //nếu nhấp 2 lần lần đầu không sau, nhấp lần thứ 2 thì ẩn đi và reset biến tempCheckMaHS
                 if (++tempCheckMaHS == 2)
                 {
                     optMaHS1.Checked = false;
@@ -291,7 +284,9 @@ namespace QuanLiHocSinh
 
         private void frmTimHocSinh_Load(object sender, EventArgs e)
         {
+            //option and or, mặc đỉnh về select option and
             optAnd.Select();
+
             hocSinh_BUS.autoComplete(txtMaHS, "MAHS");
             hocSinh_BUS.autoComplete(txtMaHS1, "MAHS");
             hocSinh_BUS.autoComplete(txtTenHS, "TENHS");

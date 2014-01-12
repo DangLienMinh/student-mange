@@ -59,6 +59,7 @@ namespace QuanLiHocSinh
         {
             if (cboKhoiLopCu.SelectedValue != null)
             {
+                //trả về lớp theo năm học và khối
                 lop_BUS.hienThiCbLopTheoNamHocKhoi(cboNamHocCu.SelectedValue.ToString(), cboLopCu, cboKhoiLopCu.SelectedValue.ToString());
             }
         }
@@ -74,13 +75,13 @@ namespace QuanLiHocSinh
                 }
                 khoi_BUS.hienThiComboBox(cboKhoiLopCu, cboKhoiLopMoi);
             }
-
         }
 
         private void cboNamHocMoi_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cboKhoiLopMoi.SelectedValue != null)
             {
+                //trả về lớp theo năm học và khối
                 lop_BUS.hienThiCbLopTheoNamHocKhoi(cboNamHocMoi.SelectedValue.ToString(), cboLopMoi, cboKhoiLopMoi.SelectedValue.ToString());
             }
         }
@@ -89,6 +90,7 @@ namespace QuanLiHocSinh
         {
             if (cboNamHocMoi.SelectedValue != null)
             {
+                //trả về lớp theo năm học và khối
                 lop_BUS.hienThiCbLopTheoNamHocKhoi(cboNamHocMoi.SelectedValue.ToString(), cboLopMoi, cboKhoiLopMoi.SelectedValue.ToString());
                 if (cboLopMoi.Items.Count <= 0)
                 {
@@ -102,7 +104,6 @@ namespace QuanLiHocSinh
             if (cboNamHocCu.SelectedValue != null && cboLopCu.SelectedValue != null)
             {
                 hocSinh_BUS.danhSachHocSinhTheoLop(cboNamHocCu, cboLopCu, lstLopCu,cboPhanBanCu);
-
             }
         }
 
@@ -128,6 +129,7 @@ namespace QuanLiHocSinh
         {
             if (cboKhoiLopMoi1.SelectedValue != null)
             {
+                //trả về lớp theo năm học và khối
                 lop_BUS.hienThiCbLopTheoNamHocKhoi(cboNamHocMoi1.SelectedValue.ToString(), cboLopMoi1, cboKhoiLopMoi1.SelectedValue.ToString());
             }
         }
@@ -136,6 +138,7 @@ namespace QuanLiHocSinh
         {
             if (cboNamHocMoi1.SelectedValue != null)
             {
+                //trả về lớp theo năm học và khối
                 lop_BUS.hienThiCbLopTheoNamHocKhoi(cboNamHocMoi1.SelectedValue.ToString(), cboLopMoi1, cboKhoiLopMoi1.SelectedValue.ToString());
                 if (cboLopMoi1.Items.Count <= 0)
                 {

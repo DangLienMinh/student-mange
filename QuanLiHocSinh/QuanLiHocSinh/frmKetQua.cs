@@ -61,13 +61,16 @@ namespace QuanLiHocSinh
 
         private void loadDuLieu()
         {
-            //.biding navigator
+            //biding navigator
             bs = new BindingSource();
+            //load danh sách học sinh lên grid
             bs.DataSource = hocSinh_BUS.danhSachMaHSTheoLop(cboNamHoc, treLop);
             grdKQ.DataSource = bs;
             bnaKQ.BindingSource = bs;
             string maLop = lop_BUS.layPhanBan(lop_BUS.layMaLopTrenTree(cboNamHoc, treLop));
+            //sau đó load thông tin điểm
             diem_BUS.ketQuaDiemHK(cboNamHoc, maLop, grdKQ);
+            //cuối cùng load thông tin hạnh kiểm
             hanhKiem_BUS.hanhKiemTheoHocKiNamHoc(cboNamHoc, grdKQ);
         }
 

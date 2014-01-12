@@ -45,6 +45,7 @@ namespace QuanLiHocSinh
             hocKy_BUS.HienThiDataGridViewComboBoxColumn(MAHK1);
             this.KeyPreview = true;
             datagridMakeUp(grdDiemRieng);
+
             grdDiemChung.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
         }
 
@@ -106,7 +107,7 @@ namespace QuanLiHocSinh
 
         private void insert()
         {
-            //cờ kiểm tra mã giáo viên đã tồn tại trong CSSDL chưa
+            //cờ kiểm tra số điểm tối đa của một loại điểm
             int test = 1;
             int count=0;
 
@@ -343,6 +344,7 @@ namespace QuanLiHocSinh
         {
             if (grdDiemChung.RowCount>1)
             {
+                //xóa đồng thời chỉnh lại điểm mới
                 diem_BUS.xoaDiemTheoMaLD(cboNamHoc, cboHocKy, cboMonHoc, grdDiemChung);
 
                 //.biding navigator
@@ -410,7 +412,7 @@ namespace QuanLiHocSinh
             if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar)&&e.KeyChar!='.')
             {
                 e.Handled = true;
-                MessageBox.Show("Chỉ nhập số,không nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Chỉ nhập số, không nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -76,7 +76,6 @@ namespace QuanLiHocSinh
             datagridMakeUp(grdPhanCong);
 
             bindingData();
-            //grdPhanCong.DataSource = giangday_bus.danhSachPhanCong();
         }
 
         private void datagridMakeUp(DataGridViewX temp)

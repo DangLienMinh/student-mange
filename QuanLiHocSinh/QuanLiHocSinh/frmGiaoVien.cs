@@ -66,7 +66,6 @@ namespace QuanLiHocSinh
             giaoVien_BUS.hienThiComboBoxBoMon(cboBoMon);
             giaoVien_BUS.hienThiComboBoxBoMon(cboBoMon1);
             giaoVien_BUS.HienThiDataGridViewComboBoxColumnBoMon(MABM);
-            controlValue();
             //load dữ liệu vào comboBox giới tính
             giaoVien_BUS.hienThiComboBox(cboGioiTinh);
             FlagDisable();
@@ -85,6 +84,7 @@ namespace QuanLiHocSinh
             resetAll();
             //tạo mã giáo viên
             txtMaGV.Text = "GV" + giaoVien_BUS.hienThiSoNguoi().ToString();
+            //lấy hình ảnh từ resources
             picGiaoVien.Image = QuanLiHocSinh.Properties.Resources.no_image_found;
         }
 
@@ -138,19 +138,21 @@ namespace QuanLiHocSinh
                     try
                     {
                         //copy hình ảnh từ file source vào thư mục hình ảnh của chương trình
-                       // string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
-                        string fileExtension = open.SafeFileName.Substring(open.SafeFileName.LastIndexOf('.'));
-                        string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + txtMaGV.Text + fileExtension;
-                        File.Copy(open.FileName, linkimage);
 
-                        //reset all openfiledialog
+                        //lấy thông tin file ví dụ như png, jpg
+                        string fileExtension = open.SafeFileName.Substring(open.SafeFileName.LastIndexOf('.'));
+                        //đổi tên hình theo mã giáo viên với đường dẫn đầy đủ
+                        string linkImage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + txtMaGV.Text + fileExtension;
+                        //chép hình sang linkImage
+                        File.Copy(open.FileName, linkImage);
+
+                        //reset all openfiledialog để loại bỏ fileName
                         open.Reset();
-                        giaoVien_BUS.themGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, linkimage,cboBoMon.SelectedValue.ToString());
+                        giaoVien_BUS.themGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, linkImage,cboBoMon.SelectedValue.ToString());
                         MessageBox.Show("Bạn đã thêm thành công!");
                         giaoVien_BUS.themDong();
                         FlagDisable();
                         flag = 0;
-                       
                     }
                     catch (Exception)
                     {
@@ -177,27 +179,30 @@ namespace QuanLiHocSinh
 
                 if (open.FileName != "")
                 {
-                    //string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + open.SafeFileName;
+                    //lấy thông tin file ví dụ như png, jpg
                     string fileExtension = open.SafeFileName.Substring(open.SafeFileName.LastIndexOf('.'));
-                    string linkimage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + txtMaGV.Text + "Temp" + fileExtension;
-
-                    File.Copy(open.FileName, linkimage);
-                   // giaoVien_BUS.suaGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, linkimage, cboBoMon.SelectedValue.ToString());
+                    //đường dẫn đầy đủ đặt tên hình mới là GV001Temp
+                    string linkImage = Directory.GetCurrentDirectory() + @"\hinhAnh\" + txtMaGV.Text + "Temp" + fileExtension;
+                    //chép vào thư mục hình ảnh
+                    File.Copy(open.FileName, linkImage);
+                    //sửa thông tin giáo viên
                     giaoVien_BUS.suaGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString(), cboBoMon.SelectedValue.ToString());
 
-                    // sử dụng filestream để có thể xóa hình ảnh mà không bị thằng picturebox chiếm giữ
-                    FileStream fs = new FileStream(linkimage, FileMode.Open, FileAccess.Read);
+                    // sử dụng filestream để mở hình ảnh temp 
+                    FileStream fs = new FileStream(linkImage, FileMode.Open, FileAccess.Read);
                     picGiaoVien.Image = Image.FromStream(fs);
                     fs.Close();
-
+                    //đường dẫn hình ảnh cũ
                     string replaceImage = grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString();
+                    //xóa hình ảnh đó
                     File.Delete(grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString());
-                    File.Move(linkimage, replaceImage);
+                    //đổi tên GV0001Temp=GV001
+                    File.Move(linkImage, replaceImage);
                 }
                 else
                 {
+                    //chỉnh sửa mà không chỉnh lại hình ảnh
                     giaoVien_BUS.suaGiaoVien(txtMaGV.Text, txtTenGV.Text, dtiNgaySinh, txtDienThoai.Text, txtGioiTinh, txtDiaChi.Text, grdGiaoVien.CurrentRow.Cells["HINHANHGV"].Value.ToString(), cboBoMon.SelectedValue.ToString());
-
                 }
                 MessageBox.Show("Bạn đã sửa thành công!");
 
@@ -239,9 +244,11 @@ namespace QuanLiHocSinh
                 giaoVien_BUS.xoaGiaoVien(txtMaGV.Text);
                 foreach (DataGridViewRow row in grdGiaoVien.Rows)
                 {
+                    //xóa hinh ảnh giáo viên trong thư mục theo mã giáo viên được chọn
                     if (string.Compare(row.Cells["MAGV"].Value.ToString().Trim(), txtMaGV.Text.Trim()) == 0)
                     {
                         File.Delete(row.Cells["HINHANHGV"].Value.ToString());
+                        //xóa trên datagrid
                         giaoVien_BUS.xoaDong(txtMaGV.Text);
                         resetAll();
                         FlagDisable();
@@ -314,7 +321,7 @@ namespace QuanLiHocSinh
             if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
-                MessageBox.Show("Chỉ nhập số,không nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Chỉ nhập số, không nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }  
         }
 
