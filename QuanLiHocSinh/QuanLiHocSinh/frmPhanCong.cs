@@ -284,55 +284,7 @@ namespace QuanLiHocSinh
             cboMonHoc.SelectedValue = grdPhanCong.CurrentRow.Cells["MAMH"].Value.ToString();
             cboNamHoc.SelectedValue = grdPhanCong.CurrentRow.Cells["MANH"].Value.ToString();
             anHienButton(true);
-        }
-        //private void Hienthidulieu()
-        //{
-        //    vitri = this.BindingContext[grdPhanCong.DataSource].Position;
-        //    tong = this.BindingContext[grdPhanCong.DataSource].Count;
-        //    if (vitri != -1)
-        //    {
-        //        txtHienTai.Text = (vitri + 1).ToString() + "/" + tong.ToString();
-        //        cboGiaoVien.SelectedValue = grdPhanCong.Rows[vitri].Cells["MAGV"].Value.ToString();
-        //        cboLop.SelectedValue = grdPhanCong.Rows[vitri].Cells["MALOP"].Value.ToString();
-        //        cboMonHoc.SelectedValue = grdPhanCong.Rows[vitri].Cells["MAMH"].Value.ToString();
-        //        cboNamHoc.SelectedValue = grdPhanCong.Rows[vitri].Cells["MANH"].Value.ToString();
-        //    }
-        //}
-        //private void btnDau_Click(object sender, EventArgs e)
-        //{
-        //    this.BindingContext[grdPhanCong.DataSource].Position = 0;
-        //    Hienthidulieu();
-        //    btnTruoc.Enabled = false;
-        //    btnDau.Enabled = false;
-        //    btnCuoi.Enabled = true;
-        //    btnSau.Enabled = true;
-        //}
-
-        //private void btnTruoc_Click(object sender, EventArgs e)
-        //{
-        //    this.BindingContext[grdPhanCong.DataSource].Position = vitri - 1;
-        //    Hienthidulieu();
-        //    btnCuoi.Enabled = true;
-        //    btnSau.Enabled = true;
-        //}
-
-        //private void btnSau_Click(object sender, EventArgs e)
-        //{
-        //    this.BindingContext[grdPhanCong.DataSource].Position = vitri + 1;
-        //    Hienthidulieu();
-        //    btnDau.Enabled = true;
-        //    btnTruoc.Enabled = true;
-        //}
-
-        //private void btnCuoi_Click(object sender, EventArgs e)
-        //{
-        //    this.BindingContext[grdPhanCong.DataSource].Position = tong - 1;
-        //    Hienthidulieu();
-        //    btnCuoi.Enabled = false;
-        //    btnSau.Enabled = false;
-        //    btnDau.Enabled = true;
-        //    btnTruoc.Enabled = true;
-        //}
+        }       
 
         private void btnNamHoc_Click(object sender, EventArgs e)
         {
@@ -388,22 +340,10 @@ namespace QuanLiHocSinh
 
         private void cboNamHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void groupPanel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void navigationPanePanel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void optMaGV_CheckedChanged(object sender, EventArgs e)
-        {
-
+            if (cboNamHoc.SelectedValue != null)
+            {
+                lop_BUS.hienThiCboLopTheoNamHoc(cboNamHoc.SelectedValue.ToString(), cboLop);
+            }
         }
 
         private void btnTim_Click(object sender, EventArgs e)

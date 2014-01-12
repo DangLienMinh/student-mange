@@ -161,7 +161,7 @@ namespace QuanLiHocSinh
         private void btnCapnhat_Click(object sender, EventArgs e)
         {
             btnLuulai.Enabled = true;
-            btnCapnhat.Enabled = false;
+            //btnCapnhat.Enabled = false;
             if ((MessageBox.Show("Bạn có chắc chắn muốn Cập nhật", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
             {
                 int dem = 0;

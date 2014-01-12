@@ -907,7 +907,6 @@ namespace QLHS.BUS
         //báo cáo điểm theo môn học
         public DataSet baoCaoDiemTheoMonHoc(ComboBoxEx cboMaNH, ComboBoxEx cboMaHK, ComboBoxEx cboMaMH, string maLop)
         {
-          
             baoCao_DTO = new clsBAOCAO_DTO();
             diem_DTO = new clsDIEM_DTO();
             hocSinh_DTO = new clsHOCSINH_DTO();
