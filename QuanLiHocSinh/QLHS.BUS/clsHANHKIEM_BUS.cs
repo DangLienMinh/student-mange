@@ -85,7 +85,7 @@ namespace QLHS.BUS
             clnHanhKiem.DisplayMember = "TENLHK";
             clnHanhKiem.ValueMember = "MALHK";
             clnHanhKiem.DataPropertyName = "MALHK";
-            clnHanhKiem.DefaultCellStyle.NullValue = "Yếu";
+            //clnHanhKiem.DefaultCellStyle.NullValue = "Yếu";
         }
         public void hienThiCboClnNamHoc(DataGridViewComboBoxColumn clnNamHoc)
         {

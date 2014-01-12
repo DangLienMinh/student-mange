@@ -96,45 +96,47 @@ namespace QuanLiHocSinh
         {
             btnLuulai.Enabled = false;
             btnCapnhat.Enabled = true;
-            if ((MessageBox.Show("Bạn có chắc chắn muốn lưu lại", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
             {
-                int dem = 0;
-                foreach (DataGridViewRow row in grdHanhKiemChung.Rows)
+                if ((MessageBox.Show("Bạn có chắc chắn muốn lưu lại", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
                 {
-                    if (row.Cells["MAHS"].Value != null)
+                    int dem = 0;
+                    foreach (DataGridViewRow row in grdHanhKiemChung.Rows)
                     {
-                        
-                        try
+                        if (row.Cells["MAHS"].Value != null && row.Cells["MALHK"].Value != null)
                         {
-                            hanhkiem_dto.Malhk = row.Cells["MALHK"].Value.ToString();
-                            hanhkiem_dto.Mahs = row.Cells["MAHS"].Value.ToString();
-                            int test = hanhkiem_bus.TimHanhKiemHS(hanhkiem_dto).Rows.Count;
-                            if (hanhkiem_bus.TimHanhKiemHS(hanhkiem_dto).Rows.Count == 0)
+
+                            try
                             {
-                                hanhkiem_bus.themHanhKiem(hanhkiem_dto);
-                                dem++;
+                                hanhkiem_dto.Malhk = row.Cells["MALHK"].Value.ToString();
+                                hanhkiem_dto.Mahs = row.Cells["MAHS"].Value.ToString();
+                                int test = hanhkiem_bus.TimHanhKiemHS(hanhkiem_dto).Rows.Count;
+                                if (hanhkiem_bus.TimHanhKiemHS(hanhkiem_dto).Rows.Count == 0)
+                                {
+                                    hanhkiem_bus.themHanhKiem(hanhkiem_dto);
+                                    dem++;
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Lỗi" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Lỗi" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
                     }
+                    MessageBox.Show("Lưu thành công hạnh kiểm cho " + dem.ToString() + " Học sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                 MessageBox.Show("Lưu thành công hạnh kiểm cho "+dem.ToString()+" Học sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                HuyBoDuLieu();
-                
+                else
+                {
+                    MessageBox.Show("Lỗi");
+                    HuyBoDuLieu();
+
+                }
             }
         }
-
         private void btnDanhSach_Click(object sender, EventArgs e)
         {
             if (treKhoi.SelectedNode == null || treKhoi.SelectedNode.Parent == null)
             {
-                MessageBox.Show("Bạn phải chon một lớp");
+                MessageBox.Show("Bạn phải chọn một lớp");
             }
             else
             {
