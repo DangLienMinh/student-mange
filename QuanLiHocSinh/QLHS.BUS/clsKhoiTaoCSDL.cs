@@ -9,8 +9,16 @@ namespace QLHS.BUS
 {
     public class clsKhoiTaoCSDL
     {
+        private clsConnectDatabase connectDatabase;
+
         public clsKhoiTaoCSDL()
         {
+            connectDatabase = new clsConnectDatabase();
+        }
+
+        public string layKetNoi()
+        {
+            return connectDatabase.layKetNoi();
         }
 
         public static void ConnectionString()
