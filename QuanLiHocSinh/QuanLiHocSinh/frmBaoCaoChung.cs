@@ -100,7 +100,6 @@ namespace QuanLiHocSinh
                 if (ds.Tables["Lop"].Select("MANH='" + cboNamHocDSLop.SelectedValue+"'").Length!=0)
                 {
                     document.SetDataSource(ds.Tables["Lop"].Select("MANH='" + cboNamHocDSLop.SelectedValue + "'").CopyToDataTable());
-                    //document.SetParameterValue("NguoiLap1", "your parameter value");
                     TextObject text = (TextObject)document.ReportDefinition.ReportObjects["NguoiLap1"];
                     text.Text = tenND;
                     rptView.ReportSource = document;

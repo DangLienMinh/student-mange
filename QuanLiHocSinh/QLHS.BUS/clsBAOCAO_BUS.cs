@@ -996,7 +996,6 @@ namespace QLHS.BUS
                     if (row["MAHS"].ToString() != "" && row["MANH"].ToString() != "" && row["MALOP"].ToString() != "")
                     {
                         diem_DTO.Mahs = row["MAHS"].ToString();
-
                         diem_DTO.Manh = row["MANH"].ToString();
 
                         baoCao_DTO.Mahs = row["MAHS"].ToString();
@@ -1004,6 +1003,7 @@ namespace QLHS.BUS
                         baoCao_DTO.Malop = row["MALOP"].ToString();
                         tblTemp = baoCao_DAO.HocBaTheoNamHoc(baoCao_DTO);
                         diemHocBa(tblTemp, diem_DTO);
+                        //lấy học bạ theo năm học
                         ds.Tables.Add(tblTemp);
                     }
                     maHS = row["MAHS"].ToString();
@@ -1011,6 +1011,7 @@ namespace QLHS.BUS
                 hocSinh_DTO=new clsHOCSINH_DTO();
                 hocSinh_DTO.Mahs=maHS;
                 DataTable tblHocSinh=hocSinh_DAO.timHocSinhMaHS(hocSinh_DTO);
+                //lấy thông tin học sinh
                 ds.Tables.Add(tblHocSinh);
             }
             

@@ -83,7 +83,7 @@ namespace QLHS.DAO
              return table;
          }
 
-        //report học bạ
+         //report học bạ SP_HocBaTheoNamHoc
          public DataTable HocBaTheoNamHoc(clsBAOCAO_DTO baoCao_DTO)
          {
              connection.kiemTraKetNoi(con);
