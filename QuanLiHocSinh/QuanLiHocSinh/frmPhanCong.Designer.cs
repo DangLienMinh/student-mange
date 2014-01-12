@@ -214,7 +214,6 @@
             this.optTenLop.Tag = "";
             this.optTenLop.Text = "Tìm theo tên lớp";
             this.optTenLop.UseVisualStyleBackColor = true;
-            this.optTenLop.CheckedChanged += new System.EventHandler(this.optMaGV_CheckedChanged);
             // 
             // txtTim
             // 
@@ -322,7 +321,6 @@
             this.navigationPanePanel2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.navigationPanePanel2.Style.GradientAngle = 90;
             this.navigationPanePanel2.TabIndex = 3;
-            this.navigationPanePanel2.Click += new System.EventHandler(this.navigationPanePanel2_Click);
             // 
             // btnSua
             // 
@@ -578,7 +576,6 @@
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 7;
             this.groupPanel1.Text = "DANH SÁCH PHÂN CÔNG GIÁO VIÊN GIẢNG DẠY";
-            this.groupPanel1.Click += new System.EventHandler(this.groupPanel1_Click);
             // 
             // ctxMenu
             // 
