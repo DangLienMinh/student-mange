@@ -130,7 +130,7 @@ namespace QLHS.DAO
         {
             DataSet ds = new DataSet();
             connection.kiemTraKetNoi(con);
-            SqlCommand command = new SqlCommand("SP_ThongTinHocSinhTheoLop", con);
+            SqlCommand command = new SqlCommand("SP_DanhSachHocSinh_NH_LOP", con);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@MANH", SqlDbType.VarChar).Value = MaNh;
             command.Parameters.Add("@MALOP", SqlDbType.VarChar).Value = Malop;

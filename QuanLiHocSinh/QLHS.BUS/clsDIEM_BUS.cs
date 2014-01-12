@@ -113,7 +113,7 @@ namespace QLHS.BUS
            return  tblDiem;
         }
 
-        //load thông tin điểm theo MALD vào datatagriđ
+        //load thông tin điểm theo MALD vào datatagrid
         public void thongTinDiemTheoMaLD(ComboBoxEx cboMaNH, ComboBoxEx cboMaHK, ComboBoxEx cboMaMH, DataGridViewX grdDiem)
         {
             tblDiem = new DataTable();
@@ -188,6 +188,7 @@ namespace QLHS.BUS
                 {
                     diem_DTO.Mald = "LD01";
                     diem_DTO.Mahs = row.Cells["MAHS"].Value.ToString();
+                    //xóa và thêm lại điểm mới
                     diem_DAO.xoaDiemTheoMaLD(diem_DTO);
                     if (row.Cells["a1"].Value!=null)
                     {
@@ -244,6 +245,7 @@ namespace QLHS.BUS
                     }
                     if (soCot!=0)
                     {
+                        //THÊM ĐIỂM TRUNG BÌNH VÀO LUÔN
                         diem_DTO.Mald = "LD05";
                         diem_DTO.Mahs = row.Cells["MAHS"].Value.ToString();
                         diem_DAO.xoaDiemTheoMaLD(diem_DTO);
@@ -303,11 +305,11 @@ namespace QLHS.BUS
                     {
                         if (i < 10)
                         {
+                            //lấy tên columm
                             maMH = row.Cells["MH0" + i.ToString()].OwningColumn.Name;
                             double diem= Math.Round((diemTBTheoHocKiMonHoc(maHS, "HK1", maMH, namHoc) + diemTBTheoHocKiMonHoc(maHS, "HK2", maMH, namHoc) * 2) / 3, 1);
                             if (diem<5&&diem>0)
                             {
-                                
                                 row.Cells["MH0" + i.ToString()].Style.BackColor = Color.Yellow;
                             }
                             if (diem == 0)

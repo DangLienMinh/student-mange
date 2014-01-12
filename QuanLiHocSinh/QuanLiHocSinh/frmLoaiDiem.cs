@@ -89,13 +89,6 @@ namespace QuanLiHocSinh
             resetAll();
         }
 
-        //private void btnXoa_Click(object sender, EventArgs e)
-        //{
-        //    flag = 2;
-        //    FlagEnable();
-        //    txtMaLD.Enabled = false;
-        //}
-
         private void btnSua_Click(object sender, EventArgs e)
         {
             flag = 3;
@@ -124,7 +117,6 @@ namespace QuanLiHocSinh
             txtMaLD.Text = "";
             txtTenLD.Text = "";
         }
-
 
         private void insert()
         {
@@ -176,8 +168,6 @@ namespace QuanLiHocSinh
             if (grdLoaiDiem.SelectedRows.Count >= 1 && txtMaLD.Text != "")
             {
                 loaiDiem_BUS.suaLoaiDiem(txtMaLD.Text, txtTenLD.Text, cboHeSo.SelectedItem.ToString());
-
-
                 MessageBox.Show("Bạn đã sửa thành công!");
 
                 //sửa trong datagrid view
@@ -191,30 +181,6 @@ namespace QuanLiHocSinh
             FlagDisable();
             flag = 0;
         }
-
-        //private void delete()
-        //{
-        //    if (grdLoaiDiem.SelectedRows.Count >= 1 && txtMaLD.Text != "")
-        //    {
-        //        loaiDiem_BUS.xoaLoaiDiem(txtMaLD.Text);
-        //        foreach (DataGridViewRow row in grdLoaiDiem.Rows)
-        //        {
-        //            if (string.Compare(row.Cells["MALD"].Value.ToString().Trim(), txtMaLD.Text.Trim()) == 0)
-        //            {
-        //                loaiDiem_BUS.xoaDong(txtMaLD.Text);
-        //                resetAll();
-        //                FlagDisable();
-        //                flag = 0;
-        //                break;
-        //            }
-
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Bạn phải lựa chọn một hàng để xóa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //    }
-        //}
 
         private void frmLoaiDiem_KeyDown(object sender, KeyEventArgs e)
         {
@@ -240,14 +206,6 @@ namespace QuanLiHocSinh
             txtMaLD.BackColor = Color.White;
             txtTenLD.BackColor = Color.White;
         }
-
-        //private void btnDelete_Click(object sender, EventArgs e)
-        //{
-        //    if (MessageBox.Show("Bạn có chắc muốn xóa loại điểm đã được lựa chọn ", "Xóa loại điểm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-        //    {
-        //        delete();
-        //    }
-        //}
 
         private void move_Click(object sender, EventArgs e)
         {

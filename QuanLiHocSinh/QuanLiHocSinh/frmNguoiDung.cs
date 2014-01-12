@@ -128,10 +128,6 @@ namespace QuanLiHocSinh
             {
                 MessageBox.Show("Xin điền dữ liệu vào đầy đủ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            //else if (string.Compare(txtMatKhau.Text,txtNhapLai.Text)!=0)
-            //{
-            //    MessageBox.Show("Mật khẩu không trùng khớp ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
             else
             {
                 foreach (DataGridViewRow row1 in grdNguoiDung.Rows)
@@ -163,7 +159,6 @@ namespace QuanLiHocSinh
                         this.Close();
                     }
                 }
-
             }
         }
 
@@ -172,8 +167,6 @@ namespace QuanLiHocSinh
             if (grdNguoiDung.SelectedRows.Count >= 1 && txtMaND.Text != "")
             {
                 nguoiDung_BUS.suaNguoiDung(txtMaND.Text, txtTenND.Text, cboLoaiND.SelectedValue.ToString(), txtTenDN.Text, txtMatKhau.Text);
-
-
                 MessageBox.Show("Bạn đã sửa thành công!");
 
                 //sửa trong datagrid view

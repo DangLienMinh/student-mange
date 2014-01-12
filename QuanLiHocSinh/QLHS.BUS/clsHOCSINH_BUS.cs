@@ -236,30 +236,24 @@ namespace QLHS.BUS
             return temp;
         }
 
-        //load danh sách mahs ,ten học sinh theo manh malop 
+        //load danh sách mahs ,ten học sinh theo manh, malop 
         public DataTable danhSachMaHSTheoLop(ComboBoxEx cboMaNH, AdvTree tree)
         {
-            if (tree.SelectedNode!=null)
+
+            string temp = "";
+            lop_DTO = new clsLOP_DTO();
+            lop_DTO.Manh = cboMaNH.SelectedValue.ToString();
+            tblLop = lop_DAO.danhSachLopTheoNamHoc(lop_DTO);
+            foreach (DataRow row in tblLop.Rows)
             {
-                string temp = "";
-                lop_DTO = new clsLOP_DTO();
-                lop_DTO.Manh = cboMaNH.SelectedValue.ToString();
-                tblLop = lop_DAO.danhSachLopTheoNamHoc(lop_DTO);
-                foreach (DataRow row in tblLop.Rows)
+                //so khớp tên lớp
+                if (row["TENLOP"].ToString() == tree.SelectedNode.ToString())
                 {
-                    if (row["TENLOP"].ToString() == tree.SelectedNode.ToString())
-                    {
-                        temp = row["MALOP"].ToString();
-                    }
+                    temp = row["MALOP"].ToString();
                 }
-                lop_DTO.Malop = temp;
-                return hocSinh_DAO.danhSachMaHSTheoLop(lop_DTO);
             }
-            else
-            {
-                return tblLop;
-            }
-           
+            lop_DTO.Malop = temp;
+            return hocSinh_DAO.danhSachMaHSTheoLop(lop_DTO);
         }
 
         //load danh sách học sinh chưa phân lớp theo mã năm học vào ListViewEx 
@@ -278,8 +272,7 @@ namespace QLHS.BUS
                 item.SubItems.Add(row["TENHS"].ToString());
 
                 list.Items.Add(item);
-            }
-            
+            }  
         }
 
         //load danh sách học sinh vào list
@@ -460,10 +453,13 @@ namespace QLHS.BUS
             {
                 case "MAHS":
                     {
+                        //thêm tất cả các dòng trong table HocSinh
                         foreach (DataRow row in danhSachHocSinh().Rows)
                         {
+                            //thêm vào namesCollection cột MAHS
                             namesCollection.Add(row["MAHS"].ToString());
                         }
+                        //gợi ý bằng cách thêm vào
                         textBox.AutoCompleteMode = AutoCompleteMode.Append;
                     }
                     break;
@@ -488,7 +484,7 @@ namespace QLHS.BUS
                 default:
                     break;
             }
-                     
+            //đặt source bằng customeSource         
             textBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
             textBox.AutoCompleteCustomSource = namesCollection;
         }
