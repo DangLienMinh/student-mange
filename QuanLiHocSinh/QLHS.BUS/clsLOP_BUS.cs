@@ -104,18 +104,18 @@ namespace QLHS.BUS
         }
 
         ////danh sách lớp theo mã học sinh và mã năm học
-        //public string danhSachLop(string maHS,string maNH)
+        //public string danhSachLop(string maHS, string maNH)
         //{
         //    string text = "";
         //    DataTable temp = new DataTable();
-        //    temp=lop_DAO.danhSachLop(maHS, maNH);
-        //    if (temp.Rows.Count>0)
+        //    temp = lop_DAO.danhSachLop(maHS, maNH);
+        //    if (temp.Rows.Count > 0)
         //    {
         //        return temp.Rows[0][0].ToString();
-                
+
         //    }
         //    return text;
-            
+
         //}
 
         //danh sách lớp học

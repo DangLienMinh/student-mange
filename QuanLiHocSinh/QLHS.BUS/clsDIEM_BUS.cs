@@ -23,7 +23,6 @@ namespace QLHS.BUS
         clsHOCSINH_DTO hocSinh_DTO;
         clsLOP_DTO lop_DTO;
         DataTable tblDiem;
-        private DataRow dr;
 
         public clsDIEM_BUS() 
         {
@@ -49,7 +48,7 @@ namespace QLHS.BUS
             //if (diem_DTO.Mahs != "" && diem_DTO.Manh != "")
             //{
             //    diem_DTO.Tenhs = hocSinh_BUS.tenHocSinh(diem_DTO.Mahs);
-            //    diem_DTO.Malop = lop_BUS.danhSachLop(diem_DTO.Mahs, diem_DTO.Manh);
+            //    //diem_DTO.Malop = lop_BUS.danhSachLop(diem_DTO.Mahs, diem_DTO.Manh);
             //}
             diem_DAO.themDiemTheoHS(diem_DTO);
         }
@@ -104,10 +103,10 @@ namespace QLHS.BUS
             diem_DTO.Mamh = cboMaMH.SelectedValue.ToString();
             diem_DTO.Mald = cboMaLD.SelectedValue.ToString();
             diem_DTO.Mahs = cboMaHS.SelectedValue.ToString();
-            //if (diem_DTO.Mahs!=""&&diem_DTO.Manh!="")
+            //if (diem_DTO.Mahs != "" && diem_DTO.Manh != "")
             //{
             //    diem_DTO.Tenhs = hocSinh_BUS.tenHocSinh(diem_DTO.Mahs);
-            //    diem_DTO.Malop = lop_BUS.danhSachLop(diem_DTO.Mahs, diem_DTO.Manh);
+            //    //diem_DTO.Malop = lop_BUS.danhSachLop(diem_DTO.Mahs, diem_DTO.Manh);
             //}
             tblDiem = diem_DAO.thongTinDiemTheoHS(diem_DTO);
            return  tblDiem;
@@ -269,25 +268,25 @@ namespace QLHS.BUS
         }
 
         //trả về datarow diem_DTO
-        private DataRow getDatarow()
-        {
-            dr = tblDiem.NewRow();
-            dr["MAHS"] = diem_DTO.Mahs;
-            dr["MAHK"] = diem_DTO.Mahk;
-            dr["MAMH"] = diem_DTO.Mamh;
-            dr["MANH"] = diem_DTO.Manh;
-            dr["MALD"] = diem_DTO.Mald;
-            dr["DIEMSO"] = diem_DTO.Diemso;
-            //dr["MALOP"] = diem_DTO.Malop;
-            //dr["TENHS"] = diem_DTO.Tenhs;
-            return dr;
-        }
+        //private DataRow getDatarow()
+        //{
+        //    dr = tblDiem.NewRow();
+        //    dr["MAHS"] = diem_DTO.Mahs;
+        //    dr["MAHK"] = diem_DTO.Mahk;
+        //    dr["MAMH"] = diem_DTO.Mamh;
+        //    dr["MANH"] = diem_DTO.Manh;
+        //    dr["MALD"] = diem_DTO.Mald;
+        //    dr["DIEMSO"] = diem_DTO.Diemso;
+        //    //dr["MALOP"] = diem_DTO.Malop;
+        //    //dr["TENHS"] = diem_DTO.Tenhs;
+        //    return dr;
+        //}
 
-        //thêm dòng vừa được thêm vào table diem
-        public void themDong()
-        {
-            tblDiem.Rows.Add(getDatarow());
-        }
+        ////thêm dòng vừa được thêm vào table diem
+        //public void themDong()
+        //{
+        //    tblDiem.Rows.Add(getDatarow());
+        //}
 
         //tính điểm để load lên form ketQua
         public void ketQuaDiemHK(ComboBoxEx cboMaNH, string maBan, DataGridViewX grdDiem)
