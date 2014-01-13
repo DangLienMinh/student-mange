@@ -525,6 +525,7 @@ namespace QLHS.BUS
             {
                 double tong = 0;
                 int soCot = 0;
+                count = 0;
                 switch (maBan)
                 {
                     case "B02":
@@ -662,13 +663,13 @@ namespace QLHS.BUS
 
                 }
 
-                if (flag == 1 && diemTB >= 8 && count == 13)
+                if (flag == 1 && diemTB >= 8 && count == 12)
                 {
                     row["HocLuc"] = "Giỏi";
                 }
                 else
                 {
-                    row["HocLuc"] = "KhongBiet";
+                    row["HocLuc"] = "Khong Biet";
                 }
             }
             return trungBinhHk;
