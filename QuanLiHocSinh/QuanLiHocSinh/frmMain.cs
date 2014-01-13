@@ -483,7 +483,8 @@ namespace QuanLiHocSinh
                 clsKhoiTaoCSDL khoiTao=new clsKhoiTaoCSDL();
                 string connectionStr = khoiTao.layKetNoi();
                 connection = new SqlConnection(connectionStr);
-                SqlCommand cmd = new System.Data.SqlClient.SqlCommand("BACKUP DATABASE " + "QuanLyHocSinh" + " TO DISK = '" + backupDialog.FileName.ToString() + "'", connection);
+                //SqlCommand cmd = new System.Data.SqlClient.SqlCommand("BACKUP DATABASE " + "QuanLyHocSinh" + " TO DISK = '" + backupDialog.FileName.ToString() + "'", connection);
+                SqlCommand cmd = new System.Data.SqlClient.SqlCommand("BACKUP DATABASE " + "QuanLyHocSinh4" + " TO DISK = '" + backupDialog.FileName.ToString() + "'", connection);
                 connection.Open();
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -500,8 +501,10 @@ namespace QuanLiHocSinh
                 clsKhoiTaoCSDL khoiTao = new clsKhoiTaoCSDL();
                 string connectionStr = khoiTao.layKetNoi();
                 connection = new SqlConnection(connectionStr);
-                SqlCommand cmd = new System.Data.SqlClient.SqlCommand("alter database  QuanLyHocSinh set offline with rollback immediate alter database QuanLyHocSinh set online "+
-                "USE master RESTORE DATABASE " + "QuanLyHocSinh" + " FROM DISK = '" + restoreDialog.FileName.ToString() + "'WITH REPLACE", connection);
+                //SqlCommand cmd = new System.Data.SqlClient.SqlCommand("alter database  QuanLyHocSinh set offline with rollback immediate alter database QuanLyHocSinh set online " +
+                //"USE master RESTORE DATABASE " + "QuanLyHocSinh" + " FROM DISK = '" + restoreDialog.FileName.ToString() + "'WITH REPLACE", connection);
+                SqlCommand cmd = new System.Data.SqlClient.SqlCommand("alter database  QuanLyHocSinh4 set offline with rollback immediate alter database QuanLyHocSinh4 set online " +
+                "USE master RESTORE DATABASE " + "QuanLyHocSinh4" + " FROM DISK = '" + restoreDialog.FileName.ToString() + "'WITH REPLACE", connection);
                 connection.Open();
                 connection.ChangeDatabase("master");
                 cmd.ExecuteNonQuery();
